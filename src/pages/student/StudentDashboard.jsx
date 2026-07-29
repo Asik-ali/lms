@@ -1,9 +1,19 @@
-import { BookOpen, ClipboardList, Video, Award, Bell, Calendar, ChevronRight, TrendingUp, Target, BarChart3, CheckCircle } from 'lucide-react';
-import { studentCourses, upcomingEvents, notifications, certificates, studentReports, students } from '../../data/mockData';
+import { useState, useEffect } from 'react';
+import { BookOpen, ClipboardList, Video, Award, Bell, Calendar, ChevronRight, TrendingUp, Target, BarChart3, CheckCircle, Megaphone } from 'lucide-react';
+import { studentCourses, upcomingEvents, certificates, studentReports, students } from '../../data/mockData';
 import { useAuth } from '../../contexts/AuthContext';
+import { getAnnouncements } from '../../data/dynamicStore';
 
 export default function StudentDashboard() {
   const { user } = useAuth();
+  const [announcements, setAnnouncements] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const all = await getAnnouncements();
+      setAnnouncements(all.filter(a => a.status === 'Published').sort((a, b) => new Date(b.created) - new Date(a.created)));
+    })();
+  }, []);
 
   const student = students.find(s => s.id === user?.id);
   const report = studentReports[user?.id];
@@ -157,20 +167,23 @@ export default function StudentDashboard() {
           <div className="card">
             <div className="card-header">
               <h3 className="text-lg font-semibold flex items-center gap-2">
-                <Bell className="w-4 h-4 text-gray-400" />
-                Notifications
+                <Megaphone className="w-4 h-4 text-indigo-500" />
+                Latest Announcements
               </h3>
             </div>
             <div className="p-4 space-y-3">
-              {notifications.slice(0, 4).map(n => (
-                <div key={n.id} className="flex gap-3 p-2 rounded-lg hover:bg-gray-50">
-                  <div className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 ${n.type === 'info' ? 'bg-blue-500' : n.type === 'warning' ? 'bg-yellow-500' : 'bg-green-500'}`} />
+              {announcements.slice(0, 4).map(a => (
+                <div key={a.id} className="flex gap-3 p-2 rounded-lg hover:bg-gray-50">
+                  <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0 bg-indigo-500" />
                   <div>
-                    <p className="text-sm text-gray-700">{n.message}</p>
-                    <p className="text-xs text-gray-400 mt-0.5">{n.time}</p>
+                    <p className="text-sm font-medium text-gray-900">{a.title}</p>
+                    <p className="text-xs text-gray-500 mt-0.5">{a.created}</p>
                   </div>
                 </div>
               ))}
+              {announcements.length === 0 && (
+                <p className="text-sm text-gray-400 text-center py-2">No announcements yet</p>
+              )}
             </div>
           </div>
         </div>

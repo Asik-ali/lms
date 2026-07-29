@@ -1,13 +1,35 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Megaphone, Send } from 'lucide-react';
-import { announcements } from '../../data/mockData';
+import { getAnnouncements, addAnnouncement } from '../../data/dynamicStore';
 
 export default function AnnouncementsPage() {
+  const [announcements, setAnnouncements] = useState([]);
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [target, setTarget] = useState('All');
 
   const targets = ['All', 'Students', 'Instructors', 'Admins'];
+
+  useEffect(() => { refresh(); }, []);
+
+  async function refresh() {
+    setAnnouncements(await getAnnouncements());
+  }
+
+  async function handlePublish() {
+    if (!title.trim() || !content.trim()) return;
+    await addAnnouncement({
+      title: title.trim(),
+      content: content.trim(),
+      target,
+      created: new Date().toISOString().split('T')[0],
+      status: 'Published',
+    });
+    setTitle('');
+    setContent('');
+    setTarget('All');
+    refresh();
+  }
 
   return (
     <div className="space-y-6">
@@ -23,20 +45,20 @@ export default function AnnouncementsPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="md:col-span-2">
               <label className="block text-sm font-medium text-gray-700 mb-1">Title</label>
-              <input type="text" value={title} onChange={e => setTitle(e.target.value)} placeholder="Announcement title" className="input-field" />
+              <input type="text" value={title} onChange={e => setTitle(e.target.value)} placeholder="Announcement title" className="input-field w-full" />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Target Audience</label>
-              <select value={target} onChange={e => setTarget(e.target.value)} className="input-field">
+              <select value={target} onChange={e => setTarget(e.target.value)} className="input-field w-full">
                 {targets.map(t => <option key={t} value={t}>{t}</option>)}
               </select>
             </div>
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Content</label>
-            <textarea value={content} onChange={e => setContent(e.target.value)} rows={4} placeholder="Write announcement content..." className="input-field resize-none" />
+            <textarea value={content} onChange={e => setContent(e.target.value)} rows={4} placeholder="Write announcement content..." className="input-field w-full resize-none" />
           </div>
-          <button className="flex items-center gap-2 btn-primary">
+          <button onClick={handlePublish} className="flex items-center gap-2 btn-primary cursor-pointer">
             <Send className="w-4 h-4" />
             Publish Announcement
           </button>

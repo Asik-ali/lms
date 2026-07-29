@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Search, Plus, Edit2, Trash2, X, ChevronDown } from 'lucide-react';
 import { getCourses, addCourse, updateCourse, deleteCourse, getCategories, getInstructors } from '../../data/dynamicStore';
+import { showSuccess, showError } from '../../components/common/Toast';
 
 const emptyForm = { title: '', instructor: '', category: '', duration: '', status: 'Draft' };
 
@@ -17,7 +18,11 @@ export default function CourseManagement() {
   useEffect(() => { refresh(); loadCats(); loadInstructors(); }, []);
 
   async function refresh() {
-    setCourses([...(await getCourses())]);
+    try {
+      setCourses([...(await getCourses())]);
+    } catch (err) {
+      showError('Failed to load courses');
+    }
   }
 
   async function loadCats() {

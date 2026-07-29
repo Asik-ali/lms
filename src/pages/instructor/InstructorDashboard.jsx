@@ -1,36 +1,47 @@
-import { useState } from 'react';
-import { BookOpen, Users, Video, Star, Plus, Calendar, FileText, TrendingUp, Activity } from 'lucide-react';
-import { courses, students, liveClasses, instructorPerformance, announcements } from '../../data/mockData';
-
-const instructor = { name: 'Dr. Sarah Chen', email: 'sarah@example.com', department: 'Computer Science', students: 340, courses: 5, rating: 4.8 };
+import { useState, useEffect } from 'react';
+import { BookOpen, Users, Video, Star, Calendar, FileText, TrendingUp } from 'lucide-react';
+import { getCourses, getStudents, getLiveClasses, getAnnouncements } from '../../data/dynamicStore';
+import { useAuth } from '../../contexts/AuthContext';
 
 export default function InstructorDashboard() {
-  const myCourses = courses.filter(c => c.instructor === instructor.name);
-  const totalStudents = myCourses.reduce((sum, c) => sum + c.students, 0);
-  const activeClasses = liveClasses.filter(lc => lc.instructor === instructor.name && lc.status === 'Upcoming').length;
-  const avgRating = instructorPerformance.reduce((sum, m) => sum + m.rating, 0) / instructorPerformance.length;
+  const { user } = useAuth();
+  const [courses, setCourses] = useState([]);
+  const [students, setStudents] = useState([]);
+  const [liveClasses, setLiveClasses] = useState([]);
+  const [announcements, setAnnouncements] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      setCourses(await getCourses());
+      setStudents(await getStudents());
+      setLiveClasses(await getLiveClasses());
+      setAnnouncements(await getAnnouncements());
+    })();
+  }, []);
+
+  const instructorName = user?.name || 'Instructor';
+  const myCourses = courses.filter(c => c.instructor === instructorName);
+  const totalStudents = myCourses.reduce((sum, c) => sum + (c.students || 0), 0);
+  const activeClasses = liveClasses.filter(lc => lc.instructor === instructorName && lc.status === 'Upcoming').length;
 
   const stats = [
     { label: 'My Courses', value: myCourses.length, icon: BookOpen, color: 'bg-indigo-500' },
     { label: 'Total Students', value: totalStudents, icon: Users, color: 'bg-emerald-500' },
     { label: 'Active Classes', value: activeClasses, icon: Video, color: 'bg-amber-500' },
-    { label: 'Average Rating', value: avgRating.toFixed(1), icon: Star, color: 'bg-rose-500' },
+    { label: 'Published Courses', value: myCourses.filter(c => c.status === 'Published').length, icon: Star, color: 'bg-rose-500' },
   ];
 
   const recentActivity = [
-    ...students.slice(0, 3).map(s => ({ id: `s-${s.id}`, text: `${s.name} joined ${s.course}`, time: s.enrolled, type: 'student' })),
-    ...liveClasses.filter(lc => lc.instructor === instructor.name && lc.status === 'Upcoming').slice(0, 2).map(lc => ({ id: `lc-${lc.id}`, text: `Upcoming: ${lc.title} on ${lc.date}`, time: lc.date, type: 'class' })),
+    ...students.filter(s => myCourses.some(c => c.title === s.course)).slice(0, 3).map(s => ({ id: `s-${s.id}`, text: `${s.name} enrolled in ${s.course}`, time: s.created_at?.split('T')[0] || 'Recently', type: 'student' })),
+    ...liveClasses.filter(lc => lc.instructor === instructorName && lc.status === 'Upcoming').slice(0, 2).map(lc => ({ id: `lc-${lc.id}`, text: `Upcoming: ${lc.title} on ${lc.date}`, time: lc.date, type: 'class' })),
   ];
-
-  const maxStudents = Math.max(...instructorPerformance.map(m => m.students));
-  const maxCompletion = 100;
 
   return (
     <div className="space-y-6">
       <div className="card bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
         <div className="p-6">
-          <h1 className="text-2xl font-bold">Welcome back, {instructor.name}</h1>
-          <p className="text-indigo-200 mt-1">{instructor.department} Department</p>
+          <h1 className="text-2xl font-bold">Welcome back, {instructorName}</h1>
+          <p className="text-indigo-200 mt-1">Instructor Dashboard</p>
         </div>
       </div>
 
@@ -54,29 +65,24 @@ export default function InstructorDashboard() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2 card">
           <div className="card-header">
-            <h3 className="text-lg font-semibold">Monthly Performance</h3>
+            <h3 className="text-lg font-semibold">My Courses</h3>
           </div>
           <div className="p-6">
-            <div className="space-y-4">
-              {instructorPerformance.map((m) => (
-                <div key={m.month}>
-                  <div className="flex justify-between text-sm mb-1">
-                    <span className="font-medium text-gray-700">{m.month}</span>
-                    <span className="text-gray-500">{m.students} students</span>
+            {myCourses.length === 0 ? (
+              <p className="text-gray-400 text-center py-4">No courses assigned yet</p>
+            ) : (
+              <div className="space-y-4">
+                {myCourses.map(c => (
+                  <div key={c.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                    <div>
+                      <p className="font-medium text-gray-900">{c.title}</p>
+                      <p className="text-sm text-gray-500">{c.students} students &middot; {c.lessons} lessons</p>
+                    </div>
+                    <span className={`badge ${c.status === 'Published' ? 'badge-success' : 'badge-warning'}`}>{c.status}</span>
                   </div>
-                  <div className="h-3 bg-gray-100 rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-indigo-500 rounded-full transition-all"
-                      style={{ width: `${(m.students / maxStudents) * 100}%` }}
-                    />
-                  </div>
-                  <div className="flex justify-between text-xs text-gray-400 mt-0.5">
-                    <span>Completion: {m.completion}%</span>
-                    <span>Rating: {m.rating}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
 

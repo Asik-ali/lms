@@ -1,11 +1,17 @@
 import { supabase } from '../supabase/client';
 
 export async function getCategories() {
-  const { data } = await supabase.from('categories').select('name');
+  const { data, error } = await supabase.from('categories').select('name');
+  if (error) throw error;
   return (data || []).map(c => c.name);
 }
 export async function addCategory(name) {
-  await supabase.from('categories').insert({ name });
+  const { error } = await supabase.from('categories').insert({ name });
+  if (error) throw error;
+}
+export async function deleteCategory(name) {
+  const { error } = await supabase.from('categories').delete().eq('name', name);
+  if (error) throw error;
 }
 
 export async function getCourses() {
@@ -117,6 +123,18 @@ export async function getNotifications() {
 export async function addNotification(data) {
   const { data: row } = await supabase.from('notifications').insert(data).select();
   return row?.[0];
+}
+
+export async function getLiveClasses() {
+  const { data } = await supabase.from('live_classes').select('*');
+  return data || [];
+}
+export async function addLiveClass(data) {
+  const { data: row } = await supabase.from('live_classes').insert(data).select();
+  return row?.[0];
+}
+export async function deleteLiveClass(id) {
+  await supabase.from('live_classes').delete().eq('id', id);
 }
 
 export async function getAuditLogs(params = {}) {

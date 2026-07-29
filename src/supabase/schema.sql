@@ -1,5 +1,36 @@
 -- Run this in Supabase SQL Editor
 
+-- Helper function to check admin role (bypasses RLS to avoid infinite recursion)
+CREATE OR REPLACE FUNCTION public.is_admin()
+RETURNS BOOLEAN
+LANGUAGE sql
+SECURITY DEFINER
+AS $$
+  SELECT EXISTS (SELECT 1 FROM profiles WHERE id = auth.uid() AND role = 'admin');
+$$;
+
+-- Function for admins to reset a student's password
+CREATE OR REPLACE FUNCTION public.admin_reset_student_password(student_id UUID, new_password TEXT)
+RETURNS TEXT
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path = ''
+AS $$
+DECLARE
+  _role TEXT;
+BEGIN
+  SELECT role INTO _role FROM public.profiles WHERE id = auth.uid();
+  IF _role IS DISTINCT FROM 'admin' THEN
+    RAISE EXCEPTION 'Only admins can reset passwords';
+  END IF;
+  UPDATE auth.users
+  SET encrypted_password = crypt(new_password, gen_salt('bf')),
+      updated_at = NOW()
+  WHERE id = student_id;
+  RETURN new_password;
+END;
+$$;
+
 -- Extended user profiles (links to auth.users)
 CREATE TABLE IF NOT EXISTS profiles (
   id UUID REFERENCES auth.users(id) ON DELETE CASCADE PRIMARY KEY,
@@ -20,19 +51,13 @@ CREATE POLICY "Users can read own profile"
   ON profiles FOR SELECT USING (auth.uid() = id);
 
 CREATE POLICY "Admins can read all profiles"
-  ON profiles FOR SELECT USING (
-    EXISTS (SELECT 1 FROM profiles WHERE id = auth.uid() AND role = 'admin')
-  );
+  ON profiles FOR SELECT USING (public.is_admin());
 
 CREATE POLICY "Admins can insert profiles"
-  ON profiles FOR INSERT WITH CHECK (
-    EXISTS (SELECT 1 FROM profiles WHERE id = auth.uid() AND role = 'admin')
-  );
+  ON profiles FOR INSERT WITH CHECK (public.is_admin());
 
 CREATE POLICY "Admins can update profiles"
-  ON profiles FOR UPDATE USING (
-    EXISTS (SELECT 1 FROM profiles WHERE id = auth.uid() AND role = 'admin')
-  );
+  ON profiles FOR UPDATE USING (public.is_admin());
 
 -- Categories
 CREATE TABLE IF NOT EXISTS categories (
@@ -42,9 +67,8 @@ CREATE TABLE IF NOT EXISTS categories (
 
 ALTER TABLE categories ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Everyone can read categories" ON categories FOR SELECT USING (true);
-CREATE POLICY "Admins can manage categories" ON categories FOR ALL USING (
-  EXISTS (SELECT 1 FROM profiles WHERE id = auth.uid() AND role = 'admin')
-);
+CREATE POLICY "Admins can insert categories" ON categories FOR INSERT WITH CHECK (public.is_admin());
+CREATE POLICY "Admins can delete categories" ON categories FOR DELETE USING (public.is_admin());
 
 -- Courses
 CREATE TABLE IF NOT EXISTS courses (
@@ -60,9 +84,7 @@ CREATE TABLE IF NOT EXISTS courses (
 
 ALTER TABLE courses ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Everyone can read courses" ON courses FOR SELECT USING (true);
-CREATE POLICY "Admins can manage courses" ON courses FOR ALL USING (
-  EXISTS (SELECT 1 FROM profiles WHERE id = auth.uid() AND role = 'admin')
-);
+CREATE POLICY "Admins can manage courses" ON courses FOR ALL USING (public.is_admin());
 
 -- Instructors
 CREATE TABLE IF NOT EXISTS instructors (
@@ -77,9 +99,7 @@ CREATE TABLE IF NOT EXISTS instructors (
 
 ALTER TABLE instructors ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Everyone can read instructors" ON instructors FOR SELECT USING (true);
-CREATE POLICY "Admins can manage instructors" ON instructors FOR ALL USING (
-  EXISTS (SELECT 1 FROM profiles WHERE id = auth.uid() AND role = 'admin')
-);
+CREATE POLICY "Admins can manage instructors" ON instructors FOR ALL USING (public.is_admin());
 
 -- Assignments
 CREATE TABLE IF NOT EXISTS assignments (
@@ -94,9 +114,7 @@ CREATE TABLE IF NOT EXISTS assignments (
 
 ALTER TABLE assignments ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Everyone can read assignments" ON assignments FOR SELECT USING (true);
-CREATE POLICY "Admins can manage assignments" ON assignments FOR ALL USING (
-  EXISTS (SELECT 1 FROM profiles WHERE id = auth.uid() AND role = 'admin')
-);
+CREATE POLICY "Admins can manage assignments" ON assignments FOR ALL USING (public.is_admin());
 
 -- Quizzes
 CREATE TABLE IF NOT EXISTS quizzes (
@@ -111,9 +129,7 @@ CREATE TABLE IF NOT EXISTS quizzes (
 
 ALTER TABLE quizzes ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Everyone can read quizzes" ON quizzes FOR SELECT USING (true);
-CREATE POLICY "Admins can manage quizzes" ON quizzes FOR ALL USING (
-  EXISTS (SELECT 1 FROM profiles WHERE id = auth.uid() AND role = 'admin')
-);
+CREATE POLICY "Admins can manage quizzes" ON quizzes FOR ALL USING (public.is_admin());
 
 -- Questions
 CREATE TABLE IF NOT EXISTS questions (
@@ -126,9 +142,7 @@ CREATE TABLE IF NOT EXISTS questions (
 
 ALTER TABLE questions ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Everyone can read questions" ON questions FOR SELECT USING (true);
-CREATE POLICY "Admins can manage questions" ON questions FOR ALL USING (
-  EXISTS (SELECT 1 FROM profiles WHERE id = auth.uid() AND role = 'admin')
-);
+CREATE POLICY "Admins can manage questions" ON questions FOR ALL USING (public.is_admin());
 
 -- Attendance
 CREATE TABLE IF NOT EXISTS attendance (
@@ -142,9 +156,7 @@ CREATE TABLE IF NOT EXISTS attendance (
 
 ALTER TABLE attendance ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Everyone can read attendance" ON attendance FOR SELECT USING (true);
-CREATE POLICY "Admins can manage attendance" ON attendance FOR ALL USING (
-  EXISTS (SELECT 1 FROM profiles WHERE id = auth.uid() AND role = 'admin')
-);
+CREATE POLICY "Admins can manage attendance" ON attendance FOR ALL USING (public.is_admin());
 
 -- Announcements
 CREATE TABLE IF NOT EXISTS announcements (
@@ -158,9 +170,7 @@ CREATE TABLE IF NOT EXISTS announcements (
 
 ALTER TABLE announcements ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Everyone can read announcements" ON announcements FOR SELECT USING (true);
-CREATE POLICY "Admins can manage announcements" ON announcements FOR ALL USING (
-  EXISTS (SELECT 1 FROM profiles WHERE id = auth.uid() AND role = 'admin')
-);
+CREATE POLICY "Admins can manage announcements" ON announcements FOR ALL USING (public.is_admin());
 
 -- Enrollments
 CREATE TABLE IF NOT EXISTS enrollments (
@@ -174,9 +184,7 @@ CREATE TABLE IF NOT EXISTS enrollments (
 
 ALTER TABLE enrollments ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Everyone can read enrollments" ON enrollments FOR SELECT USING (true);
-CREATE POLICY "Admins can manage enrollments" ON enrollments FOR ALL USING (
-  EXISTS (SELECT 1 FROM profiles WHERE id = auth.uid() AND role = 'admin')
-);
+CREATE POLICY "Admins can manage enrollments" ON enrollments FOR ALL USING (public.is_admin());
 
 -- Notifications
 CREATE TABLE IF NOT EXISTS notifications (
@@ -188,9 +196,7 @@ CREATE TABLE IF NOT EXISTS notifications (
 
 ALTER TABLE notifications ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Everyone can read notifications" ON notifications FOR SELECT USING (true);
-CREATE POLICY "Admins can manage notifications" ON notifications FOR ALL USING (
-  EXISTS (SELECT 1 FROM profiles WHERE id = auth.uid() AND role = 'admin')
-);
+CREATE POLICY "Admins can manage notifications" ON notifications FOR ALL USING (public.is_admin());
 
 -- Audit Logs
 CREATE TABLE IF NOT EXISTS audit_logs (
@@ -209,9 +215,22 @@ CREATE TABLE IF NOT EXISTS audit_logs (
 );
 
 ALTER TABLE audit_logs ENABLE ROW LEVEL SECURITY;
-CREATE POLICY "Admins can read audit logs" ON audit_logs FOR SELECT USING (
-  EXISTS (SELECT 1 FROM profiles WHERE id = auth.uid() AND role = 'admin')
+CREATE POLICY "Admins can read audit logs" ON audit_logs FOR SELECT USING (public.is_admin());
+CREATE POLICY "Admins can insert audit logs" ON audit_logs FOR INSERT WITH CHECK (public.is_admin());
+
+-- Live Classes
+CREATE TABLE IF NOT EXISTS live_classes (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  title TEXT NOT NULL,
+  instructor TEXT NOT NULL,
+  date TEXT NOT NULL,
+  time TEXT NOT NULL,
+  description TEXT DEFAULT '',
+  room_code TEXT NOT NULL,
+  students INTEGER DEFAULT 0,
+  status TEXT NOT NULL DEFAULT 'Upcoming'
 );
-CREATE POLICY "Admins can insert audit logs" ON audit_logs FOR INSERT WITH CHECK (
-  EXISTS (SELECT 1 FROM profiles WHERE id = auth.uid() AND role = 'admin')
-);
+
+ALTER TABLE live_classes ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Everyone can read live_classes" ON live_classes FOR SELECT USING (true);
+CREATE POLICY "Admins can manage live_classes" ON live_classes FOR ALL USING (public.is_admin());

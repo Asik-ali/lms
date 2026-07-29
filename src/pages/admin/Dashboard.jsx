@@ -1,33 +1,61 @@
+import { useState, useEffect } from 'react';
 import { Users, GraduationCap, BookOpen, Video, TrendingUp, TrendingDown } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line } from 'recharts';
-import { stats, recentEnrollments, notifications, studentProgressData, revenueData } from '../../data/mockData';
-
-const statCards = [
-  { label: 'Total Students', value: stats.totalStudents, change: stats.studentChange, icon: Users, color: 'bg-blue-500' },
-  { label: 'Total Instructors', value: stats.totalInstructors, change: stats.instructorChange, icon: GraduationCap, color: 'bg-emerald-500' },
-  { label: 'Total Courses', value: stats.totalCourses, change: stats.courseChange, icon: BookOpen, color: 'bg-purple-500' },
-  { label: 'Active Classes', value: stats.activeClasses, change: stats.classChange, icon: Video, color: 'bg-amber-500' },
-];
+import { getStudents, getInstructors, getCourses, getEnrollments } from '../../data/dynamicStore';
 
 export default function AdminDashboard() {
+  const [students, setStudents] = useState([]);
+  const [instructors, setInstructors] = useState([]);
+  const [courses, setCourses] = useState([]);
+  const [enrollments, setEnrollments] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      setStudents(await getStudents());
+      setInstructors(await getInstructors());
+      setCourses(await getCourses());
+      setEnrollments(await getEnrollments());
+    })();
+  }, []);
+
+  const activeStudents = students.filter(s => s.status === 'Active').length;
+  const totalInstructors = instructors.length;
+  const publishedCourses = courses.filter(c => c.status === 'Published').length;
+  const activeClasses = courses.filter(c => c.status === 'Published').length;
+
+  const statCards = [
+    { label: 'Active Students', value: activeStudents, icon: Users, color: 'bg-blue-500' },
+    { label: 'Total Instructors', value: totalInstructors, icon: GraduationCap, color: 'bg-emerald-500' },
+    { label: 'Published Courses', value: publishedCourses, icon: BookOpen, color: 'bg-purple-500' },
+    { label: 'Active Classes', value: activeClasses, icon: Video, color: 'bg-amber-500' },
+  ];
+
+  const recentEnrollments = [...enrollments].reverse().slice(0, 5);
+  const recentNotifications = [
+    ...enrollments.filter(e => e.status === 'Pending').slice(0, 3).map(e => ({ id: `e-${e.id}`, message: `New enrollment request from ${e.name}`, time: e.requested, type: 'info' })),
+    ...courses.filter(c => c.status === 'Published').slice(0, 2).map(c => ({ id: `c-${c.id}`, message: `Course "${c.title}" is now published`, time: 'Today', type: 'success' })),
+  ];
+
+  const enrollmentByMonth = {};
+  enrollments.forEach(e => {
+    const month = e.requested ? e.requested.substring(0, 7) : 'Unknown';
+    enrollmentByMonth[month] = (enrollmentByMonth[month] || 0) + 1;
+  });
+  const studentProgressData = Object.entries(enrollmentByMonth).sort().map(([month, enrolled]) => ({ month, enrolled, completed: Math.round(enrolled * 0.6) }));
+
   return (
     <div className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {statCards.map((card) => {
           const Icon = card.icon;
-          const isUp = card.change >= 0;
           return (
             <div key={card.label} className="stat-card">
               <div className="flex items-center justify-between mb-4">
                 <div className={`w-12 h-12 rounded-lg ${card.color} flex items-center justify-center`}>
                   <Icon className="w-6 h-6 text-white" />
                 </div>
-                <span className={`flex items-center gap-1 text-sm font-medium ${isUp ? 'text-green-600' : 'text-red-600'}`}>
-                  {isUp ? <TrendingUp className="w-4 h-4" /> : <TrendingDown className="w-4 h-4" />}
-                  {Math.abs(card.change)}%
-                </span>
               </div>
-              <p className="text-2xl font-bold text-gray-900">{card.value.toLocaleString()}</p>
+              <p className="text-2xl font-bold text-gray-900">{card.value}</p>
               <p className="text-sm text-gray-500 mt-1">{card.label}</p>
             </div>
           );
@@ -37,7 +65,7 @@ export default function AdminDashboard() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2 card">
           <div className="card-header">
-            <h3 className="text-lg font-semibold">Student Enrollment & Progress</h3>
+            <h3 className="text-lg font-semibold">Enrollments Over Time</h3>
           </div>
           <div className="p-6">
             <ResponsiveContainer width="100%" height={300}>
@@ -58,7 +86,7 @@ export default function AdminDashboard() {
             <h3 className="text-lg font-semibold">Recent Notifications</h3>
           </div>
           <div className="p-4 space-y-3">
-            {notifications.map(n => (
+            {recentNotifications.map(n => (
               <div key={n.id} className="flex gap-3 p-2 rounded-lg hover:bg-gray-50">
                 <div className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 ${
                   n.type === 'info' ? 'bg-blue-500' : n.type === 'warning' ? 'bg-yellow-500' : 'bg-green-500'
@@ -69,6 +97,7 @@ export default function AdminDashboard() {
                 </div>
               </div>
             ))}
+            {recentNotifications.length === 0 && <p className="text-sm text-gray-400 text-center py-4">No recent notifications</p>}
           </div>
         </div>
       </div>
@@ -77,7 +106,6 @@ export default function AdminDashboard() {
         <div className="card">
           <div className="card-header flex justify-between items-center">
             <h3 className="text-lg font-semibold">Recent Enrollments</h3>
-            <button className="text-sm text-indigo-600 hover:text-indigo-700">View All</button>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full">
@@ -94,11 +122,11 @@ export default function AdminDashboard() {
                   <tr key={e.id} className="border-b border-gray-100 hover:bg-gray-50">
                     <td className="table-cell font-medium">{e.name}</td>
                     <td className="table-cell">{e.course}</td>
-                    <td className="table-cell">{e.date}</td>
+                    <td className="table-cell">{e.requested}</td>
                     <td className="table-cell">
                       <span className={`badge ${
-                        e.status === 'Completed' ? 'badge-success' :
-                        e.status === 'Pending' ? 'badge-warning' : 'badge-info'
+                        e.status === 'Approved' ? 'badge-success' :
+                        e.status === 'Pending' ? 'badge-warning' : 'badge-danger'
                       }`}>{e.status}</span>
                     </td>
                   </tr>
@@ -110,19 +138,29 @@ export default function AdminDashboard() {
 
         <div className="card">
           <div className="card-header">
-            <h3 className="text-lg font-semibold">Revenue Overview</h3>
+            <h3 className="text-lg font-semibold">Active Courses</h3>
           </div>
-          <div className="p-6">
-            <ResponsiveContainer width="100%" height={300}>
-              <LineChart data={revenueData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-                <XAxis dataKey="month" fontSize={12} />
-                <YAxis fontSize={12} />
-                <Tooltip />
-                <Line type="monotone" dataKey="revenue" stroke="#6366f1" strokeWidth={2} dot={{ fill: '#6366f1' }} />
-                <Line type="monotone" dataKey="expenses" stroke="#ef4444" strokeWidth={2} dot={{ fill: '#ef4444' }} />
-              </LineChart>
-            </ResponsiveContainer>
+          <div className="overflow-x-auto">
+            <table className="w-full">
+              <thead>
+                <tr className="border-b border-gray-200">
+                  <th className="table-header">Title</th>
+                  <th className="table-header">Instructor</th>
+                  <th className="table-header">Category</th>
+                  <th className="table-header">Students</th>
+                </tr>
+              </thead>
+              <tbody>
+                {courses.filter(c => c.status === 'Published').map(c => (
+                  <tr key={c.id} className="border-b border-gray-100 hover:bg-gray-50">
+                    <td className="table-cell font-medium">{c.title}</td>
+                    <td className="table-cell">{c.instructor}</td>
+                    <td className="table-cell">{c.category}</td>
+                    <td className="table-cell">{c.students}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

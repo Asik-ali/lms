@@ -1,7 +1,17 @@
+import { useState, useEffect } from 'react';
 import { Megaphone, Calendar } from 'lucide-react';
-import { announcements } from '../../data/mockData';
+import { getAnnouncements } from '../../data/dynamicStore';
 
 export default function StudentAnnouncements() {
+  const [announcements, setAnnouncements] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const all = await getAnnouncements();
+      setAnnouncements(all.filter(a => a.status === 'Published'));
+    })();
+  }, []);
+
   const sorted = [...announcements].sort((a, b) => new Date(b.created) - new Date(a.created));
 
   return (

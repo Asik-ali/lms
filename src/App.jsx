@@ -1,11 +1,13 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import DashboardLayout from './components/Layout/DashboardLayout';
+import ToastContainer from './components/common/Toast';
 import LoginPage from './pages/LoginPage';
 import AdminDashboard from './pages/admin/Dashboard';
 import StudentManagement from './pages/admin/StudentManagement';
 import InstructorManagement from './pages/admin/InstructorManagement';
 import CourseManagement from './pages/admin/CourseManagement';
+import CategoryManagement from './pages/admin/CategoryManagement';
 import Enrollment from './pages/admin/Enrollment';
 import Assignments from './pages/admin/Assignments';
 import ExamsQuizzes from './pages/admin/ExamsQuizzes';
@@ -60,7 +62,7 @@ function AppRoutes() {
         <Route path="instructors/courses" element={<InstructorManagement />} />
         <Route path="courses" element={<CourseManagement />} />
         <Route path="courses/create" element={<CourseManagement />} />
-        <Route path="courses/categories" element={<CourseManagement />} />
+        <Route path="courses/categories" element={<CategoryManagement />} />
         <Route path="courses/sections" element={<CourseManagement />} />
         <Route path="courses/lessons" element={<CourseManagement />} />
         <Route path="courses/materials" element={<CourseManagement />} />
@@ -138,6 +140,7 @@ export default function App() {
     <BrowserRouter>
       <AuthProvider>
         <AppRoutes />
+        <ToastContainer />
       </AuthProvider>
     </BrowserRouter>
   );

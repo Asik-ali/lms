@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Video, Calendar, Clock, Users, Play, Edit2, X, Trash2 } from 'lucide-react';
-import { liveClasses } from '../../data/mockData';
+import { getLiveClasses, addLiveClass, deleteLiveClass } from '../../data/dynamicStore';
+import { useAuth } from '../../contexts/AuthContext';
 import MeetingRoom from '../../components/common/MeetingRoom';
 
 function generateRoomCode() {
@@ -10,36 +11,42 @@ function generateRoomCode() {
   return `${p1}-${p2}`;
 }
 
-const instructorName = 'Dr. Sarah Chen';
-
 export default function InstructorLiveClasses() {
+  const { user } = useAuth();
+  const [classes, setClasses] = useState([]);
   const [room, setRoom] = useState(null);
   const [showForm, setShowForm] = useState(false);
   const [newClass, setNewClass] = useState({ title: '', date: '', time: '', description: '' });
-  const [localClasses, setLocalClasses] = useState(liveClasses);
 
-  const myClasses = localClasses.filter(lc => lc.instructor === instructorName);
+  useEffect(() => {
+    (async () => { setClasses(await getLiveClasses()); })();
+  }, []);
+
+  const instructorName = user?.name || 'Instructor';
+  const myClasses = classes.filter(lc => lc.instructor === instructorName);
   const upcoming = myClasses.filter(lc => lc.status === 'Upcoming');
   const past = myClasses.filter(lc => lc.status === 'Completed');
 
-  const handleSchedule = () => {
+  const handleSchedule = async () => {
     if (!newClass.title || !newClass.date || !newClass.time) return;
-    setLocalClasses(prev => [...prev, {
-      id: Date.now(),
+    await addLiveClass({
       title: newClass.title,
       instructor: instructorName,
       date: newClass.date,
       time: newClass.time,
-      roomCode: generateRoomCode(),
+      room_code: generateRoomCode(),
+      description: newClass.description || '',
       students: 0,
       status: 'Upcoming',
-    }]);
+    });
+    setClasses(await getLiveClasses());
     setNewClass({ title: '', date: '', time: '', description: '' });
     setShowForm(false);
   };
 
-  const handleCancel = (id) => {
-    setLocalClasses(prev => prev.filter(lc => lc.id !== id));
+  const handleCancel = async (id) => {
+    await deleteLiveClass(id);
+    setClasses(await getLiveClasses());
   };
 
   return (
@@ -48,7 +55,7 @@ export default function InstructorLiveClasses() {
 
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold text-gray-900">Live Classes</h1>
-        <button onClick={() => setShowForm(true)} className="btn-primary flex items-center gap-2">
+        <button onClick={() => setShowForm(true)} className="btn-primary flex items-center gap-2 cursor-pointer">
           <Video className="w-4 h-4" /> Schedule New Class
         </button>
       </div>
@@ -57,29 +64,27 @@ export default function InstructorLiveClasses() {
         <div className="card p-6 border-indigo-200 bg-indigo-50/30">
           <div className="flex items-center justify-between mb-4">
             <h3 className="font-semibold text-gray-900">Schedule a Live Class</h3>
-            <button onClick={() => setShowForm(false)} className="p-1 text-gray-400 hover:text-gray-600">
-              <X className="w-5 h-5" />
-            </button>
+            <button onClick={() => setShowForm(false)} className="p-1 text-gray-400 hover:text-gray-600"><X className="w-5 h-5" /></button>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
             <div className="md:col-span-2">
               <label className="block text-sm font-medium text-gray-700 mb-1">Title</label>
-              <input type="text" placeholder="Class title" value={newClass.title} onChange={e => setNewClass(prev => ({ ...prev, title: e.target.value }))} className="input-field" />
+              <input type="text" placeholder="Class title" value={newClass.title} onChange={e => setNewClass(prev => ({ ...prev, title: e.target.value }))} className="input-field w-full" />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Date</label>
-              <input type="date" value={newClass.date} onChange={e => setNewClass(prev => ({ ...prev, date: e.target.value }))} className="input-field" />
+              <input type="date" value={newClass.date} onChange={e => setNewClass(prev => ({ ...prev, date: e.target.value }))} className="input-field w-full" />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Time</label>
-              <input type="time" value={newClass.time} onChange={e => setNewClass(prev => ({ ...prev, time: e.target.value }))} className="input-field" />
+              <input type="time" value={newClass.time} onChange={e => setNewClass(prev => ({ ...prev, time: e.target.value }))} className="input-field w-full" />
             </div>
             <div className="md:col-span-2">
               <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
-              <input type="text" placeholder="Optional description" value={newClass.description} onChange={e => setNewClass(prev => ({ ...prev, description: e.target.value }))} className="input-field" />
+              <input type="text" placeholder="Optional description" value={newClass.description} onChange={e => setNewClass(prev => ({ ...prev, description: e.target.value }))} className="input-field w-full" />
             </div>
           </div>
-          <button onClick={handleSchedule} className="btn-primary">Schedule Class</button>
+          <button onClick={handleSchedule} className="btn-primary cursor-pointer">Schedule Class</button>
         </div>
       )}
 
@@ -88,9 +93,7 @@ export default function InstructorLiveClasses() {
           <h3 className="text-lg font-semibold">Upcoming Classes</h3>
           <span className="text-sm text-gray-500">{upcoming.length} classes</span>
         </div>
-        {upcoming.length === 0 ? (
-          <div className="p-6 text-center text-gray-400">No upcoming classes</div>
-        ) : (
+        {upcoming.length === 0 ? <div className="p-6 text-center text-gray-400">No upcoming classes</div> : (
           <div className="divide-y divide-gray-100">
             {upcoming.map(lc => (
               <div key={lc.id} className="p-4 hover:bg-gray-50">
@@ -105,22 +108,16 @@ export default function InstructorLiveClasses() {
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
-                    <button onClick={() => setRoom(lc.roomCode)} className="btn-primary text-xs px-3 py-1.5 flex items-center gap-1">
-                      <Play className="w-3.5 h-3.5" /> Start Room
-                    </button>
-                    <button className="btn-secondary text-xs px-3 py-1.5 flex items-center gap-1">
-                      <Edit2 className="w-3.5 h-3.5" /> Edit
-                    </button>
-                    <button onClick={() => handleCancel(lc.id)} className="p-1.5 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg">
-                      <Trash2 className="w-4 h-4" />
-                    </button>
+                    <button onClick={() => setRoom(lc.room_code)} className="btn-primary text-xs px-3 py-1.5 flex items-center gap-1 cursor-pointer"><Play className="w-3.5 h-3.5" /> Start Room</button>
+                    <button className="btn-secondary text-xs px-3 py-1.5 flex items-center gap-1 cursor-pointer"><Edit2 className="w-3.5 h-3.5" /> Edit</button>
+                    <button onClick={() => handleCancel(lc.id)} className="p-1.5 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg cursor-pointer"><Trash2 className="w-4 h-4" /></button>
                   </div>
                 </div>
                 <div className="flex items-center gap-4 mt-3 text-xs text-gray-500">
                   <span className="flex items-center gap-1"><Calendar className="w-3.5 h-3.5" />{lc.date}</span>
                   <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" />{lc.time}</span>
                   <span className="flex items-center gap-1"><Users className="w-3.5 h-3.5" />{lc.students} students</span>
-                  <span className="px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-600 font-mono text-xs">Room: {lc.roomCode}</span>
+                  <span className="px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-600 font-mono text-xs">Room: {lc.room_code}</span>
                 </div>
               </div>
             ))}
@@ -133,9 +130,7 @@ export default function InstructorLiveClasses() {
           <h3 className="text-lg font-semibold">Past Classes</h3>
           <span className="text-sm text-gray-500">{past.length} classes</span>
         </div>
-        {past.length === 0 ? (
-          <div className="p-6 text-center text-gray-400">No past classes</div>
-        ) : (
+        {past.length === 0 ? <div className="p-6 text-center text-gray-400">No past classes</div> : (
           <div className="divide-y divide-gray-100">
             {past.map(lc => (
               <div key={lc.id} className="p-4 hover:bg-gray-50 opacity-75">
@@ -154,7 +149,7 @@ export default function InstructorLiveClasses() {
                   <span className="flex items-center gap-1"><Calendar className="w-3.5 h-3.5" />{lc.date}</span>
                   <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" />{lc.time}</span>
                   <span className="flex items-center gap-1"><Users className="w-3.5 h-3.5" />{lc.students} students</span>
-                  <span className="px-2 py-0.5 rounded-full bg-gray-100 text-gray-500 font-mono text-xs">{lc.roomCode}</span>
+                  <span className="px-2 py-0.5 rounded-full bg-gray-100 text-gray-500 font-mono text-xs">{lc.room_code}</span>
                 </div>
               </div>
             ))}

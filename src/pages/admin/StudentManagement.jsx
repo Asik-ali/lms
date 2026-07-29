@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useNavigate, Navigate } from 'react-router-dom';
-import { Search, Plus, ArrowLeft, UserPlus, Copy, Check, LogIn, Save, X } from 'lucide-react';
+import { Search, Plus, ArrowLeft, UserPlus, Copy, Check, LogIn, Save, X, KeyRound } from 'lucide-react';
 import { supabase } from '../../supabase/client';
 import { getStudents, getCourses } from '../../data/dynamicStore';
 import { useAuth } from '../../contexts/AuthContext';
@@ -213,6 +213,99 @@ function StudentProgress({ students, onBack, onRefresh }) {
   );
 }
 
+function CredentialsModal({ student, onClose }) {
+  const [newPassword, setNewPassword] = useState('');
+  const [generatedPassword, setGeneratedPassword] = useState('');
+  const [copied, setCopied] = useState(false);
+  const [resetting, setResetting] = useState(false);
+  const [resetDone, setResetDone] = useState(false);
+
+  const username = student.email
+    ? student.email.split('@')[0]
+    : student.name.toLowerCase().replace(/\s+/g, '.').replace(/[^a-z0-9.]/g, '');
+
+  const handleReset = async () => {
+    const password = newPassword || 'lms' + Math.random().toString(36).slice(2, 7);
+    setResetting(true);
+    try {
+      await supabase.rpc('admin_reset_student_password', { student_id: student.id, new_password: password });
+      setGeneratedPassword(password);
+      setNewPassword('');
+      setResetDone(true);
+    } catch (err) {
+      alert('Failed to reset password: ' + (err.message || err));
+    }
+    setResetting(false);
+  };
+
+  const copyPassword = () => {
+    navigator.clipboard?.writeText(generatedPassword);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+      <div className="bg-white rounded-xl shadow-xl w-full max-w-md p-6 space-y-4">
+        <div className="flex items-center justify-between">
+          <h2 className="text-lg font-semibold text-gray-900">Student Credentials</h2>
+          <button onClick={onClose} className="p-1 text-gray-400 hover:text-gray-600"><X className="w-5 h-5" /></button>
+        </div>
+
+        <div className="space-y-3">
+          <div>
+            <label className="text-xs text-gray-500">Student</label>
+            <p className="font-medium text-gray-900">{student.name}</p>
+          </div>
+          <div>
+            <label className="text-xs text-gray-500">Username</label>
+            <p className="font-mono text-sm text-gray-900 bg-gray-50 px-3 py-2 rounded-lg border">{username}</p>
+          </div>
+        </div>
+
+        {resetDone && generatedPassword ? (
+          <div className="bg-green-50 border border-green-200 rounded-xl p-4 space-y-3">
+            <div className="flex items-center gap-2 text-green-700 font-medium text-sm">
+              <Check className="w-4 h-4" /> Password Reset Successfully
+            </div>
+            <div>
+              <label className="text-xs text-gray-500">New Password</label>
+              <p className="font-mono text-sm text-gray-900 bg-white px-3 py-2 rounded-lg border mt-1 break-all">{generatedPassword}</p>
+            </div>
+            <button onClick={copyPassword} className="w-full flex items-center justify-center gap-2 text-sm text-green-700 bg-white border border-green-200 rounded-lg px-3 py-2 hover:bg-green-50 cursor-pointer">
+              {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+              {copied ? 'Copied!' : 'Copy New Password'}
+            </button>
+          </div>
+        ) : (
+          <div className="space-y-3">
+            <div>
+              <label className="text-xs text-gray-500">New Password (leave empty to auto-generate)</label>
+              <input
+                type="text"
+                value={newPassword}
+                onChange={e => setNewPassword(e.target.value)}
+                placeholder="Auto-generate if empty"
+                className="input-field w-full mt-1"
+              />
+            </div>
+            <button
+              onClick={handleReset}
+              disabled={resetting}
+              className="w-full flex items-center justify-center gap-2 bg-indigo-600 text-white rounded-lg px-4 py-2 hover:bg-indigo-700 disabled:opacity-50 cursor-pointer"
+            >
+              <KeyRound className="w-4 h-4" />
+              {resetting ? 'Resetting...' : 'Reset Password'}
+            </button>
+          </div>
+        )}
+
+        <button onClick={onClose} className="w-full text-sm text-gray-500 hover:text-gray-700 py-2 cursor-pointer">Close</button>
+      </div>
+    </div>
+  );
+}
+
 export default function StudentManagement() {
   const location = useLocation();
   const navigate = useNavigate();
@@ -220,6 +313,7 @@ export default function StudentManagement() {
   const [filterStatus, setFilterStatus] = useState('All');
   const [students, setStudents] = useState([]);
   const [selectedStudent, setSelectedStudent] = useState(null);
+  const [credentialStudent, setCredentialStudent] = useState(null);
 
   useEffect(() => { loadStudents(); }, []);
 
@@ -253,6 +347,8 @@ export default function StudentManagement() {
 
   return (
     <div className="space-y-6">
+      {credentialStudent && <CredentialsModal student={credentialStudent} onClose={() => setCredentialStudent(null)} />}
+
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold text-gray-900">Student Management</h1>
         <button onClick={() => navigate('/admin/students/add')} className="flex items-center gap-2 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 cursor-pointer">
@@ -304,7 +400,12 @@ export default function StudentManagement() {
                   </div>
                 </td>
                 <td className="table-cell">
-                  <button onClick={() => { setSelectedStudent(s); navigate('/admin/students/profile'); }} className="text-xs text-indigo-600 hover:text-indigo-800 font-medium">View</button>
+                  <div className="flex items-center gap-2">
+                    <button onClick={() => { setSelectedStudent(s); navigate('/admin/students/profile'); }} className="text-xs text-indigo-600 hover:text-indigo-800 font-medium">View</button>
+                    <button onClick={() => setCredentialStudent(s)} className="text-xs flex items-center gap-1 text-amber-600 hover:text-amber-800 font-medium">
+                      <KeyRound className="w-3 h-3" /> Credentials
+                    </button>
+                  </div>
                 </td>
               </tr>
             ))}

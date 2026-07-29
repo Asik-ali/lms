@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getAttendance, addAttendance, updateAttendance, getCourses, getStudents } from '../../data/dynamicStore';
+import { showSuccess, showError } from '../../components/common/Toast';
 
 const initialForm = { name: '', course: '', present: '', total: '' };
 

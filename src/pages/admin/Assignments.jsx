@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Search, Edit2, Trash2, FileText, Clock, CheckCircle, X } from 'lucide-react';
 import { getAssignments, addAssignment, deleteAssignment, getCourses } from '../../data/dynamicStore';
+import { showSuccess, showError } from '../../components/common/Toast';
 
 export default function Assignments() {
   const [search, setSearch] = useState('');
@@ -10,8 +11,12 @@ export default function Assignments() {
   const [form, setForm] = useState({ title: '', course: '', dueDate: '', total: '' });
 
   const refresh = async () => {
-    setAssignments(await getAssignments());
-    setCourses(await getCourses());
+    try {
+      setAssignments(await getAssignments());
+      setCourses(await getCourses());
+    } catch (err) {
+      showError(err.message);
+    }
   };
 
   useEffect(() => { refresh(); }, []);

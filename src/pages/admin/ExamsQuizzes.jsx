@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { BookOpen, HelpCircle, Trophy, Clock, Award, Plus, X } from 'lucide-react';
 import { getQuestions, addQuestion, getQuizzes, addQuiz, getStudents, getCourses, getCategories } from '../../data/dynamicStore';
+import { showSuccess, showError } from '../../components/common/Toast';
 
 export default function ExamsQuizzes() {
   const [questions, setQuestions] = useState([]);

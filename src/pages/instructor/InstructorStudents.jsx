@@ -1,20 +1,29 @@
-import { useState } from 'react';
-import { Search, Mail, User, MessageSquare } from 'lucide-react';
-import { students, courses } from '../../data/mockData';
-
-const instructorName = 'Dr. Sarah Chen';
+import { useState, useEffect } from 'react';
+import { Search, User, MessageSquare } from 'lucide-react';
+import { getStudents, getCourses } from '../../data/dynamicStore';
+import { useAuth } from '../../contexts/AuthContext';
 
 export default function InstructorStudents() {
+  const { user } = useAuth();
+  const [students, setStudents] = useState([]);
+  const [courses, setCourses] = useState([]);
   const [search, setSearch] = useState('');
   const [filterCourse, setFilterCourse] = useState('All');
 
+  useEffect(() => {
+    (async () => {
+      setStudents(await getStudents());
+      setCourses(await getCourses());
+    })();
+  }, []);
+
+  const instructorName = user?.name || 'Instructor';
   const instructorCourses = courses.filter(c => c.instructor === instructorName);
   const instructorCourseNames = instructorCourses.map(c => c.title);
-
   const enrolledStudents = students.filter(s => instructorCourseNames.includes(s.course));
 
   const filtered = enrolledStudents.filter(s => {
-    const matchSearch = s.name.toLowerCase().includes(search.toLowerCase()) || s.email.toLowerCase().includes(search.toLowerCase());
+    const matchSearch = s.name.toLowerCase().includes(search.toLowerCase()) || (s.email || '').toLowerCase().includes(search.toLowerCase());
     const matchCourse = filterCourse === 'All' || s.course === filterCourse;
     return matchSearch && matchCourse;
   });
@@ -26,23 +35,11 @@ export default function InstructorStudents() {
       <div className="flex items-center gap-4">
         <div className="relative flex-1 max-w-md">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-          <input
-            type="text"
-            placeholder="Search students..."
-            value={search}
-            onChange={e => setSearch(e.target.value)}
-            className="input-field pl-10"
-          />
+          <input type="text" placeholder="Search students..." value={search} onChange={e => setSearch(e.target.value)} className="input-field pl-10" />
         </div>
-        <select
-          value={filterCourse}
-          onChange={e => setFilterCourse(e.target.value)}
-          className="input-field max-w-xs"
-        >
+        <select value={filterCourse} onChange={e => setFilterCourse(e.target.value)} className="input-field max-w-xs">
           <option value="All">All Courses</option>
-          {instructorCourseNames.map(c => (
-            <option key={c} value={c}>{c}</option>
-          ))}
+          {instructorCourseNames.map(c => <option key={c} value={c}>{c}</option>)}
         </select>
       </div>
 
@@ -54,7 +51,7 @@ export default function InstructorStudents() {
               <th className="table-header">Email</th>
               <th className="table-header">Course</th>
               <th className="table-header">Progress</th>
-              <th className="table-header">Last Active</th>
+              <th className="table-header">Enrolled</th>
               <th className="table-header">Actions</th>
             </tr>
           </thead>
@@ -74,15 +71,12 @@ export default function InstructorStudents() {
                 <td className="table-cell">
                   <div className="flex items-center gap-2">
                     <div className="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden max-w-[100px]">
-                      <div
-                        className={`h-full rounded-full ${s.progress >= 70 ? 'bg-emerald-500' : s.progress >= 40 ? 'bg-amber-500' : 'bg-red-500'}`}
-                        style={{ width: `${s.progress}%` }}
-                      />
+                      <div className={`h-full rounded-full ${(s.progress || 0) >= 70 ? 'bg-emerald-500' : (s.progress || 0) >= 40 ? 'bg-amber-500' : 'bg-red-500'}`} style={{ width: `${s.progress || 0}%` }} />
                     </div>
-                    <span className="text-xs font-medium text-gray-600">{s.progress}%</span>
+                    <span className="text-xs font-medium text-gray-600">{Math.round(s.progress || 0)}%</span>
                   </div>
                 </td>
-                <td className="table-cell text-gray-500">{s.enrolled}</td>
+                <td className="table-cell text-gray-500">{s.enrolled || s.created_at?.split('T')[0] || '-'}</td>
                 <td className="table-cell">
                   <div className="flex items-center gap-2">
                     <button className="p-1.5 text-gray-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg" title="Message">
