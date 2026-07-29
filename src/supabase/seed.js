@@ -3,7 +3,6 @@
  * Run: node src/supabase/seed.js
  * Requires VITE_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY env vars.
  */
-import 'dotenv/config';
 import { createClient } from '@supabase/supabase-js';
 
 const supabaseUrl = process.env.VITE_SUPABASE_URL;
