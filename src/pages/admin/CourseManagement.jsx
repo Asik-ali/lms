@@ -1,19 +1,20 @@
 import { useState, useEffect } from 'react';
 import { Search, Plus, Edit2, Trash2, X, ChevronDown } from 'lucide-react';
-import { getCourses, addCourse, updateCourse, deleteCourse, getCategories } from '../../data/dynamicStore';
+import { getCourses, addCourse, updateCourse, deleteCourse, getCategories, getInstructors } from '../../data/dynamicStore';
 
 const emptyForm = { title: '', instructor: '', category: '', duration: '', status: 'Draft' };
 
 export default function CourseManagement() {
   const [courses, setCourses] = useState([]);
   const [cats, setCats] = useState([]);
+  const [instructors, setInstructors] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [editingId, setEditingId] = useState(null);
   const [form, setForm] = useState(emptyForm);
   const [search, setSearch] = useState('');
   const [filterCategory, setFilterCategory] = useState('All');
 
-  useEffect(() => { refresh(); loadCats(); }, []);
+  useEffect(() => { refresh(); loadCats(); loadInstructors(); }, []);
 
   async function refresh() {
     setCourses([...(await getCourses())]);
@@ -21,6 +22,10 @@ export default function CourseManagement() {
 
   async function loadCats() {
     setCats(await getCategories());
+  }
+
+  async function loadInstructors() {
+    setInstructors(await getInstructors());
   }
 
   function handleOpenAdd() {
@@ -117,7 +122,12 @@ export default function CourseManagement() {
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Instructor</label>
-              <input name="instructor" value={form.instructor} onChange={handleChange} className="input-field w-full" required />
+              <select name="instructor" value={form.instructor} onChange={handleChange} className="input-field w-full" required>
+                <option value="">Select instructor</option>
+                {instructors.map(i => (
+                  <option key={i.id} value={i.name}>{i.name}</option>
+                ))}
+              </select>
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Category</label>

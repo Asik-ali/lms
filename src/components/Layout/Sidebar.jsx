@@ -15,10 +15,8 @@ const adminNav = [
       { label: 'All Students', path: '/admin/students' },
       { label: 'Add Student', path: '/admin/students/add' },
       { label: 'Student Profile', path: '/admin/students/profile' },
-      { label: 'Attendance', path: '/admin/students/attendance' },
+      { label: 'Attendance', path: '/admin/attendance/students' },
       { label: 'Student Progress', path: '/admin/students/progress' },
-      { label: 'Certificates', path: '/admin/students/certificates' },
-      { label: 'Suspend/Delete', path: '/admin/students/suspend' },
     ]
   },
   {

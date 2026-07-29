@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { Search, Edit2, Ban, Plus, ChevronDown, ArrowLeft, UserPlus, Copy, Check, LogIn } from 'lucide-react';
-import { students as mockStudents, courses } from '../../data/mockData';
+import { useState, useEffect } from 'react';
+import { useLocation, useNavigate, Navigate } from 'react-router-dom';
+import { Search, Plus, ArrowLeft, UserPlus, Copy, Check, LogIn, Save, X } from 'lucide-react';
 import { supabase } from '../../supabase/client';
+import { getStudents, getCourses } from '../../data/dynamicStore';
 import { useAuth } from '../../contexts/AuthContext';
 
 function generateUsername(name) {
@@ -12,10 +12,13 @@ function generateUsername(name) {
 function AddStudentForm({ onBack }) {
   const { logout } = useAuth();
   const navigate = useNavigate();
-  const [form, setForm] = useState({ name: '', email: '', course: courses[0]?.title || '', enrolled: new Date().toISOString().split('T')[0] });
+  const [courses, setCourses] = useState([]);
+  const [form, setForm] = useState({ name: '', email: '', course: '', enrolled: new Date().toISOString().split('T')[0] });
   const [submitted, setSubmitted] = useState(false);
   const [credentials, setCredentials] = useState(null);
   const [copied, setCopied] = useState(false);
+
+  useEffect(() => { getCourses().then(setCourses); }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,16 +28,13 @@ function AddStudentForm({ onBack }) {
     try {
       const email = `${username}@lms.app`;
       await supabase.auth.signUp({ email, password, options: { data: { username, name: form.name, role: 'student' } } });
-    } catch {
-      // fallback
-    }
+    } catch {}
     setCredentials({ username, password });
     setSubmitted(true);
   };
 
   const copyCredentials = () => {
-    const text = `Username: ${credentials.username}\nPassword: ${credentials.password}`;
-    navigator.clipboard?.writeText(text);
+    navigator.clipboard?.writeText(`Username: ${credentials.username}\nPassword: ${credentials.password}`);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -56,10 +56,9 @@ function AddStudentForm({ onBack }) {
           </div>
           <h2 className="text-xl font-semibold text-gray-900 mb-2">Student Added Successfully!</h2>
           <p className="text-gray-500 mb-6">{form.name} has been enrolled in {form.course}.</p>
-
           <div className="max-w-sm mx-auto bg-indigo-50 border border-indigo-200 rounded-xl p-5 mb-6">
             <h3 className="text-sm font-semibold text-indigo-800 mb-3">Login Credentials</h3>
-            <p className="text-xs text-indigo-600 mb-3">Share these credentials with the student. They work in the same browser session for demo.</p>
+            <p className="text-xs text-indigo-600 mb-3">Share these credentials with the student.</p>
             <div className="space-y-2 text-left">
               <div className="flex items-center justify-between bg-white rounded-lg px-3 py-2 border border-indigo-100">
                 <span className="text-xs text-gray-500">Username</span>
@@ -78,7 +77,6 @@ function AddStudentForm({ onBack }) {
               <LogIn className="w-4 h-4" /> Quick Login as {form.name.split(' ')[0]}
             </button>
           </div>
-
           <div className="flex items-center justify-center gap-3">
             <button onClick={() => { setSubmitted(false); setCredentials(null); setForm({ name: '', email: '', course: courses[0]?.title || '', enrolled: new Date().toISOString().split('T')[0] }); }} className="btn-primary">Add Another</button>
             <button onClick={onBack} className="btn-secondary">Back to Students</button>
@@ -127,32 +125,138 @@ function AddStudentForm({ onBack }) {
   );
 }
 
+function StudentProfile({ student, onBack }) {
+  if (!student) return <div className="p-6 text-gray-400">Select a student to view profile.</div>;
+  return (
+    <div className="max-w-2xl">
+      <button onClick={onBack} className="flex items-center gap-2 text-sm text-gray-500 hover:text-gray-700 mb-6">
+        <ArrowLeft className="w-4 h-4" /> Back to Students
+      </button>
+      <div className="card p-6 space-y-4">
+        <h2 className="text-xl font-semibold">{student.name}</h2>
+        <div className="grid grid-cols-2 gap-4 text-sm">
+          <div><span className="text-gray-500">Email:</span> <span className="font-medium">{student.email}</span></div>
+          <div><span className="text-gray-500">Course:</span> <span className="font-medium">{student.course || '-'}</span></div>
+          <div><span className="text-gray-500">Status:</span> <span className={`badge ${student.status === 'Active' ? 'badge-success' : 'badge-warning'}`}>{student.status}</span></div>
+          <div><span className="text-gray-500">Enrolled:</span> <span className="font-medium">{student.enrolled || '-'}</span></div>
+          <div><span className="text-gray-500">Progress:</span> <span className="font-medium">{student.progress || 0}%</span></div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function StudentProgress({ students, onBack, onRefresh }) {
+  const [editingId, setEditingId] = useState(null);
+  const [editVal, setEditVal] = useState('');
+
+  async function handleSave(id) {
+    await supabase.from('profiles').update({ progress: Number(editVal) }).eq('id', id);
+    setEditingId(null);
+    onRefresh();
+  }
+
+  async function handleDeleteProgress(id) {
+    await supabase.from('profiles').update({ progress: 0 }).eq('id', id);
+    onRefresh();
+  }
+
+  return (
+    <div className="space-y-6">
+      <button onClick={onBack} className="flex items-center gap-2 text-sm text-gray-500 hover:text-gray-700">
+        <ArrowLeft className="w-4 h-4" /> Back to Students
+      </button>
+      <h1 className="text-2xl font-bold text-gray-900">Student Progress</h1>
+      <div className="card overflow-hidden">
+        <table className="w-full">
+          <thead>
+            <tr className="border-b border-gray-200 bg-gray-50">
+              <th className="table-header">Name</th>
+              <th className="table-header">Course</th>
+              <th className="table-header">Progress</th>
+              <th className="table-header">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {students.map(s => (
+              <tr key={s.id} className="border-b border-gray-100 hover:bg-gray-50">
+                <td className="table-cell font-medium">{s.name}</td>
+                <td className="table-cell">{s.course || '-'}</td>
+                <td className="table-cell">
+                  {editingId === s.id ? (
+                    <div className="flex items-center gap-2">
+                      <input type="number" min="0" max="100" value={editVal} onChange={e => setEditVal(e.target.value)} className="input-field w-20" />
+                      <button onClick={() => handleSave(s.id)} className="p-1 text-green-600 hover:bg-green-50 rounded"><Save className="w-4 h-4" /></button>
+                      <button onClick={() => setEditingId(null)} className="p-1 text-gray-400 hover:bg-gray-100 rounded"><X className="w-4 h-4" /></button>
+                    </div>
+                  ) : (
+                    <div className="flex items-center gap-2">
+                      <div className="flex-1 h-2 bg-gray-200 rounded-full w-32 overflow-hidden">
+                        <div className={`h-full rounded-full ${s.progress >= 70 ? 'bg-green-500' : s.progress >= 40 ? 'bg-amber-500' : 'bg-red-500'}`} style={{ width: `${s.progress || 0}%` }} />
+                      </div>
+                      <span className="text-xs text-gray-500 w-8">{s.progress || 0}%</span>
+                    </div>
+                  )}
+                </td>
+                <td className="table-cell">
+                  <div className="flex items-center gap-2">
+                    <button onClick={() => { setEditingId(s.id); setEditVal(String(s.progress || 0)); }} className="p-1.5 text-gray-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg cursor-pointer"><Save className="w-4 h-4" /></button>
+                    <button onClick={() => handleDeleteProgress(s.id)} className="p-1.5 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg cursor-pointer"><X className="w-4 h-4" /></button>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
 export default function StudentManagement() {
   const location = useLocation();
   const navigate = useNavigate();
   const [search, setSearch] = useState('');
   const [filterStatus, setFilterStatus] = useState('All');
-  const [students, setStudents] = useState(mockStudents);
+  const [students, setStudents] = useState([]);
+  const [selectedStudent, setSelectedStudent] = useState(null);
+
+  useEffect(() => { loadStudents(); }, []);
+
+  async function loadStudents() {
+    setStudents(await getStudents());
+  }
 
   const isAddPage = location.pathname.endsWith('/add');
+  const isProfilePage = location.pathname.endsWith('/profile');
+  const isProgressPage = location.pathname.endsWith('/progress');
+  const isSuspendPage = location.pathname.endsWith('/suspend');
+
+  useEffect(() => {
+    if (isProfilePage && !selectedStudent && students.length > 0) {
+      setSelectedStudent(students[0]);
+    }
+  }, [isProfilePage, students]);
 
   if (isAddPage) return <AddStudentForm onBack={() => navigate('/admin/students')} />;
+  if (isProfilePage) return <StudentProfile student={selectedStudent} onBack={() => { setSelectedStudent(null); navigate('/admin/students'); }} />;
+  if (isProgressPage) return <StudentProgress students={students} onBack={() => navigate('/admin/students')} onRefresh={loadStudents} />;
+  if (isSuspendPage) return <Navigate to="/admin/students" replace />;
 
   const filtered = students.filter(s => {
-    const matchSearch = s.name.toLowerCase().includes(search.toLowerCase()) || s.email.toLowerCase().includes(search.toLowerCase());
+    const matchSearch = (s.name || '').toLowerCase().includes(search.toLowerCase()) || (s.email || '').toLowerCase().includes(search.toLowerCase());
     const matchStatus = filterStatus === 'All' || s.status === filterStatus;
     return matchSearch && matchStatus;
   });
 
-  const statuses = ['All', ...new Set(students.map(s => s.status))];
+  const statuses = ['All', ...new Set(students.map(s => s.status).filter(Boolean))];
 
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold text-gray-900">Student Management</h1>
         <button onClick={() => navigate('/admin/students/add')} className="flex items-center gap-2 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 cursor-pointer">
-          <Plus className="w-4 h-4" />
-          Add Student
+          <Plus className="w-4 h-4" /> Add Student
         </button>
       </div>
 
@@ -161,12 +265,9 @@ export default function StudentManagement() {
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
           <input type="text" placeholder="Search students..." value={search} onChange={e => setSearch(e.target.value)} className="pl-10 pr-4 py-2 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none" />
         </div>
-        <div className="relative">
-          <select value={filterStatus} onChange={e => setFilterStatus(e.target.value)} className="appearance-none pl-4 pr-10 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none bg-white">
-            {statuses.map(s => <option key={s} value={s}>{s}</option>)}
-          </select>
-          <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
-        </div>
+        <select value={filterStatus} onChange={e => setFilterStatus(e.target.value)} className="appearance-none pl-4 pr-10 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none bg-white">
+          {statuses.map(s => <option key={s} value={s}>{s}</option>)}
+        </select>
       </div>
 
       <div className="card overflow-hidden">
@@ -185,26 +286,25 @@ export default function StudentManagement() {
           <tbody>
             {filtered.map(s => (
               <tr key={s.id} className="border-b border-gray-100 hover:bg-gray-50">
-                <td className="table-cell font-medium">{s.name}</td>
+                <td className="table-cell">
+                  <button onClick={() => { setSelectedStudent(s); navigate('/admin/students/profile'); }} className="font-medium text-indigo-600 hover:text-indigo-800 text-left">{s.name}</button>
+                </td>
                 <td className="table-cell text-gray-500">{s.email}</td>
-                <td className="table-cell">{s.course}</td>
+                <td className="table-cell">{s.course || '-'}</td>
                 <td className="table-cell">
                   <span className={`badge ${s.status === 'Active' ? 'badge-success' : s.status === 'Suspended' ? 'badge-danger' : 'badge-warning'}`}>{s.status}</span>
                 </td>
-                <td className="table-cell">{s.enrolled}</td>
+                <td className="table-cell">{s.enrolled || '-'}</td>
                 <td className="table-cell">
                   <div className="flex items-center gap-2">
-                    <div className="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
-                      <div className={`h-full rounded-full ${s.progress >= 70 ? 'bg-green-500' : s.progress >= 40 ? 'bg-amber-500' : 'bg-red-500'}`} style={{ width: `${s.progress}%` }} />
+                    <div className="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden w-24">
+                      <div className={`h-full rounded-full ${s.progress >= 70 ? 'bg-green-500' : s.progress >= 40 ? 'bg-amber-500' : 'bg-red-500'}`} style={{ width: `${s.progress || 0}%` }} />
                     </div>
-                    <span className="text-xs text-gray-500 w-8 text-right">{s.progress}%</span>
+                    <span className="text-xs text-gray-500 w-8">{s.progress || 0}%</span>
                   </div>
                 </td>
                 <td className="table-cell">
-                  <div className="flex items-center gap-2">
-                    <button className="p-1.5 text-gray-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg cursor-pointer"><Edit2 className="w-4 h-4" /></button>
-                    <button className="p-1.5 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg cursor-pointer"><Ban className="w-4 h-4" /></button>
-                  </div>
+                  <button onClick={() => { setSelectedStudent(s); navigate('/admin/students/profile'); }} className="text-xs text-indigo-600 hover:text-indigo-800 font-medium">View</button>
                 </td>
               </tr>
             ))}

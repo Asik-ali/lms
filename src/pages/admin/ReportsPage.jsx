@@ -1,13 +1,13 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Users, BookOpen, CheckCircle, TrendingUp, Award, BarChart3 } from 'lucide-react';
-import { students, courses, attendanceRecords, leaderboard } from '../../data/mockData';
+import { getStudents, getCourses, getAttendance, getEnrollments } from '../../data/dynamicStore';
 
 const tabs = ['Student Report', 'Course Report', 'Attendance Report', 'Performance Report'];
 
-function StudentReport() {
+function StudentReport({ students }) {
   const total = students.length;
   const active = students.filter(s => s.status === 'Active').length;
-  const avgProgress = Math.round(students.reduce((s, a) => s + a.progress, 0) / total);
+  const avgProgress = total > 0 ? Math.round(students.reduce((s, a) => s + (a.progress || 0), 0) / total) : 0;
 
   return (
     <div className="space-y-6">
@@ -50,8 +50,8 @@ function StudentReport() {
               <tr key={s.id} className="border-b border-gray-100 hover:bg-gray-50">
                 <td className="table-cell font-medium">{s.name}</td>
                 <td className="table-cell">{s.course}</td>
-                <td className="table-cell"><span className={`badge ${s.status === 'Active' ? 'badge-success' : s.status === 'Suspended' ? 'badge-danger' : 'badge-warning'}`}>{s.status}</span></td>
-                <td className="table-cell">{s.progress}%</td>
+                <td className="table-cell"><span className={`badge ${s.status === 'Active' ? 'badge-success' : 'badge-warning'}`}>{s.status}</span></td>
+                <td className="table-cell">{Math.round(s.progress || 0)}%</td>
               </tr>
             ))}
           </tbody>
@@ -61,10 +61,10 @@ function StudentReport() {
   );
 }
 
-function CourseReport() {
+function CourseReport({ courses }) {
   const published = courses.filter(c => c.status === 'Published').length;
-  const totalLessons = courses.reduce((s, c) => s + c.lessons, 0);
-  const totalStudentsEnrolled = courses.reduce((s, c) => s + c.students, 0);
+  const totalLessons = courses.reduce((s, c) => s + (c.lessons || 0), 0);
+  const totalStudentsEnrolled = courses.reduce((s, c) => s + (c.students || 0), 0);
 
   return (
     <div className="space-y-6">
@@ -114,10 +114,10 @@ function CourseReport() {
   );
 }
 
-function AttendanceReportTab() {
-  const avgPct = Math.round(attendanceRecords.reduce((s, a) => s + a.percentage, 0) / attendanceRecords.length);
-  const totalPresent = attendanceRecords.reduce((s, a) => s + a.present, 0);
-  const totalSessions = attendanceRecords.reduce((s, a) => s + a.total, 0);
+function AttendanceReportTab({ attendanceRecords }) {
+  const avgPct = attendanceRecords.length > 0 ? Math.round(attendanceRecords.reduce((s, a) => s + (a.percentage || 0), 0) / attendanceRecords.length) : 0;
+  const totalPresent = attendanceRecords.reduce((s, a) => s + (a.present || 0), 0);
+  const totalSessions = attendanceRecords.reduce((s, a) => s + (a.total || 0), 0);
 
   return (
     <div className="space-y-6">
@@ -167,49 +167,49 @@ function AttendanceReportTab() {
   );
 }
 
-function PerformanceReport() {
-  const topScore = leaderboard[0]?.score || 0;
-  const avgScore = Math.round(leaderboard.reduce((s, l) => s + l.score, 0) / leaderboard.length);
+function PerformanceReport({ enrollments, students }) {
+  const total = enrollments.length;
+  const approved = enrollments.filter(e => e.status === 'Approved').length;
+  const pending = enrollments.filter(e => e.status === 'Pending').length;
+  const totalStudents = students.length;
 
   return (
     <div className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="stat-card">
           <div className="flex items-center gap-3 mb-2"><div className="w-10 h-10 rounded-lg bg-yellow-100 flex items-center justify-center"><Award className="w-5 h-5 text-yellow-600" /></div></div>
-          <p className="text-2xl font-bold">{topScore}%</p>
-          <p className="text-sm text-gray-500">Highest Score</p>
+          <p className="text-2xl font-bold">{totalStudents}</p>
+          <p className="text-sm text-gray-500">Total Students</p>
         </div>
         <div className="stat-card">
           <div className="flex items-center gap-3 mb-2"><div className="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center"><TrendingUp className="w-5 h-5 text-indigo-600" /></div></div>
-          <p className="text-2xl font-bold">{avgScore}%</p>
-          <p className="text-sm text-gray-500">Average Score</p>
+          <p className="text-2xl font-bold">{approved}</p>
+          <p className="text-sm text-gray-500">Approved Enrollments</p>
         </div>
         <div className="stat-card">
           <div className="flex items-center gap-3 mb-2"><div className="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center"><Users className="w-5 h-5 text-green-600" /></div></div>
-          <p className="text-2xl font-bold">{leaderboard.length}</p>
-          <p className="text-sm text-gray-500">Students on Leaderboard</p>
+          <p className="text-2xl font-bold">{pending}</p>
+          <p className="text-sm text-gray-500">Pending Requests</p>
         </div>
       </div>
       <div className="card overflow-hidden">
-        <div className="card-header"><h3 className="text-lg font-semibold">Leaderboard</h3></div>
+        <div className="card-header"><h3 className="text-lg font-semibold">Enrollment Status</h3></div>
         <table className="w-full">
           <thead>
             <tr className="border-b border-gray-200 bg-gray-50">
-              <th className="table-header">Rank</th>
               <th className="table-header">Name</th>
               <th className="table-header">Course</th>
-              <th className="table-header">Score</th>
-              <th className="table-header">Badges</th>
+              <th className="table-header">Requested</th>
+              <th className="table-header">Status</th>
             </tr>
           </thead>
           <tbody>
-            {leaderboard.map(l => (
-              <tr key={l.rank} className="border-b border-gray-100 hover:bg-gray-50">
-                <td className="table-cell"><span className={`font-bold ${l.rank <= 3 ? 'text-yellow-600' : 'text-gray-500'}`}>#{l.rank}</span></td>
-                <td className="table-cell font-medium">{l.name}</td>
-                <td className="table-cell">{l.course}</td>
-                <td className="table-cell">{l.score}%</td>
-                <td className="table-cell"><span className="badge-info">{l.badges} badges</span></td>
+            {enrollments.map(e => (
+              <tr key={e.id} className="border-b border-gray-100 hover:bg-gray-50">
+                <td className="table-cell font-medium">{e.name}</td>
+                <td className="table-cell">{e.course}</td>
+                <td className="table-cell">{e.requested}</td>
+                <td className="table-cell"><span className={`badge ${e.status === 'Approved' ? 'badge-success' : e.status === 'Pending' ? 'badge-warning' : 'badge-danger'}`}>{e.status}</span></td>
               </tr>
             ))}
           </tbody>
@@ -220,7 +220,20 @@ function PerformanceReport() {
 }
 
 export default function ReportsPage() {
+  const [students, setStudents] = useState([]);
+  const [courses, setCourses] = useState([]);
+  const [attendanceRecords, setAttendanceRecords] = useState([]);
+  const [enrollments, setEnrollments] = useState([]);
   const [activeTab, setActiveTab] = useState(0);
+
+  useEffect(() => {
+    (async () => {
+      setStudents(await getStudents());
+      setCourses(await getCourses());
+      setAttendanceRecords(await getAttendance());
+      setEnrollments(await getEnrollments());
+    })();
+  }, []);
 
   return (
     <div className="space-y-6">
@@ -246,10 +259,10 @@ export default function ReportsPage() {
         </div>
       </div>
 
-      {activeTab === 0 && <StudentReport />}
-      {activeTab === 1 && <CourseReport />}
-      {activeTab === 2 && <AttendanceReportTab />}
-      {activeTab === 3 && <PerformanceReport />}
+      {activeTab === 0 && <StudentReport students={students} />}
+      {activeTab === 1 && <CourseReport courses={courses} />}
+      {activeTab === 2 && <AttendanceReportTab attendanceRecords={attendanceRecords} />}
+      {activeTab === 3 && <PerformanceReport enrollments={enrollments} students={students} />}
     </div>
   );
 }

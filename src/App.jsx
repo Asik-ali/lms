@@ -54,8 +54,6 @@ function AppRoutes() {
         <Route path="students/profile" element={<StudentManagement />} />
         <Route path="students/attendance" element={<AttendancePage />} />
         <Route path="students/progress" element={<StudentManagement />} />
-
-        <Route path="students/suspend" element={<StudentManagement />} />
         <Route path="instructors" element={<InstructorManagement />} />
         <Route path="instructors/add" element={<InstructorManagement />} />
         <Route path="instructors/performance" element={<InstructorManagement />} />

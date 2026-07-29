@@ -27,7 +27,9 @@ export default function ExamsQuizzes() {
   const [newQuiz, setNewQuiz] = useState({ title: '', course: '', totalMarks: '', duration: '', status: 'Draft' });
 
   const handleAddQuestion = async () => {
-    if (!newQuestion.question.trim() || !newQuestion.category.trim()) return;
+    const q = newQuestion.question.trim();
+    if (!q || !newQuestion.category.trim()) return;
+    if (!q.startsWith('http://') && !q.startsWith('https://')) return alert('Please enter a valid URL (starting with http:// or https://)');
     await addQuestion({ ...newQuestion });
     setQuestions(await getQuestions());
     setNewQuestion({ question: '', type: 'Multiple Choice', category: '', difficulty: 'Easy' });
@@ -122,7 +124,9 @@ export default function ExamsQuizzes() {
             <tbody>
               {questions.map(q => (
                 <tr key={q.id} className="border-b border-gray-100 hover:bg-gray-50">
-                  <td className="table-cell font-medium max-w-md truncate">{q.question}</td>
+                  <td className="table-cell font-medium max-w-md truncate">
+                    <a href={q.question} target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline truncate block">{q.question}</a>
+                  </td>
                   <td className="table-cell">
                     <span className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">{q.type}</span>
                   </td>
@@ -146,8 +150,8 @@ export default function ExamsQuizzes() {
             </div>
             <div className="space-y-4">
               <div>
-                <label className="label">Question</label>
-                <textarea value={newQuestion.question} onChange={e => setNewQuestion({ ...newQuestion, question: e.target.value })} className="input-field w-full" rows={3} />
+                <label className="label">Question Link (Google Drive / URL)</label>
+                <input type="url" value={newQuestion.question} onChange={e => setNewQuestion({ ...newQuestion, question: e.target.value })} className="input-field w-full" placeholder="https://drive.google.com/..." />
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>

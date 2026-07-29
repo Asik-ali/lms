@@ -1,18 +1,134 @@
-import { Edit2, Star, Mail, Users, BookOpen } from 'lucide-react';
-import { instructors } from '../../data/mockData';
+import { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { Edit2, Star, Mail, Users, BookOpen, Plus, ArrowLeft, Save, X } from 'lucide-react';
+import { getInstructors, addInstructor } from '../../data/dynamicStore';
+import { supabase } from '../../supabase/client';
+
+function AddInstructorForm({ onBack }) {
+  const [form, setForm] = useState({ name: '', email: '', department: '' });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!form.name || !form.email) return;
+    await addInstructor({ ...form, students: 0, courses: 0, rating: 0 });
+    onBack();
+  };
+
+  return (
+    <div className="max-w-2xl">
+      <button onClick={onBack} className="flex items-center gap-2 text-sm text-gray-500 hover:text-gray-700 mb-6">
+        <ArrowLeft className="w-4 h-4" /> Back to Instructors
+      </button>
+      <div className="card p-6">
+        <h2 className="text-lg font-semibold mb-4">Add New Instructor</h2>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Name *</label>
+            <input type="text" value={form.name} onChange={e => setForm(p => ({ ...p, name: e.target.value }))} className="input-field w-full" required />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Email *</label>
+            <input type="email" value={form.email} onChange={e => setForm(p => ({ ...p, email: e.target.value }))} className="input-field w-full" required />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Department</label>
+            <input type="text" value={form.department} onChange={e => setForm(p => ({ ...p, department: e.target.value }))} className="input-field w-full" />
+          </div>
+          <div className="flex gap-3">
+            <button type="submit" className="btn-primary">Add Instructor</button>
+            <button type="button" onClick={onBack} className="btn-secondary">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+}
+
+function EditInstructorForm({ instructor, onBack, onSaved }) {
+  const [form, setForm] = useState({ name: instructor?.name || '', email: instructor?.email || '', department: instructor?.department || '' });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!form.name || !form.email) return;
+    await supabase.from('instructors').update(form).eq('id', instructor.id);
+    onSaved();
+  };
+
+  return (
+    <div className="max-w-2xl">
+      <button onClick={onBack} className="flex items-center gap-2 text-sm text-gray-500 hover:text-gray-700 mb-6">
+        <ArrowLeft className="w-4 h-4" /> Back
+      </button>
+      <div className="card p-6">
+        <h2 className="text-lg font-semibold mb-4">Edit Instructor</h2>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Name *</label>
+            <input type="text" value={form.name} onChange={e => setForm(p => ({ ...p, name: e.target.value }))} className="input-field w-full" required />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Email *</label>
+            <input type="email" value={form.email} onChange={e => setForm(p => ({ ...p, email: e.target.value }))} className="input-field w-full" required />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Department</label>
+            <input type="text" value={form.department} onChange={e => setForm(p => ({ ...p, department: e.target.value }))} className="input-field w-full" />
+          </div>
+          <div className="flex gap-3">
+            <button type="submit" className="btn-primary">Save</button>
+            <button type="button" onClick={onBack} className="btn-secondary">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+}
 
 export default function InstructorManagement() {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [instructors, setInstructors] = useState([]);
+  const [editId, setEditId] = useState(null);
+  const [search, setSearch] = useState('');
+
+  useEffect(() => { load(); }, []);
+
+  async function load() {
+    setInstructors(await getInstructors());
+  }
+
+  const isAddPage = location.pathname.endsWith('/add');
+  if (isAddPage) return <AddInstructorForm onBack={() => { navigate('/admin/instructors'); load(); }} />;
+
+  const filtered = instructors.filter(i =>
+    i.name.toLowerCase().includes(search.toLowerCase()) ||
+    i.email.toLowerCase().includes(search.toLowerCase())
+  );
+
+  if (editId) {
+    const instructor = instructors.find(i => i.id === editId);
+    if (instructor) return <EditInstructorForm instructor={instructor} onBack={() => setEditId(null)} onSaved={() => { setEditId(null); load(); }} />;
+  }
+
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold text-gray-900">Instructor Management</h1>
-        <button className="flex items-center gap-2 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">
-          Add Instructor
+        <button onClick={() => navigate('/admin/instructors/add')} className="flex items-center gap-2 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 cursor-pointer">
+          <Plus className="w-4 h-4" /> Add Instructor
         </button>
       </div>
 
+      <input
+        type="text"
+        placeholder="Search instructors..."
+        value={search}
+        onChange={e => setSearch(e.target.value)}
+        className="input-field max-w-md"
+      />
+
       <div className="grid gap-6">
-        {instructors.map(instructor => (
+        {filtered.map(instructor => (
           <div key={instructor.id} className="card p-6">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-4">
@@ -28,7 +144,7 @@ export default function InstructorManagement() {
                 </div>
               </div>
               <div className="flex items-center gap-2">
-                <button className="p-2 text-gray-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg">
+                <button onClick={() => setEditId(instructor.id)} className="p-2 text-gray-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg cursor-pointer">
                   <Edit2 className="w-4 h-4" />
                 </button>
               </div>
@@ -40,7 +156,7 @@ export default function InstructorManagement() {
                   <BookOpen className="w-5 h-5 text-blue-600" />
                 </div>
                 <div>
-                  <p className="text-lg font-bold text-gray-900">{instructor.courses}</p>
+                  <p className="text-lg font-bold text-gray-900">{instructor.courses || 0}</p>
                   <p className="text-xs text-gray-500">Courses</p>
                 </div>
               </div>
@@ -49,7 +165,7 @@ export default function InstructorManagement() {
                   <Users className="w-5 h-5 text-emerald-600" />
                 </div>
                 <div>
-                  <p className="text-lg font-bold text-gray-900">{instructor.students}</p>
+                  <p className="text-lg font-bold text-gray-900">{instructor.students || 0}</p>
                   <p className="text-xs text-gray-500">Students</p>
                 </div>
               </div>
@@ -58,7 +174,7 @@ export default function InstructorManagement() {
                   <Star className="w-5 h-5 text-amber-500" />
                 </div>
                 <div>
-                  <p className="text-lg font-bold text-gray-900">{instructor.rating}</p>
+                  <p className="text-lg font-bold text-gray-900">{instructor.rating || 0}</p>
                   <p className="text-xs text-gray-500">Rating</p>
                 </div>
               </div>
@@ -67,13 +183,16 @@ export default function InstructorManagement() {
                   <Users className="w-5 h-5 text-purple-600" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-gray-900">{instructor.department}</p>
+                  <p className="text-sm font-medium text-gray-900">{instructor.department || '-'}</p>
                   <p className="text-xs text-gray-500">Department</p>
                 </div>
               </div>
             </div>
           </div>
         ))}
+        {filtered.length === 0 && (
+          <div className="text-center py-12 text-gray-400">No instructors found. Add one to get started.</div>
+        )}
       </div>
     </div>
   );
