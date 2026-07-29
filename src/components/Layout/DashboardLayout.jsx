@@ -54,6 +54,7 @@ const titles = {
   '/admin/settings/smtp': 'SMTP Settings',
   '/admin/settings/api-keys': 'API Keys',
   '/admin/settings/backup': 'Backup & Restore',
+  '/admin/audit': 'Audit Log',
   '/student': 'Dashboard',
   '/student/courses': 'My Courses',
   '/student/continue': 'Continue Learning',

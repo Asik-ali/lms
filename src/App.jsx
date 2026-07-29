@@ -16,6 +16,7 @@ import ReportsPage from './pages/admin/ReportsPage';
 import CMSPage from './pages/admin/CMSPage';
 import NotificationsPage from './pages/admin/NotificationsPage';
 import SettingsPage from './pages/admin/SettingsPage';
+import AuditPage from './pages/admin/AuditPage';
 import StudentDashboard from './pages/student/StudentDashboard';
 import StudentCourses from './pages/student/StudentCourses';
 import StudentAssignments from './pages/student/StudentAssignments';
@@ -97,6 +98,7 @@ function AppRoutes() {
         <Route path="settings/smtp" element={<SettingsPage />} />
         <Route path="settings/api-keys" element={<SettingsPage />} />
         <Route path="settings/backup" element={<SettingsPage />} />
+        <Route path="audit" element={<AuditPage />} />
       </Route>
 
       <Route path="/student" element={<RoleGuard role="student"><DashboardLayout /></RoleGuard>}>

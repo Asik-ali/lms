@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Search, Edit2, Ban, Plus, ChevronDown, ArrowLeft, UserPlus, Copy, Check, LogIn } from 'lucide-react';
 import { students as mockStudents, courses } from '../../data/mockData';
-import { saveCredential } from '../../data/credentialsStore';
+import { supabase } from '../../supabase/client';
 import { useAuth } from '../../contexts/AuthContext';
 
 function generateUsername(name) {
@@ -17,12 +17,17 @@ function AddStudentForm({ onBack }) {
   const [credentials, setCredentials] = useState(null);
   const [copied, setCopied] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!form.name || !form.email) return;
     const username = generateUsername(form.name);
     const password = 'lms' + Math.random().toString(36).slice(2, 7);
-    saveCredential({ username, password, studentId: Date.now(), name: form.name, email: form.email, course: form.course, enrolled: form.enrolled });
+    try {
+      const email = `${username}@lms.app`;
+      await supabase.auth.signUp({ email, password, options: { data: { username, name: form.name, role: 'student' } } });
+    } catch {
+      // fallback
+    }
     setCredentials({ username, password });
     setSubmitted(true);
   };

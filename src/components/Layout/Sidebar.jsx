@@ -101,6 +101,7 @@ const adminNav = [
       { label: 'SMTP', path: '/admin/settings/smtp' },
       { label: 'API Keys', path: '/admin/settings/api-keys' },
       { label: 'Backup & Restore', path: '/admin/settings/backup' },
+      { label: 'Audit Log', path: '/admin/audit' },
     ]
   },
 ];

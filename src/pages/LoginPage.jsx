@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { BookOpen, User, Lock, AlertCircle, Eye, EyeOff } from 'lucide-react';
-import { findCredential, resolveUser } from '../data/credentialsStore';
 
 export default function LoginPage() {
   const { login } = useAuth();
@@ -20,32 +19,21 @@ export default function LoginPage() {
   }, []);
 
   const handleLoginDirect = async (user, pass) => {
-    const cred = findCredential(user, pass);
-    if (!cred) { setError('Invalid username or password'); return; }
-
-    if (cred.studentId === null) {
-      if (user === 'admin') {
-        login({ role: 'admin', name: 'Admin User', email: 'admin@lms.com', id: 'admin' });
-        navigate('/admin');
-      } else {
-        login({ role: 'instructor', name: 'Dr. Sarah Chen', email: 'sarah@lms.com', id: 'instructor' });
-        navigate('/instructor');
-      }
-      return;
+    try {
+      const u = await login(user, pass);
+      if (u.role === 'admin') navigate('/admin');
+      else if (u.role === 'instructor') navigate('/instructor');
+      else navigate('/student');
+    } catch {
+      setError('Invalid username or password');
     }
-
-    const student = await resolveUser(cred);
-    if (!student) { setError('Student not found'); return; }
-
-    login({ role: 'student', ...student, id: student.id });
-    navigate('/student');
   };
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     setError('');
     if (!username || !password) { setError('Please enter username and password'); return; }
-    handleLoginDirect(username, password);
+    await handleLoginDirect(username, password);
   };
 
   return (
