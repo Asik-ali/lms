@@ -32,11 +32,6 @@ function ComposeForm({ type, onSent }) {
   const handleSend = async () => {
     if (!subject || !message) return showError('Subject and message are required.');
 
-    if (type !== 'Email') {
-      showError('Only email sending is implemented. SMS and Push require additional setup.');
-      return;
-    }
-
     setSending(true);
     try {
       let recipientLabel = '';
@@ -62,33 +57,56 @@ function ComposeForm({ type, onSent }) {
         ];
       }
 
-      if (emails.length === 0) {
-        showError('No recipients found.');
+      if (type === 'Email') {
+        if (emails.length === 0) {
+          showError('No recipients found.');
+          setSending(false);
+          return;
+        }
+
+        const results = await Promise.allSettled(
+          emails.map(email =>
+            fetch('/api/send-email', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ recipient: email, subject, message }),
+            }).then(async r => ({ ok: r.ok, body: await r.json() }))
+          )
+        );
+
+        const sentCount = results.filter(r => r.status === 'fulfilled' && r.value?.ok).length;
+        const failed = results.filter(r => r.status === 'rejected' || (r.status === 'fulfilled' && !r.value?.ok));
+        const firstError = failed[0]?.value?.body?.error || 'Check SMTP settings.';
+
+        if (failed.length === 0) {
+          showSuccess(`Email sent to ${sentCount} recipient(s).`);
+        } else {
+          showError(`Sent to ${sentCount}, failed for ${failed.length}. ${firstError}`);
+        }
+
+        onSent({ type, recipient: recipientLabel, subject, status: failed.length === 0 ? 'Sent' : 'Failed' });
+      } else if (type === 'Push Notifications') {
+        const res = await fetch('/api/send-push', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ recipient, subject, message }),
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+          showSuccess(`Push notification sent to ${data.sent || 0} device(s).`);
+        } else {
+          showError(data.error || 'Failed to send push notifications.');
+        }
+
+        onSent({ type, recipient: recipientLabel, subject, status: res.ok ? 'Sent' : 'Failed' });
+      } else {
+        showError('Only Email and Push Notifications are implemented. SMS requires additional setup.');
         setSending(false);
         return;
       }
 
-      const results = await Promise.allSettled(
-        emails.map(email =>
-          fetch('/api/send-email', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ recipient: email, subject, message }),
-          }).then(async r => ({ ok: r.ok, body: await r.json() }))
-        )
-      );
-
-      const sentCount = results.filter(r => r.status === 'fulfilled' && r.value?.ok).length;
-      const failed = results.filter(r => r.status === 'rejected' || (r.status === 'fulfilled' && !r.value?.ok));
-      const firstError = failed[0]?.value?.body?.error || 'Check SMTP settings.';
-
-      if (failed.length === 0) {
-        showSuccess(`Email sent to ${sentCount} recipient(s).`);
-      } else {
-        showError(`Sent to ${sentCount}, failed for ${failed.length}. ${firstError}`);
-      }
-
-      onSent({ type, recipient: recipientLabel, subject, status: failed.length === 0 ? 'Sent' : 'Failed' });
       setSubject('');
       setMessage('');
     } catch (err) {

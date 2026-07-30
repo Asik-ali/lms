@@ -48,7 +48,11 @@ export default function QuestionBank() {
             {questions.map(q => (
               <tr key={q.id} className="border-b border-gray-100 hover:bg-gray-50">
                 <td className="table-cell font-medium max-w-md truncate">
-                  <a href={q.question} target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline truncate block">{q.question}</a>
+                  {q.question.startsWith('http://') || q.question.startsWith('https://') ? (
+                    <a href={q.question} target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline truncate block">{q.question}</a>
+                  ) : (
+                    <span className="truncate block">{q.question}</span>
+                  )}
                 </td>
                 <td className="table-cell">
                   <span className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">{q.type}</span>

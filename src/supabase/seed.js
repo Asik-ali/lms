@@ -91,8 +91,8 @@ async function seed() {
 
   await supabase.from('assignments').insert({ title: 'React Component Project', course: 'React Fundamentals', due_date: '2026-08-05', submissions: 32, total: 45, status: 'Active' });
   await supabase.from('quizzes').insert({ title: 'React Basics Quiz', course: 'React Fundamentals', questions: 15, total_marks: 100, duration: '30 min', status: 'Published' });
-  await supabase.from('questions').insert({ question: 'What is React?', type: 'Multiple Choice', category: 'Frontend', difficulty: 'Easy' });
-  await supabase.from('questions').insert({ question: 'Explain closures', type: 'Essay', category: 'Frontend', difficulty: 'Medium' });
+  await supabase.from('questions').insert({ question: 'https://drive.google.com/file/d/1-sample-react/view', type: 'Multiple Choice', category: 'Frontend', difficulty: 'Easy' });
+  await supabase.from('questions').insert({ question: 'https://drive.google.com/file/d/2-sample-closures/view', type: 'Essay', category: 'Frontend', difficulty: 'Medium' });
   await supabase.from('attendance').insert({ name: 'Alice Johnson', course: 'React Fundamentals', present: 18, total: 20, percentage: 90 });
   await supabase.from('attendance').insert({ name: 'Bob Smith', course: 'Node.js Advanced', present: 14, total: 18, percentage: 78 });
   await supabase.from('announcements').insert({ title: 'Holiday Notice - August 15', content: 'All classes will remain closed on August 15th.', target: 'All', created: '2026-07-28', status: 'Published' });

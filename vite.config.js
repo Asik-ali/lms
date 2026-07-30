@@ -47,6 +47,9 @@ export default defineConfig(({ mode }) => {
           server.middlewares.use(async (req, res, next) => {
             if (req.url.startsWith('/api/send-email')) return handleApi(req, res, '/send-email');
             if (req.url.startsWith('/api/create-student')) return handleApi(req, res, '/create-student');
+            if (req.url.startsWith('/api/send-push')) return handleApi(req, res, '/send-push');
+            if (req.url.startsWith('/api/save-subscription')) return handleApi(req, res, '/save-subscription');
+            if (req.url.startsWith('/api/vapid-public-key')) return handleApi(req, res, '/vapid-public-key');
             next();
           });
         },

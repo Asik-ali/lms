@@ -325,3 +325,15 @@ CREATE TABLE IF NOT EXISTS smtp_settings (
 ALTER TABLE smtp_settings ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Admins can read smtp_settings" ON smtp_settings FOR SELECT USING (public.is_admin());
 CREATE POLICY "Admins can manage smtp_settings" ON smtp_settings FOR ALL USING (public.is_admin()) WITH CHECK (public.is_admin());
+
+-- Push notification subscriptions
+CREATE TABLE IF NOT EXISTS push_subscriptions (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  user_id UUID REFERENCES profiles(id) ON DELETE CASCADE,
+  subscription JSONB NOT NULL,
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  UNIQUE(user_id)
+);
+
+ALTER TABLE push_subscriptions ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Users can manage own subscription" ON push_subscriptions FOR ALL USING (auth.uid() = user_id) WITH CHECK (auth.uid() = user_id);

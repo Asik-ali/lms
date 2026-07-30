@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Search, Plus, Edit2, Trash2, X, ChevronDown, Video, FileText, ExternalLink } from 'lucide-react';
 import { getCourses, addCourse, updateCourse, deleteCourse, getCategories, getInstructors, getCourseLessons, addCourseLesson, deleteCourseLesson, getCoursePdfs, addCoursePdf, deleteCoursePdf } from '../../data/dynamicStore';
 import { showSuccess, showError } from '../../components/common/Toast';
+import MediaViewer from '../../components/common/MediaViewer';
 
 const emptyForm = { title: '', instructor: '', category: '', duration: '', status: 'Draft' };
 
@@ -20,6 +21,7 @@ export default function CourseManagement() {
   const [pdfCourse, setPdfCourse] = useState(null);
   const [coursePdfs, setCoursePdfs] = useState([]);
   const [pdfForm, setPdfForm] = useState({ title: '', pdfUrl: '' });
+  const [mediaViewer, setMediaViewer] = useState(null);
 
   useEffect(() => { refresh(); loadCats(); loadInstructors(); }, []);
 
@@ -289,7 +291,7 @@ export default function CourseManagement() {
                           <p className="truncate text-sm font-medium text-gray-800">{lesson.title}</p>
                           <p className="text-xs text-gray-500">{lesson.provider}</p>
                         </div>
-                        <a href={lesson.video_url} target="_blank" rel="noreferrer" className="p-1.5 text-gray-400 hover:text-indigo-600" aria-label={`Open ${lesson.title}`}><ExternalLink className="w-4 h-4" /></a>
+                        <button onClick={() => setMediaViewer({ url: lesson.video_url, title: lesson.title, type: 'video' })} className="p-1.5 text-gray-400 hover:text-indigo-600" aria-label={`Open ${lesson.title}`}><ExternalLink className="w-4 h-4" /></button>
                         <button onClick={() => handleDeleteLesson(lesson.id)} className="p-1.5 text-gray-400 hover:text-red-600" aria-label={`Delete ${lesson.title}`}><Trash2 className="w-4 h-4" /></button>
                       </div>
                     ))}
@@ -318,7 +320,7 @@ export default function CourseManagement() {
                         <div className="min-w-0 flex-1">
                           <p className="truncate text-sm font-medium text-gray-800">{pdf.title}</p>
                         </div>
-                        <a href={pdf.pdf_url} target="_blank" rel="noreferrer" className="p-1.5 text-gray-400 hover:text-indigo-600" aria-label={`Open ${pdf.title}`}><ExternalLink className="w-4 h-4" /></a>
+                        <button onClick={() => setMediaViewer({ url: pdf.pdf_url, title: pdf.title, type: 'pdf' })} className="p-1.5 text-gray-400 hover:text-indigo-600" aria-label={`Open ${pdf.title}`}><ExternalLink className="w-4 h-4" /></button>
                         <button onClick={() => handleDeletePdf(pdf.id)} className="p-1.5 text-gray-400 hover:text-red-600" aria-label={`Delete ${pdf.title}`}><Trash2 className="w-4 h-4" /></button>
                       </div>
                     ))}
@@ -356,7 +358,7 @@ export default function CourseManagement() {
                     <p className="truncate text-sm font-medium text-gray-800">{lesson.title}</p>
                     <p className="text-xs text-gray-500">{lesson.provider}</p>
                   </div>
-                  <a href={lesson.video_url} target="_blank" rel="noreferrer" className="p-1.5 text-gray-400 hover:text-indigo-600" aria-label={`Open ${lesson.title}`}><ExternalLink className="w-4 h-4" /></a>
+                  <button onClick={() => setMediaViewer({ url: lesson.video_url, title: lesson.title, type: 'video' })} className="p-1.5 text-gray-400 hover:text-indigo-600" aria-label={`Open ${lesson.title}`}><ExternalLink className="w-4 h-4" /></button>
                   <button onClick={() => handleDeleteLesson(lesson.id)} className="p-1.5 text-gray-400 hover:text-red-600" aria-label={`Delete ${lesson.title}`}><Trash2 className="w-4 h-4" /></button>
                 </div>
               ))}
@@ -390,13 +392,17 @@ export default function CourseManagement() {
                   <div className="min-w-0 flex-1">
                     <p className="truncate text-sm font-medium text-gray-800">{pdf.title}</p>
                   </div>
-                  <a href={pdf.pdf_url} target="_blank" rel="noreferrer" className="p-1.5 text-gray-400 hover:text-indigo-600" aria-label={`Open ${pdf.title}`}><ExternalLink className="w-4 h-4" /></a>
+                  <button onClick={() => setMediaViewer({ url: pdf.pdf_url, title: pdf.title, type: 'pdf' })} className="p-1.5 text-gray-400 hover:text-indigo-600" aria-label={`Open ${pdf.title}`}><ExternalLink className="w-4 h-4" /></button>
                   <button onClick={() => handleDeletePdf(pdf.id)} className="p-1.5 text-gray-400 hover:text-red-600" aria-label={`Delete ${pdf.title}`}><Trash2 className="w-4 h-4" /></button>
                 </div>
               ))}
             </div>
           ) : <p className="text-sm text-gray-500">No PDFs added yet.</p>}
         </div>
+      )}
+
+      {mediaViewer && (
+        <MediaViewer {...mediaViewer} onClose={() => setMediaViewer(null)} />
       )}
 
       <div className="card overflow-hidden">

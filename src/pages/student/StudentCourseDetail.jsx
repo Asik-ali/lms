@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ArrowLeft, BookOpen, CalendarDays, Clock3, CheckCircle2, FileText, Download, Play } from 'lucide-react';
 import { getCourses, getCourseLessons, getCoursePdfs } from '../../data/dynamicStore';
+import MediaViewer from '../../components/common/MediaViewer';
 
 const courseDetails = {
   1: {
@@ -31,6 +32,7 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
   const [lessons, setLessons] = useState([]);
   const [pdfs, setPdfs] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [mediaViewer, setMediaViewer] = useState(null);
 
   const resolvedCourseId = propCourseId ?? routeCourseId;
 
@@ -136,9 +138,9 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
                   {lessons.map(lesson => (
                     <div key={lesson.id} className="rounded-lg border border-gray-200 p-3">
                       <p className="text-sm font-semibold text-gray-900">{lesson.title}</p>
-                      <a href={lesson.video_url} target="_blank" rel="noreferrer" className="mt-2 inline-flex items-center gap-1.5 text-sm text-indigo-600 hover:text-indigo-800">
+                      <button onClick={() => setMediaViewer({ url: lesson.video_url, title: lesson.title, type: 'video' })} className="mt-2 inline-flex items-center gap-1.5 text-sm text-indigo-600 hover:text-indigo-800">
                         <Play className="w-3.5 h-3.5" /> Watch video
-                      </a>
+                      </button>
                     </div>
                   ))}
                 </div>
@@ -150,9 +152,9 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
                   </div>
                   <div className="rounded-lg border border-gray-200 p-3">
                     <p className="text-sm font-semibold text-gray-900">Module 1: {course.title}</p>
-                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noreferrer" className="mt-2 inline-flex items-center gap-1.5 text-sm text-indigo-600 hover:text-indigo-800">
+                    <button onClick={() => setMediaViewer({ url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', title: 'Sample lesson', type: 'video' })} className="mt-2 inline-flex items-center gap-1.5 text-sm text-indigo-600 hover:text-indigo-800">
                       <Play className="w-3.5 h-3.5" /> Watch sample lesson
-                    </a>
+                    </button>
                   </div>
                 </div>
               )}
@@ -168,14 +170,20 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
                       <div className="min-w-0 flex-1">
                         <p className="text-sm font-semibold text-gray-900 truncate">{pdf.title}</p>
                       </div>
+                      <button
+                        onClick={() => setMediaViewer({ url: pdf.pdf_url, title: pdf.title, type: 'pdf' })}
+                        className="inline-flex items-center gap-1.5 text-sm font-medium text-indigo-600 hover:text-indigo-800 shrink-0"
+                      >
+                        <Download className="w-3.5 h-3.5" /> View PDF
+                      </button>
                       <a
                         href={pdf.pdf_url}
                         download={pdf.title}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-1.5 text-sm font-medium text-indigo-600 hover:text-indigo-800 shrink-0"
+                        className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-500 hover:text-gray-700 shrink-0"
                       >
-                        <Download className="w-3.5 h-3.5" /> Download PDF
+                        <Download className="w-3.5 h-3.5" />
                       </a>
                     </div>
                   ))}
@@ -192,6 +200,10 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
           </div>
         </div>
       </div>
+
+      {mediaViewer && (
+        <MediaViewer {...mediaViewer} onClose={() => setMediaViewer(null)} />
+      )}
     </div>
   );
 }
