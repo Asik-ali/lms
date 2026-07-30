@@ -52,14 +52,7 @@ const adminNav = [
       { label: 'Grade Assignment', path: '/admin/assignments/grade' },
     ]
   },
-  {
-    section: 'Exams & Quizzes', icon: PenTool, submenu: [
-      { label: 'Question Bank', path: '/admin/exams/questions' },
-      { label: 'Create Quiz', path: '/admin/exams/create' },
-      { label: 'Results', path: '/admin/exams/results' },
-      { label: 'Leaderboard', path: '/admin/exams/leaderboard' },
-    ]
-  },
+  { section: 'Question Bank', icon: PenTool, path: '/admin/exams/questions' },
   {
     section: 'Attendance', icon: Calendar, submenu: [
       { label: 'Student Attendance', path: '/admin/attendance/students' },
@@ -109,7 +102,6 @@ const studentNav = [
   { section: 'My Courses', icon: BookOpen, path: '/student/courses' },
   { section: 'Continue Learning', icon: BookMarked, path: '/student/continue' },
   { section: 'Assignments', icon: FileSpreadsheet, path: '/student/assignments' },
-  { section: 'Quizzes', icon: PenTool, path: '/student/quizzes' },
   { section: 'Calendar', icon: Calendar, path: '/student/calendar' },
   { section: 'Announcements', icon: Megaphone, path: '/student/announcements' },
   { section: 'Messages', icon: MessageSquare, path: '/student/messages' },
@@ -122,7 +114,6 @@ const instructorNav = [
   { section: 'Students', icon: Users, path: '/instructor/students' },
   { section: 'Course Content', icon: Library, path: '/instructor/content' },
   { section: 'Assignments', icon: FileSpreadsheet, path: '/instructor/assignments' },
-  { section: 'Quizzes', icon: PenTool, path: '/instructor/quizzes' },
   { section: 'Attendance', icon: Calendar, path: '/instructor/attendance' },
   { section: 'Announcements', icon: Megaphone, path: '/instructor/announcements' },
   { section: 'Analytics', icon: BarChart3, path: '/instructor/analytics' },

@@ -10,7 +10,7 @@ import CourseManagement from './pages/admin/CourseManagement';
 import CategoryManagement from './pages/admin/CategoryManagement';
 import Enrollment from './pages/admin/Enrollment';
 import Assignments from './pages/admin/Assignments';
-import ExamsQuizzes from './pages/admin/ExamsQuizzes';
+import QuestionBank from './pages/admin/ExamsQuizzes';
 import AttendancePage from './pages/admin/AttendancePage';
 
 import AnnouncementsPage from './pages/admin/AnnouncementsPage';
@@ -23,7 +23,7 @@ import StudentDashboard from './pages/student/StudentDashboard';
 import StudentCourses from './pages/student/StudentCourses';
 import StudentCourseDetail from './pages/student/StudentCourseDetail';
 import StudentAssignments from './pages/student/StudentAssignments';
-import StudentQuizzes from './pages/student/StudentQuizzes';
+
 import StudentAnnouncements from './pages/student/StudentAnnouncements';
 import InstructorDashboard from './pages/instructor/InstructorDashboard';
 import InstructorCourses from './pages/instructor/InstructorCourses';
@@ -75,10 +75,7 @@ function AppRoutes() {
         <Route path="assignments/create" element={<Assignments />} />
         <Route path="assignments/submissions" element={<Assignments />} />
         <Route path="assignments/grade" element={<Assignments />} />
-        <Route path="exams/questions" element={<ExamsQuizzes />} />
-        <Route path="exams/create" element={<ExamsQuizzes />} />
-        <Route path="exams/results" element={<ExamsQuizzes />} />
-        <Route path="exams/leaderboard" element={<ExamsQuizzes />} />
+        <Route path="exams/questions" element={<QuestionBank />} />
         <Route path="attendance/students" element={<AttendancePage />} />
         <Route path="attendance/class" element={<AttendancePage />} />
         <Route path="attendance/reports" element={<AttendancePage />} />
@@ -110,7 +107,6 @@ function AppRoutes() {
         <Route path="courses/:courseId" element={<StudentCourseDetail />} />
         <Route path="continue" element={<StudentCourseDetail courseId="1" />} />
         <Route path="assignments" element={<StudentAssignments />} />
-        <Route path="quizzes" element={<StudentQuizzes />} />
         <Route path="attendance" element={<AttendancePage />} />
         <Route path="calendar" element={<StudentDashboard />} />
         <Route path="announcements" element={<StudentAnnouncements />} />
@@ -125,7 +121,6 @@ function AppRoutes() {
         <Route path="students" element={<InstructorStudents />} />
         <Route path="content" element={<InstructorCourses />} />
         <Route path="assignments" element={<InstructorAssignments />} />
-        <Route path="quizzes" element={<ExamsQuizzes />} />
         <Route path="attendance" element={<AttendancePage />} />
         <Route path="announcements" element={<AnnouncementsPage />} />
         <Route path="analytics" element={<InstructorAnalytics />} />
