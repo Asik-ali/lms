@@ -188,3 +188,21 @@ export async function getAuditLogs(params = {}) {
   const { data } = await q;
   return data || [];
 }
+
+export async function getSmtpSettings() {
+  const { data, error } = await supabase.from('smtp_settings').select('*').limit(1).maybeSingle();
+  if (error) throw error;
+  return data || null;
+}
+
+export async function saveSmtpSettings(data) {
+  const existing = await getSmtpSettings();
+  if (existing) {
+    const { data: row, error } = await supabase.from('smtp_settings').update(data).eq('id', existing.id).select().maybeSingle();
+    if (error) throw error;
+    return row;
+  }
+  const { data: row, error } = await supabase.from('smtp_settings').insert(data).select().maybeSingle();
+  if (error) throw error;
+  return row;
+}

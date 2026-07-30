@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Mail, MessageSquare, Bell, Send } from 'lucide-react';
-import { students, instructors } from '../../data/mockData';
+import { Mail, MessageSquare, Bell, Send, Loader } from 'lucide-react';
+import { supabase } from '../../supabase/client';
+import { showError, showSuccess } from '../../components/common/Toast';
 
 const tabs = [
   { label: 'Email', icon: Mail },
@@ -8,24 +9,17 @@ const tabs = [
   { label: 'Push Notifications', icon: Bell },
 ];
 
-const sentHistory = [
-  { id: 1, type: 'Email', recipient: 'All Students', subject: 'Holiday Notice - August 15', sent: '2026-07-28', status: 'Sent' },
-  { id: 2, type: 'Email', recipient: 'All Instructors', subject: 'Faculty Meeting', sent: '2026-07-25', status: 'Sent' },
-  { id: 3, type: 'SMS', recipient: 'All Students', subject: 'Class Reminder', sent: '2026-07-22', status: 'Sent' },
-  { id: 4, type: 'Push', recipient: 'Specific', subject: 'New Course Alert', sent: '2026-07-20', status: 'Failed' },
-];
-
-const recipients = [
+const recipientOptions = [
   { value: 'all_students', label: 'All Students' },
   { value: 'all_instructors', label: 'All Instructors' },
   { value: 'all_users', label: 'All Users' },
-  { value: 'specific', label: 'Specific Users' },
 ];
 
-function ComposeForm({ type }) {
+function ComposeForm({ type, onSent }) {
   const [recipient, setRecipient] = useState('all_students');
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
+  const [sending, setSending] = useState(false);
 
   const placeholders = {
     Email: { subject: 'Notification subject', message: 'Write your email message...' },
@@ -35,6 +29,75 @@ function ComposeForm({ type }) {
 
   const ph = placeholders[type] || placeholders.Email;
 
+  const handleSend = async () => {
+    if (!subject || !message) return showError('Subject and message are required.');
+
+    if (type !== 'Email') {
+      showError('Only email sending is implemented. SMS and Push require additional setup.');
+      return;
+    }
+
+    setSending(true);
+    try {
+      let recipientLabel = '';
+      let emails = [];
+
+      if (recipient === 'all_students') {
+        recipientLabel = 'All Students';
+        const { data } = await supabase.from('profiles').select('email').eq('role', 'student');
+        emails = data?.map(p => p.email).filter(Boolean) || [];
+      } else if (recipient === 'all_instructors') {
+        recipientLabel = 'All Instructors';
+        const { data } = await supabase.from('instructors').select('email');
+        emails = data?.map(p => p.email).filter(Boolean) || [];
+      } else {
+        recipientLabel = 'All Users';
+        const [profiles, instructors] = await Promise.all([
+          supabase.from('profiles').select('email'),
+          supabase.from('instructors').select('email'),
+        ]);
+        emails = [
+          ...(profiles.data?.map(p => p.email).filter(Boolean) || []),
+          ...(instructors.data?.map(p => p.email).filter(Boolean) || []),
+        ];
+      }
+
+      if (emails.length === 0) {
+        showError('No recipients found.');
+        setSending(false);
+        return;
+      }
+
+      const results = await Promise.allSettled(
+        emails.map(email =>
+          fetch('/api/send-email', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ recipient: email, subject, message }),
+          }).then(async r => ({ ok: r.ok, body: await r.json() }))
+        )
+      );
+
+      const sentCount = results.filter(r => r.status === 'fulfilled' && r.value?.ok).length;
+      const failed = results.filter(r => r.status === 'rejected' || (r.status === 'fulfilled' && !r.value?.ok));
+      const firstError = failed[0]?.value?.body?.error || 'Check SMTP settings.';
+
+      if (failed.length === 0) {
+        showSuccess(`Email sent to ${sentCount} recipient(s).`);
+      } else {
+        showError(`Sent to ${sentCount}, failed for ${failed.length}. ${firstError}`);
+      }
+
+      onSent({ type, recipient: recipientLabel, subject, status: failed.length === 0 ? 'Sent' : 'Failed' });
+      setSubject('');
+      setMessage('');
+    } catch (err) {
+      showError(err.message || 'Failed to send.');
+    } finally {
+      setSending(false);
+    }
+  };
+
   return (
     <div className="card">
       <div className="card-header"><h3 className="text-lg font-semibold">Compose {type}</h3></div>
@@ -42,7 +105,7 @@ function ComposeForm({ type }) {
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Recipient</label>
           <select value={recipient} onChange={e => setRecipient(e.target.value)} className="input-field">
-            {recipients.map(r => <option key={r.value} value={r.value}>{r.label}</option>)}
+            {recipientOptions.map(r => <option key={r.value} value={r.value}>{r.label}</option>)}
           </select>
         </div>
         <div>
@@ -53,49 +116,22 @@ function ComposeForm({ type }) {
           <label className="block text-sm font-medium text-gray-700 mb-1">Message</label>
           <textarea rows={5} value={message} onChange={e => setMessage(e.target.value)} placeholder={ph.message} className="input-field resize-none" />
         </div>
-        <button className="flex items-center gap-2 btn-primary">
-          <Send className="w-4 h-4" />
-          Send {type}
+        <button onClick={handleSend} disabled={sending} className="flex items-center gap-2 btn-primary disabled:opacity-60">
+          {sending ? <Loader className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
+          {sending ? 'Sending...' : `Send ${type}`}
         </button>
       </div>
     </div>
   );
 }
 
-function HistoryTable() {
-  return (
-    <div className="card overflow-hidden">
-      <div className="card-header"><h3 className="text-lg font-semibold">Sent History</h3></div>
-      <table className="w-full">
-        <thead>
-          <tr className="border-b border-gray-200 bg-gray-50">
-            <th className="table-header">Type</th>
-            <th className="table-header">Recipient</th>
-            <th className="table-header">Subject</th>
-            <th className="table-header">Date</th>
-            <th className="table-header">Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          {sentHistory.map(h => (
-            <tr key={h.id} className="border-b border-gray-100 hover:bg-gray-50">
-              <td className="table-cell font-medium">{h.type}</td>
-              <td className="table-cell">{h.recipient}</td>
-              <td className="table-cell text-gray-600">{h.subject}</td>
-              <td className="table-cell text-gray-500">{h.sent}</td>
-              <td className="table-cell">
-                <span className={`badge ${h.status === 'Sent' ? 'badge-success' : 'badge-danger'}`}>{h.status}</span>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-}
-
 export default function NotificationsPage() {
   const [activeTab, setActiveTab] = useState(0);
+  const [history, setHistory] = useState([]);
+
+  const addToHistory = (entry) => {
+    setHistory(prev => [{ id: Date.now(), sent: new Date().toISOString().slice(0, 10), ...entry }, ...prev]);
+  };
 
   return (
     <div className="space-y-6">
@@ -125,8 +161,38 @@ export default function NotificationsPage() {
         </div>
       </div>
 
-      <ComposeForm type={tabs[activeTab].label} />
-      <HistoryTable />
+      <ComposeForm type={tabs[activeTab].label} onSent={addToHistory} />
+
+      <div className="card overflow-hidden">
+        <div className="card-header"><h3 className="text-lg font-semibold">Sent History</h3></div>
+        <table className="w-full">
+          <thead>
+            <tr className="border-b border-gray-200 bg-gray-50">
+              <th className="table-header">Type</th>
+              <th className="table-header">Recipient</th>
+              <th className="table-header">Subject</th>
+              <th className="table-header">Date</th>
+              <th className="table-header">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {history.length === 0 && (
+              <tr><td colSpan={5} className="text-center py-8 text-gray-400">No notifications sent yet.</td></tr>
+            )}
+            {history.map(h => (
+              <tr key={h.id} className="border-b border-gray-100 hover:bg-gray-50">
+                <td className="table-cell font-medium">{h.type}</td>
+                <td className="table-cell">{h.recipient}</td>
+                <td className="table-cell text-gray-600">{h.subject}</td>
+                <td className="table-cell text-gray-500">{h.sent}</td>
+                <td className="table-cell">
+                  <span className={`badge ${h.status === 'Sent' ? 'badge-success' : 'badge-danger'}`}>{h.status}</span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

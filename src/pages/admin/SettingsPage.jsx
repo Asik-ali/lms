@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Settings, Shield, Mail, Key, Database, Save, Plus, Trash2, Copy, Download, Upload } from 'lucide-react';
+import { Settings, Shield, Mail, Key, Database, Save, Plus, Trash2, Copy, Download, Upload, Loader } from 'lucide-react';
 import { supabase } from '../../supabase/client';
+import { getSmtpSettings, saveSmtpSettings } from '../../data/dynamicStore';
 import { showError, showSuccess } from '../../components/common/Toast';
 
 const tabs = [
@@ -102,36 +103,107 @@ function RolesTab() {
 }
 
 function SMTPTab() {
-  const [host, setHost] = useState('smtp.example.com');
+  const [host, setHost] = useState('smtp.gmail.com');
   const [port, setPort] = useState('587');
-  const [username, setUsername] = useState('noreply@example.com');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [senderName, setSenderName] = useState('LMS Platform');
+  const [saving, setSaving] = useState(false);
+  const [testing, setTesting] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const settings = await getSmtpSettings();
+        if (settings) {
+          setHost(settings.host);
+          setPort(String(settings.port));
+          setUsername(settings.username);
+          setPassword(settings.password);
+          setSenderName(settings.sender_name);
+        }
+      } catch (err) {
+        console.error('Failed to load SMTP settings:', err);
+      }
+      setLoading(false);
+    })();
+  }, []);
+
+  const handleSave = async () => {
+    setSaving(true);
+    try {
+      await saveSmtpSettings({ host, port: Number(port), username, password, sender_name: senderName });
+      showSuccess('SMTP settings saved.');
+    } catch (err) {
+      showError(err.message || 'Failed to save SMTP settings.');
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const handleTest = async () => {
+    setTesting(true);
+    try {
+      const res = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          recipient: username,
+          subject: 'Test email from LMS',
+          message: 'This is a test email to confirm your SMTP configuration is working.',
+          smtpConfig: { host, port: Number(port), username, password, sender_name: senderName },
+        }),
+      });
+      const data = await res.json();
+      if (res.ok) showSuccess('Test email sent! Check your inbox.');
+      else showError(data.error || 'Connection failed.');
+    } catch (err) {
+      showError(err.message || 'Could not connect to the server.');
+    } finally {
+      setTesting(false);
+    }
+  };
+
+  if (loading) {
+    return <div className="card p-8 text-center text-gray-500"><Loader className="w-5 h-5 mx-auto mb-2 animate-spin" />Loading...</div>;
+  }
 
   return (
     <div className="card">
       <div className="card-header"><h3 className="text-lg font-semibold">SMTP Configuration</h3></div>
       <div className="p-6 space-y-4 max-w-xl">
+        <p className="text-sm text-gray-500">Configure your Gmail SMTP to send email notifications. Use an <a href="https://support.google.com/accounts/answer/185833" target="_blank" rel="noreferrer" className="text-indigo-600 underline">App Password</a> if you have 2FA enabled.</p>
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">SMTP Host</label>
-            <input type="text" value={host} onChange={e => setHost(e.target.value)} className="input-field" />
+            <input type="text" value={host} onChange={e => setHost(e.target.value)} className="input-field" placeholder="smtp.gmail.com" />
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Port</label>
-            <input type="text" value={port} onChange={e => setPort(e.target.value)} className="input-field" />
+            <input type="text" value={port} onChange={e => setPort(e.target.value)} className="input-field" placeholder="587" />
           </div>
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Username</label>
-          <input type="text" value={username} onChange={e => setUsername(e.target.value)} className="input-field" />
+          <label className="block text-sm font-medium text-gray-700 mb-1">Email (Username)</label>
+          <input type="text" value={username} onChange={e => setUsername(e.target.value)} className="input-field" placeholder="your-email@gmail.com" />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
-          <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Enter SMTP password" className="input-field" />
+          <label className="block text-sm font-medium text-gray-700 mb-1">App Password</label>
+          <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Enter your Gmail App Password" className="input-field" />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Sender Name</label>
+          <input type="text" value={senderName} onChange={e => setSenderName(e.target.value)} className="input-field" placeholder="LMS Platform" />
         </div>
         <div className="flex items-center gap-3">
-          <button className="flex items-center gap-2 btn-primary"><Save className="w-4 h-4" />Save SMTP</button>
-          <button className="btn-secondary">Test Connection</button>
+          <button onClick={handleSave} disabled={saving} className="flex items-center gap-2 btn-primary disabled:opacity-60">
+            {saving ? <Loader className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
+            {saving ? 'Saving...' : 'Save SMTP'}
+          </button>
+          <button onClick={handleTest} disabled={testing || !username || !password} className="btn-secondary disabled:opacity-50">
+            {testing ? 'Sending...' : 'Test Connection'}
+          </button>
         </div>
       </div>
     </div>
@@ -181,7 +253,7 @@ function ApiKeysTab() {
   );
 }
 
-const backupTables = ['categories', 'courses', 'instructors', 'assignments', 'quizzes', 'questions', 'attendance', 'announcements', 'enrollments', 'notifications', 'live_classes'];
+const backupTables = ['categories', 'courses', 'instructors', 'assignments', 'quizzes', 'questions', 'attendance', 'announcements', 'enrollments', 'notifications', 'live_classes', 'smtp_settings'];
 
 function BackupTab() {
   const [schedule, setSchedule] = useState(() => localStorage.getItem('backupSchedule') || 'daily');

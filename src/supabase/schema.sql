@@ -292,3 +292,18 @@ CREATE TABLE IF NOT EXISTS live_classes (
 ALTER TABLE live_classes ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Everyone can read live_classes" ON live_classes FOR SELECT USING (true);
 CREATE POLICY "Admins can manage live_classes" ON live_classes FOR ALL USING (public.is_admin());
+
+-- SMTP Settings (single row)
+CREATE TABLE IF NOT EXISTS smtp_settings (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  host TEXT NOT NULL DEFAULT 'smtp.gmail.com',
+  port INTEGER NOT NULL DEFAULT 587,
+  username TEXT NOT NULL DEFAULT '',
+  password TEXT NOT NULL DEFAULT '',
+  sender_name TEXT NOT NULL DEFAULT 'LMS Platform',
+  updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+ALTER TABLE smtp_settings ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Admins can read smtp_settings" ON smtp_settings FOR SELECT USING (public.is_admin());
+CREATE POLICY "Admins can manage smtp_settings" ON smtp_settings FOR ALL USING (public.is_admin()) WITH CHECK (public.is_admin());

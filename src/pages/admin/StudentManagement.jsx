@@ -7,10 +7,6 @@ import { useAuth } from '../../contexts/AuthContext';
 import { showError, showSuccess } from '../../components/common/Toast';
 import { normalizeCourseAccessSelection, serializeCourseAccess, getCourseAccessLabel } from './studentCourseAccess';
 
-function generateUsername(name) {
-  return name.toLowerCase().replace(/\s+/g, '.').replace(/[^a-z0-9.]/g, '');
-}
-
 function AddStudentForm({ onBack, onStudentAdded }) {
   const { logout } = useAuth();
   const navigate = useNavigate();
@@ -27,30 +23,23 @@ function AddStudentForm({ onBack, onStudentAdded }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!form.name || !form.email) return;
-    const username = generateUsername(form.name);
-    const password = 'lms' + Math.random().toString(36).slice(2, 7);
     setSubmitError('');
     setIsSubmitting(true);
     try {
-      const email = form.email.trim().toLowerCase();
-      const { data, error } = await supabase.auth.signUp({
-        email,
-        password,
-        options: {
-          data: {
-            username,
-            name: form.name,
-            profile_email: form.email,
-            role: 'student',
-            course: form.course || null,
-            enrolled: form.enrolled,
-          },
-        },
+      const res = await fetch('/api/create-student', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email.trim().toLowerCase(),
+          course: form.course || null,
+          enrolled: form.enrolled,
+        }),
       });
-      if (error) throw error;
-      if (!data.user) throw new Error('Student account could not be created.');
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Unable to add the student.');
       await onStudentAdded();
-      setCredentials({ email, password });
+      setCredentials({ email: data.email, password: data.password });
       setSubmitted(true);
     } catch (error) {
       setSubmitError(error.message || 'Unable to add the student.');
