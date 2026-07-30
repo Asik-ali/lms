@@ -189,6 +189,26 @@ export async function getAuditLogs(params = {}) {
   return data || [];
 }
 
+export async function getAssignmentSubmissions(assignmentId) {
+  const { data } = await supabase.from('assignment_submissions').select('*').eq('assignment_id', assignmentId);
+  return data || [];
+}
+
+export async function getMySubmissions(studentId) {
+  const { data } = await supabase.from('assignment_submissions').select('*').eq('student_id', studentId);
+  return data || [];
+}
+
+export async function submitAssignmentLink(assignmentId, studentId, link) {
+  const { data: existing } = await supabase.from('assignment_submissions').select('*').eq('assignment_id', assignmentId).eq('student_id', studentId).maybeSingle();
+  if (existing) {
+    const { data: row } = await supabase.from('assignment_submissions').update({ link, submitted_at: new Date().toISOString() }).eq('id', existing.id).select().single();
+    return row;
+  }
+  const { data: row } = await supabase.from('assignment_submissions').insert({ assignment_id: assignmentId, student_id: studentId, link }).select().single();
+  return row;
+}
+
 export async function getSmtpSettings() {
   const { data, error } = await supabase.from('smtp_settings').select('*').limit(1).maybeSingle();
   if (error) throw error;

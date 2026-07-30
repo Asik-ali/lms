@@ -114,7 +114,6 @@ const studentNav = [
   { section: 'Announcements', icon: Megaphone, path: '/student/announcements' },
   { section: 'Messages', icon: MessageSquare, path: '/student/messages' },
   { section: 'Profile', icon: UserCircle, path: '/student/profile' },
-  { section: 'Settings', icon: Settings, path: '/student/settings' },
 ];
 
 const instructorNav = [

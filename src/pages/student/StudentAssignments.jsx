@@ -1,16 +1,57 @@
-import { useState } from 'react';
-import { FileText, Clock, Upload, CheckCircle } from 'lucide-react';
-import { studentAssignments } from '../../data/mockData';
+import { useState, useEffect } from 'react';
+import { FileText, Clock, CheckCircle, Link, X } from 'lucide-react';
+import { getAssignments, getMySubmissions, submitAssignmentLink } from '../../data/dynamicStore';
+import { useAuth } from '../../contexts/AuthContext';
+import { showSuccess, showError } from '../../components/common/Toast';
 
 const statusTabs = ['All', 'Pending', 'Submitted', 'Graded'];
 
 export default function StudentAssignments() {
+  const { user } = useAuth();
   const [activeTab, setActiveTab] = useState('All');
+  const [assignments, setAssignments] = useState([]);
+  const [submissions, setSubmissions] = useState([]);
+  const [submitModal, setSubmitModal] = useState(null);
+  const [linkValue, setLinkValue] = useState('');
 
-  const filtered = studentAssignments.filter(a => {
+  useEffect(() => {
+    (async () => {
+      setAssignments(await getAssignments());
+    })();
+  }, []);
+
+  useEffect(() => {
+    if (user?.id) {
+      getMySubmissions(user.id).then(setSubmissions);
+    }
+  }, [user]);
+
+  const merged = assignments.map(a => {
+    const sub = submissions.find(s => s.assignment_id === a.id);
+    return { ...a, submission: sub || null, status: sub?.grade != null ? 'Graded' : sub?.link ? 'Submitted' : 'Pending' };
+  });
+
+  const filtered = merged.filter(a => {
     if (activeTab === 'All') return true;
     return a.status === activeTab;
   });
+
+  const handleSubmit = async () => {
+    if (!linkValue.trim()) return;
+    if (!linkValue.startsWith('http://') && !linkValue.startsWith('https://')) {
+      return showError('Please enter a valid URL starting with http:// or https://');
+    }
+    try {
+      await submitAssignmentLink(submitModal.id, user.id, linkValue.trim());
+      showSuccess('Assignment submitted!');
+      setSubmitModal(null);
+      setLinkValue('');
+      const updated = await getMySubmissions(user.id);
+      setSubmissions(updated);
+    } catch (err) {
+      showError(err.message || 'Failed to submit');
+    }
+  };
 
   return (
     <div className="space-y-6">
@@ -42,6 +83,7 @@ export default function StudentAssignments() {
               <th className="table-header">Course</th>
               <th className="table-header">Due Date</th>
               <th className="table-header">Status</th>
+              <th className="table-header">Submission Link</th>
               <th className="table-header">Grade</th>
               <th className="table-header">Action</th>
             </tr>
@@ -59,7 +101,7 @@ export default function StudentAssignments() {
                 <td className="table-cell">
                   <div className="flex items-center gap-1.5 text-gray-500">
                     <Clock className="w-3.5 h-3.5" />
-                    {a.dueDate}
+                    {a.due_date}
                   </div>
                 </td>
                 <td className="table-cell">
@@ -68,22 +110,31 @@ export default function StudentAssignments() {
                     a.status === 'Submitted' ? 'badge-info' : 'badge-warning'
                   }`}>{a.status}</span>
                 </td>
+                <td className="table-cell max-w-[200px] truncate">
+                  {a.submission?.link ? (
+                    <a href={a.submission.link} target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline text-sm flex items-center gap-1">
+                      <Link className="w-3 h-3" /> {a.submission.link}
+                    </a>
+                  ) : (
+                    <span className="text-gray-400 text-sm">--</span>
+                  )}
+                </td>
                 <td className="table-cell">
-                  {a.grade !== null ? (
-                    <span className="font-medium text-gray-900">{a.grade}/100</span>
+                  {a.submission?.grade != null ? (
+                    <span className="font-medium text-gray-900">{a.submission.grade}/100</span>
                   ) : (
                     <span className="text-gray-400">--</span>
                   )}
                 </td>
                 <td className="table-cell">
                   {a.status === 'Pending' ? (
-                    <button className="btn-primary flex items-center gap-1.5 text-xs">
-                      <Upload className="w-3.5 h-3.5" /> Upload
+                    <button onClick={() => { setSubmitModal(a); setLinkValue(a.submission?.link || ''); }} className="btn-primary flex items-center gap-1.5 text-xs px-3 py-1.5">
+                      <Link className="w-3.5 h-3.5" /> Submit Link
                     </button>
                   ) : a.status === 'Submitted' ? (
-                    <span className="flex items-center gap-1 text-xs text-gray-500">
-                      <CheckCircle className="w-3.5 h-3.5 text-green-500" /> Submitted
-                    </span>
+                    <button onClick={() => { setSubmitModal(a); setLinkValue(a.submission?.link || ''); }} className="btn-secondary flex items-center gap-1.5 text-xs px-3 py-1.5">
+                      <Link className="w-3.5 h-3.5" /> Update
+                    </button>
                   ) : (
                     <span className="flex items-center gap-1 text-xs text-green-600">
                       <CheckCircle className="w-3.5 h-3.5" /> Graded
@@ -94,19 +145,38 @@ export default function StudentAssignments() {
             ))}
           </tbody>
         </table>
+        {filtered.length === 0 && (
+          <div className="text-center py-8 text-gray-400">
+            <FileText className="w-10 h-10 mx-auto mb-2 opacity-50" />
+            <p>No assignments found</p>
+          </div>
+        )}
       </div>
 
-      {activeTab === 'Pending' && filtered.length > 0 && (
-        <div className="card">
-          <div className="card-header">
-            <h3 className="text-lg font-semibold">Upload Assignment</h3>
-          </div>
-          <div className="p-6">
-            <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-indigo-400 transition-colors">
-              <Upload className="w-8 h-8 text-gray-400 mx-auto mb-3" />
-              <p className="text-sm text-gray-600">Drag and drop your file here, or</p>
-              <button className="btn-secondary mt-2">Browse Files</button>
-              <p className="text-xs text-gray-400 mt-2">PDF, DOC, DOCX up to 10MB</p>
+      {submitModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+          <div className="bg-white rounded-xl shadow-xl w-full max-w-md p-6 space-y-4">
+            <div className="flex items-center justify-between">
+              <h2 className="text-lg font-semibold text-gray-900">Submit Assignment</h2>
+              <button onClick={() => setSubmitModal(null)} className="p-1 text-gray-400 hover:text-gray-600"><X className="w-5 h-5" /></button>
+            </div>
+            <p className="text-sm text-gray-500">
+              <span className="font-medium">{submitModal.title}</span> — {submitModal.course}
+            </p>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Assignment Link</label>
+              <input
+                type="url"
+                value={linkValue}
+                onChange={e => setLinkValue(e.target.value)}
+                className="input-field w-full"
+                placeholder="https://drive.google.com/..."
+              />
+              <p className="text-xs text-gray-400 mt-1">Paste a Google Drive, GitHub, or any public URL</p>
+            </div>
+            <div className="flex justify-end gap-3">
+              <button onClick={() => setSubmitModal(null)} className="btn-secondary">Cancel</button>
+              <button onClick={handleSubmit} className="btn-primary">Submit</button>
             </div>
           </div>
         </div>

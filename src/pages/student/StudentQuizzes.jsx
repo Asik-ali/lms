@@ -1,14 +1,14 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ClipboardList, Clock, HelpCircle, Play, BarChart3 } from 'lucide-react';
-import { quizzes } from '../../data/mockData';
-
-const quizResults = [
-  { id: 1, title: 'React Basics Quiz', course: 'React Fundamentals', score: 85, total: 100, date: '2026-07-20' },
-  { id: 2, title: 'Python Fundamentals', course: 'Python for Data Science', score: 92, total: 50, date: '2026-07-22' },
-];
+import { getQuizzes } from '../../data/dynamicStore';
 
 export default function StudentQuizzes() {
+  const [quizzes, setQuizzes] = useState([]);
   const [showResults, setShowResults] = useState(false);
+
+  useEffect(() => {
+    getQuizzes().then(setQuizzes);
+  }, []);
 
   const published = quizzes.filter(q => q.status === 'Published');
 
@@ -46,7 +46,7 @@ export default function StudentQuizzes() {
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="text-gray-500">Marks:</span>
-                    <span className="font-medium text-gray-700">{q.totalMarks}</span>
+                    <span className="font-medium text-gray-700">{q.total_marks}</span>
                   </div>
                 </div>
                 <span className="badge badge-success mt-3 inline-block">Published</span>
@@ -77,23 +77,9 @@ export default function StudentQuizzes() {
               </tr>
             </thead>
             <tbody>
-              {quizResults.map(r => (
-                <tr key={r.id} className="border-b border-gray-100 hover:bg-gray-50">
-                  <td className="table-cell font-medium">{r.title}</td>
-                  <td className="table-cell text-gray-500">{r.course}</td>
-                  <td className="table-cell text-gray-500">{r.date}</td>
-                  <td className="table-cell">
-                    <span className={`badge ${r.score / r.total >= 0.7 ? 'badge-success' : 'badge-warning'}`}>
-                      {r.score}/{r.total}
-                    </span>
-                  </td>
-                </tr>
-              ))}
-              {quizResults.length === 0 && (
-                <tr>
-                  <td colSpan={4} className="text-center py-8 text-gray-500">No results yet</td>
-                </tr>
-              )}
+              <tr>
+                <td colSpan={4} className="text-center py-8 text-gray-500">Results coming soon</td>
+              </tr>
             </tbody>
           </table>
         </div>

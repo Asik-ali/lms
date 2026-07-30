@@ -174,6 +174,24 @@ ALTER TABLE assignments ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Everyone can read assignments" ON assignments FOR SELECT USING (true);
 CREATE POLICY "Admins can manage assignments" ON assignments FOR ALL USING (public.is_admin());
 
+-- Assignment submissions (link only, no file upload)
+CREATE TABLE IF NOT EXISTS assignment_submissions (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  assignment_id BIGINT NOT NULL REFERENCES assignments(id) ON DELETE CASCADE,
+  student_id UUID NOT NULL REFERENCES profiles(id) ON DELETE CASCADE,
+  link TEXT NOT NULL,
+  grade REAL,
+  submitted_at TIMESTAMPTZ DEFAULT NOW(),
+  UNIQUE(assignment_id, student_id)
+);
+
+ALTER TABLE assignment_submissions ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Students can read own submissions" ON assignment_submissions FOR SELECT USING (auth.uid() = student_id);
+CREATE POLICY "Students can insert own submissions" ON assignment_submissions FOR INSERT WITH CHECK (auth.uid() = student_id);
+CREATE POLICY "Students can update own submissions" ON assignment_submissions FOR UPDATE USING (auth.uid() = student_id);
+CREATE POLICY "Instructors and admins can read all submissions" ON assignment_submissions FOR SELECT USING (public.is_admin() OR EXISTS (SELECT 1 FROM courses WHERE instructor = (SELECT name FROM profiles WHERE id = auth.uid())));
+CREATE POLICY "Instructors and admins can grade submissions" ON assignment_submissions FOR UPDATE USING (public.is_admin() OR EXISTS (SELECT 1 FROM courses WHERE instructor = (SELECT name FROM profiles WHERE id = auth.uid())));
+
 -- Quizzes
 CREATE TABLE IF NOT EXISTS quizzes (
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
