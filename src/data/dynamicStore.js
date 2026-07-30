@@ -31,6 +31,48 @@ export async function deleteCourse(id) {
   await supabase.from('courses').delete().eq('id', id);
 }
 
+export async function getCourseLessons(courseId) {
+  const { data, error } = await supabase
+    .from('course_lessons')
+    .select('*')
+    .eq('course_id', courseId)
+    .order('position');
+  if (error) throw error;
+  return data || [];
+}
+
+export async function addCourseLesson(data) {
+  const { data: row, error } = await supabase.from('course_lessons').insert(data).select().single();
+  if (error) throw error;
+  return row;
+}
+
+export async function deleteCourseLesson(id) {
+  const { error } = await supabase.from('course_lessons').delete().eq('id', id);
+  if (error) throw error;
+}
+
+export async function getCoursePdfs(courseId) {
+  const { data, error } = await supabase
+    .from('course_pdfs')
+    .select('*')
+    .eq('course_id', courseId)
+    .order('position');
+  if (error) throw error;
+  return data || [];
+}
+
+export async function addCoursePdf(data) {
+  const { data: row, error } = await supabase.from('course_pdfs').insert(data).select().single();
+  if (error) throw error;
+  return row;
+}
+
+export async function deleteCoursePdf(id) {
+  const { error } = await supabase.from('course_pdfs').delete().eq('id', id);
+  if (error) throw error;
+}
+
 export async function getStudents() {
   const { data } = await supabase.from('profiles').select('*').eq('role', 'student');
   return data || [];

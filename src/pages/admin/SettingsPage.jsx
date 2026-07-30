@@ -1,5 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Settings, Shield, Mail, Key, Database, Save, Plus, Trash2, Copy, Download, Upload } from 'lucide-react';
+import { supabase } from '../../supabase/client';
+import { showError, showSuccess } from '../../components/common/Toast';
 
 const tabs = [
   { label: 'General', icon: Settings },
@@ -178,8 +181,75 @@ function ApiKeysTab() {
   );
 }
 
+const backupTables = ['categories', 'courses', 'instructors', 'assignments', 'quizzes', 'questions', 'attendance', 'announcements', 'enrollments', 'notifications', 'live_classes'];
+
 function BackupTab() {
-  const [schedule, setSchedule] = useState('daily');
+  const [schedule, setSchedule] = useState(() => localStorage.getItem('backupSchedule') || 'daily');
+  const [lastBackup, setLastBackup] = useState(() => localStorage.getItem('lastBackup') || 'No backup created yet');
+  const [backupFile, setBackupFile] = useState(null);
+  const [isWorking, setIsWorking] = useState(false);
+  const fileInputRef = useRef(null);
+
+  const saveSchedule = () => {
+    localStorage.setItem('backupSchedule', schedule);
+    showSuccess('Backup schedule saved.');
+  };
+
+  const createBackup = async () => {
+    setIsWorking(true);
+    try {
+      const entries = await Promise.all(backupTables.map(async (table) => {
+        const { data, error } = await supabase.from(table).select('*');
+        if (error) throw error;
+        return [table, data || []];
+      }));
+      const createdAt = new Date().toISOString();
+      const backup = { version: 1, createdAt, tables: Object.fromEntries(entries) };
+      const url = URL.createObjectURL(new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' }));
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `lms-backup-${createdAt.slice(0, 10)}.json`;
+      link.click();
+      URL.revokeObjectURL(url);
+      const label = new Date().toLocaleString();
+      localStorage.setItem('lastBackup', label);
+      setLastBackup(label);
+      showSuccess('Backup downloaded successfully.');
+    } catch (error) {
+      showError(error.message || 'Unable to create the backup.');
+    } finally {
+      setIsWorking(false);
+    }
+  };
+
+  const restoreBackup = async () => {
+    if (!backupFile) return showError('Choose a backup file first.');
+    setIsWorking(true);
+    try {
+      const backup = JSON.parse(await backupFile.text());
+      if (backup?.version !== 1 || !backup.tables) throw new Error('This is not a valid LMS backup file.');
+      if (!window.confirm('Restore this backup? Current courses, users data, and other LMS records will be replaced.')) return;
+
+      for (const table of backupTables) {
+        const rows = backup.tables[table];
+        if (!Array.isArray(rows)) throw new Error(`The backup is missing valid ${table} data.`);
+        const { error: deleteError } = await supabase.from(table).delete().neq('id', 0);
+        if (deleteError) throw deleteError;
+        if (rows.length) {
+          const cleanRows = rows.map(({ id: _id, ...row }) => row);
+          const { error: insertError } = await supabase.from(table).insert(cleanRows);
+          if (insertError) throw insertError;
+        }
+      }
+      showSuccess('Backup restored successfully. Reload the page to see all restored data.');
+      setBackupFile(null);
+      if (fileInputRef.current) fileInputRef.current.value = '';
+    } catch (error) {
+      showError(error.message || 'Unable to restore the backup.');
+    } finally {
+      setIsWorking(false);
+    }
+  };
 
   return (
     <div className="space-y-6">
@@ -195,26 +265,28 @@ function BackupTab() {
               <option value="monthly">Monthly</option>
             </select>
           </div>
-          <button className="flex items-center gap-2 btn-primary"><Save className="w-4 h-4" />Save Schedule</button>
+          <button onClick={saveSchedule} className="flex items-center gap-2 btn-primary"><Save className="w-4 h-4" />Save Schedule</button>
         </div>
       </div>
 
       <div className="card">
         <div className="card-header"><h3 className="text-lg font-semibold">Manual Backup</h3></div>
         <div className="p-6 flex items-center gap-3">
-          <button className="flex items-center gap-2 btn-primary"><Download className="w-4 h-4" />Create Backup Now</button>
-          <span className="text-sm text-gray-400">Last backup: 2026-07-28 03:00 AM</span>
+          <button onClick={createBackup} disabled={isWorking} className="flex items-center gap-2 btn-primary disabled:opacity-60"><Download className="w-4 h-4" />{isWorking ? 'Creating Backup...' : 'Create Backup Now'}</button>
+          <span className="text-sm text-gray-400">Last backup: {lastBackup}</span>
         </div>
       </div>
 
       <div className="card">
         <div className="card-header"><h3 className="text-lg font-semibold">Restore</h3></div>
         <div className="p-6 space-y-4 max-w-xl">
-          <p className="text-sm text-gray-600">Restore the system from a previous backup file.</p>
+          <p className="text-sm text-gray-600">Restore courses, learning data, and application records from a backup file. User accounts and passwords are not included.</p>
           <div className="flex items-center gap-3">
-            <button className="flex items-center gap-2 btn-secondary"><Upload className="w-4 h-4" />Choose Backup File</button>
-            <button className="btn-primary">Restore</button>
+            <input ref={fileInputRef} type="file" accept="application/json,.json" className="hidden" onChange={e => setBackupFile(e.target.files?.[0] || null)} />
+            <button onClick={() => fileInputRef.current?.click()} className="flex items-center gap-2 btn-secondary"><Upload className="w-4 h-4" />Choose Backup File</button>
+            <button onClick={restoreBackup} disabled={!backupFile || isWorking} className="btn-primary disabled:opacity-60">{isWorking ? 'Restoring...' : 'Restore'}</button>
           </div>
+          {backupFile && <p className="text-sm text-gray-500">Selected: {backupFile.name}</p>}
         </div>
       </div>
     </div>
@@ -222,7 +294,18 @@ function BackupTab() {
 }
 
 export default function SettingsPage() {
-  const [activeTab, setActiveTab] = useState(0);
+  const location = useLocation();
+  const tabIndexByPath = {
+    '/admin/settings/general': 0,
+    '/admin/settings/roles': 1,
+    '/admin/settings/smtp': 2,
+    '/admin/settings/api-keys': 3,
+    '/admin/settings/backup': 4,
+  };
+  const tabForRoute = tabIndexByPath[location.pathname] ?? 0;
+  const [activeTab, setActiveTab] = useState(tabForRoute);
+
+  useEffect(() => setActiveTab(tabForRoute), [tabForRoute]);
 
   return (
     <div className="space-y-6">

@@ -59,4 +59,30 @@
   .badge-info {
     @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800;
   }
+
+  @media (max-width: 639px) {
+    .grid.grid-cols-2,
+    .grid.grid-cols-3,
+    .grid.grid-cols-4 {
+      grid-template-columns: minmax(0, 1fr) !important;
+    }
+    .stat-card {
+      @apply p-4;
+    }
+    .card-header {
+      @apply px-4 py-3;
+    }
+    .table-header, .table-cell {
+      @apply px-3 py-2;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .card:has(table) {
+      overflow-x: auto;
+    }
+    .card:has(table) table {
+      min-width: 640px;
+    }
+  }
 }

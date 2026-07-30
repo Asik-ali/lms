@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
-import { Bell, Search, ChevronDown, MessageSquare, UserCircle } from 'lucide-react';
+import { Bell, Search, ChevronDown, UserCircle, Menu } from 'lucide-react';
 import { notifications } from '../../data/mockData';
 
-export default function Topbar({ title }) {
+export default function Topbar({ title, onMenuClick }) {
   const { user } = useAuth();
+  const navigate = useNavigate();
   const [showNotifications, setShowNotifications] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
 
@@ -14,14 +16,40 @@ export default function Topbar({ title }) {
     instructor: 'bg-amber-100 text-amber-800',
   };
 
+  const goTo = (section) => {
+    const destinations = {
+      admin: {
+        profile: '/admin/profile',
+        settings: '/admin/settings/general',
+      },
+      instructor: {
+        profile: '/instructor/profile',
+        settings: '/instructor/settings',
+      },
+      student: {
+        profile: '/student/profile',
+        settings: '/student/settings',
+      },
+    };
+
+    const destination = destinations[user?.role]?.[section];
+    if (destination) {
+      setShowProfile(false);
+      navigate(destination);
+    }
+  };
+
   return (
-    <header className="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-6 sticky top-0 z-20">
-      <div>
-        <h1 className="text-xl font-semibold text-gray-900">{title || 'Dashboard'}</h1>
+    <header className="h-16 bg-white border-b border-gray-200 flex items-center justify-between gap-3 px-4 sm:px-6 sticky top-0 z-20">
+      <div className="flex min-w-0 items-center gap-3">
+        <button onClick={onMenuClick} className="p-2 -ml-2 rounded-lg hover:bg-gray-100 lg:hidden" aria-label="Open navigation menu">
+          <Menu className="w-5 h-5 text-gray-600" />
+        </button>
+        <h1 className="truncate text-lg sm:text-xl font-semibold text-gray-900">{title || 'Dashboard'}</h1>
       </div>
 
-      <div className="flex items-center gap-4">
-        <div className="relative hidden md:block">
+      <div className="flex shrink-0 items-center gap-2 sm:gap-4">
+        <div className="relative hidden xl:block">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
           <input type="text" placeholder="Search..." className="input-field w-64 pl-10" />
         </div>
@@ -69,8 +97,8 @@ export default function Topbar({ title }) {
                 <p className="text-xs text-gray-500">{user?.email}</p>
               </div>
               <div className="py-1">
-                <button className="w-full px-4 py-2 text-sm text-left text-gray-700 hover:bg-gray-50">Profile</button>
-                <button className="w-full px-4 py-2 text-sm text-left text-gray-700 hover:bg-gray-50">Settings</button>
+                <button onClick={() => goTo('profile')} className="w-full px-4 py-2 text-sm text-left text-gray-700 hover:bg-gray-50">Profile</button>
+                <button onClick={() => goTo('settings')} className="w-full px-4 py-2 text-sm text-left text-gray-700 hover:bg-gray-50">Settings</button>
               </div>
             </div>
           )}

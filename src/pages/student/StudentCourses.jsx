@@ -1,16 +1,33 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { BookOpen, ChevronRight } from 'lucide-react';
-import { studentCourses } from '../../data/mockData';
+import { useAuth } from '../../contexts/AuthContext';
+import { getCourses } from '../../data/dynamicStore';
+import { normalizeCourseAccessSelection } from '../admin/studentCourseAccess';
 
 const filters = ['All', 'In Progress', 'Completed'];
 
 export default function StudentCourses() {
+  const { user } = useAuth();
   const [activeFilter, setActiveFilter] = useState('All');
+  const [courses, setCourses] = useState([]);
+  const navigate = useNavigate();
 
-  const filtered = studentCourses.filter(c => {
+  useEffect(() => {
+    (async () => {
+      const allCourses = await getCourses();
+      const assigned = normalizeCourseAccessSelection(user?.course || '');
+      const visibleCourses = assigned.length > 0
+        ? allCourses.filter(course => assigned.includes(course.title))
+        : [];
+      setCourses(visibleCourses);
+    })();
+  }, [user?.course]);
+
+  const filtered = courses.filter(c => {
     if (activeFilter === 'All') return true;
-    if (activeFilter === 'In Progress') return c.progress < 100;
-    if (activeFilter === 'Completed') return c.progress === 100;
+    if (activeFilter === 'In Progress') return (c.progress || 0) < 100;
+    if (activeFilter === 'Completed') return (c.progress || 0) === 100;
     return true;
   });
 
@@ -44,23 +61,27 @@ export default function StudentCourses() {
                 <BookOpen className="w-6 h-6 text-indigo-600" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900">{c.title}</h3>
-              <p className="text-sm text-gray-500 mt-1">{c.instructor}</p>
+              <p className="text-sm text-gray-500 mt-1">{c.instructor || 'Instructor assigned'}</p>
               <div className="mt-4">
                 <div className="flex items-center justify-between text-sm mb-1">
                   <span className="text-gray-500">Progress</span>
-                  <span className="font-medium text-gray-700">{c.progress}%</span>
+                  <span className="font-medium text-gray-700">{c.progress || 0}%</span>
                 </div>
                 <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
-                  <div className="h-full bg-indigo-500 rounded-full" style={{ width: `${c.progress}%` }} />
+                  <div className="h-full bg-indigo-500 rounded-full" style={{ width: `${c.progress || 0}%` }} />
                 </div>
               </div>
               <div className="mt-4 space-y-1 text-sm">
-                <p className="text-gray-500">Next: <span className="text-gray-700">{c.nextLesson}</span></p>
-                <p className="text-gray-500">Due: <span className="text-gray-700">{c.dueDate}</span></p>
+                <p className="text-gray-500">Next: <span className="text-gray-700">{c.nextLesson || 'Continue learning'}</span></p>
+                <p className="text-gray-500">Due: <span className="text-gray-700">{c.dueDate || 'On track'}</span></p>
               </div>
             </div>
             <div className="px-6 py-3 border-t border-gray-100 bg-gray-50">
-              <button className="btn-primary w-full flex items-center justify-center gap-1">
+              <button
+                type="button"
+                onClick={() => navigate(`/student/courses/${c.id}`)}
+                className="btn-primary w-full flex items-center justify-center gap-1"
+              >
                 Continue <ChevronRight className="w-4 h-4" />
               </button>
             </div>

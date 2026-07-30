@@ -5,7 +5,7 @@ import {
   LayoutDashboard, Users, GraduationCap, BookOpen, Video, ClipboardList,
   FileSpreadsheet, Award, Megaphone, BarChart3, Globe, Bell, Settings,
   LogOut, ChevronDown, ChevronRight, BookMarked, Calendar, MessageSquare,
-  UserCircle, Library, PenTool, HelpCircle, ChevronLeft, Menu,
+  UserCircle, Library, PenTool, HelpCircle, X,
 } from 'lucide-react';
 
 const adminNav = [
@@ -110,7 +110,6 @@ const studentNav = [
   { section: 'Continue Learning', icon: BookMarked, path: '/student/continue' },
   { section: 'Assignments', icon: FileSpreadsheet, path: '/student/assignments' },
   { section: 'Quizzes', icon: PenTool, path: '/student/quizzes' },
-  { section: 'Attendance', icon: Calendar, path: '/student/attendance' },
   { section: 'Calendar', icon: Calendar, path: '/student/calendar' },
   { section: 'Announcements', icon: Megaphone, path: '/student/announcements' },
   { section: 'Messages', icon: MessageSquare, path: '/student/messages' },
@@ -133,12 +132,11 @@ const instructorNav = [
   { section: 'Settings', icon: Settings, path: '/instructor/settings' },
 ];
 
-export default function Sidebar() {
+export default function Sidebar({ mobileOpen, onClose }) {
   const { user, logout } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
   const [expanded, setExpanded] = useState({});
-  const [collapsed, setCollapsed] = useState(false);
 
   const role = user?.role || 'admin';
   const navItems = role === 'student' ? studentNav : role === 'instructor' ? instructorNav : adminNav;
@@ -176,12 +174,12 @@ export default function Sidebar() {
   };
 
   return (
-    <aside className={`fixed left-0 top-0 h-screen bg-white border-r border-gray-200 flex flex-col transition-all duration-300 z-30 ${collapsed ? 'w-16' : 'w-64'}`}>
+    <aside className={`fixed left-0 top-0 z-40 flex h-screen w-64 flex-col border-r border-gray-200 bg-white transition-transform duration-300 lg:translate-x-0 ${mobileOpen ? 'translate-x-0' : '-translate-x-full'}`}>
       <div className="flex items-center gap-3 px-4 h-16 border-b border-gray-200">
         <BookOpen className="w-6 h-6 text-indigo-600 flex-shrink-0" />
-        {!collapsed && <span className="font-bold text-lg">LMS</span>}
-        <button onClick={() => setCollapsed(!collapsed)} className="ml-auto p-1 rounded-lg hover:bg-gray-100 cursor-pointer">
-          {collapsed ? <Menu className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
+        <span className="font-bold text-lg">LMS</span>
+        <button onClick={onClose} className="ml-auto p-1 rounded-lg hover:bg-gray-100 cursor-pointer lg:hidden" aria-label="Close navigation menu">
+          <X className="w-5 h-5" />
         </button>
       </div>
 
@@ -190,12 +188,10 @@ export default function Sidebar() {
           <div className={`w-6 h-6 rounded-md ${roleColors[role]} flex items-center justify-center flex-shrink-0`}>
             <Users className="w-3 h-3 text-white" />
           </div>
-          {!collapsed && (
-            <div>
-              <p className="text-xs font-medium text-gray-700">{user?.name || roleLabels[role]}</p>
-              <p className="text-xs text-gray-400">{roleLabels[role]}</p>
-            </div>
-          )}
+          <div>
+            <p className="text-xs font-medium text-gray-700">{user?.name || roleLabels[role]}</p>
+            <p className="text-xs text-gray-400">{roleLabels[role]}</p>
+          </div>
         </div>
       </div>
 
@@ -210,17 +206,15 @@ export default function Sidebar() {
               <div key={item.section}>
                 <button onClick={() => toggleExpand(item.section)} className={`w-full sidebar-link ${hasActiveSubmenu(item) ? 'sidebar-link-active' : 'sidebar-link-inactive'}`}>
                   <Icon className="w-5 h-5 flex-shrink-0" />
-                  {!collapsed && (
-                    <>
-                      <span className="flex-1 text-left truncate">{item.section}</span>
-                      {expandedItem ? <ChevronDown className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
-                    </>
-                  )}
+                  <>
+                    <span className="flex-1 text-left truncate">{item.section}</span>
+                    {expandedItem ? <ChevronDown className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
+                  </>
                 </button>
-                {expandedItem && !collapsed && (
+                {expandedItem && (
                   <div className="ml-8 mt-1 space-y-1">
                     {item.submenu.map(sub => (
-                      <NavLink key={sub.path} to={sub.path} className={({ isActive: active }) => `sidebar-link text-xs ${active ? 'sidebar-link-active' : 'sidebar-link-inactive'}`}>
+                      <NavLink key={sub.path} to={sub.path} onClick={onClose} className={({ isActive: active }) => `sidebar-link text-xs ${active ? 'sidebar-link-active' : 'sidebar-link-inactive'}`}>
                         {sub.label}
                       </NavLink>
                     ))}
@@ -231,9 +225,9 @@ export default function Sidebar() {
           }
 
           return (
-            <NavLink key={item.section} to={item.path} end className={({ isActive: active }) => `sidebar-link ${active ? 'sidebar-link-active' : 'sidebar-link-inactive'}`}>
+            <NavLink key={item.section} to={item.path} end onClick={onClose} className={({ isActive: active }) => `sidebar-link ${active ? 'sidebar-link-active' : 'sidebar-link-inactive'}`}>
               <Icon className="w-5 h-5 flex-shrink-0" />
-              {!collapsed && <span className="truncate">{item.section}</span>}
+              <span className="truncate">{item.section}</span>
             </NavLink>
           );
         })}
@@ -242,7 +236,7 @@ export default function Sidebar() {
       <div className="p-3 border-t border-gray-200">
         <button onClick={handleLogout} className="w-full sidebar-link sidebar-link-inactive text-red-500 hover:text-red-700 hover:bg-red-50">
           <LogOut className="w-5 h-5" />
-          {!collapsed && <span>Logout</span>}
+          <span>Logout</span>
         </button>
       </div>
     </aside>

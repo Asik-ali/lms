@@ -67,6 +67,21 @@ async function seed() {
   for (const c of courses) await supabase.from('courses').insert(c);
   console.log('  courses seeded');
 
+  const { data: seededCourses } = await supabase.from('courses').select('id, title');
+  const pdfs = [
+    { course_title: 'React Fundamentals', title: 'React Quick Reference', pdf_url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf' },
+    { course_title: 'React Fundamentals', title: 'JSX Cheatsheet', pdf_url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf' },
+    { course_title: 'Node.js Advanced', title: 'Node.js API Guide', pdf_url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf' },
+    { course_title: 'Python for Data Science', title: 'NumPy Reference', pdf_url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf' },
+  ];
+  for (const p of pdfs) {
+    const course = seededCourses?.find(c => c.title === p.course_title);
+    if (course) {
+      await supabase.from('course_pdfs').insert({ course_id: course.id, title: p.title, pdf_url: p.pdf_url });
+    }
+  }
+  console.log('  course pdfs seeded');
+
   const instructorData = [
     { name: 'Dr. Sarah Chen', email: 'sarah@example.com', department: 'Computer Science', students: 340, courses: 5, rating: 4.8 },
     { name: 'Prof. James Wilson', email: 'james@example.com', department: 'Data Science', students: 280, courses: 4, rating: 4.6 },

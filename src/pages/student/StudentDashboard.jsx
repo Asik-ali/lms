@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { BookOpen, ClipboardList, Video, Award, Bell, Calendar, ChevronRight, TrendingUp, Target, BarChart3, CheckCircle, Megaphone } from 'lucide-react';
-import { studentCourses, upcomingEvents, certificates, studentReports, students } from '../../data/mockData';
+import { upcomingEvents, certificates, studentReports, students } from '../../data/mockData';
 import { useAuth } from '../../contexts/AuthContext';
-import { getAnnouncements } from '../../data/dynamicStore';
+import { getAnnouncements, getCourses } from '../../data/dynamicStore';
+import { normalizeCourseAccessSelection } from '../admin/studentCourseAccess';
 
 export default function StudentDashboard() {
   const { user } = useAuth();
+  const navigate = useNavigate();
   const [announcements, setAnnouncements] = useState([]);
 
   useEffect(() => {
@@ -15,9 +18,21 @@ export default function StudentDashboard() {
     })();
   }, []);
 
+  const [myCourses, setMyCourses] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const allCourses = await getCourses();
+      const assigned = normalizeCourseAccessSelection(user?.course || '');
+      const visibleCourses = assigned.length > 0
+        ? allCourses.filter(course => assigned.includes(course.title))
+        : [];
+      setMyCourses(visibleCourses.slice(0, 3));
+    })();
+  }, [user?.course]);
+
   const student = students.find(s => s.id === user?.id);
   const report = studentReports[user?.id];
-  const myCourses = studentCourses.filter(c => c.id <= 3);
   const myCourse = myCourses[0];
 
   const stats = [
@@ -31,7 +46,7 @@ export default function StudentDashboard() {
     <div className="space-y-6">
       <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl p-6 text-white">
         <h1 className="text-2xl font-bold">Welcome back, {student?.name || 'Student'}!</h1>
-        <p className="text-indigo-100 mt-1">{student?.course || 'Continue your learning journey'}</p>
+        <p className="text-indigo-100 mt-1">{user?.course || 'Continue your learning journey'}</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -132,7 +147,7 @@ export default function StudentDashboard() {
                   </div>
                   <p className="text-xs text-gray-400 mt-1">Next: {c.nextLesson}</p>
                 </div>
-                <button className="btn-primary whitespace-nowrap">Continue</button>
+                <button type="button" onClick={() => navigate(`/student/courses/${c.id}`)} className="btn-primary whitespace-nowrap">Continue</button>
               </div>
             )) : (
               <p className="text-gray-400 text-center py-4">No courses enrolled yet</p>

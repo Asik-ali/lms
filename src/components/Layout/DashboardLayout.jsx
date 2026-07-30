@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Outlet, Navigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import Sidebar from './Sidebar';
@@ -6,6 +7,7 @@ import { useLocation } from 'react-router-dom';
 
 const titles = {
   '/admin': 'Dashboard',
+  '/admin/profile': 'Profile',
   '/admin/students': 'All Students',
   '/admin/students/add': 'Add Student',
   '/admin/students/profile': 'Student Profile',
@@ -85,17 +87,21 @@ const titles = {
 export default function DashboardLayout() {
   const { user } = useAuth();
   const location = useLocation();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   if (!user) return <Navigate to="/login" replace />;
 
-  const currentPath = Object.keys(titles).find(k => location.pathname === k || location.pathname.startsWith(k)) || '';
+  const currentPath = Object.keys(titles)
+    .filter(k => location.pathname === k || location.pathname.startsWith(`${k}/`))
+    .sort((a, b) => b.length - a.length)[0] || '';
 
   return (
     <div className="min-h-screen">
-      <Sidebar />
-      <div className="transition-all duration-300" style={{ marginLeft: '16rem' }}>
-        <Topbar title={titles[currentPath] || 'Dashboard'} />
-        <main className="p-6">
+      {mobileMenuOpen && <button onClick={() => setMobileMenuOpen(false)} className="fixed inset-0 z-30 bg-gray-900/40 lg:hidden" aria-label="Close navigation menu" />}
+      <Sidebar mobileOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
+      <div className="min-w-0 transition-all duration-300 lg:ml-64">
+        <Topbar title={titles[currentPath] || 'Dashboard'} onMenuClick={() => setMobileMenuOpen(true)} />
+        <main className="p-4 sm:p-6">
           <Outlet />
         </main>
       </div>

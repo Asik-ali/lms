@@ -21,6 +21,7 @@ import SettingsPage from './pages/admin/SettingsPage';
 import AuditPage from './pages/admin/AuditPage';
 import StudentDashboard from './pages/student/StudentDashboard';
 import StudentCourses from './pages/student/StudentCourses';
+import StudentCourseDetail from './pages/student/StudentCourseDetail';
 import StudentAssignments from './pages/student/StudentAssignments';
 import StudentQuizzes from './pages/student/StudentQuizzes';
 import StudentAnnouncements from './pages/student/StudentAnnouncements';
@@ -29,6 +30,7 @@ import InstructorCourses from './pages/instructor/InstructorCourses';
 import InstructorStudents from './pages/instructor/InstructorStudents';
 import InstructorAssignments from './pages/instructor/InstructorAssignments';
 import InstructorAnalytics from './pages/instructor/InstructorAnalytics';
+import ProfilePage from './pages/ProfilePage';
 
 function RoleGuard({ role, children }) {
   const { user } = useAuth();
@@ -93,6 +95,7 @@ function AppRoutes() {
         <Route path="notifications/email" element={<NotificationsPage />} />
         <Route path="notifications/sms" element={<NotificationsPage />} />
         <Route path="notifications/push" element={<NotificationsPage />} />
+        <Route path="profile" element={<ProfilePage />} />
         <Route path="settings/general" element={<SettingsPage />} />
         <Route path="settings/roles" element={<SettingsPage />} />
         <Route path="settings/smtp" element={<SettingsPage />} />
@@ -104,14 +107,15 @@ function AppRoutes() {
       <Route path="/student" element={<RoleGuard role="student"><DashboardLayout /></RoleGuard>}>
         <Route index element={<StudentDashboard />} />
         <Route path="courses" element={<StudentCourses />} />
-        <Route path="continue" element={<StudentCourses />} />
+        <Route path="courses/:courseId" element={<StudentCourseDetail />} />
+        <Route path="continue" element={<StudentCourseDetail courseId="1" />} />
         <Route path="assignments" element={<StudentAssignments />} />
         <Route path="quizzes" element={<StudentQuizzes />} />
         <Route path="attendance" element={<AttendancePage />} />
         <Route path="calendar" element={<StudentDashboard />} />
         <Route path="announcements" element={<StudentAnnouncements />} />
         <Route path="messages" element={<StudentDashboard />} />
-        <Route path="profile" element={<StudentDashboard />} />
+        <Route path="profile" element={<ProfilePage />} />
         <Route path="settings" element={<SettingsPage />} />
       </Route>
 
@@ -126,7 +130,7 @@ function AppRoutes() {
         <Route path="announcements" element={<AnnouncementsPage />} />
         <Route path="analytics" element={<InstructorAnalytics />} />
         <Route path="messages" element={<InstructorDashboard />} />
-        <Route path="profile" element={<InstructorDashboard />} />
+        <Route path="profile" element={<ProfilePage />} />
         <Route path="settings" element={<SettingsPage />} />
       </Route>
 

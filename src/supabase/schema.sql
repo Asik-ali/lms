@@ -24,7 +24,7 @@ BEGIN
     RAISE EXCEPTION 'Only admins can reset passwords';
   END IF;
   UPDATE auth.users
-  SET encrypted_password = crypt(new_password, gen_salt('bf')),
+  SET encrypted_password = extensions.crypt(new_password, extensions.gen_salt('bf')),
       updated_at = NOW()
   WHERE id = student_id;
   RETURN new_password;
@@ -59,6 +59,35 @@ CREATE POLICY "Admins can insert profiles"
 CREATE POLICY "Admins can update profiles"
   ON profiles FOR UPDATE USING (public.is_admin());
 
+-- Create the public profile whenever a new auth account is created.
+-- This keeps the students table in sync with student sign-ups.
+CREATE OR REPLACE FUNCTION public.handle_new_user()
+RETURNS TRIGGER
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path = public
+AS $$
+BEGIN
+  INSERT INTO public.profiles (id, username, name, email, role, course, enrolled)
+  VALUES (
+    NEW.id,
+    COALESCE(NEW.raw_user_meta_data ->> 'username', split_part(NEW.email, '@', 1)),
+    COALESCE(NEW.raw_user_meta_data ->> 'name', split_part(NEW.email, '@', 1)),
+    COALESCE(NEW.raw_user_meta_data ->> 'profile_email', NEW.email),
+    COALESCE(NEW.raw_user_meta_data ->> 'role', 'student'),
+    NEW.raw_user_meta_data ->> 'course',
+    NEW.raw_user_meta_data ->> 'enrolled'
+  )
+  ON CONFLICT (id) DO NOTHING;
+  RETURN NEW;
+END;
+$$;
+
+DROP TRIGGER IF EXISTS on_auth_user_created ON auth.users;
+CREATE TRIGGER on_auth_user_created
+  AFTER INSERT ON auth.users
+  FOR EACH ROW EXECUTE FUNCTION public.handle_new_user();
+
 -- Categories
 CREATE TABLE IF NOT EXISTS categories (
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -85,6 +114,35 @@ CREATE TABLE IF NOT EXISTS courses (
 ALTER TABLE courses ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Everyone can read courses" ON courses FOR SELECT USING (true);
 CREATE POLICY "Admins can manage courses" ON courses FOR ALL USING (public.is_admin());
+
+-- PDF resources for each course
+CREATE TABLE IF NOT EXISTS course_pdfs (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  course_id BIGINT NOT NULL REFERENCES courses(id) ON DELETE CASCADE,
+  title TEXT NOT NULL,
+  pdf_url TEXT NOT NULL,
+  position INTEGER NOT NULL DEFAULT 1,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+ALTER TABLE course_pdfs ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Everyone can read course pdfs" ON course_pdfs FOR SELECT USING (true);
+CREATE POLICY "Admins can manage course pdfs" ON course_pdfs FOR ALL USING (public.is_admin());
+
+-- Video lessons for each course. Links may point to YouTube or Google Drive.
+CREATE TABLE IF NOT EXISTS course_lessons (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  course_id BIGINT NOT NULL REFERENCES courses(id) ON DELETE CASCADE,
+  title TEXT NOT NULL,
+  video_url TEXT NOT NULL,
+  provider TEXT NOT NULL,
+  position INTEGER NOT NULL DEFAULT 1,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+ALTER TABLE course_lessons ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Everyone can read course lessons" ON course_lessons FOR SELECT USING (true);
+CREATE POLICY "Admins can manage course lessons" ON course_lessons FOR ALL USING (public.is_admin());
 
 -- Instructors
 CREATE TABLE IF NOT EXISTS instructors (
