@@ -18,6 +18,7 @@ import NotificationsPage from './pages/admin/NotificationsPage';
 import SettingsPage from './pages/admin/SettingsPage';
 import AuditPage from './pages/admin/AuditPage';
 import AdminTickets from './pages/admin/AdminTickets';
+import AdminCalendar from './pages/admin/AdminCalendar';
 import StudentDashboard from './pages/student/StudentDashboard';
 import StudentCourses from './pages/student/StudentCourses';
 import StudentCourseDetail from './pages/student/StudentCourseDetail';
@@ -27,7 +28,6 @@ import StudentCalendar from './pages/student/StudentCalendar';
 import StudentTestSeries from './pages/student/StudentTestSeries';
 
 import StudentAnnouncements from './pages/student/StudentAnnouncements';
-import ProfilePage from './pages/ProfilePage';
 
 function RoleGuard({ role, children }) {
   const { user } = useAuth();
@@ -72,23 +72,18 @@ function AppRoutes() {
       </Route>
       <Route path="/admin" element={<RoleGuard role="admin"><DashboardLayout /></RoleGuard>}>
         <Route index element={<AdminDashboard />} />
+        <Route path="calendar" element={<AdminCalendar />} />
         <Route path="students" element={<StudentManagement />} />
         <Route path="students/add" element={<StudentManagement />} />
-        <Route path="students/profile" element={<StudentManagement />} />
         <Route path="courses" element={<CourseManagement />} />
         <Route path="courses/create" element={<CourseManagement />} />
         <Route path="courses/categories" element={<CategoryManagement />} />
-        <Route path="courses/sections" element={<CourseManagement />} />
-        <Route path="courses/lessons" element={<CourseManagement />} />
-        <Route path="courses/materials" element={<CourseManagement />} />
-        <Route path="courses/assign" element={<CourseManagement />} />
         <Route path="exams/questions" element={<QuestionBank />} />
         <Route path="announcements" element={<AnnouncementsPage />} />
         <Route path="tickets" element={<AdminTickets />} />
         <Route path="notifications/email" element={<NotificationsPage />} />
         <Route path="notifications/sms" element={<NotificationsPage />} />
         <Route path="notifications/push" element={<NotificationsPage />} />
-        <Route path="profile" element={<ProfilePage />} />
         <Route path="settings/general" element={<SettingsPage />} />
         <Route path="settings/roles" element={<SettingsPage />} />
         <Route path="settings/smtp" element={<SettingsPage />} />
@@ -107,7 +102,6 @@ function AppRoutes() {
         <Route path="calendar" element={<StudentCalendar />} />
         <Route path="announcements" element={<StudentAnnouncements />} />
         <Route path="messages" element={<StudentMessages />} />
-        <Route path="profile" element={<ProfilePage />} />
         <Route path="settings" element={<SettingsPage />} />
       </Route>
 

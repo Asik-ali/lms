@@ -7,17 +7,12 @@ import { useLocation } from 'react-router-dom';
 
 const titles = {
   '/admin': 'Dashboard',
-  '/admin/profile': 'Profile',
+  '/admin/calendar': 'Calendar',
   '/admin/students': 'All Students',
   '/admin/students/add': 'Add Student',
-  '/admin/students/profile': 'Student Profile',
   '/admin/courses': 'All Courses',
   '/admin/courses/create': 'Create Course',
   '/admin/courses/categories': 'Categories',
-  '/admin/courses/sections': 'Course Sections',
-  '/admin/courses/lessons': 'Lessons',
-  '/admin/courses/materials': 'Learning Materials',
-  '/admin/courses/assign': 'Assign Instructor',
   '/admin/exams/questions': 'Test Series',
   '/admin/announcements': 'Announcements',
   '/admin/tickets': 'Student Tickets',
@@ -38,7 +33,6 @@ const titles = {
   '/student/calendar': 'Calendar',
   '/student/announcements': 'Announcements',
   '/student/messages': 'Support Tickets',
-  '/student/profile': 'Profile',
   '/student/settings': 'Settings',
 };
 

@@ -457,3 +457,27 @@ export async function addTicketReply({ ticket_id, sender_id, message }) {
   if (error) throw error;
   return data;
 }
+
+// Calendar Events
+export async function getAllCalendarEvents() {
+  const { data, error } = await supabase.from('calendar_events').select('id, title, date, time, description, color, created_by, created_at').order('date');
+  if (error) throw error;
+  return data || [];
+}
+
+export async function addCalendarEvent({ title, date, time, description, color, created_by }) {
+  const { data, error } = await supabase.from('calendar_events').insert({ title, date, time, description, color, created_by }).select('id, title, date, time, description, color, created_by, created_at').single();
+  if (error) throw error;
+  return data;
+}
+
+export async function updateCalendarEvent(id, row) {
+  const { data, error } = await supabase.from('calendar_events').update(row).eq('id', id).select('id, title, date, time, description, color, created_by, created_at').single();
+  if (error) throw error;
+  return data;
+}
+
+export async function deleteCalendarEvent(id) {
+  const { error } = await supabase.from('calendar_events').delete().eq('id', id);
+  if (error) throw error;
+}

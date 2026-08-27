@@ -375,3 +375,21 @@ CREATE POLICY "Students can read own ticket replies" ON ticket_replies FOR SELEC
 CREATE POLICY "Students can insert own ticket replies" ON ticket_replies FOR INSERT WITH CHECK (auth.uid() = sender_id);
 CREATE POLICY "Admins can read all ticket replies" ON ticket_replies FOR SELECT USING (public.is_admin());
 CREATE POLICY "Admins can insert ticket replies" ON ticket_replies FOR INSERT WITH CHECK (public.is_admin());
+
+-- Calendar Events (admin-created)
+CREATE TABLE IF NOT EXISTS calendar_events (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  title TEXT NOT NULL,
+  date TEXT NOT NULL,
+  time TEXT DEFAULT '',
+  description TEXT DEFAULT '',
+  color TEXT DEFAULT 'indigo',
+  created_by UUID REFERENCES profiles(id),
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+ALTER TABLE calendar_events ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Anyone can read events" ON calendar_events FOR SELECT USING (true);
+CREATE POLICY "Admins can insert events" ON calendar_events FOR INSERT WITH CHECK (public.is_admin());
+CREATE POLICY "Admins can update events" ON calendar_events FOR UPDATE USING (public.is_admin());
+CREATE POLICY "Admins can delete events" ON calendar_events FOR DELETE USING (public.is_admin());

@@ -10,11 +10,11 @@ import {
 
 const adminNav = [
   { section: 'Dashboard', icon: LayoutDashboard, path: '/admin' },
+  { section: 'Calendar', icon: Calendar, path: '/admin/calendar' },
   {
     section: 'Student Management', icon: Users, submenu: [
       { label: 'All Students', path: '/admin/students' },
       { label: 'Add Student', path: '/admin/students/add' },
-      { label: 'Student Profile', path: '/admin/students/profile' },
     ]
   },
   {
@@ -22,10 +22,6 @@ const adminNav = [
       { label: 'All Courses', path: '/admin/courses' },
       { label: 'Create Course', path: '/admin/courses/create' },
       { label: 'Categories', path: '/admin/courses/categories' },
-      { label: 'Course Sections', path: '/admin/courses/sections' },
-      { label: 'Lessons', path: '/admin/courses/lessons' },
-      { label: 'Learning Materials', path: '/admin/courses/materials' },
-      { label: 'Assign Instructor', path: '/admin/courses/assign' },
     ]
   },
   { section: 'Test Series', icon: PenTool, path: '/admin/exams/questions' },
@@ -59,7 +55,6 @@ const studentNav = [
   { section: 'Calendar', icon: Calendar, path: '/student/calendar' },
   { section: 'Announcements', icon: Megaphone, path: '/student/announcements' },
   { section: 'Messages', icon: MessageSquare, path: '/student/messages' },
-  { section: 'Profile', icon: UserCircle, path: '/student/profile' },
 ];
 
 export default function Sidebar({ mobileOpen, onClose }) {

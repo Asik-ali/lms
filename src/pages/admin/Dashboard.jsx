@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
-import { Users, GraduationCap, BookOpen, Video, Radio, Square, Trash2, ExternalLink, FileText } from 'lucide-react';
+import { Users, BookOpen, Video, Radio, Square, Trash2, ExternalLink, FileText } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line } from 'recharts';
-import { getAllStudents, getAllInstructors, getAllCourses, getAllEnrollments, getAllLiveClasses, addLiveClass, updateLiveClass, deleteLiveClass, getTestSeries } from '../../data/dynamicStore';
+import { getAllStudents, getAllCourses, getAllEnrollments, getAllLiveClasses, addLiveClass, updateLiveClass, deleteLiveClass, getTestSeries } from '../../data/dynamicStore';
 import { showError, showSuccess } from '../../components/common/Toast';
 
 export default function AdminDashboard() {
   const [students, setStudents] = useState([]);
-  const [instructors, setInstructors] = useState([]);
   const [courses, setCourses] = useState([]);
   const [enrollments, setEnrollments] = useState([]);
   const [liveClasses, setLiveClasses] = useState([]);
@@ -18,7 +17,6 @@ export default function AdminDashboard() {
   useEffect(() => {
     (async () => {
       setStudents(await getAllStudents());
-      setInstructors(await getAllInstructors());
       setCourses(await getAllCourses());
       setEnrollments(await getAllEnrollments());
       setLiveClasses(await getAllLiveClasses());
@@ -29,15 +27,14 @@ export default function AdminDashboard() {
   const activeLive = liveClasses.find(lc => lc.status === 'Live');
 
   const activeStudents = students.filter(s => s.status === 'Active').length;
-  const totalInstructors = instructors.length;
   const publishedCourses = courses.filter(c => c.status === 'Published').length;
-  const activeClasses = courses.filter(c => c.status === 'Published').length;
+  const totalTestSeries = testSeries.length;
 
   const statCards = [
     { label: 'Active Students', value: activeStudents, icon: Users, color: 'bg-blue-500' },
-    { label: 'Total Instructors', value: totalInstructors, icon: GraduationCap, color: 'bg-emerald-500' },
     { label: 'Published Courses', value: publishedCourses, icon: BookOpen, color: 'bg-purple-500' },
-    { label: 'Active Classes', value: activeClasses, icon: Video, color: 'bg-amber-500' },
+    { label: 'Test Series', value: totalTestSeries, icon: FileText, color: 'bg-emerald-500' },
+    { label: 'Live Sessions', value: liveClasses.length, icon: Video, color: 'bg-amber-500' },
   ];
 
   const recentEnrollments = [...enrollments].reverse().slice(0, 5);

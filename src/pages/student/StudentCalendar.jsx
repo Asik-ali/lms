@@ -1,8 +1,17 @@
 import { useState, useEffect } from 'react';
 import { Calendar, ChevronLeft, ChevronRight } from 'lucide-react';
-import { getAllLiveClasses, getAllAnnouncements } from '../../data/dynamicStore';
+import { getAllLiveClasses, getAllAnnouncements, getAllCalendarEvents } from '../../data/dynamicStore';
 import { useAuth } from '../../contexts/AuthContext';
 import { normalizeCourseAccessSelection } from '../admin/studentCourseAccess';
+
+const colorMap = {
+  indigo: 'bg-indigo-500',
+  emerald: 'bg-emerald-500',
+  amber: 'bg-amber-500',
+  rose: 'bg-rose-500',
+  blue: 'bg-blue-500',
+  purple: 'bg-purple-500',
+};
 
 export default function StudentCalendar() {
   const { user } = useAuth();
@@ -11,11 +20,11 @@ export default function StudentCalendar() {
 
   useEffect(() => {
     (async () => {
-      const [liveClasses, announcements] = await Promise.all([
+      const [liveClasses, announcements, calendarEvents] = await Promise.all([
         getAllLiveClasses(),
         getAllAnnouncements(),
+        getAllCalendarEvents(),
       ]);
-      const assigned = normalizeCourseAccessSelection(user?.course || '');
       const items = [
         ...liveClasses.map(lc => ({
           id: `lc-${lc.id}`,
@@ -32,6 +41,15 @@ export default function StudentCalendar() {
           time: '',
           type: 'Announcement',
           color: 'bg-indigo-500',
+        })),
+        ...calendarEvents.map(ce => ({
+          id: `ev-${ce.id}`,
+          title: ce.title,
+          date: ce.date,
+          time: ce.time || '',
+          type: 'Event',
+          color: colorMap[ce.color] || 'bg-indigo-500',
+          description: ce.description,
         })),
       ];
       setEvents(items);
