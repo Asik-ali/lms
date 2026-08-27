@@ -21,9 +21,8 @@ export default function LoginPage() {
   const handleLoginDirect = async (user, pass) => {
     try {
       const u = await login(user, pass);
-      if (u.role === 'admin') navigate('/admin');
-      else if (u.role === 'instructor') navigate('/instructor');
-      else navigate('/student');
+      if (u.role === 'student') navigate('/student');
+      else navigate('/admin');
     } catch {
       setError('Invalid username or password');
     }
@@ -84,7 +83,6 @@ export default function LoginPage() {
             <p className="text-xs font-medium text-gray-500 mb-2">Demo Credentials</p>
             <div className="space-y-1 text-xs text-gray-400">
               <p><span className="font-mono text-gray-600">admin</span> / <span className="font-mono text-gray-600">admin123</span> — Admin</p>
-              <p><span className="font-mono text-gray-600">instructor</span> / <span className="font-mono text-gray-600">instructor123</span> — Instructor</p>
               <p><span className="font-mono text-gray-600">alice.johnson</span> / <span className="font-mono text-gray-600">student123</span> — Student</p>
               <p><span className="font-mono text-gray-600">bob.smith</span> / <span className="font-mono text-gray-600">student123</span> — Student</p>
             </div>

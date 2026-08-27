@@ -14,6 +14,7 @@ const titles = {
   '/admin/courses/create': 'Create Course',
   '/admin/courses/categories': 'Categories',
   '/admin/exams/questions': 'Test Series',
+  '/admin/live-classes': 'Live Classes',
   '/admin/announcements': 'Announcements',
   '/admin/tickets': 'Student Tickets',
   '/admin/notifications/email': 'Email Notifications',

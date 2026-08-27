@@ -19,6 +19,7 @@ import SettingsPage from './pages/admin/SettingsPage';
 import AuditPage from './pages/admin/AuditPage';
 import AdminTickets from './pages/admin/AdminTickets';
 import AdminCalendar from './pages/admin/AdminCalendar';
+import AdminLiveClasses from './pages/admin/AdminLiveClasses';
 import StudentDashboard from './pages/student/StudentDashboard';
 import StudentCourses from './pages/student/StudentCourses';
 import StudentCourseDetail from './pages/student/StudentCourseDetail';
@@ -34,8 +35,8 @@ import StudentAnnouncements from './pages/student/StudentAnnouncements';
 
 function RoleGuard({ role, children }) {
   const { user } = useAuth();
-  if (user?.role === 'instructor') return <Navigate to="/admin" replace />;
-  if (user?.role !== role) return <Navigate to={`/${user?.role || 'admin'}`} replace />;
+  const effectiveRole = user?.role === 'instructor' ? 'admin' : user?.role;
+  if (effectiveRole !== role) return <Navigate to={`/${effectiveRole || 'admin'}`} replace />;
   return children;
 }
 
@@ -82,6 +83,7 @@ function AppRoutes() {
         <Route path="courses/create" element={<CourseManagement />} />
         <Route path="courses/categories" element={<CategoryManagement />} />
         <Route path="exams/questions" element={<QuestionBank />} />
+        <Route path="live-classes" element={<AdminLiveClasses />} />
         <Route path="announcements" element={<AnnouncementsPage />} />
         <Route path="tickets" element={<AdminTickets />} />
         <Route path="notifications/email" element={<NotificationsPage />} />

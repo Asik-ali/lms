@@ -70,7 +70,6 @@ export default function StudentDashboard() {
               <div key={c.id} className="flex items-center gap-4 p-3 rounded-lg hover:bg-gray-50">
                 <div className="flex-1 min-w-0">
                   <h4 className="text-sm font-medium text-gray-900">{c.title}</h4>
-                  <p className="text-xs text-gray-500 mt-0.5">{c.instructor}</p>
                   <div className="flex items-center gap-3 mt-2">
                     <span className="text-xs text-gray-400">{c.category} &middot; {c.duration}</span>
                   </div>

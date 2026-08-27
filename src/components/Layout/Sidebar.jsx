@@ -25,6 +25,7 @@ const adminNav = [
     ]
   },
   { section: 'Test Series', icon: PenTool, path: '/admin/exams/questions' },
+  { section: 'Live Classes', icon: Video, path: '/admin/live-classes' },
   { section: 'Announcements', icon: Megaphone, path: '/admin/announcements' },
   { section: 'Student Tickets', icon: MessageSquare, path: '/admin/tickets' },
   {
@@ -62,7 +63,7 @@ export default function Sidebar({ mobileOpen, onClose }) {
   const navigate = useNavigate();
   const [expanded, setExpanded] = useState({});
 
-  const role = user?.role || 'admin';
+  const role = user?.role === 'instructor' ? 'admin' : (user?.role || 'admin');
   const navItems = role === 'student' ? studentNav : adminNav;
 
   const toggleExpand = (section) => {
@@ -92,6 +93,7 @@ export default function Sidebar({ mobileOpen, onClose }) {
 
   const roleLabels = {
     admin: 'Administrator',
+    instructor: 'Administrator',
     student: 'Student',
   };
 

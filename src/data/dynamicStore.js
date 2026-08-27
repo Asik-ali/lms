@@ -21,7 +21,7 @@ export async function getCourses({ page = 0, pageSize = DEFAULT_PAGE_SIZE } = {}
   const to = from + pageSize - 1;
   const { data, error, count } = await supabase
     .from('courses')
-    .select('id, title, instructor, category, students, lessons, duration, status', { count: 'exact' })
+    .select('id, title, category, students, lessons, duration, status', { count: 'exact' })
     .range(from, to);
   if (error) throw error;
   return { data: data || [], total: count ?? 0 };
@@ -30,19 +30,19 @@ export async function getCourseById(id) {
   const numericId = Number(id);
   const { data, error } = await supabase
     .from('courses')
-    .select('id, title, instructor, category, students, lessons, duration, status')
+    .select('id, title, category, students, lessons, duration, status')
     .eq('id', isNaN(numericId) ? id : numericId)
     .maybeSingle();
   if (error) throw error;
   return data;
 }
 export async function addCourse(row) {
-  const { data, error } = await supabase.from('courses').insert(row).select('id, title, instructor, category, students, lessons, duration, status').single();
+  const { data, error } = await supabase.from('courses').insert(row).select('id, title, category, students, lessons, duration, status').single();
   if (error) throw error;
   return data;
 }
 export async function updateCourse(id, row) {
-  const { data, error } = await supabase.from('courses').update(row).eq('id', id).select('id, title, instructor, category, students, lessons, duration, status').single();
+  const { data, error } = await supabase.from('courses').update(row).eq('id', id).select('id, title, category, students, lessons, duration, status').single();
   if (error) throw error;
   return data;
 }
@@ -108,22 +108,6 @@ export async function getStudents({ page = 0, pageSize = DEFAULT_PAGE_SIZE } = {
 }
 export async function addStudent(row) {
   const { data, error } = await supabase.from('profiles').insert({ ...row, role: 'student' }).select('id, username, name, email, role, course, status, enrolled, progress').single();
-  if (error) throw error;
-  return data;
-}
-
-export async function getInstructors({ page = 0, pageSize = DEFAULT_PAGE_SIZE } = {}) {
-  const from = page * pageSize;
-  const to = from + pageSize - 1;
-  const { data, error, count } = await supabase
-    .from('instructors')
-    .select('id, name, email, department, students, courses, rating', { count: 'exact' })
-    .range(from, to);
-  if (error) throw error;
-  return { data: data || [], total: count ?? 0 };
-}
-export async function addInstructor(row) {
-  const { data, error } = await supabase.from('instructors').insert(row).select('id, name, email, department, students, courses, rating').single();
   if (error) throw error;
   return data;
 }
@@ -448,18 +432,18 @@ export async function getLiveClasses({ page = 0, pageSize = DEFAULT_PAGE_SIZE } 
   const to = from + pageSize - 1;
   const { data, error, count } = await supabase
     .from('live_classes')
-    .select('id, title, instructor, date, time, description, room_code, students, status, youtube_url', { count: 'exact' })
+    .select('id, title, date, time, description, room_code, students, status, youtube_url', { count: 'exact' })
     .range(from, to);
   if (error) throw error;
   return { data: data || [], total: count ?? 0 };
 }
 export async function addLiveClass(row) {
-  const { data, error } = await supabase.from('live_classes').insert(row).select('id, title, instructor, date, time, description, room_code, students, status, youtube_url').single();
+  const { data, error } = await supabase.from('live_classes').insert(row).select('id, title, date, time, description, room_code, students, status, youtube_url').single();
   if (error) throw error;
   return data;
 }
 export async function updateLiveClass(id, row) {
-  const { data, error } = await supabase.from('live_classes').update(row).eq('id', id).select('id, title, instructor, date, time, description, room_code, students, status, youtube_url').single();
+  const { data, error } = await supabase.from('live_classes').update(row).eq('id', id).select('id, title, date, time, description, room_code, students, status, youtube_url').single();
   if (error) throw error;
   return data;
 }
@@ -548,7 +532,6 @@ export async function saveSmtpSettings(row) {
 
 export async function getAllCourses() { const { data } = await getCourses({ pageSize: 1000 }); return data; }
 export async function getAllStudents() { const { data } = await getStudents({ pageSize: 1000 }); return data; }
-export async function getAllInstructors() { const { data } = await getInstructors({ pageSize: 1000 }); return data; }
 export async function getAllAssignments() { const { data } = await getAssignments({ pageSize: 1000 }); return data; }
 export async function getAllQuizzes() { const { data } = await getQuizzes({ pageSize: 1000 }); return data; }
 export async function getAllQuestions() { const { data } = await getQuestions({ pageSize: 1000 }); return data; }

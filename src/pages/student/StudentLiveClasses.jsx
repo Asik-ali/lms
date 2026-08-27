@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Radio, Calendar, Clock, Users } from 'lucide-react';
+import { Radio, Calendar, Clock } from 'lucide-react';
 import { getAllLiveClasses } from '../../data/dynamicStore';
 
 function getYouTubeEmbedUrl(url) {
@@ -71,7 +71,6 @@ export default function StudentLiveClasses() {
               </div>
             )}
             <div className="flex items-center gap-4 mt-4 text-sm text-gray-500">
-              <span className="flex items-center gap-1"><Users className="w-4 h-4" /> {activeLive.instructor}</span>
               <span className="flex items-center gap-1"><Calendar className="w-4 h-4" /> {activeLive.date}</span>
               <span className="flex items-center gap-1"><Clock className="w-4 h-4" /> {activeLive.time}</span>
             </div>
@@ -98,7 +97,6 @@ export default function StudentLiveClasses() {
                   <div className="flex items-center gap-3 mt-1 text-sm text-gray-500">
                     <span className="flex items-center gap-1"><Calendar className="w-3.5 h-3.5" /> {lc.date}</span>
                     <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {lc.time}</span>
-                    {lc.instructor && <span className="flex items-center gap-1"><Users className="w-3.5 h-3.5" /> {lc.instructor}</span>}
                   </div>
                 </div>
                 <span className="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded-full">Upcoming</span>

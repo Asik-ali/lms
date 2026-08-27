@@ -11,7 +11,6 @@ const tabs = [
 
 const recipientOptions = [
   { value: 'all_students', label: 'All Students' },
-  { value: 'all_instructors', label: 'All Instructors' },
   { value: 'all_users', label: 'All Users' },
 ];
 
@@ -41,20 +40,10 @@ function ComposeForm({ type, onSent }) {
         recipientLabel = 'All Students';
         const { data } = await supabase.from('profiles').select('email').eq('role', 'student');
         emails = data?.map(p => p.email).filter(Boolean) || [];
-      } else if (recipient === 'all_instructors') {
-        recipientLabel = 'All Instructors';
-        const { data } = await supabase.from('instructors').select('email');
-        emails = data?.map(p => p.email).filter(Boolean) || [];
       } else {
         recipientLabel = 'All Users';
-        const [profiles, instructors] = await Promise.all([
-          supabase.from('profiles').select('email'),
-          supabase.from('instructors').select('email'),
-        ]);
-        emails = [
-          ...(profiles.data?.map(p => p.email).filter(Boolean) || []),
-          ...(instructors.data?.map(p => p.email).filter(Boolean) || []),
-        ];
+        const { data } = await supabase.from('profiles').select('email');
+        emails = data?.map(p => p.email).filter(Boolean) || [];
       }
 
       if (type === 'Email') {

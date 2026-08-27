@@ -78,7 +78,6 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
             </div>
             <div>
               <h1 className="text-2xl font-bold">{course.title}</h1>
-              <p className="text-indigo-100">{course.instructor}</p>
             </div>
           </div>
           <div className="flex flex-wrap gap-4 text-sm text-indigo-100">
@@ -93,7 +92,6 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
             <div className="rounded-lg border border-gray-200 p-4">
               <h3 className="font-semibold text-gray-900 mb-3">Course Info</h3>
               <ul className="space-y-2 text-sm text-gray-600">
-                <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5" /><span>Instructor: {course.instructor}</span></li>
                 <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5" /><span>Category: {course.category}</span></li>
                 <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5" /><span>Duration: {course.duration}</span></li>
                 <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5" /><span>Students enrolled: {course.students}</span></li>

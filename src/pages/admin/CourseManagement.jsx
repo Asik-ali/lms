@@ -1,15 +1,14 @@
 import { useState, useEffect } from 'react';
 import { Search, Plus, Edit2, Trash2, X, ChevronDown, Video, FileText, ExternalLink } from 'lucide-react';
-import { getAllCourses, addCourse, updateCourse, deleteCourse, getCategories, getAllInstructors, getCourseLessons, addCourseLesson, deleteCourseLesson, getCoursePdfs, addCoursePdf, deleteCoursePdf } from '../../data/dynamicStore';
+import { getAllCourses, addCourse, updateCourse, deleteCourse, getCategories, getCourseLessons, addCourseLesson, deleteCourseLesson, getCoursePdfs, addCoursePdf, deleteCoursePdf } from '../../data/dynamicStore';
 import { showSuccess, showError } from '../../components/common/Toast';
 import MediaViewer from '../../components/common/MediaViewer';
 
-const emptyForm = { title: '', instructor: '', category: '', duration: '', status: 'Draft' };
+const emptyForm = { title: '', category: '', duration: '', status: 'Draft' };
 
 export default function CourseManagement() {
   const [courses, setCourses] = useState([]);
   const [cats, setCats] = useState([]);
-  const [instructors, setInstructors] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [editingId, setEditingId] = useState(null);
   const [form, setForm] = useState(emptyForm);
@@ -23,7 +22,7 @@ export default function CourseManagement() {
   const [pdfForm, setPdfForm] = useState({ title: '', pdfUrl: '' });
   const [mediaViewer, setMediaViewer] = useState(null);
 
-  useEffect(() => { refresh(); loadCats(); loadInstructors(); }, []);
+  useEffect(() => { refresh(); loadCats(); }, []);
 
   async function refresh() {
     try {
@@ -37,10 +36,6 @@ export default function CourseManagement() {
     setCats(await getCategories());
   }
 
-  async function loadInstructors() {
-    setInstructors(await getAllInstructors());
-  }
-
   function handleOpenAdd() {
     setForm(emptyForm);
     setEditingId(null);
@@ -48,7 +43,7 @@ export default function CourseManagement() {
   }
 
   async function handleOpenEdit(course) {
-    setForm({ title: course.title, instructor: course.instructor, category: course.category, duration: course.duration, status: course.status });
+    setForm({ title: course.title, category: course.category, duration: course.duration, status: course.status });
     setEditingId(course.id);
     setShowForm(true);
     setCourseLessons(await getCourseLessons(course.id));
@@ -181,7 +176,7 @@ export default function CourseManagement() {
   }
 
   const filtered = courses.filter(c => {
-    const matchSearch = c.title.toLowerCase().includes(search.toLowerCase()) || c.instructor.toLowerCase().includes(search.toLowerCase());
+    const matchSearch = c.title.toLowerCase().includes(search.toLowerCase());
     const matchCategory = filterCategory === 'All' || c.category === filterCategory;
     return matchSearch && matchCategory;
   });
@@ -234,15 +229,6 @@ export default function CourseManagement() {
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Title</label>
                 <input name="title" value={form.title} onChange={handleChange} className="input-field w-full" required />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Instructor</label>
-                <select name="instructor" value={form.instructor} onChange={handleChange} className="input-field w-full" required>
-                  <option value="">Select instructor</option>
-                  {instructors.map(i => (
-                    <option key={i.id} value={i.name}>{i.name}</option>
-                  ))}
-                </select>
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Category</label>
@@ -411,7 +397,6 @@ export default function CourseManagement() {
           <thead>
             <tr className="border-b border-gray-200 bg-gray-50">
               <th className="table-header">Title</th>
-              <th className="table-header">Instructor</th>
               <th className="table-header">Category</th>
               <th className="table-header">Students</th>
               <th className="table-header">Lessons</th>
@@ -424,7 +409,6 @@ export default function CourseManagement() {
             {filtered.map(c => (
               <tr key={c.id} className="border-b border-gray-100 hover:bg-gray-50">
                 <td className="table-cell font-medium">{c.title}</td>
-                <td className="table-cell text-gray-500">{c.instructor}</td>
                 <td className="table-cell">
                   <span className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">{c.category}</span>
                 </td>

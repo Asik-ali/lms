@@ -1,6 +1,6 @@
 {
-  "appId": "com.lms.app",
-  "appName": "LMS",
+  "appId": "com.lms.portal",
+  "appName": "LMS Portal",
   "webDir": "dist",
   "server": {
     "androidScheme": "https"

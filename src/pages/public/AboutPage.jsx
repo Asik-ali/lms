@@ -1,9 +1,9 @@
 import { BookOpen, Users, Target, Heart } from 'lucide-react';
 
 const values = [
-  { icon: Target, title: 'Quality Education', desc: 'We provide structured courses with expert instructors and comprehensive study materials.' },
+  { icon: Target, title: 'Quality Education', desc: 'We provide structured courses with expert educators and comprehensive study materials.' },
   { icon: Users, title: 'Student First', desc: 'Every feature is designed with students in mind — from progress tracking to live classes.' },
-  { icon: Heart, title: 'Community', desc: 'Build connections with instructors and fellow learners through our platform.' },
+  { icon: Heart, title: 'Community', desc: 'Build connections with fellow learners through our platform.' },
   { icon: BookOpen, title: 'Continuous Learning', desc: 'Test series, live sessions, and regular updates keep learning fresh and engaging.' },
 ];
 
@@ -14,7 +14,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-3xl sm:text-4xl font-bold">About Us</h1>
           <p className="mt-3 text-indigo-100 max-w-2xl mx-auto">
-            We are building a modern learning management system that empowers students and instructors.
+            We are building a modern learning management system that empowers students.
           </p>
         </div>
       </section>

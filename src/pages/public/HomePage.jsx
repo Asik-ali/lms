@@ -6,14 +6,13 @@ const features = [
   { icon: Video, title: 'Live Classes', desc: 'Stream live YouTube classes visible to all enrolled students.' },
   { icon: Laptop, title: 'Test Series', desc: 'Practice with organized test series for competitive exams.' },
   { icon: Users, title: 'Student Portal', desc: 'Students can track progress, view courses, and join live classes.' },
-  { icon: GraduationCap, title: 'Instructor Tools', desc: 'Instructors manage courses, view analytics, and post announcements.' },
+  { icon: GraduationCap, title: 'Admin Tools', desc: 'Admins manage courses, view analytics, and post announcements.' },
   { icon: Trophy, title: 'Reports & Analytics', desc: 'Track student performance, enrollment trends, and course metrics.' },
 ];
 
 const stats = [
   { value: '500+', label: 'Students' },
   { value: '50+', label: 'Courses' },
-  { value: '20+', label: 'Instructors' },
   { value: '95%', label: 'Satisfaction' },
 ];
 
@@ -58,7 +57,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Everything You Need</h2>
-            <p className="mt-2 text-gray-500">Powerful features for admins, instructors, and students.</p>
+            <p className="mt-2 text-gray-500">Powerful features for admins and students.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map(f => {

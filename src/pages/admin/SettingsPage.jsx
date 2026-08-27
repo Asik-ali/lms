@@ -253,7 +253,7 @@ function ApiKeysTab() {
   );
 }
 
-const backupTables = ['categories', 'courses', 'instructors', 'assignments', 'quizzes', 'questions', 'attendance', 'announcements', 'enrollments', 'notifications', 'live_classes', 'smtp_settings'];
+const backupTables = ['categories', 'courses', 'assignments', 'quizzes', 'questions', 'attendance', 'announcements', 'enrollments', 'notifications', 'live_classes', 'smtp_settings'];
 
 function BackupTab() {
   const [schedule, setSchedule] = useState(() => localStorage.getItem('backupSchedule') || 'daily');

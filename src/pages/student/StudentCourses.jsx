@@ -35,7 +35,6 @@ export default function StudentCourses() {
                 <BookOpen className="w-6 h-6 text-indigo-600" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900">{c.title}</h3>
-              <p className="text-sm text-gray-500 mt-1">{c.instructor}</p>
               <div className="mt-3 space-y-1 text-sm">
                 <p className="text-gray-500">Category: <span className="text-gray-700">{c.category}</span></p>
                 <p className="text-gray-500">Duration: <span className="text-gray-700">{c.duration}</span></p>
