@@ -27,7 +27,6 @@ const titles = {
   '/admin/audit': 'Audit Log',
   '/student': 'Dashboard',
   '/student/courses': 'My Courses',
-  '/student/continue': 'Continue Learning',
   '/student/live-classes': 'Live Classes',
   '/student/test-series': 'Test Series',
   '/student/calendar': 'Calendar',

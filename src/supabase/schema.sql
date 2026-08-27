@@ -393,3 +393,34 @@ CREATE POLICY "Anyone can read events" ON calendar_events FOR SELECT USING (true
 CREATE POLICY "Admins can insert events" ON calendar_events FOR INSERT WITH CHECK (public.is_admin());
 CREATE POLICY "Admins can update events" ON calendar_events FOR UPDATE USING (public.is_admin());
 CREATE POLICY "Admins can delete events" ON calendar_events FOR DELETE USING (public.is_admin());
+
+-- Test Series (exam categories like SSC CGL, SSC CHSL, etc.)
+CREATE TABLE IF NOT EXISTS test_series (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  name TEXT NOT NULL,
+  description TEXT DEFAULT '',
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+ALTER TABLE test_series ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Everyone can read test_series" ON test_series FOR SELECT USING (true);
+CREATE POLICY "Admins can manage test_series" ON test_series FOR ALL USING (public.is_admin());
+
+-- Tests within a series
+CREATE TABLE IF NOT EXISTS tests (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  series_id BIGINT NOT NULL REFERENCES test_series(id) ON DELETE CASCADE,
+  name TEXT NOT NULL,
+  description TEXT DEFAULT '',
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+ALTER TABLE tests ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Everyone can read tests" ON tests FOR SELECT USING (true);
+CREATE POLICY "Admins can manage tests" ON tests FOR ALL USING (public.is_admin());
+
+-- Add test_id FK to questions
+ALTER TABLE questions ADD COLUMN IF NOT EXISTS test_id BIGINT REFERENCES tests(id) ON DELETE SET NULL;
+
+-- Add test_series_access to profiles
+ALTER TABLE profiles ADD COLUMN IF NOT EXISTS test_series_access TEXT DEFAULT '';

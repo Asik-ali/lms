@@ -4,7 +4,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import {
   LayoutDashboard, Users, BookOpen, Video,
   Megaphone, Settings,
-  LogOut, ChevronDown, ChevronRight, BookMarked, Calendar, MessageSquare,
+  LogOut, ChevronDown, ChevronRight, Calendar, MessageSquare,
   UserCircle, PenTool, Bell, X,
 } from 'lucide-react';
 
@@ -49,7 +49,6 @@ const adminNav = [
 const studentNav = [
   { section: 'Dashboard', icon: LayoutDashboard, path: '/student' },
   { section: 'My Courses', icon: BookOpen, path: '/student/courses' },
-  { section: 'Continue Learning', icon: BookMarked, path: '/student/continue' },
   { section: 'Live Classes', icon: Video, path: '/student/live-classes' },
   { section: 'Test Series', icon: PenTool, path: '/student/test-series' },
   { section: 'Calendar', icon: Calendar, path: '/student/calendar' },

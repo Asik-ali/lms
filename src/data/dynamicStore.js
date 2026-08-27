@@ -192,6 +192,54 @@ export async function deleteQuestion(id) {
   if (error) throw error;
 }
 
+// Test Series (proper tables)
+export async function getAllTestSeries() {
+  const { data, error } = await supabase.from('test_series').select('id, name, description, created_at').order('created_at');
+  if (error) throw error;
+  return data || [];
+}
+
+export async function addTestSeries({ name, description }) {
+  const { data, error } = await supabase.from('test_series').insert({ name, description }).select('id, name, description, created_at').single();
+  if (error) throw error;
+  return data;
+}
+
+export async function deleteTestSeries(id) {
+  const { error } = await supabase.from('test_series').delete().eq('id', id);
+  if (error) throw error;
+}
+
+export async function getTestsBySeriesId(seriesId) {
+  const { data, error } = await supabase.from('tests').select('id, name, description, created_at').eq('series_id', seriesId).order('created_at');
+  if (error) throw error;
+  return data || [];
+}
+
+export async function addTest({ series_id, name, description }) {
+  const { data, error } = await supabase.from('tests').insert({ series_id, name, description }).select('id, name, description, created_at').single();
+  if (error) throw error;
+  return data;
+}
+
+export async function deleteTest(id) {
+  const { error } = await supabase.from('tests').delete().eq('id', id);
+  if (error) throw error;
+}
+
+export async function getQuestionsByTestId(testId) {
+  const { data, error } = await supabase.from('questions').select('id, question, type, category, difficulty, test_id').eq('test_id', testId);
+  if (error) throw error;
+  return data || [];
+}
+
+export async function addQuestionToTest(testId, row) {
+  const { data, error } = await supabase.from('questions').insert({ ...row, test_id: testId }).select('id, question, type, category, difficulty, test_id').single();
+  if (error) throw error;
+  return data;
+}
+
+// Legacy compatibility
 export async function getTestSeries() {
   const { data, error } = await supabase.from('questions').select('category');
   if (error) throw error;
@@ -217,22 +265,11 @@ export async function getTestSeriesByCategories(categories) {
   return Object.entries(seriesMap).map(([name, count]) => ({ name, count }));
 }
 
-export async function getTestsBySeries(seriesName) {
-  const { data, error } = await supabase.from('questions').select('id, category').eq('category', seriesName);
+export async function getAllTestSeriesByCategories(categories) {
+  if (!categories || categories.length === 0) return getAllTestSeries();
+  const { data, error } = await supabase.from('test_series').select('id, name, description, created_at').in('name', categories);
   if (error) throw error;
-  const testsMap = {};
-  (data || []).forEach(q => {
-    const testName = q.test_name || q.question;
-    if (!testsMap[testName]) testsMap[testName] = { name: testName, count: 0 };
-    testsMap[testName].count++;
-  });
-  return Object.values(testsMap);
-}
-
-export async function getQuestionsByTest(seriesName, testName) {
-  const { data, error } = await supabase.from('questions').select('id, question, type, category, difficulty').eq('category', seriesName);
-  if (error) throw error;
-  return (data || []).filter(q => (q.test_name || q.question) === testName);
+  return data || [];
 }
 
 export async function getAttendance({ page = 0, pageSize = DEFAULT_PAGE_SIZE } = {}) {

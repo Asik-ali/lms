@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Users, BookOpen, Video, Radio, Square, Trash2, ExternalLink, FileText } from 'lucide-react';
+import { Users, BookOpen, Video, Radio, Square, Trash2, ExternalLink, FileText, FolderOpen } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line } from 'recharts';
-import { getAllStudents, getAllCourses, getAllEnrollments, getAllLiveClasses, addLiveClass, updateLiveClass, deleteLiveClass, getTestSeries } from '../../data/dynamicStore';
+import { getAllStudents, getAllCourses, getAllEnrollments, getAllLiveClasses, addLiveClass, updateLiveClass, deleteLiveClass, getAllTestSeries } from '../../data/dynamicStore';
 import { showError, showSuccess } from '../../components/common/Toast';
 
 export default function AdminDashboard() {
@@ -20,7 +20,7 @@ export default function AdminDashboard() {
       setCourses(await getAllCourses());
       setEnrollments(await getAllEnrollments());
       setLiveClasses(await getAllLiveClasses());
-      setTestSeries(await getTestSeries());
+      setTestSeries(await getAllTestSeries());
     })();
   }, []);
 
@@ -33,7 +33,7 @@ export default function AdminDashboard() {
   const statCards = [
     { label: 'Active Students', value: activeStudents, icon: Users, color: 'bg-blue-500' },
     { label: 'Published Courses', value: publishedCourses, icon: BookOpen, color: 'bg-purple-500' },
-    { label: 'Test Series', value: totalTestSeries, icon: FileText, color: 'bg-emerald-500' },
+    { label: 'Test Series', value: totalTestSeries, icon: FolderOpen, color: 'bg-emerald-500' },
     { label: 'Live Sessions', value: liveClasses.length, icon: Video, color: 'bg-amber-500' },
   ];
 
@@ -225,20 +225,23 @@ export default function AdminDashboard() {
             <a href="/admin/exams/questions" className="text-sm text-indigo-600 hover:text-indigo-700">Manage</a>
           </div>
           <div className="p-4 space-y-3">
-            {testSeries.length > 0 ? testSeries.map(s => (
-              <div key={s.name} className="flex items-center justify-between p-3 rounded-lg border border-gray-100 hover:border-indigo-200">
+            {testSeries.length > 0 ? testSeries.slice(0, 5).map(s => (
+              <div key={s.id} className="flex items-center justify-between p-3 rounded-lg border border-gray-100 hover:border-indigo-200">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 rounded-lg bg-indigo-100 flex items-center justify-center">
-                    <FileText className="w-4 h-4 text-indigo-600" />
+                    <FolderOpen className="w-4 h-4 text-indigo-600" />
                   </div>
                   <div>
                     <p className="text-sm font-medium text-gray-900">{s.name}</p>
-                    <p className="text-xs text-gray-400">{s.count} questions</p>
+                    {s.description && <p className="text-xs text-gray-400">{s.description}</p>}
                   </div>
                 </div>
               </div>
             )) : (
               <p className="text-sm text-gray-400 text-center py-4">No test series yet</p>
+            )}
+            {testSeries.length > 0 && (
+              <p className="text-xs text-gray-400 text-center pt-2">{testSeries.length} total series</p>
             )}
             {testSeries.length > 0 && (
               <p className="text-xs text-gray-400 text-center pt-2">{testSeries.length} series &middot; {testSeries.reduce((a, s) => a + s.count, 0)} total questions</p>

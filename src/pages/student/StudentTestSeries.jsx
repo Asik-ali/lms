@@ -1,8 +1,12 @@
 import { useState, useEffect } from 'react';
 import { FolderOpen, FileText, ChevronRight, ExternalLink } from 'lucide-react';
-import { getTestSeriesByCategories, getTestsBySeries, getQuestionsByTest, getAllCourses } from '../../data/dynamicStore';
+import { getAllTestSeries, getTestsBySeriesId, getQuestionsByTestId } from '../../data/dynamicStore';
 import { useAuth } from '../../contexts/AuthContext';
-import { normalizeCourseAccessSelection } from '../admin/studentCourseAccess';
+
+function normalizeAccess(value) {
+  if (!value) return [];
+  return value.split(',').map(s => s.trim()).filter(Boolean);
+}
 
 export default function StudentTestSeries() {
   const { user } = useAuth();
@@ -12,32 +16,32 @@ export default function StudentTestSeries() {
   const [selectedTest, setSelectedTest] = useState(null);
   const [questions, setQuestions] = useState([]);
 
-  useEffect(() => { loadSeries(); }, [user?.course]);
+  useEffect(() => { loadSeries(); }, [user?.test_series_access]);
 
   async function loadSeries() {
-    const allCourses = await getAllCourses();
-    const assigned = normalizeCourseAccessSelection(user?.course || '');
-    const visibleCourses = assigned.length > 0
-      ? allCourses.filter(c => assigned.includes(c.title))
-      : [];
-    const categories = [...new Set(visibleCourses.map(c => c.category).filter(Boolean))];
-    setSeries(await getTestSeriesByCategories(categories));
+    const all = await getAllTestSeries();
+    const access = normalizeAccess(user?.test_series_access || '');
+    if (access.length > 0) {
+      setSeries(all.filter(s => access.includes(s.name)));
+    } else {
+      setSeries([]);
+    }
   }
 
   async function handleSelectSeries(s) {
     setSelectedSeries(s);
     setSelectedTest(null);
     setQuestions([]);
-    setTests(await getTestsBySeries(s.name));
+    setTests(await getTestsBySeriesId(s.id));
   }
 
   async function handleSelectTest(t) {
     setSelectedTest(t);
-    setQuestions(await getQuestionsByTest(selectedSeries.name, t.name));
+    setQuestions(await getQuestionsByTestId(t.id));
   }
 
   const breadcrumb = [
-    { label: 'Test Series', onClick: () => { setSelectedSeries(null); setSelectedTest(null); setQuestions([]); } },
+    { label: 'Test Series', onClick: () => { setSelectedSeries(null); setSelectedTest(null); setQuestions([]); setTests([]); } },
     selectedSeries && { label: selectedSeries.name, onClick: () => { setSelectedTest(null); setQuestions([]); } },
     selectedTest && { label: selectedTest.name },
   ].filter(Boolean);
@@ -64,14 +68,14 @@ export default function StudentTestSeries() {
       {!selectedSeries && (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {series.map(s => (
-            <button key={s.name} onClick={() => handleSelectSeries(s)} className="card p-5 text-left hover:border-indigo-300 hover:shadow-md transition-all cursor-pointer">
+            <button key={s.id} onClick={() => handleSelectSeries(s)} className="card p-5 text-left hover:border-indigo-300 hover:shadow-md transition-all cursor-pointer">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center">
                   <FolderOpen className="w-5 h-5 text-indigo-600" />
                 </div>
                 <div>
                   <p className="font-semibold text-gray-900">{s.name}</p>
-                  <p className="text-xs text-gray-500">{s.count} questions</p>
+                  {s.description && <p className="text-xs text-gray-500">{s.description}</p>}
                 </div>
               </div>
             </button>
@@ -79,7 +83,7 @@ export default function StudentTestSeries() {
           {series.length === 0 && (
             <div className="col-span-full text-center py-12 text-gray-400">
               <FolderOpen className="w-12 h-12 mx-auto mb-3 text-gray-300" />
-              <p>No test series available for your enrolled courses.</p>
+              <p>No test series assigned to you yet.</p>
             </div>
           )}
         </div>
@@ -88,14 +92,14 @@ export default function StudentTestSeries() {
       {selectedSeries && !selectedTest && (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {tests.map(t => (
-            <button key={t.name} onClick={() => handleSelectTest(t)} className="card p-5 text-left hover:border-indigo-300 hover:shadow-md transition-all cursor-pointer">
+            <button key={t.id} onClick={() => handleSelectTest(t)} className="card p-5 text-left hover:border-indigo-300 hover:shadow-md transition-all cursor-pointer">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center">
                   <FileText className="w-5 h-5 text-emerald-600" />
                 </div>
                 <div>
                   <p className="font-semibold text-gray-900">{t.name}</p>
-                  <p className="text-xs text-gray-500">{t.count} questions</p>
+                  {t.description && <p className="text-xs text-gray-500">{t.description}</p>}
                 </div>
               </div>
             </button>

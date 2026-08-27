@@ -96,7 +96,6 @@ function AppRoutes() {
         <Route index element={<StudentDashboard />} />
         <Route path="courses" element={<StudentCourses />} />
         <Route path="courses/:courseId" element={<StudentCourseDetail />} />
-        <Route path="continue" element={<StudentCourseDetail courseId="1" />} />
         <Route path="live-classes" element={<StudentLiveClasses />} />
         <Route path="test-series" element={<StudentTestSeries />} />
         <Route path="calendar" element={<StudentCalendar />} />

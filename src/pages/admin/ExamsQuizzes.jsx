@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { HelpCircle, Plus, X, ChevronRight, Trash2, FolderOpen, FileText } from 'lucide-react';
-import { getTestSeries, getTestsBySeries, getQuestionsByTest, addQuestion, deleteQuestion, getCategories } from '../../data/dynamicStore';
+import { Plus, X, ChevronRight, Trash2, FolderOpen, FileText, HelpCircle, Eye } from 'lucide-react';
+import { getAllTestSeries, addTestSeries, deleteTestSeries, getTestsBySeriesId, addTest, deleteTest, getQuestionsByTestId, addQuestionToTest, deleteQuestion } from '../../data/dynamicStore';
 import { showError, showSuccess } from '../../components/common/Toast';
 
 export default function TestSeries() {
@@ -9,88 +9,121 @@ export default function TestSeries() {
   const [tests, setTests] = useState([]);
   const [selectedTest, setSelectedTest] = useState(null);
   const [questions, setQuestions] = useState([]);
-  const [categories, setCategories] = useState([]);
+  const [showAddSeries, setShowAddSeries] = useState(false);
   const [showAddTest, setShowAddTest] = useState(false);
   const [showAddQuestion, setShowAddQuestion] = useState(false);
+  const [newSeriesName, setNewSeriesName] = useState('');
+  const [newSeriesDesc, setNewSeriesDesc] = useState('');
   const [newTestName, setNewTestName] = useState('');
-  const [newTestCategory, setNewTestCategory] = useState('');
+  const [newTestDesc, setNewTestDesc] = useState('');
   const [newQuestion, setNewQuestion] = useState({ question: '', type: 'Multiple Choice', difficulty: 'Easy' });
 
-  useEffect(() => { loadSeries(); loadCategories(); }, []);
+  useEffect(() => { loadSeries(); }, []);
 
   async function loadSeries() {
-    setSeries(await getTestSeries());
-  }
-
-  async function loadCategories() {
-    setCategories(await getCategories());
+    const data = await getAllTestSeries();
+    setSeries(data);
   }
 
   async function handleSelectSeries(s) {
     setSelectedSeries(s);
     setSelectedTest(null);
     setQuestions([]);
-    setTests(await getTestsBySeries(s.name));
+    setTests(await getTestsBySeriesId(s.id));
   }
 
   async function handleSelectTest(t) {
     setSelectedTest(t);
-    setQuestions(await getQuestionsByTest(selectedSeries.name, t.name));
+    setQuestions(await getQuestionsByTestId(t.id));
   }
 
-  const handleAddTest = async () => {
+  async function handleAddSeries() {
+    const name = newSeriesName.trim();
+    if (!name) return showError('Enter a series name.');
+    try {
+      await addTestSeries({ name, description: newSeriesDesc.trim() });
+      setNewSeriesName('');
+      setNewSeriesDesc('');
+      setShowAddSeries(false);
+      await loadSeries();
+      showSuccess('Test series created.');
+    } catch (e) {
+      showError(e.message);
+    }
+  }
+
+  async function handleDeleteSeries(id) {
+    if (!confirm('Delete this series and all its tests?')) return;
+    try {
+      await deleteTestSeries(id);
+      if (selectedSeries?.id === id) { setSelectedSeries(null); setSelectedTest(null); setTests([]); setQuestions([]); }
+      await loadSeries();
+      showSuccess('Series deleted.');
+    } catch (e) {
+      showError(e.message);
+    }
+  }
+
+  async function handleAddTest() {
     const name = newTestName.trim();
     if (!name) return showError('Enter a test name.');
-    const cat = newTestCategory || selectedSeries?.name || '';
-    await addQuestion({
-      question: name,
-      type: 'Test',
-      category: cat,
-      difficulty: 'Easy',
-      test_name: name,
-    });
-    setNewTestName('');
-    setNewTestCategory('');
-    setShowAddTest(false);
-    if (selectedSeries) {
-      setTests(await getTestsBySeries(selectedSeries.name));
+    try {
+      await addTest({ series_id: selectedSeries.id, name, description: newTestDesc.trim() });
+      setNewTestName('');
+      setNewTestDesc('');
+      setShowAddTest(false);
+      setTests(await getTestsBySeriesId(selectedSeries.id));
+      showSuccess('Test created.');
+    } catch (e) {
+      showError(e.message);
     }
-    await loadSeries();
-    showSuccess('Test added.');
-  };
+  }
 
-  const handleAddQuestion = async () => {
+  async function handleDeleteTest(id) {
+    if (!confirm('Delete this test and its questions?')) return;
+    try {
+      await deleteTest(id);
+      if (selectedTest?.id === id) { setSelectedTest(null); setQuestions([]); }
+      setTests(await getTestsBySeriesId(selectedSeries.id));
+      showSuccess('Test deleted.');
+    } catch (e) {
+      showError(e.message);
+    }
+  }
+
+  async function handleAddQuestion() {
     const q = newQuestion.question.trim();
     if (!q) return showError('Enter a question URL.');
     if (!q.startsWith('http://') && !q.startsWith('https://')) return showError('Please enter a valid URL.');
-    await addQuestion({
-      question: q,
-      type: newQuestion.type,
-      category: selectedSeries?.name || '',
-      difficulty: newQuestion.difficulty,
-      test_name: selectedTest?.name || '',
-    });
-    setNewQuestion({ question: '', type: 'Multiple Choice', difficulty: 'Easy' });
-    setShowAddQuestion(false);
-    if (selectedTest) {
-      setQuestions(await getQuestionsByTest(selectedSeries.name, selectedTest.name));
+    try {
+      await addQuestionToTest(selectedTest.id, {
+        question: q,
+        type: newQuestion.type,
+        category: selectedSeries?.name || '',
+        difficulty: newQuestion.difficulty,
+      });
+      setNewQuestion({ question: '', type: 'Multiple Choice', difficulty: 'Easy' });
+      setShowAddQuestion(false);
+      setQuestions(await getQuestionsByTestId(selectedTest.id));
+      showSuccess('Question added.');
+    } catch (e) {
+      showError(e.message);
     }
-    await loadSeries();
-    showSuccess('Question added.');
-  };
+  }
 
-  const handleDeleteQuestion = async (id) => {
+  async function handleDeleteQuestion(id) {
     if (!confirm('Delete this question?')) return;
-    await deleteQuestion(id);
-    if (selectedTest) {
-      setQuestions(await getQuestionsByTest(selectedSeries.name, selectedTest.name));
+    try {
+      await deleteQuestion(id);
+      setQuestions(await getQuestionsByTestId(selectedTest.id));
+      showSuccess('Question deleted.');
+    } catch (e) {
+      showError(e.message);
     }
-    await loadSeries();
-    showSuccess('Question deleted.');
-  };
+  }
 
   const breadcrumb = [
-    { label: 'Test Series', onClick: () => { setSelectedSeries(null); setSelectedTest(null); setQuestions([]); } },
+    { label: 'Test Series', onClick: () => { setSelectedSeries(null); setSelectedTest(null); setQuestions([]); setTests([]); } },
     selectedSeries && { label: selectedSeries.name, onClick: () => { setSelectedTest(null); setQuestions([]); } },
     selectedTest && { label: selectedTest.name },
   ].filter(Boolean);
@@ -99,9 +132,19 @@ export default function TestSeries() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold text-gray-900">Test Series</h1>
-        {selectedSeries && (
+        {!selectedSeries && (
+          <button onClick={() => setShowAddSeries(true)} className="btn-primary flex items-center gap-2">
+            <Plus className="w-4 h-4" /> Add Series
+          </button>
+        )}
+        {selectedSeries && !selectedTest && (
           <button onClick={() => setShowAddTest(true)} className="btn-primary flex items-center gap-2">
             <Plus className="w-4 h-4" /> Add Test
+          </button>
+        )}
+        {selectedTest && (
+          <button onClick={() => setShowAddQuestion(true)} className="btn-primary flex items-center gap-2">
+            <Plus className="w-4 h-4" /> Add Question
           </button>
         )}
       </div>
@@ -124,22 +167,23 @@ export default function TestSeries() {
       {!selectedSeries && (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {series.map(s => (
-            <button key={s.name} onClick={() => handleSelectSeries(s)} className="card p-5 text-left hover:border-indigo-300 hover:shadow-md transition-all cursor-pointer">
-              <div className="flex items-center gap-3 mb-3">
+            <button key={s.id} onClick={() => handleSelectSeries(s)} className="card p-5 text-left hover:border-indigo-300 hover:shadow-md transition-all cursor-pointer group">
+              <div className="flex items-center gap-3 mb-2">
                 <div className="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center">
                   <FolderOpen className="w-5 h-5 text-indigo-600" />
                 </div>
-                <div>
-                  <p className="font-semibold text-gray-900">{s.name}</p>
-                  <p className="text-xs text-gray-500">{s.count} questions</p>
+                <div className="flex-1 min-w-0">
+                  <p className="font-semibold text-gray-900 truncate">{s.name}</p>
+                  {s.description && <p className="text-xs text-gray-500 truncate">{s.description}</p>}
                 </div>
               </div>
+              <button onClick={(e) => { e.stopPropagation(); handleDeleteSeries(s.id); }} className="text-xs text-red-500 hover:text-red-700 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer">Delete</button>
             </button>
           ))}
           {series.length === 0 && (
             <div className="col-span-full text-center py-12 text-gray-400">
               <FolderOpen className="w-12 h-12 mx-auto mb-3 text-gray-300" />
-              <p>No test series yet. Add your first test to get started.</p>
+              <p>No test series yet. Create your first exam category (e.g. SSC CGL, SSC CHSL).</p>
             </div>
           )}
         </div>
@@ -147,38 +191,34 @@ export default function TestSeries() {
 
       {selectedSeries && !selectedTest && (
         <div className="space-y-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {tests.map(t => (
-              <button key={t.name} onClick={() => handleSelectTest(t)} className="card p-5 text-left hover:border-indigo-300 hover:shadow-md transition-all cursor-pointer">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center">
-                    <FileText className="w-5 h-5 text-emerald-600" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-900">{t.name}</p>
-                    <p className="text-xs text-gray-500">{t.count} questions</p>
-                  </div>
+          {tests.map(t => (
+            <button key={t.id} onClick={() => handleSelectTest(t)} className="card p-5 text-left hover:border-indigo-300 hover:shadow-md transition-all cursor-pointer group w-full">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center">
+                  <FileText className="w-5 h-5 text-emerald-600" />
                 </div>
-              </button>
-            ))}
-            {tests.length === 0 && (
-              <div className="col-span-full text-center py-12 text-gray-400">
-                <FileText className="w-12 h-12 mx-auto mb-3 text-gray-300" />
-                <p>No tests in this series yet. Click "Add Test" to create one.</p>
+                <div className="flex-1 min-w-0">
+                  <p className="font-semibold text-gray-900">{t.name}</p>
+                  {t.description && <p className="text-xs text-gray-500 truncate">{t.description}</p>}
+                </div>
+                <button onClick={(e) => { e.stopPropagation(); handleDeleteTest(t.id); }} className="p-1 text-gray-400 hover:text-red-600 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer">
+                  <Trash2 className="w-4 h-4" />
+                </button>
               </div>
-            )}
-          </div>
+            </button>
+          ))}
+          {tests.length === 0 && (
+            <div className="col-span-full text-center py-12 text-gray-400">
+              <FileText className="w-12 h-12 mx-auto mb-3 text-gray-300" />
+              <p>No tests in this series yet. Click "Add Test" to create one.</p>
+            </div>
+          )}
         </div>
       )}
 
       {selectedTest && (
         <div className="space-y-4">
-          <div className="flex items-center justify-between">
-            <p className="text-sm text-gray-500">{questions.length} questions in {selectedTest.name}</p>
-            <button onClick={() => setShowAddQuestion(true)} className="btn-primary flex items-center gap-2">
-              <Plus className="w-4 h-4" /> Add Question
-            </button>
-          </div>
+          <p className="text-sm text-gray-500">{questions.length} questions in {selectedTest.name}</p>
           <div className="card overflow-hidden">
             <table className="w-full">
               <thead>
@@ -221,24 +261,43 @@ export default function TestSeries() {
         </div>
       )}
 
+      {showAddSeries && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+          <div className="bg-white rounded-xl shadow-xl w-full max-w-md p-6 space-y-4">
+            <div className="flex items-center justify-between">
+              <h2 className="text-lg font-semibold text-gray-900">Add Test Series</h2>
+              <button onClick={() => setShowAddSeries(false)} className="p-1 text-gray-400 hover:text-gray-600 cursor-pointer"><X className="w-5 h-5" /></button>
+            </div>
+            <div className="space-y-4">
+              <div>
+                <label className="label">Series Name *</label>
+                <input type="text" value={newSeriesName} onChange={e => setNewSeriesName(e.target.value)} className="input-field w-full" placeholder="e.g. SSC CGL, SSC CHSL, SSC MTS" />
+              </div>
+              <div>
+                <label className="label">Description</label>
+                <input type="text" value={newSeriesDesc} onChange={e => setNewSeriesDesc(e.target.value)} className="input-field w-full" placeholder="Optional description" />
+              </div>
+              <button onClick={handleAddSeries} className="btn-primary w-full">Create Series</button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {showAddTest && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
           <div className="bg-white rounded-xl shadow-xl w-full max-w-md p-6 space-y-4">
             <div className="flex items-center justify-between">
-              <h2 className="text-lg font-semibold text-gray-900">Add Test</h2>
+              <h2 className="text-lg font-semibold text-gray-900">Add Test to {selectedSeries?.name}</h2>
               <button onClick={() => setShowAddTest(false)} className="p-1 text-gray-400 hover:text-gray-600 cursor-pointer"><X className="w-5 h-5" /></button>
             </div>
             <div className="space-y-4">
               <div>
-                <label className="label">Test Name</label>
-                <input type="text" value={newTestName} onChange={e => setNewTestName(e.target.value)} className="input-field w-full" placeholder="e.g. SSC MTS Test 1" />
+                <label className="label">Test Name *</label>
+                <input type="text" value={newTestName} onChange={e => setNewTestName(e.target.value)} className="input-field w-full" placeholder="e.g. SSC CGL Tier-1 2024" />
               </div>
               <div>
-                <label className="label">Category / Series</label>
-                <select value={newTestCategory || selectedSeries?.name || ''} onChange={e => setNewTestCategory(e.target.value)} className="input-field w-full">
-                  <option value="">Select category</option>
-                  {categories.map(c => <option key={c} value={c}>{c}</option>)}
-                </select>
+                <label className="label">Description</label>
+                <input type="text" value={newTestDesc} onChange={e => setNewTestDesc(e.target.value)} className="input-field w-full" placeholder="Optional description" />
               </div>
               <button onClick={handleAddTest} className="btn-primary w-full">Create Test</button>
             </div>

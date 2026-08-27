@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useLocation, useNavigate, Navigate } from 'react-router-dom';
 import { Search, Plus, ArrowLeft, UserPlus, Copy, Check, LogIn, Save, X, KeyRound, BookOpen } from 'lucide-react';
 import { supabase } from '../../supabase/client';
-import { getAllStudents, getAllCourses } from '../../data/dynamicStore';
+import { getAllStudents, getAllCourses, getAllTestSeries } from '../../data/dynamicStore';
 import { useAuth } from '../../contexts/AuthContext';
 import { showError, showSuccess } from '../../components/common/Toast';
 import { normalizeCourseAccessSelection, serializeCourseAccess, getCourseAccessLabel } from './studentCourseAccess';
@@ -435,9 +435,23 @@ function CredentialsModal({ student, onClose }) {
   );
 }
 
+function normalizeTestSeriesAccess(value) {
+  if (!value) return [];
+  return value.split(',').map(s => s.trim()).filter(Boolean);
+}
+function serializeTestSeriesAccess(arr) {
+  return arr.filter(Boolean).join(', ');
+}
+
 function CourseAccessModal({ student, courses, onClose, onSaved }) {
   const [selectedCourses, setSelectedCourses] = useState(() => normalizeCourseAccessSelection(student.course || ''));
+  const [testSeries, setTestSeries] = useState([]);
+  const [selectedSeries, setSelectedSeries] = useState(() => normalizeTestSeriesAccess(student.test_series_access || ''));
   const [saving, setSaving] = useState(false);
+
+  useEffect(() => {
+    getAllTestSeries().then(setTestSeries).catch(() => {});
+  }, []);
 
   const toggleCourse = (courseTitle) => {
     setSelectedCourses(prev =>
@@ -445,23 +459,33 @@ function CourseAccessModal({ student, courses, onClose, onSaved }) {
     );
   };
 
-  const saveCourseAccess = async () => {
+  const toggleSeries = (name) => {
+    setSelectedSeries(prev =>
+      prev.includes(name) ? prev.filter(item => item !== name) : [...prev, name]
+    );
+  };
+
+  const saveAccess = async () => {
     setSaving(true);
-    const serialized = serializeCourseAccess(selectedCourses);
-    const { error } = await supabase.from('profiles').update({ course: serialized || null }).eq('id', student.id);
+    const courseStr = serializeCourseAccess(selectedCourses);
+    const seriesStr = serializeTestSeriesAccess(selectedSeries);
+    const { error } = await supabase.from('profiles').update({
+      course: courseStr || null,
+      test_series_access: seriesStr || null,
+    }).eq('id', student.id);
     setSaving(false);
-    if (error) return showError(error.message || 'Unable to update course access.');
-    showSuccess(selectedCourses.length ? 'Student course access updated.' : 'Student removed from all course access.');
+    if (error) return showError(error.message || 'Unable to update access.');
+    showSuccess('Student access updated.');
     await onSaved();
     onClose();
   };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
-      <div className="w-full max-w-lg space-y-5 rounded-xl bg-white p-6 shadow-xl">
+      <div className="w-full max-w-lg space-y-5 rounded-xl bg-white p-6 shadow-xl max-h-[85vh] overflow-y-auto">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-lg font-semibold text-gray-900">Manage Course Access</h2>
+            <h2 className="text-lg font-semibold text-gray-900">Manage Access</h2>
             <p className="text-sm text-gray-500">{student.name}</p>
           </div>
           <button onClick={onClose} className="p-1 text-gray-400 hover:text-gray-600"><X className="w-5 h-5" /></button>
@@ -469,7 +493,7 @@ function CourseAccessModal({ student, courses, onClose, onSaved }) {
 
         <div className="rounded-lg border border-gray-200 p-4">
           <div className="mb-3 flex items-center justify-between">
-            <label className="block text-sm font-medium text-gray-700">Assigned courses</label>
+            <label className="block text-sm font-medium text-gray-700">Course Access</label>
             <span className="text-xs text-gray-500">{getCourseAccessLabel(serializeCourseAccess(selectedCourses))}</span>
           </div>
           <div className="grid gap-2">
@@ -482,13 +506,32 @@ function CourseAccessModal({ student, courses, onClose, onSaved }) {
                 </label>
               );
             })}
+            {courses.length === 0 && <p className="text-xs text-gray-400">No courses available</p>}
           </div>
         </div>
 
-        <p className="text-xs text-gray-500">Select one or more courses to grant access, or clear all selections to remove access.</p>
+        <div className="rounded-lg border border-gray-200 p-4">
+          <div className="mb-3 flex items-center justify-between">
+            <label className="block text-sm font-medium text-gray-700">Test Series Access</label>
+            <span className="text-xs text-gray-500">{selectedSeries.length ? selectedSeries.join(', ') : 'None'}</span>
+          </div>
+          <div className="grid gap-2">
+            {testSeries.map(ts => {
+              const checked = selectedSeries.includes(ts.name);
+              return (
+                <label key={ts.id} className="flex cursor-pointer items-center justify-between rounded-lg border border-gray-200 px-3 py-2 hover:bg-gray-50">
+                  <span className="text-sm text-gray-700">{ts.name}</span>
+                  <input type="checkbox" checked={checked} onChange={() => toggleSeries(ts.name)} className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />
+                </label>
+              );
+            })}
+            {testSeries.length === 0 && <p className="text-xs text-gray-400">No test series available</p>}
+          </div>
+        </div>
+
         <div className="flex justify-end gap-3">
           <button onClick={onClose} className="btn-secondary">Cancel</button>
-          <button onClick={saveCourseAccess} disabled={saving} className="btn-primary disabled:opacity-60">{saving ? 'Saving...' : 'Save Access'}</button>
+          <button onClick={saveAccess} disabled={saving} className="btn-primary disabled:opacity-60">{saving ? 'Saving...' : 'Save Access'}</button>
         </div>
       </div>
     </div>
