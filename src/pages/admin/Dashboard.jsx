@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Users, GraduationCap, BookOpen, Video, Radio, Square, Trash2, ExternalLink } from 'lucide-react';
+import { Users, GraduationCap, BookOpen, Video, Radio, Square, Trash2, ExternalLink, FileText } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line } from 'recharts';
-import { getAllStudents, getAllInstructors, getAllCourses, getAllEnrollments, getAllLiveClasses, addLiveClass, updateLiveClass, deleteLiveClass } from '../../data/dynamicStore';
+import { getAllStudents, getAllInstructors, getAllCourses, getAllEnrollments, getAllLiveClasses, addLiveClass, updateLiveClass, deleteLiveClass, getTestSeries } from '../../data/dynamicStore';
 import { showError, showSuccess } from '../../components/common/Toast';
 
 export default function AdminDashboard() {
@@ -10,6 +10,7 @@ export default function AdminDashboard() {
   const [courses, setCourses] = useState([]);
   const [enrollments, setEnrollments] = useState([]);
   const [liveClasses, setLiveClasses] = useState([]);
+  const [testSeries, setTestSeries] = useState([]);
   const [liveTitle, setLiveTitle] = useState('');
   const [liveUrl, setLiveUrl] = useState('');
   const [startingLive, setStartingLive] = useState(false);
@@ -21,6 +22,7 @@ export default function AdminDashboard() {
       setCourses(await getAllCourses());
       setEnrollments(await getAllEnrollments());
       setLiveClasses(await getAllLiveClasses());
+      setTestSeries(await getTestSeries());
     })();
   }, []);
 
@@ -203,7 +205,7 @@ export default function AdminDashboard() {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
         <div className="lg:col-span-2 card">
-          <div className="card-header">
+          <div className="card-header flex items-center justify-between">
             <h3 className="text-base sm:text-lg font-semibold">Enrollments Over Time</h3>
           </div>
           <div className="p-6">
@@ -217,6 +219,33 @@ export default function AdminDashboard() {
                 <Bar dataKey="completed" fill="#22c55e" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
+          </div>
+        </div>
+
+        <div className="card">
+          <div className="card-header flex items-center justify-between">
+            <h3 className="text-base sm:text-lg font-semibold">Test Series</h3>
+            <a href="/admin/exams/questions" className="text-sm text-indigo-600 hover:text-indigo-700">Manage</a>
+          </div>
+          <div className="p-4 space-y-3">
+            {testSeries.length > 0 ? testSeries.map(s => (
+              <div key={s.name} className="flex items-center justify-between p-3 rounded-lg border border-gray-100 hover:border-indigo-200">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-indigo-100 flex items-center justify-center">
+                    <FileText className="w-4 h-4 text-indigo-600" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-gray-900">{s.name}</p>
+                    <p className="text-xs text-gray-400">{s.count} questions</p>
+                  </div>
+                </div>
+              </div>
+            )) : (
+              <p className="text-sm text-gray-400 text-center py-4">No test series yet</p>
+            )}
+            {testSeries.length > 0 && (
+              <p className="text-xs text-gray-400 text-center pt-2">{testSeries.length} series &middot; {testSeries.reduce((a, s) => a + s.count, 0)} total questions</p>
+            )}
           </div>
         </div>
       </div>

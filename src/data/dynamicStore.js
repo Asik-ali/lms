@@ -27,11 +27,12 @@ export async function getCourses({ page = 0, pageSize = DEFAULT_PAGE_SIZE } = {}
   return { data: data || [], total: count ?? 0 };
 }
 export async function getCourseById(id) {
+  const numericId = Number(id);
   const { data, error } = await supabase
     .from('courses')
     .select('id, title, instructor, category, students, lessons, duration, status')
-    .eq('id', id)
-    .single();
+    .eq('id', isNaN(numericId) ? id : numericId)
+    .maybeSingle();
   if (error) throw error;
   return data;
 }
@@ -51,10 +52,11 @@ export async function deleteCourse(id) {
 }
 
 export async function getCourseLessons(courseId) {
+  const numericId = Number(courseId);
   const { data, error } = await supabase
     .from('course_lessons')
-    .select('id, course_id, title, content, position')
-    .eq('course_id', courseId)
+    .select('id, course_id, title, video_url, position')
+    .eq('course_id', isNaN(numericId) ? courseId : numericId)
     .order('position');
   if (error) throw error;
   return data || [];
@@ -72,10 +74,11 @@ export async function deleteCourseLesson(id) {
 }
 
 export async function getCoursePdfs(courseId) {
+  const numericId = Number(courseId);
   const { data, error } = await supabase
     .from('course_pdfs')
     .select('id, course_id, title, pdf_url, position')
-    .eq('course_id', courseId)
+    .eq('course_id', isNaN(numericId) ? courseId : numericId)
     .order('position');
   if (error) throw error;
   return data || [];

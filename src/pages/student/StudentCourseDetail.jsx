@@ -32,7 +32,8 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
           setLessons([]);
           setPdfs([]);
         }
-      } catch {
+      } catch (err) {
+        console.error('Failed to load course:', err);
         setCourse(null);
         setLessons([]);
         setPdfs([]);

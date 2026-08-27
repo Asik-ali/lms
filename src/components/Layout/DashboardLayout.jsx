@@ -20,6 +20,7 @@ const titles = {
   '/admin/courses/assign': 'Assign Instructor',
   '/admin/exams/questions': 'Test Series',
   '/admin/announcements': 'Announcements',
+  '/admin/tickets': 'Student Tickets',
   '/admin/notifications/email': 'Email Notifications',
   '/admin/notifications/sms': 'SMS Notifications',
   '/admin/notifications/push': 'Push Notifications',

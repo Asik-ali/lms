@@ -30,6 +30,7 @@ const adminNav = [
   },
   { section: 'Test Series', icon: PenTool, path: '/admin/exams/questions' },
   { section: 'Announcements', icon: Megaphone, path: '/admin/announcements' },
+  { section: 'Student Tickets', icon: MessageSquare, path: '/admin/tickets' },
   {
     section: 'Notifications', icon: Bell, submenu: [
       { label: 'Email', path: '/admin/notifications/email' },

@@ -17,6 +17,7 @@ import AnnouncementsPage from './pages/admin/AnnouncementsPage';
 import NotificationsPage from './pages/admin/NotificationsPage';
 import SettingsPage from './pages/admin/SettingsPage';
 import AuditPage from './pages/admin/AuditPage';
+import AdminTickets from './pages/admin/AdminTickets';
 import StudentDashboard from './pages/student/StudentDashboard';
 import StudentCourses from './pages/student/StudentCourses';
 import StudentCourseDetail from './pages/student/StudentCourseDetail';
@@ -83,6 +84,7 @@ function AppRoutes() {
         <Route path="courses/assign" element={<CourseManagement />} />
         <Route path="exams/questions" element={<QuestionBank />} />
         <Route path="announcements" element={<AnnouncementsPage />} />
+        <Route path="tickets" element={<AdminTickets />} />
         <Route path="notifications/email" element={<NotificationsPage />} />
         <Route path="notifications/sms" element={<NotificationsPage />} />
         <Route path="notifications/push" element={<NotificationsPage />} />
