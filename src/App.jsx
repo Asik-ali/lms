@@ -4,6 +4,7 @@ import DashboardLayout from './components/Layout/DashboardLayout';
 import PublicLayout from './components/Layout/PublicLayout';
 import ToastContainer from './components/common/Toast';
 import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignupPage';
 import HomePage from './pages/public/HomePage';
 import AboutPage from './pages/public/AboutPage';
 import ContactPage from './pages/public/ContactPage';
@@ -55,6 +56,7 @@ function AppRoutes() {
   if (!user) return (
     <Routes>
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/signup" element={<SignupPage />} />
       <Route element={<PublicLayout />}>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
@@ -68,6 +70,7 @@ function AppRoutes() {
   return (
     <Routes>
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/signup" element={<SignupPage />} />
       <Route element={<PublicLayout />}>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
@@ -79,6 +82,9 @@ function AppRoutes() {
         <Route path="calendar" element={<AdminCalendar />} />
         <Route path="students" element={<StudentManagement />} />
         <Route path="students/add" element={<StudentManagement />} />
+        <Route path="students/profile" element={<StudentManagement />} />
+        <Route path="students/progress" element={<StudentManagement />} />
+        <Route path="students/suspend" element={<StudentManagement />} />
         <Route path="courses" element={<CourseManagement />} />
         <Route path="courses/create" element={<CourseManagement />} />
         <Route path="courses/categories" element={<CategoryManagement />} />

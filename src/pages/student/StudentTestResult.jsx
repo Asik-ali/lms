@@ -546,7 +546,7 @@ export default function StudentTestResult() {
                               {letter}
                             </span>
                             <span className="flex-1 text-sm">
-                              Option {letter}
+                              {q?.[`option_${letter.toLowerCase()}`] || `Option ${letter}`}
                             </span>
                             {isStudentAnswer && status === 'correct' && (
                               <CheckCircle2 className="h-5 w-5 text-emerald-500" />

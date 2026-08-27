@@ -29,11 +29,11 @@ export default function HomePage() {
               A complete learning management system with courses, live classes, test series, and progress tracking.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
-              <Link to="/login" className="inline-flex items-center justify-center gap-2 bg-white text-indigo-700 px-6 py-3 rounded-lg font-semibold hover:bg-indigo-50 transition-colors">
-                Get Started <ChevronRight className="w-4 h-4" />
+              <Link to="/signup" className="inline-flex items-center justify-center gap-2 bg-white text-indigo-700 px-6 py-3 rounded-lg font-semibold hover:bg-indigo-50 transition-colors">
+                Create Account <ChevronRight className="w-4 h-4" />
               </Link>
-              <Link to="/about" className="inline-flex items-center justify-center gap-2 border border-white/30 text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors">
-                Learn More
+              <Link to="/login" className="inline-flex items-center justify-center gap-2 border border-white/30 text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors">
+                Login
               </Link>
             </div>
           </div>
@@ -79,9 +79,9 @@ export default function HomePage() {
       <section className="bg-indigo-600 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-white">Ready to Start Learning?</h2>
-          <p className="mt-2 text-indigo-100">Join our platform and access courses, live classes, and test series.</p>
-          <Link to="/login" className="mt-6 inline-flex items-center gap-2 bg-white text-indigo-700 px-6 py-3 rounded-lg font-semibold hover:bg-indigo-50 transition-colors">
-            Login Now <ChevronRight className="w-4 h-4" />
+          <p className="mt-2 text-indigo-100">Create an account to access courses, live classes, and test series.</p>
+          <Link to="/signup" className="mt-6 inline-flex items-center gap-2 bg-white text-indigo-700 px-6 py-3 rounded-lg font-semibold hover:bg-indigo-50 transition-colors">
+            Sign Up Now <ChevronRight className="w-4 h-4" />
           </Link>
         </div>
       </section>

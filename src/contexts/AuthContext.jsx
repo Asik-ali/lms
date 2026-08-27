@@ -50,6 +50,67 @@ export function AuthProvider({ children }) {
     setLoading(false);
   }
 
+  const signUp = async (name, email, password) => {
+    const cleanEmail = email.trim().toLowerCase();
+    const base = name.trim().toLowerCase().replace(/\s+/g, '.').replace(/[^a-z0-9.]/g, '');
+    const suffix = Math.random().toString(36).slice(2, 6);
+    const username = `${base}.${suffix}`;
+
+    const { data, error } = await supabase.auth.signUp({
+      email: cleanEmail,
+      password,
+      options: {
+        emailRedirectTo: `${window.location.origin}/login`,
+        data: {
+          username,
+          name: name.trim(),
+          profile_email: cleanEmail,
+          role: 'student',
+        },
+      },
+    });
+
+    if (error) throw error;
+
+    if (data?.session) {
+      const u = {
+        id: data.user.id,
+        username,
+        name: name.trim(),
+        email: cleanEmail,
+        role: 'student',
+      };
+      setUser(u);
+      return { user: u, confirmed: true };
+    }
+
+    return { user: data?.user, confirmed: false };
+  };
+
+  const verifyEmailOtp = async (email, token, type = 'signup') => {
+    const { data, error } = await supabase.auth.verifyOtp({
+      email: email.trim().toLowerCase(),
+      token: token.trim(),
+      type,
+    });
+    if (error) throw error;
+    if (data?.session) {
+      const { data: profile } = await supabase
+        .from('profiles')
+        .select('id, username, name, email, role, course, status, enrolled, progress, test_series_access')
+        .eq('id', data.user.id)
+        .single();
+      setUser(profile || {
+        id: data.user.id,
+        username: data.user.user_metadata?.username,
+        name: data.user.user_metadata?.name,
+        email: data.user.email,
+        role: data.user.user_metadata?.role || 'student',
+      });
+    }
+    return data?.session ? true : false;
+  };
+
   const login = async (username, password) => {
     const email = username.includes('@') ? username : `${username}@lms.app`;
     const { data, error } = await supabase.auth.signInWithPassword({ email, password });
@@ -78,7 +139,7 @@ export function AuthProvider({ children }) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, loading }}>
+    <AuthContext.Provider value={{ user, signUp, verifyEmailOtp, login, logout, loading }}>
       {children}
     </AuthContext.Provider>
   );

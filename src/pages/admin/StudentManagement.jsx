@@ -570,8 +570,16 @@ export default function StudentManagement() {
     if (!deleteStudent) return;
     setDeleting(true);
     try {
-      const { error } = await supabase.from('profiles').delete().eq('id', deleteStudent.id);
-      if (error) throw error;
+      try {
+        const { error } = await supabase.rpc('admin_delete_student', { student_id: deleteStudent.id });
+        if (error) {
+          const { error: directErr } = await supabase.from('profiles').delete().eq('id', deleteStudent.id);
+          if (directErr) throw directErr;
+        }
+      } catch {
+        const { error: directErr } = await supabase.from('profiles').delete().eq('id', deleteStudent.id);
+        if (directErr) throw directErr;
+      }
       showSuccess(`${deleteStudent.name} has been deleted.`);
       setDeleteStudent(null);
       await loadStudents();
@@ -609,6 +617,26 @@ export default function StudentManagement() {
     <div className="space-y-6">
       {credentialStudent && <CredentialsModal student={credentialStudent} onClose={() => setCredentialStudent(null)} />}
       {courseStudent && <CourseAccessModal student={courseStudent} courses={courses} onClose={() => setCourseStudent(null)} onSaved={loadStudents} />}
+      {deleteStudent && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
+          <div className="w-full max-w-sm rounded-xl bg-white p-6 shadow-xl space-y-4">
+            <div className="flex items-center justify-between">
+              <h2 className="text-lg font-semibold text-gray-900">Delete Student</h2>
+              <button onClick={() => setDeleteStudent(null)} className="p-1 text-gray-400 hover:text-gray-600"><X className="w-5 h-5" /></button>
+            </div>
+            <p className="text-sm text-gray-600">
+              Are you sure you want to permanently delete <span className="font-semibold text-gray-900">{deleteStudent.name}</span>?
+              This will remove the student's account and all related data. This action cannot be undone.
+            </p>
+            <div className="flex justify-end gap-3">
+              <button onClick={() => setDeleteStudent(null)} className="btn-secondary">Cancel</button>
+              <button onClick={handleDeleteStudent} disabled={deleting} className="inline-flex items-center gap-2 bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 disabled:opacity-60 cursor-pointer">
+                {deleting ? 'Deleting...' : 'Delete'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <h1 className="text-2xl font-bold text-gray-900">Student Management</h1>
@@ -637,7 +665,6 @@ export default function StudentManagement() {
               <th className="table-header">Course</th>
               <th className="table-header">Status</th>
               <th className="table-header">Enrolled Date</th>
-              <th className="table-header">Progress</th>
               <th className="table-header">Actions</th>
             </tr>
           </thead>
@@ -655,20 +682,15 @@ export default function StudentManagement() {
                 <td className="table-cell">{s.enrolled || '-'}</td>
                 <td className="table-cell">
                   <div className="flex items-center gap-2">
-                    <div className="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden w-24">
-                      <div className={`h-full rounded-full ${s.progress >= 70 ? 'bg-green-500' : s.progress >= 40 ? 'bg-amber-500' : 'bg-red-500'}`} style={{ width: `${s.progress || 0}%` }} />
-                    </div>
-                    <span className="text-xs text-gray-500 w-8">{s.progress || 0}%</span>
-                  </div>
-                </td>
-                <td className="table-cell">
-                  <div className="flex items-center gap-2">
                     <button onClick={() => { setSelectedStudent(s); navigate('/admin/students/profile'); }} className="text-xs text-indigo-600 hover:text-indigo-800 font-medium">View</button>
                     <button onClick={() => setCredentialStudent(s)} className="text-xs flex items-center gap-1 text-amber-600 hover:text-amber-800 font-medium">
                       <KeyRound className="w-3 h-3" /> Credentials
                     </button>
                     <button onClick={() => openCourseAccess(s)} className="text-xs flex items-center gap-1 text-emerald-600 hover:text-emerald-800 font-medium">
                       <BookOpen className="w-3 h-3" /> Course
+                    </button>
+                    <button onClick={() => setDeleteStudent(s)} className="text-xs flex items-center gap-1 text-red-600 hover:text-red-800 font-medium">
+                      <Trash2 className="w-3 h-3" /> Delete
                     </button>
                   </div>
                 </td>

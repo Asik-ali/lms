@@ -39,6 +39,9 @@ export default function PublicLayout() {
           </nav>
 
           <div className="flex items-center gap-3">
+            <Link to="/signup" className="hidden sm:inline-flex text-sm font-medium text-indigo-600 hover:text-indigo-700">
+              Sign Up
+            </Link>
             <Link to="/login" className="btn-primary hidden sm:inline-flex">
               Login
             </Link>
@@ -70,9 +73,16 @@ export default function PublicLayout() {
                 </Link>
               ))}
               <Link
+                to="/signup"
+                onClick={() => setMobileOpen(false)}
+                className="block px-3 py-2 rounded-lg text-sm font-medium text-indigo-600 hover:bg-gray-100 mt-2"
+              >
+                Sign Up
+              </Link>
+              <Link
                 to="/login"
                 onClick={() => setMobileOpen(false)}
-                className="block px-3 py-2 rounded-lg text-sm font-medium bg-indigo-600 text-white text-center mt-2"
+                className="block px-3 py-2 rounded-lg text-sm font-medium bg-indigo-600 text-white text-center mt-1"
               >
                 Login
               </Link>

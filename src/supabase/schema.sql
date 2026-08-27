@@ -31,6 +31,24 @@ BEGIN
 END;
 $$;
 
+-- Function for admins to permanently delete a student (removes the auth account, cascading to profiles/data)
+CREATE OR REPLACE FUNCTION public.admin_delete_student(student_id UUID)
+RETURNS void
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path = ''
+AS $$
+DECLARE
+  _role TEXT;
+BEGIN
+  SELECT role INTO _role FROM public.profiles WHERE id = auth.uid();
+  IF _role IS DISTINCT FROM 'admin' THEN
+    RAISE EXCEPTION 'Only admins can delete students';
+  END IF;
+  DELETE FROM auth.users WHERE id = student_id;
+END;
+$$;
+
 -- Extended user profiles (links to auth.users)
 CREATE TABLE IF NOT EXISTS profiles (
   id UUID REFERENCES auth.users(id) ON DELETE CASCADE PRIMARY KEY,
@@ -217,6 +235,15 @@ CREATE TABLE IF NOT EXISTS questions (
   test_name TEXT DEFAULT ''
 );
 
+-- Columns used by the exam/test builders (safe to run on existing databases)
+ALTER TABLE questions ADD COLUMN IF NOT EXISTS option_a TEXT DEFAULT '';
+ALTER TABLE questions ADD COLUMN IF NOT EXISTS option_b TEXT DEFAULT '';
+ALTER TABLE questions ADD COLUMN IF NOT EXISTS option_c TEXT DEFAULT '';
+ALTER TABLE questions ADD COLUMN IF NOT EXISTS option_d TEXT DEFAULT '';
+ALTER TABLE questions ADD COLUMN IF NOT EXISTS correct_answer TEXT DEFAULT 'A';
+ALTER TABLE questions ADD COLUMN IF NOT EXISTS explanation TEXT DEFAULT '';
+ALTER TABLE questions ADD COLUMN IF NOT EXISTS test_id BIGINT REFERENCES tests(id) ON DELETE SET NULL;
+
 -- For existing databases, run:
 -- ALTER TABLE questions ADD COLUMN IF NOT EXISTS test_name TEXT DEFAULT '';
 
@@ -342,6 +369,22 @@ CREATE TABLE IF NOT EXISTS push_subscriptions (
 
 ALTER TABLE push_subscriptions ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Users can manage own subscription" ON push_subscriptions FOR ALL USING (auth.uid() = user_id) WITH CHECK (auth.uid() = user_id);
+
+-- Pending Signups (public self-registration with email OTP verification)
+CREATE TABLE IF NOT EXISTS pending_signups (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  email TEXT NOT NULL,
+  name TEXT NOT NULL,
+  password TEXT NOT NULL,
+  username TEXT NOT NULL,
+  otp TEXT NOT NULL,
+  expires_at TIMESTAMPTZ NOT NULL,
+  verified BOOLEAN DEFAULT FALSE,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+ALTER TABLE pending_signups ENABLE ROW LEVEL SECURITY;
+-- No anonymous read/write is allowed; signups go through the API using the service role.
 
 -- Support Tickets (student → admin)
 CREATE TABLE IF NOT EXISTS tickets (

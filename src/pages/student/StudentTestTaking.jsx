@@ -430,6 +430,8 @@ export default function StudentTestTaking() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {OPTION_LABELS.map(label => {
                   const isSelected = currentResponse?.student_answer === label;
+                  const optionKey = `option_${label.toLowerCase()}`;
+                  const optionText = currentQuestion?.[optionKey] || '';
                   return (
                     <button
                       key={label}
@@ -446,7 +448,7 @@ export default function StudentTestTaking() {
                         {label}
                       </span>
                       <span className={`text-sm font-medium ${isSelected ? 'text-indigo-700' : 'text-gray-700'}`}>
-                        Option {label}
+                        {optionText || `Option ${label}`}
                       </span>
                       {isSelected && <CheckCircle className="w-5 h-5 text-indigo-600 ml-auto flex-shrink-0" />}
                     </button>

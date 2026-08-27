@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { BookOpen, User, Lock, AlertCircle, Eye, EyeOff } from 'lucide-react';
 
@@ -86,6 +86,13 @@ export default function LoginPage() {
               <p><span className="font-mono text-gray-600">alice.johnson</span> / <span className="font-mono text-gray-600">student123</span> — Student</p>
               <p><span className="font-mono text-gray-600">bob.smith</span> / <span className="font-mono text-gray-600">student123</span> — Student</p>
             </div>
+          </div>
+
+          <div className="mt-6 pt-5 border-t border-gray-100 text-center text-sm text-gray-500">
+            New to LMS?{' '}
+            <Link to="/signup" className="font-medium text-indigo-600 hover:text-indigo-700">
+              Create an account
+            </Link>
           </div>
         </div>
       </div>
