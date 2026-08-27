@@ -7,7 +7,12 @@ import { supabase } from '../../supabase/client';
 
 function normalizeAccess(value) {
   if (!value) return [];
-  return value.split(',').map(s => s.trim()).filter(Boolean);
+  return value.split(',').map(s => s.trim().toLowerCase()).filter(Boolean);
+}
+
+function matches(seriesName, accessList) {
+  const name = (seriesName || '').trim().toLowerCase();
+  return accessList.some(a => a === name || a.includes(name) || name.includes(a));
 }
 
 export default function StudentTestSeries() {
@@ -26,7 +31,7 @@ export default function StudentTestSeries() {
     const all = await getAllTestSeries();
     const access = normalizeAccess(user?.test_series_access || '');
     if (access.length > 0) {
-      setSeriesList(all.filter(s => access.includes(s.name)));
+      setSeriesList(all.filter(s => matches(s.name, access)));
     } else {
       setSeriesList([]);
     }

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Plus, X, ChevronRight, Trash2, FolderOpen, FileText, HelpCircle, Settings, Clock, Target, Globe, BarChart3 } from 'lucide-react';
-import { getAllTestSeries, addTestSeries, deleteTestSeries, getCategoriesBySeries, addTestCategory, deleteTestCategory, getTestsByCategoryId, addTest, deleteTest, getQuestionsByTestId, addQuestionToTest, deleteQuestion } from '../../data/dynamicStore';
+import { Plus, X, ChevronRight, Trash2, FolderOpen, FileText, HelpCircle, Settings, Clock, Target, Globe, BarChart3, Edit2 } from 'lucide-react';
+import { getAllTestSeries, addTestSeries, deleteTestSeries, getCategoriesBySeries, addTestCategory, deleteTestCategory, getTestsByCategoryId, addTest, updateTest, deleteTest, getQuestionsByTestId, addQuestionToTest, deleteQuestion } from '../../data/dynamicStore';
 import { showError, showSuccess } from '../../components/common/Toast';
 
 const LEVELS = ['series', 'categories', 'tests', 'questions'];
@@ -24,7 +24,7 @@ export default function TestSeries() {
   const [formSeries, setFormSeries] = useState({ name: '', description: '' });
   const [formCategory, setFormCategory] = useState({ name: '', parent_id: '' });
   const [formTest, setFormTest] = useState({ name: '', description: '', duration: 90, total_marks: 270, difficulty: 'Moderate', language: 'English', instructions: '', syllabus: '' });
-  const [formQuestion, setFormQuestion] = useState({ question: '', type: 'Multiple Choice', difficulty: 'Easy' });
+  const [formQuestion, setFormQuestion] = useState({ question: '', option_a: '', option_b: '', option_c: '', option_d: '', correct_answer: 'A', explanation: '', type: 'Multiple Choice', difficulty: 'Easy' });
 
   useEffect(() => { loadSeries(); }, []);
 
@@ -104,15 +104,42 @@ export default function TestSeries() {
     await loadTests(currentCategory.id);
     showSuccess('Test deleted.');
   }
+  function openEditTest(t) {
+    setFormTest({ name: t.name, description: t.description || '', duration: t.duration, total_marks: t.total_marks, difficulty: t.difficulty, language: t.language, instructions: t.instructions || '', syllabus: t.syllabus || '' });
+    setCurrentTest(t);
+    setShowEditTest(true);
+  }
+  async function handleUpdateTest() {
+    if (!formTest.name.trim()) return showError('Enter a test name.');
+    try {
+      await updateTest(currentTest.id, formTest);
+      setShowEditTest(false);
+      setCurrentTest(null);
+      await loadTests(currentCategory.id);
+      showSuccess('Test updated.');
+    } catch (e) { showError(e.message); }
+  }
 
   // CRUD Questions
   async function handleAddQuestion() {
     const q = formQuestion.question.trim();
-    if (!q) return showError('Enter a question URL.');
-    if (!q.startsWith('http://') && !q.startsWith('https://')) return showError('Enter a valid URL.');
+    if (!q) return showError('Enter a question.');
+    if (!formQuestion.option_a.trim() || !formQuestion.option_b.trim()) return showError('At least options A and B are required.');
+    if (!formQuestion.correct_answer) return showError('Select the correct answer.');
     try {
-      await addQuestionToTest(currentTest.id, { question: q, type: formQuestion.type, category: currentSeries?.name || '', difficulty: formQuestion.difficulty });
-      setFormQuestion({ question: '', type: 'Multiple Choice', difficulty: 'Easy' });
+      await addQuestionToTest(currentTest.id, {
+        question: q,
+        type: formQuestion.type,
+        category: currentSeries?.name || '',
+        difficulty: formQuestion.difficulty,
+        option_a: formQuestion.option_a,
+        option_b: formQuestion.option_b,
+        option_c: formQuestion.option_c,
+        option_d: formQuestion.option_d,
+        correct_answer: formQuestion.correct_answer,
+        explanation: formQuestion.explanation,
+      });
+      setFormQuestion({ question: '', option_a: '', option_b: '', option_c: '', option_d: '', correct_answer: 'A', explanation: '', type: 'Multiple Choice', difficulty: 'Easy' });
       setShowAddQuestion(false);
       await loadQuestions(currentTest.id);
       showSuccess('Question added.');
@@ -252,6 +279,7 @@ export default function TestSeries() {
                         <span className={`px-2 py-0.5 rounded-full ${t.difficulty === 'Easy' ? 'bg-green-50 text-green-600' : t.difficulty === 'Hard' ? 'bg-red-50 text-red-600' : 'bg-amber-50 text-amber-600'}`}>{t.difficulty}</span>
                       </div>
                     </div>
+                    <button onClick={(e) => { e.stopPropagation(); openEditTest(t); }} className="p-1 text-gray-400 hover:text-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"><Edit2 className="w-4 h-4" /></button>
                     <button onClick={(e) => { e.stopPropagation(); handleDeleteTest(t.id); }} className="p-1 text-gray-400 hover:text-red-600 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"><Trash2 className="w-4 h-4" /></button>
                   </div>
                 </button>
@@ -283,9 +311,9 @@ export default function TestSeries() {
               <thead>
                 <tr className="border-b border-gray-200 bg-gray-50">
                   <th className="table-header">#</th>
-                  <th className="table-header">Question Link</th>
-                  <th className="table-header">Type</th>
-                  <th className="table-header">Difficulty</th>
+                  <th className="table-header">Question</th>
+                  <th className="table-header">Options</th>
+                  <th className="table-header">Answer</th>
                   <th className="table-header w-20">Actions</th>
                 </tr>
               </thead>
@@ -293,13 +321,16 @@ export default function TestSeries() {
                 {questions.map((q, i) => (
                   <tr key={q.id} className="border-b border-gray-100 hover:bg-gray-50">
                     <td className="table-cell text-gray-400">{i + 1}</td>
-                    <td className="table-cell font-medium max-w-md truncate">
-                      {q.question.startsWith('http') ? (
-                        <a href={q.question} target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline truncate block">{q.question}</a>
-                      ) : <span className="truncate block">{q.question}</span>}
+                    <td className="table-cell font-medium max-w-md"><span className="block line-clamp-2">{q.question}</span></td>
+                    <td className="table-cell">
+                      <div className="space-y-0.5 text-xs text-gray-600">
+                        <p className="truncate max-w-xs">A. {q.option_a}</p>
+                        <p className="truncate max-w-xs">B. {q.option_b}</p>
+                        {q.option_c && <p className="truncate max-w-xs">C. {q.option_c}</p>}
+                        {q.option_d && <p className="truncate max-w-xs">D. {q.option_d}</p>}
+                      </div>
                     </td>
-                    <td className="table-cell"><span className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">{q.type}</span></td>
-                    <td className="table-cell"><span className={`text-xs px-2 py-0.5 rounded-full ${q.difficulty === 'Easy' ? 'bg-green-50 text-green-600' : q.difficulty === 'Hard' ? 'bg-red-50 text-red-600' : 'bg-amber-50 text-amber-600'}`}>{q.difficulty}</span></td>
+                    <td className="table-cell"><span className="text-xs font-semibold bg-green-50 text-green-600 px-2 py-0.5 rounded-full">{q.correct_answer}</span></td>
                     <td className="table-cell"><button onClick={() => handleDeleteQuestion(q.id)} className="p-1 text-gray-400 hover:text-red-600 cursor-pointer"><Trash2 className="w-4 h-4" /></button></td>
                   </tr>
                 ))}
@@ -369,11 +400,15 @@ export default function TestSeries() {
       {showAddQuestion && (
         <Modal title={`Add Question to ${currentTest?.name}`} onClose={() => setShowAddQuestion(false)}>
           <div className="space-y-4">
-            <div><label className="label">Question Link (URL)</label><input type="url" value={formQuestion.question} onChange={e => setFormQuestion({ ...formQuestion, question: e.target.value })} className="input-field w-full" placeholder="https://drive.google.com/..." /></div>
+            <div><label className="label">Question *</label><textarea value={formQuestion.question} onChange={e => setFormQuestion({ ...formQuestion, question: e.target.value })} className="input-field w-full" rows={3} placeholder="Type the question here..." /></div>
+            <div><label className="label">Option A *</label><input value={formQuestion.option_a} onChange={e => setFormQuestion({ ...formQuestion, option_a: e.target.value })} className="input-field w-full" placeholder="Option A" /></div>
+            <div><label className="label">Option B *</label><input value={formQuestion.option_b} onChange={e => setFormQuestion({ ...formQuestion, option_b: e.target.value })} className="input-field w-full" placeholder="Option B" /></div>
+            <div><label className="label">Option C</label><input value={formQuestion.option_c} onChange={e => setFormQuestion({ ...formQuestion, option_c: e.target.value })} className="input-field w-full" placeholder="Option C (optional)" /></div>
+            <div><label className="label">Option D</label><input value={formQuestion.option_d} onChange={e => setFormQuestion({ ...formQuestion, option_d: e.target.value })} className="input-field w-full" placeholder="Option D (optional)" /></div>
             <div className="grid grid-cols-2 gap-4">
-              <div><label className="label">Type</label>
-                <select value={formQuestion.type} onChange={e => setFormQuestion({ ...formQuestion, type: e.target.value })} className="input-field w-full">
-                  <option>Multiple Choice</option><option>Essay</option><option>True/False</option><option>Short Answer</option>
+              <div><label className="label">Correct Answer *</label>
+                <select value={formQuestion.correct_answer} onChange={e => setFormQuestion({ ...formQuestion, correct_answer: e.target.value })} className="input-field w-full">
+                  <option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option>
                 </select>
               </div>
               <div><label className="label">Difficulty</label>
@@ -382,7 +417,36 @@ export default function TestSeries() {
                 </select>
               </div>
             </div>
+            <div><label className="label">Explanation (optional)</label><textarea value={formQuestion.explanation} onChange={e => setFormQuestion({ ...formQuestion, explanation: e.target.value })} className="input-field w-full" rows={2} placeholder="Explain the answer..." /></div>
             <button onClick={handleAddQuestion} className="btn-primary w-full">Add Question</button>
+          </div>
+        </Modal>
+      )}
+
+      {showEditTest && currentTest && (
+        <Modal title={`Edit Test: ${currentTest.name}`} onClose={() => { setShowEditTest(false); setCurrentTest(null); }}>
+          <div className="space-y-4">
+            <div><label className="label">Test Name *</label><input value={formTest.name} onChange={e => setFormTest({ ...formTest, name: e.target.value })} className="input-field w-full" /></div>
+            <div><label className="label">Description</label><input value={formTest.description} onChange={e => setFormTest({ ...formTest, description: e.target.value })} className="input-field w-full" placeholder="Optional" /></div>
+            <div className="grid grid-cols-2 gap-4">
+              <div><label className="label">Duration (min)</label><input type="number" value={formTest.duration} onChange={e => setFormTest({ ...formTest, duration: Number(e.target.value) })} className="input-field w-full" /></div>
+              <div><label className="label">Total Marks</label><input type="number" value={formTest.total_marks} onChange={e => setFormTest({ ...formTest, total_marks: Number(e.target.value) })} className="input-field w-full" /></div>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <div><label className="label">Difficulty</label>
+                <select value={formTest.difficulty} onChange={e => setFormTest({ ...formTest, difficulty: e.target.value })} className="input-field w-full">
+                  <option>Easy</option><option>Moderate</option><option>Hard</option><option>Exam-Level</option>
+                </select>
+              </div>
+              <div><label className="label">Language</label>
+                <select value={formTest.language} onChange={e => setFormTest({ ...formTest, language: e.target.value })} className="input-field w-full">
+                  <option>English</option><option>Hindi</option><option>English / Hindi</option>
+                </select>
+              </div>
+            </div>
+            <div><label className="label">Instructions</label><textarea value={formTest.instructions} onChange={e => setFormTest({ ...formTest, instructions: e.target.value })} className="input-field w-full" rows={2} placeholder="Test rules..." /></div>
+            <div><label className="label">Syllabus / Topics</label><textarea value={formTest.syllabus} onChange={e => setFormTest({ ...formTest, syllabus: e.target.value })} className="input-field w-full" rows={2} placeholder="Topics covered..." /></div>
+            <button onClick={handleUpdateTest} className="btn-primary w-full">Save Changes</button>
           </div>
         </Modal>
       )}

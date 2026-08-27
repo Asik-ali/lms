@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">LMS</string>
-    <string name="title_activity_main">LMS</string>
-    <string name="package_name">com.lms.app</string>
-    <string name="custom_url_scheme">com.lms.app</string>
+    <string name="app_name">LMS Portal</string>
+    <string name="title_activity_main">LMS Portal</string>
+    <string name="package_name">com.lms.portal</string>
+    <string name="custom_url_scheme">com.lms.portal</string>
 </resources>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useNavigate, Navigate } from 'react-router-dom';
-import { Search, Plus, ArrowLeft, UserPlus, Copy, Check, LogIn, Save, X, KeyRound, BookOpen } from 'lucide-react';
+import { Search, Plus, ArrowLeft, UserPlus, Copy, Check, LogIn, Save, X, KeyRound, BookOpen, Trash2 } from 'lucide-react';
 import { supabase } from '../../supabase/client';
 import { getAllStudents, getAllCourses, getAllTestSeries } from '../../data/dynamicStore';
 import { useAuth } from '../../contexts/AuthContext';
@@ -548,6 +548,8 @@ export default function StudentManagement() {
   const [credentialStudent, setCredentialStudent] = useState(null);
   const [courseStudent, setCourseStudent] = useState(null);
   const [courses, setCourses] = useState([]);
+  const [deleteStudent, setDeleteStudent] = useState(null);
+  const [deleting, setDeleting] = useState(false);
 
   useEffect(() => { loadStudents(); }, []);
 
@@ -562,6 +564,21 @@ export default function StudentManagement() {
     } catch (error) {
       showError(error.message || 'Unable to load courses.');
     }
+  }
+
+  async function handleDeleteStudent() {
+    if (!deleteStudent) return;
+    setDeleting(true);
+    try {
+      const { error } = await supabase.from('profiles').delete().eq('id', deleteStudent.id);
+      if (error) throw error;
+      showSuccess(`${deleteStudent.name} has been deleted.`);
+      setDeleteStudent(null);
+      await loadStudents();
+    } catch (err) {
+      showError(err.message || 'Failed to delete student.');
+    }
+    setDeleting(false);
   }
 
   const isAddPage = location.pathname.endsWith('/add');

@@ -100,14 +100,14 @@ export async function getStudents({ page = 0, pageSize = DEFAULT_PAGE_SIZE } = {
   const to = from + pageSize - 1;
   const { data, error, count } = await supabase
     .from('profiles')
-    .select('id, username, name, email, role, course, status, enrolled, progress', { count: 'exact' })
+    .select('id, username, name, email, role, course, status, enrolled, progress, test_series_access', { count: 'exact' })
     .eq('role', 'student')
     .range(from, to);
   if (error) throw error;
   return { data: data || [], total: count ?? 0 };
 }
 export async function addStudent(row) {
-  const { data, error } = await supabase.from('profiles').insert({ ...row, role: 'student' }).select('id, username, name, email, role, course, status, enrolled, progress').single();
+  const { data, error } = await supabase.from('profiles').insert({ ...row, role: 'student' }).select('id, username, name, email, role, course, status, enrolled, progress, test_series_access').single();
   if (error) throw error;
   return data;
 }
@@ -238,13 +238,13 @@ export async function deleteTest(id) {
 
 // Questions (linked to tests)
 export async function getQuestionsByTestId(testId) {
-  const { data, error } = await supabase.from('questions').select('id, question, type, category, difficulty, test_id').eq('test_id', testId);
+  const { data, error } = await supabase.from('questions').select('id, question, type, category, difficulty, test_id, option_a, option_b, option_c, option_d, correct_answer, explanation').eq('test_id', testId);
   if (error) throw error;
   return data || [];
 }
 
 export async function addQuestionToTest(testId, row) {
-  const { data, error } = await supabase.from('questions').insert({ ...row, test_id: testId }).select('id, question, type, category, difficulty, test_id').single();
+  const { data, error } = await supabase.from('questions').insert({ ...row, test_id: testId }).select('id, question, type, category, difficulty, test_id, option_a, option_b, option_c, option_d, correct_answer, explanation').single();
   if (error) throw error;
   return data;
 }
