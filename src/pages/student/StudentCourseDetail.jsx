@@ -4,27 +4,6 @@ import { ArrowLeft, BookOpen, CalendarDays, Clock3, CheckCircle2, FileText, Down
 import { getCourseById, getCourseLessons, getCoursePdfs } from '../../data/dynamicStore';
 import MediaViewer from '../../components/common/MediaViewer';
 
-const courseDetails = {
-  1: {
-    description: 'Build modern, interactive user interfaces with React and understand component-driven architecture.',
-    objectives: ['Master React components and props', 'Use state and lifecycle concepts', 'Create reusable UI patterns'],
-    lessons: ['Component Lifecycle', 'Hooks and State Management', 'Routing and Forms'],
-    duration: '8 weeks',
-  },
-  2: {
-    description: 'Learn server-side JavaScript development with Node.js, APIs, and scalable backend patterns.',
-    objectives: ['Build REST APIs', 'Work with middleware and async flows', 'Deploy backend services securely'],
-    lessons: ['Middleware Functions', 'Authentication', 'Database Integration'],
-    duration: '6 weeks',
-  },
-  3: {
-    description: 'Explore data science workflows using Python, analysis tools, and real-world project techniques.',
-    objectives: ['Clean and analyze data', 'Create visualizations', 'Deliver a final data project'],
-    lessons: ['Final Project', 'Data Visualization', 'Model Evaluation'],
-    duration: '10 weeks',
-  },
-};
-
 export default function StudentCourseDetail({ courseId: propCourseId }) {
   const { courseId: routeCourseId } = useParams();
   const navigate = useNavigate();
@@ -62,8 +41,6 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
     })();
   }, [resolvedCourseId]);
 
-  const details = course ? courseDetails[course.id] || courseDetails[course.title] : null;
-
   if (loading) {
     return (
       <div className="space-y-4">
@@ -75,7 +52,7 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
     );
   }
 
-  if (!course || !details) {
+  if (!course) {
     return (
       <div className="space-y-4">
         <button type="button" onClick={() => navigate('/student/courses')} className="inline-flex items-center gap-2 text-sm font-medium text-indigo-600">
@@ -100,41 +77,26 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
             </div>
             <div>
               <h1 className="text-2xl font-bold">{course.title}</h1>
-              <p className="text-indigo-100">{course.instructor || 'Instructor assigned'}</p>
+              <p className="text-indigo-100">{course.instructor}</p>
             </div>
           </div>
           <div className="flex flex-wrap gap-4 text-sm text-indigo-100">
-            <span className="inline-flex items-center gap-2"><Clock3 className="w-4 h-4" /> {details.duration}</span>
-            <span className="inline-flex items-center gap-2"><CalendarDays className="w-4 h-4" /> Due {course.dueDate || 'On track'}</span>
+            <span className="inline-flex items-center gap-2"><Clock3 className="w-4 h-4" /> {course.duration}</span>
+            <span className="inline-flex items-center gap-2"><CalendarDays className="w-4 h-4" /> {course.category}</span>
+            <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${course.status === 'Published' ? 'bg-green-500/20 text-green-100' : 'bg-gray-500/20 text-gray-200'}`}>{course.status}</span>
           </div>
         </div>
 
         <div className="p-6 space-y-6">
-          <div>
-            <div className="flex items-center justify-between text-sm mb-2">
-              <span className="text-gray-500">Course Progress</span>
-              <span className="font-semibold text-gray-700">{course.progress || 0}%</span>
-            </div>
-            <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
-              <div className="h-full bg-indigo-500 rounded-full" style={{ width: `${course.progress || 0}%` }} />
-            </div>
-          </div>
-
-          <div>
-            <h2 className="text-lg font-semibold text-gray-900 mb-2">About this course</h2>
-            <p className="text-gray-600">{details.description}</p>
-          </div>
-
           <div className="grid md:grid-cols-2 gap-6">
             <div className="rounded-lg border border-gray-200 p-4">
-              <h3 className="font-semibold text-gray-900 mb-3">Learning objectives</h3>
-              <ul className="space-y-2">
-                {details.objectives.map(item => (
-                  <li key={item} className="flex items-start gap-2 text-sm text-gray-600">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5" />
-                    <span>{item}</span>
-                  </li>
-                ))}
+              <h3 className="font-semibold text-gray-900 mb-3">Course Info</h3>
+              <ul className="space-y-2 text-sm text-gray-600">
+                <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5" /><span>Instructor: {course.instructor}</span></li>
+                <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5" /><span>Category: {course.category}</span></li>
+                <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5" /><span>Duration: {course.duration}</span></li>
+                <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5" /><span>Students enrolled: {course.students}</span></li>
+                <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5" /><span>Total lessons: {course.lessons}</span></li>
               </ul>
             </div>
 
@@ -152,22 +114,11 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
                   ))}
                 </div>
               ) : (
-                <div className="space-y-3">
-                  <div className="rounded-lg border border-dashed border-indigo-200 bg-indigo-50 p-3">
-                    <p className="text-sm font-semibold text-indigo-700">Lesson preview</p>
-                    <p className="mt-1 text-sm text-indigo-600">{course.title} includes instructor-led lesson videos for this module.</p>
-                  </div>
-                  <div className="rounded-lg border border-gray-200 p-3">
-                    <p className="text-sm font-semibold text-gray-900">Module 1: {course.title}</p>
-                    <button onClick={() => setMediaViewer({ url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', title: 'Sample lesson', type: 'video' })} className="mt-2 inline-flex items-center gap-1.5 text-sm text-indigo-600 hover:text-indigo-800">
-                      <Play className="w-3.5 h-3.5" /> Watch sample lesson
-                    </button>
-                  </div>
-                </div>
+                <p className="text-sm text-gray-500">No video lessons uploaded yet.</p>
               )}
             </div>
 
-            <div className="rounded-lg border border-gray-200 p-4">
+            <div className="rounded-lg border border-gray-200 p-4 md:col-span-2">
               <h3 className="font-semibold text-gray-900 mb-3">PDF resources</h3>
               {pdfs.length > 0 ? (
                 <div className="space-y-3">
@@ -202,7 +153,6 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
           </div>
 
           <div className="flex flex-wrap gap-3">
-            <button type="button" className="btn-primary">Continue learning</button>
             <button type="button" onClick={() => navigate('/student/courses')} className="px-4 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50">Back to courses</button>
           </div>
         </div>

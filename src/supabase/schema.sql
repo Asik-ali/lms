@@ -342,3 +342,36 @@ CREATE TABLE IF NOT EXISTS push_subscriptions (
 
 ALTER TABLE push_subscriptions ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Users can manage own subscription" ON push_subscriptions FOR ALL USING (auth.uid() = user_id) WITH CHECK (auth.uid() = user_id);
+
+-- Support Tickets (student → admin)
+CREATE TABLE IF NOT EXISTS tickets (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  student_id UUID NOT NULL REFERENCES profiles(id) ON DELETE CASCADE,
+  subject TEXT NOT NULL,
+  message TEXT NOT NULL,
+  status TEXT NOT NULL DEFAULT 'Open',
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+ALTER TABLE tickets ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Students can read own tickets" ON tickets FOR SELECT USING (auth.uid() = student_id);
+CREATE POLICY "Students can insert own tickets" ON tickets FOR INSERT WITH CHECK (auth.uid() = student_id);
+CREATE POLICY "Admins can read all tickets" ON tickets FOR SELECT USING (public.is_admin());
+CREATE POLICY "Admins can update tickets" ON tickets FOR UPDATE USING (public.is_admin());
+
+-- Ticket replies
+CREATE TABLE IF NOT EXISTS ticket_replies (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  ticket_id BIGINT NOT NULL REFERENCES tickets(id) ON DELETE CASCADE,
+  sender_id UUID NOT NULL REFERENCES profiles(id) ON DELETE CASCADE,
+  message TEXT NOT NULL,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+ALTER TABLE ticket_replies ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Students can read own ticket replies" ON ticket_replies FOR SELECT USING (
+  EXISTS (SELECT 1 FROM tickets WHERE tickets.id = ticket_replies.ticket_id AND tickets.student_id = auth.uid())
+);
+CREATE POLICY "Students can insert own ticket replies" ON ticket_replies FOR INSERT WITH CHECK (auth.uid() = sender_id);
+CREATE POLICY "Admins can read all ticket replies" ON ticket_replies FOR SELECT USING (public.is_admin());
+CREATE POLICY "Admins can insert ticket replies" ON ticket_replies FOR INSERT WITH CHECK (public.is_admin());

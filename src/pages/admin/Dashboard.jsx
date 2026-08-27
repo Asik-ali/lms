@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Users, GraduationCap, BookOpen, Video, TrendingUp, TrendingDown, Radio, Square, Trash2, ExternalLink } from 'lucide-react';
+import { Users, GraduationCap, BookOpen, Video, Radio, Square, Trash2, ExternalLink } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line } from 'recharts';
 import { getAllStudents, getAllInstructors, getAllCourses, getAllEnrollments, getAllLiveClasses, addLiveClass, updateLiveClass, deleteLiveClass } from '../../data/dynamicStore';
 import { showError, showSuccess } from '../../components/common/Toast';

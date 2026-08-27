@@ -2,10 +2,10 @@ import { useState } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import {
-  LayoutDashboard, Users, GraduationCap, BookOpen, Video, ClipboardList,
-  FileSpreadsheet, Award, Megaphone, BarChart3, Globe, Bell, Settings,
+  LayoutDashboard, Users, BookOpen, Video,
+  Megaphone, Settings,
   LogOut, ChevronDown, ChevronRight, BookMarked, Calendar, MessageSquare,
-  UserCircle, Library, PenTool, HelpCircle, X,
+  UserCircle, PenTool, Bell, X,
 } from 'lucide-react';
 
 const adminNav = [
@@ -15,15 +15,6 @@ const adminNav = [
       { label: 'All Students', path: '/admin/students' },
       { label: 'Add Student', path: '/admin/students/add' },
       { label: 'Student Profile', path: '/admin/students/profile' },
-      { label: 'Student Progress', path: '/admin/students/progress' },
-    ]
-  },
-  {
-    section: 'Instructor Management', icon: GraduationCap, submenu: [
-      { label: 'All Instructors', path: '/admin/instructors' },
-      { label: 'Add Instructor', path: '/admin/instructors/add' },
-      { label: 'Performance', path: '/admin/instructors/performance' },
-      { label: 'Assigned Courses', path: '/admin/instructors/courses' },
     ]
   },
   {
@@ -37,32 +28,8 @@ const adminNav = [
       { label: 'Assign Instructor', path: '/admin/courses/assign' },
     ]
   },
-  {
-    section: 'Enrollment', icon: ClipboardList, submenu: [
-      { label: 'New Enrollment', path: '/admin/enrollment/new' },
-      { label: 'Pending Requests', path: '/admin/enrollment/pending' },
-      { label: 'Course Assignments', path: '/admin/enrollment/assignments' },
-    ]
-  },
   { section: 'Test Series', icon: PenTool, path: '/admin/exams/questions' },
   { section: 'Announcements', icon: Megaphone, path: '/admin/announcements' },
-  {
-    section: 'Reports', icon: BarChart3, submenu: [
-      { label: 'Student Report', path: '/admin/reports/students' },
-      { label: 'Course Report', path: '/admin/reports/courses' },
-      { label: 'Attendance Report', path: '/admin/reports/attendance' },
-      { label: 'Performance Report', path: '/admin/reports/performance' },
-    ]
-  },
-  {
-    section: 'CMS', icon: Globe, submenu: [
-      { label: 'Homepage', path: '/admin/cms/homepage' },
-      { label: 'About', path: '/admin/cms/about' },
-      { label: 'Contact', path: '/admin/cms/contact' },
-      { label: 'FAQ', path: '/admin/cms/faq' },
-      { label: 'Blog', path: '/admin/cms/blog' },
-    ]
-  },
   {
     section: 'Notifications', icon: Bell, submenu: [
       { label: 'Email', path: '/admin/notifications/email' },

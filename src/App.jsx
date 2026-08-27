@@ -10,15 +10,10 @@ import ContactPage from './pages/public/ContactPage';
 import FAQPage from './pages/public/FAQPage';
 import AdminDashboard from './pages/admin/Dashboard';
 import StudentManagement from './pages/admin/StudentManagement';
-import InstructorManagement from './pages/admin/InstructorManagement';
 import CourseManagement from './pages/admin/CourseManagement';
 import CategoryManagement from './pages/admin/CategoryManagement';
-import Enrollment from './pages/admin/Enrollment';
 import QuestionBank from './pages/admin/ExamsQuizzes';
-
 import AnnouncementsPage from './pages/admin/AnnouncementsPage';
-import ReportsPage from './pages/admin/ReportsPage';
-import CMSPage from './pages/admin/CMSPage';
 import NotificationsPage from './pages/admin/NotificationsPage';
 import SettingsPage from './pages/admin/SettingsPage';
 import AuditPage from './pages/admin/AuditPage';
@@ -41,7 +36,16 @@ function RoleGuard({ role, children }) {
 }
 
 function AppRoutes() {
-  const { user, logout } = useAuth();
+  const { user, loading } = useAuth();
+
+  if (loading) return (
+    <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="text-center">
+        <div className="w-10 h-10 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin mx-auto mb-4" />
+        <p className="text-sm text-gray-500">Loading...</p>
+      </div>
+    </div>
+  );
 
   if (!user) return (
     <Routes>
@@ -70,11 +74,6 @@ function AppRoutes() {
         <Route path="students" element={<StudentManagement />} />
         <Route path="students/add" element={<StudentManagement />} />
         <Route path="students/profile" element={<StudentManagement />} />
-        <Route path="students/progress" element={<StudentManagement />} />
-        <Route path="instructors" element={<InstructorManagement />} />
-        <Route path="instructors/add" element={<InstructorManagement />} />
-        <Route path="instructors/performance" element={<InstructorManagement />} />
-        <Route path="instructors/courses" element={<InstructorManagement />} />
         <Route path="courses" element={<CourseManagement />} />
         <Route path="courses/create" element={<CourseManagement />} />
         <Route path="courses/categories" element={<CategoryManagement />} />
@@ -82,20 +81,8 @@ function AppRoutes() {
         <Route path="courses/lessons" element={<CourseManagement />} />
         <Route path="courses/materials" element={<CourseManagement />} />
         <Route path="courses/assign" element={<CourseManagement />} />
-        <Route path="enrollment/new" element={<Enrollment />} />
-        <Route path="enrollment/pending" element={<Enrollment />} />
-        <Route path="enrollment/assignments" element={<Enrollment />} />
         <Route path="exams/questions" element={<QuestionBank />} />
         <Route path="announcements" element={<AnnouncementsPage />} />
-        <Route path="reports/students" element={<ReportsPage />} />
-        <Route path="reports/courses" element={<ReportsPage />} />
-        <Route path="reports/attendance" element={<ReportsPage />} />
-        <Route path="reports/performance" element={<ReportsPage />} />
-        <Route path="cms/homepage" element={<CMSPage />} />
-        <Route path="cms/about" element={<CMSPage />} />
-        <Route path="cms/contact" element={<CMSPage />} />
-        <Route path="cms/faq" element={<CMSPage />} />
-        <Route path="cms/blog" element={<CMSPage />} />
         <Route path="notifications/email" element={<NotificationsPage />} />
         <Route path="notifications/sms" element={<NotificationsPage />} />
         <Route path="notifications/push" element={<NotificationsPage />} />

@@ -173,7 +173,15 @@ export async function getQuestions({ page = 0, pageSize = DEFAULT_PAGE_SIZE } = 
 }
 export async function addQuestion(row) {
   const { data, error } = await supabase.from('questions').insert(row).select('id, question, type, category, difficulty').single();
-  if (error) throw error;
+  if (error) {
+    if (error.message?.includes('test_name')) {
+      const { test_name, ...rest } = row;
+      const fallback = await supabase.from('questions').insert(rest).select('id, question, type, category, difficulty').single();
+      if (fallback.error) throw fallback.error;
+      return fallback.data;
+    }
+    throw error;
+  }
   return data;
 }
 export async function deleteQuestion(id) {
@@ -207,7 +215,7 @@ export async function getTestSeriesByCategories(categories) {
 }
 
 export async function getTestsBySeries(seriesName) {
-  const { data, error } = await supabase.from('questions').select('id, test_name, category').eq('category', seriesName);
+  const { data, error } = await supabase.from('questions').select('id, category').eq('category', seriesName);
   if (error) throw error;
   const testsMap = {};
   (data || []).forEach(q => {
@@ -219,7 +227,7 @@ export async function getTestsBySeries(seriesName) {
 }
 
 export async function getQuestionsByTest(seriesName, testName) {
-  const { data, error } = await supabase.from('questions').select('id, question, type, category, difficulty, test_name').eq('category', seriesName);
+  const { data, error } = await supabase.from('questions').select('id, question, type, category, difficulty').eq('category', seriesName);
   if (error) throw error;
   return (data || []).filter(q => (q.test_name || q.question) === testName);
 }
@@ -413,3 +421,36 @@ export async function getAllEnrollments() { const { data } = await getEnrollment
 export async function getAllNotifications() { const { data } = await getNotifications({ pageSize: 1000 }); return data; }
 export async function getAllLiveClasses() { const { data } = await getLiveClasses({ pageSize: 1000 }); return data; }
 export async function getAllAuditLogs(params) { const { data } = await getAuditLogs({ ...params, pageSize: 1000 }); return data; }
+
+// Tickets
+export async function getTickets(studentId) {
+  let q = supabase.from('tickets').select('id, student_id, subject, message, status, created_at').order('created_at', { ascending: false });
+  if (studentId) q = q.eq('student_id', studentId);
+  const { data, error } = await q;
+  if (error) throw error;
+  return data || [];
+}
+
+export async function addTicket({ student_id, subject, message }) {
+  const { data, error } = await supabase.from('tickets').insert({ student_id, subject, message }).select('id, student_id, subject, message, status, created_at').single();
+  if (error) throw error;
+  return data;
+}
+
+export async function updateTicketStatus(id, status) {
+  const { data, error } = await supabase.from('tickets').update({ status }).eq('id', id).select('id, student_id, subject, message, status, created_at').single();
+  if (error) throw error;
+  return data;
+}
+
+export async function getTicketReplies(ticketId) {
+  const { data, error } = await supabase.from('ticket_replies').select('id, ticket_id, sender_id, message, created_at').eq('ticket_id', ticketId).order('created_at');
+  if (error) throw error;
+  return data || [];
+}
+
+export async function addTicketReply({ ticket_id, sender_id, message }) {
+  const { data, error } = await supabase.from('ticket_replies').insert({ ticket_id, sender_id, message }).select('id, ticket_id, sender_id, message, created_at').single();
+  if (error) throw error;
+  return data;
+}

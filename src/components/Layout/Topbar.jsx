@@ -1,14 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { Bell, Search, ChevronDown, UserCircle, Menu } from 'lucide-react';
-import { notifications } from '../../data/mockData';
+import { getAllNotifications } from '../../data/dynamicStore';
 
 export default function Topbar({ title, onMenuClick }) {
   const { user } = useAuth();
   const navigate = useNavigate();
   const [showNotifications, setShowNotifications] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
+  const [notifications, setNotifications] = useState([]);
+
+  useEffect(() => {
+    getAllNotifications().then(setNotifications).catch(() => {});
+  }, []);
 
   const roleColors = {
     admin: 'bg-indigo-100 text-indigo-800',
@@ -52,7 +57,7 @@ export default function Topbar({ title, onMenuClick }) {
         <div className="relative">
           <button onClick={() => { setShowNotifications(!showNotifications); setShowProfile(false); }} className="relative p-2 rounded-lg hover:bg-gray-100">
             <Bell className="w-5 h-5 text-gray-600" />
-            <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full"></span>
+            {notifications.length > 0 && <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full"></span>}
           </button>
           {showNotifications && (
             <div className="absolute right-0 mt-2 w-80 bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
@@ -66,9 +71,9 @@ export default function Topbar({ title, onMenuClick }) {
                     <p className="text-xs text-gray-400 mt-1">{n.time}</p>
                   </div>
                 ))}
-              </div>
-              <div className="px-4 py-2 border-t border-gray-200 text-center">
-                <button className="text-sm text-indigo-600 hover:text-indigo-700">View all</button>
+                {notifications.length === 0 && (
+                  <p className="px-4 py-6 text-sm text-gray-400 text-center">No notifications</p>
+                )}
               </div>
             </div>
           )}
