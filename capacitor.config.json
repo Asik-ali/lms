@@ -1,0 +1,11 @@
+{
+  "appId": "com.lms.app",
+  "appName": "LMS",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "allowMixedContent": true
+  }
+}

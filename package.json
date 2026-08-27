@@ -11,6 +11,9 @@
     "lint": "oxlint"
   },
   "dependencies": {
+    "@capacitor/android": "^8.5.0",
+    "@capacitor/cli": "^8.5.0",
+    "@capacitor/core": "^8.5.0",
     "@supabase/supabase-js": "^2.111.0",
     "html2canvas": "^1.4.1",
     "jspdf": "^4.2.1",
