@@ -13,7 +13,6 @@ export default function Topbar({ title, onMenuClick }) {
   const roleColors = {
     admin: 'bg-indigo-100 text-indigo-800',
     student: 'bg-emerald-100 text-emerald-800',
-    instructor: 'bg-amber-100 text-amber-800',
   };
 
   const goTo = (section) => {
@@ -21,10 +20,6 @@ export default function Topbar({ title, onMenuClick }) {
       admin: {
         profile: '/admin/profile',
         settings: '/admin/settings/general',
-      },
-      instructor: {
-        profile: '/instructor/profile',
-        settings: '/instructor/settings',
       },
       student: {
         profile: '/student/profile',

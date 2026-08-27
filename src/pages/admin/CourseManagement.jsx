@@ -188,15 +188,15 @@ export default function CourseManagement() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <h1 className="text-2xl font-bold text-gray-900">Course Management</h1>
         <button onClick={handleOpenAdd} className="btn-primary flex items-center gap-2">
           <Plus className="w-4 h-4" /> Add Course
         </button>
       </div>
 
-      <div className="flex items-center gap-4">
-        <div className="relative flex-1 max-w-md">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
+        <div className="relative flex-1 w-full sm:max-w-md">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
           <input
             type="text"
@@ -206,11 +206,11 @@ export default function CourseManagement() {
             className="input-field pl-10"
           />
         </div>
-        <div className="relative">
+        <div className="relative w-full sm:w-auto">
           <select
             value={filterCategory}
             onChange={e => setFilterCategory(e.target.value)}
-            className="input-field appearance-none pr-10"
+            className="input-field appearance-none pr-10 w-full"
           >
             <option value="All">All Categories</option>
             {cats.map(c => (
@@ -230,7 +230,7 @@ export default function CourseManagement() {
             </button>
           </div>
           <form onSubmit={handleSubmit} className="space-y-5">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Title</label>
                 <input name="title" value={form.title} onChange={handleChange} className="input-field w-full" required />
@@ -406,6 +406,7 @@ export default function CourseManagement() {
       )}
 
       <div className="card overflow-hidden">
+        <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
             <tr className="border-b border-gray-200 bg-gray-50">
@@ -453,6 +454,7 @@ export default function CourseManagement() {
             ))}
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   );

@@ -26,6 +26,15 @@ export async function getCourses({ page = 0, pageSize = DEFAULT_PAGE_SIZE } = {}
   if (error) throw error;
   return { data: data || [], total: count ?? 0 };
 }
+export async function getCourseById(id) {
+  const { data, error } = await supabase
+    .from('courses')
+    .select('id, title, instructor, category, students, lessons, duration, status')
+    .eq('id', id)
+    .single();
+  if (error) throw error;
+  return data;
+}
 export async function addCourse(row) {
   const { data, error } = await supabase.from('courses').insert(row).select('id, title, instructor, category, students, lessons, duration, status').single();
   if (error) throw error;
@@ -166,6 +175,53 @@ export async function addQuestion(row) {
   const { data, error } = await supabase.from('questions').insert(row).select('id, question, type, category, difficulty').single();
   if (error) throw error;
   return data;
+}
+export async function deleteQuestion(id) {
+  const { error } = await supabase.from('questions').delete().eq('id', id);
+  if (error) throw error;
+}
+
+export async function getTestSeries() {
+  const { data, error } = await supabase.from('questions').select('category');
+  if (error) throw error;
+  const seriesMap = {};
+  (data || []).forEach(q => {
+    const cat = q.category || 'Uncategorized';
+    if (!seriesMap[cat]) seriesMap[cat] = 0;
+    seriesMap[cat]++;
+  });
+  return Object.entries(seriesMap).map(([name, count]) => ({ name, count }));
+}
+
+export async function getTestSeriesByCategories(categories) {
+  if (!categories || categories.length === 0) return getTestSeries();
+  const { data, error } = await supabase.from('questions').select('category').in('category', categories);
+  if (error) throw error;
+  const seriesMap = {};
+  (data || []).forEach(q => {
+    const cat = q.category || 'Uncategorized';
+    if (!seriesMap[cat]) seriesMap[cat] = 0;
+    seriesMap[cat]++;
+  });
+  return Object.entries(seriesMap).map(([name, count]) => ({ name, count }));
+}
+
+export async function getTestsBySeries(seriesName) {
+  const { data, error } = await supabase.from('questions').select('id, test_name, category').eq('category', seriesName);
+  if (error) throw error;
+  const testsMap = {};
+  (data || []).forEach(q => {
+    const testName = q.test_name || q.question;
+    if (!testsMap[testName]) testsMap[testName] = { name: testName, count: 0 };
+    testsMap[testName].count++;
+  });
+  return Object.values(testsMap);
+}
+
+export async function getQuestionsByTest(seriesName, testName) {
+  const { data, error } = await supabase.from('questions').select('id, question, type, category, difficulty, test_name').eq('category', seriesName);
+  if (error) throw error;
+  return (data || []).filter(q => (q.test_name || q.question) === testName);
 }
 
 export async function getAttendance({ page = 0, pageSize = DEFAULT_PAGE_SIZE } = {}) {

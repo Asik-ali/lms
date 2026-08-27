@@ -213,8 +213,12 @@ CREATE TABLE IF NOT EXISTS questions (
   question TEXT NOT NULL,
   type TEXT NOT NULL DEFAULT 'Multiple Choice',
   category TEXT NOT NULL,
-  difficulty TEXT NOT NULL DEFAULT 'Easy'
+  difficulty TEXT NOT NULL DEFAULT 'Easy',
+  test_name TEXT DEFAULT ''
 );
+
+-- For existing databases, run:
+-- ALTER TABLE questions ADD COLUMN IF NOT EXISTS test_name TEXT DEFAULT '';
 
 ALTER TABLE questions ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Everyone can read questions" ON questions FOR SELECT USING (true);

@@ -15,7 +15,6 @@ const adminNav = [
       { label: 'All Students', path: '/admin/students' },
       { label: 'Add Student', path: '/admin/students/add' },
       { label: 'Student Profile', path: '/admin/students/profile' },
-      { label: 'Attendance', path: '/admin/attendance/students' },
       { label: 'Student Progress', path: '/admin/students/progress' },
     ]
   },
@@ -45,21 +44,7 @@ const adminNav = [
       { label: 'Course Assignments', path: '/admin/enrollment/assignments' },
     ]
   },
-  {
-    section: 'Assignments', icon: FileSpreadsheet, submenu: [
-      { label: 'Create Assignment', path: '/admin/assignments/create' },
-      { label: 'Submissions', path: '/admin/assignments/submissions' },
-      { label: 'Grade Assignment', path: '/admin/assignments/grade' },
-    ]
-  },
-  { section: 'Question Bank', icon: PenTool, path: '/admin/exams/questions' },
-  {
-    section: 'Attendance', icon: Calendar, submenu: [
-      { label: 'Student Attendance', path: '/admin/attendance/students' },
-      { label: 'Class Attendance', path: '/admin/attendance/class' },
-      { label: 'Attendance Reports', path: '/admin/attendance/reports' },
-    ]
-  },
+  { section: 'Test Series', icon: PenTool, path: '/admin/exams/questions' },
   { section: 'Announcements', icon: Megaphone, path: '/admin/announcements' },
   {
     section: 'Reports', icon: BarChart3, submenu: [
@@ -101,26 +86,11 @@ const studentNav = [
   { section: 'Dashboard', icon: LayoutDashboard, path: '/student' },
   { section: 'My Courses', icon: BookOpen, path: '/student/courses' },
   { section: 'Continue Learning', icon: BookMarked, path: '/student/continue' },
-  { section: 'Assignments', icon: FileSpreadsheet, path: '/student/assignments' },
   { section: 'Live Classes', icon: Video, path: '/student/live-classes' },
   { section: 'Calendar', icon: Calendar, path: '/student/calendar' },
   { section: 'Announcements', icon: Megaphone, path: '/student/announcements' },
   { section: 'Messages', icon: MessageSquare, path: '/student/messages' },
   { section: 'Profile', icon: UserCircle, path: '/student/profile' },
-];
-
-const instructorNav = [
-  { section: 'Dashboard', icon: LayoutDashboard, path: '/instructor' },
-  { section: 'My Courses', icon: BookOpen, path: '/instructor/courses' },
-  { section: 'Students', icon: Users, path: '/instructor/students' },
-  { section: 'Course Content', icon: Library, path: '/instructor/content' },
-  { section: 'Assignments', icon: FileSpreadsheet, path: '/instructor/assignments' },
-  { section: 'Attendance', icon: Calendar, path: '/instructor/attendance' },
-  { section: 'Announcements', icon: Megaphone, path: '/instructor/announcements' },
-  { section: 'Analytics', icon: BarChart3, path: '/instructor/analytics' },
-  { section: 'Messages', icon: MessageSquare, path: '/instructor/messages' },
-  { section: 'Profile', icon: UserCircle, path: '/instructor/profile' },
-  { section: 'Settings', icon: Settings, path: '/instructor/settings' },
 ];
 
 export default function Sidebar({ mobileOpen, onClose }) {
@@ -130,7 +100,7 @@ export default function Sidebar({ mobileOpen, onClose }) {
   const [expanded, setExpanded] = useState({});
 
   const role = user?.role || 'admin';
-  const navItems = role === 'student' ? studentNav : role === 'instructor' ? instructorNav : adminNav;
+  const navItems = role === 'student' ? studentNav : adminNav;
 
   const toggleExpand = (section) => {
     setExpanded(prev => ({ ...prev, [section]: !prev[section] }));
@@ -155,13 +125,11 @@ export default function Sidebar({ mobileOpen, onClose }) {
   const roleColors = {
     admin: 'bg-indigo-600',
     student: 'bg-emerald-600',
-    instructor: 'bg-amber-600',
   };
 
   const roleLabels = {
     admin: 'Administrator',
     student: 'Student',
-    instructor: 'Instructor',
   };
 
   return (

@@ -1,17 +1,20 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import DashboardLayout from './components/Layout/DashboardLayout';
+import PublicLayout from './components/Layout/PublicLayout';
 import ToastContainer from './components/common/Toast';
 import LoginPage from './pages/LoginPage';
+import HomePage from './pages/public/HomePage';
+import AboutPage from './pages/public/AboutPage';
+import ContactPage from './pages/public/ContactPage';
+import FAQPage from './pages/public/FAQPage';
 import AdminDashboard from './pages/admin/Dashboard';
 import StudentManagement from './pages/admin/StudentManagement';
 import InstructorManagement from './pages/admin/InstructorManagement';
 import CourseManagement from './pages/admin/CourseManagement';
 import CategoryManagement from './pages/admin/CategoryManagement';
 import Enrollment from './pages/admin/Enrollment';
-import Assignments from './pages/admin/Assignments';
 import QuestionBank from './pages/admin/ExamsQuizzes';
-import AttendancePage from './pages/admin/AttendancePage';
 
 import AnnouncementsPage from './pages/admin/AnnouncementsPage';
 import ReportsPage from './pages/admin/ReportsPage';
@@ -22,19 +25,14 @@ import AuditPage from './pages/admin/AuditPage';
 import StudentDashboard from './pages/student/StudentDashboard';
 import StudentCourses from './pages/student/StudentCourses';
 import StudentCourseDetail from './pages/student/StudentCourseDetail';
-import StudentAssignments from './pages/student/StudentAssignments';
 import StudentLiveClasses from './pages/student/StudentLiveClasses';
 
 import StudentAnnouncements from './pages/student/StudentAnnouncements';
-import InstructorDashboard from './pages/instructor/InstructorDashboard';
-import InstructorCourses from './pages/instructor/InstructorCourses';
-import InstructorStudents from './pages/instructor/InstructorStudents';
-import InstructorAssignments from './pages/instructor/InstructorAssignments';
-import InstructorAnalytics from './pages/instructor/InstructorAnalytics';
 import ProfilePage from './pages/ProfilePage';
 
 function RoleGuard({ role, children }) {
   const { user } = useAuth();
+  if (user?.role === 'instructor') return <Navigate to="/admin" replace />;
   if (user?.role !== role) return <Navigate to={`/${user?.role || 'admin'}`} replace />;
   return children;
 }
@@ -45,19 +43,30 @@ function AppRoutes() {
   if (!user) return (
     <Routes>
       <Route path="/login" element={<LoginPage />} />
-      <Route path="*" element={<Navigate to="/login" replace />} />
+      <Route element={<PublicLayout />}>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/faq" element={<FAQPage />} />
+      </Route>
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 
   return (
     <Routes>
       <Route path="/login" element={<LoginPage />} />
+      <Route element={<PublicLayout />}>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/faq" element={<FAQPage />} />
+      </Route>
       <Route path="/admin" element={<RoleGuard role="admin"><DashboardLayout /></RoleGuard>}>
         <Route index element={<AdminDashboard />} />
         <Route path="students" element={<StudentManagement />} />
         <Route path="students/add" element={<StudentManagement />} />
         <Route path="students/profile" element={<StudentManagement />} />
-        <Route path="students/attendance" element={<AttendancePage />} />
         <Route path="students/progress" element={<StudentManagement />} />
         <Route path="instructors" element={<InstructorManagement />} />
         <Route path="instructors/add" element={<InstructorManagement />} />
@@ -73,13 +82,7 @@ function AppRoutes() {
         <Route path="enrollment/new" element={<Enrollment />} />
         <Route path="enrollment/pending" element={<Enrollment />} />
         <Route path="enrollment/assignments" element={<Enrollment />} />
-        <Route path="assignments/create" element={<Assignments />} />
-        <Route path="assignments/submissions" element={<Assignments />} />
-        <Route path="assignments/grade" element={<Assignments />} />
         <Route path="exams/questions" element={<QuestionBank />} />
-        <Route path="attendance/students" element={<AttendancePage />} />
-        <Route path="attendance/class" element={<AttendancePage />} />
-        <Route path="attendance/reports" element={<AttendancePage />} />
         <Route path="announcements" element={<AnnouncementsPage />} />
         <Route path="reports/students" element={<ReportsPage />} />
         <Route path="reports/courses" element={<ReportsPage />} />
@@ -107,26 +110,10 @@ function AppRoutes() {
         <Route path="courses" element={<StudentCourses />} />
         <Route path="courses/:courseId" element={<StudentCourseDetail />} />
         <Route path="continue" element={<StudentCourseDetail courseId="1" />} />
-        <Route path="assignments" element={<StudentAssignments />} />
         <Route path="live-classes" element={<StudentLiveClasses />} />
-        <Route path="attendance" element={<AttendancePage />} />
         <Route path="calendar" element={<StudentDashboard />} />
         <Route path="announcements" element={<StudentAnnouncements />} />
         <Route path="messages" element={<StudentDashboard />} />
-        <Route path="profile" element={<ProfilePage />} />
-        <Route path="settings" element={<SettingsPage />} />
-      </Route>
-
-      <Route path="/instructor" element={<RoleGuard role="instructor"><DashboardLayout /></RoleGuard>}>
-        <Route index element={<InstructorDashboard />} />
-        <Route path="courses" element={<InstructorCourses />} />
-        <Route path="students" element={<InstructorStudents />} />
-        <Route path="content" element={<InstructorCourses />} />
-        <Route path="assignments" element={<InstructorAssignments />} />
-        <Route path="attendance" element={<AttendancePage />} />
-        <Route path="announcements" element={<AnnouncementsPage />} />
-        <Route path="analytics" element={<InstructorAnalytics />} />
-        <Route path="messages" element={<InstructorDashboard />} />
         <Route path="profile" element={<ProfilePage />} />
         <Route path="settings" element={<SettingsPage />} />
       </Route>

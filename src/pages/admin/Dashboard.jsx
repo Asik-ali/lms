@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Users, GraduationCap, BookOpen, Video, TrendingUp, TrendingDown, Radio, Square } from 'lucide-react';
+import { Users, GraduationCap, BookOpen, Video, TrendingUp, TrendingDown, Radio, Square, Trash2, ExternalLink } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line } from 'recharts';
-import { getAllStudents, getAllInstructors, getAllCourses, getAllEnrollments, getAllLiveClasses, addLiveClass, updateLiveClass } from '../../data/dynamicStore';
+import { getAllStudents, getAllInstructors, getAllCourses, getAllEnrollments, getAllLiveClasses, addLiveClass, updateLiveClass, deleteLiveClass } from '../../data/dynamicStore';
 import { showError, showSuccess } from '../../components/common/Toast';
 
 export default function AdminDashboard() {
@@ -81,6 +81,17 @@ export default function AdminDashboard() {
     }
   };
 
+  const handleDeleteLive = async (id) => {
+    if (!confirm('Delete this live session?')) return;
+    try {
+      await deleteLiveClass(id);
+      setLiveClasses(await getAllLiveClasses());
+      showSuccess('Live session deleted.');
+    } catch (err) {
+      showError(err.message || 'Failed to delete live session.');
+    }
+  };
+
   function getYouTubeEmbedUrl(url) {
     try {
       const u = new URL(url);
@@ -104,28 +115,28 @@ export default function AdminDashboard() {
 
   return (
     <div className="space-y-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         {statCards.map((card) => {
           const Icon = card.icon;
           return (
             <div key={card.label} className="stat-card">
               <div className="flex items-center justify-between mb-4">
-                <div className={`w-12 h-12 rounded-lg ${card.color} flex items-center justify-center`}>
-                  <Icon className="w-6 h-6 text-white" />
+                <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg ${card.color} flex items-center justify-center`}>
+                  <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
               </div>
-              <p className="text-2xl font-bold text-gray-900">{card.value}</p>
-              <p className="text-sm text-gray-500 mt-1">{card.label}</p>
+              <p className="text-xl sm:text-2xl font-bold text-gray-900">{card.value}</p>
+              <p className="text-xs sm:text-sm text-gray-500 mt-1">{card.label}</p>
             </div>
           );
         })}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
         <div className="lg:col-span-2 card">
           <div className="card-header flex items-center gap-2">
             <Radio className="w-5 h-5 text-red-500" />
-            <h3 className="text-lg font-semibold">YouTube Live</h3>
+            <h3 className="text-base sm:text-lg font-semibold">YouTube Live</h3>
             {activeLive && <span className="ml-2 px-2 py-0.5 bg-red-100 text-red-700 text-xs font-medium rounded-full animate-pulse">LIVE</span>}
           </div>
           <div className="p-6">
@@ -171,7 +182,7 @@ export default function AdminDashboard() {
 
         <div className="card">
           <div className="card-header">
-            <h3 className="text-lg font-semibold">Recent Notifications</h3>
+            <h3 className="text-base sm:text-lg font-semibold">Recent Notifications</h3>
           </div>
           <div className="p-4 space-y-3">
             {recentNotifications.map(n => (
@@ -190,10 +201,10 @@ export default function AdminDashboard() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
         <div className="lg:col-span-2 card">
           <div className="card-header">
-            <h3 className="text-lg font-semibold">Enrollments Over Time</h3>
+            <h3 className="text-base sm:text-lg font-semibold">Enrollments Over Time</h3>
           </div>
           <div className="p-6">
             <ResponsiveContainer width="100%" height={300}>
@@ -210,10 +221,70 @@ export default function AdminDashboard() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="card">
+        <div className="card-header flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <Video className="w-5 h-5 text-indigo-500" />
+            <h3 className="text-base sm:text-lg font-semibold">Live Sessions</h3>
+          </div>
+          <span className="text-xs text-gray-500">{liveClasses.length} total</span>
+        </div>
+        <div className="overflow-x-auto">
+          <table className="w-full">
+            <thead>
+              <tr className="border-b border-gray-200 bg-gray-50">
+                <th className="table-header">Title</th>
+                <th className="table-header">Instructor</th>
+                <th className="table-header">Date</th>
+                <th className="table-header">Time</th>
+                <th className="table-header">Status</th>
+                <th className="table-header">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {liveClasses.slice().reverse().map(lc => (
+                <tr key={lc.id} className="border-b border-gray-100 hover:bg-gray-50">
+                  <td className="table-cell font-medium">{lc.title}</td>
+                  <td className="table-cell text-gray-500">{lc.instructor}</td>
+                  <td className="table-cell">{lc.date}</td>
+                  <td className="table-cell">{lc.time}</td>
+                  <td className="table-cell">
+                    <span className={`badge ${
+                      lc.status === 'Live' ? 'badge-danger animate-pulse' :
+                      lc.status === 'Upcoming' ? 'badge-info' : 'badge-warning'
+                    }`}>{lc.status}</span>
+                  </td>
+                  <td className="table-cell">
+                    <div className="flex items-center gap-2">
+                      {lc.youtube_url && (
+                        <a href={lc.youtube_url} target="_blank" rel="noopener noreferrer" className="p-1.5 text-gray-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg">
+                          <ExternalLink className="w-4 h-4" />
+                        </a>
+                      )}
+                      {lc.status === 'Live' && (
+                        <button onClick={async () => { await updateLiveClass(lc.id, { status: 'Ended' }); setLiveClasses(await getAllLiveClasses()); showSuccess('Session ended.'); }} className="p-1.5 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg cursor-pointer">
+                          <Square className="w-4 h-4" />
+                        </button>
+                      )}
+                      <button onClick={() => handleDeleteLive(lc.id)} className="p-1.5 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg cursor-pointer">
+                        <Trash2 className="w-4 h-4" />
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+              {liveClasses.length === 0 && (
+                <tr><td colSpan={6} className="text-center py-8 text-gray-400">No live sessions yet</td></tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
         <div className="card">
           <div className="card-header flex justify-between items-center">
-            <h3 className="text-lg font-semibold">Recent Enrollments</h3>
+            <h3 className="text-base sm:text-lg font-semibold">Recent Enrollments</h3>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full">
@@ -246,7 +317,7 @@ export default function AdminDashboard() {
 
         <div className="card">
           <div className="card-header">
-            <h3 className="text-lg font-semibold">Active Courses</h3>
+            <h3 className="text-base sm:text-lg font-semibold">Active Courses</h3>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full">

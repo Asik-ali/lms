@@ -115,7 +115,7 @@ export default function InstructorManagement() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <h1 className="text-2xl font-bold text-gray-900">Instructor Management</h1>
         <button onClick={() => navigate('/admin/instructors/add')} className="flex items-center gap-2 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 cursor-pointer">
           <Plus className="w-4 h-4" /> Add Instructor
@@ -133,9 +133,9 @@ export default function InstructorManagement() {
       <div className="grid gap-6">
         {filtered.map(instructor => (
           <div key={instructor.id} className="card p-6">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-lg">
+                <div className="w-14 h-14 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-lg flex-shrink-0">
                   {instructor.name.split(' ').map(n => n[0]).join('')}
                 </div>
                 <div>
@@ -153,7 +153,7 @@ export default function InstructorManagement() {
               </div>
             </div>
 
-            <div className="grid grid-cols-4 gap-6 mt-6 pt-6 border-t border-gray-100">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mt-6 pt-6 border-t border-gray-100">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center">
                   <BookOpen className="w-5 h-5 text-blue-600" />

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { BookOpen, ClipboardList, Video, Award, Bell, Calendar, ChevronRight, TrendingUp, Target, BarChart3, CheckCircle, Megaphone } from 'lucide-react';
+import { BookOpen, ClipboardList, Video, Award, Bell, Calendar, ChevronRight, TrendingUp, BarChart3, Megaphone } from 'lucide-react';
 import { upcomingEvents, certificates, studentReports, students } from '../../data/mockData';
 import { useAuth } from '../../contexts/AuthContext';
 import { getAllAnnouncements, getAllCourses } from '../../data/dynamicStore';
@@ -39,7 +39,6 @@ export default function StudentDashboard() {
     { label: 'Enrolled Courses', value: myCourses.length, icon: BookOpen, color: 'bg-blue-500' },
     { label: 'Assignments', value: report ? `${report.completedAssignments}/${report.totalAssignments}` : '0/0', icon: ClipboardList, color: 'bg-amber-500' },
     { label: 'Avg Score', value: report ? `${report.avgScore}%` : 'N/A', icon: TrendingUp, color: 'bg-purple-500' },
-    { label: 'Attendance', value: report ? `${report.attendance}%` : 'N/A', icon: CheckCircle, color: 'bg-emerald-500' },
   ];
 
   return (
@@ -49,7 +48,7 @@ export default function StudentDashboard() {
         <p className="text-indigo-100 mt-1">{user?.course || 'Continue your learning journey'}</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {stats.map((s) => {
           const Icon = s.icon;
           return (
@@ -67,8 +66,8 @@ export default function StudentDashboard() {
       </div>
 
       {report && (
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-          <div className="card p-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="card p-4 sm:p-5">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center">
                 <BarChart3 className="w-5 h-5 text-indigo-600" />
@@ -82,7 +81,7 @@ export default function StudentDashboard() {
               <div className="h-full bg-indigo-500 rounded-full" style={{ width: `${report.quizAvg}%` }} />
             </div>
           </div>
-          <div className="card p-5">
+          <div className="card p-4 sm:p-5">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center">
                 <CheckCircle className="w-5 h-5 text-emerald-600" />
@@ -96,21 +95,7 @@ export default function StudentDashboard() {
               <div className="h-full bg-emerald-500 rounded-full" style={{ width: `${(report.completedAssignments / report.totalAssignments) * 100}%` }} />
             </div>
           </div>
-          <div className="card p-5">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center">
-                <Target className="w-5 h-5 text-amber-600" />
-              </div>
-              <div>
-                <p className="text-sm text-gray-500">Attendance</p>
-                <p className="text-xl font-bold text-gray-900">{report.attendance}%</p>
-              </div>
-            </div>
-            <div className="h-2 bg-gray-200 rounded-full">
-              <div className="h-full bg-amber-500 rounded-full" style={{ width: `${report.attendance}%` }} />
-            </div>
-          </div>
-          <div className="card p-5">
+          <div className="card p-4 sm:p-5">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center">
                 <Award className="w-5 h-5 text-purple-600" />

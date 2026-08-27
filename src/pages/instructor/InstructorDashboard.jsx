@@ -45,7 +45,7 @@ export default function InstructorDashboard() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         {stats.map((s) => {
           const Icon = s.icon;
           return (
@@ -55,17 +55,17 @@ export default function InstructorDashboard() {
                   <Icon className="w-5 h-5 text-white" />
                 </div>
               </div>
-              <p className="text-2xl font-bold text-gray-900">{s.value}</p>
-              <p className="text-sm text-gray-500">{s.label}</p>
+              <p className="text-xl sm:text-2xl font-bold text-gray-900">{s.value}</p>
+              <p className="text-xs sm:text-sm text-gray-500">{s.label}</p>
             </div>
           );
         })}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
         <div className="lg:col-span-2 card">
           <div className="card-header">
-            <h3 className="text-lg font-semibold">My Courses</h3>
+            <h3 className="text-base sm:text-lg font-semibold">My Courses</h3>
           </div>
           <div className="p-6">
             {myCourses.length === 0 ? (
@@ -114,7 +114,7 @@ export default function InstructorDashboard() {
         <div className="card-header">
           <h3 className="text-lg font-semibold">Quick Actions</h3>
         </div>
-        <div className="p-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="p-4 sm:p-6 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
           <button className="flex items-center gap-3 p-4 rounded-xl border border-gray-200 hover:border-indigo-300 hover:bg-indigo-50 transition-all">
             <div className="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center">
               <FileText className="w-5 h-5 text-indigo-600" />

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ArrowLeft, BookOpen, CalendarDays, Clock3, CheckCircle2, FileText, Download, Play } from 'lucide-react';
-import { getAllCourses, getCourseLessons, getCoursePdfs } from '../../data/dynamicStore';
+import { getCourseById, getCourseLessons, getCoursePdfs } from '../../data/dynamicStore';
 import MediaViewer from '../../components/common/MediaViewer';
 
 const courseDetails = {
@@ -39,15 +39,22 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
   useEffect(() => {
     (async () => {
       setLoading(true);
-      const allCourses = await getAllCourses();
-      const match = allCourses.find(item => String(item.id) === String(resolvedCourseId));
-      setCourse(match || null);
-      if (match) {
-        const courseLessons = await getCourseLessons(match.id);
-        const coursePdfs = await getCoursePdfs(match.id);
-        setLessons(courseLessons);
-        setPdfs(coursePdfs);
-      } else {
+      try {
+        const match = await getCourseById(resolvedCourseId);
+        setCourse(match || null);
+        if (match) {
+          const [courseLessons, coursePdfs] = await Promise.all([
+            getCourseLessons(match.id),
+            getCoursePdfs(match.id),
+          ]);
+          setLessons(courseLessons);
+          setPdfs(coursePdfs);
+        } else {
+          setLessons([]);
+          setPdfs([]);
+        }
+      } catch {
+        setCourse(null);
         setLessons([]);
         setPdfs([]);
       }
