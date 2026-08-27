@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Edit2, Star, Mail, Users, BookOpen, Plus, ArrowLeft, Save, X } from 'lucide-react';
 import { getInstructors, addInstructor } from '../../data/dynamicStore';
 import { supabase } from '../../supabase/client';
+import { showError, showSuccess } from '../../components/common/Toast';
 
 function AddInstructorForm({ onBack }) {
   const [form, setForm] = useState({ name: '', email: '', department: '' });
@@ -50,7 +51,9 @@ function EditInstructorForm({ instructor, onBack, onSaved }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!form.name || !form.email) return;
-    await supabase.from('instructors').update(form).eq('id', instructor.id);
+    const { error } = await supabase.from('instructors').update(form).eq('id', instructor.id);
+    if (error) return showError(error.message || 'Failed to update instructor.');
+    showSuccess('Instructor updated.');
     onSaved();
   };
 
@@ -94,7 +97,7 @@ export default function InstructorManagement() {
   useEffect(() => { load(); }, []);
 
   async function load() {
-    setInstructors(await getInstructors());
+    setInstructors(await getAllInstructors());
   }
 
   const isAddPage = location.pathname.endsWith('/add');

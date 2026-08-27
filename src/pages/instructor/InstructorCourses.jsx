@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { BookOpen, Users, FileText, Eye, Edit2, Search } from 'lucide-react';
-import { getCourses } from '../../data/dynamicStore';
+import { getAllCourses } from '../../data/dynamicStore';
 import { useAuth } from '../../contexts/AuthContext';
 
 export default function InstructorCourses() {
@@ -9,7 +9,7 @@ export default function InstructorCourses() {
   const [search, setSearch] = useState('');
 
   useEffect(() => {
-    (async () => { setCourses(await getCourses()); })();
+    (async () => { setCourses(await getAllCourses()); })();
   }, []);
 
   const instructorName = user?.name || 'Instructor';

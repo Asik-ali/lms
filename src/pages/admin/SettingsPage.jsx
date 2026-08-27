@@ -297,6 +297,8 @@ function BackupTab() {
   const restoreBackup = async () => {
     if (!backupFile) return showError('Choose a backup file first.');
     setIsWorking(true);
+    const restoredTables = [];
+    const failedTables = [];
     try {
       const backup = JSON.parse(await backupFile.text());
       if (backup?.version !== 1 || !backup.tables) throw new Error('This is not a valid LMS backup file.');
@@ -305,15 +307,25 @@ function BackupTab() {
       for (const table of backupTables) {
         const rows = backup.tables[table];
         if (!Array.isArray(rows)) throw new Error(`The backup is missing valid ${table} data.`);
-        const { error: deleteError } = await supabase.from(table).delete().neq('id', 0);
-        if (deleteError) throw deleteError;
-        if (rows.length) {
-          const cleanRows = rows.map(({ id: _id, ...row }) => row);
-          const { error: insertError } = await supabase.from(table).insert(cleanRows);
-          if (insertError) throw insertError;
+        try {
+          const { error: deleteError } = await supabase.from(table).delete().neq('id', 0);
+          if (deleteError) throw deleteError;
+          if (rows.length) {
+            const cleanRows = rows.map(({ id: _id, ...row }) => row);
+            const { error: insertError } = await supabase.from(table).insert(cleanRows);
+            if (insertError) throw insertError;
+          }
+          restoredTables.push(table);
+        } catch (err) {
+          failedTables.push({ table, error: err.message });
         }
       }
-      showSuccess('Backup restored successfully. Reload the page to see all restored data.');
+      if (failedTables.length) {
+        const msg = `Restored ${restoredTables.length}/${backupTables.length} tables. Failed: ${failedTables.map(f => f.table).join(', ')}`;
+        showError(msg);
+      } else {
+        showSuccess('Backup restored successfully. Reload the page to see all restored data.');
+      }
       setBackupFile(null);
       if (fileInputRef.current) fileInputRef.current.value = '';
     } catch (error) {

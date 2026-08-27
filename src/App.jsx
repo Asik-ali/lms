@@ -23,9 +23,7 @@ import StudentDashboard from './pages/student/StudentDashboard';
 import StudentCourses from './pages/student/StudentCourses';
 import StudentCourseDetail from './pages/student/StudentCourseDetail';
 import StudentAssignments from './pages/student/StudentAssignments';
-import TypingPractice from './pages/student/TypingPractice';
-import TypingExam from './pages/student/TypingExam';
-import StenoPractice from './pages/student/StenoPractice';
+import StudentLiveClasses from './pages/student/StudentLiveClasses';
 
 import StudentAnnouncements from './pages/student/StudentAnnouncements';
 import InstructorDashboard from './pages/instructor/InstructorDashboard';
@@ -110,9 +108,7 @@ function AppRoutes() {
         <Route path="courses/:courseId" element={<StudentCourseDetail />} />
         <Route path="continue" element={<StudentCourseDetail courseId="1" />} />
         <Route path="assignments" element={<StudentAssignments />} />
-        <Route path="typing-practice" element={<TypingPractice />} />
-        <Route path="typing-exam" element={<TypingExam />} />
-        <Route path="steno-practice" element={<StenoPractice />} />
+        <Route path="live-classes" element={<StudentLiveClasses />} />
         <Route path="attendance" element={<AttendancePage />} />
         <Route path="calendar" element={<StudentDashboard />} />
         <Route path="announcements" element={<StudentAnnouncements />} />

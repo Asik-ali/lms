@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { HelpCircle, Plus, X } from 'lucide-react';
-import { getQuestions, addQuestion, getCategories } from '../../data/dynamicStore';
+import { getAllQuestions, addQuestion, getCategories } from '../../data/dynamicStore';
 
 export default function QuestionBank() {
   const [questions, setQuestions] = useState([]);
@@ -11,7 +11,7 @@ export default function QuestionBank() {
   useEffect(() => { loadData(); }, []);
 
   async function loadData() {
-    setQuestions(await getQuestions());
+    setQuestions(await getAllQuestions());
     setCategories(await getCategories());
   }
 
@@ -20,7 +20,7 @@ export default function QuestionBank() {
     if (!q || !newQuestion.category.trim()) return;
     if (!q.startsWith('http://') && !q.startsWith('https://')) return alert('Please enter a valid URL (starting with http:// or https://)');
     await addQuestion({ ...newQuestion });
-    setQuestions(await getQuestions());
+    setQuestions(await getAllQuestions());
     setNewQuestion({ question: '', type: 'Multiple Choice', category: '', difficulty: 'Easy' });
     setShowForm(false);
   };

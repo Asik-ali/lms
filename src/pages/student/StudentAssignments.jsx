@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { FileText, Clock, CheckCircle, Link, X } from 'lucide-react';
-import { getAssignments, getMySubmissions, submitAssignmentLink } from '../../data/dynamicStore';
+import { getAllAssignments, getMySubmissions, submitAssignmentLink } from '../../data/dynamicStore';
 import { useAuth } from '../../contexts/AuthContext';
 import { showSuccess, showError } from '../../components/common/Toast';
 
@@ -16,7 +16,7 @@ export default function StudentAssignments() {
 
   useEffect(() => {
     (async () => {
-      setAssignments(await getAssignments());
+      setAssignments(await getAllAssignments());
     })();
   }, []);
 

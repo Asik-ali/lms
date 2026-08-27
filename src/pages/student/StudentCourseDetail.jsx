@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ArrowLeft, BookOpen, CalendarDays, Clock3, CheckCircle2, FileText, Download, Play } from 'lucide-react';
-import { getCourses, getCourseLessons, getCoursePdfs } from '../../data/dynamicStore';
+import { getAllCourses, getCourseLessons, getCoursePdfs } from '../../data/dynamicStore';
 import MediaViewer from '../../components/common/MediaViewer';
 
 const courseDetails = {
@@ -39,7 +39,7 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
   useEffect(() => {
     (async () => {
       setLoading(true);
-      const allCourses = await getCourses();
+      const allCourses = await getAllCourses();
       const match = allCourses.find(item => String(item.id) === String(resolvedCourseId));
       setCourse(match || null);
       if (match) {

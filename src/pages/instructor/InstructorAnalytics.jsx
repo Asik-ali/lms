@@ -1,6 +1,6 @@
 ﻿import { useState, useEffect } from 'react';
 import { Users, TrendingUp, Star, BookOpen, CheckCircle } from 'lucide-react';
-import { getCourses, getStudents, getEnrollments } from '../../data/dynamicStore';
+import { getAllCourses, getAllStudents, getAllEnrollments } from '../../data/dynamicStore';
 import { useAuth } from '../../contexts/AuthContext';
 
 export default function InstructorAnalytics() {
@@ -11,9 +11,9 @@ export default function InstructorAnalytics() {
 
   useEffect(() => {
     (async () => {
-      setCourses(await getCourses());
-      setStudents(await getStudents());
-      setEnrollments(await getEnrollments());
+      setCourses(await getAllCourses());
+      setStudents(await getAllStudents());
+      setEnrollments(await getAllEnrollments());
     })();
   }, []);
 

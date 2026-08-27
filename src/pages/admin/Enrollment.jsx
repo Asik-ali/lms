@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Check, X, Clock, UserPlus } from 'lucide-react';
-import { getCourses, getEnrollments, addEnrollment, updateEnrollment } from '../../data/dynamicStore';
+import { getAllCourses, getAllEnrollments, addEnrollment, updateEnrollment } from '../../data/dynamicStore';
 
 export default function Enrollment() {
   const [courses, setCourses] = useState([]);
@@ -10,8 +10,8 @@ export default function Enrollment() {
   useEffect(() => { load(); }, []);
 
   async function load() {
-    setCourses(await getCourses());
-    setRequests(await getEnrollments());
+    setCourses(await getAllCourses());
+    setRequests(await getAllEnrollments());
   }
 
   const handleSubmit = async (e) => {

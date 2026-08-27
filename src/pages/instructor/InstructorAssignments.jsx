@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Plus, FileText, Clock, X, CheckCircle } from 'lucide-react';
-import { getCourses, getAssignments, addAssignment } from '../../data/dynamicStore';
+import { getAllCourses, getAllAssignments, addAssignment } from '../../data/dynamicStore';
 import { useAuth } from '../../contexts/AuthContext';
 
 export default function InstructorAssignments() {
@@ -12,8 +12,8 @@ export default function InstructorAssignments() {
 
   useEffect(() => {
     (async () => {
-      setCourses(await getCourses());
-      setAssignments(await getAssignments());
+      setCourses(await getAllCourses());
+      setAssignments(await getAllAssignments());
     })();
   }, []);
 
@@ -32,7 +32,7 @@ export default function InstructorAssignments() {
       total: 0,
       status: 'Active',
     });
-    setAssignments(await getAssignments());
+    setAssignments(await getAllAssignments());
     setNewAssignment({ title: '', course: '', dueDate: '' });
     setShowForm(false);
   };

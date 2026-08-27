@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useLocation, useNavigate, Navigate } from 'react-router-dom';
 import { Search, Plus, ArrowLeft, UserPlus, Copy, Check, LogIn, Save, X, KeyRound, BookOpen } from 'lucide-react';
 import { supabase } from '../../supabase/client';
-import { getStudents, getCourses } from '../../data/dynamicStore';
+import { getAllStudents, getAllCourses } from '../../data/dynamicStore';
 import { useAuth } from '../../contexts/AuthContext';
 import { showError, showSuccess } from '../../components/common/Toast';
 import { normalizeCourseAccessSelection, serializeCourseAccess, getCourseAccessLabel } from './studentCourseAccess';
@@ -18,7 +18,7 @@ function AddStudentForm({ onBack, onStudentAdded }) {
   const [submitError, setSubmitError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  useEffect(() => { getCourses().then(setCourses); }, []);
+  useEffect(() => { getAllCourses().then(setCourses); }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -154,7 +154,7 @@ function StudentProfile({ student, onBack, onSaved }) {
   const [saving, setSaving] = useState(false);
 
   useEffect(() => {
-    getCourses().then(setCourses);
+    getAllCourses().then(setCourses);
   }, []);
 
   useEffect(() => {
@@ -274,13 +274,15 @@ function StudentProgress({ students, onBack, onRefresh }) {
   const [editVal, setEditVal] = useState('');
 
   async function handleSave(id) {
-    await supabase.from('profiles').update({ progress: Number(editVal) }).eq('id', id);
+    const { error } = await supabase.from('profiles').update({ progress: Number(editVal) }).eq('id', id);
+    if (error) return showError(error.message || 'Failed to update progress.');
     setEditingId(null);
     onRefresh();
   }
 
   async function handleDeleteProgress(id) {
-    await supabase.from('profiles').update({ progress: 0 }).eq('id', id);
+    const { error } = await supabase.from('profiles').update({ progress: 0 }).eq('id', id);
+    if (error) return showError(error.message || 'Failed to reset progress.');
     onRefresh();
   }
 
@@ -507,12 +509,12 @@ export default function StudentManagement() {
   useEffect(() => { loadStudents(); }, []);
 
   async function loadStudents() {
-    setStudents(await getStudents());
+    setStudents(await getAllStudents());
   }
 
   async function openCourseAccess(student) {
     try {
-      setCourses(await getCourses());
+      setCourses(await getAllCourses());
       setCourseStudent(student);
     } catch (error) {
       showError(error.message || 'Unable to load courses.');

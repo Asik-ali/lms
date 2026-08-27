@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getAuditLogs } from '../../data/dynamicStore';
+import { getAllAuditLogs } from '../../data/dynamicStore';
 import { Search } from 'lucide-react';
 
 export default function AuditPage() {
@@ -11,7 +11,7 @@ export default function AuditPage() {
   useEffect(() => { load(); }, []);
 
   async function load() {
-    setLogs(await getAuditLogs({ entity: entityFilter || undefined, action: actionFilter || undefined, limit: 200 }));
+    setLogs(await getAllAuditLogs({ entity: entityFilter || undefined, action: actionFilter || undefined, limit: 200 }));
   }
 
   useEffect(() => { load(); }, [entityFilter, actionFilter]);

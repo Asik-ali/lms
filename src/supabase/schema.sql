@@ -304,7 +304,8 @@ CREATE TABLE IF NOT EXISTS live_classes (
   description TEXT DEFAULT '',
   room_code TEXT NOT NULL,
   students INTEGER DEFAULT 0,
-  status TEXT NOT NULL DEFAULT 'Upcoming'
+  status TEXT NOT NULL DEFAULT 'Upcoming',
+  youtube_url TEXT DEFAULT ''
 );
 
 ALTER TABLE live_classes ENABLE ROW LEVEL SECURITY;

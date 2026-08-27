@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BookOpen, ChevronRight } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
-import { getCourses } from '../../data/dynamicStore';
+import { getAllCourses } from '../../data/dynamicStore';
 import { normalizeCourseAccessSelection } from '../admin/studentCourseAccess';
 
 const filters = ['All', 'In Progress', 'Completed'];
@@ -15,7 +15,7 @@ export default function StudentCourses() {
 
   useEffect(() => {
     (async () => {
-      const allCourses = await getCourses();
+      const allCourses = await getAllCourses();
       const assigned = normalizeCourseAccessSelection(user?.course || '');
       const visibleCourses = assigned.length > 0
         ? allCourses.filter(course => assigned.includes(course.title))

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Search, Plus, Edit2, Trash2, X, ChevronDown, Video, FileText, ExternalLink } from 'lucide-react';
-import { getCourses, addCourse, updateCourse, deleteCourse, getCategories, getInstructors, getCourseLessons, addCourseLesson, deleteCourseLesson, getCoursePdfs, addCoursePdf, deleteCoursePdf } from '../../data/dynamicStore';
+import { getAllCourses, addCourse, updateCourse, deleteCourse, getCategories, getAllInstructors, getCourseLessons, addCourseLesson, deleteCourseLesson, getCoursePdfs, addCoursePdf, deleteCoursePdf } from '../../data/dynamicStore';
 import { showSuccess, showError } from '../../components/common/Toast';
 import MediaViewer from '../../components/common/MediaViewer';
 
@@ -27,7 +27,7 @@ export default function CourseManagement() {
 
   async function refresh() {
     try {
-      setCourses([...(await getCourses())]);
+      setCourses([...(await getAllCourses())]);
     } catch (err) {
       showError('Failed to load courses');
     }
@@ -38,7 +38,7 @@ export default function CourseManagement() {
   }
 
   async function loadInstructors() {
-    setInstructors(await getInstructors());
+    setInstructors(await getAllInstructors());
   }
 
   function handleOpenAdd() {

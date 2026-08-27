@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getAttendance, addAttendance, updateAttendance, getCourses, getStudents } from '../../data/dynamicStore';
+import { getAllAttendance, addAttendance, updateAttendance, getAllCourses, getAllStudents } from '../../data/dynamicStore';
 import { showSuccess, showError } from '../../components/common/Toast';
 
 const initialForm = { name: '', course: '', present: '', total: '' };
@@ -16,9 +16,9 @@ export default function AttendancePage() {
   useEffect(() => { loadData(); }, []);
 
   async function loadData() {
-    setRecords(await getAttendance());
-    setCourses(await getCourses());
-    setStudents(await getStudents());
+    setRecords(await getAllAttendance());
+    setCourses(await getAllCourses());
+    setStudents(await getAllStudents());
   }
 
   const courseTitles = courses.map(c => c.title);
@@ -65,7 +65,7 @@ export default function AttendancePage() {
       await addAttendance({ name: form.name, course: form.course, present, total, percentage });
     }
 
-    setRecords([...(await getAttendance())]);
+    setRecords([...(await getAllAttendance())]);
     cancelForm();
   }
 

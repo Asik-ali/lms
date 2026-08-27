@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Video, Calendar, Clock, Users, Play, Edit2, X, Trash2 } from 'lucide-react';
-import { getLiveClasses, addLiveClass, deleteLiveClass } from '../../data/dynamicStore';
+import { getAllLiveClasses, addLiveClass, deleteLiveClass } from '../../data/dynamicStore';
 import { useAuth } from '../../contexts/AuthContext';
 import MeetingRoom from '../../components/common/MeetingRoom';
 
@@ -19,7 +19,7 @@ export default function InstructorLiveClasses() {
   const [newClass, setNewClass] = useState({ title: '', date: '', time: '', description: '' });
 
   useEffect(() => {
-    (async () => { setClasses(await getLiveClasses()); })();
+    (async () => { setClasses(await getAllLiveClasses()); })();
   }, []);
 
   const instructorName = user?.name || 'Instructor';
@@ -39,14 +39,14 @@ export default function InstructorLiveClasses() {
       students: 0,
       status: 'Upcoming',
     });
-    setClasses(await getLiveClasses());
+    setClasses(await getAllLiveClasses());
     setNewClass({ title: '', date: '', time: '', description: '' });
     setShowForm(false);
   };
 
   const handleCancel = async (id) => {
     await deleteLiveClass(id);
-    setClasses(await getLiveClasses());
+    setClasses(await getAllLiveClasses());
   };
 
   return (

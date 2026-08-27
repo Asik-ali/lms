@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { BookOpen, ClipboardList, Video, Award, Bell, Calendar, ChevronRight, TrendingUp, Target, BarChart3, CheckCircle, Megaphone } from 'lucide-react';
 import { upcomingEvents, certificates, studentReports, students } from '../../data/mockData';
 import { useAuth } from '../../contexts/AuthContext';
-import { getAnnouncements, getCourses } from '../../data/dynamicStore';
+import { getAllAnnouncements, getAllCourses } from '../../data/dynamicStore';
 import { normalizeCourseAccessSelection } from '../admin/studentCourseAccess';
 
 export default function StudentDashboard() {
@@ -13,7 +13,7 @@ export default function StudentDashboard() {
 
   useEffect(() => {
     (async () => {
-      const all = await getAnnouncements();
+      const all = await getAllAnnouncements();
       setAnnouncements(all.filter(a => a.status === 'Published').sort((a, b) => new Date(b.created) - new Date(a.created)));
     })();
   }, []);
@@ -22,7 +22,7 @@ export default function StudentDashboard() {
 
   useEffect(() => {
     (async () => {
-      const allCourses = await getCourses();
+      const allCourses = await getAllCourses();
       const assigned = normalizeCourseAccessSelection(user?.course || '');
       const visibleCourses = assigned.length > 0
         ? allCourses.filter(course => assigned.includes(course.title))

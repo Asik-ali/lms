@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Megaphone, Send } from 'lucide-react';
-import { getAnnouncements, addAnnouncement } from '../../data/dynamicStore';
+import { getAllAnnouncements, addAnnouncement } from '../../data/dynamicStore';
 
 export default function AnnouncementsPage() {
   const [announcements, setAnnouncements] = useState([]);
@@ -13,7 +13,7 @@ export default function AnnouncementsPage() {
   useEffect(() => { refresh(); }, []);
 
   async function refresh() {
-    setAnnouncements(await getAnnouncements());
+    setAnnouncements(await getAllAnnouncements());
   }
 
   async function handlePublish() {

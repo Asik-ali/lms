@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Megaphone, Calendar } from 'lucide-react';
-import { getAnnouncements } from '../../data/dynamicStore';
+import { getAllAnnouncements } from '../../data/dynamicStore';
 
 export default function StudentAnnouncements() {
   const [announcements, setAnnouncements] = useState([]);
 
   useEffect(() => {
     (async () => {
-      const all = await getAnnouncements();
+      const all = await getAllAnnouncements();
       setAnnouncements(all.filter(a => a.status === 'Published'));
     })();
   }, []);

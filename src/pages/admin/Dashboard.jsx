@@ -1,22 +1,30 @@
 import { useState, useEffect } from 'react';
-import { Users, GraduationCap, BookOpen, Video, TrendingUp, TrendingDown } from 'lucide-react';
+import { Users, GraduationCap, BookOpen, Video, TrendingUp, TrendingDown, Radio, Square } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line } from 'recharts';
-import { getStudents, getInstructors, getCourses, getEnrollments } from '../../data/dynamicStore';
+import { getAllStudents, getAllInstructors, getAllCourses, getAllEnrollments, getAllLiveClasses, addLiveClass, updateLiveClass } from '../../data/dynamicStore';
+import { showError, showSuccess } from '../../components/common/Toast';
 
 export default function AdminDashboard() {
   const [students, setStudents] = useState([]);
   const [instructors, setInstructors] = useState([]);
   const [courses, setCourses] = useState([]);
   const [enrollments, setEnrollments] = useState([]);
+  const [liveClasses, setLiveClasses] = useState([]);
+  const [liveTitle, setLiveTitle] = useState('');
+  const [liveUrl, setLiveUrl] = useState('');
+  const [startingLive, setStartingLive] = useState(false);
 
   useEffect(() => {
     (async () => {
-      setStudents(await getStudents());
-      setInstructors(await getInstructors());
-      setCourses(await getCourses());
-      setEnrollments(await getEnrollments());
+      setStudents(await getAllStudents());
+      setInstructors(await getAllInstructors());
+      setCourses(await getAllCourses());
+      setEnrollments(await getAllEnrollments());
+      setLiveClasses(await getAllLiveClasses());
     })();
   }, []);
+
+  const activeLive = liveClasses.find(lc => lc.status === 'Live');
 
   const activeStudents = students.filter(s => s.status === 'Active').length;
   const totalInstructors = instructors.length;
@@ -34,7 +42,58 @@ export default function AdminDashboard() {
   const recentNotifications = [
     ...enrollments.filter(e => e.status === 'Pending').slice(0, 3).map(e => ({ id: `e-${e.id}`, message: `New enrollment request from ${e.name}`, time: e.requested, type: 'info' })),
     ...courses.filter(c => c.status === 'Published').slice(0, 2).map(c => ({ id: `c-${c.id}`, message: `Course "${c.title}" is now published`, time: 'Today', type: 'success' })),
+    ...(activeLive ? [{ id: 'live-now', message: `LIVE: "${activeLive.title}" is streaming now`, time: 'Now', type: 'danger' }] : []),
   ];
+
+  const handleStartLive = async () => {
+    if (!liveTitle.trim() || !liveUrl.trim()) return showError('Enter a title and YouTube URL.');
+    setStartingLive(true);
+    try {
+      await addLiveClass({
+        title: liveTitle.trim(),
+        instructor: 'Admin',
+        date: new Date().toISOString().split('T')[0],
+        time: new Date().toLocaleTimeString(),
+        description: '',
+        room_code: 'LIVE',
+        students: 0,
+        status: 'Live',
+        youtube_url: liveUrl.trim(),
+      });
+      setLiveTitle('');
+      setLiveUrl('');
+      setLiveClasses(await getAllLiveClasses());
+      showSuccess('Live stream started!');
+    } catch (err) {
+      showError(err.message || 'Failed to start live stream.');
+    }
+    setStartingLive(false);
+  };
+
+  const handleEndLive = async () => {
+    if (!activeLive) return;
+    try {
+      await updateLiveClass(activeLive.id, { status: 'Ended' });
+      setLiveClasses(await getAllLiveClasses());
+      showSuccess('Live stream ended.');
+    } catch (err) {
+      showError(err.message || 'Failed to end live stream.');
+    }
+  };
+
+  function getYouTubeEmbedUrl(url) {
+    try {
+      const u = new URL(url);
+      if (u.hostname === 'youtu.be') return `https://www.youtube.com/embed/${u.pathname.slice(1)}`;
+      if (u.hostname.endsWith('youtube.com')) {
+        if (u.pathname === '/embed') return url;
+        const v = u.searchParams.get('v');
+        if (v) return `https://www.youtube.com/embed/${v}`;
+        if (u.pathname.startsWith('/live/')) return `https://www.youtube.com/embed/${u.pathname.split('/live/')[1]}`;
+      }
+    } catch {}
+    return null;
+  }
 
   const enrollmentByMonth = {};
   enrollments.forEach(e => {
@@ -64,20 +123,49 @@ export default function AdminDashboard() {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2 card">
-          <div className="card-header">
-            <h3 className="text-lg font-semibold">Enrollments Over Time</h3>
+          <div className="card-header flex items-center gap-2">
+            <Radio className="w-5 h-5 text-red-500" />
+            <h3 className="text-lg font-semibold">YouTube Live</h3>
+            {activeLive && <span className="ml-2 px-2 py-0.5 bg-red-100 text-red-700 text-xs font-medium rounded-full animate-pulse">LIVE</span>}
           </div>
           <div className="p-6">
-            <ResponsiveContainer width="100%" height={300}>
-              <BarChart data={studentProgressData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-                <XAxis dataKey="month" fontSize={12} />
-                <YAxis fontSize={12} />
-                <Tooltip />
-                <Bar dataKey="enrolled" fill="#6366f1" radius={[4, 4, 0, 0]} />
-                <Bar dataKey="completed" fill="#22c55e" radius={[4, 4, 0, 0]} />
-              </BarChart>
-            </ResponsiveContainer>
+            {activeLive ? (
+              <div className="space-y-4">
+                <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                  <iframe
+                    src={getYouTubeEmbedUrl(activeLive.youtube_url)}
+                    title={activeLive.title}
+                    className="absolute inset-0 w-full h-full rounded-lg"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="font-semibold text-gray-900">{activeLive.title}</p>
+                    <p className="text-sm text-gray-500">Started at {activeLive.time}</p>
+                  </div>
+                  <button onClick={handleEndLive} className="flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 cursor-pointer">
+                    <Square className="w-4 h-4" /> End Live
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div className="space-y-4">
+                <p className="text-sm text-gray-500">Start a YouTube live stream visible to all students.</p>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Stream Title</label>
+                  <input type="text" value={liveTitle} onChange={e => setLiveTitle(e.target.value)} placeholder="e.g. Live Lecture: React Hooks" className="input-field" />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">YouTube Live URL</label>
+                  <input type="url" value={liveUrl} onChange={e => setLiveUrl(e.target.value)} placeholder="https://youtube.com/live/..." className="input-field" />
+                </div>
+                <button onClick={handleStartLive} disabled={startingLive || !liveTitle.trim() || !liveUrl.trim()} className="flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 disabled:opacity-50 cursor-pointer">
+                  <Radio className="w-4 h-4" /> {startingLive ? 'Starting...' : 'Start Live'}
+                </button>
+              </div>
+            )}
           </div>
         </div>
 
@@ -98,6 +186,26 @@ export default function AdminDashboard() {
               </div>
             ))}
             {recentNotifications.length === 0 && <p className="text-sm text-gray-400 text-center py-4">No recent notifications</p>}
+          </div>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="lg:col-span-2 card">
+          <div className="card-header">
+            <h3 className="text-lg font-semibold">Enrollments Over Time</h3>
+          </div>
+          <div className="p-6">
+            <ResponsiveContainer width="100%" height={300}>
+              <BarChart data={studentProgressData}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+                <XAxis dataKey="month" fontSize={12} />
+                <YAxis fontSize={12} />
+                <Tooltip />
+                <Bar dataKey="enrolled" fill="#6366f1" radius={[4, 4, 0, 0]} />
+                <Bar dataKey="completed" fill="#22c55e" radius={[4, 4, 0, 0]} />
+              </BarChart>
+            </ResponsiveContainer>
           </div>
         </div>
       </div>

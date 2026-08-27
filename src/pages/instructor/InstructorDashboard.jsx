@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { BookOpen, Users, Video, Star, Calendar, FileText, TrendingUp } from 'lucide-react';
-import { getCourses, getStudents, getLiveClasses, getAnnouncements } from '../../data/dynamicStore';
+import { getAllCourses, getAllStudents, getAllLiveClasses, getAllAnnouncements } from '../../data/dynamicStore';
 import { useAuth } from '../../contexts/AuthContext';
 
 export default function InstructorDashboard() {
@@ -12,10 +12,10 @@ export default function InstructorDashboard() {
 
   useEffect(() => {
     (async () => {
-      setCourses(await getCourses());
-      setStudents(await getStudents());
-      setLiveClasses(await getLiveClasses());
-      setAnnouncements(await getAnnouncements());
+      setCourses(await getAllCourses());
+      setStudents(await getAllStudents());
+      setLiveClasses(await getAllLiveClasses());
+      setAnnouncements(await getAllAnnouncements());
     })();
   }, []);
 

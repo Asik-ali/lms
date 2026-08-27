@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Search, Edit2, Trash2, FileText, Clock, CheckCircle, X } from 'lucide-react';
-import { getAssignments, addAssignment, deleteAssignment, getCourses } from '../../data/dynamicStore';
+import { getAllAssignments, addAssignment, deleteAssignment, getAllCourses } from '../../data/dynamicStore';
 import { showSuccess, showError } from '../../components/common/Toast';
 
 export default function Assignments() {
@@ -12,8 +12,8 @@ export default function Assignments() {
 
   const refresh = async () => {
     try {
-      setAssignments(await getAssignments());
-      setCourses(await getCourses());
+      setAssignments(await getAllAssignments());
+      setCourses(await getAllCourses());
     } catch (err) {
       showError(err.message);
     }

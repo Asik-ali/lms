@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Users, BookOpen, CheckCircle, TrendingUp, Award, BarChart3 } from 'lucide-react';
-import { getStudents, getCourses, getAttendance, getEnrollments } from '../../data/dynamicStore';
+import { getAllStudents, getAllCourses, getAllAttendance, getAllEnrollments } from '../../data/dynamicStore';
 
 const tabs = ['Student Report', 'Course Report', 'Attendance Report', 'Performance Report'];
 
@@ -228,10 +228,10 @@ export default function ReportsPage() {
 
   useEffect(() => {
     (async () => {
-      setStudents(await getStudents());
-      setCourses(await getCourses());
-      setAttendanceRecords(await getAttendance());
-      setEnrollments(await getEnrollments());
+      setStudents(await getAllStudents());
+      setCourses(await getAllCourses());
+      setAttendanceRecords(await getAllAttendance());
+      setEnrollments(await getAllEnrollments());
     })();
   }, []);
 

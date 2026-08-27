@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Search, User, MessageSquare } from 'lucide-react';
-import { getStudents, getCourses } from '../../data/dynamicStore';
+import { getAllStudents, getAllCourses } from '../../data/dynamicStore';
 import { useAuth } from '../../contexts/AuthContext';
 
 export default function InstructorStudents() {
@@ -12,8 +12,8 @@ export default function InstructorStudents() {
 
   useEffect(() => {
     (async () => {
-      setStudents(await getStudents());
-      setCourses(await getCourses());
+      setStudents(await getAllStudents());
+      setCourses(await getAllCourses());
     })();
   }, []);
 

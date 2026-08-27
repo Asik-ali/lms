@@ -1,118 +1,132 @@
-import { useState } from 'react';
-import { Video, Calendar, Clock, Users } from 'lucide-react';
-import { liveClasses } from '../../data/mockData';
-import MeetingRoom from '../../components/common/MeetingRoom';
+import { useState, useEffect } from 'react';
+import { Radio, Calendar, Clock, Users } from 'lucide-react';
+import { getAllLiveClasses } from '../../data/dynamicStore';
+
+function getYouTubeEmbedUrl(url) {
+  if (!url) return null;
+  try {
+    const u = new URL(url);
+    if (u.hostname === 'youtu.be') return `https://www.youtube.com/embed/${u.pathname.slice(1)}`;
+    if (u.hostname.endsWith('youtube.com')) {
+      if (u.pathname === '/embed') return url;
+      const v = u.searchParams.get('v');
+      if (v) return `https://www.youtube.com/embed/${v}`;
+      if (u.pathname.startsWith('/live/')) return `https://www.youtube.com/embed/${u.pathname.split('/live/')[1]}`;
+    }
+  } catch {}
+  return null;
+}
 
 export default function StudentLiveClasses() {
-  const [room, setRoom] = useState(null);
-  const [joinCode, setJoinCode] = useState('');
+  const [liveClasses, setLiveClasses] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const upcomingLive = liveClasses.filter(c => c.status === 'Upcoming');
-  const pastLive = liveClasses.filter(c => c.status === 'Completed');
+  useEffect(() => {
+    loadLiveClasses();
+    const interval = setInterval(loadLiveClasses, 15000);
+    return () => clearInterval(interval);
+  }, []);
 
-  const handleJoinByCode = () => {
-    if (!joinCode.trim()) return;
-    setRoom(joinCode.toUpperCase());
-    setJoinCode('');
-  };
+  async function loadLiveClasses() {
+    try {
+      const data = await getAllLiveClasses();
+      setLiveClasses(data);
+    } catch {}
+    setLoading(false);
+  }
+
+  const activeLive = liveClasses.find(lc => lc.status === 'Live');
+  const upcoming = liveClasses.filter(lc => lc.status === 'Upcoming');
+  const ended = liveClasses.filter(lc => lc.status === 'Ended');
+
+  if (loading) {
+    return <div className="flex items-center justify-center py-20 text-gray-400">Loading live classes...</div>;
+  }
 
   return (
     <div className="space-y-6">
-      {room && <MeetingRoom roomCode={room} onLeave={() => setRoom(null)} />}
-
-      <div className="card p-4">
-        <div className="flex items-center gap-4">
-          <input
-            type="text"
-            value={joinCode}
-            onChange={e => setJoinCode(e.target.value)}
-            onKeyDown={e => e.key === 'Enter' && handleJoinByCode()}
-            placeholder="Enter room code (e.g. ABC-123)"
-            className="input-field max-w-xs font-mono uppercase"
-          />
-          <button onClick={handleJoinByCode} className="btn-primary flex items-center gap-2">
-            <Video className="w-4 h-4" /> Join Room
-          </button>
-        </div>
-      </div>
-
-      <div>
-        <h2 className="text-lg font-semibold text-gray-900 mb-4">Upcoming Classes</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {upcomingLive.map(c => (
-            <div key={c.id} className="card hover:shadow-md transition-shadow">
-              <div className="p-6">
-                <div className="w-12 h-12 rounded-lg bg-purple-100 flex items-center justify-center mb-4">
-                  <Video className="w-6 h-6 text-purple-600" />
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900">{c.title}</h3>
-                <p className="text-sm text-gray-500 mt-1">{c.instructor}</p>
-                <div className="mt-4 space-y-2 text-sm">
-                  <div className="flex items-center gap-2 text-gray-500">
-                    <Calendar className="w-4 h-4" />{c.date}
-                  </div>
-                  <div className="flex items-center gap-2 text-gray-500">
-                    <Clock className="w-4 h-4" />{c.time}
-                  </div>
-                  <div className="flex items-center gap-2 text-gray-500">
-                    <Users className="w-4 h-4" />{c.students} enrolled
-                  </div>
-                </div>
-                <div className="mt-3 px-3 py-2 bg-indigo-50 rounded-lg text-center">
-                  <span className="text-xs font-mono text-indigo-600 font-medium">Room: {c.roomCode}</span>
-                </div>
+      {activeLive && (
+        <div className="card overflow-hidden border-2 border-red-500">
+          <div className="bg-red-600 px-6 py-3 flex items-center gap-2">
+            <span className="w-3 h-3 bg-white rounded-full animate-pulse" />
+            <h2 className="text-lg font-bold text-white">Live Now</h2>
+          </div>
+          <div className="p-6">
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">{activeLive.title}</h3>
+            {activeLive.description && <p className="text-sm text-gray-500 mb-4">{activeLive.description}</p>}
+            {activeLive.youtube_url ? (
+              <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                <iframe
+                  src={getYouTubeEmbedUrl(activeLive.youtube_url)}
+                  title={activeLive.title}
+                  className="absolute inset-0 w-full h-full rounded-lg"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
               </div>
-              <div className="px-6 py-3 border-t border-gray-100 bg-gray-50">
-                <button onClick={() => setRoom(c.roomCode)} className="btn-primary flex items-center justify-center gap-1.5 w-full">
-                  <Video className="w-4 h-4" /> Join Class
-                </button>
+            ) : (
+              <div className="bg-gray-100 rounded-lg p-8 text-center text-gray-500">
+                <Radio className="w-12 h-12 mx-auto mb-3 text-red-500" />
+                <p>Live stream is in progress. No video URL available.</p>
               </div>
+            )}
+            <div className="flex items-center gap-4 mt-4 text-sm text-gray-500">
+              <span className="flex items-center gap-1"><Users className="w-4 h-4" /> {activeLive.instructor}</span>
+              <span className="flex items-center gap-1"><Calendar className="w-4 h-4" /> {activeLive.date}</span>
+              <span className="flex items-center gap-1"><Clock className="w-4 h-4" /> {activeLive.time}</span>
             </div>
-          ))}
-          {upcomingLive.length === 0 && (
-            <p className="text-gray-500 col-span-full text-center py-8">No upcoming live classes</p>
-          )}
+          </div>
         </div>
-      </div>
+      )}
 
-      <div>
-        <h2 className="text-lg font-semibold text-gray-900 mb-4">Past Classes</h2>
-        <div className="card overflow-hidden">
-          <table className="w-full">
-            <thead>
-              <tr className="border-b border-gray-200 bg-gray-50">
-                <th className="table-header">Title</th>
-                <th className="table-header">Instructor</th>
-                <th className="table-header">Date</th>
-                <th className="table-header">Room</th>
-                <th className="table-header">Recording</th>
-              </tr>
-            </thead>
-            <tbody>
-              {pastLive.map(c => (
-                <tr key={c.id} className="border-b border-gray-100 hover:bg-gray-50">
-                  <td className="table-cell font-medium">{c.title}</td>
-                  <td className="table-cell text-gray-500">{c.instructor}</td>
-                  <td className="table-cell text-gray-500">{c.date}</td>
-                  <td className="table-cell">
-                    <span className="text-xs font-mono text-gray-500">{c.roomCode}</span>
-                  </td>
-                  <td className="table-cell">
-                    <button className="btn-secondary text-xs flex items-center gap-1">
-                      <Video className="w-3.5 h-3.5" /> Watch Recording
-                    </button>
-                  </td>
-                </tr>
-              ))}
-              {pastLive.length === 0 && (
-                <tr>
-                  <td colSpan={5} className="text-center py-8 text-gray-500">No past classes</td>
-                </tr>
-              )}
-            </tbody>
-          </table>
+      {!activeLive && (
+        <div className="card p-12 text-center">
+          <Radio className="w-16 h-16 mx-auto mb-4 text-gray-300" />
+          <h3 className="text-lg font-semibold text-gray-700 mb-2">No Live Streams</h3>
+          <p className="text-sm text-gray-400">There are no active live streams right now. Check back later.</p>
         </div>
-      </div>
+      )}
+
+      {upcoming.length > 0 && (
+        <div>
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Upcoming Classes</h3>
+          <div className="grid gap-4">
+            {upcoming.map(lc => (
+              <div key={lc.id} className="card p-5 flex items-center justify-between">
+                <div>
+                  <h4 className="font-semibold text-gray-900">{lc.title}</h4>
+                  <div className="flex items-center gap-3 mt-1 text-sm text-gray-500">
+                    <span className="flex items-center gap-1"><Calendar className="w-3.5 h-3.5" /> {lc.date}</span>
+                    <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {lc.time}</span>
+                    {lc.instructor && <span className="flex items-center gap-1"><Users className="w-3.5 h-3.5" /> {lc.instructor}</span>}
+                  </div>
+                </div>
+                <span className="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded-full">Upcoming</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {ended.length > 0 && (
+        <div>
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Past Classes</h3>
+          <div className="grid gap-4">
+            {ended.map(lc => (
+              <div key={lc.id} className="card p-5 flex items-center justify-between opacity-60">
+                <div>
+                  <h4 className="font-semibold text-gray-900">{lc.title}</h4>
+                  <div className="flex items-center gap-3 mt-1 text-sm text-gray-500">
+                    <span className="flex items-center gap-1"><Calendar className="w-3.5 h-3.5" /> {lc.date}</span>
+                    <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {lc.time}</span>
+                  </div>
+                </div>
+                <span className="px-3 py-1 bg-gray-100 text-gray-500 text-xs font-medium rounded-full">Ended</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
