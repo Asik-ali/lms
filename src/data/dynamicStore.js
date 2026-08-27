@@ -192,7 +192,7 @@ export async function deleteQuestion(id) {
   if (error) throw error;
 }
 
-// Test Series (proper tables)
+// Test Series (hierarchical: Series → Categories → Tests → Questions)
 export async function getAllTestSeries() {
   const { data, error } = await supabase.from('test_series').select('id, name, description, created_at').order('created_at');
   if (error) throw error;
@@ -210,14 +210,39 @@ export async function deleteTestSeries(id) {
   if (error) throw error;
 }
 
-export async function getTestsBySeriesId(seriesId) {
-  const { data, error } = await supabase.from('tests').select('id, name, description, created_at').eq('series_id', seriesId).order('created_at');
+// Categories (with nesting via parent_id)
+export async function getCategoriesBySeries(seriesId) {
+  const { data, error } = await supabase.from('test_categories').select('id, series_id, name, parent_id, position, created_at').eq('series_id', seriesId).order('position');
   if (error) throw error;
   return data || [];
 }
 
-export async function addTest({ series_id, name, description }) {
-  const { data, error } = await supabase.from('tests').insert({ series_id, name, description }).select('id, name, description, created_at').single();
+export async function addTestCategory({ series_id, name, parent_id, position }) {
+  const { data, error } = await supabase.from('test_categories').insert({ series_id, name, parent_id: parent_id || null, position: position || 0 }).select('id, series_id, name, parent_id, position, created_at').single();
+  if (error) throw error;
+  return data;
+}
+
+export async function deleteTestCategory(id) {
+  const { error } = await supabase.from('test_categories').delete().eq('id', id);
+  if (error) throw error;
+}
+
+// Tests
+export async function getTestsByCategoryId(categoryId) {
+  const { data, error } = await supabase.from('tests').select('id, category_id, name, description, duration, total_marks, question_count, difficulty, language, instructions, syllabus, status, created_at').eq('category_id', categoryId).order('created_at');
+  if (error) throw error;
+  return data || [];
+}
+
+export async function addTest({ category_id, name, description, duration, total_marks, difficulty, language, instructions, syllabus }) {
+  const { data, error } = await supabase.from('tests').insert({ category_id, name, description: description || '', duration: duration || 90, total_marks: total_marks || 270, difficulty: difficulty || 'Moderate', language: language || 'English', instructions: instructions || '', syllabus: syllabus || '' }).select('id, category_id, name, description, duration, total_marks, question_count, difficulty, language, instructions, syllabus, status, created_at').single();
+  if (error) throw error;
+  return data;
+}
+
+export async function updateTest(id, row) {
+  const { data, error } = await supabase.from('tests').update(row).eq('id', id).select('id, category_id, name, description, duration, total_marks, question_count, difficulty, language, instructions, syllabus, status, created_at').single();
   if (error) throw error;
   return data;
 }
@@ -227,6 +252,7 @@ export async function deleteTest(id) {
   if (error) throw error;
 }
 
+// Questions (linked to tests)
 export async function getQuestionsByTestId(testId) {
   const { data, error } = await supabase.from('questions').select('id, question, type, category, difficulty, test_id').eq('test_id', testId);
   if (error) throw error;
@@ -268,6 +294,77 @@ export async function getTestSeriesByCategories(categories) {
 export async function getAllTestSeriesByCategories(categories) {
   if (!categories || categories.length === 0) return getAllTestSeries();
   const { data, error } = await supabase.from('test_series').select('id, name, description, created_at').in('name', categories);
+  if (error) throw error;
+  return data || [];
+}
+
+// Test Taking Flow
+export async function startTestAttempt(testId, studentId) {
+  const { data: existing } = await supabase.from('test_attempts').select('id, status').eq('test_id', testId).eq('student_id', studentId).eq('status', 'in_progress').maybeSingle();
+  if (existing) return existing;
+
+  const { data, error } = await supabase.from('test_attempts').insert({ test_id: testId, student_id: studentId, status: 'in_progress' }).select('id, test_id, student_id, score, total_marks, correct_count, wrong_count, skipped_count, time_taken, started_at, submitted_at, status').single();
+  if (error) throw error;
+  return data;
+}
+
+export async function getAttempt(attemptId) {
+  const { data, error } = await supabase.from('test_attempts').select('id, test_id, student_id, score, total_marks, correct_count, wrong_count, skipped_count, time_taken, started_at, submitted_at, status').eq('id', attemptId).maybeSingle();
+  if (error) throw error;
+  return data;
+}
+
+export async function saveResponse(attemptId, questionId, studentAnswer, isCorrect, timeSpent, status) {
+  const { data, error } = await supabase.from('test_responses').upsert({ attempt_id: attemptId, question_id: questionId, student_answer: studentAnswer, is_correct: isCorrect, time_spent: timeSpent, status }, { onConflict: 'attempt_id,question_id' }).select('id, attempt_id, question_id, student_answer, is_correct, time_spent, status').single();
+  if (error) throw error;
+  return data;
+}
+
+export async function getResponses(attemptId) {
+  const { data, error } = await supabase.from('test_responses').select('id, attempt_id, question_id, student_answer, is_correct, time_spent, status').eq('attempt_id', attemptId);
+  if (error) throw error;
+  return data || [];
+}
+
+export async function submitAttempt(attemptId, totalTime) {
+  const responses = await getResponses(attemptId);
+  const correct_count = responses.filter(r => r.is_correct === true).length;
+  const wrong_count = responses.filter(r => r.is_correct === false && r.status === 'answered').length;
+  const skipped_count = responses.filter(r => r.status === 'not_attempted' || r.status === 'marked').length;
+
+  const { data: attempt } = await supabase.from('test_attempts').select('total_marks').eq('id', attemptId).single();
+  const totalQ = responses.length || 1;
+  const marksPerQ = attempt ? Math.floor(attempt.total_marks / totalQ) : 1;
+  const score = correct_count * marksPerQ;
+
+  const { data, error } = await supabase.from('test_attempts').update({ score, correct_count, wrong_count, skipped_count, time_taken: totalTime, submitted_at: new Date().toISOString(), status: 'completed' }).eq('id', attemptId).select('id, test_id, student_id, score, total_marks, correct_count, wrong_count, skipped_count, time_taken, started_at, submitted_at, status').single();
+  if (error) throw error;
+
+  // Calculate rank
+  const { count: totalAttempts } = await supabase.from('test_attempts').select('id', { count: 'exact', head: true }).eq('test_id', data.test_id).eq('status', 'completed');
+  const { count: betterScores } = await supabase.from('test_attempts').select('id', { count: 'exact', head: true }).eq('test_id', data.test_id).eq('status', 'completed').gt('score', score);
+  const rank = (betterScores || 0) + 1;
+  const percentile = totalAttempts > 0 ? ((totalAttempts - rank) / totalAttempts * 100).toFixed(1) : 100;
+
+  await supabase.from('test_attempts').update({ score }).eq('id', attemptId);
+
+  return { ...data, rank, percentile };
+}
+
+export async function getTestAttemptHistory(testId, studentId) {
+  const { data, error } = await supabase.from('test_attempts').select('id, test_id, student_id, score, total_marks, correct_count, wrong_count, skipped_count, time_taken, started_at, submitted_at, status').eq('test_id', testId).eq('student_id', studentId).order('started_at', { ascending: false });
+  if (error) throw error;
+  return data || [];
+}
+
+export async function reportQuestion({ question_id, student_id, reason, description }) {
+  const { data, error } = await supabase.from('question_reports').insert({ question_id, student_id, reason, description }).select('id, question_id, student_id, reason, description, status, created_at').single();
+  if (error) throw error;
+  return data;
+}
+
+export async function getAllQuestionReports() {
+  const { data, error } = await supabase.from('question_reports').select('id, question_id, student_id, reason, description, status, created_at').order('created_at', { ascending: false });
   if (error) throw error;
   return data || [];
 }

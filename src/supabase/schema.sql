@@ -406,12 +406,35 @@ ALTER TABLE test_series ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Everyone can read test_series" ON test_series FOR SELECT USING (true);
 CREATE POLICY "Admins can manage test_series" ON test_series FOR ALL USING (public.is_admin());
 
--- Tests within a series
-CREATE TABLE IF NOT EXISTS tests (
+-- Test Categories (sections within a series, supports nesting via parent_id)
+CREATE TABLE IF NOT EXISTS test_categories (
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   series_id BIGINT NOT NULL REFERENCES test_series(id) ON DELETE CASCADE,
   name TEXT NOT NULL,
+  parent_id BIGINT REFERENCES test_categories(id) ON DELETE CASCADE,
+  position INTEGER DEFAULT 0,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+ALTER TABLE test_categories ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Everyone can read test_categories" ON test_categories FOR SELECT USING (true);
+CREATE POLICY "Admins can manage test_categories" ON test_categories FOR ALL USING (public.is_admin());
+
+-- Tests (individual tests with full metadata)
+DROP TABLE IF EXISTS tests CASCADE;
+CREATE TABLE IF NOT EXISTS tests (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  category_id BIGINT NOT NULL REFERENCES test_categories(id) ON DELETE CASCADE,
+  name TEXT NOT NULL,
   description TEXT DEFAULT '',
+  duration INTEGER DEFAULT 90,
+  total_marks INTEGER DEFAULT 270,
+  question_count INTEGER DEFAULT 0,
+  difficulty TEXT DEFAULT 'Moderate',
+  language TEXT DEFAULT 'English',
+  instructions TEXT DEFAULT '',
+  syllabus TEXT DEFAULT '',
+  status TEXT DEFAULT 'Published',
   created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
@@ -422,5 +445,69 @@ CREATE POLICY "Admins can manage tests" ON tests FOR ALL USING (public.is_admin(
 -- Add test_id FK to questions
 ALTER TABLE questions ADD COLUMN IF NOT EXISTS test_id BIGINT REFERENCES tests(id) ON DELETE SET NULL;
 
--- Add test_series_access to profiles
+-- Test series access per student
 ALTER TABLE profiles ADD COLUMN IF NOT EXISTS test_series_access TEXT DEFAULT '';
+
+-- Test Attempts (student's test session)
+CREATE TABLE IF NOT EXISTS test_attempts (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  test_id BIGINT NOT NULL REFERENCES tests(id) ON DELETE CASCADE,
+  student_id UUID NOT NULL REFERENCES profiles(id) ON DELETE CASCADE,
+  score INTEGER DEFAULT 0,
+  total_marks INTEGER DEFAULT 0,
+  correct_count INTEGER DEFAULT 0,
+  wrong_count INTEGER DEFAULT 0,
+  skipped_count INTEGER DEFAULT 0,
+  time_taken INTEGER DEFAULT 0,
+  started_at TIMESTAMPTZ DEFAULT NOW(),
+  submitted_at TIMESTAMPTZ,
+  status TEXT DEFAULT 'in_progress'
+);
+
+ALTER TABLE test_attempts ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Students can read own attempts" ON test_attempts FOR SELECT USING (auth.uid() = student_id);
+CREATE POLICY "Students can insert own attempts" ON test_attempts FOR INSERT WITH CHECK (auth.uid() = student_id);
+CREATE POLICY "Students can update own attempts" ON test_attempts FOR UPDATE USING (auth.uid() = student_id);
+CREATE POLICY "Admins can read all attempts" ON test_attempts FOR SELECT USING (public.is_admin());
+
+-- Test Responses (each question answer)
+CREATE TABLE IF NOT EXISTS test_responses (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  attempt_id BIGINT NOT NULL REFERENCES test_attempts(id) ON DELETE CASCADE,
+  question_id BIGINT NOT NULL REFERENCES questions(id) ON DELETE CASCADE,
+  student_answer TEXT DEFAULT '',
+  is_correct BOOLEAN,
+  time_spent INTEGER DEFAULT 0,
+  status TEXT DEFAULT 'not_attempted',
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  UNIQUE(attempt_id, question_id)
+);
+
+ALTER TABLE test_responses ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Students can read own responses" ON test_responses FOR SELECT USING (
+  EXISTS (SELECT 1 FROM test_attempts WHERE test_attempts.id = test_responses.attempt_id AND test_attempts.student_id = auth.uid())
+);
+CREATE POLICY "Students can insert own responses" ON test_responses FOR INSERT WITH CHECK (
+  EXISTS (SELECT 1 FROM test_attempts WHERE test_attempts.id = test_responses.attempt_id AND test_attempts.student_id = auth.uid())
+);
+CREATE POLICY "Students can update own responses" ON test_responses FOR UPDATE USING (
+  EXISTS (SELECT 1 FROM test_attempts WHERE test_attempts.id = test_responses.attempt_id AND test_attempts.student_id = auth.uid())
+);
+CREATE POLICY "Admins can read all responses" ON test_responses FOR SELECT USING (public.is_admin());
+
+-- Question Reports
+CREATE TABLE IF NOT EXISTS question_reports (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  question_id BIGINT NOT NULL REFERENCES questions(id) ON DELETE CASCADE,
+  student_id UUID NOT NULL REFERENCES profiles(id) ON DELETE CASCADE,
+  reason TEXT NOT NULL,
+  description TEXT DEFAULT '',
+  status TEXT DEFAULT 'Pending',
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+ALTER TABLE question_reports ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Students can insert reports" ON question_reports FOR INSERT WITH CHECK (auth.uid() = student_id);
+CREATE POLICY "Students can read own reports" ON question_reports FOR SELECT USING (auth.uid() = student_id);
+CREATE POLICY "Admins can read all reports" ON question_reports FOR SELECT USING (public.is_admin());
+CREATE POLICY "Admins can update reports" ON question_reports FOR UPDATE USING (public.is_admin());
