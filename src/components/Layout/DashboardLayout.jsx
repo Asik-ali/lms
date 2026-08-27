@@ -52,6 +52,7 @@ const titles = {
   '/student/continue': 'Continue Learning',
   '/student/recorded': 'Recorded Classes',
   '/student/live-classes': 'Live Classes',
+  '/student/test-series': 'Test Series',
   '/student/calendar': 'Calendar',
   '/student/announcements': 'Announcements',
   '/student/messages': 'Messages',

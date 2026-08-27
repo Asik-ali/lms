@@ -26,6 +26,9 @@ import StudentDashboard from './pages/student/StudentDashboard';
 import StudentCourses from './pages/student/StudentCourses';
 import StudentCourseDetail from './pages/student/StudentCourseDetail';
 import StudentLiveClasses from './pages/student/StudentLiveClasses';
+import StudentMessages from './pages/student/StudentMessages';
+import StudentCalendar from './pages/student/StudentCalendar';
+import StudentTestSeries from './pages/student/StudentTestSeries';
 
 import StudentAnnouncements from './pages/student/StudentAnnouncements';
 import ProfilePage from './pages/ProfilePage';
@@ -111,9 +114,10 @@ function AppRoutes() {
         <Route path="courses/:courseId" element={<StudentCourseDetail />} />
         <Route path="continue" element={<StudentCourseDetail courseId="1" />} />
         <Route path="live-classes" element={<StudentLiveClasses />} />
-        <Route path="calendar" element={<StudentDashboard />} />
+        <Route path="test-series" element={<StudentTestSeries />} />
+        <Route path="calendar" element={<StudentCalendar />} />
         <Route path="announcements" element={<StudentAnnouncements />} />
-        <Route path="messages" element={<StudentDashboard />} />
+        <Route path="messages" element={<StudentMessages />} />
         <Route path="profile" element={<ProfilePage />} />
         <Route path="settings" element={<SettingsPage />} />
       </Route>
