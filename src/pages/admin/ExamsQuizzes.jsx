@@ -219,15 +219,15 @@ export default function TestSeries() {
         <div className="space-y-4">
           {topLevelCategories.length > 0 && (
             <div>
-              <p className="text-sm font-medium text-gray-500 mb-3">Sections</p>
+              <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-3">Sections</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {topLevelCategories.map(c => (
                   <button key={c.id} onClick={() => goCategory(c)} className="card p-5 text-left hover:border-indigo-300 hover:shadow-md transition-all cursor-pointer group">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center"><FileText className="w-5 h-5 text-emerald-600" /></div>
+                      <div className="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-500/15 flex items-center justify-center"><FileText className="w-5 h-5 text-emerald-600 dark:text-emerald-300" /></div>
                       <div className="flex-1 min-w-0">
-                        <p className="font-semibold text-gray-900">{c.name}</p>
-                        <p className="text-xs text-gray-500">Click to explore</p>
+                        <p className="font-semibold text-gray-900 dark:text-gray-100">{c.name}</p>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">Click to explore</p>
                       </div>
                       <button onClick={(e) => { e.stopPropagation(); handleDeleteCategory(c.id); }} className="p-1 text-gray-400 dark:text-gray-500 hover:text-red-600 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"><Trash2 className="w-4 h-4" /></button>
                     </div>
@@ -237,7 +237,7 @@ export default function TestSeries() {
             </div>
           )}
           {topLevelCategories.length === 0 && (
-            <div className="text-center py-12 text-gray-400"><FileText className="w-12 h-12 mx-auto mb-3 text-gray-300" /><p>No categories yet. Add sections like "Full Mock Tests", "Previous Year Papers", "Sectional Tests".</p></div>
+            <div className="text-center py-12 text-gray-400 dark:text-gray-500"><FileText className="w-12 h-12 mx-auto mb-3 text-gray-300" /><p>No categories yet. Add sections like "Full Mock Tests", "Previous Year Papers", "Sectional Tests".</p></div>
           )}
         </div>
       )}
@@ -247,14 +247,14 @@ export default function TestSeries() {
         <div className="space-y-6">
           {subCategories.length > 0 && (
             <div>
-              <p className="text-sm font-medium text-gray-500 mb-3">Sub-categories</p>
+              <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-3">Sub-categories</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {subCategories.map(c => (
                   <button key={c.id} onClick={() => goCategory(c)} className="card p-5 text-left hover:border-indigo-300 hover:shadow-md transition-all cursor-pointer group">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center"><FolderOpen className="w-5 h-5 text-amber-600" /></div>
+                      <div className="w-10 h-10 rounded-lg bg-amber-100 dark:bg-amber-500/15 flex items-center justify-center"><FolderOpen className="w-5 h-5 text-amber-600 dark:text-amber-300" /></div>
                       <div className="flex-1 min-w-0">
-                        <p className="font-semibold text-gray-900">{c.name}</p>
+                        <p className="font-semibold text-gray-900 dark:text-gray-100">{c.name}</p>
                       </div>
                       <button onClick={(e) => { e.stopPropagation(); handleDeleteCategory(c.id); }} className="p-1 text-gray-400 dark:text-gray-500 hover:text-red-600 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"><Trash2 className="w-4 h-4" /></button>
                     </div>
@@ -264,28 +264,28 @@ export default function TestSeries() {
             </div>
           )}
           <div>
-            <p className="text-sm font-medium text-gray-500 mb-3">Tests</p>
+            <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-3">Tests</p>
             <div className="space-y-3">
               {testsList.map(t => (
                 <button key={t.id} onClick={() => goTest(t)} className="card p-5 text-left hover:border-indigo-300 hover:shadow-md transition-all cursor-pointer group w-full">
                   <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center"><HelpCircle className="w-5 h-5 text-indigo-600" /></div>
+                    <div className="w-10 h-10 rounded-lg bg-indigo-100 dark:bg-indigo-500/15 flex items-center justify-center"><HelpCircle className="w-5 h-5 text-indigo-600 dark:text-indigo-300" /></div>
                     <div className="flex-1 min-w-0">
-                      <p className="font-semibold text-gray-900">{t.name}</p>
-                      <div className="flex flex-wrap items-center gap-3 mt-1 text-xs text-gray-500">
+                      <p className="font-semibold text-gray-900 dark:text-gray-100">{t.name}</p>
+                      <div className="flex flex-wrap items-center gap-3 mt-1 text-xs text-gray-500 dark:text-gray-400">
                         <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {t.duration} min</span>
                         <span className="flex items-center gap-1"><Target className="w-3 h-3" /> {t.total_marks} marks</span>
                         <span className="flex items-center gap-1"><Globe className="w-3 h-3" /> {t.language}</span>
-                        <span className={`px-2 py-0.5 rounded-full ${t.difficulty === 'Easy' ? 'bg-green-50 text-green-600' : t.difficulty === 'Hard' ? 'bg-red-50 text-red-600' : 'bg-amber-50 text-amber-600'}`}>{t.difficulty}</span>
+                        <span className={`px-2 py-0.5 rounded-full ${t.difficulty === 'Easy' ? 'bg-green-50 dark:bg-green-500/10 text-green-600 dark:text-green-400' : t.difficulty === 'Hard' ? 'bg-red-50 dark:bg-red-500/10 text-red-600 dark:text-red-400' : 'bg-amber-50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-400'}`}>{t.difficulty}</span>
                       </div>
                     </div>
-                    <button onClick={(e) => { e.stopPropagation(); openEditTest(t); }} className="p-1 text-gray-400 hover:text-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"><Edit2 className="w-4 h-4" /></button>
+                    <button onClick={(e) => { e.stopPropagation(); openEditTest(t); }} className="p-1 text-gray-400 dark:text-gray-500 hover:text-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"><Edit2 className="w-4 h-4" /></button>
                     <button onClick={(e) => { e.stopPropagation(); handleDeleteTest(t.id); }} className="p-1 text-gray-400 dark:text-gray-500 hover:text-red-600 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"><Trash2 className="w-4 h-4" /></button>
                   </div>
                 </button>
               ))}
               {testsList.length === 0 && subCategories.length === 0 && (
-                <div className="text-center py-12 text-gray-400"><HelpCircle className="w-12 h-12 mx-auto mb-3 text-gray-300" /><p>No tests yet. Add your first test.</p></div>
+                <div className="text-center py-12 text-gray-400 dark:text-gray-500"><HelpCircle className="w-12 h-12 mx-auto mb-3 text-gray-300" /><p>No tests yet. Add your first test.</p></div>
               )}
             </div>
           </div>
@@ -295,21 +295,21 @@ export default function TestSeries() {
       {/* Level: Questions */}
       {level === 'questions' && currentTest && (
         <div className="space-y-4">
-          <div className="card p-4 bg-gray-50">
-            <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600">
-              <span className="font-medium text-gray-900">{currentTest.name}</span>
+          <div className="card p-4 bg-gray-50 dark:bg-gray-800/60">
+            <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
+              <span className="font-medium text-gray-900 dark:text-gray-100">{currentTest.name}</span>
               <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {currentTest.duration} min</span>
               <span className="flex items-center gap-1"><Target className="w-3 h-3" /> {currentTest.total_marks} marks</span>
               <span className="flex items-center gap-1"><Globe className="w-3 h-3" /> {currentTest.language}</span>
               <span>{questions.length} questions</span>
             </div>
-            {currentTest.instructions && <p className="text-xs text-gray-500 mt-2">{currentTest.instructions}</p>}
+            {currentTest.instructions && <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">{currentTest.instructions}</p>}
           </div>
 
           <div className="card overflow-hidden">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-gray-200 bg-gray-50">
+                <tr className="border-b border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/60">
                   <th className="table-header">#</th>
                   <th className="table-header">Question</th>
                   <th className="table-header">Options</th>
@@ -319,22 +319,22 @@ export default function TestSeries() {
               </thead>
               <tbody>
                 {questions.map((q, i) => (
-                  <tr key={q.id} className="border-b border-gray-100 hover:bg-gray-50">
-                    <td className="table-cell text-gray-400">{i + 1}</td>
+                  <tr key={q.id} className="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/60">
+                    <td className="table-cell text-gray-400 dark:text-gray-500">{i + 1}</td>
                     <td className="table-cell font-medium max-w-md"><span className="block line-clamp-2">{q.question}</span></td>
                     <td className="table-cell">
-                      <div className="space-y-0.5 text-xs text-gray-600">
+                      <div className="space-y-0.5 text-xs text-gray-600 dark:text-gray-400">
                         <p className="truncate max-w-xs">A. {q.option_a}</p>
                         <p className="truncate max-w-xs">B. {q.option_b}</p>
                         {q.option_c && <p className="truncate max-w-xs">C. {q.option_c}</p>}
                         {q.option_d && <p className="truncate max-w-xs">D. {q.option_d}</p>}
                       </div>
                     </td>
-                    <td className="table-cell"><span className="text-xs font-semibold bg-green-50 text-green-600 px-2 py-0.5 rounded-full">{q.correct_answer}</span></td>
+                    <td className="table-cell"><span className="text-xs font-semibold bg-green-50 dark:bg-green-500/10 text-green-600 dark:text-green-400 px-2 py-0.5 rounded-full">{q.correct_answer}</span></td>
                     <td className="table-cell"><button onClick={() => handleDeleteQuestion(q.id)} className="p-1 text-gray-400 dark:text-gray-500 hover:text-red-600 cursor-pointer"><Trash2 className="w-4 h-4" /></button></td>
                   </tr>
                 ))}
-                {questions.length === 0 && <tr><td colSpan={5} className="text-center py-8 text-gray-400">No questions yet</td></tr>}
+                {questions.length === 0 && <tr><td colSpan={5} className="text-center py-8 text-gray-400 dark:text-gray-500">No questions yet</td></tr>}
               </tbody>
             </table>
           </div>
@@ -457,10 +457,10 @@ export default function TestSeries() {
 function Modal({ title, onClose, children }) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
-      <div className="bg-white rounded-xl shadow-xl w-full max-w-md p-6 max-h-[85vh] overflow-y-auto">
+      <div className="bg-white dark:bg-gray-900 rounded-xl shadow-xl w-full max-w-md p-6 max-h-[85vh] overflow-y-auto">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-semibold text-gray-900">{title}</h2>
-          <button onClick={onClose} className="p-1 text-gray-400 hover:text-gray-600 cursor-pointer"><X className="w-5 h-5" /></button>
+          <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100">{title}</h2>
+          <button onClick={onClose} className="p-1 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-400 cursor-pointer"><X className="w-5 h-5" /></button>
         </div>
         {children}
       </div>
