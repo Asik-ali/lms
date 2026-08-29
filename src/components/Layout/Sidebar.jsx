@@ -6,6 +6,7 @@ import {
   Megaphone, Settings,
   LogOut, ChevronDown, ChevronRight, Calendar, MessageSquare,
   UserCircle, PenTool, Bell, X,
+  BadgeCheck,
 } from 'lucide-react';
 
 const adminNav = [
@@ -47,6 +48,7 @@ const studentNav = [
   { section: 'My Courses', icon: BookOpen, path: '/student/courses' },
   { section: 'Live Classes', icon: Video, path: '/student/live-classes' },
   { section: 'Test Series', icon: PenTool, path: '/student/test-series' },
+  { section: 'Free Test Series', icon: BadgeCheck, path: '/student/free-test-series' },
   { section: 'Calendar', icon: Calendar, path: '/student/calendar' },
   { section: 'Announcements', icon: Megaphone, path: '/student/announcements' },
   { section: 'Messages', icon: MessageSquare, path: '/student/messages' },

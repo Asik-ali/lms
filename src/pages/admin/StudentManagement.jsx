@@ -450,7 +450,7 @@ function CourseAccessModal({ student, courses, onClose, onSaved }) {
   const [saving, setSaving] = useState(false);
 
   useEffect(() => {
-    getAllTestSeries().then(setTestSeries).catch(() => {});
+    getAllTestSeries().then(list => setTestSeries(list.filter(s => !s.is_free))).catch(() => {});
   }, []);
 
   const toggleCourse = (courseTitle) => {

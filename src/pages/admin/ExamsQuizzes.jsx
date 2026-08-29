@@ -361,6 +361,13 @@ export default function TestSeries() {
           <div className="space-y-4">
             <div><label className="label">Series Name *</label><input value={formSeries.name} onChange={e => setFormSeries({ ...formSeries, name: e.target.value })} className="input-field w-full" placeholder="e.g. SSC CGL, SSC MTS" /></div>
             <div><label className="label">Description</label><input value={formSeries.description} onChange={e => setFormSeries({ ...formSeries, description: e.target.value })} className="input-field w-full" placeholder="Optional description" /></div>
+            <label className="flex cursor-pointer items-center justify-between rounded-lg border border-gray-200 dark:border-gray-800 px-3 py-2 hover:bg-gray-50 dark:hover:bg-gray-800/60">
+              <span>
+                <span className="block text-sm font-medium text-gray-700 dark:text-gray-300">Free for all students</span>
+                <span className="block text-xs text-gray-500 dark:text-gray-400">Visible in the Free Test Series section to every signed-in student. Leave off to assign via student access.</span>
+              </span>
+              <input type="checkbox" checked={formSeries.is_free} onChange={e => setFormSeries({ ...formSeries, is_free: e.target.checked })} className="h-4 w-4 rounded border-gray-300 dark:border-gray-600 text-emerald-600 focus:ring-emerald-500" />
+            </label>
             <button onClick={handleAddSeries} className="btn-primary w-full">Create Series</button>
           </div>
         </Modal>
