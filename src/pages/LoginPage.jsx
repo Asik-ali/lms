@@ -79,14 +79,7 @@ export default function LoginPage() {
             </button>
           </form>
 
-          <div className="mt-6 p-4 bg-gray-50 dark:bg-gray-800/60 rounded-lg">
-            <p className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-2">Demo Credentials</p>
-            <div className="space-y-1 text-xs text-gray-400 dark:text-gray-500">
-              <p><span className="font-mono text-gray-600 dark:text-gray-400">admin</span> / <span className="font-mono text-gray-600 dark:text-gray-400">admin123</span> — Admin</p>
-              <p><span className="font-mono text-gray-600 dark:text-gray-400">alice.johnson</span> / <span className="font-mono text-gray-600 dark:text-gray-400">student123</span> — Student</p>
-              <p><span className="font-mono text-gray-600 dark:text-gray-400">bob.smith</span> / <span className="font-mono text-gray-600 dark:text-gray-400">student123</span> — Student</p>
-            </div>
-          </div>
+         
 
           <div className="mt-6 pt-5 border-t border-gray-100 dark:border-gray-800 text-center text-sm text-gray-500 dark:text-gray-400">
             New to LMS?{' '}
