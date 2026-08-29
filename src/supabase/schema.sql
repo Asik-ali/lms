@@ -492,6 +492,8 @@ CREATE TABLE IF NOT EXISTS test_attempts (
   wrong_count INTEGER DEFAULT 0,
   skipped_count INTEGER DEFAULT 0,
   time_taken INTEGER DEFAULT 0,
+  rank INTEGER,
+  percentile TEXT,
   started_at TIMESTAMPTZ DEFAULT NOW(),
   submitted_at TIMESTAMPTZ,
   status TEXT DEFAULT 'in_progress'

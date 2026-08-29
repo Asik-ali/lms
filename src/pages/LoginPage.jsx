@@ -42,7 +42,7 @@ export default function LoginPage() {
           <div className="w-16 h-16 rounded-2xl bg-white/20 dark:bg-gray-900/30 backdrop-blur flex items-center justify-center mx-auto mb-4">
             <BookOpen className="w-8 h-8 text-white" />
           </div>
-          <h1 className="text-3xl font-bold text-white">LMS Portal</h1>
+          <h1 className="text-3xl font-bold text-white">Lead Academy</h1>
           <p className="text-indigo-200 mt-2">Sign in to your account</p>
         </div>
 
@@ -82,7 +82,7 @@ export default function LoginPage() {
          
 
           <div className="mt-6 pt-5 border-t border-gray-100 dark:border-gray-800 text-center text-sm text-gray-500 dark:text-gray-400">
-            New to LMS?{' '}
+            New to Lead Academy?{' '}
             <Link to="/signup" className="font-medium text-indigo-600 hover:text-indigo-700">
               Create an account
             </Link>

@@ -45,6 +45,19 @@ function formatTime(seconds) {
   return `${m}m ${s}s`;
 }
 
+function buildAutoExplanation(q) {
+  if (!q) return '';
+  const letter = String(q.correct_answer || '').trim().toUpperCase();
+  const optionText = letter ? q[`option_${letter.toLowerCase()}`] : '';
+  const lead = letter && optionText
+    ? `The correct answer is ${letter} — ${optionText}.`
+    : letter
+      ? `The correct answer is ${letter}.`
+      : `No correct answer has been set for this question.`;
+  const questionText = q.question && !q.question.startsWith('http') ? ` The question was: ${q.question}` : '';
+  return `${lead}${questionText}`;
+}
+
 const TABS = [
   { id: 'overview', label: 'Overview', icon: BarChart3 },
   { id: 'solutions', label: 'Solutions', icon: FileText },
@@ -85,6 +98,7 @@ export default function StudentTestResult() {
   const [rank, setRank] = useState(0);
   const [totalAttempts, setTotalAttempts] = useState(0);
   const [percentile, setPercentile] = useState('100');
+  const [showRank, setShowRank] = useState(false);
 
   const [activeTab, setActiveTab] = useState('overview');
   const [currentQIndex, setCurrentQIndex] = useState(0);
@@ -128,32 +142,53 @@ export default function StudentTestResult() {
 
       const responsesData = await getResponses(attemptId);
 
-      const { count: total } = await supabase
+      // Determine if this is the student's first completed attempt for this test
+      const { count: earlierAttempts } = await supabase
         .from('test_attempts')
         .select('id', { count: 'exact', head: true })
+        .eq('test_id', attemptData.test_id)
+        .eq('student_id', attemptData.student_id)
+        .eq('status', 'completed')
+        .lt('started_at', attemptData.started_at);
+      const isFirstAttempt = (earlierAttempts || 0) === 0;
+
+      const { data: allCompleted } = await supabase
+        .from('test_attempts')
+        .select('student_id, started_at')
         .eq('test_id', attemptData.test_id)
         .eq('status', 'completed');
+      const participants = new Set((allCompleted || []).map(a => a.student_id)).size;
 
-      const { count: better } = await supabase
-        .from('test_attempts')
-        .select('id', { count: 'exact', head: true })
-        .eq('test_id', attemptData.test_id)
-        .eq('status', 'completed')
-        .gt('score', attemptData.score);
-
-      const computedRank = (better || 0) + 1;
-      const computedPercentile =
-        total > 0
-          ? ((total - computedRank) / total * 100).toFixed(1)
-          : '100';
+      let shownRank;
+      let shownPercentile;
+      const canShowRank = isFirstAttempt;
+      if (attemptData.rank != null) {
+        shownRank = attemptData.rank;
+        shownPercentile = attemptData.percentile != null ? attemptData.percentile : '100';
+      } else if (canShowRank) {
+        const { count: total } = await supabase
+          .from('test_attempts')
+          .select('id', { count: 'exact', head: true })
+          .eq('test_id', attemptData.test_id)
+          .eq('status', 'completed');
+        const { count: better } = await supabase
+          .from('test_attempts')
+          .select('id', { count: 'exact', head: true })
+          .eq('test_id', attemptData.test_id)
+          .eq('status', 'completed')
+          .gt('score', attemptData.score);
+        shownRank = (better || 0) + 1;
+        shownPercentile = total > 0 ? ((total - shownRank) / total * 100).toFixed(1) : '100';
+      }
 
       setAttempt(attemptData);
       setTest(testData);
       setQuestions(questionsData || []);
       setResponses(responsesData || []);
-      setRank(computedRank);
-      setTotalAttempts(total || 0);
-      setPercentile(computedPercentile);
+      setRank(shownRank ?? 0);
+      setTotalAttempts(participants);
+      setPercentile(shownPercentile ?? '—');
+      setShowRank(canShowRank && shownRank != null);
     } catch (err) {
       console.error(err);
       showError('Failed to load test result.');
@@ -314,7 +349,7 @@ export default function StudentTestResult() {
       {activeTab === 'overview' && (
         <div className="space-y-6">
           <TestResultSummary
-            attempt={{ ...attempt, rank, percentile }}
+            attempt={showRank ? { ...attempt, rank, percentile } : { ...attempt, rank: null, percentile: null }}
           />
 
           {/* Ranking Card */}
@@ -325,6 +360,7 @@ export default function StudentTestResult() {
                 Your Ranking
               </h3>
             </div>
+            {showRank ? (
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-4">
               <div className="flex flex-col items-center rounded-xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-gray-900 p-4 shadow-sm">
                 <span className="text-xs font-medium uppercase text-slate-500 dark:text-slate-400">Score</span>
@@ -362,6 +398,14 @@ export default function StudentTestResult() {
                 <span className="text-xs text-slate-500 dark:text-slate-400">of students</span>
               </div>
             </div>
+            ) : (
+              <div className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-gray-900 p-6 text-center">
+                <Award className="h-8 w-8 text-slate-300 dark:text-slate-600 mx-auto mb-2" />
+                <p className="text-sm text-slate-500 dark:text-slate-400">
+                  Rank is only calculated on your first attempt.
+                </p>
+              </div>
+            )}
           </div>
 
           <PerformanceChart attempt={attempt} />
@@ -616,11 +660,21 @@ export default function StudentTestResult() {
                             This question was not attempted.
                           </p>
                         )}
-                        <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                          Explanation for this question will be available once the
-                          question data is fully loaded. The question URL contains
-                          the detailed explanation.
-                        </p>
+                        {status === 'wrong' && (
+                          <p className="flex items-center gap-1.5 text-sm font-semibold text-rose-600 dark:text-rose-400">
+                            <XCircle className="h-4 w-4" />
+                            Your Answer: {r?.student_answer || '—'} &nbsp;•&nbsp; Correct Answer: {q.correct_answer || '—'}
+                          </p>
+                        )}
+                        {q.explanation ? (
+                          <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            {q.explanation}
+                          </p>
+                        ) : (
+                          <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            {buildAutoExplanation(q)}
+                          </p>
+                        )}
                       </div>
                     )}
                   </div>

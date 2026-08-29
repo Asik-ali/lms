@@ -1,6 +1,6 @@
 {
   "appId": "com.lms.portal",
-  "appName": "LMS Portal",
+  "appName": "Lead Academy",
   "webDir": "dist",
   "server": {
     "androidScheme": "https"

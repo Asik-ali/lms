@@ -299,13 +299,13 @@ export async function startTestAttempt(testId, studentId) {
   const { data: existing } = await supabase.from('test_attempts').select('id, status').eq('test_id', testId).eq('student_id', studentId).eq('status', 'in_progress').maybeSingle();
   if (existing) return existing;
 
-  const { data, error } = await supabase.from('test_attempts').insert({ test_id: testId, student_id: studentId, status: 'in_progress' }).select('id, test_id, student_id, score, total_marks, correct_count, wrong_count, skipped_count, time_taken, started_at, submitted_at, status').single();
+  const { data, error } = await supabase.from('test_attempts').insert({ test_id: testId, student_id: studentId, status: 'in_progress' }).select('id, test_id, student_id, score, total_marks, correct_count, wrong_count, skipped_count, time_taken, rank, percentile, started_at, submitted_at, status').single();
   if (error) throw error;
   return data;
 }
 
 export async function getAttempt(attemptId) {
-  const { data, error } = await supabase.from('test_attempts').select('id, test_id, student_id, score, total_marks, correct_count, wrong_count, skipped_count, time_taken, started_at, submitted_at, status').eq('id', attemptId).maybeSingle();
+  const { data, error } = await supabase.from('test_attempts').select('id, test_id, student_id, score, total_marks, correct_count, wrong_count, skipped_count, time_taken, rank, percentile, started_at, submitted_at, status').eq('id', attemptId).maybeSingle();
   if (error) throw error;
   return data;
 }
@@ -325,7 +325,7 @@ export async function getResponses(attemptId) {
 export async function submitAttempt(attemptId, totalTime) {
   const responses = await getResponses(attemptId);
 
-  const { data: attemptRow } = await supabase.from('test_attempts').select('test_id, total_marks').eq('id', attemptId).single();
+  const { data: attemptRow } = await supabase.from('test_attempts').select('test_id, total_marks, student_id').eq('id', attemptId).single();
   const testId = attemptRow?.test_id;
 
   const { data: questions } = await supabase.from('questions').select('id, correct_answer').eq('test_id', testId);
@@ -352,14 +352,29 @@ export async function submitAttempt(attemptId, totalTime) {
   const marksPerQ = attemptRow && attemptRow.total_marks ? Math.floor(attemptRow.total_marks / totalQ) : 1;
   const score = correct_count * marksPerQ;
 
-  const { data, error } = await supabase.from('test_attempts').update({ score, correct_count, wrong_count, skipped_count, time_taken: totalTime, submitted_at: new Date().toISOString(), status: 'completed' }).eq('id', attemptId).select('id, test_id, student_id, score, total_marks, correct_count, wrong_count, skipped_count, time_taken, started_at, submitted_at, status').single();
-  if (error) throw error;
+  // Rank is frozen on the student's FIRST attempt only; later attempts do not recompute it.
+  let rank = null;
+  let percentile = null;
+  const { count: priorAttemptCount } = await supabase.from('test_attempts').select('id', { count: 'exact', head: true }).eq('test_id', testId).eq('student_id', attemptRow?.student_id).eq('status', 'completed');
+  const isFirstAttempt = (priorAttemptCount || 0) === 0;
+  if (isFirstAttempt) {
+    const { data: allCompleted } = await supabase.from('test_attempts').select('student_id, score, started_at').eq('test_id', testId).eq('status', 'completed');
+    const firstScores = {};
+    (allCompleted || []).forEach(a => {
+      const ts = new Date(a.started_at).getTime();
+      if (firstScores[a.student_id] === undefined || ts < firstScores[a.student_id].ts) {
+        firstScores[a.student_id] = { ts, score: a.score };
+      }
+    });
+    if (attemptRow?.student_id) firstScores[attemptRow.student_id] = { ts: 0, score };
+    const better = Object.values(firstScores).filter(f => f.score > score).length;
+    const totalFirst = Object.keys(firstScores).length || 1;
+    rank = better + 1;
+    percentile = totalFirst > 0 ? ((totalFirst - rank) / totalFirst * 100).toFixed(1) : '100';
+  }
 
-  // Calculate rank
-  const { count: totalAttempts } = await supabase.from('test_attempts').select('id', { count: 'exact', head: true }).eq('test_id', data.test_id).eq('status', 'completed');
-  const { count: betterScores } = await supabase.from('test_attempts').select('id', { count: 'exact', head: true }).eq('test_id', data.test_id).eq('status', 'completed').gt('score', score);
-  const rank = (betterScores || 0) + 1;
-  const percentile = totalAttempts > 0 ? ((totalAttempts - rank) / totalAttempts * 100).toFixed(1) : 100;
+  const { data, error } = await supabase.from('test_attempts').update({ score, correct_count, wrong_count, skipped_count, time_taken: totalTime, rank, percentile, submitted_at: new Date().toISOString(), status: 'completed' }).eq('id', attemptId).select('id, test_id, student_id, score, total_marks, correct_count, wrong_count, skipped_count, time_taken, rank, percentile, started_at, submitted_at, status').single();
+  if (error) throw error;
 
   await supabase.from('test_attempts').update({ score }).eq('id', attemptId);
 
