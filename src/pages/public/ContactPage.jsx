@@ -26,41 +26,41 @@ export default function ContactPage() {
           <div className="space-y-6">
             <div className="card p-6">
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center">
-                  <Mail className="w-5 h-5 text-indigo-600" />
+                <div className="w-10 h-10 rounded-lg bg-indigo-100 dark:bg-indigo-500/15 flex items-center justify-center">
+                  <Mail className="w-5 h-5 text-indigo-600 dark:text-indigo-300" />
                 </div>
                 <div>
-                  <p className="font-semibold text-gray-900">Email</p>
-                  <p className="text-sm text-gray-500">info@lms.edu</p>
+                  <p className="font-semibold text-gray-900 dark:text-gray-100">Email</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">info@lms.edu</p>
                 </div>
               </div>
             </div>
             <div className="card p-6">
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center">
-                  <Phone className="w-5 h-5 text-emerald-600" />
+                <div className="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-500/15 flex items-center justify-center">
+                  <Phone className="w-5 h-5 text-emerald-600 dark:text-emerald-300" />
                 </div>
                 <div>
-                  <p className="font-semibold text-gray-900">Phone</p>
-                  <p className="text-sm text-gray-500">+1 (555) 123-4567</p>
+                  <p className="font-semibold text-gray-900 dark:text-gray-100">Phone</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">+1 (555) 123-4567</p>
                 </div>
               </div>
             </div>
             <div className="card p-6">
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center">
-                  <MapPin className="w-5 h-5 text-amber-600" />
+                <div className="w-10 h-10 rounded-lg bg-amber-100 dark:bg-amber-500/15 flex items-center justify-center">
+                  <MapPin className="w-5 h-5 text-amber-600 dark:text-amber-300" />
                 </div>
                 <div>
-                  <p className="font-semibold text-gray-900">Address</p>
-                  <p className="text-sm text-gray-500">123 Education St, Learning City</p>
+                  <p className="font-semibold text-gray-900 dark:text-gray-100">Address</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">123 Education St, Learning City</p>
                 </div>
               </div>
             </div>
           </div>
 
           <div className="lg:col-span-2 card p-6">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">Send a Message</h2>
+            <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">Send a Message</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>

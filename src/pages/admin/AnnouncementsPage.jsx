@@ -34,7 +34,7 @@ export default function AnnouncementsPage() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-gray-900">Announcements</h1>
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Announcements</h1>
       </div>
 
       <div className="card">
@@ -44,18 +44,18 @@ export default function AnnouncementsPage() {
         <div className="p-6 space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="md:col-span-2">
-              <label className="block text-sm font-medium text-gray-700 mb-1">Title</label>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Title</label>
               <input type="text" value={title} onChange={e => setTitle(e.target.value)} placeholder="Announcement title" className="input-field w-full" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Target Audience</label>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Target Audience</label>
               <select value={target} onChange={e => setTarget(e.target.value)} className="input-field w-full">
                 {targets.map(t => <option key={t} value={t}>{t}</option>)}
               </select>
             </div>
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Content</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Content</label>
             <textarea value={content} onChange={e => setContent(e.target.value)} rows={4} placeholder="Write announcement content..." className="input-field w-full resize-none" />
           </div>
           <button onClick={handlePublish} className="flex items-center gap-2 btn-primary cursor-pointer">
@@ -71,12 +71,12 @@ export default function AnnouncementsPage() {
             <div className="p-6">
               <div className="flex items-start justify-between mb-3">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center">
-                    <Megaphone className="w-5 h-5 text-indigo-600" />
+                  <div className="w-10 h-10 rounded-lg bg-indigo-100 dark:bg-indigo-500/15 flex items-center justify-center">
+                    <Megaphone className="w-5 h-5 text-indigo-600 dark:text-indigo-300" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">{a.title}</h4>
-                    <p className="text-xs text-gray-400">{a.created}</p>
+                    <h4 className="font-semibold text-gray-900 dark:text-gray-100">{a.title}</h4>
+                    <p className="text-xs text-gray-400 dark:text-gray-500">{a.created}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
@@ -84,7 +84,7 @@ export default function AnnouncementsPage() {
                   <span className={`badge ${a.status === 'Published' ? 'badge-success' : 'badge-warning'}`}>{a.status}</span>
                 </div>
               </div>
-              <p className="text-sm text-gray-600 leading-relaxed">{a.content}</p>
+              <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{a.content}</p>
             </div>
           </div>
         ))}

@@ -50,8 +50,8 @@ export default function PerformanceChart({ attempt }) {
   const totalMarks = data.total_marks ?? 0;
 
   return (
-    <div className="w-full rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6">
-      <h3 className="mb-4 text-sm font-bold uppercase tracking-wide text-slate-600">
+    <div className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-gray-900 p-4 shadow-sm sm:p-6">
+      <h3 className="mb-4 text-sm font-bold uppercase tracking-wide text-slate-600 dark:text-slate-400">
         Performance
       </h3>
 
@@ -78,15 +78,15 @@ export default function PerformanceChart({ attempt }) {
             ))}
           </svg>
           <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <span className="text-2xl font-bold text-slate-800">
+            <span className="text-2xl font-bold text-slate-800 dark:text-slate-200">
               {score}
               {totalMarks > 0 && (
-                <span className="text-base font-medium text-slate-400">
+                <span className="text-base font-medium text-slate-400 dark:text-slate-500">
                   /{totalMarks}
                 </span>
               )}
             </span>
-            <span className="text-xs text-slate-500">
+            <span className="text-xs text-slate-500 dark:text-slate-400">
               {total > 0 ? Math.round((correct / total) * 100) : 0}% correct
             </span>
           </div>
@@ -96,18 +96,18 @@ export default function PerformanceChart({ attempt }) {
           {segments.map((s) => (
             <div
               key={s.label}
-              className="flex items-center justify-between rounded-lg border border-slate-100 px-3 py-2"
+              className="flex items-center justify-between rounded-lg border border-slate-100 dark:border-gray-800 px-3 py-2"
             >
-              <span className="flex items-center gap-2 text-sm text-slate-600">
+              <span className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
                 <span
                   className="h-3 w-3 rounded-full"
                   style={{ backgroundColor: s.color }}
                 />
                 {s.label}
               </span>
-              <span className="text-sm font-semibold text-slate-800">
+              <span className="text-sm font-semibold text-slate-800 dark:text-slate-200">
                 {s.value}
-                <span className="ml-1 text-xs font-normal text-slate-400">
+                <span className="ml-1 text-xs font-normal text-slate-400 dark:text-slate-500">
                   {total > 0 ? Math.round((s.value / total) * 100) : 0}%
                 </span>
               </span>

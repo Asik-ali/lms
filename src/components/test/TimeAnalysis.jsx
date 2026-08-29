@@ -18,7 +18,7 @@ function StatusIcon({ status }) {
 export default function TimeAnalysis({ responses = [], questions = [] }) {
   if (!questions.length) {
     return (
-      <div className="p-4 text-sm text-slate-400">
+      <div className="p-4 text-sm text-slate-400 dark:text-slate-500">
         No data available for time analysis.
       </div>
     );
@@ -41,9 +41,9 @@ export default function TimeAnalysis({ responses = [], questions = [] }) {
   const slowCount = rows.filter((r) => r.time > slowThreshold).length;
 
   return (
-    <div className="w-full rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6">
+    <div className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-gray-900 p-4 shadow-sm sm:p-6">
       <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
-        <h3 className="text-sm font-bold uppercase tracking-wide text-slate-600">
+        <h3 className="text-sm font-bold uppercase tracking-wide text-slate-600 dark:text-slate-400">
           Time Analysis
         </h3>
         <span className="flex items-center gap-1 text-xs text-amber-600">
@@ -55,7 +55,7 @@ export default function TimeAnalysis({ responses = [], questions = [] }) {
       <div className="overflow-x-auto">
         <table className="w-full text-left text-sm">
           <thead>
-            <tr className="border-b border-slate-200 text-xs uppercase tracking-wide text-slate-500">
+            <tr className="border-b border-slate-200 dark:border-slate-800 text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400">
               <th className="px-3 py-2 font-medium">Q#</th>
               <th className="px-3 py-2 font-medium">Status</th>
               <th className="px-3 py-2 font-medium">Time Spent</th>
@@ -68,33 +68,33 @@ export default function TimeAnalysis({ responses = [], questions = [] }) {
               return (
                 <tr
                   key={r.idx}
-                  className={`border-b border-slate-100 ${
+                  className={`border-b border-slate-100 dark:border-gray-800 ${
                     isSlow ? "bg-amber-50" : ""
                   }`}
                 >
-                  <td className="px-3 py-2 font-semibold text-slate-700">
+                  <td className="px-3 py-2 font-semibold text-slate-700 dark:text-slate-300">
                     {r.idx}
                   </td>
                   <td className="px-3 py-2">
-                    <span className="flex items-center gap-1.5 capitalize text-slate-600">
+                    <span className="flex items-center gap-1.5 capitalize text-slate-600 dark:text-slate-400">
                       <StatusIcon status={r.status} />
                       {r.status}
                     </span>
                   </td>
                   <td
                     className={`px-3 py-2 font-medium ${
-                      isSlow ? "text-amber-700" : "text-slate-700"
+                      isSlow ? "text-amber-700" : "text-slate-700 dark:text-slate-300"
                     }`}
                   >
                     {formatTime(r.time)}
                   </td>
                   <td className="px-3 py-2">
                     {isSlow ? (
-                      <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-700">
+                      <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 dark:bg-amber-500/15 px-2 py-0.5 text-xs font-semibold text-amber-700 dark:text-amber-300">
                         Slow
                       </span>
                     ) : (
-                      <span className="text-xs text-slate-400">Normal</span>
+                      <span className="text-xs text-slate-400 dark:text-slate-500">Normal</span>
                     )}
                   </td>
                 </tr>

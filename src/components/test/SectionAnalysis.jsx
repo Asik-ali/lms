@@ -11,7 +11,7 @@ function formatTime(seconds) {
 export default function SectionAnalysis({ responses = [], questions = [] }) {
   if (!questions.length) {
     return (
-      <div className="p-4 text-sm text-slate-400">
+      <div className="p-4 text-sm text-slate-400 dark:text-slate-500">
         No data available for section analysis.
       </div>
     );
@@ -44,34 +44,34 @@ export default function SectionAnalysis({ responses = [], questions = [] }) {
   });
 
   return (
-    <div className="w-full rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6">
-      <h3 className="mb-4 text-sm font-bold uppercase tracking-wide text-slate-600">
+    <div className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-gray-900 p-4 shadow-sm sm:p-6">
+      <h3 className="mb-4 text-sm font-bold uppercase tracking-wide text-slate-600 dark:text-slate-400">
         Section Analysis
       </h3>
 
       <div className="space-y-4">
         {sections.map((s) => (
-          <div key={s.name} className="rounded-xl border border-slate-100 p-4">
+          <div key={s.name} className="rounded-xl border border-slate-100 dark:border-gray-800 p-4">
             <div className="flex flex-wrap items-center justify-between gap-2">
-              <span className="font-semibold text-slate-800">{s.name}</span>
-              <span className="text-xs text-slate-500">
+              <span className="font-semibold text-slate-800 dark:text-slate-200">{s.name}</span>
+              <span className="text-xs text-slate-500 dark:text-slate-400">
                 {s.correct} correct · {s.wrong} wrong · {s.skipped} skipped
               </span>
             </div>
 
             <div className="mt-2 flex items-center gap-3">
-              <div className="h-2.5 flex-1 overflow-hidden rounded-full bg-slate-100">
+              <div className="h-2.5 flex-1 overflow-hidden rounded-full bg-slate-100 dark:bg-gray-800">
                 <div
                   className="h-full rounded-full bg-emerald-500 transition-all"
                   style={{ width: `${s.accuracy}%` }}
                 />
               </div>
-              <span className="w-14 text-right text-sm font-semibold text-slate-700">
+              <span className="w-14 text-right text-sm font-semibold text-slate-700 dark:text-slate-300">
                 {s.accuracy.toFixed(0)}%
               </span>
             </div>
 
-            <div className="mt-2 flex flex-wrap items-center gap-4 text-xs text-slate-500">
+            <div className="mt-2 flex flex-wrap items-center gap-4 text-xs text-slate-500 dark:text-slate-400">
               <span className="flex items-center gap-1">
                 <CheckCircle2 className="h-4 w-4 text-emerald-500" />
                 Accuracy {s.accuracy.toFixed(1)}%

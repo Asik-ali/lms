@@ -79,17 +79,17 @@ export default function StudentTestSeries() {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl font-bold text-gray-900">Test Series</h1>
+      <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Test Series</h1>
 
       {breadcrumb.length > 1 && (
-        <nav className="flex items-center gap-1 text-sm text-gray-500 flex-wrap">
+        <nav className="flex items-center gap-1 text-sm text-gray-500 dark:text-gray-400 flex-wrap">
           {breadcrumb.map((b, i) => (
             <span key={i} className="flex items-center gap-1">
               {i > 0 && <ChevronRight className="w-3 h-3" />}
               {b.go ? (
                 <button onClick={b.go} className="hover:text-indigo-600 cursor-pointer">{b.label}</button>
               ) : (
-                <span className="text-gray-900 font-medium">{b.label}</span>
+                <span className="text-gray-900 dark:text-gray-100 font-medium">{b.label}</span>
               )}
             </span>
           ))}
@@ -101,16 +101,16 @@ export default function StudentTestSeries() {
           {seriesList.map(s => (
             <button key={s.id} onClick={() => goSeries(s)} className="card p-5 text-left hover:border-indigo-300 hover:shadow-md transition-all cursor-pointer">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center"><FolderOpen className="w-5 h-5 text-indigo-600" /></div>
+                <div className="w-10 h-10 rounded-lg bg-indigo-100 dark:bg-indigo-500/15 flex items-center justify-center"><FolderOpen className="w-5 h-5 text-indigo-600 dark:text-indigo-300" /></div>
                 <div>
-                  <p className="font-semibold text-gray-900">{s.name}</p>
-                  {s.description && <p className="text-xs text-gray-500">{s.description}</p>}
+                  <p className="font-semibold text-gray-900 dark:text-gray-100">{s.name}</p>
+                  {s.description && <p className="text-xs text-gray-500 dark:text-gray-400">{s.description}</p>}
                 </div>
               </div>
             </button>
           ))}
           {seriesList.length === 0 && (
-            <div className="col-span-full text-center py-12 text-gray-400">
+            <div className="col-span-full text-center py-12 text-gray-400 dark:text-gray-500">
               <FolderOpen className="w-12 h-12 mx-auto mb-3 text-gray-300" />
               <p>No test series assigned to you yet.</p>
             </div>
@@ -125,19 +125,19 @@ export default function StudentTestSeries() {
             return (
               <button key={c.id} onClick={() => goCategory(c)} className="card p-5 text-left hover:border-indigo-300 hover:shadow-md transition-all cursor-pointer">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center">
-                    {hasSub ? <FolderOpen className="w-5 h-5 text-emerald-600" /> : <FileText className="w-5 h-5 text-emerald-600" />}
+                  <div className="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-500/15 flex items-center justify-center">
+                    {hasSub ? <FolderOpen className="w-5 h-5 text-emerald-600 dark:text-emerald-300" /> : <FileText className="w-5 h-5 text-emerald-600 dark:text-emerald-300" />}
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-900">{c.name}</p>
-                    <p className="text-xs text-gray-500">{hasSub ? 'Click to explore' : 'Click to view tests'}</p>
+                    <p className="font-semibold text-gray-900 dark:text-gray-100">{c.name}</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">{hasSub ? 'Click to explore' : 'Click to view tests'}</p>
                   </div>
                 </div>
               </button>
             );
           })}
           {topLevelCategories.length === 0 && (
-            <div className="col-span-full text-center py-12 text-gray-400">
+            <div className="col-span-full text-center py-12 text-gray-400 dark:text-gray-500">
               <FileText className="w-12 h-12 mx-auto mb-3 text-gray-300" />
               <p>No categories available yet.</p>
             </div>
@@ -149,13 +149,13 @@ export default function StudentTestSeries() {
         <div className="space-y-6">
           {subCategories.length > 0 && (
             <div>
-              <p className="text-sm font-medium text-gray-500 mb-3">Sub-categories</p>
+              <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-3">Sub-categories</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {subCategories.map(c => (
                   <button key={c.id} onClick={() => goCategory(c)} className="card p-5 text-left hover:border-indigo-300 hover:shadow-md transition-all cursor-pointer">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center"><FolderOpen className="w-5 h-5 text-amber-600" /></div>
-                      <p className="font-semibold text-gray-900">{c.name}</p>
+                      <div className="w-10 h-10 rounded-lg bg-amber-100 dark:bg-amber-500/15 flex items-center justify-center"><FolderOpen className="w-5 h-5 text-amber-600 dark:text-amber-300" /></div>
+                      <p className="font-semibold text-gray-900 dark:text-gray-100">{c.name}</p>
                     </div>
                   </button>
                 ))}
@@ -163,27 +163,27 @@ export default function StudentTestSeries() {
             </div>
           )}
           <div>
-            <p className="text-sm font-medium text-gray-500 mb-3">Tests</p>
+            <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-3">Tests</p>
             <div className="space-y-3">
               {testsList.map(t => (
                 <button key={t.id} onClick={() => goTest(t)} className="card p-5 text-left hover:border-indigo-300 hover:shadow-md transition-all cursor-pointer w-full">
                   <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center"><FileText className="w-5 h-5 text-indigo-600" /></div>
+                    <div className="w-10 h-10 rounded-lg bg-indigo-100 dark:bg-indigo-500/15 flex items-center justify-center"><FileText className="w-5 h-5 text-indigo-600 dark:text-indigo-300" /></div>
                     <div className="flex-1 min-w-0">
-                      <p className="font-semibold text-gray-900">{t.name}</p>
-                      <div className="flex flex-wrap items-center gap-3 mt-1 text-xs text-gray-500">
+                      <p className="font-semibold text-gray-900 dark:text-gray-100">{t.name}</p>
+                      <div className="flex flex-wrap items-center gap-3 mt-1 text-xs text-gray-500 dark:text-gray-400">
                         <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {t.duration} min</span>
                         <span className="flex items-center gap-1"><Target className="w-3 h-3" /> {t.total_marks} marks</span>
                         <span className="flex items-center gap-1"><Globe className="w-3 h-3" /> {t.language}</span>
-                        <span className={`px-2 py-0.5 rounded-full ${t.difficulty === 'Easy' ? 'bg-green-50 text-green-600' : t.difficulty === 'Hard' ? 'bg-red-50 text-red-600' : 'bg-amber-50 text-amber-600'}`}>{t.difficulty}</span>
+                        <span className={`px-2 py-0.5 rounded-full ${t.difficulty === 'Easy' ? 'bg-green-50 dark:bg-green-500/15 text-green-600 dark:text-green-400' : t.difficulty === 'Hard' ? 'bg-red-50 dark:bg-red-500/15 text-red-600 dark:text-red-400' : 'bg-amber-50 dark:bg-amber-500/15 text-amber-600 dark:text-amber-400'}`}>{t.difficulty}</span>
                       </div>
                     </div>
-                    <span className="text-sm text-indigo-600 font-medium">Start →</span>
+                    <span className="text-sm text-indigo-600 dark:text-indigo-300 font-medium">Start →</span>
                   </div>
                 </button>
               ))}
               {testsList.length === 0 && subCategories.length === 0 && (
-                <div className="text-center py-12 text-gray-400">
+                <div className="text-center py-12 text-gray-400 dark:text-gray-500">
                   <FileText className="w-12 h-12 mx-auto mb-3 text-gray-300" />
                   <p>No tests available yet.</p>
                 </div>

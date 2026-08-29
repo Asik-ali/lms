@@ -171,7 +171,7 @@ export default function TestSeries() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-gray-900">Test Series</h1>
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Test Series</h1>
         {level === 'series' && <button onClick={() => setShowAddSeries(true)} className="btn-primary flex items-center gap-2"><Plus className="w-4 h-4" /> Add Series</button>}
         {level === 'categories' && <button onClick={() => setShowAddCategory(true)} className="btn-primary flex items-center gap-2"><Plus className="w-4 h-4" /> Add Category</button>}
         {level === 'tests' && <button onClick={() => setShowAddTest(true)} className="btn-primary flex items-center gap-2"><Plus className="w-4 h-4" /> Add Test</button>}
@@ -179,14 +179,14 @@ export default function TestSeries() {
       </div>
 
       {breadcrumb.length > 1 && (
-        <nav className="flex items-center gap-1 text-sm text-gray-500 flex-wrap">
+        <nav className="flex items-center gap-1 text-sm text-gray-500 dark:text-gray-400 flex-wrap">
           {breadcrumb.map((b, i) => (
             <span key={i} className="flex items-center gap-1">
               {i > 0 && <ChevronRight className="w-3 h-3" />}
               {b.go ? (
                 <button onClick={b.go} className="hover:text-indigo-600 cursor-pointer">{b.label}</button>
               ) : (
-                <span className="text-gray-900 font-medium">{b.label}</span>
+                <span className="text-gray-900 dark:text-gray-100 font-medium">{b.label}</span>
               )}
             </span>
           ))}
@@ -199,17 +199,17 @@ export default function TestSeries() {
           {seriesList.map(s => (
             <button key={s.id} onClick={() => goSeries(s)} className="card p-5 text-left hover:border-indigo-300 hover:shadow-md transition-all cursor-pointer group">
               <div className="flex items-center gap-3 mb-2">
-                <div className="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center"><FolderOpen className="w-5 h-5 text-indigo-600" /></div>
+                <div className="w-10 h-10 rounded-lg bg-indigo-100 dark:bg-indigo-500/15 flex items-center justify-center"><FolderOpen className="w-5 h-5 text-indigo-600 dark:text-indigo-300" /></div>
                 <div className="flex-1 min-w-0">
-                  <p className="font-semibold text-gray-900 truncate">{s.name}</p>
-                  {s.description && <p className="text-xs text-gray-500 truncate">{s.description}</p>}
+                  <p className="font-semibold text-gray-900 dark:text-gray-100 truncate">{s.name}</p>
+                  {s.description && <p className="text-xs text-gray-500 dark:text-gray-400 truncate">{s.description}</p>}
                 </div>
               </div>
               <button onClick={(e) => { e.stopPropagation(); handleDeleteSeries(s.id); }} className="text-xs text-red-500 hover:text-red-700 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer">Delete</button>
             </button>
           ))}
           {seriesList.length === 0 && (
-            <div className="col-span-full text-center py-12 text-gray-400"><FolderOpen className="w-12 h-12 mx-auto mb-3 text-gray-300" /><p>Create your first exam series (SSC CGL, SSC MTS, etc.)</p></div>
+            <div className="col-span-full text-center py-12 text-gray-400 dark:text-gray-500"><FolderOpen className="w-12 h-12 mx-auto mb-3 text-gray-300" /><p>Create your first exam series (SSC CGL, SSC MTS, etc.)</p></div>
           )}
         </div>
       )}
@@ -229,7 +229,7 @@ export default function TestSeries() {
                         <p className="font-semibold text-gray-900">{c.name}</p>
                         <p className="text-xs text-gray-500">Click to explore</p>
                       </div>
-                      <button onClick={(e) => { e.stopPropagation(); handleDeleteCategory(c.id); }} className="p-1 text-gray-400 hover:text-red-600 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"><Trash2 className="w-4 h-4" /></button>
+                      <button onClick={(e) => { e.stopPropagation(); handleDeleteCategory(c.id); }} className="p-1 text-gray-400 dark:text-gray-500 hover:text-red-600 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"><Trash2 className="w-4 h-4" /></button>
                     </div>
                   </button>
                 ))}
@@ -256,7 +256,7 @@ export default function TestSeries() {
                       <div className="flex-1 min-w-0">
                         <p className="font-semibold text-gray-900">{c.name}</p>
                       </div>
-                      <button onClick={(e) => { e.stopPropagation(); handleDeleteCategory(c.id); }} className="p-1 text-gray-400 hover:text-red-600 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"><Trash2 className="w-4 h-4" /></button>
+                      <button onClick={(e) => { e.stopPropagation(); handleDeleteCategory(c.id); }} className="p-1 text-gray-400 dark:text-gray-500 hover:text-red-600 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"><Trash2 className="w-4 h-4" /></button>
                     </div>
                   </button>
                 ))}
@@ -280,7 +280,7 @@ export default function TestSeries() {
                       </div>
                     </div>
                     <button onClick={(e) => { e.stopPropagation(); openEditTest(t); }} className="p-1 text-gray-400 hover:text-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"><Edit2 className="w-4 h-4" /></button>
-                    <button onClick={(e) => { e.stopPropagation(); handleDeleteTest(t.id); }} className="p-1 text-gray-400 hover:text-red-600 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"><Trash2 className="w-4 h-4" /></button>
+                    <button onClick={(e) => { e.stopPropagation(); handleDeleteTest(t.id); }} className="p-1 text-gray-400 dark:text-gray-500 hover:text-red-600 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"><Trash2 className="w-4 h-4" /></button>
                   </div>
                 </button>
               ))}
@@ -331,7 +331,7 @@ export default function TestSeries() {
                       </div>
                     </td>
                     <td className="table-cell"><span className="text-xs font-semibold bg-green-50 text-green-600 px-2 py-0.5 rounded-full">{q.correct_answer}</span></td>
-                    <td className="table-cell"><button onClick={() => handleDeleteQuestion(q.id)} className="p-1 text-gray-400 hover:text-red-600 cursor-pointer"><Trash2 className="w-4 h-4" /></button></td>
+                    <td className="table-cell"><button onClick={() => handleDeleteQuestion(q.id)} className="p-1 text-gray-400 dark:text-gray-500 hover:text-red-600 cursor-pointer"><Trash2 className="w-4 h-4" /></button></td>
                   </tr>
                 ))}
                 {questions.length === 0 && <tr><td colSpan={5} className="text-center py-8 text-gray-400">No questions yet</td></tr>}

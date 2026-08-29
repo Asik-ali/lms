@@ -75,7 +75,7 @@ export default function SignupPage() {
     <div className="min-h-screen bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur flex items-center justify-center mx-auto mb-4">
+          <div className="w-16 h-16 rounded-2xl bg-white/20 dark:bg-gray-900/30 backdrop-blur flex items-center justify-center mx-auto mb-4">
             <BookOpen className="w-8 h-8 text-white" />
           </div>
           <h1 className="text-3xl font-bold text-white">Create Account</h1>
@@ -84,7 +84,7 @@ export default function SignupPage() {
           </p>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-xl p-8">
+        <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8">
           {error && (
             <div className="mb-5 flex items-center gap-2 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">
               <AlertCircle className="w-4 h-4 flex-shrink-0" />
@@ -95,25 +95,25 @@ export default function SignupPage() {
           {step === 'form' ? (
             <form onSubmit={handleSendOtp} className="space-y-5">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1.5">Full name</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Full name</label>
                 <div className="relative">
-                  <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                  <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 dark:text-gray-500" />
                   <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder="Your full name" className="input-field pl-10" autoFocus />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1.5">Email</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Email</label>
                 <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 dark:text-gray-500" />
                   <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="you@example.com" className="input-field pl-10" />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1.5">Password</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Password</label>
                 <div className="relative">
-                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 dark:text-gray-500" />
                   <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="At least 8 characters" className="input-field pl-10" />
                 </div>
               </div>
@@ -124,14 +124,14 @@ export default function SignupPage() {
             </form>
           ) : (
             <form onSubmit={handleVerify} className="space-y-5">
-              <p className="text-sm text-gray-500">
-                We sent a 6-digit verification code to <span className="font-semibold text-gray-700">{email}</span>. Enter it below to complete your signup. The code expires in 10 minutes.
+              <p className="text-sm text-gray-500 dark:text-gray-400">
+                We sent a 6-digit verification code to <span className="font-semibold text-gray-700 dark:text-gray-300">{email}</span>. Enter it below to complete your signup. The code expires in 10 minutes.
               </p>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1.5">Verification code</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Verification code</label>
                 <div className="relative">
-                  <ShieldCheck className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                  <ShieldCheck className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 dark:text-gray-500" />
                   <input
                     type="text"
                     inputMode="numeric"
@@ -151,14 +151,14 @@ export default function SignupPage() {
               <button
                 type="button"
                 onClick={() => setStep('form')}
-                className="w-full flex items-center justify-center gap-1 text-sm text-gray-500 hover:text-gray-700 cursor-pointer"
+                className="w-full flex items-center justify-center gap-1 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 cursor-pointer"
               >
                 <ChevronLeft className="w-4 h-4" /> Back
               </button>
             </form>
           )}
 
-          <div className="mt-6 pt-5 border-t border-gray-100 text-center text-sm text-gray-500">
+          <div className="mt-6 pt-5 border-t border-gray-100 dark:border-gray-800 text-center text-sm text-gray-500 dark:text-gray-400">
             Already have an account?{' '}
             <Link to="/login" className="font-medium text-indigo-600 hover:text-indigo-700">
               Login

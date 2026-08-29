@@ -48,7 +48,7 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
         <button type="button" onClick={() => navigate('/student/courses')} className="inline-flex items-center gap-2 text-sm font-medium text-indigo-600">
           <ArrowLeft className="w-4 h-4" /> Back to courses
         </button>
-        <div className="card p-8 text-center text-gray-500">Loading course details...</div>
+        <div className="card p-8 text-center text-gray-500 dark:text-gray-400">Loading course details...</div>
       </div>
     );
   }
@@ -59,7 +59,7 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
         <button type="button" onClick={() => navigate('/student/courses')} className="inline-flex items-center gap-2 text-sm font-medium text-indigo-600">
           <ArrowLeft className="w-4 h-4" /> Back to courses
         </button>
-        <div className="card p-8 text-center text-gray-500">Course not found.</div>
+        <div className="card p-8 text-center text-gray-500 dark:text-gray-400">Course not found.</div>
       </div>
     );
   }
@@ -89,9 +89,9 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
 
         <div className="p-6 space-y-6">
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="rounded-lg border border-gray-200 p-4">
-              <h3 className="font-semibold text-gray-900 mb-3">Course Info</h3>
-              <ul className="space-y-2 text-sm text-gray-600">
+            <div className="rounded-lg border border-gray-200 dark:border-gray-800 p-4">
+              <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">Course Info</h3>
+              <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
                 <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5" /><span>Category: {course.category}</span></li>
                 <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5" /><span>Duration: {course.duration}</span></li>
                 <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5" /><span>Students enrolled: {course.students}</span></li>
@@ -99,13 +99,13 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
               </ul>
             </div>
 
-            <div className="rounded-lg border border-gray-200 p-4">
-              <h3 className="font-semibold text-gray-900 mb-3">Course videos</h3>
+            <div className="rounded-lg border border-gray-200 dark:border-gray-800 p-4">
+              <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">Course videos</h3>
               {lessons.length > 0 ? (
                 <div className="space-y-4">
                   {lessons.map(lesson => (
-                    <div key={lesson.id} className="rounded-lg border border-gray-200 p-3">
-                      <p className="text-sm font-semibold text-gray-900">{lesson.title}</p>
+                    <div key={lesson.id} className="rounded-lg border border-gray-200 dark:border-gray-800 p-3">
+                      <p className="text-sm font-semibold text-gray-900 dark:text-gray-100">{lesson.title}</p>
                       <button onClick={() => setMediaViewer({ url: lesson.video_url, title: lesson.title, type: 'video' })} className="mt-2 inline-flex items-center gap-1.5 text-sm text-indigo-600 hover:text-indigo-800">
                         <Play className="w-3.5 h-3.5" /> Watch video
                       </button>
@@ -113,19 +113,19 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
                   ))}
                 </div>
               ) : (
-                <p className="text-sm text-gray-500">No video lessons uploaded yet.</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">No video lessons uploaded yet.</p>
               )}
             </div>
 
-            <div className="rounded-lg border border-gray-200 p-4 md:col-span-2">
-              <h3 className="font-semibold text-gray-900 mb-3">PDF resources</h3>
+            <div className="rounded-lg border border-gray-200 dark:border-gray-800 p-4 md:col-span-2">
+              <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">PDF resources</h3>
               {pdfs.length > 0 ? (
                 <div className="space-y-3">
                   {pdfs.map(pdf => (
-                    <div key={pdf.id} className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
+                    <div key={pdf.id} className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-gray-800 p-3">
                       <FileText className="w-5 h-5 text-indigo-600 shrink-0" />
                       <div className="min-w-0 flex-1">
-                        <p className="text-sm font-semibold text-gray-900 truncate">{pdf.title}</p>
+                        <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 truncate">{pdf.title}</p>
                       </div>
                       <button
                         onClick={() => setMediaViewer({ url: pdf.pdf_url, title: pdf.title, type: 'pdf' })}
@@ -138,7 +138,7 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
                         download={pdf.title}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-500 hover:text-gray-700 shrink-0"
+                        className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 shrink-0"
                       >
                         <Download className="w-3.5 h-3.5" />
                       </a>
@@ -146,13 +146,13 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
                   ))}
                 </div>
               ) : (
-                <p className="text-sm text-gray-500">No PDF resources available for this course.</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">No PDF resources available for this course.</p>
               )}
             </div>
           </div>
 
           <div className="flex flex-wrap gap-3">
-            <button type="button" onClick={() => navigate('/student/courses')} className="px-4 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50">Back to courses</button>
+            <button type="button" onClick={() => navigate('/student/courses')} className="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800/60">Back to courses</button>
           </div>
         </div>
       </div>

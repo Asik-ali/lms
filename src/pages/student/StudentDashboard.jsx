@@ -50,8 +50,8 @@ export default function StudentDashboard() {
                   <Icon className="w-6 h-6 text-white" />
                 </div>
               </div>
-              <p className="text-2xl font-bold text-gray-900">{s.value}</p>
-              <p className="text-sm text-gray-500 mt-1">{s.label}</p>
+              <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{s.value}</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{s.label}</p>
             </div>
           );
         })}
@@ -67,17 +67,17 @@ export default function StudentDashboard() {
           </div>
           <div className="p-4 space-y-4">
             {myCourses.length > 0 ? myCourses.slice(0, 3).map(c => (
-              <div key={c.id} className="flex items-center gap-4 p-3 rounded-lg hover:bg-gray-50">
+              <div key={c.id} className="flex items-center gap-4 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/60">
                 <div className="flex-1 min-w-0">
-                  <h4 className="text-sm font-medium text-gray-900">{c.title}</h4>
+                  <h4 className="text-sm font-medium text-gray-900 dark:text-gray-100">{c.title}</h4>
                   <div className="flex items-center gap-3 mt-2">
-                    <span className="text-xs text-gray-400">{c.category} &middot; {c.duration}</span>
+                    <span className="text-xs text-gray-400 dark:text-gray-500">{c.category} &middot; {c.duration}</span>
                   </div>
                 </div>
                 <button type="button" onClick={() => navigate(`/student/courses/${c.id}`)} className="btn-primary whitespace-nowrap">View</button>
               </div>
             )) : (
-              <p className="text-gray-400 text-center py-4">No courses enrolled yet</p>
+              <p className="text-gray-400 dark:text-gray-500 text-center py-4">No courses enrolled yet</p>
             )}
           </div>
         </div>
@@ -92,16 +92,16 @@ export default function StudentDashboard() {
             </div>
             <div className="p-4 space-y-3">
               {announcements.slice(0, 4).map(a => (
-                <div key={a.id} className="flex gap-3 p-2 rounded-lg hover:bg-gray-50">
+                <div key={a.id} className="flex gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/60">
                   <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0 bg-indigo-500" />
                   <div>
-                    <p className="text-sm font-medium text-gray-900">{a.title}</p>
-                    <p className="text-xs text-gray-500 mt-0.5">{a.created}</p>
+                    <p className="text-sm font-medium text-gray-900 dark:text-gray-100">{a.title}</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{a.created}</p>
                   </div>
                 </div>
               ))}
               {announcements.length === 0 && (
-                <p className="text-sm text-gray-400 text-center py-2">No announcements yet</p>
+                <p className="text-sm text-gray-400 dark:text-gray-500 text-center py-2">No announcements yet</p>
               )}
             </div>
           </div>

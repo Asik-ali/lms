@@ -88,7 +88,7 @@ export default function AdminCalendar() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-gray-900">Calendar Events</h1>
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Calendar Events</h1>
         <button onClick={() => setShowForm(true)} className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 cursor-pointer">
           <Plus className="w-4 h-4" /> Add Event
         </button>
@@ -96,27 +96,27 @@ export default function AdminCalendar() {
 
       <div className="card p-6">
         <div className="flex items-center justify-between mb-6">
-          <button onClick={prevMonth} className="p-2 hover:bg-gray-100 rounded-lg cursor-pointer">
-            <ChevronLeft className="w-5 h-5 text-gray-600" />
+          <button onClick={prevMonth} className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg cursor-pointer">
+            <ChevronLeft className="w-5 h-5 text-gray-600 dark:text-gray-400" />
           </button>
-          <h2 className="text-lg font-semibold text-gray-900">{monthName}</h2>
-          <button onClick={nextMonth} className="p-2 hover:bg-gray-100 rounded-lg cursor-pointer">
-            <ChevronRight className="w-5 h-5 text-gray-600" />
+          <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100">{monthName}</h2>
+          <button onClick={nextMonth} className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg cursor-pointer">
+            <ChevronRight className="w-5 h-5 text-gray-600 dark:text-gray-400" />
           </button>
         </div>
 
-        <div className="grid grid-cols-7 gap-px bg-gray-200 rounded-lg overflow-hidden">
+        <div className="grid grid-cols-7 gap-px bg-gray-200 dark:bg-gray-700 rounded-lg overflow-hidden">
           {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(d => (
-            <div key={d} className="bg-gray-50 px-2 py-2 text-xs font-semibold text-gray-500 text-center">{d}</div>
+            <div key={d} className="bg-gray-50 dark:bg-gray-800/60 px-2 py-2 text-xs font-semibold text-gray-500 dark:text-gray-400 text-center">{d}</div>
           ))}
           {days.map((day, i) => {
             const dayEvents = getEventsForDay(day);
             const isToday = day && today.getDate() === day && today.getMonth() === month && today.getFullYear() === year;
             return (
-              <div key={i} className={`bg-white p-2 min-h-[80px] ${isToday ? 'bg-indigo-50' : ''}`}>
+              <div key={i} className={`bg-white dark:bg-gray-900 p-2 min-h-[80px] ${isToday ? 'bg-indigo-50 dark:bg-indigo-500/10' : ''}`}>
                 {day && (
                   <>
-                    <span className={`text-sm font-medium ${isToday ? 'text-indigo-600' : 'text-gray-700'}`}>{day}</span>
+                    <span className={`text-sm font-medium ${isToday ? 'text-indigo-600' : 'text-gray-700 dark:text-gray-300'}`}>{day}</span>
                     <div className="mt-1 space-y-1">
                       {dayEvents.slice(0, 2).map(e => (
                         <div key={e.id} className="group relative">
@@ -127,7 +127,7 @@ export default function AdminCalendar() {
                         </div>
                       ))}
                       {dayEvents.length > 2 && (
-                        <span className="text-xs text-gray-400">+{dayEvents.length - 2} more</span>
+                        <span className="text-xs text-gray-400 dark:text-gray-500">+{dayEvents.length - 2} more</span>
                       )}
                     </div>
                   </>
@@ -139,52 +139,52 @@ export default function AdminCalendar() {
       </div>
 
       <div className="card p-6">
-        <h3 className="text-base font-semibold text-gray-900 mb-4">All Events ({events.length})</h3>
+        <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-4">All Events ({events.length})</h3>
         <div className="space-y-2">
           {events.sort((a, b) => a.date.localeCompare(b.date)).map(e => (
-            <div key={e.id} className="flex items-center gap-3 p-3 rounded-lg border border-gray-100 hover:border-indigo-200 group">
+            <div key={e.id} className="flex items-center gap-3 p-3 rounded-lg border border-gray-100 dark:border-gray-800 hover:border-indigo-200 group">
               <div className={`w-3 h-3 rounded-full flex-shrink-0 ${colorMap[e.color] || 'bg-indigo-500'}`} />
               <div className="flex-1 min-w-0">
-                <p className="text-sm font-medium text-gray-900">{e.title}</p>
-                <p className="text-xs text-gray-500">{e.date} {e.time ? `at ${e.time}` : ''} {e.description ? `- ${e.description}` : ''}</p>
+                <p className="text-sm font-medium text-gray-900 dark:text-gray-100">{e.title}</p>
+                <p className="text-xs text-gray-500 dark:text-gray-400">{e.date} {e.time ? `at ${e.time}` : ''} {e.description ? `- ${e.description}` : ''}</p>
               </div>
-              <button onClick={() => handleDelete(e.id)} className="p-1 text-gray-400 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer">
+              <button onClick={() => handleDelete(e.id)} className="p-1 text-gray-400 dark:text-gray-500 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer">
                 <Trash2 className="w-4 h-4" />
               </button>
             </div>
           ))}
-          {events.length === 0 && <p className="text-sm text-gray-400 text-center py-4">No events yet</p>}
+          {events.length === 0 && <p className="text-sm text-gray-400 dark:text-gray-500 text-center py-4">No events yet</p>}
         </div>
       </div>
 
       {showForm && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
-          <div className="bg-white rounded-xl shadow-xl w-full max-w-md mx-4 p-6">
+          <div className="bg-white dark:bg-gray-900 rounded-xl shadow-xl w-full max-w-md mx-4 p-6">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-lg font-semibold">Add Event</h3>
-              <button onClick={() => setShowForm(false)} className="p-1 hover:bg-gray-100 rounded-lg cursor-pointer"><X className="w-5 h-5" /></button>
+              <button onClick={() => setShowForm(false)} className="p-1 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg cursor-pointer"><X className="w-5 h-5" /></button>
             </div>
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Title *</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Title *</label>
                 <input value={form.title} onChange={e => setForm({ ...form, title: e.target.value })} className="input-field" placeholder="Event title" />
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Date *</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Date *</label>
                   <input type="date" value={form.date} onChange={e => setForm({ ...form, date: e.target.value })} className="input-field" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Time</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Time</label>
                   <input type="time" value={form.time} onChange={e => setForm({ ...form, time: e.target.value })} className="input-field" />
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Description</label>
                 <textarea value={form.description} onChange={e => setForm({ ...form, description: e.target.value })} className="input-field" rows={2} placeholder="Optional description" />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Color</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Color</label>
                 <div className="flex gap-2">
                   {colorOptions.map(c => (
                     <button key={c.value} onClick={() => setForm({ ...form, color: c.value })} className={`w-8 h-8 rounded-full ${c.bg} ${form.color === c.value ? 'ring-2 ring-offset-2 ring-indigo-500' : ''} cursor-pointer`} />

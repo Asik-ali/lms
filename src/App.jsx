@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
+import { ThemeProvider } from './contexts/ThemeContext';
 import DashboardLayout from './components/Layout/DashboardLayout';
 import PublicLayout from './components/Layout/PublicLayout';
 import ToastContainer from './components/common/Toast';
@@ -44,10 +45,10 @@ function AppRoutes() {
   const { user, loading } = useAuth();
 
   if (loading) return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-950">
       <div className="text-center">
         <div className="w-10 h-10 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin mx-auto mb-4" />
-        <p className="text-sm text-gray-500">Loading...</p>
+        <p className="text-sm text-gray-500 dark:text-gray-400">Loading...</p>
       </div>
     </div>
   );
@@ -120,10 +121,12 @@ function AppRoutes() {
 export default function App() {
   return (
     <BrowserRouter>
-      <AuthProvider>
-        <AppRoutes />
-        <ToastContainer />
-      </AuthProvider>
+      <ThemeProvider>
+        <AuthProvider>
+          <AppRoutes />
+          <ToastContainer />
+        </AuthProvider>
+      </ThemeProvider>
     </BrowserRouter>
   );
 }

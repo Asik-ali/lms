@@ -93,23 +93,23 @@ export default function Sidebar({ mobileOpen, onClose }) {
   };
 
   return (
-    <aside className={`fixed left-0 top-0 z-40 flex h-screen w-64 flex-col border-r border-gray-200 bg-white transition-transform duration-300 lg:translate-x-0 ${mobileOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-      <div className="flex items-center gap-3 px-4 h-16 border-b border-gray-200">
+    <aside className={`fixed left-0 top-0 z-40 flex h-screen w-64 flex-col border-r border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 transition-transform duration-300 lg:translate-x-0 ${mobileOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+      <div className="flex items-center gap-3 px-4 h-16 border-b border-gray-200 dark:border-gray-800">
         <BookOpen className="w-6 h-6 text-indigo-600 flex-shrink-0" />
         <span className="font-bold text-lg">LMS</span>
-        <button onClick={onClose} className="ml-auto p-1 rounded-lg hover:bg-gray-100 cursor-pointer lg:hidden" aria-label="Close navigation menu">
+        <button onClick={onClose} className="ml-auto p-1 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer lg:hidden" aria-label="Close navigation menu">
           <X className="w-5 h-5" />
         </button>
       </div>
 
-      <div className="px-3 py-2 border-b border-gray-200">
+      <div className="px-3 py-2 border-b border-gray-200 dark:border-gray-800">
         <div className="flex items-center gap-2 px-2 py-1.5">
           <div className={`w-6 h-6 rounded-md ${roleColors[role]} flex items-center justify-center flex-shrink-0`}>
             <Users className="w-3 h-3 text-white" />
           </div>
           <div>
-            <p className="text-xs font-medium text-gray-700">{user?.name || roleLabels[role]}</p>
-            <p className="text-xs text-gray-400">{roleLabels[role]}</p>
+            <p className="text-xs font-medium text-gray-700 dark:text-gray-300">{user?.name || roleLabels[role]}</p>
+            <p className="text-xs text-gray-400 dark:text-gray-500">{roleLabels[role]}</p>
           </div>
         </div>
       </div>
@@ -152,7 +152,7 @@ export default function Sidebar({ mobileOpen, onClose }) {
         })}
       </nav>
 
-      <div className="p-3 border-t border-gray-200">
+      <div className="p-3 border-t border-gray-200 dark:border-gray-800">
         <button onClick={handleLogout} className="w-full sidebar-link sidebar-link-inactive text-red-500 hover:text-red-700 hover:bg-red-50">
           <LogOut className="w-5 h-5" />
           <span>Logout</span>

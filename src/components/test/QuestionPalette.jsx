@@ -15,7 +15,7 @@ export default function QuestionPalette({
 }) {
   if (!questions.length) {
     return (
-      <div className="p-4 text-sm text-slate-400">
+      <div className="p-4 text-sm text-slate-400 dark:text-slate-500">
         No questions available.
       </div>
     );
@@ -37,12 +37,12 @@ export default function QuestionPalette({
   };
 
   return (
-    <div className="w-full rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+    <div className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-gray-900 p-4 shadow-sm">
       <div className="mb-3 flex items-center justify-between">
-        <h3 className="text-sm font-bold uppercase tracking-wide text-slate-600">
+        <h3 className="text-sm font-bold uppercase tracking-wide text-slate-600 dark:text-slate-400">
           Question Palette
         </h3>
-        <span className="text-xs text-slate-400">
+        <span className="text-xs text-slate-400 dark:text-slate-500">
           {questions.length} Qs
         </span>
       </div>
@@ -64,13 +64,13 @@ export default function QuestionPalette({
         })}
       </div>
 
-      <div className="mt-4 grid grid-cols-2 gap-2 border-t border-slate-100 pt-3 sm:grid-cols-4">
+      <div className="mt-4 grid grid-cols-2 gap-2 border-t border-slate-100 dark:border-gray-800 pt-3 sm:grid-cols-4">
         {PALETTE_LEGEND.map((item) => (
           <div key={item.label} className="flex items-center gap-2">
             <span
               className={`h-3 w-3 rounded-full border ${item.className}`}
             />
-            <span className="text-xs text-slate-500">{item.label}</span>
+            <span className="text-xs text-slate-500 dark:text-slate-400">{item.label}</span>
           </div>
         ))}
       </div>

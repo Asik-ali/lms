@@ -46,7 +46,7 @@ export default function HomePage() {
             {stats.map(s => (
               <div key={s.label}>
                 <p className="text-3xl sm:text-4xl font-bold text-indigo-600">{s.value}</p>
-                <p className="mt-1 text-sm text-gray-500">{s.label}</p>
+                <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">{s.label}</p>
               </div>
             ))}
           </div>
@@ -56,19 +56,19 @@ export default function HomePage() {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Everything You Need</h2>
-            <p className="mt-2 text-gray-500">Powerful features for admins and students.</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-100">Everything You Need</h2>
+            <p className="mt-2 text-gray-500 dark:text-gray-400">Powerful features for admins and students.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map(f => {
               const Icon = f.icon;
               return (
                 <div key={f.title} className="card p-6 hover:shadow-md transition-shadow">
-                  <div className="w-12 h-12 rounded-lg bg-indigo-100 flex items-center justify-center mb-4">
-                    <Icon className="w-6 h-6 text-indigo-600" />
+                  <div className="w-12 h-12 rounded-lg bg-indigo-100 dark:bg-indigo-500/15 flex items-center justify-center mb-4">
+                    <Icon className="w-6 h-6 text-indigo-600 dark:text-indigo-300" />
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900">{f.title}</h3>
-                  <p className="mt-2 text-sm text-gray-500">{f.desc}</p>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">{f.title}</h3>
+                  <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">{f.desc}</p>
                 </div>
               );
             })}

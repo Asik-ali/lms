@@ -62,8 +62,8 @@ export default function AdminDashboard() {
                   <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
               </div>
-              <p className="text-xl sm:text-2xl font-bold text-gray-900">{card.value}</p>
-              <p className="text-xs sm:text-sm text-gray-500 mt-1">{card.label}</p>
+              <p className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100">{card.value}</p>
+              <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-1">{card.label}</p>
             </div>
           );
         })}
@@ -93,17 +93,17 @@ export default function AdminDashboard() {
           </div>
           <div className="p-4 space-y-3">
             {recentNotifications.map(n => (
-              <div key={n.id} className="flex gap-3 p-2 rounded-lg hover:bg-gray-50">
+              <div key={n.id} className="flex gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/60">
                 <div className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 ${
                   n.type === 'info' ? 'bg-blue-500' : n.type === 'warning' ? 'bg-yellow-500' : 'bg-green-500'
                 }`} />
                 <div>
-                  <p className="text-sm text-gray-700">{n.message}</p>
-                  <p className="text-xs text-gray-400 mt-0.5">{n.time}</p>
+                  <p className="text-sm text-gray-700 dark:text-gray-300">{n.message}</p>
+                  <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">{n.time}</p>
                 </div>
               </div>
             ))}
-            {recentNotifications.length === 0 && <p className="text-sm text-gray-400 text-center py-4">No recent notifications</p>}
+            {recentNotifications.length === 0 && <p className="text-sm text-gray-400 dark:text-gray-500 text-center py-4">No recent notifications</p>}
           </div>
         </div>
       </div>
@@ -115,22 +115,22 @@ export default function AdminDashboard() {
         </div>
         <div className="p-4 space-y-3">
           {testSeries.length > 0 ? testSeries.slice(0, 5).map(s => (
-            <div key={s.id} className="flex items-center justify-between p-3 rounded-lg border border-gray-100 hover:border-indigo-200">
+            <div key={s.id} className="flex items-center justify-between p-3 rounded-lg border border-gray-100 dark:border-gray-800 hover:border-indigo-200">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-indigo-100 flex items-center justify-center">
-                  <FolderOpen className="w-4 h-4 text-indigo-600" />
+                <div className="w-8 h-8 rounded-lg bg-indigo-100 dark:bg-indigo-500/15 flex items-center justify-center">
+                  <FolderOpen className="w-4 h-4 text-indigo-600 dark:text-indigo-300" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-gray-900">{s.name}</p>
-                  {s.description && <p className="text-xs text-gray-400">{s.description}</p>}
+                  <p className="text-sm font-medium text-gray-900 dark:text-gray-100">{s.name}</p>
+                  {s.description && <p className="text-xs text-gray-400 dark:text-gray-500">{s.description}</p>}
                 </div>
               </div>
             </div>
           )) : (
-            <p className="text-sm text-gray-400 text-center py-4">No test series yet</p>
+            <p className="text-sm text-gray-400 dark:text-gray-500 text-center py-4">No test series yet</p>
           )}
           {testSeries.length > 0 && (
-            <p className="text-xs text-gray-400 text-center pt-2">{testSeries.length} series &middot; {testSeries.reduce((a, s) => a + s.count, 0)} total questions</p>
+            <p className="text-xs text-gray-400 dark:text-gray-500 text-center pt-2">{testSeries.length} series &middot; {testSeries.reduce((a, s) => a + s.count, 0)} total questions</p>
           )}
         </div>
       </div>
@@ -143,7 +143,7 @@ export default function AdminDashboard() {
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-gray-200">
+                <tr className="border-b border-gray-200 dark:border-gray-800">
                   <th className="table-header">Title</th>
                   <th className="table-header">Category</th>
                   <th className="table-header">Students</th>
@@ -151,7 +151,7 @@ export default function AdminDashboard() {
               </thead>
               <tbody>
                 {courses.filter(c => c.status === 'Published').map(c => (
-                  <tr key={c.id} className="border-b border-gray-100 hover:bg-gray-50">
+                  <tr key={c.id} className="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/60">
                     <td className="table-cell font-medium">{c.title}</td>
                     <td className="table-cell">{c.category}</td>
                     <td className="table-cell">{studentsPerCourse(c.title)}</td>

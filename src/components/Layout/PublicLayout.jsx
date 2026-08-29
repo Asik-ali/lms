@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
-import { BookOpen, Menu, X } from 'lucide-react';
+import { BookOpen, Menu, X, Sun, Moon } from 'lucide-react';
+import { useTheme } from '../../contexts/ThemeContext';
 
 const navLinks = [
   { label: 'Home', path: '/' },
@@ -12,14 +13,15 @@ const navLinks = [
 export default function PublicLayout() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
+  const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
-      <header className="sticky top-0 z-40 bg-white border-b border-gray-200">
+    <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-950">
+      <header className="sticky top-0 z-40 bg-white border-b border-gray-200 dark:bg-gray-900 dark:border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
             <BookOpen className="w-6 h-6 text-indigo-600" />
-            <span className="font-bold text-lg text-gray-900">LMS</span>
+            <span className="font-bold text-lg text-gray-900 dark:text-white">LMS</span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-6">
@@ -30,7 +32,7 @@ export default function PublicLayout() {
                 className={`text-sm font-medium transition-colors ${
                   location.pathname === link.path
                     ? 'text-indigo-600'
-                    : 'text-gray-600 hover:text-gray-900'
+                    : 'text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white'
                 }`}
               >
                 {link.label}
@@ -39,6 +41,13 @@ export default function PublicLayout() {
           </nav>
 
           <div className="flex items-center gap-3">
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+            </button>
             <Link to="/signup" className="hidden sm:inline-flex text-sm font-medium text-indigo-600 hover:text-indigo-700">
               Sign Up
             </Link>
@@ -47,7 +56,7 @@ export default function PublicLayout() {
             </Link>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="p-2 rounded-lg hover:bg-gray-100 md:hidden cursor-pointer"
+              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 md:hidden cursor-pointer"
               aria-label="Toggle menu"
             >
               {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -56,7 +65,7 @@ export default function PublicLayout() {
         </div>
 
         {mobileOpen && (
-          <div className="md:hidden border-t border-gray-200 bg-white">
+          <div className="md:hidden border-t border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
             <nav className="px-4 py-3 space-y-1">
               {navLinks.map(link => (
                 <Link
@@ -65,8 +74,8 @@ export default function PublicLayout() {
                   onClick={() => setMobileOpen(false)}
                   className={`block px-3 py-2 rounded-lg text-sm font-medium ${
                     location.pathname === link.path
-                      ? 'bg-indigo-50 text-indigo-700'
-                      : 'text-gray-600 hover:bg-gray-100'
+                      ? 'bg-indigo-50 text-indigo-700 dark:bg-indigo-500/10 dark:text-indigo-400'
+                      : 'text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800'
                   }`}
                 >
                   {link.label}
@@ -75,7 +84,7 @@ export default function PublicLayout() {
               <Link
                 to="/signup"
                 onClick={() => setMobileOpen(false)}
-                className="block px-3 py-2 rounded-lg text-sm font-medium text-indigo-600 hover:bg-gray-100 mt-2"
+                className="block px-3 py-2 rounded-lg text-sm font-medium text-indigo-600 hover:bg-gray-100 dark:hover:bg-gray-800 mt-2"
               >
                 Sign Up
               </Link>

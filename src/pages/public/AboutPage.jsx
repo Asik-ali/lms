@@ -21,8 +21,8 @@ export default function AboutPage() {
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-12">
-          <h2 className="text-2xl font-bold text-gray-900">Our Mission</h2>
-          <p className="mt-3 text-gray-600 leading-relaxed">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Our Mission</h2>
+          <p className="mt-3 text-gray-600 dark:text-gray-400 leading-relaxed">
             Our mission is to make quality education accessible to everyone. Through our platform, students can access structured courses, join live classes, practice with test series, and track their progress — all in one place.
           </p>
         </div>
@@ -32,11 +32,11 @@ export default function AboutPage() {
             const Icon = v.icon;
             return (
               <div key={v.title} className="card p-6">
-                <div className="w-12 h-12 rounded-lg bg-indigo-100 flex items-center justify-center mb-4">
-                  <Icon className="w-6 h-6 text-indigo-600" />
+                <div className="w-12 h-12 rounded-lg bg-indigo-100 dark:bg-indigo-500/15 flex items-center justify-center mb-4">
+                  <Icon className="w-6 h-6 text-indigo-600 dark:text-indigo-300" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900">{v.title}</h3>
-                <p className="mt-2 text-sm text-gray-500">{v.desc}</p>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">{v.title}</h3>
+                <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">{v.desc}</p>
               </div>
             );
           })}

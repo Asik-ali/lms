@@ -184,7 +184,7 @@ export default function CourseManagement() {
   return (
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-        <h1 className="text-2xl font-bold text-gray-900">Course Management</h1>
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Course Management</h1>
         <button onClick={handleOpenAdd} className="btn-primary flex items-center gap-2">
           <Plus className="w-4 h-4" /> Add Course
         </button>
@@ -192,7 +192,7 @@ export default function CourseManagement() {
 
       <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
         <div className="relative flex-1 w-full sm:max-w-md">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 dark:text-gray-500" />
           <input
             type="text"
             placeholder="Search courses..."
@@ -212,7 +212,7 @@ export default function CourseManagement() {
               <option key={c} value={c}>{c}</option>
             ))}
           </select>
-          <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+          <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 dark:text-gray-500 pointer-events-none" />
         </div>
       </div>
 
@@ -220,18 +220,18 @@ export default function CourseManagement() {
         <div className="card p-6">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-lg font-semibold">{editingId ? 'Edit Course' : 'Add Course'}</h2>
-            <button onClick={handleClose} className="p-1 text-gray-400 hover:text-gray-600">
+            <button onClick={handleClose} className="p-1 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-400">
               <X className="w-5 h-5" />
             </button>
           </div>
           <form onSubmit={handleSubmit} className="space-y-5">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Title</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Title</label>
                 <input name="title" value={form.title} onChange={handleChange} className="input-field w-full" required />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Category</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Category</label>
                 <select name="category" value={form.category} onChange={handleChange} className="input-field w-full" required>
                   <option value="">Select category</option>
                   {cats.map(c => (
@@ -240,11 +240,11 @@ export default function CourseManagement() {
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Duration</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Duration</label>
                 <input name="duration" value={form.duration} onChange={handleChange} className="input-field w-full" required placeholder="e.g. 8 weeks" />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Status</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Status</label>
                 <select name="status" value={form.status} onChange={handleChange} className="input-field w-full">
                   <option value="Draft">Draft</option>
                   <option value="Published">Published</option>
@@ -257,10 +257,10 @@ export default function CourseManagement() {
             </div>
 
             {editingId && (
-              <div className="rounded-lg border border-gray-200 p-4 space-y-4">
+              <div className="rounded-lg border border-gray-200 dark:border-gray-800 p-4 space-y-4">
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-900">Video Lessons</h3>
-                  <p className="text-sm text-gray-500">Add or remove video lessons for this course.</p>
+                  <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100">Video Lessons</h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">Add or remove video lessons for this course.</p>
                 </div>
                 <form onSubmit={handleAddLesson} className="grid grid-cols-1 md:grid-cols-[1fr_2fr_auto] gap-3">
                   <input value={lessonForm.title} onChange={e => setLessonForm(form => ({ ...form, title: e.target.value }))} className="input-field" placeholder="Lesson title" required />
@@ -268,29 +268,29 @@ export default function CourseManagement() {
                   <button type="submit" className="btn-primary flex items-center justify-center gap-2"><Plus className="w-4 h-4" /> Add Lesson</button>
                 </form>
                 {courseLessons.length ? (
-                  <div className="divide-y divide-gray-100 rounded-lg border border-gray-200">
+                  <div className="divide-y divide-gray-100 dark:divide-gray-800 rounded-lg border border-gray-200 dark:border-gray-800">
                     {courseLessons.map((lesson, index) => (
                       <div key={lesson.id} className="flex items-center gap-3 p-3">
-                        <span className="text-sm font-medium text-gray-400">{index + 1}</span>
-                        <Video className="w-4 h-4 text-indigo-600 shrink-0" />
+                        <span className="text-sm font-medium text-gray-400 dark:text-gray-500">{index + 1}</span>
+                        <Video className="w-4 h-4 text-indigo-600 dark:text-indigo-300 shrink-0" />
                         <div className="min-w-0 flex-1">
-                          <p className="truncate text-sm font-medium text-gray-800">{lesson.title}</p>
-                          <p className="text-xs text-gray-500">{lesson.provider}</p>
+                          <p className="truncate text-sm font-medium text-gray-800 dark:text-gray-200">{lesson.title}</p>
+                          <p className="text-xs text-gray-500 dark:text-gray-400">{lesson.provider}</p>
                         </div>
-                        <button onClick={() => setMediaViewer({ url: lesson.video_url, title: lesson.title, type: 'video' })} className="p-1.5 text-gray-400 hover:text-indigo-600" aria-label={`Open ${lesson.title}`}><ExternalLink className="w-4 h-4" /></button>
-                        <button onClick={() => handleDeleteLesson(lesson.id)} className="p-1.5 text-gray-400 hover:text-red-600" aria-label={`Delete ${lesson.title}`}><Trash2 className="w-4 h-4" /></button>
+                        <button onClick={() => setMediaViewer({ url: lesson.video_url, title: lesson.title, type: 'video' })} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-indigo-600" aria-label={`Open ${lesson.title}`}><ExternalLink className="w-4 h-4" /></button>
+                        <button onClick={() => handleDeleteLesson(lesson.id)} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-red-600" aria-label={`Delete ${lesson.title}`}><Trash2 className="w-4 h-4" /></button>
                       </div>
                     ))}
                   </div>
-                ) : <p className="text-sm text-gray-500">No lessons added yet.</p>}
+                ) : <p className="text-sm text-gray-500 dark:text-gray-400">No lessons added yet.</p>}
               </div>
             )}
 
             {editingId && (
-              <div className="rounded-lg border border-gray-200 p-4 space-y-4">
+              <div className="rounded-lg border border-gray-200 dark:border-gray-800 p-4 space-y-4">
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-900">PDF Resources</h3>
-                  <p className="text-sm text-gray-500">Add PDF documents for students to download.</p>
+                  <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100">PDF Resources</h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">Add PDF documents for students to download.</p>
                 </div>
                 <form onSubmit={handleAddPdf} className="grid grid-cols-1 md:grid-cols-[1fr_2fr_auto] gap-3">
                   <input value={pdfForm.title} onChange={e => setPdfForm(form => ({ ...form, title: e.target.value }))} className="input-field" placeholder="PDF title" required />
@@ -298,20 +298,20 @@ export default function CourseManagement() {
                   <button type="submit" className="btn-primary flex items-center justify-center gap-2"><Plus className="w-4 h-4" /> Add PDF</button>
                 </form>
                 {coursePdfs.length ? (
-                  <div className="divide-y divide-gray-100 rounded-lg border border-gray-200">
+                  <div className="divide-y divide-gray-100 dark:divide-gray-800 rounded-lg border border-gray-200 dark:border-gray-800">
                     {coursePdfs.map((pdf, index) => (
                       <div key={pdf.id} className="flex items-center gap-3 p-3">
-                        <span className="text-sm font-medium text-gray-400">{index + 1}</span>
-                        <FileText className="w-4 h-4 text-indigo-600 shrink-0" />
+                        <span className="text-sm font-medium text-gray-400 dark:text-gray-500">{index + 1}</span>
+                        <FileText className="w-4 h-4 text-indigo-600 dark:text-indigo-300 shrink-0" />
                         <div className="min-w-0 flex-1">
-                          <p className="truncate text-sm font-medium text-gray-800">{pdf.title}</p>
+                          <p className="truncate text-sm font-medium text-gray-800 dark:text-gray-200">{pdf.title}</p>
                         </div>
-                        <button onClick={() => setMediaViewer({ url: pdf.pdf_url, title: pdf.title, type: 'pdf' })} className="p-1.5 text-gray-400 hover:text-indigo-600" aria-label={`Open ${pdf.title}`}><ExternalLink className="w-4 h-4" /></button>
-                        <button onClick={() => handleDeletePdf(pdf.id)} className="p-1.5 text-gray-400 hover:text-red-600" aria-label={`Delete ${pdf.title}`}><Trash2 className="w-4 h-4" /></button>
+                        <button onClick={() => setMediaViewer({ url: pdf.pdf_url, title: pdf.title, type: 'pdf' })} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-indigo-600" aria-label={`Open ${pdf.title}`}><ExternalLink className="w-4 h-4" /></button>
+                        <button onClick={() => handleDeletePdf(pdf.id)} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-red-600" aria-label={`Delete ${pdf.title}`}><Trash2 className="w-4 h-4" /></button>
                       </div>
                     ))}
                   </div>
-                ) : <p className="text-sm text-gray-500">No PDFs added yet.</p>}
+                ) : <p className="text-sm text-gray-500 dark:text-gray-400">No PDFs added yet.</p>}
               </div>
             )}
           </form>
@@ -323,9 +323,9 @@ export default function CourseManagement() {
           <div className="flex items-center justify-between gap-4">
             <div>
               <h2 className="text-lg font-semibold">Lessons: {lessonCourse.title}</h2>
-              <p className="text-sm text-gray-500">Add YouTube or Google Drive video lessons.</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400">Add YouTube or Google Drive video lessons.</p>
             </div>
-            <button onClick={() => setLessonCourse(null)} className="p-1 text-gray-400 hover:text-gray-600" aria-label="Close lessons">
+            <button onClick={() => setLessonCourse(null)} className="p-1 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-400" aria-label="Close lessons">
               <X className="w-5 h-5" />
             </button>
           </div>
@@ -335,21 +335,21 @@ export default function CourseManagement() {
             <button type="submit" className="btn-primary flex items-center justify-center gap-2"><Plus className="w-4 h-4" /> Add Lesson</button>
           </form>
           {courseLessons.length ? (
-            <div className="divide-y divide-gray-100 rounded-lg border border-gray-200">
+            <div className="divide-y divide-gray-100 dark:divide-gray-800 rounded-lg border border-gray-200 dark:border-gray-800">
               {courseLessons.map((lesson, index) => (
                 <div key={lesson.id} className="flex items-center gap-3 p-3">
-                  <span className="text-sm font-medium text-gray-400">{index + 1}</span>
-                  <Video className="w-4 h-4 text-indigo-600 shrink-0" />
+                  <span className="text-sm font-medium text-gray-400 dark:text-gray-500">{index + 1}</span>
+                  <Video className="w-4 h-4 text-indigo-600 dark:text-indigo-300 shrink-0" />
                   <div className="min-w-0 flex-1">
-                    <p className="truncate text-sm font-medium text-gray-800">{lesson.title}</p>
-                    <p className="text-xs text-gray-500">{lesson.provider}</p>
+                    <p className="truncate text-sm font-medium text-gray-800 dark:text-gray-200">{lesson.title}</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">{lesson.provider}</p>
                   </div>
-                  <button onClick={() => setMediaViewer({ url: lesson.video_url, title: lesson.title, type: 'video' })} className="p-1.5 text-gray-400 hover:text-indigo-600" aria-label={`Open ${lesson.title}`}><ExternalLink className="w-4 h-4" /></button>
-                  <button onClick={() => handleDeleteLesson(lesson.id)} className="p-1.5 text-gray-400 hover:text-red-600" aria-label={`Delete ${lesson.title}`}><Trash2 className="w-4 h-4" /></button>
+                  <button onClick={() => setMediaViewer({ url: lesson.video_url, title: lesson.title, type: 'video' })} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-indigo-600" aria-label={`Open ${lesson.title}`}><ExternalLink className="w-4 h-4" /></button>
+                  <button onClick={() => handleDeleteLesson(lesson.id)} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-red-600" aria-label={`Delete ${lesson.title}`}><Trash2 className="w-4 h-4" /></button>
                 </div>
               ))}
             </div>
-          ) : <p className="text-sm text-gray-500">No lessons added yet.</p>}
+          ) : <p className="text-sm text-gray-500 dark:text-gray-400">No lessons added yet.</p>}
         </div>
       )}
 
@@ -360,7 +360,7 @@ export default function CourseManagement() {
               <h2 className="text-lg font-semibold">PDFs: {pdfCourse.title}</h2>
               <p className="text-sm text-gray-500">Add PDF documents for students to download.</p>
             </div>
-            <button onClick={() => setPdfCourse(null)} className="p-1 text-gray-400 hover:text-gray-600" aria-label="Close PDFs">
+            <button onClick={() => setPdfCourse(null)} className="p-1 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-400" aria-label="Close PDFs">
               <X className="w-5 h-5" />
             </button>
           </div>
@@ -370,20 +370,20 @@ export default function CourseManagement() {
             <button type="submit" className="btn-primary flex items-center justify-center gap-2"><Plus className="w-4 h-4" /> Add PDF</button>
           </form>
           {coursePdfs.length ? (
-            <div className="divide-y divide-gray-100 rounded-lg border border-gray-200">
+            <div className="divide-y divide-gray-100 dark:divide-gray-800 rounded-lg border border-gray-200 dark:border-gray-800">
               {coursePdfs.map((pdf, index) => (
                 <div key={pdf.id} className="flex items-center gap-3 p-3">
-                  <span className="text-sm font-medium text-gray-400">{index + 1}</span>
-                  <FileText className="w-4 h-4 text-indigo-600 shrink-0" />
+                  <span className="text-sm font-medium text-gray-400 dark:text-gray-500">{index + 1}</span>
+                  <FileText className="w-4 h-4 text-indigo-600 dark:text-indigo-300 shrink-0" />
                   <div className="min-w-0 flex-1">
-                    <p className="truncate text-sm font-medium text-gray-800">{pdf.title}</p>
+                    <p className="truncate text-sm font-medium text-gray-800 dark:text-gray-200">{pdf.title}</p>
                   </div>
-                  <button onClick={() => setMediaViewer({ url: pdf.pdf_url, title: pdf.title, type: 'pdf' })} className="p-1.5 text-gray-400 hover:text-indigo-600" aria-label={`Open ${pdf.title}`}><ExternalLink className="w-4 h-4" /></button>
-                  <button onClick={() => handleDeletePdf(pdf.id)} className="p-1.5 text-gray-400 hover:text-red-600" aria-label={`Delete ${pdf.title}`}><Trash2 className="w-4 h-4" /></button>
+                  <button onClick={() => setMediaViewer({ url: pdf.pdf_url, title: pdf.title, type: 'pdf' })} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-indigo-600" aria-label={`Open ${pdf.title}`}><ExternalLink className="w-4 h-4" /></button>
+                  <button onClick={() => handleDeletePdf(pdf.id)} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-red-600" aria-label={`Delete ${pdf.title}`}><Trash2 className="w-4 h-4" /></button>
                 </div>
               ))}
             </div>
-          ) : <p className="text-sm text-gray-500">No PDFs added yet.</p>}
+          ) : <p className="text-sm text-gray-500 dark:text-gray-400">No PDFs added yet.</p>}
         </div>
       )}
 
@@ -395,7 +395,7 @@ export default function CourseManagement() {
         <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
-            <tr className="border-b border-gray-200 bg-gray-50">
+            <tr className="border-b border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/60">
               <th className="table-header">Title</th>
               <th className="table-header">Category</th>
               <th className="table-header">Students</th>
@@ -407,29 +407,29 @@ export default function CourseManagement() {
           </thead>
           <tbody>
             {filtered.map(c => (
-              <tr key={c.id} className="border-b border-gray-100 hover:bg-gray-50">
+              <tr key={c.id} className="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/60">
                 <td className="table-cell font-medium">{c.title}</td>
                 <td className="table-cell">
-                  <span className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">{c.category}</span>
+                  <span className="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 px-2 py-0.5 rounded-full">{c.category}</span>
                 </td>
                 <td className="table-cell">{c.students}</td>
                 <td className="table-cell">{c.lessons}</td>
                 <td className="table-cell">
                   <span className={`badge ${c.status === 'Published' ? 'badge-success' : 'badge-warning'}`}>{c.status}</span>
                 </td>
-                <td className="table-cell text-gray-500">{c.duration}</td>
+                <td className="table-cell text-gray-500 dark:text-gray-400">{c.duration}</td>
                 <td className="table-cell">
                   <div className="flex items-center gap-2">
-                    <button onClick={() => handleOpenEdit(c)} className="p-1.5 text-gray-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg">
+                    <button onClick={() => handleOpenEdit(c)} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-500/10 rounded-lg">
                       <Edit2 className="w-4 h-4" />
                     </button>
-                    <button onClick={() => openLessons(c)} className="p-1.5 text-gray-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg" title="Manage lessons">
+                    <button onClick={() => openLessons(c)} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-500/10 rounded-lg" title="Manage lessons">
                       <Video className="w-4 h-4" />
                     </button>
-                    <button onClick={() => openPdfs(c)} className="p-1.5 text-gray-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg" title="Manage PDFs">
+                    <button onClick={() => openPdfs(c)} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-500/10 rounded-lg" title="Manage PDFs">
                       <FileText className="w-4 h-4" />
                     </button>
-                    <button onClick={() => handleDelete(c.id)} className="p-1.5 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg">
+                    <button onClick={() => handleDelete(c.id)} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-red-600 hover:bg-red-50 rounded-lg">
                       <Trash2 className="w-4 h-4" />
                     </button>
                   </div>
