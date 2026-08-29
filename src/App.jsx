@@ -17,7 +17,6 @@ import QuestionBank from './pages/admin/ExamsQuizzes';
 import AnnouncementsPage from './pages/admin/AnnouncementsPage';
 import NotificationsPage from './pages/admin/NotificationsPage';
 import SettingsPage from './pages/admin/SettingsPage';
-import AuditPage from './pages/admin/AuditPage';
 import AdminTickets from './pages/admin/AdminTickets';
 import AdminCalendar from './pages/admin/AdminCalendar';
 import AdminLiveClasses from './pages/admin/AdminLiveClasses';
@@ -93,14 +92,9 @@ function AppRoutes() {
         <Route path="announcements" element={<AnnouncementsPage />} />
         <Route path="tickets" element={<AdminTickets />} />
         <Route path="notifications/email" element={<NotificationsPage />} />
-        <Route path="notifications/sms" element={<NotificationsPage />} />
         <Route path="notifications/push" element={<NotificationsPage />} />
-        <Route path="settings/general" element={<SettingsPage />} />
-        <Route path="settings/roles" element={<SettingsPage />} />
         <Route path="settings/smtp" element={<SettingsPage />} />
-        <Route path="settings/api-keys" element={<SettingsPage />} />
         <Route path="settings/backup" element={<SettingsPage />} />
-        <Route path="audit" element={<AuditPage />} />
       </Route>
 
       <Route path="/student" element={<RoleGuard role="student"><DashboardLayout /></RoleGuard>}>

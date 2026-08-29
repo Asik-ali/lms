@@ -1,11 +1,10 @@
 import { useState } from 'react';
-import { Mail, MessageSquare, Bell, Send, Loader } from 'lucide-react';
+import { Mail, Bell, Send, Loader } from 'lucide-react';
 import { supabase } from '../../supabase/client';
 import { showError, showSuccess } from '../../components/common/Toast';
 
 const tabs = [
   { label: 'Email', icon: Mail },
-  { label: 'SMS', icon: MessageSquare },
   { label: 'Push Notifications', icon: Bell },
 ];
 
@@ -22,7 +21,6 @@ function ComposeForm({ type, onSent }) {
 
   const placeholders = {
     Email: { subject: 'Notification subject', message: 'Write your email message...' },
-    SMS: { subject: 'SMS subject', message: 'Write your SMS message...' },
     'Push Notifications': { subject: 'Push title', message: 'Write your push message...' },
   };
 
@@ -33,6 +31,8 @@ function ComposeForm({ type, onSent }) {
 
     setSending(true);
     try {
+      const { data: { session } } = await supabase.auth.getSession();
+      const token = session?.access_token || '';
       let recipientLabel = '';
       let emails = [];
 
@@ -57,7 +57,7 @@ function ComposeForm({ type, onSent }) {
           emails.map(email =>
             fetch('/api/send-email', {
               method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
+              headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
               body: JSON.stringify({ recipient: email, subject, message }),
             }).then(async r => ({ ok: r.ok, body: await r.json() }))
           )
@@ -77,7 +77,7 @@ function ComposeForm({ type, onSent }) {
       } else if (type === 'Push Notifications') {
         const res = await fetch('/api/send-push', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
           body: JSON.stringify({ recipient, subject, message }),
         });
 
@@ -90,10 +90,6 @@ function ComposeForm({ type, onSent }) {
         }
 
         onSent({ type, recipient: recipientLabel, subject, status: res.ok ? 'Sent' : 'Failed' });
-      } else {
-        showError('Only Email and Push Notifications are implemented. SMS requires additional setup.');
-        setSending(false);
-        return;
       }
 
       setSubject('');

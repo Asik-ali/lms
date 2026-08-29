@@ -1,24 +1,38 @@
-import { createClient } from '@supabase/supabase-js';
+import { createServiceClient, getBearerToken } from './_auth.mjs';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const supabaseUrl = process.env.VITE_SUPABASE_URL;
-  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-
-  if (!supabaseUrl || !serviceKey) {
-    return res.status(500).json({ error: 'Supabase credentials not configured' });
-  }
-
-  const supabase = createClient(supabaseUrl, serviceKey);
+  const supabase = createServiceClient();
 
   try {
     const { userId, subscription } = req.body;
 
     if (!userId || !subscription) {
       return res.status(400).json({ error: 'Missing userId or subscription' });
+    }
+
+    // Only allow a user to save their own subscription (or an admin on their behalf)
+    const token = getBearerToken(req);
+    let authorized = false;
+    if (token) {
+      const { data: user, error } = await supabase.auth.getUser(token);
+      if (!error && user?.user) {
+        if (user.user.id === userId) authorized = true;
+        else {
+          const { data: profile } = await supabase
+            .from('profiles')
+            .select('role')
+            .eq('id', user.user.id)
+            .maybeSingle();
+          if (profile?.role === 'admin') authorized = true;
+        }
+      }
+    }
+    if (!authorized) {
+      return res.status(401).json({ error: 'Not authorized' });
     }
 
     const { error } = await supabase.from('push_subscriptions').upsert(

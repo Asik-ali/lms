@@ -1,33 +1,24 @@
-import { createClient } from '@supabase/supabase-js';
 import webpush from 'web-push';
+import { createServiceClient, requireAdmin } from './_auth.mjs';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const supabaseUrl = process.env.VITE_SUPABASE_URL;
-  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const supabase = createServiceClient();
+
   const vapidPublicKey = process.env.VAPID_PUBLIC_KEY;
   const vapidPrivateKey = process.env.VAPID_PRIVATE_KEY;
-
-  if (!supabaseUrl || !serviceKey) {
-    return res.status(500).json({ error: 'Supabase credentials not configured' });
-  }
-
   if (!vapidPublicKey || !vapidPrivateKey) {
     return res.status(500).json({ error: 'VAPID keys not configured' });
   }
-
-  webpush.setVapidDetails(
-    'mailto:admin@lms.com',
-    vapidPublicKey,
-    vapidPrivateKey
-  );
-
-  const supabase = createClient(supabaseUrl, serviceKey);
+  webpush.setVapidDetails('mailto:admin@lms.com', vapidPublicKey, vapidPrivateKey);
 
   try {
+    const allowed = await requireAdmin(req, res, supabase);
+    if (!allowed) return;
+
     const { message, subject, recipient } = req.body;
 
     if (!message || !subject) {
@@ -51,8 +42,9 @@ export default async function handler(req, res) {
       }
     } else if (recipient === 'all_instructors') {
       const { data } = await supabase
-        .from('instructors')
-        .select('id');
+        .from('profiles')
+        .select('id')
+        .eq('role', 'instructor');
       const userIds = data?.map(p => p.id) || [];
       if (userIds.length) {
         const { data: subs } = await supabase

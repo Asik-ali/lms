@@ -1,106 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Settings, Shield, Mail, Key, Database, Save, Plus, Trash2, Copy, Download, Upload, Loader } from 'lucide-react';
+import { Mail, Database, Save, Download, Upload, Loader, MailCheck, ClipboardPaste, Eye } from 'lucide-react';
 import { supabase } from '../../supabase/client';
 import { getSmtpSettings, saveSmtpSettings } from '../../data/dynamicStore';
 import { showError, showSuccess } from '../../components/common/Toast';
 
 const tabs = [
-  { label: 'General', icon: Settings },
-  { label: 'Roles & Permissions', icon: Shield },
   { label: 'SMTP', icon: Mail },
-  { label: 'API Keys', icon: Key },
   { label: 'Backup & Restore', icon: Database },
 ];
-
-const roles = [
-  { name: 'Admin', permissions: { manage_users: true, manage_courses: true, manage_settings: true, view_reports: true } },
-  { name: 'Instructor', permissions: { manage_users: false, manage_courses: true, manage_settings: false, view_reports: true } },
-  { name: 'Student', permissions: { manage_users: false, manage_courses: false, manage_settings: false, view_reports: false } },
-];
-
-const permissionLabels = {
-  manage_users: 'Manage Users',
-  manage_courses: 'Manage Courses',
-  manage_settings: 'Manage Settings',
-  view_reports: 'View Reports',
-};
-
-const apiKeys = [
-  { id: 1, name: 'Production API Key', key: 'pk_live_xxxxxxxxxxxx', created: '2026-01-15', status: 'Active' },
-  { id: 2, name: 'Test API Key', key: 'pk_test_xxxxxxxxxxxx', created: '2026-03-20', status: 'Active' },
-];
-
-function GeneralTab() {
-  const [siteName, setSiteName] = useState('LMS Platform');
-  const [timezone, setTimezone] = useState('UTC');
-  const [language, setLanguage] = useState('en');
-
-  return (
-    <div className="card">
-      <div className="card-header"><h3 className="text-lg font-semibold">General Settings</h3></div>
-      <div className="p-6 space-y-4 max-w-xl">
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Site Name</label>
-          <input type="text" value={siteName} onChange={e => setSiteName(e.target.value)} className="input-field" />
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Logo</label>
-          <div className="flex items-center gap-3">
-            <div className="w-16 h-16 rounded-lg bg-gray-100 border-2 border-dashed border-gray-300 flex items-center justify-center text-gray-400 text-xs">Logo</div>
-            <button className="btn-secondary">Upload</button>
-          </div>
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Timezone</label>
-          <select value={timezone} onChange={e => setTimezone(e.target.value)} className="input-field">
-            <option value="UTC">UTC</option>
-            <option value="EST">Eastern (EST)</option>
-            <option value="PST">Pacific (PST)</option>
-            <option value="IST">India (IST)</option>
-          </select>
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Language</label>
-          <select value={language} onChange={e => setLanguage(e.target.value)} className="input-field">
-            <option value="en">English</option>
-            <option value="es">Spanish</option>
-            <option value="fr">French</option>
-            <option value="de">German</option>
-          </select>
-        </div>
-        <button className="flex items-center gap-2 btn-primary"><Save className="w-4 h-4" />Save Settings</button>
-      </div>
-    </div>
-  );
-}
-
-function RolesTab() {
-  const [rolesState, setRolesState] = useState(roles);
-
-  const togglePermission = (roleIdx, perm) => {
-    setRolesState(prev => prev.map((r, i) => i === roleIdx ? { ...r, permissions: { ...r.permissions, [perm]: !r.permissions[perm] } } : r));
-  };
-
-  return (
-    <div className="space-y-4">
-      {rolesState.map((role, idx) => (
-        <div key={role.name} className="card">
-          <div className="card-header"><h3 className="text-lg font-semibold">{role.name}</h3></div>
-          <div className="p-6 space-y-3">
-            {Object.entries(permissionLabels).map(([key, label]) => (
-              <label key={key} className="flex items-center gap-3 cursor-pointer">
-                <input type="checkbox" checked={role.permissions[key]} onChange={() => togglePermission(idx, key)} className="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" />
-                <span className="text-sm text-gray-700">{label}</span>
-              </label>
-            ))}
-          </div>
-        </div>
-      ))}
-      <button className="flex items-center gap-2 btn-primary"><Save className="w-4 h-4" />Save Permissions</button>
-    </div>
-  );
-}
 
 function SMTPTab() {
   const [host, setHost] = useState('smtp.gmail.com');
@@ -145,9 +53,11 @@ function SMTPTab() {
   const handleTest = async () => {
     setTesting(true);
     try {
+      const { data: { session } } = await supabase.auth.getSession();
+      const token = session?.access_token || '';
       const res = await fetch('/api/send-email', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
         body: JSON.stringify({
           recipient: username,
           subject: 'Test email from LMS',
@@ -210,57 +120,36 @@ function SMTPTab() {
   );
 }
 
-function ApiKeysTab() {
-  const [keys, setKeys] = useState(apiKeys);
-
-  const deleteKey = (id) => setKeys(prev => prev.filter(k => k.id !== id));
-
-  return (
-    <div className="space-y-4">
-      <button className="flex items-center gap-2 btn-primary"><Plus className="w-4 h-4" />Generate New Key</button>
-      <div className="card overflow-hidden">
-        <table className="w-full">
-          <thead>
-            <tr className="border-b border-gray-200 bg-gray-50">
-              <th className="table-header">Name</th>
-              <th className="table-header">API Key</th>
-              <th className="table-header">Created</th>
-              <th className="table-header">Status</th>
-              <th className="table-header">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {keys.map(k => (
-              <tr key={k.id} className="border-b border-gray-100 hover:bg-gray-50">
-                <td className="table-cell font-medium">{k.name}</td>
-                <td className="table-cell">
-                  <code className="px-2 py-1 bg-gray-100 rounded text-xs font-mono">{k.key}</code>
-                </td>
-                <td className="table-cell text-gray-500">{k.created}</td>
-                <td className="table-cell"><span className="badge-success">{k.status}</span></td>
-                <td className="table-cell">
-                  <div className="flex items-center gap-2">
-                    <button className="p-1.5 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg"><Copy className="w-4 h-4" /></button>
-                    <button onClick={() => deleteKey(k.id)} className="p-1.5 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg"><Trash2 className="w-4 h-4" /></button>
-                  </div>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  );
-}
-
-const backupTables = ['categories', 'courses', 'assignments', 'quizzes', 'questions', 'attendance', 'announcements', 'enrollments', 'notifications', 'live_classes', 'smtp_settings'];
+const backupTables = [
+  'categories', 'courses', 'course_pdfs', 'course_lessons',
+  'assignments', 'assignment_submissions', 'quizzes', 'questions', 'attendance',
+  'announcements', 'enrollments', 'notifications', 'live_classes',
+  'smtp_settings', 'tickets', 'ticket_replies', 'calendar_events',
+  'test_series', 'test_categories', 'tests', 'test_attempts', 'test_responses',
+  'question_reports',
+];
 
 function BackupTab() {
   const [schedule, setSchedule] = useState(() => localStorage.getItem('backupSchedule') || 'daily');
   const [lastBackup, setLastBackup] = useState(() => localStorage.getItem('lastBackup') || 'No backup created yet');
   const [backupFile, setBackupFile] = useState(null);
   const [isWorking, setIsWorking] = useState(false);
+  const [isSending, setIsSending] = useState(false);
+  const [adminEmail, setAdminEmail] = useState('');
+  const [pasteJson, setPasteJson] = useState('');
+  const [preview, setPreview] = useState(null);
   const fileInputRef = useRef(null);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const settings = await getSmtpSettings();
+        if (settings?.username) setAdminEmail(settings.username);
+      } catch (err) {
+        console.error('Failed to load SMTP email:', err);
+      }
+    })();
+  }, []);
 
   const saveSchedule = () => {
     localStorage.setItem('backupSchedule', schedule);
@@ -276,7 +165,7 @@ function BackupTab() {
         return [table, data || []];
       }));
       const createdAt = new Date().toISOString();
-      const backup = { version: 1, createdAt, tables: Object.fromEntries(entries) };
+      const backup = { version: 1, type: 'lms-backup', createdAt, tables: Object.fromEntries(entries) };
       const url = URL.createObjectURL(new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' }));
       const link = document.createElement('a');
       link.href = url;
@@ -294,19 +183,74 @@ function BackupTab() {
     }
   };
 
-  const restoreBackup = async () => {
-    if (!backupFile) return showError('Choose a backup file first.');
+  const sendBackupEmail = async () => {
+    if (!adminEmail) return showError('Enter an admin email to send the backup to.');
+    setIsSending(true);
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      const token = session?.access_token || '';
+      const res = await fetch('/api/backup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+        body: JSON.stringify({ recipient: adminEmail }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        const label = new Date().toLocaleString();
+        localStorage.setItem('lastBackup', label);
+        setLastBackup(label);
+        showSuccess('Backup emailed to ' + adminEmail);
+      } else {
+        showError(data.error || 'Failed to send backup email.');
+      }
+    } catch (err) {
+      showError(err.message || 'Could not reach the backup server.');
+    } finally {
+      setIsSending(false);
+    }
+  };
+
+  const handlePasteChange = (value) => {
+    setPasteJson(value);
+    setPreview(null);
+    try {
+      const backup = JSON.parse(value);
+      if (backup?.version === 1 && backup.tables && typeof backup.tables === 'object') {
+        const tableCounts = Object.entries(backup.tables).map(([table, rows]) => ({
+          table,
+          count: Array.isArray(rows) ? rows.length : 0,
+        }));
+        setPreview({
+          createdAt: backup.createdAt,
+          totalRows: tableCounts.reduce((sum, t) => sum + t.count, 0),
+          tables: tableCounts,
+        });
+      }
+    } catch {
+      // invalid JSON, no preview
+    }
+  };
+
+  const applyPasteBackup = async () => {
+    if (!pasteJson.trim()) return showError('Paste a backup first.');
+    let backup;
+    try {
+      backup = JSON.parse(pasteJson);
+    } catch {
+      return showError('The pasted content is not valid JSON.');
+    }
+    if (backup?.version !== 1 || !backup.tables || typeof backup.tables !== 'object') {
+      return showError('This is not a valid LMS backup.');
+    }
+    if (!window.confirm('Restore this backup? Current LMS records will be replaced with the backup data.')) return;
+
     setIsWorking(true);
     const restoredTables = [];
     const failedTables = [];
     try {
-      const backup = JSON.parse(await backupFile.text());
-      if (backup?.version !== 1 || !backup.tables) throw new Error('This is not a valid LMS backup file.');
-      if (!window.confirm('Restore this backup? Current courses, users data, and other LMS records will be replaced.')) return;
-
       for (const table of backupTables) {
         const rows = backup.tables[table];
-        if (!Array.isArray(rows)) throw new Error(`The backup is missing valid ${table} data.`);
+        if (!Array.isArray(rows)) continue;
         try {
           const { error: deleteError } = await supabase.from(table).delete().neq('id', 0);
           if (deleteError) throw deleteError;
@@ -321,13 +265,12 @@ function BackupTab() {
         }
       }
       if (failedTables.length) {
-        const msg = `Restored ${restoredTables.length}/${backupTables.length} tables. Failed: ${failedTables.map(f => f.table).join(', ')}`;
-        showError(msg);
+        showError(`Restored ${restoredTables.length}/${backupTables.length} tables. Failed: ${failedTables.map(f => f.table).join(', ')}`);
       } else {
         showSuccess('Backup restored successfully. Reload the page to see all restored data.');
       }
-      setBackupFile(null);
-      if (fileInputRef.current) fileInputRef.current.value = '';
+      setPasteJson('');
+      setPreview(null);
     } catch (error) {
       showError(error.message || 'Unable to restore the backup.');
     } finally {
@@ -335,42 +278,106 @@ function BackupTab() {
     }
   };
 
+  const restoreFile = async () => {
+    if (!backupFile) return showError('Choose a backup file first.');
+    const text = await backupFile.text();
+    setPasteJson(text);
+    handlePasteChange(text);
+    setBackupFile(null);
+    if (fileInputRef.current) fileInputRef.current.value = '';
+    showSuccess('Backup loaded. Review the preview below, then click Restore.');
+  };
+
   return (
     <div className="space-y-6">
       <div className="card">
-        <div className="card-header"><h3 className="text-lg font-semibold">Backup Schedule</h3></div>
-        <div className="p-6 space-y-4 max-w-xl">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Schedule Frequency</label>
-            <select value={schedule} onChange={e => setSchedule(e.target.value)} className="input-field">
-              <option value="hourly">Hourly</option>
-              <option value="daily">Daily</option>
-              <option value="weekly">Weekly</option>
-              <option value="monthly">Monthly</option>
-            </select>
+        <div className="card-header"><h3 className="text-lg font-semibold">Automatic Backup</h3></div>
+        <div className="p-6 space-y-4">
+          <p className="text-sm text-gray-600">
+            A scheduled job runs every day at <strong>12:00 AM</strong>. It collects all LMS data and emails the backup file
+            (as JSON attachment) to the admin email(s). Requires a Vercel Cron enabled project.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-xl">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Admin Email (backup recipient)</label>
+              <input type="email" value={adminEmail} onChange={e => setAdminEmail(e.target.value)} className="input-field" placeholder="admin@example.com" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Backup Notification Schedule</label>
+              <select value={schedule} onChange={e => setSchedule(e.target.value)} className="input-field">
+                <option value="daily">Daily (12:00 AM)</option>
+                <option value="weekly">Weekly</option>
+                <option value="monthly">Monthly</option>
+              </select>
+            </div>
           </div>
-          <button onClick={saveSchedule} className="flex items-center gap-2 btn-primary"><Save className="w-4 h-4" />Save Schedule</button>
+          <div className="flex flex-wrap items-center gap-3">
+            <button onClick={sendBackupEmail} disabled={isSending} className="flex items-center gap-2 btn-primary disabled:opacity-60">
+              {isSending ? <Loader className="w-4 h-4 animate-spin" /> : <MailCheck className="w-4 h-4" />}
+              {isSending ? 'Sending...' : 'Run Backup & Send Email Now'}
+            </button>
+            <button onClick={saveSchedule} className="flex items-center gap-2 btn-secondary"><Save className="w-4 h-4" />Save</button>
+            <span className="text-sm text-gray-400">Last backup: {lastBackup}</span>
+          </div>
         </div>
       </div>
 
       <div className="card">
-        <div className="card-header"><h3 className="text-lg font-semibold">Manual Backup</h3></div>
-        <div className="p-6 flex items-center gap-3">
-          <button onClick={createBackup} disabled={isWorking} className="flex items-center gap-2 btn-primary disabled:opacity-60"><Download className="w-4 h-4" />{isWorking ? 'Creating Backup...' : 'Create Backup Now'}</button>
-          <span className="text-sm text-gray-400">Last backup: {lastBackup}</span>
+        <div className="card-header"><h3 className="text-lg font-semibold">Manual Download</h3></div>
+        <div className="p-6 flex flex-wrap items-center gap-3">
+          <button onClick={createBackup} disabled={isWorking} className="flex items-center gap-2 btn-primary disabled:opacity-60"><Download className="w-4 h-4" />{isWorking ? 'Creating Backup...' : 'Download Backup File'}</button>
+          <p className="text-sm text-gray-500 w-full">Downloads a full backup JSON file to your computer. You can later paste it below to restore.</p>
         </div>
       </div>
 
       <div className="card">
-        <div className="card-header"><h3 className="text-lg font-semibold">Restore</h3></div>
-        <div className="p-6 space-y-4 max-w-xl">
-          <p className="text-sm text-gray-600">Restore courses, learning data, and application records from a backup file. User accounts and passwords are not included.</p>
-          <div className="flex items-center gap-3">
+        <div className="card-header"><h3 className="text-lg font-semibold">Restore Data</h3></div>
+        <div className="p-6 space-y-4">
+          <p className="text-sm text-gray-600">Paste the backup JSON below (or choose a backup file) to see all its data, then restore. User accounts and passwords are not included.</p>
+
+          <div className="flex flex-wrap items-center gap-3">
             <input ref={fileInputRef} type="file" accept="application/json,.json" className="hidden" onChange={e => setBackupFile(e.target.files?.[0] || null)} />
             <button onClick={() => fileInputRef.current?.click()} className="flex items-center gap-2 btn-secondary"><Upload className="w-4 h-4" />Choose Backup File</button>
-            <button onClick={restoreBackup} disabled={!backupFile || isWorking} className="btn-primary disabled:opacity-60">{isWorking ? 'Restoring...' : 'Restore'}</button>
+            <button onClick={restoreFile} disabled={!backupFile} className="flex items-center gap-2 btn-secondary disabled:opacity-50"><ClipboardPaste className="w-4 h-4" />Load File into Preview</button>
+            {backupFile && <span className="text-sm text-gray-500">Selected: {backupFile.name}</span>}
           </div>
-          {backupFile && <p className="text-sm text-gray-500">Selected: {backupFile.name}</p>}
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Paste Backup JSON</label>
+            <textarea
+              value={pasteJson}
+              onChange={e => handlePasteChange(e.target.value)}
+              rows={6}
+              placeholder='{"version":1,"createdAt":"...","tables":{...}}'
+              className="input-field w-full font-mono text-xs"
+            />
+          </div>
+
+          {preview && (
+            <div className="border border-indigo-200 bg-indigo-50 rounded-lg p-4 space-y-2">
+              <div className="flex items-center gap-2 text-indigo-700 font-semibold">
+                <Eye className="w-4 h-4" />
+                Backup Preview
+                <span className="text-xs font-normal text-indigo-500">{preview.createdAt ? new Date(preview.createdAt).toLocaleString() : 'date unknown'}</span>
+              </div>
+              <p className="text-sm text-indigo-700">Total records: <strong>{preview.totalRows}</strong></p>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-2 max-h-52 overflow-y-auto">
+                {preview.tables.map(({ table, count }) => (
+                  <div key={table} className="flex items-center justify-between bg-white rounded px-3 py-1.5 text-sm">
+                    <span className="text-gray-700">{table}</span>
+                    <span className="font-medium text-indigo-700">{count}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div className="flex items-center gap-3">
+            <button onClick={applyPasteBackup} disabled={!pasteJson.trim() || isWorking} className="btn-primary disabled:opacity-60">
+              {isWorking ? 'Restoring...' : 'Restore Pasted Backup'}
+            </button>
+            {preview && <p className="text-sm text-gray-500">Review the preview, then restore will replace current data.</p>}
+          </div>
         </div>
       </div>
     </div>
@@ -380,11 +387,8 @@ function BackupTab() {
 export default function SettingsPage() {
   const location = useLocation();
   const tabIndexByPath = {
-    '/admin/settings/general': 0,
-    '/admin/settings/roles': 1,
-    '/admin/settings/smtp': 2,
-    '/admin/settings/api-keys': 3,
-    '/admin/settings/backup': 4,
+    '/admin/settings/smtp': 0,
+    '/admin/settings/backup': 1,
   };
   const tabForRoute = tabIndexByPath[location.pathname] ?? 0;
   const [activeTab, setActiveTab] = useState(tabForRoute);
@@ -419,11 +423,8 @@ export default function SettingsPage() {
         </div>
       </div>
 
-      {activeTab === 0 && <GeneralTab />}
-      {activeTab === 1 && <RolesTab />}
-      {activeTab === 2 && <SMTPTab />}
-      {activeTab === 3 && <ApiKeysTab />}
-      {activeTab === 4 && <BackupTab />}
+      {activeTab === 0 && <SMTPTab />}
+      {activeTab === 1 && <BackupTab />}
     </div>
   );
 }

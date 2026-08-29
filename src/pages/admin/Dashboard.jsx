@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
 import { Users, BookOpen, FolderOpen } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { getAllStudents, getAllCourses, getAllEnrollments, getAllTestSeries } from '../../data/dynamicStore';
+import { getAllStudents, getAllCourses, getAllEnrollments, getAllTestSeries, getAllNotifications } from '../../data/dynamicStore';
 
 export default function AdminDashboard() {
   const [students, setStudents] = useState([]);
   const [courses, setCourses] = useState([]);
   const [enrollments, setEnrollments] = useState([]);
   const [testSeries, setTestSeries] = useState([]);
+  const [notifications, setNotifications] = useState([]);
 
   useEffect(() => {
     (async () => {
@@ -15,6 +16,7 @@ export default function AdminDashboard() {
       setCourses(await getAllCourses());
       setEnrollments(await getAllEnrollments());
       setTestSeries(await getAllTestSeries());
+      setNotifications(await getAllNotifications());
     })();
   }, []);
 
@@ -28,11 +30,7 @@ export default function AdminDashboard() {
     { label: 'Test Series', value: totalTestSeries, icon: FolderOpen, color: 'bg-emerald-500' },
   ];
 
-  const recentEnrollments = [...enrollments].reverse().slice(0, 5);
-  const recentNotifications = [
-    ...enrollments.filter(e => e.status === 'Pending').slice(0, 3).map(e => ({ id: `e-${e.id}`, message: `New enrollment request from ${e.name}`, time: e.requested, type: 'info' })),
-    ...courses.filter(c => c.status === 'Published').slice(0, 2).map(c => ({ id: `c-${c.id}`, message: `Course "${c.title}" is now published`, time: 'Today', type: 'success' })),
-  ];
+  const recentNotifications = [...notifications].slice(0, 5);
 
   const enrollmentByMonth = {};
   enrollments.forEach(e => {
@@ -40,6 +38,17 @@ export default function AdminDashboard() {
     enrollmentByMonth[month] = (enrollmentByMonth[month] || 0) + 1;
   });
   const studentProgressData = Object.entries(enrollmentByMonth).sort().map(([month, enrolled]) => ({ month, enrolled }));
+
+  const studentsPerCourse = (title) => {
+    if (!title) return 0;
+    return students.filter(s =>
+      (s.course || '')
+        .split(',')
+        .map(c => c.trim())
+        .filter(Boolean)
+        .includes(title)
+    ).length;
+  };
 
   return (
     <div className="space-y-6">
@@ -127,40 +136,7 @@ export default function AdminDashboard() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
-        <div className="card">
-          <div className="card-header flex justify-between items-center">
-            <h3 className="text-base sm:text-lg font-semibold">Recent Enrollments</h3>
-          </div>
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="border-b border-gray-200">
-                  <th className="table-header">Student</th>
-                  <th className="table-header">Course</th>
-                  <th className="table-header">Date</th>
-                  <th className="table-header">Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                {recentEnrollments.map(e => (
-                  <tr key={e.id} className="border-b border-gray-100 hover:bg-gray-50">
-                    <td className="table-cell font-medium">{e.name}</td>
-                    <td className="table-cell">{e.course}</td>
-                    <td className="table-cell">{e.requested}</td>
-                    <td className="table-cell">
-                      <span className={`badge ${
-                        e.status === 'Approved' ? 'badge-success' :
-                        e.status === 'Pending' ? 'badge-warning' : 'badge-danger'
-                      }`}>{e.status}</span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div className="card">
+        <div className="card lg:col-span-2">
           <div className="card-header">
             <h3 className="text-base sm:text-lg font-semibold">Active Courses</h3>
           </div>
@@ -178,7 +154,7 @@ export default function AdminDashboard() {
                   <tr key={c.id} className="border-b border-gray-100 hover:bg-gray-50">
                     <td className="table-cell font-medium">{c.title}</td>
                     <td className="table-cell">{c.category}</td>
-                    <td className="table-cell">{c.students}</td>
+                    <td className="table-cell">{studentsPerCourse(c.title)}</td>
                   </tr>
                 ))}
               </tbody>

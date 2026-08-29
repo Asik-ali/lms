@@ -452,20 +452,6 @@ export async function deleteLiveClass(id) {
   if (error) throw error;
 }
 
-export async function getAuditLogs({ entity, action, limit = 50, page = 0, pageSize = DEFAULT_PAGE_SIZE } = {}) {
-  const from = page * pageSize;
-  const to = from + pageSize - 1;
-  let q = supabase
-    .from('audit_logs')
-    .select('id, created_at, username, user_role, action, entity, entity_id, description, ip', { count: 'exact' });
-  if (entity) q = q.eq('entity', entity);
-  if (action) q = q.eq('action', action);
-  q = q.order('created_at', { ascending: false }).range(from, to).limit(limit);
-  const { data, error, count } = await q;
-  if (error) throw error;
-  return { data: data || [], total: count ?? 0 };
-}
-
 export async function getAssignmentSubmissions(assignmentId) {
   const { data, error } = await supabase
     .from('assignment_submissions')
@@ -540,7 +526,6 @@ export async function getAllAnnouncements() { const { data } = await getAnnounce
 export async function getAllEnrollments() { const { data } = await getEnrollments({ pageSize: 1000 }); return data; }
 export async function getAllNotifications() { const { data } = await getNotifications({ pageSize: 1000 }); return data; }
 export async function getAllLiveClasses() { const { data } = await getLiveClasses({ pageSize: 1000 }); return data; }
-export async function getAllAuditLogs(params) { const { data } = await getAuditLogs({ ...params, pageSize: 1000 }); return data; }
 
 // Tickets
 export async function getTickets(studentId) {

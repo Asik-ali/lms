@@ -1,20 +1,16 @@
-import { createClient } from '@supabase/supabase-js';
+import { createServiceClient, requireAdmin } from './_auth.mjs';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const supabaseUrl = process.env.VITE_SUPABASE_URL;
-  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-
-  if (!supabaseUrl || !serviceKey) {
-    return res.status(500).json({ error: 'Supabase credentials not configured' });
-  }
-
-  const supabase = createClient(supabaseUrl, serviceKey);
+  const supabase = createServiceClient();
 
   try {
+    const allowed = await requireAdmin(req, res, supabase);
+    if (!allowed) return;
+
     const { name, email, course, enrolled } = req.body;
 
     if (!name || !email) {

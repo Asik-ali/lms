@@ -31,18 +31,13 @@ const adminNav = [
   {
     section: 'Notifications', icon: Bell, submenu: [
       { label: 'Email', path: '/admin/notifications/email' },
-      { label: 'SMS', path: '/admin/notifications/sms' },
       { label: 'Push Notifications', path: '/admin/notifications/push' },
     ]
   },
   {
     section: 'Settings', icon: Settings, submenu: [
-      { label: 'General', path: '/admin/settings/general' },
-      { label: 'Roles & Permissions', path: '/admin/settings/roles' },
       { label: 'SMTP', path: '/admin/settings/smtp' },
-      { label: 'API Keys', path: '/admin/settings/api-keys' },
       { label: 'Backup & Restore', path: '/admin/settings/backup' },
-      { label: 'Audit Log', path: '/admin/audit' },
     ]
   },
 ];

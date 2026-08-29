@@ -163,19 +163,8 @@ CREATE POLICY "Everyone can read course lessons" ON course_lessons FOR SELECT US
 CREATE POLICY "Admins can manage course lessons" ON course_lessons FOR ALL USING (public.is_admin());
 
 -- Instructors
-CREATE TABLE IF NOT EXISTS instructors (
-  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  name TEXT NOT NULL,
-  email TEXT NOT NULL,
-  department TEXT,
-  students INTEGER DEFAULT 0,
-  courses INTEGER DEFAULT 0,
-  rating REAL DEFAULT 0
-);
-
-ALTER TABLE instructors ENABLE ROW LEVEL SECURITY;
-CREATE POLICY "Everyone can read instructors" ON instructors FOR SELECT USING (true);
-CREATE POLICY "Admins can manage instructors" ON instructors FOR ALL USING (public.is_admin());
+-- NOTE: The instructors table has been removed. Drop it in the live DB with:
+--   DROP TABLE IF EXISTS instructors;
 
 -- Assignments
 CREATE TABLE IF NOT EXISTS assignments (
@@ -554,3 +543,18 @@ CREATE POLICY "Students can insert reports" ON question_reports FOR INSERT WITH 
 CREATE POLICY "Students can read own reports" ON question_reports FOR SELECT USING (auth.uid() = student_id);
 CREATE POLICY "Admins can read all reports" ON question_reports FOR SELECT USING (public.is_admin());
 CREATE POLICY "Admins can update reports" ON question_reports FOR UPDATE USING (public.is_admin());
+
+-- Backup Log (tracks automatic/manual backups)
+CREATE TABLE IF NOT EXISTS backup_log (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  type TEXT NOT NULL DEFAULT 'manual',
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  emailed_to TEXT[] DEFAULT '{}',
+  record_counts JSONB DEFAULT '{}',
+  status TEXT NOT NULL DEFAULT 'success',
+  error TEXT
+);
+
+ALTER TABLE backup_log ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Admins can manage backup_log" ON backup_log FOR ALL USING (public.is_admin());
+
