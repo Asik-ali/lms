@@ -178,13 +178,25 @@ export async function deleteQuestion(id) {
 
 // Test Series (hierarchical: Series → Categories → Tests → Questions)
 export async function getAllTestSeries() {
-  const { data, error } = await supabase.from('test_series').select('id, name, description, created_at').order('created_at');
+  const { data, error } = await supabase.from('test_series').select('id, name, description, is_free, created_at').order('created_at');
   if (error) throw error;
   return data || [];
 }
 
-export async function addTestSeries({ name, description }) {
-  const { data, error } = await supabase.from('test_series').insert({ name, description }).select('id, name, description, created_at').single();
+export async function getFreeTestSeries() {
+  const { data, error } = await supabase.from('test_series').select('id, name, description, is_free, created_at').eq('is_free', true).order('created_at');
+  if (error) throw error;
+  return data || [];
+}
+
+export async function addTestSeries({ name, description, is_free }) {
+  const { data, error } = await supabase.from('test_series').insert({ name, description, is_free: !!is_free }).select('id, name, description, is_free, created_at').single();
+  if (error) throw error;
+  return data;
+}
+
+export async function setTestSeriesFree(id, isFree) {
+  const { data, error } = await supabase.from('test_series').update({ is_free: !!isFree }).eq('id', id).select('id, name, description, is_free, created_at').single();
   if (error) throw error;
   return data;
 }

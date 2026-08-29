@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Plus, X, ChevronRight, Trash2, FolderOpen, FileText, HelpCircle, Settings, Clock, Target, Globe, BarChart3, Edit2 } from 'lucide-react';
-import { getAllTestSeries, addTestSeries, deleteTestSeries, getCategoriesBySeries, addTestCategory, deleteTestCategory, getTestsByCategoryId, addTest, updateTest, deleteTest, getQuestionsByTestId, addQuestionToTest, deleteQuestion } from '../../data/dynamicStore';
+import { getAllTestSeries, addTestSeries, setTestSeriesFree, deleteTestSeries, getCategoriesBySeries, addTestCategory, deleteTestCategory, getTestsByCategoryId, addTest, updateTest, deleteTest, getQuestionsByTestId, addQuestionToTest, deleteQuestion } from '../../data/dynamicStore';
 import { showError, showSuccess } from '../../components/common/Toast';
 
 const LEVELS = ['series', 'categories', 'tests', 'questions'];
@@ -21,7 +21,7 @@ export default function TestSeries() {
   const [showAddQuestion, setShowAddQuestion] = useState(false);
   const [showEditTest, setShowEditTest] = useState(false);
 
-  const [formSeries, setFormSeries] = useState({ name: '', description: '' });
+  const [formSeries, setFormSeries] = useState({ name: '', description: '', is_free: false });
   const [formCategory, setFormCategory] = useState({ name: '', parent_id: '' });
   const [formTest, setFormTest] = useState({ name: '', description: '', duration: 90, total_marks: 270, difficulty: 'Moderate', language: 'English', instructions: '', syllabus: '' });
   const [formQuestion, setFormQuestion] = useState({ question: '', option_a: '', option_b: '', option_c: '', option_d: '', correct_answer: 'A', explanation: '', type: 'Multiple Choice', difficulty: 'Easy' });
@@ -53,7 +53,7 @@ export default function TestSeries() {
     if (!formSeries.name.trim()) return showError('Enter a series name.');
     try {
       await addTestSeries(formSeries);
-      setFormSeries({ name: '', description: '' });
+      setFormSeries({ name: '', description: '', is_free: false });
       setShowAddSeries(false);
       await loadSeries();
       showSuccess('Series created.');
@@ -65,6 +65,13 @@ export default function TestSeries() {
     if (currentSeries?.id === id) { setLevel('series'); setCurrentSeries(null); }
     await loadSeries();
     showSuccess('Series deleted.');
+  }
+  async function handleToggleFree(s) {
+    try {
+      await setTestSeriesFree(s.id, !s.is_free);
+      await loadSeries();
+      showSuccess(s.is_free ? 'Series set to assigned-only.' : 'Series set to free for all students.');
+    } catch (e) { showError(e.message); }
   }
 
   // CRUD Categories
@@ -205,7 +212,14 @@ export default function TestSeries() {
                   {s.description && <p className="text-xs text-gray-500 dark:text-gray-400 truncate">{s.description}</p>}
                 </div>
               </div>
-              <button onClick={(e) => { e.stopPropagation(); handleDeleteSeries(s.id); }} className="text-xs text-red-500 hover:text-red-700 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer">Delete</button>
+              <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                <label className="flex items-center gap-1.5 text-xs cursor-pointer select-none">
+                  <input type="checkbox" checked={!!s.is_free} onChange={() => handleToggleFree(s)} className="h-3.5 w-3.5 rounded border-gray-300 dark:border-gray-600 text-emerald-600 focus:ring-emerald-500" title="Visible to all students" />
+                  <span className={s.is_free ? 'font-medium text-emerald-600 dark:text-emerald-400' : 'text-gray-400 dark:text-gray-500'}>Free</span>
+                </label>
+                <button onClick={(e) => { e.stopPropagation(); handleDeleteSeries(s.id); }} className="text-xs text-red-500 hover:text-red-700 cursor-pointer">Delete</button>
+                {s.is_free && <span className="px-1.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 text-[10px] font-medium">All students</span>}
+              </div>
             </button>
           ))}
           {seriesList.length === 0 && (
