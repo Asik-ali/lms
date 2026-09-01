@@ -1,6 +1,9 @@
 import { createClient } from '@supabase/supabase-js';
 
-const CASHFREE_API = 'https://api.cashfree.com/pg';
+const CASHFREE_MODE = (process.env.CASHFREE_MODE || 'production').toLowerCase();
+const CASHFREE_API = CASHFREE_MODE === 'sandbox'
+  ? 'https://sandbox.cashfree.com/pg'
+  : 'https://api.cashfree.com/pg';
 
 export const CASHFREE_ORDER_PREFIX = 'LMS';
 
@@ -12,9 +15,12 @@ export function createServiceClient() {
 }
 
 export function getCashfreeHeaders(auth = false) {
-  const clientId = process.env.CASHFREE_CLIENT_ID;
-  const clientSecret = process.env.CASHFREE_CLIENT_SECRET;
-  if (!clientId || !clientSecret) throw new Error('Cashfree credentials not configured');
+  const isSandbox = CASHFREE_MODE === 'sandbox';
+  const clientId = isSandbox ? process.env.CASHFREE_SANDBOX_CLIENT_ID : process.env.CASHFREE_CLIENT_ID;
+  const clientSecret = isSandbox ? process.env.CASHFREE_SANDBOX_CLIENT_SECRET : process.env.CASHFREE_CLIENT_SECRET;
+  if (!clientId || !clientSecret) {
+    throw new Error(`Cashfree ${isSandbox ? 'sandbox ' : ''}credentials not configured`);
+  }
   const headers = {
     'Content-Type': 'application/json',
     'x-api-version': '2022-09-01',

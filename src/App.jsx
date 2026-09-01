@@ -10,6 +10,9 @@ import HomePage from './pages/public/HomePage';
 import AboutPage from './pages/public/AboutPage';
 import ContactPage from './pages/public/ContactPage';
 import FAQPage from './pages/public/FAQPage';
+import TermsPage from './pages/public/TermsPage';
+import RefundPolicyPage from './pages/public/RefundPolicyPage';
+import PricingPage from './pages/public/PricingPage';
 import AdminDashboard from './pages/admin/Dashboard';
 import StudentManagement from './pages/admin/StudentManagement';
 import CourseManagement from './pages/admin/CourseManagement';
@@ -64,6 +67,9 @@ function AppRoutes() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/faq" element={<FAQPage />} />
+        <Route path="/terms" element={<TermsPage />} />
+        <Route path="/refunds" element={<RefundPolicyPage />} />
+        <Route path="/pricing" element={<PricingPage />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
@@ -78,6 +84,9 @@ function AppRoutes() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/faq" element={<FAQPage />} />
+        <Route path="/terms" element={<TermsPage />} />
+        <Route path="/refunds" element={<RefundPolicyPage />} />
+        <Route path="/pricing" element={<PricingPage />} />
       </Route>
       <Route path="/admin" element={<RoleGuard role="admin"><DashboardLayout /></RoleGuard>}>
         <Route index element={<AdminDashboard />} />

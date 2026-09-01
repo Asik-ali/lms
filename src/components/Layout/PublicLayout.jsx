@@ -5,6 +5,7 @@ import { useTheme } from '../../contexts/ThemeContext';
 
 const navLinks = [
   { label: 'Home', path: '/' },
+  { label: 'Pricing', path: '/pricing' },
   { label: 'About', path: '/about' },
   { label: 'Contact', path: '/contact' },
   { label: 'FAQ', path: '/faq' },
@@ -129,6 +130,14 @@ export default function PublicLayout() {
               <ul className="space-y-2 text-sm">
                 <li><Link to="/faq" className="hover:text-white transition-colors">FAQ</Link></li>
                 <li><Link to="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
+                <li><Link to="/pricing" className="hover:text-white transition-colors">Pricing</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-sm font-semibold text-white mb-3">Legal</h4>
+              <ul className="space-y-2 text-sm">
+                <li><Link to="/terms" className="hover:text-white transition-colors">Terms &amp; Conditions</Link></li>
+                <li><Link to="/refunds" className="hover:text-white transition-colors">Refunds &amp; Cancellations</Link></li>
               </ul>
             </div>
             <div>
