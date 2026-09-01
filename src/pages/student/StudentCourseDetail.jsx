@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ArrowLeft, BookOpen, Clock3, CheckCircle2, FileText, Download, Play, CalendarDays, ChevronDown } from 'lucide-react';
+import { ArrowLeft, BookOpen, Clock3, CheckCircle2, FileText, Play, CalendarDays, ChevronDown } from 'lucide-react';
 import { getCourseById, getCourseLessons, getCoursePdfs } from '../../data/dynamicStore';
 import MediaViewer from '../../components/common/MediaViewer';
 
@@ -167,8 +167,7 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
                             </div>
                           )}
 
-                          {group.videos.length === 0 && group.pdfs.length === 0 && (
-                            <p className="text-sm text-gray-500 dark:text-gray-400">No content for {group.day > 0 ? `Day ${group.day}` : 'this section'} yet.</p>
+                          {group.videos.length === 0 && group.pdfs.length === 0 && (                            <p className="text-sm text-gray-500 dark:text-gray-400">No content for {group.day > 0 ? `Day ${group.day}` : 'this section'} yet.</p>
                           )}
                         </div>
                       )}
