@@ -8,12 +8,20 @@ export default async function handler(req, res) {
 
   const supabase = createServiceClient();
 
-  const vapidPublicKey = process.env.VAPID_PUBLIC_KEY;
-  const vapidPrivateKey = process.env.VAPID_PRIVATE_KEY;
+  const vapidPublicKey = (process.env.VAPID_PUBLIC_KEY || '').trim();
+  const vapidPrivateKey = (process.env.VAPID_PRIVATE_KEY || '').trim();
   if (!vapidPublicKey || !vapidPrivateKey) {
-    return res.status(500).json({ error: 'VAPID keys not configured' });
+    return res.status(500).json({ error: 'VAPID keys not configured in environment' });
   }
-  webpush.setVapidDetails('mailto:admin@lms.com', vapidPublicKey, vapidPrivateKey);
+
+  try {
+    // Use the exact VAPID keys the browser subscribed with. The public key must
+    // match vapid-public-key so the subscription applicationServerKey matches.
+    const publicKey = vapidPublicKey.trim();
+    webpush.setVapidDetails('mailto:admin@lms.com', publicKey, vapidPrivateKey.trim());
+  } catch (err) {
+    return res.status(500).json({ error: 'Invalid VAPID key configuration: ' + err.message });
+  }
 
   try {
     const allowed = await requireAdmin(req, res, supabase);
@@ -67,12 +75,21 @@ export default async function handler(req, res) {
     const payload = JSON.stringify({ title: subject, body: message });
 
     const results = await Promise.allSettled(
-      subscriptions.map(sub =>
-        webpush.sendNotification(sub, payload).catch(() => {})
-      )
+      subscriptions.map(sub => {
+        let parsed = sub;
+        if (typeof sub === 'string') {
+          try { parsed = JSON.parse(sub); } catch { return null; }
+        }
+        if (!parsed || !parsed.endpoint || !parsed.keys) return null;
+        try {
+          return webpush.sendNotification(parsed, payload);
+        } catch {
+          return null;
+        }
+      })
     );
 
-    const sent = results.filter(r => r.status === 'fulfilled').length;
+    const sent = results.filter(r => r.status === 'fulfilled' && r.value).length;
 
     return res.status(200).json({ success: true, sent, total: subscriptions.length });
   } catch (err) {

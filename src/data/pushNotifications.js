@@ -1,3 +1,5 @@
+import { apiUrl } from './api';
+
 export async function registerServiceWorker() {
   if (!('serviceWorker' in navigator) || !('PushManager' in window)) {
     return null;
@@ -13,7 +15,7 @@ export async function registerServiceWorker() {
 
 export async function getVapidPublicKey() {
   try {
-    const res = await fetch('/api/vapid-public-key');
+    const res = await fetch(apiUrl('/api/vapid-public-key'));
     const data = await res.json();
     return data.publicKey;
   } catch {
@@ -35,7 +37,7 @@ export async function subscribeToPush(registration) {
     const userId = session?.user?.id;
     if (!userId) return null;
 
-    const res = await fetch('/api/save-subscription', {
+    const res = await fetch(apiUrl('/api/save-subscription'), {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
