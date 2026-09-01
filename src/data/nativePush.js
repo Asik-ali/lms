@@ -12,6 +12,14 @@ function log(...args) {
   try { console.error('[NativePush]', ...args); } catch { /* ignore */ }
 }
 
+async function toast(message, type = 'error') {
+  try {
+    const { showError, showSuccess } = await import('../components/common/Toast.jsx');
+    const fn = type === 'success' ? showSuccess : showError;
+    fn(message);
+  } catch { /* ignore */ }
+}
+
 export async function registerNativePush() {
   if (!Capacitor.isNativePlatform()) return null;
 
@@ -30,6 +38,7 @@ export async function registerNativePush() {
 
   if (permissionStatus.receive !== 'granted') {
     log('Permission not granted:', JSON.stringify(permissionStatus));
+    toast('Push permission not granted. Enable notifications in app settings to receive push.');
     return null;
   }
 
@@ -58,6 +67,7 @@ export async function registerNativePush() {
     await PushNotifications.register();
   } catch (e) {
     log('PushNotifications.register error:', e);
+    toast('Push registration failed: ' + (e?.message || e));
     return null;
   }
 
@@ -74,6 +84,7 @@ export async function registerNativePush() {
       const fcmToken = tokenData?.value;
       log('FCM token received:', fcmToken ? 'yes' : 'no');
       if (!userId || !fcmToken || !token) {
+        toast('Push failed: no FCM token generated from Firebase.');
         cleanup();
         return;
       }
@@ -86,14 +97,21 @@ export async function registerNativePush() {
         log('save FCM token status:', res.status);
         const body = await res.text().catch(() => '');
         log('save FCM token body:', body);
+        if (res.ok) {
+          toast('Push notifications enabled for this device.', 'success');
+        } else {
+          toast('Push save failed: ' + (body || res.status));
+        }
       } catch (e) {
         log('save FCM token error:', e);
+        toast('Push save error: ' + (e?.message || e));
       }
       cleanup();
     });
 
     PushNotifications.addListener('registrationError', (err) => {
       log('registration error:', err);
+      toast('Push registration error: ' + (err?.message || JSON.stringify(err) || err));
       cleanup();
     });
   });
