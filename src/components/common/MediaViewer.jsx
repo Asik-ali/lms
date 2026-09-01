@@ -23,6 +23,21 @@ function isDirectVideoUrl(url) {
   return false;
 }
 
+function getGoogleDrivePreviewUrl(url) {
+  try {
+    const u = new URL(url);
+    if (u.hostname === 'drive.google.com') {
+      const dMatch = u.pathname.match(/\/d\/([^/]+)/);
+      const id = dMatch ? dMatch[1] : u.searchParams.get('id');
+      if (id) return `https://drive.google.com/file/d/${id}/preview`;
+    } else if (u.hostname === 'docs.google.com' && u.pathname.includes('/uc')) {
+      const id = u.searchParams.get('id');
+      if (id) return `https://drive.google.com/file/d/${id}/preview`;
+    }
+  } catch {}
+  return null;
+}
+
 export default function MediaViewer({ url, title, type, onClose }) {
   useEffect(() => {
     const handleKey = (e) => { if (e.key === 'Escape') onClose(); };
@@ -36,7 +51,9 @@ export default function MediaViewer({ url, title, type, onClose }) {
 
   const ytEmbed = type === 'video' ? getYouTubeEmbedUrl(url) : null;
   const directVideo = type === 'video' ? isDirectVideoUrl(url) : false;
-  const isDrive = type === 'video' && (() => { try { return new URL(url).hostname === 'drive.google.com'; } catch { return false; } })();
+  const isDrive = (() => { try { return new URL(url).hostname === 'drive.google.com'; } catch { return false; } })();
+  const drivePreview = type === 'pdf' ? getGoogleDrivePreviewUrl(url) : null;
+  const pdfSrc = drivePreview || url;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4" onClick={onClose}>
@@ -64,7 +81,7 @@ export default function MediaViewer({ url, title, type, onClose }) {
             </video>
           ) : type === 'pdf' ? (
             <iframe
-              src={url}
+              src={pdfSrc}
               title={title}
               className="w-full rounded-lg"
               style={{ height: '80vh' }}
