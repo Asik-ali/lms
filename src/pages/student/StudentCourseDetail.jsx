@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ArrowLeft, BookOpen, Clock3, CheckCircle2, FileText, Download, Play, CalendarDays } from 'lucide-react';
+import { ArrowLeft, BookOpen, Clock3, CheckCircle2, FileText, Download, Play, CalendarDays, ChevronDown } from 'lucide-react';
 import { getCourseById, getCourseLessons, getCoursePdfs } from '../../data/dynamicStore';
 import MediaViewer from '../../components/common/MediaViewer';
 
@@ -12,6 +12,7 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
   const [pdfs, setPdfs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [mediaViewer, setMediaViewer] = useState(null);
+  const [openDay, setOpenDay] = useState(null);
 
   const resolvedCourseId = propCourseId ?? routeCourseId;
 
@@ -106,7 +107,6 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
               <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">Course Info</h3>
               <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
                 <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5" /><span>Duration: {course.duration}</span></li>
-                <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5" /><span>Students enrolled: {course.students}</span></li>
                 <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5" /><span>Total lessons: {course.lessons}</span></li>
               </ul>
             </div>
@@ -117,60 +117,61 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
                 <div className="space-y-4">
                   {days.map(group => (
                     <div key={group.day} className="rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden">
-                      <div className="flex items-center gap-2 px-4 py-2.5 bg-gray-50 dark:bg-gray-800/60 border-b border-gray-200 dark:border-gray-800">
+                      <button
+                        type="button"
+                        onClick={() => setOpenDay(openDay === group.day ? null : group.day)}
+                        className="w-full flex items-center gap-2 px-4 py-3 bg-gray-50 dark:bg-gray-800/60 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800"
+                      >
                         <CalendarDays className="w-4 h-4 text-indigo-600 dark:text-indigo-300" />
-                        <span className="text-sm font-semibold text-gray-900 dark:text-gray-100">
+                        <span className="flex-1 text-left text-sm font-semibold text-gray-900 dark:text-gray-100">
                           {group.day > 0 ? `Day ${group.day}` : 'General'}
                         </span>
-                      </div>
-                      <div className="p-4 space-y-4">
-                        {group.videos.length > 0 && (
-                          <div className="space-y-2">
-                            <p className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">Videos</p>
-                            {group.videos.map(lesson => (
-                              <div key={lesson.id} className="rounded-lg border border-gray-200 dark:border-gray-800 p-3">
-                                <p className="text-sm font-semibold text-gray-900 dark:text-gray-100">{lesson.title}</p>
-                                <button onClick={() => setMediaViewer({ url: lesson.video_url, title: lesson.title, type: 'video' })} className="mt-2 inline-flex items-center gap-1.5 text-sm text-indigo-600 hover:text-indigo-800">
-                                  <Play className="w-3.5 h-3.5" /> Watch video
-                                </button>
-                              </div>
-                            ))}
-                          </div>
-                        )}
+                        <span className="text-xs text-gray-400 dark:text-gray-500">{group.videos.length} V · {group.pdfs.length} P</span>
+                        <ChevronDown className={`w-4 h-4 text-gray-400 dark:text-gray-500 transition-transform ${openDay === group.day ? 'rotate-180' : ''}`} />
+                      </button>
 
-                        {group.pdfs.length > 0 && (
-                          <div className="space-y-2">
-                            <p className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">PDFs</p>
-                            {group.pdfs.map(pdf => (
-                              <div key={pdf.id} className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-gray-800 p-3">
-                                <FileText className="w-5 h-5 text-indigo-600 shrink-0" />
-                                <div className="min-w-0 flex-1">
-                                  <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 truncate">{pdf.title}</p>
+                      {openDay === group.day && (
+                        <div className="p-4 space-y-4">
+                          {group.videos.length > 0 && (
+                            <div className="space-y-2">
+                              <p className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">Videos</p>
+                              {group.videos.map((lesson, i) => (
+                                <div key={lesson.id} className="rounded-lg border border-gray-200 dark:border-gray-800 p-3">
+                                  <p className="text-sm font-semibold text-gray-900 dark:text-gray-100">{i + 1}. {lesson.title}</p>
+                                  <button type="button" onClick={() => setMediaViewer({ url: lesson.video_url, title: lesson.title, type: 'video' })} className="mt-2 inline-flex items-center gap-1.5 text-sm text-indigo-600 hover:text-indigo-800">
+                                    <Play className="w-3.5 h-3.5" /> Watch video
+                                  </button>
                                 </div>
-                                <button
-                                  onClick={() => setMediaViewer({ url: pdf.pdf_url, title: pdf.title, type: 'pdf' })}
-                                  className="inline-flex items-center gap-1.5 text-sm font-medium text-indigo-600 hover:text-indigo-800 shrink-0"
-                                >
-                                  <Download className="w-3.5 h-3.5" /> View PDF
-                                </button>
-                                <a
-                                  href={pdf.pdf_url}
-                                  download={pdf.title}
-                                  target="_blank"
-                                  rel="noreferrer"
-                                  className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 shrink-0"
-                                >
-                                  <Download className="w-3.5 h-3.5" />
-                                </a>
-                              </div>
-                            ))}
-                          </div>
-                        )}
+                              ))}
+                            </div>
+                          )}
 
-                        {group.videos.length === 0 && group.pdfs.length === 0 && (
-                          <p className="text-sm text-gray-500 dark:text-gray-400">No content for {group.day > 0 ? `Day ${group.day}` : 'this section'} yet.</p>
-                        )}
-                      </div>
+                          {group.pdfs.length > 0 && (
+                            <div className="space-y-2">
+                              <p className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">PDFs</p>
+                              {group.pdfs.map((pdf, i) => (
+                                <div key={pdf.id} className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-gray-800 p-3">
+                                  <FileText className="w-5 h-5 text-indigo-600 shrink-0" />
+                                  <div className="min-w-0 flex-1">
+                                    <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 truncate">{i + 1}. {pdf.title}</p>
+                                  </div>
+                                  <button
+                                    type="button"
+                                    onClick={() => window.open(pdf.pdf_url, '_blank', 'noopener,noreferrer')}
+                                    className="inline-flex items-center gap-1.5 text-sm font-medium text-indigo-600 hover:text-indigo-800 shrink-0"
+                                  >
+                                    <Download className="w-3.5 h-3.5" /> View PDF
+                                  </button>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+
+                          {group.videos.length === 0 && group.pdfs.length === 0 && (
+                            <p className="text-sm text-gray-500 dark:text-gray-400">No content for {group.day > 0 ? `Day ${group.day}` : 'this section'} yet.</p>
+                          )}
+                        </div>
+                      )}
                     </div>
                   ))}
                 </div>
