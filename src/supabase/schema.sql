@@ -345,8 +345,9 @@ CREATE TABLE IF NOT EXISTS push_subscriptions (
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   user_id UUID REFERENCES profiles(id) ON DELETE CASCADE,
   subscription JSONB NOT NULL,
+  token_type TEXT NOT NULL DEFAULT 'web',
   created_at TIMESTAMPTZ DEFAULT NOW(),
-  UNIQUE(user_id)
+  UNIQUE(user_id, token_type)
 );
 
 ALTER TABLE push_subscriptions ENABLE ROW LEVEL SECURITY;

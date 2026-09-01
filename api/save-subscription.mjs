@@ -8,7 +8,8 @@ export default async function handler(req, res) {
   const supabase = createServiceClient();
 
   try {
-    const { userId, subscription } = req.body;
+    const { userId, subscription, tokenType = 'web' } = req.body;
+    const token_type = tokenType === 'fcm' ? 'fcm' : 'web';
 
     if (!userId || !subscription) {
       return res.status(400).json({ error: 'Missing userId or subscription' });
@@ -36,8 +37,8 @@ export default async function handler(req, res) {
     }
 
     const { error } = await supabase.from('push_subscriptions').upsert(
-      { user_id: userId, subscription },
-      { onConflict: 'user_id' }
+      { user_id: userId, subscription, token_type },
+      { onConflict: 'user_id,token_type' }
     );
 
     if (error) throw error;
