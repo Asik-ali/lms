@@ -56,6 +56,21 @@ async function saveSubscription(subscription) {
   return true;
 }
 
+// Convert a base64url public key string into a Uint8Array. Browsers
+// (especially Chrome) can throw "AbortError: Registration failed - push service
+// error" when the applicationServerKey is passed as a raw base64 string with
+// padding, so we always hand over decoded bytes.
+function urlBase64ToUint8Array(base64String) {
+  const padding = '='.repeat((4 - (base64String.length % 4)) % 4);
+  const base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/');
+  const rawData = window.atob(base64);
+  const outputArray = new Uint8Array(rawData.length);
+  for (let i = 0; i < rawData.length; ++i) {
+    outputArray[i] = rawData.charCodeAt(i);
+  }
+  return outputArray;
+}
+
 export async function subscribeToPush(registration) {
   try {
     const reg = registration || _registration;
@@ -69,6 +84,8 @@ export async function subscribeToPush(registration) {
       log('subscribe aborted: no VAPID public key');
       return null;
     }
+
+    const applicationServerKey = urlBase64ToUint8Array(publicKey);
 
     // If an existing subscription is active, just re-save it (idempotent).
     const existing = await reg.pushManager.getSubscription();
@@ -84,7 +101,7 @@ export async function subscribeToPush(registration) {
       try {
         subscription = await reg.pushManager.subscribe({
           userVisibleOnly: true,
-          applicationServerKey: publicKey,
+          applicationServerKey,
         });
         break;
       } catch (e) {
