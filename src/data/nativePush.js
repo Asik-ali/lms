@@ -34,11 +34,24 @@ export async function registerNativePush() {
   }
 
   const { supabase } = await import('../supabase/client');
-  const { data: { session } } = await supabase.auth.getSession();
+  let session;
+  const { data: { session: initial } } = await supabase.auth.getSession();
+  if (initial?.user) {
+    session = initial;
+  } else {
+    session = await new Promise((resolve) => {
+      let done = false;
+      const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, s) => {
+        if (s?.user && !done) { done = true; subscription.unsubscribe(); resolve(s); }
+      });
+      setTimeout(() => { if (!done) { done = true; subscription.unsubscribe(); resolve(null); } }, 8000);
+    });
+  }
   const userId = session?.user?.id;
   const token = session?.access_token;
   if (!userId || !token) {
     log('registerNativePush aborted: not logged in');
+    return null;
   }
 
   try {

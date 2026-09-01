@@ -4,8 +4,37 @@ import App from './App.jsx'
 import { registerServiceWorker, subscribeToPush } from './data/pushNotifications.js'
 import { isNativePlatform, registerNativePush } from './data/nativePush.js'
 
+async function waitForSession() {
+  const { supabase } = await import('./supabase/client.js');
+  const { data: { session } } = await supabase.auth.getSession();
+  if (session?.user) return session;
+
+  // Not signed in yet — wait for Supabase to restore or the user to log in.
+  return new Promise((resolve) => {
+    let done = false;
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, s) => {
+      if (s?.user && !done) {
+        done = true;
+        subscription.unsubscribe();
+        resolve(s);
+      }
+    });
+    // Safety timeout so we don't wait forever on a logged-out visitor.
+    setTimeout(() => {
+      if (!done) {
+        done = true;
+        subscription.unsubscribe();
+        resolve(null);
+      }
+    }, 8000);
+  });
+}
+
 async function setupWebPush() {
   try {
+    const session = await waitForSession();
+    if (!session?.user) return;
+
     const registration = await registerServiceWorker();
     if (!registration) return;
     if (Notification.permission === 'granted') {
