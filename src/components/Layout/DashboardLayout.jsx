@@ -25,6 +25,7 @@ const titles = {
   '/student/live-classes': 'Live Classes',
   '/student/test-series': 'Test Series',
   '/student/free-test-series': 'Free Test Series',
+  '/student/buy-courses': 'Buy Courses',
   '/student/calendar': 'Calendar',
   '/student/announcements': 'Announcements',
   '/student/messages': 'Support Tickets',

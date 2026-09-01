@@ -42,7 +42,7 @@ export async function createCashfreeOrder({ orderId, amount, customer, planName 
       customer_phone: customer.phone || '9000000000',
     },
     order_meta: {
-      return_url: `${process.env.NEXT_PUBLIC_SITE_URL || ''}/student/buy-courses?status=return`,
+      return_url: `${process.env.VITE_SITE_URL || ''}/student/buy-courses?status=return`,
     },
   };
   const res = await fetch(`${CASHFREE_API}/orders`, {

@@ -79,7 +79,7 @@ export default function StudentDashboard() {
                 <div className="flex-1 min-w-0">
                   <h4 className="text-sm font-medium text-gray-900 dark:text-gray-100">{c.title}</h4>
                   <div className="flex items-center gap-3 mt-2">
-                    <span className="text-xs text-gray-400 dark:text-gray-500">{c.category} &middot; {c.duration}</span>
+                    <span className="text-xs text-gray-400 dark:text-gray-500">{c.duration}</span>
                   </div>
                 </div>
                 <button type="button" onClick={() => navigate(`/student/courses/${c.id}`)} className="btn-primary whitespace-nowrap">View</button>

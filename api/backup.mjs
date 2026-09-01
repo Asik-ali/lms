@@ -2,7 +2,7 @@ import nodemailer from 'nodemailer';
 import { createServiceClient, requireAdmin } from './_auth.mjs';
 
 const backupTables = [
-  'categories', 'courses', 'course_pdfs', 'course_lessons',
+  'courses', 'course_pdfs', 'course_lessons',
   'assignments', 'assignment_submissions', 'quizzes', 'questions', 'attendance',
   'announcements', 'enrollments', 'notifications', 'live_classes',
   'smtp_settings', 'tickets', 'ticket_replies', 'calendar_events',

@@ -40,7 +40,6 @@ export default function StudentCourses() {
               </div>
               <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">{c.title}</h3>
               <div className="mt-3 space-y-1 text-sm">
-                <p className="text-gray-500 dark:text-gray-400">Category: <span className="text-gray-700 dark:text-gray-300">{c.category}</span></p>
                 <p className="text-gray-500 dark:text-gray-400">Duration: <span className="text-gray-700 dark:text-gray-300">{c.duration}</span></p>
                 <p className="text-gray-500 dark:text-gray-400">Lessons: <span className="text-gray-700 dark:text-gray-300">{c.lessons}</span></p>
                 <span className={`inline-block px-2 py-0.5 rounded-full text-xs font-medium ${c.status === 'Published' ? 'bg-green-100 dark:bg-green-500/15 text-green-700 dark:text-green-300' : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400'}`}>{c.status}</span>

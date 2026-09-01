@@ -53,6 +53,10 @@ export default defineConfig(({ mode }) => {
             if (req.url.startsWith('/api/send-signup-otp')) return handleApi(req, res, '/send-signup-otp');
             if (req.url.startsWith('/api/verify-signup')) return handleApi(req, res, '/verify-signup');
             if (req.url.startsWith('/api/backup')) return handleApi(req, res, '/backup');
+            if (req.url.startsWith('/api/create-order')) return handleApi(req, res, '/create-order');
+            if (req.url.startsWith('/api/order-status')) return handleApi(req, res, '/order-status');
+            if (req.url.startsWith('/api/sales-plans')) return handleApi(req, res, '/sales-plans');
+            if (req.url.startsWith('/api/cashfree-webhook')) return handleApi(req, res, '/cashfree-webhook');
             next();
           });
         },

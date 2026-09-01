@@ -149,7 +149,6 @@ export default function AdminDashboard() {
               <thead>
                 <tr className="border-b border-gray-200 dark:border-gray-800">
                   <th className="table-header">Title</th>
-                  <th className="table-header">Category</th>
                   <th className="table-header">Students</th>
                 </tr>
               </thead>
@@ -157,7 +156,6 @@ export default function AdminDashboard() {
                 {courses.filter(c => c.status === 'Published').map(c => (
                   <tr key={c.id} className="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/60">
                     <td className="table-cell font-medium">{c.title}</td>
-                    <td className="table-cell">{c.category}</td>
                     <td className="table-cell">{studentsPerCourse(c.title)}</td>
                   </tr>
                 ))}

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Search, Plus, Edit2, Trash2, X, ChevronDown, Video, FileText, ExternalLink } from 'lucide-react';
+import { Search, Plus, Edit2, Trash2, X, Video, FileText, ExternalLink } from 'lucide-react';
 import { getAllCourses, addCourse, updateCourse, deleteCourse, getCourseLessons, addCourseLesson, deleteCourseLesson, getCoursePdfs, addCoursePdf, deleteCoursePdf } from '../../data/dynamicStore';
 import { showSuccess, showError } from '../../components/common/Toast';
 import MediaViewer from '../../components/common/MediaViewer';
@@ -187,8 +187,7 @@ export default function CourseManagement() {
 
   const filtered = courses.filter(c => {
     const matchSearch = c.title.toLowerCase().includes(search.toLowerCase());
-    const matchCategory = filterCategory === 'All' || c.category === filterCategory;
-    return matchSearch && matchCategory;
+    return matchSearch;
   });
 
   return (
@@ -211,19 +210,6 @@ export default function CourseManagement() {
             className="input-field pl-10"
           />
         </div>
-        <div className="relative w-full sm:w-auto">
-          <select
-            value={filterCategory}
-            onChange={e => setFilterCategory(e.target.value)}
-            className="input-field appearance-none pr-10 w-full"
-          >
-            <option value="All">All Categories</option>
-            {cats.map(c => (
-              <option key={c} value={c}>{c}</option>
-            ))}
-          </select>
-          <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 dark:text-gray-500 pointer-events-none" />
-        </div>
       </div>
 
       {showForm && (
@@ -239,15 +225,6 @@ export default function CourseManagement() {
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Title</label>
                 <input name="title" value={form.title} onChange={handleChange} className="input-field w-full" required />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Category</label>
-                <select name="category" value={form.category} onChange={handleChange} className="input-field w-full" required>
-                  <option value="">Select category</option>
-                  {cats.map(c => (
-                    <option key={c} value={c}>{c}</option>
-                  ))}
-                </select>
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Duration</label>
@@ -407,7 +384,6 @@ export default function CourseManagement() {
           <thead>
             <tr className="border-b border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/60">
               <th className="table-header">Title</th>
-              <th className="table-header">Category</th>
               <th className="table-header">Students</th>
               <th className="table-header">Lessons</th>
               <th className="table-header">Status</th>
@@ -419,9 +395,6 @@ export default function CourseManagement() {
             {filtered.map(c => (
               <tr key={c.id} className="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/60">
                 <td className="table-cell font-medium">{c.title}</td>
-                <td className="table-cell">
-                  <span className="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 px-2 py-0.5 rounded-full">{c.category}</span>
-                </td>
                 <td className="table-cell">{c.students}</td>
                 <td className="table-cell">{c.lessons}</td>
                 <td className="table-cell">

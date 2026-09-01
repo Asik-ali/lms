@@ -18,25 +18,68 @@ export async function getCourseById(id) {
   const numericId = Number(id);
   const { data, error } = await supabase
     .from('courses')
-    .select('id, title, category, students, lessons, duration, status')
+    .select('id, title, students, lessons, duration, status')
     .eq('id', isNaN(numericId) ? id : numericId)
     .maybeSingle();
   if (error) throw error;
   return data;
 }
 export async function addCourse(row) {
-  const { data, error } = await supabase.from('courses').insert(row).select('id, title, category, students, lessons, duration, status').single();
+  const { data, error } = await supabase.from('courses').insert(row).select('id, title, students, lessons, duration, status').single();
   if (error) throw error;
   return data;
 }
 export async function updateCourse(id, row) {
-  const { data, error } = await supabase.from('courses').update(row).eq('id', id).select('id, title, category, students, lessons, duration, status').single();
+  const { data: existing } = await supabase.from('courses').select('title').eq('id', id).maybeSingle();
+  const { data, error } = await supabase.from('courses').update(row).eq('id', id).select('id, title, students, lessons, duration, status').single();
   if (error) throw error;
+  if (existing?.title && row?.title && existing.title.toLowerCase() !== row.title.toLowerCase()) {
+    await renameStudentCourse(existing.title, row.title);
+  }
   return data;
 }
 export async function deleteCourse(id) {
+  const { data: existing } = await supabase.from('courses').select('title').eq('id', id).maybeSingle();
   const { error } = await supabase.from('courses').delete().eq('id', id);
   if (error) throw error;
+  if (existing?.title) {
+    await removeStudentCourse(existing.title);
+  }
+}
+
+function parseCourseList(value) {
+  if (!value) return [];
+  return value.split(',').map(s => s.trim()).filter(Boolean);
+}
+function serializeCourseList(arr) {
+  return arr.filter(Boolean).join(', ');
+}
+async function fetchCourseProfiles() {
+  const { data, error } = await supabase.from('profiles').select('id, course').not('course', 'is', null);
+  if (error) throw error;
+  return data || [];
+}
+async function saveProfileCourse(id, course) {
+  const { error } = await supabase.from('profiles').update({ course: course || null }).eq('id', id);
+  if (error) throw error;
+}
+async function renameStudentCourse(oldTitle, newTitle) {
+  const profiles = await fetchCourseProfiles();
+  for (const p of profiles) {
+    const items = parseCourseList(p.course);
+    if (items.includes(oldTitle)) {
+      await saveProfileCourse(p.id, serializeCourseList(items.map(i => (i === oldTitle ? newTitle : i))));
+    }
+  }
+}
+async function removeStudentCourse(title) {
+  const profiles = await fetchCourseProfiles();
+  for (const p of profiles) {
+    const items = parseCourseList(p.course);
+    if (items.includes(title)) {
+      await saveProfileCourse(p.id, serializeCourseList(items.filter(i => i !== title)));
+    }
+  }
 }
 
 export async function getCourseLessons(courseId) {

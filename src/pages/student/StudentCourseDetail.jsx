@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ArrowLeft, BookOpen, CalendarDays, Clock3, CheckCircle2, FileText, Download, Play } from 'lucide-react';
+import { ArrowLeft, BookOpen, Clock3, CheckCircle2, FileText, Download, Play } from 'lucide-react';
 import { getCourseById, getCourseLessons, getCoursePdfs } from '../../data/dynamicStore';
 import MediaViewer from '../../components/common/MediaViewer';
 
@@ -82,7 +82,6 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
           </div>
           <div className="flex flex-wrap gap-4 text-sm text-indigo-100">
             <span className="inline-flex items-center gap-2"><Clock3 className="w-4 h-4" /> {course.duration}</span>
-            <span className="inline-flex items-center gap-2"><CalendarDays className="w-4 h-4" /> {course.category}</span>
             <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${course.status === 'Published' ? 'bg-green-500/20 text-green-100' : 'bg-gray-500/20 text-gray-200'}`}>{course.status}</span>
           </div>
         </div>
@@ -92,7 +91,6 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
             <div className="rounded-lg border border-gray-200 dark:border-gray-800 p-4">
               <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">Course Info</h3>
               <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-                <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5" /><span>Category: {course.category}</span></li>
                 <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5" /><span>Duration: {course.duration}</span></li>
                 <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5" /><span>Students enrolled: {course.students}</span></li>
                 <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5" /><span>Total lessons: {course.lessons}</span></li>

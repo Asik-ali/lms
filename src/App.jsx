@@ -33,6 +33,7 @@ import StudentTestTaking from './pages/student/StudentTestTaking';
 import StudentTestResult from './pages/student/StudentTestResult';
 
 import StudentAnnouncements from './pages/student/StudentAnnouncements';
+import StudentBuyCourses from './pages/student/StudentBuyCourses';
 
 function RoleGuard({ role, children }) {
   const { user } = useAuth();
@@ -104,6 +105,7 @@ function AppRoutes() {
         <Route path="live-classes" element={<StudentLiveClasses />} />
         <Route path="test-series" element={<StudentTestSeries />} />
         <Route path="free-test-series" element={<StudentFreeTestSeries />} />
+        <Route path="buy-courses" element={<StudentBuyCourses />} />
         <Route path="test/:testId" element={<StudentTestDetail />} />
         <Route path="test/take/:attemptId" element={<StudentTestTaking />} />
         <Route path="test/result/:attemptId" element={<StudentTestResult />} />
