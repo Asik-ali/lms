@@ -2,19 +2,7 @@ import { supabase } from '../supabase/client';
 
 const DEFAULT_PAGE_SIZE = 50;
 
-export async function getCategories() {
-  const { data, error } = await supabase.from('categories').select('name');
-  if (error) throw error;
-  return (data || []).map(c => c.name);
-}
-export async function addCategory(name) {
-  const { error } = await supabase.from('categories').insert({ name });
-  if (error) throw error;
-}
-export async function deleteCategory(name) {
-  const { error } = await supabase.from('categories').delete().eq('name', name);
-  if (error) throw error;
-}
+
 
 export async function getCourses({ page = 0, pageSize = DEFAULT_PAGE_SIZE } = {}) {
   const from = page * pageSize;
@@ -634,4 +622,90 @@ export async function updateCalendarEvent(id, row) {
 export async function deleteCalendarEvent(id) {
   const { error } = await supabase.from('calendar_events').delete().eq('id', id);
   if (error) throw error;
+}
+
+// ================== Sales / Sell Courses ==================
+
+// Read active sellable plans together with their included items
+// (RLS only exposes active plans + their items to students).
+export async function getSalesPlans() {
+  const { data: plans, error } = await supabase
+    .from('sales_plans')
+    .select('id, name, description, price, status, created_at')
+    .eq('status', 'active')
+    .order('created_at', { ascending: true });
+  if (error) throw error;
+
+  const ids = (plans || []).map(p => p.id);
+  if (ids.length === 0) return [];
+
+  const { data: items, error: itemsErr } = await supabase
+    .from('sales_plan_items')
+    .select('id, plan_id, item_type, item_id')
+    .in('plan_id', ids);
+  if (itemsErr) throw itemsErr;
+
+  return (plans || []).map(p => ({
+    ...p,
+    price: Number(p.price),
+    items: (items || []).filter(i => i.plan_id === p.id),
+  }));
+}
+
+// Resolve included item names for a set of plans so the storefront can label combos.
+export async function decoratePlanItems(plans) {
+  if (!plans || plans.length === 0) return plans;
+
+  const courseIds = [];
+  const seriesIds = [];
+  (plans || []).forEach(p => (p.items || []).forEach(it => {
+    if (it.item_type === 'course') courseIds.push(it.item_id);
+    else if (it.item_type === 'test_series') seriesIds.push(it.item_id);
+  }));
+
+  const byId = (list) => Object.fromEntries((list || []).map(x => [String(x.id), x]));
+
+  let courses = [];
+  let series = [];
+  if (courseIds.length) {
+    const { data } = await supabase.from('courses').select('id, title').in('id', courseIds);
+    courses = data || [];
+  }
+  if (seriesIds.length) {
+    const { data } = await supabase.from('test_series').select('id, name').in('id', seriesIds);
+    series = data || [];
+  }
+  const courseMap = byId(courses);
+  const seriesMap = byId(series);
+
+  return (plans || []).map(p => ({
+    ...p,
+    items: (p.items || []).map(it => ({
+      ...it,
+      label: it.item_type === 'course'
+        ? (courseMap[it.item_id]?.title || 'Course')
+        : (seriesMap[it.item_id]?.name || 'Test Series'),
+    })),
+  }));
+}
+
+// Read the logged-in student's own orders and completed purchases.
+export async function getMyPurchaseHistory(studentId) {
+  if (!studentId) return { orders: [], purchases: [] };
+
+  const { data: orders, error: oErr } = await supabase
+    .from('purchase_orders')
+    .select('id, order_id, plan_id, amount, status, created_at')
+    .eq('student_id', studentId)
+    .order('created_at', { ascending: false });
+  if (oErr) throw oErr;
+
+  const { data: purchases, error: pErr } = await supabase
+    .from('purchases')
+    .select('id, order_id, plan_id, amount, created_at')
+    .eq('student_id', studentId)
+    .order('created_at', { ascending: false });
+  if (pErr) throw pErr;
+
+  return { orders: orders || [], purchases: purchases || [] };
 }

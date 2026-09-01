@@ -13,7 +13,6 @@ import FAQPage from './pages/public/FAQPage';
 import AdminDashboard from './pages/admin/Dashboard';
 import StudentManagement from './pages/admin/StudentManagement';
 import CourseManagement from './pages/admin/CourseManagement';
-import CategoryManagement from './pages/admin/CategoryManagement';
 import QuestionBank from './pages/admin/ExamsQuizzes';
 import AnnouncementsPage from './pages/admin/AnnouncementsPage';
 import NotificationsPage from './pages/admin/NotificationsPage';
@@ -88,7 +87,6 @@ function AppRoutes() {
         <Route path="students/suspend" element={<StudentManagement />} />
         <Route path="courses" element={<CourseManagement />} />
         <Route path="courses/create" element={<CourseManagement />} />
-        <Route path="courses/categories" element={<CategoryManagement />} />
         <Route path="exams/questions" element={<QuestionBank />} />
         <Route path="live-classes" element={<AdminLiveClasses />} />
         <Route path="announcements" element={<AnnouncementsPage />} />

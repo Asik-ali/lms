@@ -106,23 +106,11 @@ CREATE TRIGGER on_auth_user_created
   AFTER INSERT ON auth.users
   FOR EACH ROW EXECUTE FUNCTION public.handle_new_user();
 
--- Categories
-CREATE TABLE IF NOT EXISTS categories (
-  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  name TEXT UNIQUE NOT NULL
-);
-
-ALTER TABLE categories ENABLE ROW LEVEL SECURITY;
-CREATE POLICY "Everyone can read categories" ON categories FOR SELECT USING (true);
-CREATE POLICY "Admins can insert categories" ON categories FOR INSERT WITH CHECK (public.is_admin());
-CREATE POLICY "Admins can delete categories" ON categories FOR DELETE USING (public.is_admin());
-
 -- Courses
 CREATE TABLE IF NOT EXISTS courses (
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   title TEXT NOT NULL,
   instructor TEXT NOT NULL DEFAULT '',
-  category TEXT NOT NULL,
   students INTEGER DEFAULT 0,
   lessons INTEGER DEFAULT 0,
   duration TEXT NOT NULL,
@@ -563,4 +551,71 @@ CREATE TABLE IF NOT EXISTS backup_log (
 
 ALTER TABLE backup_log ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Admins can manage backup_log" ON backup_log FOR ALL USING (public.is_admin());
+
+-- ============================================================
+-- Sales / Sell Courses (combo or individual) + Cashfree checkout
+-- ============================================================
+
+-- A purchasable plan: either a single course/test-series or a combo.
+CREATE TABLE IF NOT EXISTS sales_plans (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  name TEXT NOT NULL,
+  description TEXT DEFAULT '',
+  price NUMERIC(10,2) NOT NULL,
+  status TEXT NOT NULL DEFAULT 'active',   -- active | hidden
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+ALTER TABLE sales_plans ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Anyone can read active sales plans" ON sales_plans FOR SELECT USING (status = 'active' OR public.is_admin());
+CREATE POLICY "Admins can manage sales plans" ON sales_plans FOR ALL USING (public.is_admin());
+
+-- Items included in a plan (item_type: 'course' | 'test_series')
+CREATE TABLE IF NOT EXISTS sales_plan_items (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  plan_id BIGINT NOT NULL REFERENCES sales_plans(id) ON DELETE CASCADE,
+  item_type TEXT NOT NULL,   -- 'course' | 'test_series'
+  item_id BIGINT NOT NULL,
+  UNIQUE(plan_id, item_type, item_id)
+);
+
+ALTER TABLE sales_plan_items ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Anyone can read sales plan items" ON sales_plan_items FOR SELECT USING (
+  EXISTS (SELECT 1 FROM sales_plans WHERE sales_plans.id = sales_plan_items.plan_id AND (sales_plans.status = 'active' OR public.is_admin()))
+);
+CREATE POLICY "Admins can manage sales plan items" ON sales_plan_items FOR ALL USING (public.is_admin());
+
+-- Orders created for Cashfree checkout
+CREATE TABLE IF NOT EXISTS purchase_orders (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  order_id TEXT UNIQUE NOT NULL,          -- Cashfree order_id
+  payment_session_id TEXT DEFAULT '',
+  plan_id BIGINT NOT NULL REFERENCES sales_plans(id),
+  student_id UUID NOT NULL REFERENCES profiles(id) ON DELETE CASCADE,
+  amount NUMERIC(10,2) NOT NULL,
+  status TEXT DEFAULT 'PENDING',          -- PENDING | PAID | FAILED | CANCELLED
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+ALTER TABLE purchase_orders ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Students can read own orders" ON purchase_orders FOR SELECT USING (auth.uid() = student_id);
+CREATE POLICY "Students can insert own orders" ON purchase_orders FOR INSERT WITH CHECK (auth.uid() = student_id);
+CREATE POLICY "Admins can read all orders" ON purchase_orders FOR SELECT USING (public.is_admin());
+CREATE POLICY "Admins can update orders" ON purchase_orders FOR UPDATE USING (public.is_admin());
+
+-- Record of completed, access-granting purchases
+CREATE TABLE IF NOT EXISTS purchases (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  order_id TEXT UNIQUE NOT NULL,
+  plan_id BIGINT NOT NULL REFERENCES sales_plans(id),
+  student_id UUID NOT NULL REFERENCES profiles(id) ON DELETE CASCADE,
+  amount NUMERIC(10,2) NOT NULL,
+  granted BOOLEAN DEFAULT FALSE,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+ALTER TABLE purchases ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Students can read own purchases" ON purchases FOR SELECT USING (auth.uid() = student_id);
+CREATE POLICY "Admins can read all purchases" ON purchases FOR SELECT USING (public.is_admin());
+CREATE POLICY "Admins can insert purchases" ON purchases FOR INSERT WITH CHECK (public.is_admin());
 

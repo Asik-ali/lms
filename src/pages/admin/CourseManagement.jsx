@@ -1,21 +1,19 @@
 import { useState, useEffect } from 'react';
 import { Search, Plus, Edit2, Trash2, X, ChevronDown, Video, FileText, ExternalLink } from 'lucide-react';
-import { getAllCourses, addCourse, updateCourse, deleteCourse, getCategories, getCourseLessons, addCourseLesson, deleteCourseLesson, getCoursePdfs, addCoursePdf, deleteCoursePdf } from '../../data/dynamicStore';
+import { getAllCourses, addCourse, updateCourse, deleteCourse, getCourseLessons, addCourseLesson, deleteCourseLesson, getCoursePdfs, addCoursePdf, deleteCoursePdf } from '../../data/dynamicStore';
 import { showSuccess, showError } from '../../components/common/Toast';
 import MediaViewer from '../../components/common/MediaViewer';
 import { useAuth } from '../../contexts/AuthContext';
 
-const emptyForm = { title: '', category: '', duration: '', status: 'Draft' };
+const emptyForm = { title: '', duration: '', status: 'Draft' };
 
 export default function CourseManagement() {
   const { user } = useAuth();
   const [courses, setCourses] = useState([]);
-  const [cats, setCats] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [editingId, setEditingId] = useState(null);
   const [form, setForm] = useState(emptyForm);
   const [search, setSearch] = useState('');
-  const [filterCategory, setFilterCategory] = useState('All');
   const [lessonCourse, setLessonCourse] = useState(null);
   const [courseLessons, setCourseLessons] = useState([]);
   const [lessonForm, setLessonForm] = useState({ title: '', videoUrl: '' });
@@ -24,21 +22,13 @@ export default function CourseManagement() {
   const [pdfForm, setPdfForm] = useState({ title: '', pdfUrl: '' });
   const [mediaViewer, setMediaViewer] = useState(null);
 
-  useEffect(() => { refresh(); loadCats(); }, []);
+  useEffect(() => { refresh(); }, []);
 
   async function refresh() {
     try {
       setCourses([...(await getAllCourses())]);
     } catch (err) {
       showError('Failed to load courses');
-    }
-  }
-
-  async function loadCats() {
-    try {
-      setCats(await getCategories());
-    } catch (err) {
-      console.error('Failed to load categories:', err);
     }
   }
 
@@ -49,7 +39,7 @@ export default function CourseManagement() {
   }
 
   async function handleOpenEdit(course) {
-    setForm({ title: course.title, category: course.category, duration: course.duration, status: course.status });    setEditingId(course.id);
+    setForm({ title: course.title, duration: course.duration, status: course.status });    setEditingId(course.id);
     setShowForm(true);
     try {
       setCourseLessons(await getCourseLessons(course.id));

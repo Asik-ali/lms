@@ -34,3 +34,16 @@ export async function requireAdmin(req, res, supabase) {
   }
   return true;
 }
+
+export async function getAuthedUser(req, supabase) {
+  const token = getBearerToken(req);
+  if (!token) return null;
+  const { data, error } = await supabase.auth.getUser(token);
+  if (error || !data?.user) return null;
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('id, username, name, email, role, course, test_series_access')
+    .eq('id', data.user.id)
+    .maybeSingle();
+  return profile || null;
+}

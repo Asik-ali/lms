@@ -12,7 +12,6 @@ const titles = {
   '/admin/students/add': 'Add Student',
   '/admin/courses': 'All Courses',
   '/admin/courses/create': 'Create Course',
-  '/admin/courses/categories': 'Categories',
   '/admin/exams/questions': 'Test Series',
   '/admin/live-classes': 'Live Classes',
   '/admin/announcements': 'Announcements',

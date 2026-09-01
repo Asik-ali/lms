@@ -16,15 +16,11 @@ if (!supabaseUrl || !serviceKey) {
 const supabase = createClient(supabaseUrl, serviceKey);
 
 async function seed() {
-  const { data: existingCategories } = await supabase.from('categories').select('id').limit(1);
-  if (existingCategories?.length) {
+  const { data: existingUsers } = await supabase.from('profiles').select('id').limit(1);
+  if (existingUsers?.length) {
     console.log('Data already seeded, skipping.');
     process.exit(0);
   }
-
-  const categories = ['Frontend', 'Backend', 'Data Science', 'AI/ML', 'Design', 'DevOps', 'Security', 'Infrastructure'];
-  await supabase.from('categories').insert(categories.map(name => ({ name })));
-  console.log('  categories seeded');
 
   const users = [
     { email: 'admin@lms.app', password: 'admin123', username: 'admin', name: 'Admin User', role: 'admin' },
@@ -57,9 +53,9 @@ async function seed() {
   console.log('  users seeded');
 
   const courses = [
-    { title: 'React Fundamentals', instructor: 'Admin User', category: 'Frontend', students: 120, lessons: 24, duration: '8 weeks', status: 'Published' },
-    { title: 'Node.js Advanced', instructor: 'Admin User', category: 'Backend', students: 85, lessons: 18, duration: '6 weeks', status: 'Published' },
-    { title: 'Python for Data Science', instructor: 'Admin User', category: 'Data Science', students: 95, lessons: 20, duration: '10 weeks', status: 'Published' },
+    { title: 'React Fundamentals', instructor: 'Admin User', students: 120, lessons: 24, duration: '8 weeks', status: 'Published' },
+    { title: 'Node.js Advanced', instructor: 'Admin User', students: 85, lessons: 18, duration: '6 weeks', status: 'Published' },
+    { title: 'Python for Data Science', instructor: 'Admin User', students: 95, lessons: 20, duration: '10 weeks', status: 'Published' },
   ];
   await supabase.from('courses').insert(courses);
   console.log('  courses seeded');

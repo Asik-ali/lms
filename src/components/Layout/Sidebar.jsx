@@ -22,7 +22,7 @@ const adminNav = [
     section: 'Course Management', icon: BookOpen, submenu: [
       { label: 'All Courses', path: '/admin/courses' },
       { label: 'Create Course', path: '/admin/courses/create' },
-      { label: 'Categories', path: '/admin/courses/categories' },
+
     ]
   },
   { section: 'Test Series', icon: PenTool, path: '/admin/exams/questions' },
