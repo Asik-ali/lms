@@ -1,6 +1,8 @@
-import { createServiceClient, getBearerToken } from './_auth.mjs';
+import { createServiceClient, getBearerToken, setCors } from './_auth.mjs';
 
 export default async function handler(req, res) {
+  if (setCors(req, res)) return;
+
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
