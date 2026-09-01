@@ -160,7 +160,7 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
                                     onClick={() => window.open(pdf.pdf_url, '_blank', 'noopener,noreferrer')}
                                     className="inline-flex items-center gap-1.5 text-sm font-medium text-indigo-600 hover:text-indigo-800 shrink-0"
                                   >
-                                    <Download className="w-3.5 h-3.5" /> View PDF
+                                    View PDF
                                   </button>
                                 </div>
                               ))}
