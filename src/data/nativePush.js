@@ -8,6 +8,10 @@ export function isNativePlatform() {
   return Capacitor.isNativePlatform();
 }
 
+function log(...args) {
+  try { console.error('[NativePush]', ...args); } catch { /* ignore */ }
+}
+
 export async function registerNativePush() {
   if (!Capacitor.isNativePlatform()) return null;
 
@@ -20,44 +24,63 @@ export async function registerNativePush() {
     if (permissionStatus.receive !== 'granted') {
       permissionStatus = await PushNotifications.requestPermissions();
     }
-  } catch {
-    // old Android / unsupported — proceed and let registration attempt run
+  } catch (e) {
+    log('checkPermissions error:', e);
   }
 
-  if (permissionStatus.receive !== 'granted') return null;
-
-  await PushNotifications.register();
+  if (permissionStatus.receive !== 'granted') {
+    log('Permission not granted:', JSON.stringify(permissionStatus));
+    return null;
+  }
 
   const { supabase } = await import('../supabase/client');
   const { data: { session } } = await supabase.auth.getSession();
   const userId = session?.user?.id;
   const token = session?.access_token;
+  if (!userId || !token) {
+    log('registerNativePush aborted: not logged in');
+  }
+
+  try {
+    await PushNotifications.register();
+  } catch (e) {
+    log('PushNotifications.register error:', e);
+    return null;
+  }
 
   return new Promise((resolve) => {
+    let settled = false;
     const cleanup = () => {
-      PushNotifications.removeAllListeners();
+      if (settled) return;
+      settled = true;
+      try { PushNotifications.removeAllListeners(); } catch { /* ignore */ }
       resolve(true);
     };
 
     PushNotifications.addListener('registration', async (tokenData) => {
       const fcmToken = tokenData?.value;
+      log('FCM token received:', fcmToken ? 'yes' : 'no');
       if (!userId || !fcmToken || !token) {
         cleanup();
         return;
       }
       try {
-        await fetch(apiUrl('/api/save-subscription'), {
+        const res = await fetch(apiUrl('/api/save-subscription'), {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
           body: JSON.stringify({ userId, subscription: fcmToken, tokenType: 'fcm' }),
         });
-      } catch {
-        // ignore
+        log('save FCM token status:', res.status);
+        const body = await res.text().catch(() => '');
+        log('save FCM token body:', body);
+      } catch (e) {
+        log('save FCM token error:', e);
       }
       cleanup();
     });
 
-    PushNotifications.addListener('registrationError', () => {
+    PushNotifications.addListener('registrationError', (err) => {
+      log('registration error:', err);
       cleanup();
     });
   });
