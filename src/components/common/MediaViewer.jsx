@@ -14,18 +14,6 @@ function getYouTubeEmbedUrl(url) {
   return null;
 }
 
-function getGoogleDriveEmbedUrl(url) {
-  try {
-    const u = new URL(url);
-    if (u.hostname === 'drive.google.com') {
-      const idMatch = u.pathname.match(/\/file\/d\/([^/]+)/);
-      const id = idMatch ? idMatch[1] : u.searchParams.get('id');
-      if (id) return `https://drive.google.com/file/d/${id}/preview`;
-    }
-  } catch {}
-  return null;
-}
-
 function isDirectVideoUrl(url) {
   try {
     const u = new URL(url);
