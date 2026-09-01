@@ -157,7 +157,7 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
                                   </div>
                                   <button
                                     type="button"
-                                    onClick={() => window.open(pdf.pdf_url, '_blank', 'noopener,noreferrer')}
+                                    onClick={() => setMediaViewer({ url: pdf.pdf_url, title: pdf.title, type: 'pdf' })}
                                     className="inline-flex items-center gap-1.5 text-sm font-medium text-indigo-600 hover:text-indigo-800 shrink-0"
                                   >
                                     View PDF
