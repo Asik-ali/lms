@@ -3,10 +3,12 @@ import { Search, Plus, Edit2, Trash2, X, ChevronDown, Video, FileText, ExternalL
 import { getAllCourses, addCourse, updateCourse, deleteCourse, getCategories, getCourseLessons, addCourseLesson, deleteCourseLesson, getCoursePdfs, addCoursePdf, deleteCoursePdf } from '../../data/dynamicStore';
 import { showSuccess, showError } from '../../components/common/Toast';
 import MediaViewer from '../../components/common/MediaViewer';
+import { useAuth } from '../../contexts/AuthContext';
 
 const emptyForm = { title: '', category: '', duration: '', status: 'Draft' };
 
 export default function CourseManagement() {
+  const { user } = useAuth();
   const [courses, setCourses] = useState([]);
   const [cats, setCats] = useState([]);
   const [showForm, setShowForm] = useState(false);
@@ -47,8 +49,7 @@ export default function CourseManagement() {
   }
 
   async function handleOpenEdit(course) {
-    setForm({ title: course.title, category: course.category, duration: course.duration, status: course.status });
-    setEditingId(course.id);
+    setForm({ title: course.title, category: course.category, duration: course.duration, status: course.status });    setEditingId(course.id);
     setShowForm(true);
     try {
       setCourseLessons(await getCourseLessons(course.id));
@@ -76,11 +77,12 @@ export default function CourseManagement() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    const payload = { ...form, instructor: user?.name || user?.username || '' };
     try {
       if (editingId) {
-        await updateCourse(editingId, form);
+        await updateCourse(editingId, payload);
       } else {
-        await addCourse(form);
+        await addCourse(payload);
       }
       await refresh();
       handleClose();

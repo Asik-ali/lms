@@ -57,9 +57,9 @@ async function seed() {
   console.log('  users seeded');
 
   const courses = [
-    { title: 'React Fundamentals', category: 'Frontend', students: 120, lessons: 24, duration: '8 weeks', status: 'Published' },
-    { title: 'Node.js Advanced', category: 'Backend', students: 85, lessons: 18, duration: '6 weeks', status: 'Published' },
-    { title: 'Python for Data Science', category: 'Data Science', students: 95, lessons: 20, duration: '10 weeks', status: 'Published' },
+    { title: 'React Fundamentals', instructor: 'Admin User', category: 'Frontend', students: 120, lessons: 24, duration: '8 weeks', status: 'Published' },
+    { title: 'Node.js Advanced', instructor: 'Admin User', category: 'Backend', students: 85, lessons: 18, duration: '6 weeks', status: 'Published' },
+    { title: 'Python for Data Science', instructor: 'Admin User', category: 'Data Science', students: 95, lessons: 20, duration: '10 weeks', status: 'Published' },
   ];
   await supabase.from('courses').insert(courses);
   console.log('  courses seeded');

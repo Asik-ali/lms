@@ -121,7 +121,7 @@ CREATE POLICY "Admins can delete categories" ON categories FOR DELETE USING (pub
 CREATE TABLE IF NOT EXISTS courses (
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   title TEXT NOT NULL,
-  instructor TEXT NOT NULL,
+  instructor TEXT NOT NULL DEFAULT '',
   category TEXT NOT NULL,
   students INTEGER DEFAULT 0,
   lessons INTEGER DEFAULT 0,
@@ -129,6 +129,9 @@ CREATE TABLE IF NOT EXISTS courses (
   status TEXT NOT NULL DEFAULT 'Draft'
 );
 
+-- Relax the NOT NULL constraint on instructor so courses can be created without one.
+ALTER TABLE courses ALTER COLUMN instructor DROP NOT NULL;
+ALTER TABLE courses ALTER COLUMN instructor SET DEFAULT '';
 ALTER TABLE courses ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Everyone can read courses" ON courses FOR SELECT USING (true);
 CREATE POLICY "Admins can manage courses" ON courses FOR ALL USING (public.is_admin());
