@@ -6,7 +6,7 @@ import {
   Megaphone, Settings,
   LogOut, ChevronDown, ChevronRight, Calendar, MessageSquare,
   UserCircle, PenTool, Bell, X,
-  BadgeCheck, ShoppingCart,
+  BadgeCheck,
 } from 'lucide-react';
 
 const adminNav = [
@@ -26,7 +26,6 @@ const adminNav = [
     ]
   },
   { section: 'Test Series', icon: PenTool, path: '/admin/exams/questions' },
-  { section: 'Sales Plans', icon: ShoppingCart, path: '/admin/sales-plans' },
   { section: 'Live Classes', icon: Video, path: '/admin/live-classes' },
   { section: 'Announcements', icon: Megaphone, path: '/admin/announcements' },
   { section: 'Student Tickets', icon: MessageSquare, path: '/admin/tickets' },
@@ -50,7 +49,6 @@ const studentNav = [
   { section: 'Live Classes', icon: Video, path: '/student/live-classes' },
   { section: 'Test Series', icon: PenTool, path: '/student/test-series' },
   { section: 'Free Test Series', icon: BadgeCheck, path: '/student/free-test-series' },
-  { section: 'Buy Courses', icon: ShoppingCart, path: '/student/buy-courses' },
   { section: 'Calendar', icon: Calendar, path: '/student/calendar' },
   { section: 'Announcements', icon: Megaphone, path: '/student/announcements' },
   { section: 'Messages', icon: MessageSquare, path: '/student/messages' },

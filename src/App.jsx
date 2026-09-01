@@ -12,7 +12,7 @@ import ContactPage from './pages/public/ContactPage';
 import FAQPage from './pages/public/FAQPage';
 import TermsPage from './pages/public/TermsPage';
 import RefundPolicyPage from './pages/public/RefundPolicyPage';
-import PricingPage from './pages/public/PricingPage';
+
 import AdminDashboard from './pages/admin/Dashboard';
 import StudentManagement from './pages/admin/StudentManagement';
 import CourseManagement from './pages/admin/CourseManagement';
@@ -23,7 +23,6 @@ import SettingsPage from './pages/admin/SettingsPage';
 import AdminTickets from './pages/admin/AdminTickets';
 import AdminCalendar from './pages/admin/AdminCalendar';
 import AdminLiveClasses from './pages/admin/AdminLiveClasses';
-import SalesPlansPage from './pages/admin/SalesPlansPage';
 import StudentDashboard from './pages/student/StudentDashboard';
 import StudentCourses from './pages/student/StudentCourses';
 import StudentCourseDetail from './pages/student/StudentCourseDetail';
@@ -37,7 +36,6 @@ import StudentTestTaking from './pages/student/StudentTestTaking';
 import StudentTestResult from './pages/student/StudentTestResult';
 
 import StudentAnnouncements from './pages/student/StudentAnnouncements';
-import StudentBuyCourses from './pages/student/StudentBuyCourses';
 
 function RoleGuard({ role, children }) {
   const { user } = useAuth();
@@ -69,7 +67,6 @@ function AppRoutes() {
         <Route path="/faq" element={<FAQPage />} />
         <Route path="/terms" element={<TermsPage />} />
         <Route path="/refunds" element={<RefundPolicyPage />} />
-        <Route path="/pricing" element={<PricingPage />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
@@ -86,7 +83,6 @@ function AppRoutes() {
         <Route path="/faq" element={<FAQPage />} />
         <Route path="/terms" element={<TermsPage />} />
         <Route path="/refunds" element={<RefundPolicyPage />} />
-        <Route path="/pricing" element={<PricingPage />} />
       </Route>
       <Route path="/admin" element={<RoleGuard role="admin"><DashboardLayout /></RoleGuard>}>
         <Route index element={<AdminDashboard />} />
@@ -99,7 +95,6 @@ function AppRoutes() {
         <Route path="courses" element={<CourseManagement />} />
         <Route path="courses/create" element={<CourseManagement />} />
         <Route path="exams/questions" element={<QuestionBank />} />
-        <Route path="sales-plans" element={<SalesPlansPage />} />
         <Route path="live-classes" element={<AdminLiveClasses />} />
         <Route path="announcements" element={<AnnouncementsPage />} />
         <Route path="tickets" element={<AdminTickets />} />
@@ -116,7 +111,6 @@ function AppRoutes() {
         <Route path="live-classes" element={<StudentLiveClasses />} />
         <Route path="test-series" element={<StudentTestSeries />} />
         <Route path="free-test-series" element={<StudentFreeTestSeries />} />
-        <Route path="buy-courses" element={<StudentBuyCourses />} />
         <Route path="test/:testId" element={<StudentTestDetail />} />
         <Route path="test/take/:attemptId" element={<StudentTestTaking />} />
         <Route path="test/result/:attemptId" element={<StudentTestResult />} />
