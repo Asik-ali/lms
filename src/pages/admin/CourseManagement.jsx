@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Search, Plus, Edit2, Trash2, X, Video, FileText, ExternalLink } from 'lucide-react';
 import { getAllCourses, addCourse, updateCourse, deleteCourse, getCourseLessons, addCourseLesson, deleteCourseLesson, getCoursePdfs, addCoursePdf, deleteCoursePdf } from '../../data/dynamicStore';
 import { showSuccess, showError } from '../../components/common/Toast';
@@ -9,8 +10,11 @@ const emptyForm = { title: '', duration: '', status: 'Draft' };
 
 export default function CourseManagement() {
   const { user } = useAuth();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isCreatePage = location.pathname.endsWith('/create');
   const [courses, setCourses] = useState([]);
-  const [showForm, setShowForm] = useState(false);
+  const [showForm, setShowForm] = useState(isCreatePage);
   const [editingId, setEditingId] = useState(null);
   const [form, setForm] = useState(emptyForm);
   const [search, setSearch] = useState('');
@@ -23,6 +27,14 @@ export default function CourseManagement() {
   const [mediaViewer, setMediaViewer] = useState(null);
 
   useEffect(() => { refresh(); }, []);
+
+  useEffect(() => {
+    if (isCreatePage) {
+      setForm(emptyForm);
+      setEditingId(null);
+      setShowForm(true);
+    }
+  }, [isCreatePage]);
 
   async function refresh() {
     try {
@@ -59,6 +71,7 @@ export default function CourseManagement() {
     setForm(emptyForm);
     setCourseLessons([]);
     setCoursePdfs([]);
+    if (isCreatePage) navigate('/admin/courses');
   }
 
   function handleChange(e) {
@@ -76,6 +89,7 @@ export default function CourseManagement() {
       }
       await refresh();
       handleClose();
+      if (isCreatePage) navigate('/admin/courses');
     } catch (err) {
       showError(err.message || 'Failed to save course');
     }
