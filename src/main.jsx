@@ -47,6 +47,14 @@ async function setupWebPush() {
     }
   } catch (err) {
     console.error('Push notification setup failed:', err);
+    // Push can be blocked at the browser/network level (not a server bug).
+    // Surface a clear hint so users know it's environmental, not their account.
+    if (err?.name === 'AbortError' || /push service/i.test(err?.message || '')) {
+      try {
+        const { showError } = await import('./components/common/Toast.jsx');
+        showError('Push is blocked in this browser (it refused the push service). Use Google Chrome, enable push in browser settings, and ensure no VPN/ad-blocker blocks push servers.');
+      } catch { /* ignore */ }
+    }
   }
 }
 

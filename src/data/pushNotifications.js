@@ -77,10 +77,24 @@ export async function subscribeToPush(registration) {
       return existing;
     }
 
-    const subscription = await reg.pushManager.subscribe({
-      userVisibleOnly: true,
-      applicationServerKey: publicKey,
-    });
+    // The push service can transiently fail ("Registration failed - push service
+    // error"). Retry a couple times before giving up.
+    let subscription = null;
+    for (let attempt = 1; attempt <= 3; attempt++) {
+      try {
+        subscription = await reg.pushManager.subscribe({
+          userVisibleOnly: true,
+          applicationServerKey: publicKey,
+        });
+        break;
+      } catch (e) {
+        log('subscribe attempt', attempt, 'failed:', e?.name, e?.message);
+        if (attempt === 3 || (e?.name === 'NotAllowedError' || e?.name === 'SecurityError')) {
+          throw e;
+        }
+        await new Promise(r => setTimeout(r, 800 * attempt));
+      }
+    }
 
     await saveSubscription(subscription);
     return subscription;
