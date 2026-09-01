@@ -18,7 +18,7 @@ function AddStudentForm({ onBack, onStudentAdded }) {
   const [submitError, setSubmitError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  useEffect(() => { getAllCourses().then(setCourses); }, []);
+  useEffect(() => { getAllCourses().then(setCourses).catch(err => console.error('Failed to load courses:', err)); }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -154,7 +154,7 @@ function StudentProfile({ student, onBack, onSaved }) {
   const [saving, setSaving] = useState(false);
 
   useEffect(() => {
-    getAllCourses().then(setCourses);
+    getAllCourses().then(setCourses).catch(err => console.error('Failed to load courses:', err));
   }, []);
 
   useEffect(() => {
@@ -554,7 +554,11 @@ export default function StudentManagement() {
   useEffect(() => { loadStudents(); }, []);
 
   async function loadStudents() {
-    setStudents(await getAllStudents());
+    try {
+      setStudents(await getAllStudents());
+    } catch (err) {
+      console.error('Failed to load students:', err);
+    }
   }
 
   async function openCourseAccess(student) {

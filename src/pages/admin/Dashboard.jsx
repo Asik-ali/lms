@@ -12,11 +12,15 @@ export default function AdminDashboard() {
 
   useEffect(() => {
     (async () => {
-      setStudents(await getAllStudents());
-      setCourses(await getAllCourses());
-      setEnrollments(await getAllEnrollments());
-      setTestSeries(await getAllTestSeries());
-      setNotifications(await getAllNotifications());
+      try {
+        setStudents(await getAllStudents());
+        setCourses(await getAllCourses());
+        setEnrollments(await getAllEnrollments());
+        setTestSeries(await getAllTestSeries());
+        setNotifications(await getAllNotifications());
+      } catch (err) {
+        console.error('Failed to load dashboard data:', err);
+      }
     })();
   }, []);
 

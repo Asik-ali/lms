@@ -25,15 +25,24 @@ export default function StudentMessages() {
 
   async function loadTickets() {
     if (!user?.id) return;
-    const data = await getTickets(user.id);
-    setTickets(data);
+    try {
+      const data = await getTickets(user.id);
+      setTickets(data);
+    } catch (err) {
+      console.error('Failed to load tickets:', err);
+    }
   }
 
   async function handleSelect(t) {
     setSelected(t);
     setShowNew(false);
-    const r = await getTicketReplies(t.id);
-    setReplies(r);
+    try {
+      const r = await getTicketReplies(t.id);
+      setReplies(r);
+    } catch (err) {
+      console.error('Failed to load ticket replies:', err);
+      setReplies([]);
+    }
   }
 
   async function handleCreateTicket() {

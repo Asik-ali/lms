@@ -28,11 +28,16 @@ export default function StudentTestSeries() {
   useEffect(() => { loadSeries(); }, [user?.test_series_access]);
 
   async function loadSeries() {
-    const all = await getAllTestSeries();
-    const access = normalizeAccess(user?.test_series_access || '');
-    if (access.length > 0) {
-      setSeriesList(all.filter(s => matches(s.name, access)));
-    } else {
+    try {
+      const all = await getAllTestSeries();
+      const access = normalizeAccess(user?.test_series_access || '');
+      if (access.length > 0) {
+        setSeriesList(all.filter(s => matches(s.name, access)));
+      } else {
+        setSeriesList([]);
+      }
+    } catch (err) {
+      console.error('Failed to load test series:', err);
       setSeriesList([]);
     }
   }
@@ -41,21 +46,26 @@ export default function StudentTestSeries() {
     setCurrentSeries(s);
     setCurrentCategory(null);
     setTestsList([]);
-    const cats = await getCategoriesBySeries(s.id);
-    setCategories(cats);
+    try {
+      const cats = await getCategoriesBySeries(s.id);
+      setCategories(cats);
+    } catch (err) {
+      console.error('Failed to load categories:', err);
+      setCategories([]);
+    }
     setLevel('categories');
   }
 
   async function goCategory(c) {
     setCurrentCategory(c);
     const cats = categories.filter(cat => cat.parent_id === c.id);
-    const tests = await getTestsByCategoryId(c.id);
-    if (cats.length > 0) {
-      setCategories([...categories]);
-      setTestsList(tests);
-    } else {
-      setTestsList(tests);
+    let tests = [];
+    try {
+      tests = await getTestsByCategoryId(c.id);
+    } catch (err) {
+      console.error('Failed to load tests:', err);
     }
+    setTestsList(tests);
     setLevel('tests');
   }
 

@@ -28,7 +28,7 @@ export default function TestSeries() {
 
   useEffect(() => { loadSeries(); }, []);
 
-  async function loadSeries() { setSeriesList(await getAllTestSeries()); }
+  async function loadSeries() { try { setSeriesList(await getAllTestSeries()); } catch (err) { console.error('Failed to load test series:', err); setSeriesList([]); } }
 
   // Navigation
   function goSeries(s) { setCurrentSeries(s); setCurrentCategory(null); setCurrentTest(null); setQuestions([]); loadCategories(s.id); setLevel('categories'); }
@@ -44,9 +44,9 @@ export default function TestSeries() {
   }
 
   // Load data
-  async function loadCategories(seriesId) { setCategories(await getCategoriesBySeries(seriesId)); }
-  async function loadTests(catId) { setTestsList(await getTestsByCategoryId(catId)); }
-  async function loadQuestions(testId) { setQuestions(await getQuestionsByTestId(testId)); }
+  async function loadCategories(seriesId) { try { setCategories(await getCategoriesBySeries(seriesId)); } catch (err) { console.error('Failed to load categories:', err); setCategories([]); } }
+  async function loadTests(catId) { try { setTestsList(await getTestsByCategoryId(catId)); } catch (err) { console.error('Failed to load tests:', err); setTestsList([]); } }
+  async function loadQuestions(testId) { try { setQuestions(await getQuestionsByTestId(testId)); } catch (err) { console.error('Failed to load questions:', err); setQuestions([]); } }
 
   // CRUD Series
   async function handleAddSeries() {

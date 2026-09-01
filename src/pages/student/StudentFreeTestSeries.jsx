@@ -15,21 +15,36 @@ export default function StudentFreeTestSeries() {
   useEffect(() => { loadSeries(); }, []);
 
   async function loadSeries() {
-    setSeriesList(await getFreeTestSeries());
+    try {
+      setSeriesList(await getFreeTestSeries());
+    } catch (err) {
+      console.error('Failed to load free test series:', err);
+      setSeriesList([]);
+    }
   }
 
   async function goSeries(s) {
     setCurrentSeries(s);
     setCurrentCategory(null);
     setTestsList([]);
-    const cats = await getCategoriesBySeries(s.id);
-    setCategories(cats);
+    try {
+      const cats = await getCategoriesBySeries(s.id);
+      setCategories(cats);
+    } catch (err) {
+      console.error('Failed to load categories:', err);
+      setCategories([]);
+    }
     setLevel('categories');
   }
 
   async function goCategory(c) {
     setCurrentCategory(c);
-    const tests = await getTestsByCategoryId(c.id);
+    let tests = [];
+    try {
+      tests = await getTestsByCategoryId(c.id);
+    } catch (err) {
+      console.error('Failed to load tests:', err);
+    }
     setTestsList(tests);
     setLevel('tests');
   }

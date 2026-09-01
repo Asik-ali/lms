@@ -23,13 +23,21 @@ export default function AdminTickets() {
   useEffect(() => { loadTickets(); loadStudents(); }, []);
 
   async function loadTickets() {
-    const data = await getTickets();
-    setTickets(data);
+    try {
+      const data = await getTickets();
+      setTickets(data);
+    } catch (err) {
+      console.error('Failed to load tickets:', err);
+    }
   }
 
   async function loadStudents() {
-    const data = await getAllStudents();
-    setStudents(data);
+    try {
+      const data = await getAllStudents();
+      setStudents(data);
+    } catch (err) {
+      console.error('Failed to load students:', err);
+    }
   }
 
   function getStudentName(studentId) {
@@ -44,12 +52,17 @@ export default function AdminTickets() {
 
   async function handleSelect(t) {
     setSelected(t);
-    const r = await getTicketReplies(t.id);
-    setReplies(r);
-    if (t.status === 'Open') {
-      await updateTicketStatus(t.id, 'In Progress');
-      await loadTickets();
-      setSelected({ ...t, status: 'In Progress' });
+    try {
+      const r = await getTicketReplies(t.id);
+      setReplies(r);
+      if (t.status === 'Open') {
+        await updateTicketStatus(t.id, 'In Progress');
+        await loadTickets();
+        setSelected({ ...t, status: 'In Progress' });
+      }
+    } catch (err) {
+      console.error('Failed to load ticket replies:', err);
+      setReplies([]);
     }
   }
 

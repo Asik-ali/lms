@@ -20,39 +20,43 @@ export default function StudentCalendar() {
 
   useEffect(() => {
     (async () => {
-      const [liveClasses, announcements, calendarEvents] = await Promise.all([
-        getAllLiveClasses(),
-        getAllAnnouncements(),
-        getAllCalendarEvents(),
-      ]);
-      const items = [
-        ...liveClasses.map(lc => ({
-          id: `lc-${lc.id}`,
-          title: lc.title,
-          date: lc.date,
-          time: lc.time,
-          type: 'Live Class',
-          color: lc.status === 'Live' ? 'bg-red-500' : 'bg-blue-500',
-        })),
-        ...announcements.filter(a => a.status === 'Published').map(a => ({
-          id: `ann-${a.id}`,
-          title: a.title,
-          date: a.created?.split('T')[0] || a.created,
-          time: '',
-          type: 'Announcement',
-          color: 'bg-indigo-500',
-        })),
-        ...calendarEvents.map(ce => ({
-          id: `ev-${ce.id}`,
-          title: ce.title,
-          date: ce.date,
-          time: ce.time || '',
-          type: 'Event',
-          color: colorMap[ce.color] || 'bg-indigo-500',
-          description: ce.description,
-        })),
-      ];
-      setEvents(items);
+      try {
+        const [liveClasses, announcements, calendarEvents] = await Promise.all([
+          getAllLiveClasses(),
+          getAllAnnouncements(),
+          getAllCalendarEvents(),
+        ]);
+        const items = [
+          ...liveClasses.map(lc => ({
+            id: `lc-${lc.id}`,
+            title: lc.title,
+            date: lc.date,
+            time: lc.time,
+            type: 'Live Class',
+            color: lc.status === 'Live' ? 'bg-red-500' : 'bg-blue-500',
+          })),
+          ...announcements.filter(a => a.status === 'Published').map(a => ({
+            id: `ann-${a.id}`,
+            title: a.title,
+            date: a.created?.split('T')[0] || a.created,
+            time: '',
+            type: 'Announcement',
+            color: 'bg-indigo-500',
+          })),
+          ...calendarEvents.map(ce => ({
+            id: `ev-${ce.id}`,
+            title: ce.title,
+            date: ce.date,
+            time: ce.time || '',
+            type: 'Event',
+            color: colorMap[ce.color] || 'bg-indigo-500',
+            description: ce.description,
+          })),
+        ];
+        setEvents(items);
+      } catch (err) {
+        console.error('Failed to load calendar events:', err);
+      }
     })();
   }, [user?.course]);
 

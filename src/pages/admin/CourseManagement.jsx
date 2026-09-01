@@ -33,7 +33,11 @@ export default function CourseManagement() {
   }
 
   async function loadCats() {
-    setCats(await getCategories());
+    try {
+      setCats(await getCategories());
+    } catch (err) {
+      console.error('Failed to load categories:', err);
+    }
   }
 
   function handleOpenAdd() {
@@ -46,8 +50,14 @@ export default function CourseManagement() {
     setForm({ title: course.title, category: course.category, duration: course.duration, status: course.status });
     setEditingId(course.id);
     setShowForm(true);
-    setCourseLessons(await getCourseLessons(course.id));
-    setCoursePdfs(await getCoursePdfs(course.id));
+    try {
+      setCourseLessons(await getCourseLessons(course.id));
+      setCoursePdfs(await getCoursePdfs(course.id));
+    } catch (err) {
+      console.error('Failed to load course lessons/pdfs:', err);
+      setCourseLessons([]);
+      setCoursePdfs([]);
+    }
     setLessonForm({ title: '', videoUrl: '' });
     setPdfForm({ title: '', pdfUrl: '' });
   }
@@ -66,18 +76,26 @@ export default function CourseManagement() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    if (editingId) {
-      await updateCourse(editingId, form);
-    } else {
-      await addCourse(form);
+    try {
+      if (editingId) {
+        await updateCourse(editingId, form);
+      } else {
+        await addCourse(form);
+      }
+      await refresh();
+      handleClose();
+    } catch (err) {
+      showError(err.message || 'Failed to save course');
     }
-    await refresh();
-    handleClose();
   }
 
   async function handleDelete(id) {
-    await deleteCourse(id);
-    await refresh();
+    try {
+      await deleteCourse(id);
+      await refresh();
+    } catch (err) {
+      showError(err.message || 'Failed to delete course');
+    }
   }
 
   async function openLessons(course) {

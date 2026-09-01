@@ -13,19 +13,27 @@ export default function StudentDashboard() {
 
   useEffect(() => {
     (async () => {
-      const all = await getAllAnnouncements();
-      setAnnouncements(all.filter(a => a.status === 'Published').sort((a, b) => new Date(b.created) - new Date(a.created)));
+      try {
+        const all = await getAllAnnouncements();
+        setAnnouncements(all.filter(a => a.status === 'Published').sort((a, b) => new Date(b.created) - new Date(a.created)));
+      } catch (err) {
+        console.error('Failed to load announcements:', err);
+      }
     })();
   }, []);
 
   useEffect(() => {
     (async () => {
-      const allCourses = await getAllCourses();
-      const assigned = normalizeCourseAccessSelection(user?.course || '');
-      const visibleCourses = assigned.length > 0
-        ? allCourses.filter(course => assigned.includes(course.title))
-        : [];
-      setMyCourses(visibleCourses);
+      try {
+        const allCourses = await getAllCourses();
+        const assigned = normalizeCourseAccessSelection(user?.course || '');
+        const visibleCourses = assigned.length > 0
+          ? allCourses.filter(course => assigned.includes(course.title))
+          : [];
+        setMyCourses(visibleCourses);
+      } catch (err) {
+        console.error('Failed to load courses:', err);
+      }
     })();
   }, [user?.course]);
 

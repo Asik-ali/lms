@@ -13,6 +13,6 @@ registerServiceWorker().then(async (registration) => {
       await subscribeToPush(registration);
     }
   }
-});
+}).catch(err => console.error('Push notification setup failed:', err));
 
 createRoot(document.getElementById('root')).render(<App />)

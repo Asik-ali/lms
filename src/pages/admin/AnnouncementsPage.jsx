@@ -13,22 +13,30 @@ export default function AnnouncementsPage() {
   useEffect(() => { refresh(); }, []);
 
   async function refresh() {
-    setAnnouncements(await getAllAnnouncements());
+    try {
+      setAnnouncements(await getAllAnnouncements());
+    } catch (err) {
+      console.error('Failed to load announcements:', err);
+    }
   }
 
   async function handlePublish() {
     if (!title.trim() || !content.trim()) return;
-    await addAnnouncement({
-      title: title.trim(),
-      content: content.trim(),
-      target,
-      created: new Date().toISOString().split('T')[0],
-      status: 'Published',
-    });
-    setTitle('');
-    setContent('');
-    setTarget('All');
-    refresh();
+    try {
+      await addAnnouncement({
+        title: title.trim(),
+        content: content.trim(),
+        target,
+        created: new Date().toISOString().split('T')[0],
+        status: 'Published',
+      });
+      setTitle('');
+      setContent('');
+      setTarget('All');
+      refresh();
+    } catch (err) {
+      console.error('Failed to publish announcement:', err);
+    }
   }
 
   return (

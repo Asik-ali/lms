@@ -33,8 +33,12 @@ export default function AdminCalendar() {
   useEffect(() => { loadEvents(); }, []);
 
   async function loadEvents() {
-    const data = await getAllCalendarEvents();
-    setEvents(data);
+    try {
+      const data = await getAllCalendarEvents();
+      setEvents(data);
+    } catch (err) {
+      console.error('Failed to load calendar events:', err);
+    }
   }
 
   const year = currentDate.getFullYear();

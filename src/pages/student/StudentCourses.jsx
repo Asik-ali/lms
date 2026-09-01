@@ -12,12 +12,16 @@ export default function StudentCourses() {
 
   useEffect(() => {
     (async () => {
-      const allCourses = await getAllCourses();
-      const assigned = normalizeCourseAccessSelection(user?.course || '');
-      const visibleCourses = assigned.length > 0
-        ? allCourses.filter(course => assigned.includes(course.title))
-        : [];
-      setCourses(visibleCourses);
+      try {
+        const allCourses = await getAllCourses();
+        const assigned = normalizeCourseAccessSelection(user?.course || '');
+        const visibleCourses = assigned.length > 0
+          ? allCourses.filter(course => assigned.includes(course.title))
+          : [];
+        setCourses(visibleCourses);
+      } catch (err) {
+        console.error('Failed to load courses:', err);
+      }
     })();
   }, [user?.course]);
 

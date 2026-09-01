@@ -13,7 +13,7 @@ export function AuthProvider({ children }) {
         setLoading(false);
         return;
       }
-      loadProfile(session.user);
+      return loadProfile(session.user);
     }).catch(() => setLoading(false));
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
@@ -29,11 +29,17 @@ export function AuthProvider({ children }) {
   }, []);
 
   async function loadProfile(authUser) {
-    const { data: profile } = await supabase
-      .from('profiles')
-      .select('id, username, name, email, role, course, status, enrolled, progress, test_series_access')
-      .eq('id', authUser.id)
-      .single();
+    let profile = null;
+    try {
+      const { data } = await supabase
+        .from('profiles')
+        .select('id, username, name, email, role, course, status, enrolled, progress, test_series_access')
+        .eq('id', authUser.id)
+        .maybeSingle();
+      profile = data;
+    } catch {
+      profile = null;
+    }
 
     if (profile) {
       setUser({ ...profile, id: profile.id });
@@ -95,11 +101,17 @@ export function AuthProvider({ children }) {
     });
     if (error) throw error;
     if (data?.session) {
-      const { data: profile } = await supabase
-        .from('profiles')
-        .select('id, username, name, email, role, course, status, enrolled, progress, test_series_access')
-        .eq('id', data.user.id)
-        .single();
+      let profile = null;
+      try {
+        const { data: profileData } = await supabase
+          .from('profiles')
+          .select('id, username, name, email, role, course, status, enrolled, progress, test_series_access')
+          .eq('id', data.user.id)
+          .maybeSingle();
+        profile = profileData;
+      } catch {
+        profile = null;
+      }
       setUser(profile || {
         id: data.user.id,
         username: data.user.user_metadata?.username,

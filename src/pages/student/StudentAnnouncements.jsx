@@ -7,8 +7,12 @@ export default function StudentAnnouncements() {
 
   useEffect(() => {
     (async () => {
-      const all = await getAllAnnouncements();
-      setAnnouncements(all.filter(a => a.status === 'Published'));
+      try {
+        const all = await getAllAnnouncements();
+        setAnnouncements(all.filter(a => a.status === 'Published'));
+      } catch (err) {
+        console.error('Failed to load announcements:', err);
+      }
     })();
   }, []);
 

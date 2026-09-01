@@ -24,7 +24,11 @@ export default function AdminLiveClasses() {
   const [startingLive, setStartingLive] = useState(false);
 
   const loadLiveClasses = async () => {
-    setLiveClasses(await getAllLiveClasses());
+    try {
+      setLiveClasses(await getAllLiveClasses());
+    } catch (err) {
+      console.error('Failed to load live classes:', err);
+    }
   };
 
   useEffect(() => {
