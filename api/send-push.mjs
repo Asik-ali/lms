@@ -122,10 +122,9 @@ export default async function handler(req, res) {
     }
 
     // 2) Native FCM push (Android/iOS).
-    let fcmConfigured = false;
+    const fcmConfigured = await getFcmApp() !== null;
     if (fcmTokens.length > 0) {
-      const messaging = await getFcmApp();
-      fcmConfigured = !!messaging;
+      const messaging = fcmConfigured ? await getFcmApp() : null;
       if (messaging) {
         const fcmResults = await Promise.allSettled(
           fcmTokens.map(({ token }) =>
