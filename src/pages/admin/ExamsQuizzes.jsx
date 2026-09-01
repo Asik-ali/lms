@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Plus, X, ChevronRight, Trash2, FolderOpen, FileText, HelpCircle, Settings, Clock, Target, Globe, BarChart3, Edit2 } from 'lucide-react';
-import { getAllTestSeries, addTestSeries, setTestSeriesFree, deleteTestSeries, getCategoriesBySeries, addTestCategory, deleteTestCategory, getTestsByCategoryId, addTest, updateTest, deleteTest, getQuestionsByTestId, addQuestionToTest, deleteQuestion } from '../../data/dynamicStore';
+import { getAllTestSeries, addTestSeries, updateTestSeries, setTestSeriesFree, deleteTestSeries, getCategoriesBySeries, addTestCategory, deleteTestCategory, getTestsByCategoryId, addTest, updateTest, deleteTest, getQuestionsByTestId, addQuestionToTest, deleteQuestion } from '../../data/dynamicStore';
 import { showError, showSuccess } from '../../components/common/Toast';
 
 const LEVELS = ['series', 'categories', 'tests', 'questions'];
@@ -16,6 +16,8 @@ export default function TestSeries() {
   const [currentTest, setCurrentTest] = useState(null);
 
   const [showAddSeries, setShowAddSeries] = useState(false);
+  const [showEditSeries, setShowEditSeries] = useState(false);
+  const [editingSeries, setEditingSeries] = useState(null);
   const [showAddCategory, setShowAddCategory] = useState(false);
   const [showAddTest, setShowAddTest] = useState(false);
   const [showAddQuestion, setShowAddQuestion] = useState(false);
@@ -57,6 +59,21 @@ export default function TestSeries() {
       setShowAddSeries(false);
       await loadSeries();
       showSuccess('Series created.');
+    } catch (e) { showError(e.message); }
+  }
+  function openEditSeries(s) {
+    setFormSeries({ name: s.name, description: s.description || '', is_free: !!s.is_free });
+    setEditingSeries(s);
+    setShowEditSeries(true);
+  }
+  async function handleUpdateSeries() {
+    if (!formSeries.name.trim()) return showError('Enter a series name.');
+    try {
+      await updateTestSeries(editingSeries.id, { name: formSeries.name.trim(), description: formSeries.description, is_free: !!formSeries.is_free });
+      setShowEditSeries(false);
+      setEditingSeries(null);
+      await loadSeries();
+      showSuccess('Series updated.');
     } catch (e) { showError(e.message); }
   }
   async function handleDeleteSeries(id) {
@@ -217,6 +234,7 @@ export default function TestSeries() {
                   <input type="checkbox" checked={!!s.is_free} onChange={() => handleToggleFree(s)} className="h-3.5 w-3.5 rounded border-gray-300 dark:border-gray-600 text-emerald-600 focus:ring-emerald-500" title="Visible to all students" />
                   <span className={s.is_free ? 'font-medium text-emerald-600 dark:text-emerald-400' : 'text-gray-400 dark:text-gray-500'}>Free</span>
                 </label>
+                <button onClick={(e) => { e.stopPropagation(); openEditSeries(s); }} className="flex items-center gap-0.5 text-xs text-indigo-600 hover:text-indigo-800 cursor-pointer"><Edit2 className="w-3 h-3" /> Edit</button>
                 <button onClick={(e) => { e.stopPropagation(); handleDeleteSeries(s.id); }} className="text-xs text-red-500 hover:text-red-700 cursor-pointer">Delete</button>
                 {s.is_free && <span className="px-1.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 text-[10px] font-medium">All students</span>}
               </div>
@@ -369,6 +387,23 @@ export default function TestSeries() {
               <input type="checkbox" checked={formSeries.is_free} onChange={e => setFormSeries({ ...formSeries, is_free: e.target.checked })} className="h-4 w-4 rounded border-gray-300 dark:border-gray-600 text-emerald-600 focus:ring-emerald-500" />
             </label>
             <button onClick={handleAddSeries} className="btn-primary w-full">Create Series</button>
+          </div>
+        </Modal>
+      )}
+
+      {showEditSeries && editingSeries && (
+        <Modal title={`Edit Series: ${editingSeries.name}`} onClose={() => { setShowEditSeries(false); setEditingSeries(null); }}>
+          <div className="space-y-4">
+            <div><label className="label">Series Name *</label><input value={formSeries.name} onChange={e => setFormSeries({ ...formSeries, name: e.target.value })} className="input-field w-full" placeholder="e.g. SSC CGL, SSC MTS" /></div>
+            <div><label className="label">Description</label><input value={formSeries.description} onChange={e => setFormSeries({ ...formSeries, description: e.target.value })} className="input-field w-full" placeholder="Optional description" /></div>
+            <label className="flex cursor-pointer items-center justify-between rounded-lg border border-gray-200 dark:border-gray-800 px-3 py-2 hover:bg-gray-50 dark:hover:bg-gray-800/60">
+              <span>
+                <span className="block text-sm font-medium text-gray-700 dark:text-gray-300">Free for all students</span>
+                <span className="block text-xs text-gray-500 dark:text-gray-400">Visible in the Free Test Series section to every signed-in student.</span>
+              </span>
+              <input type="checkbox" checked={formSeries.is_free} onChange={e => setFormSeries({ ...formSeries, is_free: e.target.checked })} className="h-4 w-4 rounded border-gray-300 dark:border-gray-600 text-emerald-600 focus:ring-emerald-500" />
+            </label>
+            <button onClick={handleUpdateSeries} className="btn-primary w-full">Save Changes</button>
           </div>
         </Modal>
       )}

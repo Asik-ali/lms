@@ -201,6 +201,12 @@ export async function setTestSeriesFree(id, isFree) {
   return data;
 }
 
+export async function updateTestSeries(id, row) {
+  const { data, error } = await supabase.from('test_series').update(row).eq('id', id).select('id, name, description, is_free, created_at').single();
+  if (error) throw error;
+  return data;
+}
+
 export async function deleteTestSeries(id) {
   const { error } = await supabase.from('test_series').delete().eq('id', id);
   if (error) throw error;
