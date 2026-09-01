@@ -109,9 +109,15 @@ export async function getCourseLessons(courseId) {
 }
 
 export async function addCourseLesson(row) {
+  const { day, ...rest } = row;
   const { data, error } = await supabase.from('course_lessons').insert(row).select('id, course_id, title, video_url, provider, day, position').single();
-  if (error) throw error;
-  return data;
+  if (!error) return data;
+  if (String(error.message || '').toLowerCase().includes('day')) {
+    const fallback = await supabase.from('course_lessons').insert(rest).select('id, course_id, title, video_url, provider, day, position').single();
+    if (fallback.error) throw fallback.error;
+    return { ...fallback.data, day: day ?? 0 };
+  }
+  throw error;
 }
 
 export async function updateCourseLesson(id, row) {
@@ -137,9 +143,15 @@ export async function getCoursePdfs(courseId) {
 }
 
 export async function addCoursePdf(row) {
+  const { day, ...rest } = row;
   const { data, error } = await supabase.from('course_pdfs').insert(row).select('id, course_id, title, pdf_url, day, position').single();
-  if (error) throw error;
-  return data;
+  if (!error) return data;
+  if (String(error.message || '').toLowerCase().includes('day')) {
+    const fallback = await supabase.from('course_pdfs').insert(rest).select('id, course_id, title, pdf_url, day, position').single();
+    if (fallback.error) throw fallback.error;
+    return { ...fallback.data, day: day ?? 0 };
+  }
+  throw error;
 }
 
 export async function updateCoursePdf(id, row) {

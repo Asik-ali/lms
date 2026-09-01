@@ -297,11 +297,11 @@ export default function CourseManagement() {
                         <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100">Day {activeDay} – Video Lessons</h3>
                         <p className="text-sm text-gray-500 dark:text-gray-400">Add one or more videos for this day (all optional).</p>
                       </div>
-                      <form onSubmit={handleAddLesson} className="grid grid-cols-1 md:grid-cols-[1fr_2fr_auto] gap-3">
+                      <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr_auto] gap-3">
                         <input value={lessonForm.title} onChange={e => setLessonForm(form => ({ ...form, title: e.target.value }))} className="input-field" placeholder="Lesson title" />
                         <input type="url" value={lessonForm.videoUrl} onChange={e => setLessonForm(form => ({ ...form, videoUrl: e.target.value }))} className="input-field" placeholder="YouTube or Google Drive link" />
-                        <button type="submit" className="btn-primary flex items-center justify-center gap-2"><Plus className="w-4 h-4" /> Add Lesson</button>
-                      </form>
+                        <button type="button" onClick={handleAddLesson} className="btn-primary flex items-center justify-center gap-2"><Plus className="w-4 h-4" /> Add Lesson</button>
+                      </div>
                       {(() => {
                         const dayLessons = courseLessons.filter(l => Number(l.day) === activeDay);
                         return dayLessons.length ? (
@@ -328,11 +328,11 @@ export default function CourseManagement() {
                         <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100">Day {activeDay} – PDF Resources</h3>
                         <p className="text-sm text-gray-500 dark:text-gray-400">Add one or more PDFs for this day (all optional).</p>
                       </div>
-                      <form onSubmit={handleAddPdf} className="grid grid-cols-1 md:grid-cols-[1fr_2fr_auto] gap-3">
+                      <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr_auto] gap-3">
                         <input value={pdfForm.title} onChange={e => setPdfForm(form => ({ ...form, title: e.target.value }))} className="input-field" placeholder="PDF title" />
                         <input type="url" value={pdfForm.pdfUrl} onChange={e => setPdfForm(form => ({ ...form, pdfUrl: e.target.value }))} className="input-field" placeholder="PDF URL (direct link)" />
-                        <button type="submit" className="btn-primary flex items-center justify-center gap-2"><Plus className="w-4 h-4" /> Add PDF</button>
-                      </form>
+                        <button type="button" onClick={handleAddPdf} className="btn-primary flex items-center justify-center gap-2"><Plus className="w-4 h-4" /> Add PDF</button>
+                      </div>
                       {(() => {
                         const dayPdfs = coursePdfs.filter(p => Number(p.day) === activeDay);
                         return dayPdfs.length ? (
