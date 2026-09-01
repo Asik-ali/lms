@@ -28,8 +28,9 @@ export function getCashfreeHeaders(auth = false) {
 }
 
 // Create a Cashfree order and return its payment_session_id (for the Drop-in checkout SDK).
-export async function createCashfreeOrder({ orderId, amount, customer, planName }) {
+export async function createCashfreeOrder({ orderId, amount, customer, planName, origin }) {
   const { headers } = getCashfreeHeaders(true);
+  const baseUrl = origin || process.env.VITE_SITE_URL || '';
   const body = {
     order_id: orderId,
     order_amount: Number(amount),
@@ -42,7 +43,7 @@ export async function createCashfreeOrder({ orderId, amount, customer, planName 
       customer_phone: customer.phone || '9000000000',
     },
     order_meta: {
-      return_url: `${process.env.VITE_SITE_URL || ''}/student/buy-courses?status=return`,
+      return_url: `${baseUrl}/student/buy-courses?status=return`,
     },
   };
   const res = await fetch(`${CASHFREE_API}/orders`, {

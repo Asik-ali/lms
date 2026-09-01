@@ -1,6 +1,13 @@
 import { createServiceClient, getAuthedUser } from './_auth.mjs';
 import { createCashfreeOrder, CASHFREE_ORDER_PREFIX } from './_cashfree.mjs';
 
+function getOrigin(req) {
+  const host = req.headers?.['x-forwarded-host'] || req.headers?.host || '';
+  const proto = (req.headers?.['x-forwarded-proto'] || '').split(',')[0].trim() || 'https';
+  if (!host) return process.env.VITE_SITE_URL || '';
+  return `${proto}://${host}`;
+}
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -46,6 +53,7 @@ export default async function handler(req, res) {
       amount: plan.price,
       customer: profile,
       planName: plan.name,
+      origin: getOrigin(req),
     });
 
     const paymentSessionId = cashfreeOrder.payment_session_id || '';
