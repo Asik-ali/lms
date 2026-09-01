@@ -314,8 +314,8 @@ export default function CourseManagement() {
                                   <p className="truncate text-sm font-medium text-gray-800 dark:text-gray-200">{lesson.title}</p>
                                   <p className="text-xs text-gray-500 dark:text-gray-400">{lesson.provider}</p>
                                 </div>
-                                <button onClick={() => setMediaViewer({ url: lesson.video_url, title: lesson.title, type: 'video' })} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-indigo-600" aria-label={`Open ${lesson.title}`}><ExternalLink className="w-4 h-4" /></button>
-                                <button onClick={() => handleDeleteLesson(lesson.id)} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-red-600" aria-label={`Delete ${lesson.title}`}><Trash2 className="w-4 h-4" /></button>
+                                <button type="button" onClick={() => setMediaViewer({ url: lesson.video_url, title: lesson.title, type: 'video' })} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-indigo-600" aria-label={`Open ${lesson.title}`}><ExternalLink className="w-4 h-4" /></button>
+                                <button type="button" onClick={() => handleDeleteLesson(lesson.id)} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-red-600" aria-label={`Delete ${lesson.title}`}><Trash2 className="w-4 h-4" /></button>
                               </div>
                             ))}
                           </div>
@@ -344,8 +344,8 @@ export default function CourseManagement() {
                                 <div className="min-w-0 flex-1">
                                   <p className="truncate text-sm font-medium text-gray-800 dark:text-gray-200">{pdf.title}</p>
                                 </div>
-                                <button onClick={() => setMediaViewer({ url: pdf.pdf_url, title: pdf.title, type: 'pdf' })} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-indigo-600" aria-label={`Open ${pdf.title}`}><ExternalLink className="w-4 h-4" /></button>
-                                <button onClick={() => handleDeletePdf(pdf.id)} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-red-600" aria-label={`Delete ${pdf.title}`}><Trash2 className="w-4 h-4" /></button>
+                                <button type="button" onClick={() => setMediaViewer({ url: pdf.pdf_url, title: pdf.title, type: 'pdf' })} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-indigo-600" aria-label={`Open ${pdf.title}`}><ExternalLink className="w-4 h-4" /></button>
+                                <button type="button" onClick={() => handleDeletePdf(pdf.id)} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-red-600" aria-label={`Delete ${pdf.title}`}><Trash2 className="w-4 h-4" /></button>
                               </div>
                             ))}
                           </div>
