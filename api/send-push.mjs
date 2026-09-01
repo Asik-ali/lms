@@ -4,26 +4,44 @@ import { createServiceClient, requireAdmin, setCors } from './_auth.mjs';
 let firebaseMessaging = null;
 let fcmInitError = null;
 
-// Lazily initialise Firebase Admin for FCM (native Android/iOS push). Guarded
-// with a global flag because firebase-admin caches and throws if initialised
-// twice across cold-start invocations.
-async function getFcmApp() {
+// Builds a Firebase credential from the available env config. The most reliable
+// form is a full service-account JSON (FCM_SERVICE_ACCOUNT) — JSON.parse
+// correctly decodes the \n escapes in the PEM private key, which copy/paste or
+// PowerShell corruption can break when storing the raw key.
+function buildCredential() {
+  const full = process.env.FCM_SERVICE_ACCOUNT || process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON;
+  if (full) {
+    try {
+      return { cert: JSON.parse(full) };
+    } catch (e) {
+      fcmInitError = 'FCM_SERVICE_ACCOUNT is not valid JSON: ' + e.message;
+      return null;
+    }
+  }
+
   if (!process.env.FCM_CLIENT_EMAIL || !process.env.FCM_PRIVATE_KEY) {
-    fcmInitError = 'FCM_CLIENT_EMAIL or FCM_PRIVATE_KEY missing';
+    fcmInitError = 'FCM credentials missing (set FCM_SERVICE_ACCOUNT full JSON, or FCM_CLIENT_EMAIL + FCM_PRIVATE_KEY)';
     return null;
   }
+
+  return {
+    clientEmail: process.env.FCM_CLIENT_EMAIL,
+    privateKey: (process.env.FCM_PRIVATE_KEY || '').replace(/\\n/g, '\n'),
+    projectId: process.env.FCM_PROJECT_ID || undefined,
+  };
+}
+
+async function getFcmApp() {
   if (firebaseMessaging) return firebaseMessaging;
+
+  const cred = buildCredential();
+  if (!cred) return null;
+
   try {
     const { initializeApp, cert, getApps } = await import('firebase-admin/app');
     const { getMessaging } = await import('firebase-admin/messaging');
     if (getApps().length === 0) {
-      initializeApp({
-        credential: cert({
-          projectId: process.env.FCM_PROJECT_ID || null,
-          clientEmail: process.env.FCM_CLIENT_EMAIL,
-          privateKey: (process.env.FCM_PRIVATE_KEY || '').replace(/\\n/g, '\n'),
-        }),
-      });
+      initializeApp({ credential: cert(cred.cert || cred) });
     }
     firebaseMessaging = getMessaging();
     fcmInitError = null;
