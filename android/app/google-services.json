@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "975688205501",
+    "project_id": "test-7e03d",
+    "storage_bucket": "test-7e03d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:975688205501:android:50bed452700adf6e78a3d4",
+        "android_client_info": {
+          "package_name": "com.lms.portal"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmcY1I8WnW8OOTep1da0u47IaOcYIMbo8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

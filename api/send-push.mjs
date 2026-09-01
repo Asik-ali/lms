@@ -85,34 +85,50 @@ export default async function handler(req, res) {
       rows = data || [];
     }
 
-    const webSubs = rows.filter(r => r.token_type !== 'fcm').map(r => r.subscription);
-    const fcmTokens = rows.filter(r => r.token_type === 'fcm').map(r => r.subscription);
+    const webRows = rows.filter(r => r.token_type !== 'fcm');
+    const fcmRows = rows.filter(r => r.token_type === 'fcm');
+    const webSubs = webRows.map(r => ({ id: r.id, user_id: r.user_id, sub: r.subscription }));
+    const fcmTokens = fcmRows.map(r => ({ id: r.id, user_id: r.user_id, token: r.subscription }));
 
     let webSent = 0;
     let fcmSent = 0;
+    const staleIds = [];
 
     // 1) Web push (browser).
-    if (webSubs.length > 0 && vapidPublicKey && vapidPrivateKey) {
+    const webConfigured = !!(vapidPublicKey && vapidPrivateKey);
+    if (webSubs.length > 0 && webConfigured) {
       const payload = JSON.stringify({ title: subject, body: message });
       const results = await Promise.allSettled(
-        webSubs.map(sub => {
+        webSubs.map(({ sub }) => {
           let parsed = sub;
           if (typeof sub === 'string') {
             try { parsed = JSON.parse(sub); } catch { return null; }
           }
           if (!parsed || !parsed.endpoint || !parsed.keys) return null;
-          try { return webpush.sendNotification(parsed, payload); } catch { return null; }
+          return webpush.sendNotification(parsed, payload);
         })
       );
-      webSent = results.filter(r => r.status === 'fulfilled' && r.value).length;
+      results.forEach((r, i) => {
+        if (r.status === 'fulfilled') {
+          webSent++;
+        } else if (r.status === 'rejected') {
+          const err = r.reason;
+          const status = err?.statusCode || err?.status;
+          if (status === 404 || status === 410) {
+            staleIds.push(webSubs[i].id);
+          }
+        }
+      });
     }
 
     // 2) Native FCM push (Android/iOS).
+    let fcmConfigured = false;
     if (fcmTokens.length > 0) {
       const messaging = await getFcmApp();
+      fcmConfigured = !!messaging;
       if (messaging) {
         const fcmResults = await Promise.allSettled(
-          fcmTokens.map(token =>
+          fcmTokens.map(({ token }) =>
             messaging.send({
               token,
               notification: { title: subject, body: message },
@@ -120,14 +136,38 @@ export default async function handler(req, res) {
             })
           )
         );
-        fcmSent = fcmResults.filter(r => r.status === 'fulfilled').length;
+        fcmResults.forEach((r, i) => {
+          if (r.status === 'fulfilled') {
+            fcmSent++;
+          } else if (r.status === 'rejected') {
+            const err = r.reason;
+            const code = err?.code || '';
+            if (code.includes('NOT_FOUND') || code.includes('UNREGISTERED') || code.includes('INVALID_ARGUMENT')) {
+              staleIds.push(fcmTokens[i].id);
+            }
+          }
+        });
       }
+    }
+
+    // Remove stale / dead subscriptions so future sends aren't polluted.
+    if (staleIds.length > 0) {
+      await supabase.from('push_subscriptions').delete().in('id', staleIds);
     }
 
     const total = rows.length;
     const sent = webSent + fcmSent;
 
-    return res.status(200).json({ success: true, sent, total, web: webSent, fcm: fcmSent });
+    return res.status(200).json({
+      success: true,
+      sent,
+      total,
+      web: webSent,
+      fcm: fcmSent,
+      webConfigured,
+      fcmConfigured,
+      staleRemoved: staleIds.length,
+    });
   } catch (err) {
     return res.status(500).json({ error: err.message || 'Failed to send push notifications' });
   }

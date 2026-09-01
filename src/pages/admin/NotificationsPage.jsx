@@ -85,7 +85,10 @@ function ComposeForm({ type, onSent }) {
         const data = await res.json();
 
         if (res.ok) {
-          showSuccess(`Push notification sent to ${data.sent || 0} device(s).`);
+          let info = `sent to ${data.sent || 0} of ${data.total || 0} device(s).`;
+          if (!data.webConfigured) info += ' Web push not configured (VAPID keys missing).';
+          if (!data.fcmConfigured && data.total > 0) info += ' FCM not configured (service account missing).';
+          showSuccess(info);
         } else {
           showError(data.error || 'Failed to send push notifications.');
         }

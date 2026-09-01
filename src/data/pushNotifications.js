@@ -1,13 +1,15 @@
 import { apiUrl } from './api';
 
+let _registration = null;
+
 export async function registerServiceWorker() {
   if (!('serviceWorker' in navigator) || !('PushManager' in window)) {
     return null;
   }
 
   try {
-    const registration = await navigator.serviceWorker.register('/service-worker.js');
-    return registration;
+    _registration = await navigator.serviceWorker.register('/service-worker.js');
+    return _registration;
   } catch {
     return null;
   }
@@ -25,10 +27,30 @@ export async function getVapidPublicKey() {
 
 export async function subscribeToPush(registration) {
   try {
+    const reg = registration || _registration;
+    if (!reg) return null;
+
     const publicKey = await getVapidPublicKey();
     if (!publicKey) return null;
 
-    const subscription = await registration.pushManager.subscribe({
+    // If an existing subscription is active, just re-save it (idempotent).
+    const existing = await reg.pushManager.getSubscription();
+    if (existing) {
+      const { data: { session } } = await import('../supabase/client.js').then(m => m.supabase.auth.getSession());
+      if (!session?.user?.id) return null;
+
+      await fetch(apiUrl('/api/save-subscription'), {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${session.access_token}`,
+        },
+        body: JSON.stringify({ userId: session.user.id, subscription: existing }),
+      });
+      return existing;
+    }
+
+    const subscription = await reg.pushManager.subscribe({
       userVisibleOnly: true,
       applicationServerKey: publicKey,
     });
@@ -55,8 +77,8 @@ export async function subscribeToPush(registration) {
 
 export async function unsubscribeFromPush() {
   try {
-    const registration = await navigator.serviceWorker.ready;
-    const subscription = await registration.pushManager.getSubscription();
+    const reg = _registration || await navigator.serviceWorker.ready;
+    const subscription = await reg.pushManager.getSubscription();
     if (subscription) {
       await subscription.unsubscribe();
     }
