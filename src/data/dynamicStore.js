@@ -9,7 +9,7 @@ export async function getCourses({ page = 0, pageSize = DEFAULT_PAGE_SIZE } = {}
   const to = from + pageSize - 1;
   const { data, error, count } = await supabase
     .from('courses')
-    .select('id, title, category, students, lessons, duration, status', { count: 'exact' })
+    .select('id, title, students, lessons, duration, status', { count: 'exact' })
     .range(from, to);
   if (error) throw error;
   return { data: data || [], total: count ?? 0 };
@@ -78,6 +78,21 @@ async function removeStudentCourse(title) {
     const items = parseCourseList(p.course);
     if (items.includes(title)) {
       await saveProfileCourse(p.id, serializeCourseList(items.filter(i => i !== title)));
+    }
+  }
+}
+
+// Removes any course names in students' profiles that no longer exist in the courses table.
+export async function cleanupStaleStudentCourses() {
+  const { data: courseRows, error: courseErr } = await supabase.from('courses').select('title');
+  if (courseErr) throw courseErr;
+  const validTitles = new Set((courseRows || []).map(c => c.title));
+  const profiles = await fetchCourseProfiles();
+  for (const p of profiles) {
+    const items = parseCourseList(p.course);
+    const next = items.filter(i => validTitles.has(i));
+    if (next.length !== items.length) {
+      await saveProfileCourse(p.id, serializeCourseList(next));
     }
   }
 }

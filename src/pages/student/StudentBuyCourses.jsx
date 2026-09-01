@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { ShoppingCart, BookOpen, PenTool, CheckCircle, XCircle, CreditCard, History, Loader2, IndianRupee } from 'lucide-react';
+import { ShoppingCart, BookOpen, PenTool, CheckCircle, CreditCard, History, Loader2, IndianRupee } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { supabase } from '../../supabase/client';
 import { getSalesPlans, decoratePlanItems, getMyPurchaseHistory } from '../../data/dynamicStore';

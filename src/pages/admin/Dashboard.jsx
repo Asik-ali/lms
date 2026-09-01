@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Users, BookOpen, FolderOpen } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { getAllStudents, getAllCourses, getAllEnrollments, getAllTestSeries, getAllNotifications } from '../../data/dynamicStore';
+import { getAllStudents, getAllCourses, getAllEnrollments, getAllTestSeries, getAllNotifications, cleanupStaleStudentCourses } from '../../data/dynamicStore';
 
 export default function AdminDashboard() {
   const [students, setStudents] = useState([]);
@@ -13,6 +13,7 @@ export default function AdminDashboard() {
   useEffect(() => {
     (async () => {
       try {
+        try { await cleanupStaleStudentCourses(); } catch (e) { console.error('Failed to clean student courses:', e); }
         setStudents(await getAllStudents());
         setCourses(await getAllCourses());
         setEnrollments(await getAllEnrollments());
