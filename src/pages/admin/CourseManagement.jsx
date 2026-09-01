@@ -131,13 +131,15 @@ export default function CourseManagement() {
 
   async function handleAddLesson(e) {
     e.preventDefault();
-    const provider = getVideoProvider(lessonForm.videoUrl);
-    if (!provider) return showError('Use a valid YouTube or Google Drive video link.');
     try {
+      const title = lessonForm.title.trim() || `Day ${activeDay} - Video ${(courseLessons.filter(l => Number(l.day) === activeDay).length) + 1}`;
+      let videoUrl = lessonForm.videoUrl.trim();
+      let provider = getVideoProvider(videoUrl) || 'Link';
+      if (videoUrl && !getVideoProvider(videoUrl)) provider = 'Link';
       await addCourseLesson({
         course_id: editingId,
-        title: lessonForm.title,
-        video_url: lessonForm.videoUrl,
+        title,
+        video_url: videoUrl || 'https://example.com/',
         provider,
         day: activeDay,
         position: courseLessons.length + 1,
@@ -168,12 +170,12 @@ export default function CourseManagement() {
 
   async function handleAddPdf(e) {
     e.preventDefault();
-    if (!pdfForm.pdfUrl) return showError('Enter a PDF URL.');
     try {
+      const title = pdfForm.title.trim() || `Day ${activeDay} - PDF ${(coursePdfs.filter(p => Number(p.day) === activeDay).length) + 1}`;
       await addCoursePdf({
         course_id: editingId,
-        title: pdfForm.title,
-        pdf_url: pdfForm.pdfUrl,
+        title,
+        pdf_url: pdfForm.pdfUrl.trim() || 'https://example.com/',
         day: activeDay,
         position: coursePdfs.length + 1,
       });
