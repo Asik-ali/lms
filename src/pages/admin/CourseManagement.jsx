@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Search, Plus, Edit2, Trash2, X, Video, FileText, ExternalLink } from 'lucide-react';
-import { getAllCourses, addCourse, updateCourse, deleteCourse, getCourseLessons, addCourseLesson, deleteCourseLesson, getCoursePdfs, addCoursePdf, deleteCoursePdf } from '../../data/dynamicStore';
+import { getAllCourses, getAllStudents, addCourse, updateCourse, deleteCourse, getCourseLessons, addCourseLesson, deleteCourseLesson, getCoursePdfs, addCoursePdf, deleteCoursePdf } from '../../data/dynamicStore';
 import { showSuccess, showError } from '../../components/common/Toast';
 import MediaViewer from '../../components/common/MediaViewer';
 import { useAuth } from '../../contexts/AuthContext';
@@ -14,6 +14,7 @@ export default function CourseManagement() {
   const navigate = useNavigate();
   const isCreatePage = location.pathname.endsWith('/create');
   const [courses, setCourses] = useState([]);
+  const [students, setStudents] = useState([]);
   const [showForm, setShowForm] = useState(isCreatePage);
   const [editingId, setEditingId] = useState(null);
   const [form, setForm] = useState(emptyForm);
@@ -38,7 +39,9 @@ export default function CourseManagement() {
 
   async function refresh() {
     try {
-      setCourses([...(await getAllCourses())]);
+      const [allCourses, allStudents] = await Promise.all([getAllCourses(), getAllStudents()]);
+      setCourses(allCourses);
+      setStudents(allStudents);
     } catch (err) {
       showError('Failed to load courses');
     }
@@ -201,6 +204,17 @@ export default function CourseManagement() {
     const matchSearch = c.title.toLowerCase().includes(search.toLowerCase());
     return matchSearch;
   });
+
+  const studentsPerCourse = (title) => {
+    if (!title) return 0;
+    return students.filter(s =>
+      (s.course || '')
+        .split(',')
+        .map(c => c.trim())
+        .filter(Boolean)
+        .includes(title)
+    ).length;
+  };
 
   return (
     <div className="space-y-6">
@@ -381,7 +395,7 @@ export default function CourseManagement() {
             {filtered.map(c => (
               <tr key={c.id} className="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/60">
                 <td className="table-cell font-medium">{c.title}</td>
-                <td className="table-cell">{c.students}</td>
+                <td className="table-cell">{studentsPerCourse(c.title)}</td>
                 <td className="table-cell">{c.lessons}</td>
                 <td className="table-cell">
                   <span className={`badge ${c.status === 'Published' ? 'badge-success' : 'badge-warning'}`}>{c.status}</span>
