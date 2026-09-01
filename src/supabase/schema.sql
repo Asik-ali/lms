@@ -130,6 +130,7 @@ CREATE TABLE IF NOT EXISTS course_pdfs (
   course_id BIGINT NOT NULL REFERENCES courses(id) ON DELETE CASCADE,
   title TEXT NOT NULL,
   pdf_url TEXT NOT NULL,
+  day INTEGER DEFAULT 0,
   position INTEGER NOT NULL DEFAULT 1,
   created_at TIMESTAMPTZ DEFAULT NOW()
 );
@@ -145,6 +146,7 @@ CREATE TABLE IF NOT EXISTS course_lessons (
   title TEXT NOT NULL,
   video_url TEXT NOT NULL,
   provider TEXT NOT NULL,
+  day INTEGER DEFAULT 0,
   position INTEGER NOT NULL DEFAULT 1,
   created_at TIMESTAMPTZ DEFAULT NOW()
 );

@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ArrowLeft, BookOpen, Clock3, CheckCircle2, FileText, Download, Play } from 'lucide-react';
+import { ArrowLeft, BookOpen, Clock3, CheckCircle2, FileText, Download, Play, CalendarDays } from 'lucide-react';
 import { getCourseById, getCourseLessons, getCoursePdfs } from '../../data/dynamicStore';
 import MediaViewer from '../../components/common/MediaViewer';
 
@@ -14,6 +14,20 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
   const [mediaViewer, setMediaViewer] = useState(null);
 
   const resolvedCourseId = propCourseId ?? routeCourseId;
+
+  const days = useMemo(() => {
+    const map = new Map();
+    const add = (items, type) => {
+      (items || []).forEach(item => {
+        const day = Number(item.day) || 0;
+        if (!map.has(day)) map.set(day, { day, videos: [], pdfs: [] });
+        map.get(day)[type].push(item);
+      });
+    };
+    add(lessons, 'videos');
+    add(pdfs, 'pdfs');
+    return [...map.entries()].sort((a, b) => a[0] - b[0]).map(([, v]) => v);
+  }, [lessons, pdfs]);
 
   useEffect(() => {
     (async () => {
@@ -97,54 +111,71 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
               </ul>
             </div>
 
-            <div className="rounded-lg border border-gray-200 dark:border-gray-800 p-4">
-              <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">Course videos</h3>
-              {lessons.length > 0 ? (
-                <div className="space-y-4">
-                  {lessons.map(lesson => (
-                    <div key={lesson.id} className="rounded-lg border border-gray-200 dark:border-gray-800 p-3">
-                      <p className="text-sm font-semibold text-gray-900 dark:text-gray-100">{lesson.title}</p>
-                      <button onClick={() => setMediaViewer({ url: lesson.video_url, title: lesson.title, type: 'video' })} className="mt-2 inline-flex items-center gap-1.5 text-sm text-indigo-600 hover:text-indigo-800">
-                        <Play className="w-3.5 h-3.5" /> Watch video
-                      </button>
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <p className="text-sm text-gray-500 dark:text-gray-400">No video lessons uploaded yet.</p>
-              )}
-            </div>
-
             <div className="rounded-lg border border-gray-200 dark:border-gray-800 p-4 md:col-span-2">
-              <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">PDF resources</h3>
-              {pdfs.length > 0 ? (
-                <div className="space-y-3">
-                  {pdfs.map(pdf => (
-                    <div key={pdf.id} className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-gray-800 p-3">
-                      <FileText className="w-5 h-5 text-indigo-600 shrink-0" />
-                      <div className="min-w-0 flex-1">
-                        <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 truncate">{pdf.title}</p>
+              <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">Lessons &amp; Resources</h3>
+              {days.length > 0 ? (
+                <div className="space-y-4">
+                  {days.map(group => (
+                    <div key={group.day} className="rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden">
+                      <div className="flex items-center gap-2 px-4 py-2.5 bg-gray-50 dark:bg-gray-800/60 border-b border-gray-200 dark:border-gray-800">
+                        <CalendarDays className="w-4 h-4 text-indigo-600 dark:text-indigo-300" />
+                        <span className="text-sm font-semibold text-gray-900 dark:text-gray-100">
+                          {group.day > 0 ? `Day ${group.day}` : 'General'}
+                        </span>
                       </div>
-                      <button
-                        onClick={() => setMediaViewer({ url: pdf.pdf_url, title: pdf.title, type: 'pdf' })}
-                        className="inline-flex items-center gap-1.5 text-sm font-medium text-indigo-600 hover:text-indigo-800 shrink-0"
-                      >
-                        <Download className="w-3.5 h-3.5" /> View PDF
-                      </button>
-                      <a
-                        href={pdf.pdf_url}
-                        download={pdf.title}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 shrink-0"
-                      >
-                        <Download className="w-3.5 h-3.5" />
-                      </a>
+                      <div className="p-4 space-y-4">
+                        {group.videos.length > 0 && (
+                          <div className="space-y-2">
+                            <p className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">Videos</p>
+                            {group.videos.map(lesson => (
+                              <div key={lesson.id} className="rounded-lg border border-gray-200 dark:border-gray-800 p-3">
+                                <p className="text-sm font-semibold text-gray-900 dark:text-gray-100">{lesson.title}</p>
+                                <button onClick={() => setMediaViewer({ url: lesson.video_url, title: lesson.title, type: 'video' })} className="mt-2 inline-flex items-center gap-1.5 text-sm text-indigo-600 hover:text-indigo-800">
+                                  <Play className="w-3.5 h-3.5" /> Watch video
+                                </button>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+
+                        {group.pdfs.length > 0 && (
+                          <div className="space-y-2">
+                            <p className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">PDFs</p>
+                            {group.pdfs.map(pdf => (
+                              <div key={pdf.id} className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-gray-800 p-3">
+                                <FileText className="w-5 h-5 text-indigo-600 shrink-0" />
+                                <div className="min-w-0 flex-1">
+                                  <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 truncate">{pdf.title}</p>
+                                </div>
+                                <button
+                                  onClick={() => setMediaViewer({ url: pdf.pdf_url, title: pdf.title, type: 'pdf' })}
+                                  className="inline-flex items-center gap-1.5 text-sm font-medium text-indigo-600 hover:text-indigo-800 shrink-0"
+                                >
+                                  <Download className="w-3.5 h-3.5" /> View PDF
+                                </button>
+                                <a
+                                  href={pdf.pdf_url}
+                                  download={pdf.title}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 shrink-0"
+                                >
+                                  <Download className="w-3.5 h-3.5" />
+                                </a>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+
+                        {group.videos.length === 0 && group.pdfs.length === 0 && (
+                          <p className="text-sm text-gray-500 dark:text-gray-400">No content for {group.day > 0 ? `Day ${group.day}` : 'this section'} yet.</p>
+                        )}
+                      </div>
                     </div>
                   ))}
                 </div>
               ) : (
-                <p className="text-sm text-gray-500 dark:text-gray-400">No PDF resources available for this course.</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">No lessons or resources uploaded yet.</p>
               )}
             </div>
           </div>

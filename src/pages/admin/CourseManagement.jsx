@@ -18,13 +18,13 @@ export default function CourseManagement() {
   const [editingId, setEditingId] = useState(null);
   const [form, setForm] = useState(emptyForm);
   const [search, setSearch] = useState('');
-  const [lessonCourse, setLessonCourse] = useState(null);
   const [courseLessons, setCourseLessons] = useState([]);
   const [lessonForm, setLessonForm] = useState({ title: '', videoUrl: '' });
-  const [pdfCourse, setPdfCourse] = useState(null);
   const [coursePdfs, setCoursePdfs] = useState([]);
   const [pdfForm, setPdfForm] = useState({ title: '', pdfUrl: '' });
   const [mediaViewer, setMediaViewer] = useState(null);
+  const [maxDays, setMaxDays] = useState(0);
+  const [activeDay, setActiveDay] = useState(1);
 
   useEffect(() => { refresh(); }, []);
 
@@ -53,6 +53,9 @@ export default function CourseManagement() {
   async function handleOpenEdit(course) {
     setForm({ title: course.title, duration: course.duration, status: course.status });    setEditingId(course.id);
     setShowForm(true);
+    const days = parseDurationDays(course.duration);
+    setMaxDays(days);
+    setActiveDay(1);
     try {
       setCourseLessons(await getCourseLessons(course.id));
       setCoursePdfs(await getCoursePdfs(course.id));
@@ -71,11 +74,24 @@ export default function CourseManagement() {
     setForm(emptyForm);
     setCourseLessons([]);
     setCoursePdfs([]);
+    setMaxDays(0);
+    setActiveDay(1);
     if (isCreatePage) navigate('/admin/courses');
   }
 
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
+    if (e.target.name === 'duration') {
+      setMaxDays(parseDurationDays(e.target.value));
+      setActiveDay(1);
+    }
+  }
+
+  function parseDurationDays(duration) {
+    if (!duration) return 0;
+    const match = String(duration).match(/\d+/);
+    const n = match ? parseInt(match[0], 10) : 0;
+    return n > 0 && n <= 365 ? n : 0;
   }
 
   async function handleSubmit(e) {
@@ -104,26 +120,6 @@ export default function CourseManagement() {
     }
   }
 
-  async function openLessons(course) {
-    try {
-      setLessonCourse(course);
-      setLessonForm({ title: '', videoUrl: '' });
-      setCourseLessons(await getCourseLessons(course.id));
-    } catch (error) {
-      showError(error.message || 'Failed to load lessons');
-    }
-  }
-
-  async function openPdfs(course) {
-    try {
-      setPdfCourse(course);
-      setPdfForm({ title: '', pdfUrl: '' });
-      setCoursePdfs(await getCoursePdfs(course.id));
-    } catch (error) {
-      showError(error.message || 'Failed to load PDFs');
-    }
-  }
-
   function getVideoProvider(videoUrl) {
     try {
       const hostname = new URL(videoUrl).hostname.toLowerCase();
@@ -139,16 +135,16 @@ export default function CourseManagement() {
     if (!provider) return showError('Use a valid YouTube or Google Drive video link.');
     try {
       await addCourseLesson({
-        course_id: lessonCourse.id,
+        course_id: editingId,
         title: lessonForm.title,
         video_url: lessonForm.videoUrl,
         provider,
+        day: activeDay,
         position: courseLessons.length + 1,
       });
-      const lessons = await getCourseLessons(lessonCourse.id);
-      await updateCourse(lessonCourse.id, { lessons: lessons.length });
+      const lessons = await getCourseLessons(editingId);
+      await updateCourse(editingId, { lessons: lessons.length });
       setCourseLessons(lessons);
-      setLessonCourse(course => ({ ...course, lessons: lessons.length }));
       setLessonForm({ title: '', videoUrl: '' });
       await refresh();
       showSuccess('Lesson added successfully.');
@@ -160,10 +156,9 @@ export default function CourseManagement() {
   async function handleDeleteLesson(id) {
     try {
       await deleteCourseLesson(id);
-      const lessons = await getCourseLessons(lessonCourse.id);
-      await updateCourse(lessonCourse.id, { lessons: lessons.length });
+      const lessons = await getCourseLessons(editingId);
+      await updateCourse(editingId, { lessons: lessons.length });
       setCourseLessons(lessons);
-      setLessonCourse(course => ({ ...course, lessons: lessons.length }));
       await refresh();
       showSuccess('Lesson removed.');
     } catch (error) {
@@ -176,12 +171,13 @@ export default function CourseManagement() {
     if (!pdfForm.pdfUrl) return showError('Enter a PDF URL.');
     try {
       await addCoursePdf({
-        course_id: pdfCourse.id,
+        course_id: editingId,
         title: pdfForm.title,
         pdf_url: pdfForm.pdfUrl,
+        day: activeDay,
         position: coursePdfs.length + 1,
       });
-      setCoursePdfs(await getCoursePdfs(pdfCourse.id));
+      setCoursePdfs(await getCoursePdfs(editingId));
       setPdfForm({ title: '', pdfUrl: '' });
       showSuccess('PDF added successfully.');
     } catch (error) {
@@ -192,7 +188,7 @@ export default function CourseManagement() {
   async function handleDeletePdf(id) {
     try {
       await deleteCoursePdf(id);
-      setCoursePdfs(await getCoursePdfs(pdfCourse.id));
+      setCoursePdfs(await getCoursePdfs(editingId));
       showSuccess('PDF removed.');
     } catch (error) {
       showError(error.message || 'Failed to remove PDF.');
@@ -258,133 +254,107 @@ export default function CourseManagement() {
             </div>
 
             {editingId && (
-              <div className="rounded-lg border border-gray-200 dark:border-gray-800 p-4 space-y-4">
+              <div className="rounded-lg border border-gray-200 dark:border-gray-800 p-4 space-y-5">
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100">Video Lessons</h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">Add or remove video lessons for this course.</p>
+                  <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100">Video Lessons &amp; PDF Resources</h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                    {maxDays > 0
+                      ? `This course has ${maxDays} days. Select a day to add videos and PDFs (all optional, multiple allowed per day).`
+                      : 'Add a numeric Duration (e.g. 90 DAYS) to enable day-wise videos and PDFs. All fields are optional.'}
+                  </p>
                 </div>
-                <form onSubmit={handleAddLesson} className="grid grid-cols-1 md:grid-cols-[1fr_2fr_auto] gap-3">
-                  <input value={lessonForm.title} onChange={e => setLessonForm(form => ({ ...form, title: e.target.value }))} className="input-field" placeholder="Lesson title" required />
-                  <input type="url" value={lessonForm.videoUrl} onChange={e => setLessonForm(form => ({ ...form, videoUrl: e.target.value }))} className="input-field" placeholder="YouTube or Google Drive link" required />
-                  <button type="submit" className="btn-primary flex items-center justify-center gap-2"><Plus className="w-4 h-4" /> Add Lesson</button>
-                </form>
-                {courseLessons.length ? (
-                  <div className="divide-y divide-gray-100 dark:divide-gray-800 rounded-lg border border-gray-200 dark:border-gray-800">
-                    {courseLessons.map((lesson, index) => (
-                      <div key={lesson.id} className="flex items-center gap-3 p-3">
-                        <span className="text-sm font-medium text-gray-400 dark:text-gray-500">{index + 1}</span>
-                        <Video className="w-4 h-4 text-indigo-600 dark:text-indigo-300 shrink-0" />
-                        <div className="min-w-0 flex-1">
-                          <p className="truncate text-sm font-medium text-gray-800 dark:text-gray-200">{lesson.title}</p>
-                          <p className="text-xs text-gray-500 dark:text-gray-400">{lesson.provider}</p>
-                        </div>
-                        <button onClick={() => setMediaViewer({ url: lesson.video_url, title: lesson.title, type: 'video' })} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-indigo-600" aria-label={`Open ${lesson.title}`}><ExternalLink className="w-4 h-4" /></button>
-                        <button onClick={() => handleDeleteLesson(lesson.id)} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-red-600" aria-label={`Delete ${lesson.title}`}><Trash2 className="w-4 h-4" /></button>
-                      </div>
-                    ))}
+
+                {maxDays > 0 && (
+                  <div className="flex flex-wrap gap-2 max-h-56 overflow-y-auto py-1">
+                    {Array.from({ length: maxDays }, (_, i) => i + 1).map(day => {
+                      const hasVideos = courseLessons.some(l => Number(l.day) === day);
+                      const hasPdfs = coursePdfs.some(p => Number(p.day) === day);
+                      return (
+                        <button
+                          key={day}
+                          type="button"
+                          onClick={() => { setActiveDay(day); setLessonForm({ title: '', videoUrl: '' }); setPdfForm({ title: '', pdfUrl: '' }); }}
+                          className={`px-3 py-1.5 rounded-lg text-sm font-medium border transition-colors ${
+                            activeDay === day
+                              ? 'bg-indigo-600 text-white border-indigo-600'
+                              : 'bg-gray-50 dark:bg-gray-800/60 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:border-indigo-400'
+                          }`}
+                        >
+                          Day {day}
+                          {(hasVideos || hasPdfs) && <span className="ml-1.5 text-xs opacity-80">({(hasVideos ? 1 : 0) + (hasPdfs ? 1 : 0)})</span>}
+                        </button>
+                      );
+                    })}
                   </div>
-                ) : <p className="text-sm text-gray-500 dark:text-gray-400">No lessons added yet.</p>}
+                )}
+
+                {maxDays > 0 && (
+                  <>
+                    <div className="rounded-lg border border-gray-200 dark:border-gray-800 p-4 space-y-4">
+                      <div>
+                        <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100">Day {activeDay} – Video Lessons</h3>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">Add one or more videos for this day (all optional).</p>
+                      </div>
+                      <form onSubmit={handleAddLesson} className="grid grid-cols-1 md:grid-cols-[1fr_2fr_auto] gap-3">
+                        <input value={lessonForm.title} onChange={e => setLessonForm(form => ({ ...form, title: e.target.value }))} className="input-field" placeholder="Lesson title" />
+                        <input type="url" value={lessonForm.videoUrl} onChange={e => setLessonForm(form => ({ ...form, videoUrl: e.target.value }))} className="input-field" placeholder="YouTube or Google Drive link" />
+                        <button type="submit" className="btn-primary flex items-center justify-center gap-2"><Plus className="w-4 h-4" /> Add Lesson</button>
+                      </form>
+                      {(() => {
+                        const dayLessons = courseLessons.filter(l => Number(l.day) === activeDay);
+                        return dayLessons.length ? (
+                          <div className="divide-y divide-gray-100 dark:divide-gray-800 rounded-lg border border-gray-200 dark:border-gray-800">
+                            {dayLessons.map((lesson, index) => (
+                              <div key={lesson.id} className="flex items-center gap-3 p-3">
+                                <span className="text-sm font-medium text-gray-400 dark:text-gray-500">{index + 1}</span>
+                                <Video className="w-4 h-4 text-indigo-600 dark:text-indigo-300 shrink-0" />
+                                <div className="min-w-0 flex-1">
+                                  <p className="truncate text-sm font-medium text-gray-800 dark:text-gray-200">{lesson.title}</p>
+                                  <p className="text-xs text-gray-500 dark:text-gray-400">{lesson.provider}</p>
+                                </div>
+                                <button onClick={() => setMediaViewer({ url: lesson.video_url, title: lesson.title, type: 'video' })} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-indigo-600" aria-label={`Open ${lesson.title}`}><ExternalLink className="w-4 h-4" /></button>
+                                <button onClick={() => handleDeleteLesson(lesson.id)} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-red-600" aria-label={`Delete ${lesson.title}`}><Trash2 className="w-4 h-4" /></button>
+                              </div>
+                            ))}
+                          </div>
+                        ) : <p className="text-sm text-gray-500 dark:text-gray-400">No videos for Day {activeDay} yet.</p>;
+                      })()}
+                    </div>
+
+                    <div className="rounded-lg border border-gray-200 dark:border-gray-800 p-4 space-y-4">
+                      <div>
+                        <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100">Day {activeDay} – PDF Resources</h3>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">Add one or more PDFs for this day (all optional).</p>
+                      </div>
+                      <form onSubmit={handleAddPdf} className="grid grid-cols-1 md:grid-cols-[1fr_2fr_auto] gap-3">
+                        <input value={pdfForm.title} onChange={e => setPdfForm(form => ({ ...form, title: e.target.value }))} className="input-field" placeholder="PDF title" />
+                        <input type="url" value={pdfForm.pdfUrl} onChange={e => setPdfForm(form => ({ ...form, pdfUrl: e.target.value }))} className="input-field" placeholder="PDF URL (direct link)" />
+                        <button type="submit" className="btn-primary flex items-center justify-center gap-2"><Plus className="w-4 h-4" /> Add PDF</button>
+                      </form>
+                      {(() => {
+                        const dayPdfs = coursePdfs.filter(p => Number(p.day) === activeDay);
+                        return dayPdfs.length ? (
+                          <div className="divide-y divide-gray-100 dark:divide-gray-800 rounded-lg border border-gray-200 dark:border-gray-800">
+                            {dayPdfs.map((pdf, index) => (
+                              <div key={pdf.id} className="flex items-center gap-3 p-3">
+                                <span className="text-sm font-medium text-gray-400 dark:text-gray-500">{index + 1}</span>
+                                <FileText className="w-4 h-4 text-indigo-600 dark:text-indigo-300 shrink-0" />
+                                <div className="min-w-0 flex-1">
+                                  <p className="truncate text-sm font-medium text-gray-800 dark:text-gray-200">{pdf.title}</p>
+                                </div>
+                                <button onClick={() => setMediaViewer({ url: pdf.pdf_url, title: pdf.title, type: 'pdf' })} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-indigo-600" aria-label={`Open ${pdf.title}`}><ExternalLink className="w-4 h-4" /></button>
+                                <button onClick={() => handleDeletePdf(pdf.id)} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-red-600" aria-label={`Delete ${pdf.title}`}><Trash2 className="w-4 h-4" /></button>
+                              </div>
+                            ))}
+                          </div>
+                        ) : <p className="text-sm text-gray-500 dark:text-gray-400">No PDFs for Day {activeDay} yet.</p>;
+                      })()}
+                    </div>
+                  </>
+                )}
               </div>
             )}
-
-            {editingId && (
-              <div className="rounded-lg border border-gray-200 dark:border-gray-800 p-4 space-y-4">
-                <div>
-                  <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100">PDF Resources</h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">Add PDF documents for students to download.</p>
-                </div>
-                <form onSubmit={handleAddPdf} className="grid grid-cols-1 md:grid-cols-[1fr_2fr_auto] gap-3">
-                  <input value={pdfForm.title} onChange={e => setPdfForm(form => ({ ...form, title: e.target.value }))} className="input-field" placeholder="PDF title" required />
-                  <input type="url" value={pdfForm.pdfUrl} onChange={e => setPdfForm(form => ({ ...form, pdfUrl: e.target.value }))} className="input-field" placeholder="PDF URL (direct link)" required />
-                  <button type="submit" className="btn-primary flex items-center justify-center gap-2"><Plus className="w-4 h-4" /> Add PDF</button>
-                </form>
-                {coursePdfs.length ? (
-                  <div className="divide-y divide-gray-100 dark:divide-gray-800 rounded-lg border border-gray-200 dark:border-gray-800">
-                    {coursePdfs.map((pdf, index) => (
-                      <div key={pdf.id} className="flex items-center gap-3 p-3">
-                        <span className="text-sm font-medium text-gray-400 dark:text-gray-500">{index + 1}</span>
-                        <FileText className="w-4 h-4 text-indigo-600 dark:text-indigo-300 shrink-0" />
-                        <div className="min-w-0 flex-1">
-                          <p className="truncate text-sm font-medium text-gray-800 dark:text-gray-200">{pdf.title}</p>
-                        </div>
-                        <button onClick={() => setMediaViewer({ url: pdf.pdf_url, title: pdf.title, type: 'pdf' })} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-indigo-600" aria-label={`Open ${pdf.title}`}><ExternalLink className="w-4 h-4" /></button>
-                        <button onClick={() => handleDeletePdf(pdf.id)} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-red-600" aria-label={`Delete ${pdf.title}`}><Trash2 className="w-4 h-4" /></button>
-                      </div>
-                    ))}
-                  </div>
-                ) : <p className="text-sm text-gray-500 dark:text-gray-400">No PDFs added yet.</p>}
-              </div>
-            )}
           </form>
-        </div>
-      )}
-
-      {lessonCourse && (
-        <div className="card p-6 space-y-5">
-          <div className="flex items-center justify-between gap-4">
-            <div>
-              <h2 className="text-lg font-semibold">Lessons: {lessonCourse.title}</h2>
-              <p className="text-sm text-gray-500 dark:text-gray-400">Add YouTube or Google Drive video lessons.</p>
-            </div>
-            <button onClick={() => setLessonCourse(null)} className="p-1 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-400" aria-label="Close lessons">
-              <X className="w-5 h-5" />
-            </button>
-          </div>
-          <form onSubmit={handleAddLesson} className="grid grid-cols-1 md:grid-cols-[1fr_2fr_auto] gap-3">
-            <input value={lessonForm.title} onChange={e => setLessonForm(form => ({ ...form, title: e.target.value }))} className="input-field" placeholder="Lesson title" required />
-            <input type="url" value={lessonForm.videoUrl} onChange={e => setLessonForm(form => ({ ...form, videoUrl: e.target.value }))} className="input-field" placeholder="YouTube or Google Drive link" required />
-            <button type="submit" className="btn-primary flex items-center justify-center gap-2"><Plus className="w-4 h-4" /> Add Lesson</button>
-          </form>
-          {courseLessons.length ? (
-            <div className="divide-y divide-gray-100 dark:divide-gray-800 rounded-lg border border-gray-200 dark:border-gray-800">
-              {courseLessons.map((lesson, index) => (
-                <div key={lesson.id} className="flex items-center gap-3 p-3">
-                  <span className="text-sm font-medium text-gray-400 dark:text-gray-500">{index + 1}</span>
-                  <Video className="w-4 h-4 text-indigo-600 dark:text-indigo-300 shrink-0" />
-                  <div className="min-w-0 flex-1">
-                    <p className="truncate text-sm font-medium text-gray-800 dark:text-gray-200">{lesson.title}</p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">{lesson.provider}</p>
-                  </div>
-                  <button onClick={() => setMediaViewer({ url: lesson.video_url, title: lesson.title, type: 'video' })} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-indigo-600" aria-label={`Open ${lesson.title}`}><ExternalLink className="w-4 h-4" /></button>
-                  <button onClick={() => handleDeleteLesson(lesson.id)} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-red-600" aria-label={`Delete ${lesson.title}`}><Trash2 className="w-4 h-4" /></button>
-                </div>
-              ))}
-            </div>
-          ) : <p className="text-sm text-gray-500 dark:text-gray-400">No lessons added yet.</p>}
-        </div>
-      )}
-
-      {pdfCourse && (
-        <div className="card p-6 space-y-5">
-          <div className="flex items-center justify-between gap-4">
-            <div>
-              <h2 className="text-lg font-semibold">PDFs: {pdfCourse.title}</h2>
-              <p className="text-sm text-gray-500">Add PDF documents for students to download.</p>
-            </div>
-            <button onClick={() => setPdfCourse(null)} className="p-1 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-400" aria-label="Close PDFs">
-              <X className="w-5 h-5" />
-            </button>
-          </div>
-          <form onSubmit={handleAddPdf} className="grid grid-cols-1 md:grid-cols-[1fr_2fr_auto] gap-3">
-            <input value={pdfForm.title} onChange={e => setPdfForm(form => ({ ...form, title: e.target.value }))} className="input-field" placeholder="PDF title" required />
-            <input type="url" value={pdfForm.pdfUrl} onChange={e => setPdfForm(form => ({ ...form, pdfUrl: e.target.value }))} className="input-field" placeholder="PDF URL (direct link)" required />
-            <button type="submit" className="btn-primary flex items-center justify-center gap-2"><Plus className="w-4 h-4" /> Add PDF</button>
-          </form>
-          {coursePdfs.length ? (
-            <div className="divide-y divide-gray-100 dark:divide-gray-800 rounded-lg border border-gray-200 dark:border-gray-800">
-              {coursePdfs.map((pdf, index) => (
-                <div key={pdf.id} className="flex items-center gap-3 p-3">
-                  <span className="text-sm font-medium text-gray-400 dark:text-gray-500">{index + 1}</span>
-                  <FileText className="w-4 h-4 text-indigo-600 dark:text-indigo-300 shrink-0" />
-                  <div className="min-w-0 flex-1">
-                    <p className="truncate text-sm font-medium text-gray-800 dark:text-gray-200">{pdf.title}</p>
-                  </div>
-                  <button onClick={() => setMediaViewer({ url: pdf.pdf_url, title: pdf.title, type: 'pdf' })} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-indigo-600" aria-label={`Open ${pdf.title}`}><ExternalLink className="w-4 h-4" /></button>
-                  <button onClick={() => handleDeletePdf(pdf.id)} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-red-600" aria-label={`Delete ${pdf.title}`}><Trash2 className="w-4 h-4" /></button>
-                </div>
-              ))}
-            </div>
-          ) : <p className="text-sm text-gray-500 dark:text-gray-400">No PDFs added yet.</p>}
         </div>
       )}
 
@@ -419,12 +389,6 @@ export default function CourseManagement() {
                   <div className="flex items-center gap-2">
                     <button onClick={() => handleOpenEdit(c)} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-500/10 rounded-lg">
                       <Edit2 className="w-4 h-4" />
-                    </button>
-                    <button onClick={() => openLessons(c)} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-500/10 rounded-lg" title="Manage lessons">
-                      <Video className="w-4 h-4" />
-                    </button>
-                    <button onClick={() => openPdfs(c)} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-500/10 rounded-lg" title="Manage PDFs">
-                      <FileText className="w-4 h-4" />
                     </button>
                     <button onClick={() => handleDelete(c.id)} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-red-600 hover:bg-red-50 rounded-lg">
                       <Trash2 className="w-4 h-4" />

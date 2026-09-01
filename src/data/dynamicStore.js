@@ -101,7 +101,7 @@ export async function getCourseLessons(courseId) {
   const numericId = Number(courseId);
   const { data, error } = await supabase
     .from('course_lessons')
-    .select('id, course_id, title, video_url, position')
+    .select('id, course_id, title, video_url, day, position')
     .eq('course_id', isNaN(numericId) ? courseId : numericId)
     .order('position');
   if (error) throw error;
@@ -109,7 +109,13 @@ export async function getCourseLessons(courseId) {
 }
 
 export async function addCourseLesson(row) {
-  const { data, error } = await supabase.from('course_lessons').insert(row).select('id, course_id, title, content, position').single();
+  const { data, error } = await supabase.from('course_lessons').insert(row).select('id, course_id, title, video_url, day, position').single();
+  if (error) throw error;
+  return data;
+}
+
+export async function updateCourseLesson(id, row) {
+  const { data, error } = await supabase.from('course_lessons').update(row).eq('id', id).select('id, course_id, title, video_url, day, position').single();
   if (error) throw error;
   return data;
 }
@@ -123,7 +129,7 @@ export async function getCoursePdfs(courseId) {
   const numericId = Number(courseId);
   const { data, error } = await supabase
     .from('course_pdfs')
-    .select('id, course_id, title, pdf_url, position')
+    .select('id, course_id, title, pdf_url, day, position')
     .eq('course_id', isNaN(numericId) ? courseId : numericId)
     .order('position');
   if (error) throw error;
@@ -131,7 +137,13 @@ export async function getCoursePdfs(courseId) {
 }
 
 export async function addCoursePdf(row) {
-  const { data, error } = await supabase.from('course_pdfs').insert(row).select('id, course_id, title, pdf_url, position').single();
+  const { data, error } = await supabase.from('course_pdfs').insert(row).select('id, course_id, title, pdf_url, day, position').single();
+  if (error) throw error;
+  return data;
+}
+
+export async function updateCoursePdf(id, row) {
+  const { data, error } = await supabase.from('course_pdfs').update(row).eq('id', id).select('id, course_id, title, pdf_url, day, position').single();
   if (error) throw error;
   return data;
 }
