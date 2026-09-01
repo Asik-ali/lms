@@ -2,12 +2,14 @@ import webpush from 'web-push';
 import { createServiceClient, requireAdmin, setCors } from './_auth.mjs';
 
 let firebaseMessaging = null;
+let fcmInitError = null;
 
 // Lazily initialise Firebase Admin for FCM (native Android/iOS push). Guarded
 // with a global flag because firebase-admin caches and throws if initialised
 // twice across cold-start invocations.
 async function getFcmApp() {
   if (!process.env.FCM_CLIENT_EMAIL || !process.env.FCM_PRIVATE_KEY) {
+    fcmInitError = 'FCM_CLIENT_EMAIL or FCM_PRIVATE_KEY missing';
     return null;
   }
   if (firebaseMessaging) return firebaseMessaging;
@@ -24,8 +26,10 @@ async function getFcmApp() {
       });
     }
     firebaseMessaging = getMessaging();
+    fcmInitError = null;
     return firebaseMessaging;
-  } catch {
+  } catch (e) {
+    fcmInitError = e?.message || String(e);
     return null;
   }
 }
@@ -167,6 +171,7 @@ export default async function handler(req, res) {
       fcm: fcmSent,
       webConfigured,
       fcmConfigured,
+      fcmInitError,
       staleRemoved: staleIds.length,
     });
   } catch (err) {
