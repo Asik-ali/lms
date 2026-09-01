@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { Plus, Pencil, Trash2, X, Save, Loader2, BookOpen, PenTool, ShoppingCart, IndianRupee } from 'lucide-react';
 import { supabase } from '../../supabase/client';
 import { getAllCourses, getAllTestSeries } from '../../data/dynamicStore';
+import { apiUrl } from '../../data/api';
 import { showSuccess, showError } from '../../components/common/Toast';
 
 const emptyForm = { id: null, name: '', description: '', price: '', status: 'active', items: [] };
@@ -25,7 +26,7 @@ export default function SalesPlansPage() {
 
   const loadPlans = useCallback(async () => {
     const token = await apiToken();
-    const res = await fetch('/api/sales-plans', {
+    const res = await fetch(apiUrl('/api/sales-plans'), {
       headers: { Authorization: `Bearer ${token}` },
     });
     const data = await res.json();
@@ -94,7 +95,7 @@ export default function SalesPlansPage() {
 
     setSaving(true);
     const token = await apiToken();
-    const url = form.id ? `/api/sales-plans?planId=${form.id}` : '/api/sales-plans';
+    const url = form.id ? `${apiUrl('/api/sales-plans')}?planId=${form.id}` : apiUrl('/api/sales-plans');
     try {
       const res = await fetch(url, {
         method: form.id ? 'PUT' : 'POST',
@@ -123,7 +124,7 @@ export default function SalesPlansPage() {
     if (!window.confirm(`Delete plan "${p.name}"? This cannot be undone.`)) return;
     const token = await apiToken();
     try {
-      const res = await fetch(`/api/sales-plans?planId=${p.id}`, {
+      const res = await fetch(`${apiUrl('/api/sales-plans')}?planId=${p.id}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` },
       });

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Mail, Bell, Send, Loader } from 'lucide-react';
 import { supabase } from '../../supabase/client';
 import { showError, showSuccess } from '../../components/common/Toast';
+import { apiUrl } from '../../data/api';
 
 const tabs = [
   { label: 'Email', icon: Mail },
@@ -55,7 +56,7 @@ function ComposeForm({ type, onSent }) {
 
         const results = await Promise.allSettled(
           emails.map(email =>
-            fetch('/api/send-email', {
+            fetch(apiUrl('/api/send-email'), {
               method: 'POST',
               headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
               body: JSON.stringify({ recipient: email, subject, message }),
@@ -75,7 +76,7 @@ function ComposeForm({ type, onSent }) {
 
         onSent({ type, recipient: recipientLabel, subject, status: failed.length === 0 ? 'Sent' : 'Failed' });
       } else if (type === 'Push Notifications') {
-        const res = await fetch('/api/send-push', {
+        const res = await fetch(apiUrl('/api/send-push'), {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
           body: JSON.stringify({ recipient, subject, message }),

@@ -4,6 +4,7 @@ import { ShoppingCart, BookOpen, PenTool, CheckCircle, CreditCard, History, Load
 import { useAuth } from '../../contexts/AuthContext';
 import { supabase } from '../../supabase/client';
 import { getSalesPlans, decoratePlanItems, getMyPurchaseHistory } from '../../data/dynamicStore';
+import { apiUrl } from '../../data/api';
 import { showSuccess, showError } from '../../components/common/Toast';
 
 const CASHFREE_SCRIPT = 'https://sdk.cashfree.com/js/v3/cashfree.js';
@@ -90,7 +91,7 @@ export default function StudentBuyCourses() {
     try {
       const { data: { session } } = await supabase.auth.getSession();
       const token = session?.access_token || '';
-      const res = await fetch('/api/create-order', {
+      const res = await fetch(apiUrl('/api/create-order'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
         body: JSON.stringify({ planId: plan.id }),

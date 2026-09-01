@@ -3,6 +3,7 @@ import { useLocation, useNavigate, Navigate } from 'react-router-dom';
 import { Search, Plus, ArrowLeft, UserPlus, Copy, Check, LogIn, Save, X, KeyRound, BookOpen, Trash2 } from 'lucide-react';
 import { supabase } from '../../supabase/client';
 import { getAllStudents, getAllCourses, getAllTestSeries } from '../../data/dynamicStore';
+import { apiUrl } from '../../data/api';
 import { useAuth } from '../../contexts/AuthContext';
 import { showError, showSuccess } from '../../components/common/Toast';
 import { normalizeCourseAccessSelection, serializeCourseAccess, getCourseAccessLabel } from './studentCourseAccess';
@@ -26,7 +27,7 @@ function AddStudentForm({ onBack, onStudentAdded }) {
     setSubmitError('');
     setIsSubmitting(true);
     try {
-      const res = await fetch('/api/create-student', {
+      const res = await fetch(apiUrl('/api/create-student'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

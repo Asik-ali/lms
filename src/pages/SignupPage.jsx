@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { supabase } from '../supabase/client';
 import { useAuth } from '../contexts/AuthContext';
+import { apiUrl } from '../data/api';
 import { BookOpen, User, Mail, Lock, ShieldCheck, ChevronLeft, AlertCircle } from 'lucide-react';
 
 export default function SignupPage() {
@@ -29,7 +30,7 @@ export default function SignupPage() {
     }
     setIsSubmitting(true);
     try {
-      const res = await fetch('/api/send-signup-otp', {
+      const res = await fetch(apiUrl('/api/send-signup-otp'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, password }),
@@ -53,7 +54,7 @@ export default function SignupPage() {
     }
     setIsSubmitting(true);
     try {
-      const res = await fetch('/api/verify-signup', {
+      const res = await fetch(apiUrl('/api/verify-signup'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, otp }),

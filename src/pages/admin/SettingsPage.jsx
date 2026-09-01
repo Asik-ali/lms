@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { Mail, Database, Save, Download, Upload, Loader, MailCheck, ClipboardPaste, Eye } from 'lucide-react';
 import { supabase } from '../../supabase/client';
 import { getSmtpSettings, saveSmtpSettings } from '../../data/dynamicStore';
+import { apiUrl } from '../../data/api';
 import { showError, showSuccess } from '../../components/common/Toast';
 
 const tabs = [
@@ -55,7 +56,7 @@ function SMTPTab() {
     try {
       const { data: { session } } = await supabase.auth.getSession();
       const token = session?.access_token || '';
-      const res = await fetch('/api/send-email', {
+      const res = await fetch(apiUrl('/api/send-email'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
         body: JSON.stringify({
@@ -189,7 +190,7 @@ function BackupTab() {
     try {
       const { data: { session } } = await supabase.auth.getSession();
       const token = session?.access_token || '';
-      const res = await fetch('/api/backup', {
+      const res = await fetch(apiUrl('/api/backup'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
         body: JSON.stringify({ recipient: adminEmail }),
