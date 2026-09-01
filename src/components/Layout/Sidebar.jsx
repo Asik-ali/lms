@@ -26,6 +26,7 @@ const adminNav = [
     ]
   },
   { section: 'Test Series', icon: PenTool, path: '/admin/exams/questions' },
+  { section: 'Sales Plans', icon: ShoppingCart, path: '/admin/sales-plans' },
   { section: 'Live Classes', icon: Video, path: '/admin/live-classes' },
   { section: 'Announcements', icon: Megaphone, path: '/admin/announcements' },
   { section: 'Student Tickets', icon: MessageSquare, path: '/admin/tickets' },

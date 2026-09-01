@@ -13,6 +13,7 @@ const titles = {
   '/admin/courses': 'All Courses',
   '/admin/courses/create': 'Create Course',
   '/admin/exams/questions': 'Test Series',
+  '/admin/sales-plans': 'Sales Plans',
   '/admin/live-classes': 'Live Classes',
   '/admin/announcements': 'Announcements',
   '/admin/tickets': 'Student Tickets',

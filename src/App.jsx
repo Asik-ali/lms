@@ -20,6 +20,7 @@ import SettingsPage from './pages/admin/SettingsPage';
 import AdminTickets from './pages/admin/AdminTickets';
 import AdminCalendar from './pages/admin/AdminCalendar';
 import AdminLiveClasses from './pages/admin/AdminLiveClasses';
+import SalesPlansPage from './pages/admin/SalesPlansPage';
 import StudentDashboard from './pages/student/StudentDashboard';
 import StudentCourses from './pages/student/StudentCourses';
 import StudentCourseDetail from './pages/student/StudentCourseDetail';
@@ -89,6 +90,7 @@ function AppRoutes() {
         <Route path="courses" element={<CourseManagement />} />
         <Route path="courses/create" element={<CourseManagement />} />
         <Route path="exams/questions" element={<QuestionBank />} />
+        <Route path="sales-plans" element={<SalesPlansPage />} />
         <Route path="live-classes" element={<AdminLiveClasses />} />
         <Route path="announcements" element={<AnnouncementsPage />} />
         <Route path="tickets" element={<AdminTickets />} />
