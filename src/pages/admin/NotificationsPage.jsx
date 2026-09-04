@@ -1,12 +1,13 @@
 import { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Mail, Bell, Send, Loader } from 'lucide-react';
 import { supabase } from '../../supabase/client';
 import { showError, showSuccess } from '../../components/common/Toast';
 import { apiUrl } from '../../data/api';
 
 const tabs = [
-  { label: 'Email', icon: Mail },
-  { label: 'Push Notifications', icon: Bell },
+  { label: 'Email', icon: Mail, path: '/admin/notifications/email' },
+  { label: 'Push Notifications', icon: Bell, path: '/admin/notifications/push' },
 ];
 
 const recipientOptions = [
@@ -133,7 +134,13 @@ function ComposeForm({ type, onSent }) {
 }
 
 export default function NotificationsPage() {
-  const [activeTab, setActiveTab] = useState(0);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const tabsByPath = {
+    '/admin/notifications/email': 0,
+    '/admin/notifications/push': 1,
+  };
+  const activeTab = tabsByPath[location.pathname] ?? 0;
   const [history, setHistory] = useState([]);
 
   const addToHistory = (entry) => {
@@ -153,7 +160,7 @@ export default function NotificationsPage() {
             return (
               <button
                 key={tab.label}
-                onClick={() => setActiveTab(i)}
+                onClick={() => navigate(tab.path)}
                 className={`flex items-center gap-2 px-6 py-3 text-sm font-medium border-b-2 transition-colors ${
                   i === activeTab
                     ? 'border-navy-600 text-navy-600'
