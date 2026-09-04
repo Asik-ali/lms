@@ -14,7 +14,7 @@ export default function ContactPage() {
 
   return (
     <div className="space-y-16">
-      <section className="bg-gradient-to-r from-navy-600 to-purple-600 text-white py-16">
+      <section className="bg-gradient-to-r from-navy-900 to-navy-600 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-3xl sm:text-4xl font-bold">Contact Us</h1>
           <p className="mt-3 text-navy-100">Have questions? We would love to hear from you.</p>

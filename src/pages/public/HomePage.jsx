@@ -19,7 +19,7 @@ const stats = [
 export default function HomePage() {
   return (
     <div className="space-y-0">
-      <section className="bg-gradient-to-br from-navy-600 via-navy-700 to-purple-700 text-white">
+      <section className="bg-gradient-to-br from-navy-900 via-navy-700 to-navy-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
           <div className="max-w-3xl">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">

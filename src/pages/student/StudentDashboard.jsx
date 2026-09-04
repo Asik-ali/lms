@@ -43,7 +43,7 @@ export default function StudentDashboard() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-gradient-to-r from-navy-600 to-purple-600 rounded-xl p-6 text-white">
+      <div className="bg-gradient-to-r from-navy-900 to-navy-600 rounded-xl p-6 text-white">
         <h1 className="text-2xl font-bold">Welcome back, {user?.name || 'Student'}!</h1>
         <p className="text-navy-100 mt-1">{user?.course || 'Continue your learning journey'}</p>
       </div>

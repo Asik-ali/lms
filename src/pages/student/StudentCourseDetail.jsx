@@ -86,7 +86,7 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
       </button>
 
       <div className="card overflow-hidden">
-        <div className="bg-gradient-to-r from-navy-600 to-purple-600 p-6 text-white">
+        <div className="bg-gradient-to-r from-navy-900 to-navy-600 p-6 text-white">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-12 h-12 rounded-lg bg-white/20 flex items-center justify-center">
               <BookOpen className="w-6 h-6" />

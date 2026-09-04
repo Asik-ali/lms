@@ -136,7 +136,7 @@ export default function StudentTestDetail() {
       </button>
 
       {/* Header */}
-      <div className="bg-gradient-to-r from-navy-600 to-purple-600 rounded-2xl p-6 text-white">
+      <div className="bg-gradient-to-r from-navy-900 to-navy-600 rounded-2xl p-6 text-white">
         <div className="flex items-start gap-4">
           <div className="w-14 h-14 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
             <BookOpen className="w-7 h-7" />

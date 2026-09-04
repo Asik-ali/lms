@@ -353,7 +353,7 @@ export default function StudentTestResult() {
           />
 
           {/* Ranking Card */}
-          <div className="mx-auto max-w-4xl rounded-2xl border border-slate-200 dark:border-slate-800 bg-gradient-to-br from-navy-50 via-white to-purple-50 p-6 shadow-md">
+          <div className="mx-auto max-w-4xl rounded-2xl border border-slate-200 dark:border-slate-800 bg-gradient-to-br from-navy-50 via-white to-navy-100 p-6 shadow-md">
             <div className="flex items-center gap-2 mb-4">
               <Award className="h-5 w-5 text-navy-600" />
               <h3 className="text-sm font-bold uppercase tracking-wide text-slate-600 dark:text-slate-400">
