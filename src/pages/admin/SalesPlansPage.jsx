@@ -154,7 +154,7 @@ export default function SalesPlansPage() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Sales Plans</h1>
+        <h1 className="text-2xl font-bold text-white">Sales Plans</h1>
         {!showForm && (
           <button onClick={openCreate} className="btn-primary flex items-center gap-2 cursor-pointer">
             <Plus className="w-4 h-4" /> New Plan
@@ -165,32 +165,32 @@ export default function SalesPlansPage() {
       {showForm && (
         <div className="card p-6 space-y-5">
           <div className="flex items-center justify-between">
-            <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+            <h2 className="text-lg font-semibold text-white">
               {form.id ? 'Edit Plan' : 'Create Plan'}
             </h2>
-            <button onClick={() => setShowForm(false)} className="p-1 hover:bg-gray-100 dark:hover:bg-gray-800 rounded cursor-pointer">
+            <button onClick={() => setShowForm(false)} className="p-1 hover:bg-gray-100 hover:bg-navy-700 rounded cursor-pointer">
               <X className="w-5 h-5" />
             </button>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Plan Name *</label>
+              <label className="block text-sm font-medium text-navy-100 mb-1">Plan Name *</label>
               <input value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))} className="input-field w-full" placeholder="e.g. Gold Combo" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Price (INR) *</label>
+              <label className="block text-sm font-medium text-navy-100 mb-1">Price (INR) *</label>
               <input type="number" min="0" value={form.price} onChange={e => setForm(f => ({ ...f, price: e.target.value }))} className="input-field w-full" placeholder="e.g. 4999" />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Description</label>
+            <label className="block text-sm font-medium text-navy-100 mb-1">Description</label>
             <textarea value={form.description} onChange={e => setForm(f => ({ ...f, description: e.target.value }))} rows={2} className="input-field w-full resize-none" placeholder="What does this plan include?" />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Status</label>
+            <label className="block text-sm font-medium text-navy-100 mb-1">Status</label>
             <select value={form.status} onChange={e => setForm(f => ({ ...f, status: e.target.value }))} className="input-field w-full">
               <option value="active">Active</option>
               <option value="inactive">Inactive</option>
@@ -198,7 +198,7 @@ export default function SalesPlansPage() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-navy-100 mb-2">
               Included Courses ({selectedCourseIds.size})
             </label>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
@@ -209,7 +209,7 @@ export default function SalesPlansPage() {
                     key={c.id}
                     type="button"
                     onClick={() => toggleItem('course', c.id)}
-                    className={`flex items-center gap-2 px-3 py-2 rounded-lg border text-left text-sm cursor-pointer transition-all ${on ? 'border-navy-400 bg-navy-50 dark:bg-navy-500/10 text-navy-700 dark:text-navy-300' : 'border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-gray-300'}`}
+                    className={`flex items-center gap-2 px-3 py-2 rounded-lg border text-left text-sm cursor-pointer transition-all ${on ? 'border-navy-400 bg-navy-50 dark:bg-navy-500/10 text-navy-700 dark:text-navy-300' : 'border-gray-200 dark:border-gray-700 text-navy-100 hover:border-gray-300'}`}
                   >
                     <BookOpen className="w-4 h-4 flex-shrink-0" />
                     <span className="truncate">{c.title}</span>
@@ -221,7 +221,7 @@ export default function SalesPlansPage() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-navy-100 mb-2">
               Included Test Series ({selectedSeriesIds.size})
             </label>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
@@ -232,7 +232,7 @@ export default function SalesPlansPage() {
                     key={s.id}
                     type="button"
                     onClick={() => toggleItem('test_series', s.id)}
-                    className={`flex items-center gap-2 px-3 py-2 rounded-lg border text-left text-sm cursor-pointer transition-all ${on ? 'border-navy-400 bg-navy-50 dark:bg-navy-500/10 text-navy-700 dark:text-navy-300' : 'border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-gray-300'}`}
+                    className={`flex items-center gap-2 px-3 py-2 rounded-lg border text-left text-sm cursor-pointer transition-all ${on ? 'border-navy-400 bg-navy-50 dark:bg-navy-500/10 text-navy-700 dark:text-navy-300' : 'border-gray-200 dark:border-gray-700 text-navy-100 hover:border-gray-300'}`}
                   >
                     <PenTool className="w-4 h-4 flex-shrink-0" />
                     <span className="truncate">{s.name}</span>
@@ -248,18 +248,18 @@ export default function SalesPlansPage() {
               {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
               {saving ? 'Saving...' : form.id ? 'Update Plan' : 'Create Plan'}
             </button>
-            <button onClick={() => setShowForm(false)} className="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800/60 cursor-pointer">Cancel</button>
+            <button onClick={() => setShowForm(false)} className="px-4 py-2 rounded-lg border border-navy-700 text-navy-100 hover:bg-gray-50 hover:bg-navy-700/60 cursor-pointer">Cancel</button>
           </div>
         </div>
       )}
 
       {!showForm && (
         loading ? (
-          <div className="flex items-center justify-center py-16 text-gray-400 dark:text-gray-500">
+          <div className="flex items-center justify-center py-16 text-navy-300">
             <Loader2 className="w-6 h-6 animate-spin mr-2" /> Loading plans...
           </div>
         ) : plans.length === 0 ? (
-          <div className="card p-10 text-center text-gray-400 dark:text-gray-500">
+          <div className="card p-10 text-center text-navy-300">
             <ShoppingCart className="w-12 h-12 mx-auto mb-3 text-gray-300" />
             <p>No sales plans yet. Click "New Plan" to create one.</p>
           </div>
@@ -268,15 +268,15 @@ export default function SalesPlansPage() {
             {plans.map(p => (
               <div key={p.id} className="card p-6 flex flex-col">
                 <div className="flex items-start justify-between mb-2">
-                  <h3 className="font-semibold text-gray-900 dark:text-gray-100">{p.name}</h3>
+                  <h3 className="font-semibold text-white">{p.name}</h3>
                   <span className={`badge ${statusBadge(p.status)}`}>{p.status}</span>
                 </div>
-                {p.description && <p className="text-sm text-gray-500 dark:text-gray-400 mb-3 line-clamp-2">{p.description}</p>}
+                {p.description && <p className="text-sm text-navy-200 mb-3 line-clamp-2">{p.description}</p>}
                 <div className="flex items-baseline gap-1 mb-4">
-                  <IndianRupee className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-                  <span className="text-2xl font-bold text-gray-900 dark:text-gray-100">{Number(p.price).toLocaleString('en-IN')}</span>
+                  <IndianRupee className="w-4 h-4 text-navy-200" />
+                  <span className="text-2xl font-bold text-white">{Number(p.price).toLocaleString('en-IN')}</span>
                 </div>
-                <div className="space-y-1.5 mb-5 text-sm text-gray-700 dark:text-gray-300 flex-1">
+                <div className="space-y-1.5 mb-5 text-sm text-navy-100 flex-1">
                   {(p.items || []).length === 0 ? (
                     <p className="text-xs text-gray-400">No items (full access)</p>
                   ) : p.items.map((it, i) => (

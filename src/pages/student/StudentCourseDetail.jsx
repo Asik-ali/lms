@@ -63,7 +63,7 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
         <button type="button" onClick={() => navigate('/student/courses')} className="inline-flex items-center gap-2 text-sm font-medium text-navy-600">
           <ArrowLeft className="w-4 h-4" /> Back to courses
         </button>
-        <div className="card p-8 text-center text-gray-500 dark:text-gray-400">Loading course details...</div>
+        <div className="card p-8 text-center text-navy-200">Loading course details...</div>
       </div>
     );
   }
@@ -74,7 +74,7 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
         <button type="button" onClick={() => navigate('/student/courses')} className="inline-flex items-center gap-2 text-sm font-medium text-navy-600">
           <ArrowLeft className="w-4 h-4" /> Back to courses
         </button>
-        <div className="card p-8 text-center text-gray-500 dark:text-gray-400">Course not found.</div>
+        <div className="card p-8 text-center text-navy-200">Course not found.</div>
       </div>
     );
   }
@@ -103,41 +103,41 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
 
         <div className="p-6 space-y-6">
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="rounded-lg border border-gray-200 dark:border-gray-800 p-4">
-              <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">Course Info</h3>
-              <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+            <div className="rounded-lg border border-navy-700 p-4">
+              <h3 className="font-semibold text-white mb-3">Course Info</h3>
+              <ul className="space-y-2 text-sm text-navy-100">
                 <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5" /><span>Duration: {course.duration}</span></li>
                 <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5" /><span>Total lessons: {course.lessons}</span></li>
               </ul>
             </div>
 
-            <div className="rounded-lg border border-gray-200 dark:border-gray-800 p-4 md:col-span-2">
-              <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">Lessons &amp; Resources</h3>
+            <div className="rounded-lg border border-navy-700 p-4 md:col-span-2">
+              <h3 className="font-semibold text-white mb-3">Lessons &amp; Resources</h3>
               {days.length > 0 ? (
                 <div className="space-y-4">
                   {days.map(group => (
-                    <div key={group.day} className="rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden">
+                    <div key={group.day} className="rounded-lg border border-navy-700 overflow-hidden">
                       <button
                         type="button"
                         onClick={() => setOpenDay(openDay === group.day ? null : group.day)}
-                        className="w-full flex items-center gap-2 px-4 py-3 bg-gray-50 dark:bg-gray-800/60 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800"
+                        className="w-full flex items-center gap-2 px-4 py-3 bg-gray-50 bg-navy-800/60 cursor-pointer hover:bg-gray-100 hover:bg-navy-700"
                       >
                         <CalendarDays className="w-4 h-4 text-navy-600 dark:text-navy-300" />
-                        <span className="flex-1 text-left text-sm font-semibold text-gray-900 dark:text-gray-100">
+                        <span className="flex-1 text-left text-sm font-semibold text-white">
                           {group.day > 0 ? `Day ${group.day}` : 'General'}
                         </span>
-                        <span className="text-xs text-gray-400 dark:text-gray-500">{group.videos.length} V · {group.pdfs.length} P</span>
-                        <ChevronDown className={`w-4 h-4 text-gray-400 dark:text-gray-500 transition-transform ${openDay === group.day ? 'rotate-180' : ''}`} />
+                        <span className="text-xs text-navy-300">{group.videos.length} V · {group.pdfs.length} P</span>
+                        <ChevronDown className={`w-4 h-4 text-navy-300 transition-transform ${openDay === group.day ? 'rotate-180' : ''}`} />
                       </button>
 
                       {openDay === group.day && (
                         <div className="p-4 space-y-4">
                           {group.videos.length > 0 && (
                             <div className="space-y-2">
-                              <p className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">Videos</p>
+                              <p className="text-xs font-medium text-navy-200 uppercase tracking-wide">Videos</p>
                               {group.videos.map((lesson, i) => (
-                                <div key={lesson.id} className="rounded-lg border border-gray-200 dark:border-gray-800 p-3">
-                                  <p className="text-sm font-semibold text-gray-900 dark:text-gray-100">{i + 1}. {lesson.title}</p>
+                                <div key={lesson.id} className="rounded-lg border border-navy-700 p-3">
+                                  <p className="text-sm font-semibold text-white">{i + 1}. {lesson.title}</p>
                                   <button type="button" onClick={() => setMediaViewer({ url: lesson.video_url, title: lesson.title, type: 'video' })} className="mt-2 inline-flex items-center gap-1.5 text-sm text-navy-600 hover:text-navy-800">
                                     <Play className="w-3.5 h-3.5" /> Watch video
                                   </button>
@@ -148,12 +148,12 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
 
                           {group.pdfs.length > 0 && (
                             <div className="space-y-2">
-                              <p className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">PDFs</p>
+                              <p className="text-xs font-medium text-navy-200 uppercase tracking-wide">PDFs</p>
                               {group.pdfs.map((pdf, i) => (
-                                <div key={pdf.id} className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-gray-800 p-3">
+                                <div key={pdf.id} className="flex items-center gap-3 rounded-lg border border-navy-700 p-3">
                                   <FileText className="w-5 h-5 text-navy-600 shrink-0" />
                                   <div className="min-w-0 flex-1">
-                                    <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 truncate">{i + 1}. {pdf.title}</p>
+                                    <p className="text-sm font-semibold text-white truncate">{i + 1}. {pdf.title}</p>
                                   </div>
                                   <button
                                     type="button"
@@ -167,7 +167,7 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
                             </div>
                           )}
 
-                          {group.videos.length === 0 && group.pdfs.length === 0 && (                            <p className="text-sm text-gray-500 dark:text-gray-400">No content for {group.day > 0 ? `Day ${group.day}` : 'this section'} yet.</p>
+                          {group.videos.length === 0 && group.pdfs.length === 0 && (                            <p className="text-sm text-navy-200">No content for {group.day > 0 ? `Day ${group.day}` : 'this section'} yet.</p>
                           )}
                         </div>
                       )}
@@ -175,13 +175,13 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
                   ))}
                 </div>
               ) : (
-                <p className="text-sm text-gray-500 dark:text-gray-400">No lessons or resources uploaded yet.</p>
+                <p className="text-sm text-navy-200">No lessons or resources uploaded yet.</p>
               )}
             </div>
           </div>
 
           <div className="flex flex-wrap gap-3">
-            <button type="button" onClick={() => navigate('/student/courses')} className="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800/60">Back to courses</button>
+            <button type="button" onClick={() => navigate('/student/courses')} className="px-4 py-2 rounded-lg border border-navy-700 text-navy-100 hover:bg-gray-50 hover:bg-navy-700/60">Back to courses</button>
           </div>
         </div>
       </div>

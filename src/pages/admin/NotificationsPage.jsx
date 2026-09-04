@@ -110,17 +110,17 @@ function ComposeForm({ type, onSent }) {
       <div className="card-header"><h3 className="text-lg font-semibold">Compose {type}</h3></div>
       <div className="p-6 space-y-4">
         <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Recipient</label>
+          <label className="block text-sm font-medium text-navy-100 mb-1">Recipient</label>
           <select value={recipient} onChange={e => setRecipient(e.target.value)} className="input-field">
             {recipientOptions.map(r => <option key={r.value} value={r.value}>{r.label}</option>)}
           </select>
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Subject</label>
+          <label className="block text-sm font-medium text-navy-100 mb-1">Subject</label>
           <input type="text" value={subject} onChange={e => setSubject(e.target.value)} placeholder={ph.subject} className="input-field" />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Message</label>
+          <label className="block text-sm font-medium text-navy-100 mb-1">Message</label>
           <textarea rows={5} value={message} onChange={e => setMessage(e.target.value)} placeholder={ph.message} className="input-field resize-none" />
         </div>
         <button onClick={handleSend} disabled={sending} className="flex items-center gap-2 btn-primary disabled:opacity-60">
@@ -143,10 +143,10 @@ export default function NotificationsPage() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Notifications</h1>
+        <h1 className="text-2xl font-bold text-white">Notifications</h1>
       </div>
 
-      <div className="border-b border-gray-200 dark:border-gray-800">
+      <div className="border-b border-navy-700">
         <div className="flex gap-0 -mb-px">
           {tabs.map((tab, i) => {
             const Icon = tab.icon;
@@ -157,7 +157,7 @@ export default function NotificationsPage() {
                 className={`flex items-center gap-2 px-6 py-3 text-sm font-medium border-b-2 transition-colors ${
                   i === activeTab
                     ? 'border-navy-600 text-navy-600'
-                    : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300'
+                    : 'border-transparent text-navy-200 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300'
                 }`}
               >
                 <Icon className="w-4 h-4" />
@@ -174,7 +174,7 @@ export default function NotificationsPage() {
         <div className="card-header"><h3 className="text-lg font-semibold">Sent History</h3></div>
         <table className="w-full">
           <thead>
-            <tr className="border-b border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/60">
+            <tr className="border-b border-navy-700 bg-gray-50 bg-navy-800/60">
               <th className="table-header">Type</th>
               <th className="table-header">Recipient</th>
               <th className="table-header">Subject</th>
@@ -184,14 +184,14 @@ export default function NotificationsPage() {
           </thead>
           <tbody>
             {history.length === 0 && (
-              <tr><td colSpan={5} className="text-center py-8 text-gray-400 dark:text-gray-500">No notifications sent yet.</td></tr>
+              <tr><td colSpan={5} className="text-center py-8 text-navy-300">No notifications sent yet.</td></tr>
             )}
             {history.map(h => (
-              <tr key={h.id} className="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/60">
+              <tr key={h.id} className="border-b border-navy-700 hover:bg-gray-50 hover:bg-navy-700/60">
                 <td className="table-cell font-medium">{h.type}</td>
                 <td className="table-cell">{h.recipient}</td>
-                <td className="table-cell text-gray-600 dark:text-gray-400">{h.subject}</td>
-                <td className="table-cell text-gray-500 dark:text-gray-400">{h.sent}</td>
+                <td className="table-cell text-navy-100">{h.subject}</td>
+                <td className="table-cell text-navy-200">{h.sent}</td>
                 <td className="table-cell">
                   <span className={`badge ${h.status === 'Sent' ? 'badge-success' : 'badge-danger'}`}>{h.status}</span>
                 </td>

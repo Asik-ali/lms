@@ -74,7 +74,7 @@ export default function StudentTestDetail() {
         <button type="button" onClick={() => navigate('/student/test-series')} className="inline-flex items-center gap-2 text-sm font-medium text-navy-600">
           <ArrowLeft className="w-4 h-4" /> Back to Test Series
         </button>
-        <div className="card p-8 text-center text-gray-500 dark:text-gray-400">Loading test details...</div>
+        <div className="card p-8 text-center text-navy-200">Loading test details...</div>
       </div>
     );
   }
@@ -85,7 +85,7 @@ export default function StudentTestDetail() {
         <button type="button" onClick={() => navigate('/student/test-series')} className="inline-flex items-center gap-2 text-sm font-medium text-navy-600">
           <ArrowLeft className="w-4 h-4" /> Back to Test Series
         </button>
-        <div className="card p-8 text-center text-gray-500 dark:text-gray-400">Test not found.</div>
+        <div className="card p-8 text-center text-navy-200">Test not found.</div>
       </div>
     );
   }
@@ -121,8 +121,8 @@ export default function StudentTestDetail() {
 
   const statusColor = {
     active: 'bg-green-50 dark:bg-green-500/10 text-green-700 dark:text-green-300',
-    draft: 'bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400',
-    archived: 'bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-500',
+    draft: 'bg-navy-800 text-navy-200',
+    archived: 'bg-navy-800 text-navy-300',
   };
 
   return (
@@ -162,7 +162,7 @@ export default function StudentTestDetail() {
 
       {/* Instructions */}
       <div className="card p-6">
-        <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
+        <h2 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
           <AlertCircle className="w-5 h-5 text-navy-600" />
           Instructions
         </h2>
@@ -179,13 +179,13 @@ export default function StudentTestDetail() {
       {/* Syllabus / Topics */}
       {syllabusLines.length > 0 && (
         <div className="card p-6">
-          <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
+          <h2 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
             <BookOpen className="w-5 h-5 text-navy-600" />
             Syllabus / Topics
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {syllabusLines.map((line, i) => (
-              <div key={i} className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-800/60 rounded-lg px-3 py-2">
+              <div key={i} className="flex items-center gap-2 text-sm text-navy-100 bg-gray-50 bg-navy-800/60 rounded-lg px-3 py-2">
                 <span className="w-2 h-2 rounded-full bg-navy-400 shrink-0" />
                 {line}
               </div>
@@ -197,34 +197,34 @@ export default function StudentTestDetail() {
       {/* Previous Attempts */}
       {attempts.length > 0 && (
         <div className="card p-6">
-          <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
+          <h2 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
             <History className="w-5 h-5 text-navy-600" />
             Your Previous Attempts
           </h2>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/60">
-                  <th className="text-left px-4 py-2 font-semibold text-gray-600 dark:text-gray-400">#</th>
-                  <th className="text-left px-4 py-2 font-semibold text-gray-600 dark:text-gray-400">Score</th>
-                  <th className="text-left px-4 py-2 font-semibold text-gray-600 dark:text-gray-400">Correct</th>
-                  <th className="text-left px-4 py-2 font-semibold text-gray-600 dark:text-gray-400">Wrong</th>
-                  <th className="text-left px-4 py-2 font-semibold text-gray-600 dark:text-gray-400">Skipped</th>
-                  <th className="text-left px-4 py-2 font-semibold text-gray-600 dark:text-gray-400">Time Taken</th>
-                  <th className="text-left px-4 py-2 font-semibold text-gray-600 dark:text-gray-400">Status</th>
+                <tr className="border-b border-navy-700 bg-gray-50 bg-navy-800/60">
+                  <th className="text-left px-4 py-2 font-semibold text-navy-100">#</th>
+                  <th className="text-left px-4 py-2 font-semibold text-navy-100">Score</th>
+                  <th className="text-left px-4 py-2 font-semibold text-navy-100">Correct</th>
+                  <th className="text-left px-4 py-2 font-semibold text-navy-100">Wrong</th>
+                  <th className="text-left px-4 py-2 font-semibold text-navy-100">Skipped</th>
+                  <th className="text-left px-4 py-2 font-semibold text-navy-100">Time Taken</th>
+                  <th className="text-left px-4 py-2 font-semibold text-navy-100">Status</th>
                 </tr>
               </thead>
               <tbody>
                 {attempts.map((a, i) => (
-                  <tr key={a.id} className="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/60">
-                    <td className="px-4 py-2 font-medium text-gray-900 dark:text-gray-100">{i + 1}</td>
+                  <tr key={a.id} className="border-b border-navy-700 hover:bg-gray-50 hover:bg-navy-700/60">
+                    <td className="px-4 py-2 font-medium text-white">{i + 1}</td>
                     <td className="px-4 py-2 font-semibold text-navy-600">
                       {a.score !== null && a.score !== undefined ? `${a.score}/${a.total_marks || test.total_marks}` : '-'}
                     </td>
                     <td className="px-4 py-2 text-green-600 dark:text-green-400">{a.correct_count ?? '-'}</td>
                     <td className="px-4 py-2 text-red-600 dark:text-red-400">{a.wrong_count ?? '-'}</td>
-                    <td className="px-4 py-2 text-gray-500 dark:text-gray-400">{a.skipped_count ?? '-'}</td>
-                    <td className="px-4 py-2 text-gray-600 dark:text-gray-400">{a.time_taken != null ? `${Math.floor(a.time_taken / 60)}m ${a.time_taken % 60}s` : '-'}</td>
+                    <td className="px-4 py-2 text-navy-200">{a.skipped_count ?? '-'}</td>
+                    <td className="px-4 py-2 text-navy-100">{a.time_taken != null ? `${Math.floor(a.time_taken / 60)}m ${a.time_taken % 60}s` : '-'}</td>
                     <td className="px-4 py-2">
                       <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${a.status === 'completed' ? 'bg-green-50 dark:bg-green-500/10 text-green-700 dark:text-green-300' : 'bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-300'}`}>
                         {a.status}
@@ -241,10 +241,10 @@ export default function StudentTestDetail() {
       {/* Start Test Button */}
       <div className="card p-6 flex flex-col sm:flex-row items-center gap-4">
         <div className="flex-1">
-          <p className="text-sm text-gray-600 dark:text-gray-400">
+          <p className="text-sm text-navy-100">
             {questionCount} questions &middot; {test.duration} minutes &middot; {test.total_marks} marks
           </p>
-          <p className="text-xs text-gray-400 dark:text-gray-500 mt-1">
+          <p className="text-xs text-navy-300 mt-1">
             {attempts.length > 0 ? `You have attempted ${attempts.length} time${attempts.length > 1 ? 's' : ''} before` : 'This will be your first attempt'}
           </p>
         </div>
@@ -270,7 +270,7 @@ function InfoCard({ icon, label, value, color }) {
     amber: 'bg-amber-50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-300 border-amber-200',
     red: 'bg-red-50 dark:bg-red-500/10 text-red-600 dark:text-red-300 border-red-200',
     cyan: 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-300 border-cyan-200',
-    gray: 'bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-gray-800',
+    gray: 'bg-navy-800 text-navy-200 border-navy-700',
   };
 
   return (

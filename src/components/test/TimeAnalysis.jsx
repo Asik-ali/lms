@@ -41,7 +41,7 @@ export default function TimeAnalysis({ responses = [], questions = [] }) {
   const slowCount = rows.filter((r) => r.time > slowThreshold).length;
 
   return (
-    <div className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-gray-900 p-4 shadow-sm sm:p-6">
+    <div className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-surface p-4 shadow-sm sm:p-6">
       <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
         <h3 className="text-sm font-bold uppercase tracking-wide text-slate-600 dark:text-slate-400">
           Time Analysis
@@ -68,7 +68,7 @@ export default function TimeAnalysis({ responses = [], questions = [] }) {
               return (
                 <tr
                   key={r.idx}
-                  className={`border-b border-slate-100 dark:border-gray-800 ${
+                  className={`border-b border-slate-100 border-navy-700 ${
                     isSlow ? "bg-amber-50" : ""
                   }`}
                 >

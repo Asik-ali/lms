@@ -79,7 +79,7 @@ export default function StudentMessages() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Support Tickets</h1>
+        <h1 className="text-2xl font-bold text-white">Support Tickets</h1>
         {!showNew && !selected && (
           <button onClick={() => setShowNew(true)} className="btn-primary flex items-center gap-2">
             <Plus className="w-4 h-4" /> New Ticket
@@ -90,7 +90,7 @@ export default function StudentMessages() {
       {showNew && (
         <div className="card p-6 space-y-4">
           <div className="flex items-center gap-2 mb-2">
-            <button onClick={() => setShowNew(false)} className="p-1 hover:bg-gray-100 dark:hover:bg-gray-800 rounded cursor-pointer"><ArrowLeft className="w-4 h-4" /></button>
+            <button onClick={() => setShowNew(false)} className="p-1 hover:bg-gray-100 hover:bg-navy-700 rounded cursor-pointer"><ArrowLeft className="w-4 h-4" /></button>
             <h2 className="text-lg font-semibold">New Support Ticket</h2>
           </div>
           <div>
@@ -105,7 +105,7 @@ export default function StudentMessages() {
             <button onClick={handleCreateTicket} disabled={loading} className="btn-primary flex items-center gap-2">
               <Send className="w-4 h-4" /> {loading ? 'Sending...' : 'Submit Ticket'}
             </button>
-            <button onClick={() => setShowNew(false)} className="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800/60 cursor-pointer">Cancel</button>
+            <button onClick={() => setShowNew(false)} className="px-4 py-2 rounded-lg border border-navy-700 text-navy-100 hover:bg-gray-50 hover:bg-navy-700/60 cursor-pointer">Cancel</button>
           </div>
         </div>
       )}
@@ -123,15 +123,15 @@ export default function StudentMessages() {
                       <Icon className="w-4 h-4" />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <p className="text-sm font-medium text-gray-900 dark:text-gray-100 truncate">{t.subject}</p>
-                      <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">{t.status} &middot; {new Date(t.created_at).toLocaleDateString()}</p>
+                      <p className="text-sm font-medium text-white truncate">{t.subject}</p>
+                      <p className="text-xs text-navy-300 mt-0.5">{t.status} &middot; {new Date(t.created_at).toLocaleDateString()}</p>
                     </div>
                   </div>
                 </button>
               );
             })}
             {tickets.length === 0 && !showNew && (
-              <div className="text-center py-8 text-gray-400 dark:text-gray-500">
+              <div className="text-center py-8 text-navy-300">
                 <MessageSquare className="w-10 h-10 mx-auto mb-2 text-gray-300" />
                 <p>No tickets yet</p>
                 <button onClick={() => setShowNew(true)} className="text-sm text-navy-600 hover:text-navy-700 mt-2 cursor-pointer">Create your first ticket</button>
@@ -143,28 +143,28 @@ export default function StudentMessages() {
             {selected ? (
               <div className="card p-6 space-y-4">
                 <div>
-                  <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100">{selected.subject}</h2>
+                  <h2 className="text-lg font-semibold text-white">{selected.subject}</h2>
                   <div className="flex items-center gap-2 mt-1">
                     <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${statusConfig[selected.status]?.color || ''}`}>{selected.status}</span>
-                    <span className="text-xs text-gray-400 dark:text-gray-500">Created {new Date(selected.created_at).toLocaleString()}</span>
+                    <span className="text-xs text-navy-300">Created {new Date(selected.created_at).toLocaleString()}</span>
                   </div>
                 </div>
 
                 <div className="space-y-3 max-h-96 overflow-y-auto">
-                  <div className="bg-gray-50 dark:bg-gray-800/60 rounded-lg p-3">
-                    <p className="text-xs text-gray-400 dark:text-gray-500 mb-1">You</p>
-                    <p className="text-sm text-gray-700 dark:text-gray-300">{selected.message}</p>
+                  <div className="bg-gray-50 bg-navy-800/60 rounded-lg p-3">
+                    <p className="text-xs text-navy-300 mb-1">You</p>
+                    <p className="text-sm text-navy-100">{selected.message}</p>
                   </div>
                   {replies.map(r => (
-                    <div key={r.id} className={`rounded-lg p-3 ${r.sender_id === user.id ? 'bg-navy-50 dark:bg-navy-500/10 ml-8' : 'bg-gray-100 dark:bg-gray-800 mr-8'}`}>
-                      <p className="text-xs text-gray-400 dark:text-gray-500 mb-1">{r.sender_id === user.id ? 'You' : 'Admin'}</p>
-                      <p className="text-sm text-gray-700 dark:text-gray-300">{r.message}</p>
+                    <div key={r.id} className={`rounded-lg p-3 ${r.sender_id === user.id ? 'bg-navy-50 dark:bg-navy-500/10 ml-8' : 'bg-navy-800 mr-8'}`}>
+                      <p className="text-xs text-navy-300 mb-1">{r.sender_id === user.id ? 'You' : 'Admin'}</p>
+                      <p className="text-sm text-navy-100">{r.message}</p>
                     </div>
                   ))}
                 </div>
 
                 {selected.status !== 'Resolved' && (
-                  <div className="border-t border-gray-200 dark:border-gray-800 pt-4">
+                  <div className="border-t border-navy-700 pt-4">
                     <textarea
                       value={replyText}
                       onChange={e => setReplyText(e.target.value)}
@@ -180,7 +180,7 @@ export default function StudentMessages() {
               </div>
             ) : (
               !showNew && (
-                <div className="card p-8 text-center text-gray-400 dark:text-gray-500">
+                <div className="card p-8 text-center text-navy-300">
                   <MessageSquare className="w-12 h-12 mx-auto mb-3 text-gray-300" />
                   <p>Select a ticket to view details</p>
                 </div>

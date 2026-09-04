@@ -32,16 +32,16 @@ export default function FAQPage() {
                 onClick={() => setOpen(open === i ? null : i)}
                 className="w-full flex items-center justify-between p-4 sm:p-5 text-left cursor-pointer"
               >
-                <span className="font-medium text-gray-900 dark:text-gray-100 pr-4">{faq.q}</span>
+                <span className="font-medium text-white pr-4">{faq.q}</span>
                 {open === i ? (
-                  <ChevronUp className="w-5 h-5 text-gray-400 dark:text-gray-500 flex-shrink-0" />
+                  <ChevronUp className="w-5 h-5 text-navy-300 flex-shrink-0" />
                 ) : (
-                  <ChevronDown className="w-5 h-5 text-gray-400 dark:text-gray-500 flex-shrink-0" />
+                  <ChevronDown className="w-5 h-5 text-navy-300 flex-shrink-0" />
                 )}
               </button>
               {open === i && (
                 <div className="px-4 sm:px-5 pb-4 sm:pb-5">
-                  <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{faq.a}</p>
+                  <p className="text-sm text-navy-100 leading-relaxed">{faq.a}</p>
                 </div>
               )}
             </div>

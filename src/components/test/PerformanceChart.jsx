@@ -50,7 +50,7 @@ export default function PerformanceChart({ attempt }) {
   const totalMarks = data.total_marks ?? 0;
 
   return (
-    <div className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-gray-900 p-4 shadow-sm sm:p-6">
+    <div className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-surface p-4 shadow-sm sm:p-6">
       <h3 className="mb-4 text-sm font-bold uppercase tracking-wide text-slate-600 dark:text-slate-400">
         Performance
       </h3>
@@ -96,7 +96,7 @@ export default function PerformanceChart({ attempt }) {
           {segments.map((s) => (
             <div
               key={s.label}
-              className="flex items-center justify-between rounded-lg border border-slate-100 dark:border-gray-800 px-3 py-2"
+              className="flex items-center justify-between rounded-lg border border-slate-100 border-navy-700 px-3 py-2"
             >
               <span className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
                 <span

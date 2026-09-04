@@ -52,22 +52,22 @@ export default function RefundPolicyPage() {
                 onClick={() => setOpen(open === i ? null : i)}
                 className="w-full flex items-center justify-between p-4 sm:p-5 text-left cursor-pointer"
               >
-                <span className="font-medium text-gray-900 dark:text-gray-100 pr-4">{s.title}</span>
+                <span className="font-medium text-white pr-4">{s.title}</span>
                 {open === i ? (
-                  <ChevronUp className="w-5 h-5 text-gray-400 dark:text-gray-500 flex-shrink-0" />
+                  <ChevronUp className="w-5 h-5 text-navy-300 flex-shrink-0" />
                 ) : (
-                  <ChevronDown className="w-5 h-5 text-gray-400 dark:text-gray-500 flex-shrink-0" />
+                  <ChevronDown className="w-5 h-5 text-navy-300 flex-shrink-0" />
                 )}
               </button>
               {open === i && (
                 <div className="px-4 sm:px-5 pb-4 sm:pb-5">
-                  <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{s.body}</p>
+                  <p className="text-sm text-navy-100 leading-relaxed">{s.body}</p>
                 </div>
               )}
             </div>
           ))}
         </div>
-        <p className="text-xs text-gray-400 dark:text-gray-500 mt-8">Last updated: {new Date().toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+        <p className="text-xs text-navy-300 mt-8">Last updated: {new Date().toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
       </section>
     </div>
   );

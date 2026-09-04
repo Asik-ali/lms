@@ -77,34 +77,34 @@ function SMTPTab() {
   };
 
   if (loading) {
-    return <div className="card p-8 text-center text-gray-500 dark:text-gray-400"><Loader className="w-5 h-5 mx-auto mb-2 animate-spin" />Loading...</div>;
+    return <div className="card p-8 text-center text-navy-200"><Loader className="w-5 h-5 mx-auto mb-2 animate-spin" />Loading...</div>;
   }
 
   return (
     <div className="card">
       <div className="card-header"><h3 className="text-lg font-semibold">SMTP Configuration</h3></div>
       <div className="p-6 space-y-4 max-w-xl">
-        {/* <p className="text-sm text-gray-500 dark:text-gray-400">Configure your Gmail SMTP to send email notifications. Use an <a href="https://support.google.com/accounts/answer/185833" target="_blank" rel="noreferrer" className="text-navy-600 underline">App Password</a> if you have 2FA enabled.</p> */}
+        {/* <p className="text-sm text-navy-200">Configure your Gmail SMTP to send email notifications. Use an <a href="https://support.google.com/accounts/answer/185833" target="_blank" rel="noreferrer" className="text-navy-600 underline">App Password</a> if you have 2FA enabled.</p> */}
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">SMTP Host</label>
+            <label className="block text-sm font-medium text-navy-100 mb-1">SMTP Host</label>
             <input type="text" value={host} onChange={e => setHost(e.target.value)} className="input-field" placeholder="smtp.gmail.com" />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Port</label>
+            <label className="block text-sm font-medium text-navy-100 mb-1">Port</label>
             <input type="text" value={port} onChange={e => setPort(e.target.value)} className="input-field" placeholder="587" />
           </div>
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email (Username)</label>
+          <label className="block text-sm font-medium text-navy-100 mb-1">Email (Username)</label>
           <input type="text" value={username} onChange={e => setUsername(e.target.value)} className="input-field" placeholder="your-email@gmail.com" />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">App Password</label>
+          <label className="block text-sm font-medium text-navy-100 mb-1">App Password</label>
           <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Enter your Gmail App Password" className="input-field" />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Sender Name</label>
+          <label className="block text-sm font-medium text-navy-100 mb-1">Sender Name</label>
           <input type="text" value={senderName} onChange={e => setSenderName(e.target.value)} className="input-field" placeholder="LMS Platform" />
         </div>
         <div className="flex items-center gap-3">
@@ -294,17 +294,17 @@ function BackupTab() {
       <div className="card">
         <div className="card-header"><h3 className="text-lg font-semibold">Automatic Backup</h3></div>
         <div className="p-6 space-y-4">
-          <p className="text-sm text-gray-600 dark:text-gray-400">
+          <p className="text-sm text-navy-100">
             A scheduled job runs every day at <strong>12:00 AM</strong>. It collects all LMS data and emails the backup file
             (as JSON attachment) to the admin email(s). Requires a Vercel Cron enabled project.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-xl">
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Admin Email (backup recipient)</label>
+              <label className="block text-sm font-medium text-navy-100 mb-1">Admin Email (backup recipient)</label>
               <input type="email" value={adminEmail} onChange={e => setAdminEmail(e.target.value)} className="input-field" placeholder="admin@example.com" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Backup Notification Schedule</label>
+              <label className="block text-sm font-medium text-navy-100 mb-1">Backup Notification Schedule</label>
               <select value={schedule} onChange={e => setSchedule(e.target.value)} className="input-field">
                 <option value="daily">Daily (12:00 AM)</option>
                 <option value="weekly">Weekly</option>
@@ -318,7 +318,7 @@ function BackupTab() {
               {isSending ? 'Sending...' : 'Run Backup & Send Email Now'}
             </button>
             <button onClick={saveSchedule} className="flex items-center gap-2 btn-secondary"><Save className="w-4 h-4" />Save</button>
-            <span className="text-sm text-gray-400 dark:text-gray-500">Last backup: {lastBackup}</span>
+            <span className="text-sm text-navy-300">Last backup: {lastBackup}</span>
           </div>
         </div>
       </div>
@@ -327,24 +327,24 @@ function BackupTab() {
         <div className="card-header"><h3 className="text-lg font-semibold">Manual Download</h3></div>
         <div className="p-6 flex flex-wrap items-center gap-3">
           <button onClick={createBackup} disabled={isWorking} className="flex items-center gap-2 btn-primary disabled:opacity-60"><Download className="w-4 h-4" />{isWorking ? 'Creating Backup...' : 'Download Backup File'}</button>
-          <p className="text-sm text-gray-500 dark:text-gray-400 w-full">Downloads a full backup JSON file to your computer. You can later paste it below to restore.</p>
+          <p className="text-sm text-navy-200 w-full">Downloads a full backup JSON file to your computer. You can later paste it below to restore.</p>
         </div>
       </div>
 
       <div className="card">
         <div className="card-header"><h3 className="text-lg font-semibold">Restore Data</h3></div>
         <div className="p-6 space-y-4">
-          <p className="text-sm text-gray-600 dark:text-gray-400">Paste the backup JSON below (or choose a backup file) to see all its data, then restore. User accounts and passwords are not included.</p>
+          <p className="text-sm text-navy-100">Paste the backup JSON below (or choose a backup file) to see all its data, then restore. User accounts and passwords are not included.</p>
 
           <div className="flex flex-wrap items-center gap-3">
             <input ref={fileInputRef} type="file" accept="application/json,.json" className="hidden" onChange={e => setBackupFile(e.target.files?.[0] || null)} />
             <button onClick={() => fileInputRef.current?.click()} className="flex items-center gap-2 btn-secondary"><Upload className="w-4 h-4" />Choose Backup File</button>
             <button onClick={restoreFile} disabled={!backupFile} className="flex items-center gap-2 btn-secondary disabled:opacity-50"><ClipboardPaste className="w-4 h-4" />Load File into Preview</button>
-            {backupFile && <span className="text-sm text-gray-500 dark:text-gray-400">Selected: {backupFile.name}</span>}
+            {backupFile && <span className="text-sm text-navy-200">Selected: {backupFile.name}</span>}
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Paste Backup JSON</label>
+            <label className="block text-sm font-medium text-navy-100 mb-1">Paste Backup JSON</label>
             <textarea
               value={pasteJson}
               onChange={e => handlePasteChange(e.target.value)}
@@ -364,8 +364,8 @@ function BackupTab() {
               <p className="text-sm text-navy-700">Total records: <strong>{preview.totalRows}</strong></p>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-2 max-h-52 overflow-y-auto">
                 {preview.tables.map(({ table, count }) => (
-                  <div key={table} className="flex items-center justify-between bg-white dark:bg-gray-900 rounded px-3 py-1.5 text-sm">
-                    <span className="text-gray-700 dark:text-gray-300">{table}</span>
+                  <div key={table} className="flex items-center justify-between bg-surface rounded px-3 py-1.5 text-sm">
+                    <span className="text-navy-100">{table}</span>
                     <span className="font-medium text-navy-700">{count}</span>
                   </div>
                 ))}
@@ -377,7 +377,7 @@ function BackupTab() {
             <button onClick={applyPasteBackup} disabled={!pasteJson.trim() || isWorking} className="btn-primary disabled:opacity-60">
               {isWorking ? 'Restoring...' : 'Restore Pasted Backup'}
             </button>
-            {preview && <p className="text-sm text-gray-500 dark:text-gray-400">Review the preview, then restore will replace current data.</p>}
+            {preview && <p className="text-sm text-navy-200">Review the preview, then restore will replace current data.</p>}
           </div>
         </div>
       </div>
@@ -399,10 +399,10 @@ export default function SettingsPage() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Settings</h1>
+        <h1 className="text-2xl font-bold text-white">Settings</h1>
       </div>
 
-      <div className="border-b border-gray-200 dark:border-gray-800">
+      <div className="border-b border-navy-700">
         <div className="flex gap-0 -mb-px overflow-x-auto">
           {tabs.map((tab, i) => {
             const Icon = tab.icon;
@@ -413,7 +413,7 @@ export default function SettingsPage() {
                 className={`flex items-center gap-2 px-5 py-3 text-sm font-medium border-b-2 transition-colors whitespace-nowrap ${
                   i === activeTab
                     ? 'border-navy-600 text-navy-600'
-                    : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300'
+                    : 'border-transparent text-navy-200 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300'
                 }`}
               >
                 <Icon className="w-4 h-4" />

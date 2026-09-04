@@ -37,7 +37,7 @@ export default function QuestionPalette({
   };
 
   return (
-    <div className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-gray-900 p-4 shadow-sm">
+    <div className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-surface p-4 shadow-sm">
       <div className="mb-3 flex items-center justify-between">
         <h3 className="text-sm font-bold uppercase tracking-wide text-slate-600 dark:text-slate-400">
           Question Palette
@@ -64,7 +64,7 @@ export default function QuestionPalette({
         })}
       </div>
 
-      <div className="mt-4 grid grid-cols-2 gap-2 border-t border-slate-100 dark:border-gray-800 pt-3 sm:grid-cols-4">
+      <div className="mt-4 grid grid-cols-2 gap-2 border-t border-slate-100 border-navy-700 pt-3 sm:grid-cols-4">
         {PALETTE_LEGEND.map((item) => (
           <div key={item.label} className="flex items-center gap-2">
             <span

@@ -83,7 +83,7 @@ export default function AdminLiveClasses() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Live Classes</h1>
+        <h1 className="text-2xl font-bold text-white">Live Classes</h1>
       </div>
 
       <div className="card">
@@ -93,7 +93,7 @@ export default function AdminLiveClasses() {
         </div>
         <div className="p-6 space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Stream Title</label>
+            <label className="block text-sm font-medium text-navy-100 mb-1">Stream Title</label>
             <input
               type="text"
               value={liveTitle}
@@ -103,7 +103,7 @@ export default function AdminLiveClasses() {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">YouTube Live URL</label>
+            <label className="block text-sm font-medium text-navy-100 mb-1">YouTube Live URL</label>
             <input
               type="url"
               value={liveUrl}
@@ -126,12 +126,12 @@ export default function AdminLiveClasses() {
         <div className="card-header flex items-center gap-2">
           <Video className="w-5 h-5 text-navy-500" />
           <h3 className="text-base sm:text-lg font-semibold">All Live Classes</h3>
-          <span className="ml-auto text-xs text-gray-500 dark:text-gray-400">{liveClasses.length} total</span>
+          <span className="ml-auto text-xs text-navy-200">{liveClasses.length} total</span>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
-              <tr className="border-b border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/60">
+              <tr className="border-b border-navy-700 bg-gray-50 bg-navy-800/60">
                 <th className="table-header">Title</th>
                 <th className="table-header">Date</th>
                 <th className="table-header">Time</th>
@@ -141,7 +141,7 @@ export default function AdminLiveClasses() {
             </thead>
             <tbody>
               {liveClasses.slice().reverse().map(lc => (
-                <tr key={lc.id} className="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/60">
+                <tr key={lc.id} className="border-b border-navy-700 hover:bg-gray-50 hover:bg-navy-700/60">
                   <td className="table-cell font-medium">{lc.title}</td>
                   <td className="table-cell">{lc.date}</td>
                   <td className="table-cell">{lc.time}</td>
@@ -158,7 +158,7 @@ export default function AdminLiveClasses() {
                           href={lc.youtube_url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-navy-600 hover:bg-navy-50 dark:hover:bg-navy-500/10 rounded-lg"
+                          className="p-1.5 text-navy-300 hover:text-navy-600 hover:bg-navy-50 dark:hover:bg-navy-500/10 rounded-lg"
                         >
                           <ExternalLink className="w-4 h-4" />
                         </a>
@@ -166,14 +166,14 @@ export default function AdminLiveClasses() {
                       {lc.status === 'Live' && (
                         <button
                           onClick={() => handleEndLive(lc.id)}
-                          className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-red-600 hover:bg-red-50 rounded-lg cursor-pointer"
+                          className="p-1.5 text-navy-300 hover:text-red-600 hover:bg-red-50 rounded-lg cursor-pointer"
                         >
                           <Square className="w-4 h-4" />
                         </button>
                       )}
                       <button
                         onClick={() => handleDeleteLive(lc.id)}
-                        className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-red-600 hover:bg-red-50 rounded-lg cursor-pointer"
+                        className="p-1.5 text-navy-300 hover:text-red-600 hover:bg-red-50 rounded-lg cursor-pointer"
                       >
                         <Trash2 className="w-4 h-4" />
                       </button>

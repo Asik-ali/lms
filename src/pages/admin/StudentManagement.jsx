@@ -63,33 +63,33 @@ function AddStudentForm({ onBack, onStudentAdded }) {
   if (submitted) {
     return (
       <div className="max-w-2xl">
-        <button onClick={() => { setSubmitted(false); setCredentials(null); }} className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 mb-6">
+        <button onClick={() => { setSubmitted(false); setCredentials(null); }} className="flex items-center gap-2 text-sm text-navy-200 hover:text-gray-700 dark:hover:text-gray-300 mb-6">
           <ArrowLeft className="w-4 h-4" /> Back
         </button>
         <div className="card p-8 text-center">
           <div className="w-16 h-16 rounded-full bg-green-100 dark:bg-green-500/15 flex items-center justify-center mx-auto mb-4">
             <UserPlus className="w-8 h-8 text-green-600 dark:text-green-300" />
           </div>
-          <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">Student Added Successfully!</h2>
-          <p className="text-gray-500 dark:text-gray-400 mb-6">{form.name} has been enrolled in {form.course}.</p>
+          <h2 className="text-xl font-semibold text-white mb-2">Student Added Successfully!</h2>
+          <p className="text-navy-200 mb-6">{form.name} has been enrolled in {form.course}.</p>
           <div className="max-w-sm mx-auto bg-navy-50 dark:bg-navy-500/10 border border-navy-200 rounded-xl p-5 mb-6">
             <h3 className="text-sm font-semibold text-navy-800 dark:text-navy-300 mb-3">Login Credentials</h3>
             <p className="text-xs text-navy-600 dark:text-navy-300 mb-3">Share these credentials with the student.</p>
             <div className="space-y-2 text-left">
-              <div className="flex items-center justify-between bg-white dark:bg-gray-900 rounded-lg px-3 py-2 border border-navy-100">
-                <span className="text-xs text-gray-500 dark:text-gray-400">Login email</span>
-                <span className="text-sm font-mono font-medium text-gray-900 dark:text-gray-100 break-all">{credentials.email}</span>
+              <div className="flex items-center justify-between bg-surface rounded-lg px-3 py-2 border border-navy-100">
+                <span className="text-xs text-navy-200">Login email</span>
+                <span className="text-sm font-mono font-medium text-white break-all">{credentials.email}</span>
               </div>
-              <div className="flex items-center justify-between bg-white dark:bg-gray-900 rounded-lg px-3 py-2 border border-navy-100">
-                <span className="text-xs text-gray-500 dark:text-gray-400">Password</span>
-                <span className="text-sm font-mono font-medium text-gray-900 dark:text-gray-100">{credentials.password}</span>
+              <div className="flex items-center justify-between bg-surface rounded-lg px-3 py-2 border border-navy-100">
+                <span className="text-xs text-navy-200">Password</span>
+                <span className="text-sm font-mono font-medium text-white">{credentials.password}</span>
               </div>
             </div>
-            <button onClick={copyCredentials} className="mt-3 w-full flex items-center justify-center gap-2 text-sm text-navy-700 dark:text-navy-300 bg-white dark:bg-gray-800 border border-navy-200 rounded-lg px-3 py-2 hover:bg-navy-100 dark:hover:bg-navy-500/15 transition-colors cursor-pointer">
+            <button onClick={copyCredentials} className="mt-3 w-full flex items-center justify-center gap-2 text-sm text-navy-700 dark:text-navy-300 bg-navy-800 border border-navy-200 rounded-lg px-3 py-2 hover:bg-navy-100 dark:hover:bg-navy-500/15 transition-colors cursor-pointer">
               {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
               {copied ? 'Copied!' : 'Copy Credentials'}
             </button>
-            <button onClick={quickLogin} className="mt-2 w-full flex items-center justify-center gap-2 text-sm text-navy-700 dark:text-navy-300 bg-white dark:bg-gray-800 border border-navy-200 rounded-lg px-3 py-2 hover:bg-navy-100 dark:hover:bg-navy-500/15 transition-colors cursor-pointer">
+            <button onClick={quickLogin} className="mt-2 w-full flex items-center justify-center gap-2 text-sm text-navy-700 dark:text-navy-300 bg-navy-800 border border-navy-200 rounded-lg px-3 py-2 hover:bg-navy-100 dark:hover:bg-navy-500/15 transition-colors cursor-pointer">
               <LogIn className="w-4 h-4" /> Quick Login as {form.name.split(' ')[0]}
             </button>
           </div>
@@ -104,32 +104,32 @@ function AddStudentForm({ onBack, onStudentAdded }) {
 
   return (
     <div className="max-w-2xl">
-      <button onClick={onBack} className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 mb-6">
+      <button onClick={onBack} className="flex items-center gap-2 text-sm text-navy-200 hover:text-gray-700 dark:hover:text-gray-300 mb-6">
         <ArrowLeft className="w-4 h-4" /> Back to Students
       </button>
       <div className="card">
         <div className="card-header">
           <h2 className="text-lg font-semibold">Add New Student</h2>
-          <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Fill in the details to enroll a new student — credentials will be auto-generated</p>
+          <p className="text-sm text-navy-200 mt-1">Fill in the details to enroll a new student — credentials will be auto-generated</p>
         </div>
         <form onSubmit={handleSubmit} className="p-6 space-y-5">
           {submitError && <p className="rounded-lg bg-red-50 dark:bg-red-500/10 px-3 py-2 text-sm text-red-700 dark:text-red-300">{submitError}</p>}
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Full Name *</label>
+            <label className="block text-sm font-medium text-navy-100 mb-1">Full Name *</label>
             <input type="text" value={form.name} onChange={e => setForm(p => ({ ...p, name: e.target.value }))} placeholder="Enter full name" className="input-field" required />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email Address *</label>
+            <label className="block text-sm font-medium text-navy-100 mb-1">Email Address *</label>
             <input type="email" value={form.email} onChange={e => setForm(p => ({ ...p, email: e.target.value }))} placeholder="Enter email address" className="input-field" required />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Course</label>
+            <label className="block text-sm font-medium text-navy-100 mb-1">Course</label>
             <select value={form.course} onChange={e => setForm(p => ({ ...p, course: e.target.value }))} className="input-field">
               {courses.map(c => <option key={c.id} value={c.title}>{c.title}</option>)}
             </select>
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Enrollment Date</label>
+            <label className="block text-sm font-medium text-navy-100 mb-1">Enrollment Date</label>
             <input type="date" value={form.enrolled} onChange={e => setForm(p => ({ ...p, enrolled: e.target.value }))} className="input-field" />
           </div>
           <div className="flex items-center gap-3 pt-2">
@@ -202,31 +202,31 @@ function StudentProfile({ student, onBack, onSaved }) {
     }
   };
 
-  if (!student) return <div className="p-6 text-gray-400 dark:text-gray-500">Select a student to view profile.</div>;
+  if (!student) return <div className="p-6 text-navy-300">Select a student to view profile.</div>;
 
   return (
     <div className="max-w-3xl space-y-6">
-      <button onClick={onBack} className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
+      <button onClick={onBack} className="flex items-center gap-2 text-sm text-navy-200 hover:text-gray-700 dark:hover:text-gray-300">
         <ArrowLeft className="w-4 h-4" /> Back to Students
       </button>
 
       <div className="card p-6 space-y-6">
         <div>
           <h2 className="text-xl font-semibold">Edit Student</h2>
-          <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Update student details and course access.</p>
+          <p className="text-sm text-navy-200 mt-1">Update student details and course access.</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Full Name</label>
+            <label className="block text-sm font-medium text-navy-100 mb-1">Full Name</label>
             <input value={form.name} onChange={e => setForm(prev => ({ ...prev, name: e.target.value }))} className="input-field" />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
+            <label className="block text-sm font-medium text-navy-100 mb-1">Email</label>
             <input value={form.email} onChange={e => setForm(prev => ({ ...prev, email: e.target.value }))} className="input-field" />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Status</label>
+            <label className="block text-sm font-medium text-navy-100 mb-1">Status</label>
             <select value={form.status} onChange={e => setForm(prev => ({ ...prev, status: e.target.value }))} className="input-field">
               <option value="Active">Active</option>
               <option value="Pending">Pending</option>
@@ -234,27 +234,27 @@ function StudentProfile({ student, onBack, onSaved }) {
             </select>
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Enrolled Date</label>
+            <label className="block text-sm font-medium text-navy-100 mb-1">Enrolled Date</label>
             <input type="date" value={form.enrolled} onChange={e => setForm(prev => ({ ...prev, enrolled: e.target.value }))} className="input-field" />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Progress (%)</label>
+            <label className="block text-sm font-medium text-navy-100 mb-1">Progress (%)</label>
             <input type="number" min="0" max="100" value={form.progress} onChange={e => setForm(prev => ({ ...prev, progress: e.target.value }))} className="input-field" />
           </div>
         </div>
 
-        <div className="rounded-lg border border-gray-200 dark:border-gray-800 p-4">
+        <div className="rounded-lg border border-navy-700 p-4">
           <div className="mb-3 flex items-center justify-between">
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Course Access</label>
-            <span className="text-xs text-gray-500 dark:text-gray-400">{getCourseAccessLabel(form.course)}</span>
+            <label className="block text-sm font-medium text-navy-100">Course Access</label>
+            <span className="text-xs text-navy-200">{getCourseAccessLabel(form.course)}</span>
           </div>
           <div className="grid gap-2">
             {courses.map(item => {
               const checked = normalizeCourseAccessSelection(form.course).includes(item.title);
               return (
-                <label key={item.id} className="flex cursor-pointer items-center justify-between rounded-lg border border-gray-200 dark:border-gray-800 px-3 py-2 hover:bg-gray-50 dark:hover:bg-gray-800/60">
-                  <span className="text-sm text-gray-700 dark:text-gray-300">{item.title}</span>
-                  <input type="checkbox" checked={checked} onChange={() => toggleCourse(item.title)} className="h-4 w-4 rounded border-gray-300 dark:border-gray-600 text-navy-600 focus:ring-navy-500" />
+                <label key={item.id} className="flex cursor-pointer items-center justify-between rounded-lg border border-navy-700 px-3 py-2 hover:bg-gray-50 hover:bg-navy-700/60">
+                  <span className="text-sm text-navy-100">{item.title}</span>
+                  <input type="checkbox" checked={checked} onChange={() => toggleCourse(item.title)} className="h-4 w-4 rounded border-navy-700 text-navy-600 focus:ring-navy-500" />
                 </label>
               );
             })}
@@ -289,14 +289,14 @@ function StudentProgress({ students, onBack, onRefresh }) {
 
   return (
     <div className="space-y-6">
-      <button onClick={onBack} className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
+      <button onClick={onBack} className="flex items-center gap-2 text-sm text-navy-200 hover:text-gray-700 dark:hover:text-gray-300">
         <ArrowLeft className="w-4 h-4" /> Back to Students
       </button>
-      <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Student Progress</h1>
+      <h1 className="text-2xl font-bold text-white">Student Progress</h1>
       <div className="card overflow-hidden">
         <table className="w-full">
           <thead>
-            <tr className="border-b border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/60">
+            <tr className="border-b border-navy-700 bg-gray-50 bg-navy-800/60">
               <th className="table-header">Name</th>
               <th className="table-header">Course</th>
               <th className="table-header">Progress</th>
@@ -305,7 +305,7 @@ function StudentProgress({ students, onBack, onRefresh }) {
           </thead>
           <tbody>
             {students.map(s => (
-              <tr key={s.id} className="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/60">
+              <tr key={s.id} className="border-b border-navy-700 hover:bg-gray-50 hover:bg-navy-700/60">
                 <td className="table-cell font-medium">{s.name}</td>
                 <td className="table-cell">{s.course || '-'}</td>
                 <td className="table-cell">
@@ -313,21 +313,21 @@ function StudentProgress({ students, onBack, onRefresh }) {
                     <div className="flex items-center gap-2">
                       <input type="number" min="0" max="100" value={editVal} onChange={e => setEditVal(e.target.value)} className="input-field w-20" />
                       <button onClick={() => handleSave(s.id)} className="p-1 text-green-600 dark:text-green-400 hover:bg-green-50 dark:hover:bg-green-500/10 rounded"><Save className="w-4 h-4" /></button>
-                      <button onClick={() => setEditingId(null)} className="p-1 text-gray-400 dark:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 rounded"><X className="w-4 h-4" /></button>
+                      <button onClick={() => setEditingId(null)} className="p-1 text-navy-300 hover:bg-gray-100 hover:bg-navy-700 rounded"><X className="w-4 h-4" /></button>
                     </div>
                   ) : (
                     <div className="flex items-center gap-2">
                       <div className="flex-1 h-2 bg-gray-200 dark:bg-gray-700 rounded-full w-32 overflow-hidden">
                         <div className={`h-full rounded-full ${s.progress >= 70 ? 'bg-green-500' : s.progress >= 40 ? 'bg-amber-500' : 'bg-red-500'}`} style={{ width: `${s.progress || 0}%` }} />
                       </div>
-                      <span className="text-xs text-gray-500 dark:text-gray-400 w-8">{s.progress || 0}%</span>
+                      <span className="text-xs text-navy-200 w-8">{s.progress || 0}%</span>
                     </div>
                   )}
                 </td>
                 <td className="table-cell">
                   <div className="flex items-center gap-2">
-                    <button onClick={() => { setEditingId(s.id); setEditVal(String(s.progress || 0)); }} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-navy-600 hover:bg-navy-50 dark:hover:bg-navy-500/10 rounded-lg cursor-pointer"><Save className="w-4 h-4" /></button>
-                    <button onClick={() => handleDeleteProgress(s.id)} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-red-600 hover:bg-red-50 rounded-lg cursor-pointer"><X className="w-4 h-4" /></button>
+                    <button onClick={() => { setEditingId(s.id); setEditVal(String(s.progress || 0)); }} className="p-1.5 text-navy-300 hover:text-navy-600 hover:bg-navy-50 dark:hover:bg-navy-500/10 rounded-lg cursor-pointer"><Save className="w-4 h-4" /></button>
+                    <button onClick={() => handleDeleteProgress(s.id)} className="p-1.5 text-navy-300 hover:text-red-600 hover:bg-red-50 rounded-lg cursor-pointer"><X className="w-4 h-4" /></button>
                   </div>
                 </td>
               </tr>
@@ -376,20 +376,20 @@ function CredentialsModal({ student, onClose }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
-      <div className="bg-white dark:bg-gray-900 rounded-xl shadow-xl w-full max-w-md p-6 space-y-4">
+      <div className="bg-surface rounded-xl shadow-xl w-full max-w-md p-6 space-y-4">
         <div className="flex items-center justify-between">
-          <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100">Student Credentials</h2>
-          <button onClick={onClose} className="p-1 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-400"><X className="w-5 h-5" /></button>
+          <h2 className="text-lg font-semibold text-white">Student Credentials</h2>
+          <button onClick={onClose} className="p-1 text-navy-300 hover:text-gray-600 dark:hover:text-gray-400"><X className="w-5 h-5" /></button>
         </div>
 
         <div className="space-y-3">
           <div>
-            <label className="text-xs text-gray-500 dark:text-gray-400">Student</label>
-            <p className="font-medium text-gray-900 dark:text-gray-100">{student.name}</p>
+            <label className="text-xs text-navy-200">Student</label>
+            <p className="font-medium text-white">{student.name}</p>
           </div>
           <div>
-            <label className="text-xs text-gray-500 dark:text-gray-400">Username</label>
-            <p className="font-mono text-sm text-gray-900 dark:text-gray-100 bg-gray-50 dark:bg-gray-800/60 px-3 py-2 rounded-lg border">{username}</p>
+            <label className="text-xs text-navy-200">Username</label>
+            <p className="font-mono text-sm text-white bg-gray-50 bg-navy-800/60 px-3 py-2 rounded-lg border">{username}</p>
           </div>
         </div>
 
@@ -399,10 +399,10 @@ function CredentialsModal({ student, onClose }) {
               <Check className="w-4 h-4" /> Password Reset Successfully
             </div>
             <div>
-              <label className="text-xs text-gray-500 dark:text-gray-400">New Password</label>
-              <p className="font-mono text-sm text-gray-900 dark:text-gray-100 bg-white dark:bg-gray-900 px-3 py-2 rounded-lg border mt-1 break-all">{generatedPassword}</p>
+              <label className="text-xs text-navy-200">New Password</label>
+              <p className="font-mono text-sm text-white bg-surface px-3 py-2 rounded-lg border mt-1 break-all">{generatedPassword}</p>
             </div>
-            <button onClick={copyPassword} className="w-full flex items-center justify-center gap-2 text-sm text-green-700 dark:text-green-300 bg-white dark:bg-gray-800 border border-green-200 rounded-lg px-3 py-2 hover:bg-green-50 dark:hover:bg-green-500/10 cursor-pointer">
+            <button onClick={copyPassword} className="w-full flex items-center justify-center gap-2 text-sm text-green-700 dark:text-green-300 bg-navy-800 border border-green-200 rounded-lg px-3 py-2 hover:bg-green-50 dark:hover:bg-green-500/10 cursor-pointer">
               {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
               {copied ? 'Copied!' : 'Copy New Password'}
             </button>
@@ -410,7 +410,7 @@ function CredentialsModal({ student, onClose }) {
         ) : (
           <div className="space-y-3">
             <div>
-              <label className="text-xs text-gray-500 dark:text-gray-400">New Password (leave empty to auto-generate)</label>
+              <label className="text-xs text-navy-200">New Password (leave empty to auto-generate)</label>
               <input
                 type="text"
                 value={newPassword}
@@ -430,7 +430,7 @@ function CredentialsModal({ student, onClose }) {
           </div>
         )}
 
-        <button onClick={onClose} className="w-full text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 py-2 cursor-pointer">Close</button>
+        <button onClick={onClose} className="w-full text-sm text-navy-200 hover:text-gray-700 dark:hover:text-gray-300 py-2 cursor-pointer">Close</button>
       </div>
     </div>
   );
@@ -483,50 +483,50 @@ function CourseAccessModal({ student, courses, onClose, onSaved }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
-      <div className="w-full max-w-lg space-y-5 rounded-xl bg-white dark:bg-gray-900 p-6 shadow-xl max-h-[85vh] overflow-y-auto">
+      <div className="w-full max-w-lg space-y-5 rounded-xl bg-surface p-6 shadow-xl max-h-[85vh] overflow-y-auto">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100">Manage Access</h2>
-            <p className="text-sm text-gray-500 dark:text-gray-400">{student.name}</p>
+            <h2 className="text-lg font-semibold text-white">Manage Access</h2>
+            <p className="text-sm text-navy-200">{student.name}</p>
           </div>
-          <button onClick={onClose} className="p-1 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-400"><X className="w-5 h-5" /></button>
+          <button onClick={onClose} className="p-1 text-navy-300 hover:text-gray-600 dark:hover:text-gray-400"><X className="w-5 h-5" /></button>
         </div>
 
-        <div className="rounded-lg border border-gray-200 dark:border-gray-800 p-4">
+        <div className="rounded-lg border border-navy-700 p-4">
           <div className="mb-3 flex items-center justify-between">
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Course Access</label>
-            <span className="text-xs text-gray-500 dark:text-gray-400">{getCourseAccessLabel(serializeCourseAccess(selectedCourses))}</span>
+            <label className="block text-sm font-medium text-navy-100">Course Access</label>
+            <span className="text-xs text-navy-200">{getCourseAccessLabel(serializeCourseAccess(selectedCourses))}</span>
           </div>
           <div className="grid gap-2">
             {courses.map(item => {
               const checked = selectedCourses.includes(item.title);
               return (
-                <label key={item.id} className="flex cursor-pointer items-center justify-between rounded-lg border border-gray-200 dark:border-gray-800 px-3 py-2 hover:bg-gray-50 dark:hover:bg-gray-800/60">
-                  <span className="text-sm text-gray-700 dark:text-gray-300">{item.title}</span>
-                  <input type="checkbox" checked={checked} onChange={() => toggleCourse(item.title)} className="h-4 w-4 rounded border-gray-300 dark:border-gray-600 text-navy-600 focus:ring-navy-500" />
+                <label key={item.id} className="flex cursor-pointer items-center justify-between rounded-lg border border-navy-700 px-3 py-2 hover:bg-gray-50 hover:bg-navy-700/60">
+                  <span className="text-sm text-navy-100">{item.title}</span>
+                  <input type="checkbox" checked={checked} onChange={() => toggleCourse(item.title)} className="h-4 w-4 rounded border-navy-700 text-navy-600 focus:ring-navy-500" />
                 </label>
               );
             })}
-            {courses.length === 0 && <p className="text-xs text-gray-400 dark:text-gray-500">No courses available</p>}
+            {courses.length === 0 && <p className="text-xs text-navy-300">No courses available</p>}
           </div>
         </div>
 
-        <div className="rounded-lg border border-gray-200 dark:border-gray-800 p-4">
+        <div className="rounded-lg border border-navy-700 p-4">
           <div className="mb-3 flex items-center justify-between">
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Test Series Access</label>
-            <span className="text-xs text-gray-500 dark:text-gray-400">{selectedSeries.length ? selectedSeries.join(', ') : 'None'}</span>
+            <label className="block text-sm font-medium text-navy-100">Test Series Access</label>
+            <span className="text-xs text-navy-200">{selectedSeries.length ? selectedSeries.join(', ') : 'None'}</span>
           </div>
           <div className="grid gap-2">
             {testSeries.map(ts => {
               const checked = selectedSeries.includes(ts.name);
               return (
-                <label key={ts.id} className="flex cursor-pointer items-center justify-between rounded-lg border border-gray-200 dark:border-gray-800 px-3 py-2 hover:bg-gray-50 dark:hover:bg-gray-800/60">
-                  <span className="text-sm text-gray-700 dark:text-gray-300">{ts.name}</span>
-                  <input type="checkbox" checked={checked} onChange={() => toggleSeries(ts.name)} className="h-4 w-4 rounded border-gray-300 dark:border-gray-600 text-navy-600 focus:ring-navy-500" />
+                <label key={ts.id} className="flex cursor-pointer items-center justify-between rounded-lg border border-navy-700 px-3 py-2 hover:bg-gray-50 hover:bg-navy-700/60">
+                  <span className="text-sm text-navy-100">{ts.name}</span>
+                  <input type="checkbox" checked={checked} onChange={() => toggleSeries(ts.name)} className="h-4 w-4 rounded border-navy-700 text-navy-600 focus:ring-navy-500" />
                 </label>
               );
             })}
-            {testSeries.length === 0 && <p className="text-xs text-gray-400 dark:text-gray-500">No test series available</p>}
+            {testSeries.length === 0 && <p className="text-xs text-navy-300">No test series available</p>}
           </div>
         </div>
 
@@ -624,13 +624,13 @@ export default function StudentManagement() {
       {courseStudent && <CourseAccessModal student={courseStudent} courses={courses} onClose={() => setCourseStudent(null)} onSaved={loadStudents} />}
       {deleteStudent && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
-          <div className="w-full max-w-sm rounded-xl bg-white dark:bg-gray-900 p-6 shadow-xl space-y-4">
+          <div className="w-full max-w-sm rounded-xl bg-surface p-6 shadow-xl space-y-4">
             <div className="flex items-center justify-between">
-              <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100">Delete Student</h2>
-              <button onClick={() => setDeleteStudent(null)} className="p-1 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-400"><X className="w-5 h-5" /></button>
+              <h2 className="text-lg font-semibold text-white">Delete Student</h2>
+              <button onClick={() => setDeleteStudent(null)} className="p-1 text-navy-300 hover:text-gray-600 dark:hover:text-gray-400"><X className="w-5 h-5" /></button>
             </div>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
-              Are you sure you want to permanently delete <span className="font-semibold text-gray-900 dark:text-gray-100">{deleteStudent.name}</span>?
+            <p className="text-sm text-navy-100">
+              Are you sure you want to permanently delete <span className="font-semibold text-white">{deleteStudent.name}</span>?
               This will remove the student's account and all related data. This action cannot be undone.
             </p>
             <div className="flex justify-end gap-3">
@@ -644,7 +644,7 @@ export default function StudentManagement() {
       )}
 
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Student Management</h1>
+        <h1 className="text-2xl font-bold text-white">Student Management</h1>
         <button onClick={() => navigate('/admin/students/add')} className="flex items-center gap-2 bg-navy-600 text-white px-4 py-2 rounded-lg hover:bg-navy-700 cursor-pointer">
           <Plus className="w-4 h-4" /> Add Student
         </button>
@@ -652,10 +652,10 @@ export default function StudentManagement() {
 
       <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
         <div className="relative flex-1 w-full sm:max-w-md">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 dark:text-gray-500" />
-          <input type="text" placeholder="Search students..." value={search} onChange={e => setSearch(e.target.value)} className="pl-10 pr-4 py-2 w-full border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-navy-500 outline-none dark:bg-gray-800 dark:text-gray-100" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-navy-300" />
+          <input type="text" placeholder="Search students..." value={search} onChange={e => setSearch(e.target.value)} className="pl-10 pr-4 py-2 w-full border border-navy-700 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-navy-500 outline-none bg-navy-800 text-white" />
         </div>
-        <select value={filterStatus} onChange={e => setFilterStatus(e.target.value)} className="appearance-none pl-4 pr-10 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-navy-500 outline-none bg-white dark:bg-gray-800 dark:text-gray-100 w-full sm:w-auto">
+        <select value={filterStatus} onChange={e => setFilterStatus(e.target.value)} className="appearance-none pl-4 pr-10 py-2 border border-navy-700 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-navy-500 outline-none bg-navy-800 text-white w-full sm:w-auto">
           {statuses.map(s => <option key={s} value={s}>{s}</option>)}
         </select>
       </div>
@@ -664,7 +664,7 @@ export default function StudentManagement() {
         <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
-            <tr className="border-b border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/60">
+            <tr className="border-b border-navy-700 bg-gray-50 bg-navy-800/60">
               <th className="table-header">Name</th>
               <th className="table-header">Email</th>
               <th className="table-header">Course</th>
@@ -675,11 +675,11 @@ export default function StudentManagement() {
           </thead>
           <tbody>
             {filtered.map(s => (
-              <tr key={s.id} className="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/60">
+              <tr key={s.id} className="border-b border-navy-700 hover:bg-gray-50 hover:bg-navy-700/60">
                 <td className="table-cell">
                   <button onClick={() => { setSelectedStudent(s); navigate('/admin/students/profile'); }} className="font-medium text-navy-600 hover:text-navy-800 text-left">{s.name}</button>
                 </td>
-                <td className="table-cell text-gray-500 dark:text-gray-400">{s.email}</td>
+                <td className="table-cell text-navy-200">{s.email}</td>
                 <td className="table-cell">{getCourseAccessLabel(s.course || '')}</td>
                 <td className="table-cell">
                   <span className={`badge ${s.status === 'Active' ? 'badge-success' : s.status === 'Suspended' ? 'badge-danger' : 'badge-warning'}`}>{s.status}</span>

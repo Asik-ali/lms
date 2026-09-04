@@ -40,7 +40,7 @@ export default function StudentLiveClasses() {
   const ended = liveClasses.filter(lc => lc.status === 'Ended');
 
   if (loading) {
-    return <div className="flex items-center justify-center py-20 text-gray-400 dark:text-gray-500">Loading live classes...</div>;
+    return <div className="flex items-center justify-center py-20 text-navy-300">Loading live classes...</div>;
   }
 
   return (
@@ -52,8 +52,8 @@ export default function StudentLiveClasses() {
             <h2 className="text-lg font-bold text-white">Live Now</h2>
           </div>
           <div className="p-6">
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">{activeLive.title}</h3>
-            {activeLive.description && <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">{activeLive.description}</p>}
+            <h3 className="text-xl font-semibold text-white mb-2">{activeLive.title}</h3>
+            {activeLive.description && <p className="text-sm text-navy-200 mb-4">{activeLive.description}</p>}
             {activeLive.youtube_url ? (
               <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
                 <iframe
@@ -65,12 +65,12 @@ export default function StudentLiveClasses() {
                 />
               </div>
             ) : (
-              <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-8 text-center text-gray-500 dark:text-gray-400">
+              <div className="bg-navy-800 rounded-lg p-8 text-center text-navy-200">
                 <Radio className="w-12 h-12 mx-auto mb-3 text-red-500" />
                 <p>Live stream is in progress. No video URL available.</p>
               </div>
             )}
-            <div className="flex items-center gap-4 mt-4 text-sm text-gray-500 dark:text-gray-400">
+            <div className="flex items-center gap-4 mt-4 text-sm text-navy-200">
               <span className="flex items-center gap-1"><Calendar className="w-4 h-4" /> {activeLive.date}</span>
               <span className="flex items-center gap-1"><Clock className="w-4 h-4" /> {activeLive.time}</span>
             </div>
@@ -81,20 +81,20 @@ export default function StudentLiveClasses() {
       {!activeLive && (
         <div className="card p-12 text-center">
           <Radio className="w-16 h-16 mx-auto mb-4 text-gray-300" />
-          <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-2">No Live Streams</h3>
-          <p className="text-sm text-gray-400 dark:text-gray-500">There are no active live streams right now. Check back later.</p>
+          <h3 className="text-lg font-semibold text-navy-100 mb-2">No Live Streams</h3>
+          <p className="text-sm text-navy-300">There are no active live streams right now. Check back later.</p>
         </div>
       )}
 
       {upcoming.length > 0 && (
         <div>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">Upcoming Classes</h3>
+          <h3 className="text-lg font-semibold text-white mb-4">Upcoming Classes</h3>
           <div className="grid gap-4">
             {upcoming.map(lc => (
               <div key={lc.id} className="card p-5 flex items-center justify-between">
                 <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-gray-100">{lc.title}</h4>
-                  <div className="flex items-center gap-3 mt-1 text-sm text-gray-500 dark:text-gray-400">
+                  <h4 className="font-semibold text-white">{lc.title}</h4>
+                  <div className="flex items-center gap-3 mt-1 text-sm text-navy-200">
                     <span className="flex items-center gap-1"><Calendar className="w-3.5 h-3.5" /> {lc.date}</span>
                     <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {lc.time}</span>
                   </div>
@@ -108,18 +108,18 @@ export default function StudentLiveClasses() {
 
       {ended.length > 0 && (
         <div>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">Past Classes</h3>
+          <h3 className="text-lg font-semibold text-white mb-4">Past Classes</h3>
           <div className="grid gap-4">
             {ended.map(lc => (
               <div key={lc.id} className="card p-5 flex items-center justify-between opacity-60">
                 <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-gray-100">{lc.title}</h4>
-                  <div className="flex items-center gap-3 mt-1 text-sm text-gray-500 dark:text-gray-400">
+                  <h4 className="font-semibold text-white">{lc.title}</h4>
+                  <div className="flex items-center gap-3 mt-1 text-sm text-navy-200">
                     <span className="flex items-center gap-1"><Calendar className="w-3.5 h-3.5" /> {lc.date}</span>
                     <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {lc.time}</span>
                   </div>
                 </div>
-                <span className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 text-xs font-medium rounded-full">Ended</span>
+                <span className="px-3 py-1 bg-navy-800 text-navy-200 text-xs font-medium rounded-full">Ended</span>
               </div>
             ))}
           </div>

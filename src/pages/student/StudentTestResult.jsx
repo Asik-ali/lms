@@ -307,7 +307,7 @@ export default function StudentTestResult() {
         <div className="flex items-center gap-2">
           <Link
             to={`/student/test-series`}
-            className="flex items-center gap-1.5 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-gray-900 px-3 py-2 text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/60"
+            className="flex items-center gap-1.5 rounded-lg border border-slate-200 dark:border-slate-800 bg-surface px-3 py-2 text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/60"
           >
             <BookOpen className="h-4 w-4" />
             <span className="hidden sm:inline">Test Series</span>
@@ -323,7 +323,7 @@ export default function StudentTestResult() {
       </div>
 
       {/* Tabs */}
-      <div className="overflow-x-auto rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-gray-900 shadow-sm">
+      <div className="overflow-x-auto rounded-xl border border-slate-200 dark:border-slate-800 bg-surface shadow-sm">
         <nav className="flex">
           {TABS.map((tab) => {
             const Icon = tab.icon;
@@ -362,7 +362,7 @@ export default function StudentTestResult() {
             </div>
             {showRank ? (
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-4">
-              <div className="flex flex-col items-center rounded-xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-gray-900 p-4 shadow-sm">
+              <div className="flex flex-col items-center rounded-xl border border-slate-100 dark:border-slate-800 bg-surface p-4 shadow-sm">
                 <span className="text-xs font-medium uppercase text-slate-500 dark:text-slate-400">Score</span>
                 <span className="mt-1 text-2xl font-bold text-slate-800 dark:text-slate-200">
                   {attempt?.score ?? 0}
@@ -399,7 +399,7 @@ export default function StudentTestResult() {
               </div>
             </div>
             ) : (
-              <div className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-gray-900 p-6 text-center">
+              <div className="rounded-xl border border-slate-200 dark:border-slate-800 bg-surface p-6 text-center">
                 <Award className="h-8 w-8 text-slate-300 dark:text-slate-600 mx-auto mb-2" />
                 <p className="text-sm text-slate-500 dark:text-slate-400">
                   Rank is only calculated on your first attempt.
@@ -418,7 +418,7 @@ export default function StudentTestResult() {
           {/* Palette Toggle (Mobile) */}
           <button
             onClick={() => setPaletteOpen(!paletteOpen)}
-            className="flex items-center justify-between rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-gray-900 px-4 py-3 text-sm font-medium text-slate-700 dark:text-slate-300 shadow-sm lg:hidden"
+            className="flex items-center justify-between rounded-xl border border-slate-200 dark:border-slate-800 bg-surface px-4 py-3 text-sm font-medium text-slate-700 dark:text-slate-300 shadow-sm lg:hidden"
           >
             <span className="flex items-center gap-2">
               <Target className="h-4 w-4 text-navy-500" />
@@ -496,7 +496,7 @@ export default function StudentTestResult() {
                 <div
                   key={q.id}
                   id={`question-${idx}`}
-                  className={`scroll-mt-24 overflow-hidden rounded-2xl border ${sc.border} bg-white dark:bg-gray-900 shadow-sm`}
+                  className={`scroll-mt-24 overflow-hidden rounded-2xl border ${sc.border} bg-surface shadow-sm`}
                 >
                   {/* Status Strip */}
                   <div className={`h-1.5 ${sc.strip}`} />
@@ -535,7 +535,7 @@ export default function StudentTestResult() {
                     )}
                     <button
                       onClick={() => setReportModal(q)}
-                      className="ml-auto flex items-center gap-1 rounded-full border border-slate-200 dark:border-slate-800 bg-white dark:bg-gray-900 px-2.5 py-1 text-xs font-medium text-slate-600 dark:text-slate-400 hover:border-rose-300 hover:text-rose-600 transition"
+                      className="ml-auto flex items-center gap-1 rounded-full border border-slate-200 dark:border-slate-800 bg-surface px-2.5 py-1 text-xs font-medium text-slate-600 dark:text-slate-400 hover:border-rose-300 hover:text-rose-600 transition"
                     >
                       <Flag className="h-3 w-3" />
                       Report
@@ -566,7 +566,7 @@ export default function StudentTestResult() {
                           status === 'correct' && isStudentAnswer;
 
                         let optionClasses =
-                          'border-slate-200 dark:border-slate-800 bg-white dark:bg-gray-900 text-slate-700 dark:text-slate-300';
+                          'border-slate-200 dark:border-slate-800 bg-surface text-slate-700 dark:text-slate-300';
 
                         if (status === 'correct' && isStudentAnswer) {
                           optionClasses =
@@ -622,7 +622,7 @@ export default function StudentTestResult() {
                             [q.id]: !prev[q.id],
                           }))
                         }
-                        className="flex items-center gap-1.5 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-gray-900 px-3 py-2 text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition"
+                        className="flex items-center gap-1.5 rounded-lg border border-slate-200 dark:border-slate-800 bg-surface px-3 py-2 text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition"
                       >
                         {isExpanded ? (
                           <ChevronUp className="h-4 w-4" />
@@ -683,7 +683,7 @@ export default function StudentTestResult() {
             })}
 
             {questions.length === 0 && (
-              <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-gray-900 p-12 text-center">
+              <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-surface p-12 text-center">
                 <FileText className="mx-auto mb-3 h-10 w-10 text-slate-300" />
                 <p className="text-sm text-slate-500 dark:text-slate-400">
                   No questions available for this test.
@@ -713,7 +713,7 @@ export default function StudentTestResult() {
       <div className="flex flex-wrap items-center justify-center gap-3 border-t border-slate-200 dark:border-slate-800 pt-6">
         <Link
           to="/student/test-series"
-          className="flex items-center gap-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-gray-900 px-5 py-2.5 text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition shadow-sm"
+          className="flex items-center gap-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-surface px-5 py-2.5 text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition shadow-sm"
         >
           <ArrowLeft className="h-4 w-4" />
           Back to Test Series
@@ -730,7 +730,7 @@ export default function StudentTestResult() {
       {/* Report Modal */}
       {reportModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4">
-          <div className="w-full max-w-md rounded-2xl bg-white dark:bg-gray-900 p-6 shadow-2xl">
+          <div className="w-full max-w-md rounded-2xl bg-surface p-6 shadow-2xl">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200">
                 Report Question

@@ -115,7 +115,7 @@ export default function StudentBuyCourses() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Buy Courses</h1>
+        <h1 className="text-2xl font-bold text-white">Buy Courses</h1>
         <button
           onClick={() => setShowHistory(v => !v)}
           className="btn-secondary flex items-center gap-2"
@@ -127,9 +127,9 @@ export default function StudentBuyCourses() {
       {showHistory ? (
         <div className="space-y-6">
           <div>
-            <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-3">Order History</h2>
+            <h2 className="text-lg font-semibold text-white mb-3">Order History</h2>
             {history.orders.length === 0 ? (
-              <div className="card p-8 text-center text-gray-400 dark:text-gray-500">
+              <div className="card p-8 text-center text-navy-300">
                 <History className="w-10 h-10 mx-auto mb-2 text-gray-300" />
                 <p>No orders yet.</p>
               </div>
@@ -148,7 +148,7 @@ export default function StudentBuyCourses() {
                     {history.orders.map(o => {
                       const cfg = statusConfig[o.status] || statusConfig.PENDING;
                       return (
-                        <tr key={o.id} className="border-b border-gray-100 dark:border-gray-800">
+                        <tr key={o.id} className="border-b border-navy-700">
                           <td className="table-cell font-mono text-xs">{o.order_id}</td>
                           <td className="table-cell">{formatINR(o.amount)}</td>
                           <td className="table-cell"><span className={`badge ${cfg.cls}`}>{cfg.label}</span></td>
@@ -163,9 +163,9 @@ export default function StudentBuyCourses() {
           </div>
 
           <div>
-            <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-3">My Purchases</h2>
+            <h2 className="text-lg font-semibold text-white mb-3">My Purchases</h2>
             {history.purchases.length === 0 ? (
-              <div className="card p-8 text-center text-gray-400 dark:text-gray-500">
+              <div className="card p-8 text-center text-navy-300">
                 <ShoppingCart className="w-10 h-10 mx-auto mb-2 text-gray-300" />
                 <p>You haven't purchased anything yet.</p>
               </div>
@@ -174,8 +174,8 @@ export default function StudentBuyCourses() {
                 {history.purchases.map(p => (
                   <div key={p.id} className="card p-4 flex items-center justify-between">
                     <div>
-                      <p className="font-medium text-gray-900 dark:text-gray-100">Order {p.order_id}</p>
-                      <p className="text-xs text-gray-500 dark:text-gray-400">{new Date(p.created_at).toLocaleString()}</p>
+                      <p className="font-medium text-white">Order {p.order_id}</p>
+                      <p className="text-xs text-navy-200">{new Date(p.created_at).toLocaleString()}</p>
                     </div>
                     <span className="badge badge-success flex items-center gap-1"><CheckCircle className="w-3 h-3" /> {formatINR(p.amount)}</span>
                   </div>
@@ -187,11 +187,11 @@ export default function StudentBuyCourses() {
       ) : (
         <>
           {loadingPlans ? (
-            <div className="flex items-center justify-center py-16 text-gray-400 dark:text-gray-500">
+            <div className="flex items-center justify-center py-16 text-navy-300">
               <Loader2 className="w-6 h-6 animate-spin mr-2" /> Loading plans...
             </div>
           ) : plans.length === 0 ? (
-            <div className="card p-10 text-center text-gray-400 dark:text-gray-500">
+            <div className="card p-10 text-center text-navy-300">
               <ShoppingCart className="w-12 h-12 mx-auto mb-3 text-gray-300" />
               <p>No plans available for purchase right now. Check back soon!</p>
             </div>
@@ -199,22 +199,22 @@ export default function StudentBuyCourses() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {plans.map(plan => (
                 <div key={plan.id} className="card p-6 flex flex-col">
-                  <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-1">{plan.name}</h2>
-                  {plan.description && <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">{plan.description}</p>}
+                  <h2 className="text-lg font-bold text-white mb-1">{plan.name}</h2>
+                  {plan.description && <p className="text-sm text-navy-200 mb-4">{plan.description}</p>}
 
                   <div className="flex items-baseline gap-1 mb-4">
-                    <IndianRupee className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-                    <span className="text-3xl font-bold text-gray-900 dark:text-gray-100">
+                    <IndianRupee className="w-4 h-4 text-navy-200" />
+                    <span className="text-3xl font-bold text-white">
                       {plan.price.toLocaleString('en-IN')}
                     </span>
                   </div>
 
                   <div className="space-y-2 mb-6">
                     {plan.items.length === 0 ? (
-                      <p className="text-sm text-gray-400 dark:text-gray-500">Full plan access</p>
+                      <p className="text-sm text-navy-300">Full plan access</p>
                     ) : (
                       plan.items.map((it, i) => (
-                        <div key={i} className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
+                        <div key={i} className="flex items-center gap-2 text-sm text-navy-100">
                           {it.item_type === 'course'
                             ? <BookOpen className="w-4 h-4 text-navy-500 flex-shrink-0" />
                             : <PenTool className="w-4 h-4 text-emerald-500 flex-shrink-0" />}
@@ -242,7 +242,7 @@ export default function StudentBuyCourses() {
         </>
       )}
 
-      <p className="text-xs text-gray-400 dark:text-gray-500 flex items-center gap-1.5">
+      <p className="text-xs text-navy-300 flex items-center gap-1.5">
         <CreditCard className="w-3 h-3" /> Payments are processed securely via Cashfree. Your access is granted automatically after successful payment.
       </p>
     </div>

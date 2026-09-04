@@ -43,37 +43,37 @@ export default function ProfilePage() {
 
   return (
     <div className="max-w-3xl space-y-6">
-      <section className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6">
+      <section className="bg-surface border border-navy-700 rounded-xl p-6">
         <div className="flex items-center gap-4">
           <div className="w-16 h-16 rounded-full bg-navy-600 flex items-center justify-center">
             <UserCircle className="w-12 h-12 text-white" />
           </div>
           <div>
-            <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100">{user?.name || user?.username || 'User'}</h2>
-            <p className="text-sm text-gray-500 dark:text-gray-400">Your account information</p>
+            <h2 className="text-xl font-semibold text-white">{user?.name || user?.username || 'User'}</h2>
+            <p className="text-sm text-navy-200">Your account information</p>
           </div>
         </div>
       </section>
 
-      <section className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl divide-y divide-gray-100 dark:divide-gray-800">
+      <section className="bg-surface border border-navy-700 rounded-xl divide-y divide-gray-100 dark:divide-gray-800">
         <div className="flex items-center gap-3 p-5">
-          <Mail className="w-5 h-5 text-gray-400 dark:text-gray-500" />
+          <Mail className="w-5 h-5 text-navy-300" />
           <div>
-            <p className="text-xs text-gray-500 dark:text-gray-400">Email</p>
-            <p className="text-sm font-medium text-gray-800 dark:text-gray-200">{user?.email || 'Not available'}</p>
+            <p className="text-xs text-navy-200">Email</p>
+            <p className="text-sm font-medium text-white">{user?.email || 'Not available'}</p>
           </div>
         </div>
         <div className="flex items-center gap-3 p-5">
-          <Shield className="w-5 h-5 text-gray-400 dark:text-gray-500" />
+          <Shield className="w-5 h-5 text-navy-300" />
           <div>
-            <p className="text-xs text-gray-500 dark:text-gray-400">Role</p>
-            <p className="text-sm font-medium text-gray-800 dark:text-gray-200">{role}</p>
+            <p className="text-xs text-navy-200">Role</p>
+            <p className="text-sm font-medium text-white">{role}</p>
           </div>
         </div>
       </section>
 
-      <section className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6">
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
+      <section className="bg-surface border border-navy-700 rounded-xl p-6">
+        <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
           <Lock className="w-5 h-5" />
           Change Password
         </h3>
@@ -94,23 +94,23 @@ export default function ProfilePage() {
 
         <form onSubmit={handleChangePassword} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">New Password</label>
+            <label className="block text-sm font-medium text-navy-100 mb-1">New Password</label>
             <input
               type="password"
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
               placeholder="Enter new password"
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-navy-500 dark:bg-gray-800 dark:text-gray-100"
+              className="w-full px-4 py-2 border border-navy-700 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-navy-500 bg-navy-800 text-white"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Confirm Password</label>
+            <label className="block text-sm font-medium text-navy-100 mb-1">Confirm Password</label>
             <input
               type="password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               placeholder="Confirm new password"
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-navy-500 dark:bg-gray-800 dark:text-gray-100"
+              className="w-full px-4 py-2 border border-navy-700 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-navy-500 bg-navy-800 text-white"
             />
           </div>
           <button

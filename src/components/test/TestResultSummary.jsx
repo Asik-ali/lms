@@ -19,7 +19,7 @@ function formatTime(seconds) {
 }
 
 const StatCard = ({ icon: Icon, label, value, accent }) => (
-  <div className="flex items-center gap-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-gray-900 p-4 shadow-sm">
+  <div className="flex items-center gap-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-surface p-4 shadow-sm">
     <div className={`rounded-lg p-2 ${accent}`}>
       <Icon className="h-5 w-5 text-white" />
     </div>

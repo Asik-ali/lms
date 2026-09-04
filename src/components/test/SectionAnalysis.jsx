@@ -44,14 +44,14 @@ export default function SectionAnalysis({ responses = [], questions = [] }) {
   });
 
   return (
-    <div className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-gray-900 p-4 shadow-sm sm:p-6">
+    <div className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-surface p-4 shadow-sm sm:p-6">
       <h3 className="mb-4 text-sm font-bold uppercase tracking-wide text-slate-600 dark:text-slate-400">
         Section Analysis
       </h3>
 
       <div className="space-y-4">
         {sections.map((s) => (
-          <div key={s.name} className="rounded-xl border border-slate-100 dark:border-gray-800 p-4">
+          <div key={s.name} className="rounded-xl border border-slate-100 border-navy-700 p-4">
             <div className="flex flex-wrap items-center justify-between gap-2">
               <span className="font-semibold text-slate-800 dark:text-slate-200">{s.name}</span>
               <span className="text-xs text-slate-500 dark:text-slate-400">
@@ -60,7 +60,7 @@ export default function SectionAnalysis({ responses = [], questions = [] }) {
             </div>
 
             <div className="mt-2 flex items-center gap-3">
-              <div className="h-2.5 flex-1 overflow-hidden rounded-full bg-slate-100 dark:bg-gray-800">
+              <div className="h-2.5 flex-1 overflow-hidden rounded-full bg-slate-100 bg-navy-800">
                 <div
                   className="h-full rounded-full bg-emerald-500 transition-all"
                   style={{ width: `${s.accuracy}%` }}

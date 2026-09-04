@@ -32,11 +32,11 @@ export default function PricingPage() {
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         {loading ? (
-          <div className="flex items-center justify-center py-16 text-gray-400 dark:text-gray-500">
+          <div className="flex items-center justify-center py-16 text-navy-300">
             <Loader2 className="w-6 h-6 animate-spin mr-2" /> Loading plans...
           </div>
         ) : plans.length === 0 ? (
-          <div className="card p-10 text-center text-gray-400 dark:text-gray-500">
+          <div className="card p-10 text-center text-navy-300">
             <CreditCard className="w-12 h-12 mx-auto mb-3 text-gray-300" />
             <p>No plans available right now. Check back soon!</p>
           </div>
@@ -45,21 +45,21 @@ export default function PricingPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {plans.map(plan => (
                 <div key={plan.id} className="card p-6 flex flex-col">
-                  <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-1">{plan.name}</h2>
-                  {plan.description && <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">{plan.description}</p>}
+                  <h2 className="text-lg font-bold text-white mb-1">{plan.name}</h2>
+                  {plan.description && <p className="text-sm text-navy-200 mb-4">{plan.description}</p>}
                   <div className="flex items-baseline gap-1 mb-4">
-                    <IndianRupee className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-                    <span className="text-3xl font-bold text-gray-900 dark:text-gray-100">{plan.price.toLocaleString('en-IN')}</span>
+                    <IndianRupee className="w-4 h-4 text-navy-200" />
+                    <span className="text-3xl font-bold text-white">{plan.price.toLocaleString('en-IN')}</span>
                     <span className="text-sm text-gray-400">INR</span>
                   </div>
                   <div className="space-y-2 mb-6 flex-1">
                     {plan.items.length === 0 ? (
-                      <p className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
+                      <p className="flex items-center gap-2 text-sm text-navy-100">
                         <Check className="w-4 h-4 text-emerald-500" /> Full plan access
                       </p>
                     ) : (
                       plan.items.map((it, i) => (
-                        <div key={i} className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
+                        <div key={i} className="flex items-center gap-2 text-sm text-navy-100">
                           {it.item_type === 'course'
                             ? <BookOpen className="w-4 h-4 text-navy-500 flex-shrink-0" />
                             : <PenTool className="w-4 h-4 text-emerald-500 flex-shrink-0" />}
@@ -74,7 +74,7 @@ export default function PricingPage() {
                 </div>
               ))}
             </div>
-            <p className="text-xs text-gray-400 dark:text-gray-500 mt-8 text-center">
+            <p className="text-xs text-navy-300 mt-8 text-center">
               All prices are inclusive of applicable taxes. Payments are processed securely via Cashfree. See our <a className="underline" href="/terms">Terms &amp; Conditions</a> and <a className="underline" href="/refunds">Refunds &amp; Cancellations</a>.
             </p>
           </>
