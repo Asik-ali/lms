@@ -81,7 +81,7 @@ export default function SignupPage() {
       </div>
       <div className="w-full max-w-md relative animate-fade-up">
         <div className="text-center mb-8">
-          <div className="w-20 h-20 rounded-2xl bg-surface border border-navy-600/40 flex items-center justify-center mx-auto mb-5 shadow-lg shadow-navy-900/40">
+          <div className="w-20 h-20 rounded-2xl bg-surface border border-navy-600/40 flex items-center justify-center mx-auto mb-5 shadow-lg shadow-[#091E42]/40">
             <img src={logo} alt="EXAMSTICK" className="w-14 h-14 object-contain" />
           </div>
           <h1 className="text-3xl font-bold text-navy-100">Create Account</h1>
@@ -90,7 +90,7 @@ export default function SignupPage() {
           </p>
         </div>
 
-        <div className="bg-surface rounded-2xl border border-navy-700 p-8 shadow-xl shadow-navy-900/40">
+        <div className="bg-surface rounded-2xl border border-navy-700 p-8 shadow-xl shadow-[#091E42]/40">
           {error && (
             <div className="mb-5 flex items-center gap-2 p-3 bg-brand-red/10 border border-brand-red/40 rounded-lg text-sm text-red-700 dark:text-red-300">
               <AlertCircle className="w-4 h-4 flex-shrink-0" />
