@@ -1,15 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Mail, Database, Save, Download, Upload, Loader, MailCheck, ClipboardPaste, Eye } from 'lucide-react';
 import { supabase } from '../../supabase/client';
 import { getSmtpSettings, saveSmtpSettings } from '../../data/dynamicStore';
 import { apiUrl } from '../../data/api';
 import { showError, showSuccess } from '../../components/common/Toast';
-
-const tabs = [
-  { label: 'SMTP', icon: Mail },
-  { label: 'Backup & Restore', icon: Database },
-];
 
 function SMTPTab() {
   const [host, setHost] = useState('smtp.gmail.com');
@@ -387,14 +382,16 @@ function BackupTab() {
 
 export default function SettingsPage() {
   const location = useLocation();
-  const tabIndexByPath = {
+  const navigate = useNavigate();
+  const tabsByPath = {
     '/admin/settings/smtp': 0,
     '/admin/settings/backup': 1,
   };
-  const tabForRoute = tabIndexByPath[location.pathname] ?? 0;
-  const [activeTab, setActiveTab] = useState(tabForRoute);
-
-  useEffect(() => setActiveTab(tabForRoute), [tabForRoute]);
+  const activeTab = tabsByPath[location.pathname] ?? 0;
+  const tabsByIndex = [
+    { label: 'SMTP', icon: Mail, path: '/admin/settings/smtp' },
+    { label: 'Backup & Restore', icon: Database, path: '/admin/settings/backup' },
+  ];
 
   return (
     <div className="space-y-6">
@@ -404,12 +401,12 @@ export default function SettingsPage() {
 
       <div className="border-b border-navy-700">
         <div className="flex gap-0 -mb-px overflow-x-auto">
-          {tabs.map((tab, i) => {
+          {tabsByIndex.map((tab, i) => {
             const Icon = tab.icon;
             return (
               <button
                 key={tab.label}
-                onClick={() => setActiveTab(i)}
+                onClick={() => navigate(tab.path)}
                 className={`flex items-center gap-2 px-5 py-3 text-sm font-medium border-b-2 transition-colors whitespace-nowrap ${
                   i === activeTab
                     ? 'border-navy-600 text-navy-600'
