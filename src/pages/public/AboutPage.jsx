@@ -10,10 +10,10 @@ const values = [
 export default function AboutPage() {
   return (
     <div className="space-y-16">
-      <section className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-16">
+      <section className="bg-gradient-to-r from-navy-600 to-purple-600 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-3xl sm:text-4xl font-bold">About Us</h1>
-          <p className="mt-3 text-indigo-100 max-w-2xl mx-auto">
+          <p className="mt-3 text-navy-100 max-w-2xl mx-auto">
             We are building a modern learning management system that empowers students.
           </p>
         </div>
@@ -32,8 +32,8 @@ export default function AboutPage() {
             const Icon = v.icon;
             return (
               <div key={v.title} className="card p-6">
-                <div className="w-12 h-12 rounded-lg bg-indigo-100 dark:bg-indigo-500/15 flex items-center justify-center mb-4">
-                  <Icon className="w-6 h-6 text-indigo-600 dark:text-indigo-300" />
+                <div className="w-12 h-12 rounded-lg bg-navy-100 dark:bg-navy-500/15 flex items-center justify-center mb-4">
+                  <Icon className="w-6 h-6 text-navy-600 dark:text-navy-300" />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">{v.title}</h3>
                 <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">{v.desc}</p>

@@ -119,7 +119,7 @@ export default function AdminTickets() {
             key={f}
             onClick={() => setFilter(f)}
             className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer ${
-              filter === f ? 'bg-indigo-600 text-white' : 'bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-400 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800/60'
+              filter === f ? 'bg-navy-600 text-white' : 'bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-400 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800/60'
             }`}
           >
             {f}
@@ -133,7 +133,7 @@ export default function AdminTickets() {
             const cfg = statusConfig[t.status] || statusConfig.Open;
             const Icon = cfg.icon;
             return (
-              <button key={t.id} onClick={() => handleSelect(t)} className={`w-full text-left card p-4 transition-all cursor-pointer ${selected?.id === t.id ? 'border-indigo-300 ring-1 ring-indigo-200' : 'hover:border-gray-300'}`}>
+              <button key={t.id} onClick={() => handleSelect(t)} className={`w-full text-left card p-4 transition-all cursor-pointer ${selected?.id === t.id ? 'border-navy-300 ring-1 ring-navy-200' : 'hover:border-gray-300'}`}>
                 <div className="flex items-start gap-3">
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${cfg.color}`}>
                     <Icon className="w-4 h-4" />
@@ -180,7 +180,7 @@ export default function AdminTickets() {
                   <p className="text-sm text-gray-700 dark:text-gray-300">{selected.message}</p>
                 </div>
                 {replies.map(r => (
-                  <div key={r.id} className={`rounded-lg p-3 ${r.sender_id === user.id ? 'bg-indigo-50 dark:bg-indigo-500/10 ml-8' : 'bg-gray-100 dark:bg-gray-800 mr-8'}`}>
+                  <div key={r.id} className={`rounded-lg p-3 ${r.sender_id === user.id ? 'bg-navy-50 dark:bg-navy-500/10 ml-8' : 'bg-gray-100 dark:bg-gray-800 mr-8'}`}>
                     <p className="text-xs text-gray-400 dark:text-gray-500 mb-1">{r.sender_id === user.id ? 'Admin (You)' : getStudentName(r.sender_id)}</p>
                     <p className="text-sm text-gray-700 dark:text-gray-300">{r.message}</p>
                   </div>

@@ -29,8 +29,8 @@ export default function StudentAnnouncements() {
           <div key={a.id} className="card hover:shadow-md transition-shadow">
             <div className="p-6">
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-lg bg-indigo-100 dark:bg-indigo-500/15 flex items-center justify-center flex-shrink-0">
-                  <Megaphone className="w-5 h-5 text-indigo-600 dark:text-indigo-300" />
+                <div className="w-10 h-10 rounded-lg bg-navy-100 dark:bg-navy-500/15 flex items-center justify-center flex-shrink-0">
+                  <Megaphone className="w-5 h-5 text-navy-600 dark:text-navy-300" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between gap-2">

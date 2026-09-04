@@ -60,7 +60,7 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
   if (loading) {
     return (
       <div className="space-y-4">
-        <button type="button" onClick={() => navigate('/student/courses')} className="inline-flex items-center gap-2 text-sm font-medium text-indigo-600">
+        <button type="button" onClick={() => navigate('/student/courses')} className="inline-flex items-center gap-2 text-sm font-medium text-navy-600">
           <ArrowLeft className="w-4 h-4" /> Back to courses
         </button>
         <div className="card p-8 text-center text-gray-500 dark:text-gray-400">Loading course details...</div>
@@ -71,7 +71,7 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
   if (!course) {
     return (
       <div className="space-y-4">
-        <button type="button" onClick={() => navigate('/student/courses')} className="inline-flex items-center gap-2 text-sm font-medium text-indigo-600">
+        <button type="button" onClick={() => navigate('/student/courses')} className="inline-flex items-center gap-2 text-sm font-medium text-navy-600">
           <ArrowLeft className="w-4 h-4" /> Back to courses
         </button>
         <div className="card p-8 text-center text-gray-500 dark:text-gray-400">Course not found.</div>
@@ -81,12 +81,12 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
 
   return (
     <div className="space-y-6">
-      <button type="button" onClick={() => navigate('/student/courses')} className="inline-flex items-center gap-2 text-sm font-medium text-indigo-600">
+      <button type="button" onClick={() => navigate('/student/courses')} className="inline-flex items-center gap-2 text-sm font-medium text-navy-600">
         <ArrowLeft className="w-4 h-4" /> Back to My Courses
       </button>
 
       <div className="card overflow-hidden">
-        <div className="bg-gradient-to-r from-indigo-600 to-purple-600 p-6 text-white">
+        <div className="bg-gradient-to-r from-navy-600 to-purple-600 p-6 text-white">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-12 h-12 rounded-lg bg-white/20 flex items-center justify-center">
               <BookOpen className="w-6 h-6" />
@@ -95,7 +95,7 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
               <h1 className="text-2xl font-bold">{course.title}</h1>
             </div>
           </div>
-          <div className="flex flex-wrap gap-4 text-sm text-indigo-100">
+          <div className="flex flex-wrap gap-4 text-sm text-navy-100">
             <span className="inline-flex items-center gap-2"><Clock3 className="w-4 h-4" /> {course.duration}</span>
             <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${course.status === 'Published' ? 'bg-green-500/20 text-green-100' : 'bg-gray-500/20 text-gray-200'}`}>{course.status}</span>
           </div>
@@ -122,7 +122,7 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
                         onClick={() => setOpenDay(openDay === group.day ? null : group.day)}
                         className="w-full flex items-center gap-2 px-4 py-3 bg-gray-50 dark:bg-gray-800/60 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800"
                       >
-                        <CalendarDays className="w-4 h-4 text-indigo-600 dark:text-indigo-300" />
+                        <CalendarDays className="w-4 h-4 text-navy-600 dark:text-navy-300" />
                         <span className="flex-1 text-left text-sm font-semibold text-gray-900 dark:text-gray-100">
                           {group.day > 0 ? `Day ${group.day}` : 'General'}
                         </span>
@@ -138,7 +138,7 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
                               {group.videos.map((lesson, i) => (
                                 <div key={lesson.id} className="rounded-lg border border-gray-200 dark:border-gray-800 p-3">
                                   <p className="text-sm font-semibold text-gray-900 dark:text-gray-100">{i + 1}. {lesson.title}</p>
-                                  <button type="button" onClick={() => setMediaViewer({ url: lesson.video_url, title: lesson.title, type: 'video' })} className="mt-2 inline-flex items-center gap-1.5 text-sm text-indigo-600 hover:text-indigo-800">
+                                  <button type="button" onClick={() => setMediaViewer({ url: lesson.video_url, title: lesson.title, type: 'video' })} className="mt-2 inline-flex items-center gap-1.5 text-sm text-navy-600 hover:text-navy-800">
                                     <Play className="w-3.5 h-3.5" /> Watch video
                                   </button>
                                 </div>
@@ -151,14 +151,14 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
                               <p className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">PDFs</p>
                               {group.pdfs.map((pdf, i) => (
                                 <div key={pdf.id} className="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-gray-800 p-3">
-                                  <FileText className="w-5 h-5 text-indigo-600 shrink-0" />
+                                  <FileText className="w-5 h-5 text-navy-600 shrink-0" />
                                   <div className="min-w-0 flex-1">
                                     <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 truncate">{i + 1}. {pdf.title}</p>
                                   </div>
                                   <button
                                     type="button"
                                     onClick={() => setMediaViewer({ url: pdf.pdf_url, title: pdf.title, type: 'pdf' })}
-                                    className="inline-flex items-center gap-1.5 text-sm font-medium text-indigo-600 hover:text-indigo-800 shrink-0"
+                                    className="inline-flex items-center gap-1.5 text-sm font-medium text-navy-600 hover:text-navy-800 shrink-0"
                                   >
                                     View PDF
                                   </button>

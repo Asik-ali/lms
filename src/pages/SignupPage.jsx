@@ -74,14 +74,14 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-navy-600 via-purple-600 to-pink-500 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <div className="w-16 h-16 rounded-2xl bg-white/20 dark:bg-gray-900/30 backdrop-blur flex items-center justify-center mx-auto mb-4 overflow-hidden">
             <img src={logo} alt="EXAMSTICK" className="w-12 h-12 object-contain" />
           </div>
           <h1 className="text-3xl font-bold text-white">Create Account</h1>
-          <p className="text-indigo-200 mt-2">
+          <p className="text-navy-200 mt-2">
             {step === 'form' ? 'Join the LMS platform' : 'Verify your email'}
           </p>
         </div>
@@ -120,7 +120,7 @@ export default function SignupPage() {
                 </div>
               </div>
 
-              <button type="submit" disabled={isSubmitting} className="w-full bg-indigo-600 text-white py-2.5 rounded-lg font-medium hover:bg-indigo-700 transition-colors cursor-pointer disabled:opacity-60">
+              <button type="submit" disabled={isSubmitting} className="w-full bg-navy-600 text-white py-2.5 rounded-lg font-medium hover:bg-navy-700 transition-colors cursor-pointer disabled:opacity-60">
                 {isSubmitting ? 'Sending code...' : 'Send Verification Code'}
               </button>
             </form>
@@ -146,7 +146,7 @@ export default function SignupPage() {
                 </div>
               </div>
 
-              <button type="submit" disabled={isSubmitting} className="w-full bg-indigo-600 text-white py-2.5 rounded-lg font-medium hover:bg-indigo-700 transition-colors cursor-pointer disabled:opacity-60">
+              <button type="submit" disabled={isSubmitting} className="w-full bg-navy-600 text-white py-2.5 rounded-lg font-medium hover:bg-navy-700 transition-colors cursor-pointer disabled:opacity-60">
                 {isSubmitting ? 'Verifying...' : 'Verify & Create Account'}
               </button>
 
@@ -162,7 +162,7 @@ export default function SignupPage() {
 
           <div className="mt-6 pt-5 border-t border-gray-100 dark:border-gray-800 text-center text-sm text-gray-500 dark:text-gray-400">
             Already have an account?{' '}
-            <Link to="/login" className="font-medium text-indigo-600 hover:text-indigo-700">
+            <Link to="/login" className="font-medium text-navy-600 hover:text-navy-700">
               Login
             </Link>
           </div>

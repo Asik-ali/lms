@@ -19,17 +19,17 @@ const stats = [
 export default function HomePage() {
   return (
     <div className="space-y-0">
-      <section className="bg-gradient-to-br from-indigo-600 via-indigo-700 to-purple-700 text-white">
+      <section className="bg-gradient-to-br from-navy-600 via-navy-700 to-purple-700 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
           <div className="max-w-3xl">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
               Learn Without Limits
             </h1>
-            <p className="mt-4 text-lg sm:text-xl text-indigo-100">
+            <p className="mt-4 text-lg sm:text-xl text-navy-100">
               A complete learning management system with courses, live classes, test series, and progress tracking.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
-              <Link to="/signup" className="inline-flex items-center justify-center gap-2 bg-white text-indigo-700 px-6 py-3 rounded-lg font-semibold hover:bg-indigo-50 transition-colors">
+              <Link to="/signup" className="inline-flex items-center justify-center gap-2 bg-white text-navy-700 px-6 py-3 rounded-lg font-semibold hover:bg-navy-50 transition-colors">
                 Create Account <ChevronRight className="w-4 h-4" />
               </Link>
               <Link to="/login" className="inline-flex items-center justify-center gap-2 border border-white/30 text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors">
@@ -45,7 +45,7 @@ export default function HomePage() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
             {stats.map(s => (
               <div key={s.label}>
-                <p className="text-3xl sm:text-4xl font-bold text-indigo-600">{s.value}</p>
+                <p className="text-3xl sm:text-4xl font-bold text-navy-600">{s.value}</p>
                 <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">{s.label}</p>
               </div>
             ))}
@@ -64,8 +64,8 @@ export default function HomePage() {
               const Icon = f.icon;
               return (
                 <div key={f.title} className="card p-6 hover:shadow-md transition-shadow">
-                  <div className="w-12 h-12 rounded-lg bg-indigo-100 dark:bg-indigo-500/15 flex items-center justify-center mb-4">
-                    <Icon className="w-6 h-6 text-indigo-600 dark:text-indigo-300" />
+                  <div className="w-12 h-12 rounded-lg bg-navy-100 dark:bg-navy-500/15 flex items-center justify-center mb-4">
+                    <Icon className="w-6 h-6 text-navy-600 dark:text-navy-300" />
                   </div>
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">{f.title}</h3>
                   <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">{f.desc}</p>
@@ -76,11 +76,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-indigo-600 py-16">
+      <section className="bg-navy-600 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-white">Ready to Start Learning?</h2>
-          <p className="mt-2 text-indigo-100">Create an account to access courses, live classes, and test series.</p>
-          <Link to="/signup" className="mt-6 inline-flex items-center gap-2 bg-white text-indigo-700 px-6 py-3 rounded-lg font-semibold hover:bg-indigo-50 transition-colors">
+          <p className="mt-2 text-navy-100">Create an account to access courses, live classes, and test series.</p>
+          <Link to="/signup" className="mt-6 inline-flex items-center gap-2 bg-white text-navy-700 px-6 py-3 rounded-lg font-semibold hover:bg-navy-50 transition-colors">
             Sign Up Now <ChevronRight className="w-4 h-4" />
           </Link>
         </div>

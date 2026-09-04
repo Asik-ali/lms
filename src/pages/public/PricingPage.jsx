@@ -23,10 +23,10 @@ export default function PricingPage() {
 
   return (
     <div className="space-y-16">
-      <section className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-16">
+      <section className="bg-gradient-to-r from-navy-600 to-purple-600 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-3xl sm:text-4xl font-bold">Pricing</h1>
-          <p className="mt-3 text-indigo-100">Choose a plan that fits your learning goals. All prices are in Indian Rupees (INR).</p>
+          <p className="mt-3 text-navy-100">Choose a plan that fits your learning goals. All prices are in Indian Rupees (INR).</p>
         </div>
       </section>
 
@@ -61,7 +61,7 @@ export default function PricingPage() {
                       plan.items.map((it, i) => (
                         <div key={i} className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
                           {it.item_type === 'course'
-                            ? <BookOpen className="w-4 h-4 text-indigo-500 flex-shrink-0" />
+                            ? <BookOpen className="w-4 h-4 text-navy-500 flex-shrink-0" />
                             : <PenTool className="w-4 h-4 text-emerald-500 flex-shrink-0" />}
                           <span className="truncate">{it.label}</span>
                         </div>

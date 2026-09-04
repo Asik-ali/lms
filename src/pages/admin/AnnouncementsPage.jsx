@@ -79,8 +79,8 @@ export default function AnnouncementsPage() {
             <div className="p-6">
               <div className="flex items-start justify-between mb-3">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-indigo-100 dark:bg-indigo-500/15 flex items-center justify-center">
-                    <Megaphone className="w-5 h-5 text-indigo-600 dark:text-indigo-300" />
+                  <div className="w-10 h-10 rounded-lg bg-navy-100 dark:bg-navy-500/15 flex items-center justify-center">
+                    <Megaphone className="w-5 h-5 text-navy-600 dark:text-navy-300" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 dark:text-gray-100">{a.title}</h4>

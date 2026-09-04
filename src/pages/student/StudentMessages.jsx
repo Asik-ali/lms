@@ -117,7 +117,7 @@ export default function StudentMessages() {
               const cfg = statusConfig[t.status] || statusConfig.Open;
               const Icon = cfg.icon;
               return (
-                <button key={t.id} onClick={() => handleSelect(t)} className={`w-full text-left card p-4 transition-all cursor-pointer ${selected?.id === t.id ? 'border-indigo-300 ring-1 ring-indigo-200' : 'hover:border-gray-300'}`}>
+                <button key={t.id} onClick={() => handleSelect(t)} className={`w-full text-left card p-4 transition-all cursor-pointer ${selected?.id === t.id ? 'border-navy-300 ring-1 ring-navy-200' : 'hover:border-gray-300'}`}>
                   <div className="flex items-start gap-3">
                     <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${cfg.color}`}>
                       <Icon className="w-4 h-4" />
@@ -134,7 +134,7 @@ export default function StudentMessages() {
               <div className="text-center py-8 text-gray-400 dark:text-gray-500">
                 <MessageSquare className="w-10 h-10 mx-auto mb-2 text-gray-300" />
                 <p>No tickets yet</p>
-                <button onClick={() => setShowNew(true)} className="text-sm text-indigo-600 hover:text-indigo-700 mt-2 cursor-pointer">Create your first ticket</button>
+                <button onClick={() => setShowNew(true)} className="text-sm text-navy-600 hover:text-navy-700 mt-2 cursor-pointer">Create your first ticket</button>
               </div>
             )}
           </div>
@@ -156,7 +156,7 @@ export default function StudentMessages() {
                     <p className="text-sm text-gray-700 dark:text-gray-300">{selected.message}</p>
                   </div>
                   {replies.map(r => (
-                    <div key={r.id} className={`rounded-lg p-3 ${r.sender_id === user.id ? 'bg-indigo-50 dark:bg-indigo-500/10 ml-8' : 'bg-gray-100 dark:bg-gray-800 mr-8'}`}>
+                    <div key={r.id} className={`rounded-lg p-3 ${r.sender_id === user.id ? 'bg-navy-50 dark:bg-navy-500/10 ml-8' : 'bg-gray-100 dark:bg-gray-800 mr-8'}`}>
                       <p className="text-xs text-gray-400 dark:text-gray-500 mb-1">{r.sender_id === user.id ? 'You' : 'Admin'}</p>
                       <p className="text-sm text-gray-700 dark:text-gray-300">{r.message}</p>
                     </div>

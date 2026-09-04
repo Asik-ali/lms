@@ -97,7 +97,7 @@ export default function StudentTestSeries() {
             <span key={i} className="flex items-center gap-1">
               {i > 0 && <ChevronRight className="w-3 h-3" />}
               {b.go ? (
-                <button onClick={b.go} className="hover:text-indigo-600 cursor-pointer">{b.label}</button>
+                <button onClick={b.go} className="hover:text-navy-600 cursor-pointer">{b.label}</button>
               ) : (
                 <span className="text-gray-900 dark:text-gray-100 font-medium">{b.label}</span>
               )}
@@ -109,9 +109,9 @@ export default function StudentTestSeries() {
       {level === 'series' && (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {seriesList.map(s => (
-            <button key={s.id} onClick={() => goSeries(s)} className="card p-5 text-left hover:border-indigo-300 hover:shadow-md transition-all cursor-pointer">
+            <button key={s.id} onClick={() => goSeries(s)} className="card p-5 text-left hover:border-navy-300 hover:shadow-md transition-all cursor-pointer">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-indigo-100 dark:bg-indigo-500/15 flex items-center justify-center"><FolderOpen className="w-5 h-5 text-indigo-600 dark:text-indigo-300" /></div>
+                <div className="w-10 h-10 rounded-lg bg-navy-100 dark:bg-navy-500/15 flex items-center justify-center"><FolderOpen className="w-5 h-5 text-navy-600 dark:text-navy-300" /></div>
                 <div>
                   <p className="font-semibold text-gray-900 dark:text-gray-100">{s.name}</p>
                   {s.description && <p className="text-xs text-gray-500 dark:text-gray-400">{s.description}</p>}
@@ -133,7 +133,7 @@ export default function StudentTestSeries() {
           {topLevelCategories.map(c => {
             const hasSub = categories.some(cat => cat.parent_id === c.id);
             return (
-              <button key={c.id} onClick={() => goCategory(c)} className="card p-5 text-left hover:border-indigo-300 hover:shadow-md transition-all cursor-pointer">
+              <button key={c.id} onClick={() => goCategory(c)} className="card p-5 text-left hover:border-navy-300 hover:shadow-md transition-all cursor-pointer">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-500/15 flex items-center justify-center">
                     {hasSub ? <FolderOpen className="w-5 h-5 text-emerald-600 dark:text-emerald-300" /> : <FileText className="w-5 h-5 text-emerald-600 dark:text-emerald-300" />}
@@ -162,7 +162,7 @@ export default function StudentTestSeries() {
               <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-3">Sub-categories</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {subCategories.map(c => (
-                  <button key={c.id} onClick={() => goCategory(c)} className="card p-5 text-left hover:border-indigo-300 hover:shadow-md transition-all cursor-pointer">
+                  <button key={c.id} onClick={() => goCategory(c)} className="card p-5 text-left hover:border-navy-300 hover:shadow-md transition-all cursor-pointer">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-lg bg-amber-100 dark:bg-amber-500/15 flex items-center justify-center"><FolderOpen className="w-5 h-5 text-amber-600 dark:text-amber-300" /></div>
                       <p className="font-semibold text-gray-900 dark:text-gray-100">{c.name}</p>
@@ -176,9 +176,9 @@ export default function StudentTestSeries() {
             <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-3">Tests</p>
             <div className="space-y-3">
               {testsList.map(t => (
-                <button key={t.id} onClick={() => goTest(t)} className="card p-5 text-left hover:border-indigo-300 hover:shadow-md transition-all cursor-pointer w-full">
+                <button key={t.id} onClick={() => goTest(t)} className="card p-5 text-left hover:border-navy-300 hover:shadow-md transition-all cursor-pointer w-full">
                   <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-indigo-100 dark:bg-indigo-500/15 flex items-center justify-center"><FileText className="w-5 h-5 text-indigo-600 dark:text-indigo-300" /></div>
+                    <div className="w-10 h-10 rounded-lg bg-navy-100 dark:bg-navy-500/15 flex items-center justify-center"><FileText className="w-5 h-5 text-navy-600 dark:text-navy-300" /></div>
                     <div className="flex-1 min-w-0">
                       <p className="font-semibold text-gray-900 dark:text-gray-100">{t.name}</p>
                       <div className="flex flex-wrap items-center gap-3 mt-1 text-xs text-gray-500 dark:text-gray-400">
@@ -188,7 +188,7 @@ export default function StudentTestSeries() {
                         <span className={`px-2 py-0.5 rounded-full ${t.difficulty === 'Easy' ? 'bg-green-50 dark:bg-green-500/15 text-green-600 dark:text-green-400' : t.difficulty === 'Hard' ? 'bg-red-50 dark:bg-red-500/15 text-red-600 dark:text-red-400' : 'bg-amber-50 dark:bg-amber-500/15 text-amber-600 dark:text-amber-400'}`}>{t.difficulty}</span>
                       </div>
                     </div>
-                    <span className="text-sm text-indigo-600 dark:text-indigo-300 font-medium">Start →</span>
+                    <span className="text-sm text-navy-600 dark:text-navy-300 font-medium">Start →</span>
                   </div>
                 </button>
               ))}

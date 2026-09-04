@@ -156,7 +156,7 @@ export default function NotificationsPage() {
                 onClick={() => setActiveTab(i)}
                 className={`flex items-center gap-2 px-6 py-3 text-sm font-medium border-b-2 transition-colors ${
                   i === activeTab
-                    ? 'border-indigo-600 text-indigo-600'
+                    ? 'border-navy-600 text-navy-600'
                     : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300'
                 }`}
               >

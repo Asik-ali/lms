@@ -45,7 +45,7 @@ export default function ProfilePage() {
     <div className="max-w-3xl space-y-6">
       <section className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6">
         <div className="flex items-center gap-4">
-          <div className="w-16 h-16 rounded-full bg-indigo-600 flex items-center justify-center">
+          <div className="w-16 h-16 rounded-full bg-navy-600 flex items-center justify-center">
             <UserCircle className="w-12 h-12 text-white" />
           </div>
           <div>
@@ -100,7 +100,7 @@ export default function ProfilePage() {
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
               placeholder="Enter new password"
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-800 dark:text-gray-100"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-navy-500 dark:bg-gray-800 dark:text-gray-100"
             />
           </div>
           <div>
@@ -110,13 +110,13 @@ export default function ProfilePage() {
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               placeholder="Confirm new password"
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-800 dark:text-gray-100"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-navy-500 dark:bg-gray-800 dark:text-gray-100"
             />
           </div>
           <button
             type="submit"
             disabled={loading}
-            className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 disabled:opacity-50"
+            className="flex items-center gap-2 px-4 py-2 bg-navy-600 text-white rounded-lg hover:bg-navy-700 disabled:opacity-50"
           >
             <Save className="w-4 h-4" />
             {loading ? 'Updating...' : 'Update Password'}

@@ -5,7 +5,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import { normalizeCourseAccessSelection } from '../admin/studentCourseAccess';
 
 const colorMap = {
-  indigo: 'bg-indigo-500',
+  indigo: 'bg-navy-500',
   emerald: 'bg-emerald-500',
   amber: 'bg-amber-500',
   rose: 'bg-rose-500',
@@ -41,7 +41,7 @@ export default function StudentCalendar() {
             date: a.created?.split('T')[0] || a.created,
             time: '',
             type: 'Announcement',
-            color: 'bg-indigo-500',
+            color: 'bg-navy-500',
           })),
           ...calendarEvents.map(ce => ({
             id: `ev-${ce.id}`,
@@ -49,7 +49,7 @@ export default function StudentCalendar() {
             date: ce.date,
             time: ce.time || '',
             type: 'Event',
-            color: colorMap[ce.color] || 'bg-indigo-500',
+            color: colorMap[ce.color] || 'bg-navy-500',
             description: ce.description,
           })),
         ];
@@ -104,10 +104,10 @@ export default function StudentCalendar() {
             const dayEvents = getEventsForDay(day);
             const isToday = day && today.getDate() === day && today.getMonth() === month && today.getFullYear() === year;
             return (
-              <div key={i} className={`bg-white dark:bg-gray-900 p-2 min-h-[80px] ${isToday ? 'bg-indigo-50 dark:bg-indigo-500/10' : ''}`}>
+              <div key={i} className={`bg-white dark:bg-gray-900 p-2 min-h-[80px] ${isToday ? 'bg-navy-50 dark:bg-navy-500/10' : ''}`}>
                 {day && (
                   <>
-                    <span className={`text-sm font-medium ${isToday ? 'text-indigo-600' : 'text-gray-700 dark:text-gray-300'}`}>{day}</span>
+                    <span className={`text-sm font-medium ${isToday ? 'text-navy-600' : 'text-gray-700 dark:text-gray-300'}`}>{day}</span>
                     <div className="mt-1 space-y-1">
                       {dayEvents.slice(0, 2).map(e => (
                         <div key={e.id} className={`text-xs text-white px-1.5 py-0.5 rounded truncate ${e.color}`}>
@@ -130,7 +130,7 @@ export default function StudentCalendar() {
         <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-4">Upcoming Events</h3>
         <div className="space-y-3">
           {events.filter(e => new Date(e.date) >= new Date(today.toISOString().split('T')[0])).sort((a, b) => new Date(a.date) - new Date(b.date)).slice(0, 5).map(e => (
-            <div key={e.id} className="flex items-center gap-3 p-3 rounded-lg border border-gray-100 dark:border-gray-800 hover:border-indigo-200">
+            <div key={e.id} className="flex items-center gap-3 p-3 rounded-lg border border-gray-100 dark:border-gray-800 hover:border-navy-200">
               <div className={`w-2 h-2 rounded-full flex-shrink-0 ${e.color}`} />
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-medium text-gray-900 dark:text-gray-100 truncate">{e.title}</p>

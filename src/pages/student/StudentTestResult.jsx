@@ -248,7 +248,7 @@ export default function StudentTestResult() {
   if (loading) {
     return (
       <div className="flex min-h-[60vh] flex-col items-center justify-center gap-4">
-        <Loader2 className="h-10 w-10 animate-spin text-indigo-600" />
+        <Loader2 className="h-10 w-10 animate-spin text-navy-600" />
         <p className="text-sm text-slate-500 dark:text-slate-400">Loading your results...</p>
       </div>
     );
@@ -262,7 +262,7 @@ export default function StudentTestResult() {
           <p className="text-lg font-semibold text-rose-700 dark:text-rose-300">{error}</p>
           <button
             onClick={() => navigate(-1)}
-            className="mt-4 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700"
+            className="mt-4 rounded-lg bg-navy-600 px-4 py-2 text-sm font-medium text-white hover:bg-navy-700"
           >
             Go Back
           </button>
@@ -291,7 +291,7 @@ export default function StudentTestResult() {
         <div>
           <button
             onClick={() => navigate(-1)}
-            className="mb-1 flex items-center gap-1.5 text-sm text-slate-500 dark:text-slate-400 hover:text-indigo-600"
+            className="mb-1 flex items-center gap-1.5 text-sm text-slate-500 dark:text-slate-400 hover:text-navy-600"
           >
             <ArrowLeft className="h-4 w-4" />
             Back
@@ -314,7 +314,7 @@ export default function StudentTestResult() {
           </Link>
           <Link
             to={`/student/test/${attempt?.test_id}`}
-            className="flex items-center gap-1.5 rounded-lg bg-indigo-600 px-3 py-2 text-sm font-medium text-white hover:bg-indigo-700"
+            className="flex items-center gap-1.5 rounded-lg bg-navy-600 px-3 py-2 text-sm font-medium text-white hover:bg-navy-700"
           >
             <RotateCcw className="h-4 w-4" />
             <span className="hidden sm:inline">Retake Test</span>
@@ -333,7 +333,7 @@ export default function StudentTestResult() {
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex flex-1 items-center justify-center gap-2 border-b-2 px-3 py-3 text-sm font-medium transition ${
                   activeTab === tab.id
-                    ? 'border-indigo-600 text-indigo-600 bg-indigo-50/50 dark:bg-indigo-500/10'
+                    ? 'border-navy-600 text-navy-600 bg-navy-50/50 dark:bg-navy-500/10'
                     : 'border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/60'
                 }`}
               >
@@ -353,9 +353,9 @@ export default function StudentTestResult() {
           />
 
           {/* Ranking Card */}
-          <div className="mx-auto max-w-4xl rounded-2xl border border-slate-200 dark:border-slate-800 bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-6 shadow-md">
+          <div className="mx-auto max-w-4xl rounded-2xl border border-slate-200 dark:border-slate-800 bg-gradient-to-br from-navy-50 via-white to-purple-50 p-6 shadow-md">
             <div className="flex items-center gap-2 mb-4">
-              <Award className="h-5 w-5 text-indigo-600" />
+              <Award className="h-5 w-5 text-navy-600" />
               <h3 className="text-sm font-bold uppercase tracking-wide text-slate-600 dark:text-slate-400">
                 Your Ranking
               </h3>
@@ -371,11 +371,11 @@ export default function StudentTestResult() {
                   </span>
                 </span>
               </div>
-              <div className="flex flex-col items-center rounded-xl border border-indigo-100 bg-indigo-50 dark:bg-indigo-500/10 p-4 shadow-sm">
+              <div className="flex flex-col items-center rounded-xl border border-navy-100 bg-navy-50 dark:bg-navy-500/10 p-4 shadow-sm">
                 <span className="text-xs font-medium uppercase text-slate-500 dark:text-slate-400">
                   All India Rank
                 </span>
-                <span className="mt-1 text-2xl font-bold text-indigo-700 dark:text-indigo-300">
+                <span className="mt-1 text-2xl font-bold text-navy-700 dark:text-navy-300">
                   #{rank}
                   <span className="text-sm font-normal text-slate-400 dark:text-slate-500">
                     {' '}/ {totalAttempts}
@@ -421,7 +421,7 @@ export default function StudentTestResult() {
             className="flex items-center justify-between rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-gray-900 px-4 py-3 text-sm font-medium text-slate-700 dark:text-slate-300 shadow-sm lg:hidden"
           >
             <span className="flex items-center gap-2">
-              <Target className="h-4 w-4 text-indigo-500" />
+              <Target className="h-4 w-4 text-navy-500" />
               Question Palette ({questions.length} questions)
             </span>
             {paletteOpen ? (
@@ -510,7 +510,7 @@ export default function StudentTestResult() {
                       <StatusIcon className="h-3.5 w-3.5" />
                       {sc.label}
                     </span>
-                    <span className="rounded-full bg-indigo-100 dark:bg-indigo-500/15 px-2 py-0.5 text-xs font-semibold text-indigo-700 dark:text-indigo-300">
+                    <span className="rounded-full bg-navy-100 dark:bg-navy-500/15 px-2 py-0.5 text-xs font-semibold text-navy-700 dark:text-navy-300">
                       +{marks} mark{marks !== 1 ? 's' : ''}
                     </span>
                     {r?.time_spent > 0 && (
@@ -550,7 +550,7 @@ export default function StudentTestResult() {
                         href={q.question}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 rounded-lg border border-indigo-200 bg-indigo-50 dark:bg-indigo-500/10 px-3 py-2 text-sm font-medium text-indigo-700 dark:text-indigo-300 hover:bg-indigo-100 dark:hover:bg-indigo-500/15 transition"
+                        className="inline-flex items-center gap-1.5 rounded-lg border border-navy-200 bg-navy-50 dark:bg-navy-500/10 px-3 py-2 text-sm font-medium text-navy-700 dark:text-navy-300 hover:bg-navy-100 dark:hover:bg-navy-500/15 transition"
                       >
                         <ExternalLink className="h-4 w-4" />
                         Open Question
@@ -647,7 +647,7 @@ export default function StudentTestResult() {
 
                     {/* Explanation Content */}
                     {isExpanded && (
-                      <div className="rounded-xl border border-indigo-100 bg-indigo-50/50 dark:bg-indigo-500/10 p-4 space-y-2">
+                      <div className="rounded-xl border border-navy-100 bg-navy-50/50 dark:bg-navy-500/10 p-4 space-y-2">
                         {status === 'correct' && (
                           <p className="flex items-center gap-1.5 text-sm font-semibold text-emerald-700 dark:text-emerald-300">
                             <CheckCircle2 className="h-4 w-4" />
@@ -720,7 +720,7 @@ export default function StudentTestResult() {
         </Link>
         <Link
           to={`/student/test/${attempt?.test_id}`}
-          className="flex items-center gap-2 rounded-xl bg-indigo-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-indigo-700 transition shadow-sm"
+          className="flex items-center gap-2 rounded-xl bg-navy-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-navy-700 transition shadow-sm"
         >
           <RotateCcw className="h-4 w-4" />
           Retake Test
@@ -757,7 +757,7 @@ export default function StudentTestResult() {
                   key={reason}
                   className={`flex cursor-pointer items-center gap-3 rounded-xl border px-3 py-2.5 transition ${
                     reportReason === reason
-                      ? 'border-indigo-400 bg-indigo-50 dark:bg-indigo-500/10 ring-1 ring-indigo-200'
+                      ? 'border-navy-400 bg-navy-50 dark:bg-navy-500/10 ring-1 ring-navy-200'
                       : 'border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/60'
                   }`}
                 >
@@ -767,7 +767,7 @@ export default function StudentTestResult() {
                     value={reason}
                     checked={reportReason === reason}
                     onChange={() => setReportReason(reason)}
-                    className="h-4 w-4 text-indigo-600 focus:ring-indigo-500"
+                    className="h-4 w-4 text-navy-600 focus:ring-navy-500"
                   />
                   <span className="text-sm text-slate-700 dark:text-slate-300">{reason}</span>
                 </label>
@@ -779,7 +779,7 @@ export default function StudentTestResult() {
               onChange={(e) => setReportDesc(e.target.value)}
               placeholder="Optional: Add more details..."
               rows={3}
-              className="mb-4 w-full rounded-xl border border-slate-200 dark:border-slate-800 px-3 py-2 text-sm text-slate-700 dark:text-slate-300 placeholder:text-slate-400 focus:border-indigo-400 focus:ring-1 focus:ring-indigo-200 outline-none resize-none"
+              className="mb-4 w-full rounded-xl border border-slate-200 dark:border-slate-800 px-3 py-2 text-sm text-slate-700 dark:text-slate-300 placeholder:text-slate-400 focus:border-navy-400 focus:ring-1 focus:ring-navy-200 outline-none resize-none"
             />
 
             <div className="flex justify-end gap-2">

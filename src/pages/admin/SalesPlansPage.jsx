@@ -209,7 +209,7 @@ export default function SalesPlansPage() {
                     key={c.id}
                     type="button"
                     onClick={() => toggleItem('course', c.id)}
-                    className={`flex items-center gap-2 px-3 py-2 rounded-lg border text-left text-sm cursor-pointer transition-all ${on ? 'border-indigo-400 bg-indigo-50 dark:bg-indigo-500/10 text-indigo-700 dark:text-indigo-300' : 'border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-gray-300'}`}
+                    className={`flex items-center gap-2 px-3 py-2 rounded-lg border text-left text-sm cursor-pointer transition-all ${on ? 'border-navy-400 bg-navy-50 dark:bg-navy-500/10 text-navy-700 dark:text-navy-300' : 'border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-gray-300'}`}
                   >
                     <BookOpen className="w-4 h-4 flex-shrink-0" />
                     <span className="truncate">{c.title}</span>
@@ -232,7 +232,7 @@ export default function SalesPlansPage() {
                     key={s.id}
                     type="button"
                     onClick={() => toggleItem('test_series', s.id)}
-                    className={`flex items-center gap-2 px-3 py-2 rounded-lg border text-left text-sm cursor-pointer transition-all ${on ? 'border-indigo-400 bg-indigo-50 dark:bg-indigo-500/10 text-indigo-700 dark:text-indigo-300' : 'border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-gray-300'}`}
+                    className={`flex items-center gap-2 px-3 py-2 rounded-lg border text-left text-sm cursor-pointer transition-all ${on ? 'border-navy-400 bg-navy-50 dark:bg-navy-500/10 text-navy-700 dark:text-navy-300' : 'border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-gray-300'}`}
                   >
                     <PenTool className="w-4 h-4 flex-shrink-0" />
                     <span className="truncate">{s.name}</span>
@@ -281,7 +281,7 @@ export default function SalesPlansPage() {
                     <p className="text-xs text-gray-400">No items (full access)</p>
                   ) : p.items.map((it, i) => (
                     <div key={i} className="flex items-center gap-2">
-                      {it.item_type === 'course' ? <BookOpen className="w-4 h-4 text-indigo-500 flex-shrink-0" /> : <PenTool className="w-4 h-4 text-emerald-500 flex-shrink-0" />}
+                      {it.item_type === 'course' ? <BookOpen className="w-4 h-4 text-navy-500 flex-shrink-0" /> : <PenTool className="w-4 h-4 text-emerald-500 flex-shrink-0" />}
                       <span className="truncate">{itemLabel(it)}</span>
                     </div>
                   ))}

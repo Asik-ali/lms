@@ -116,14 +116,14 @@ export default function AdminDashboard() {
       <div className="card">
         <div className="card-header flex items-center justify-between">
           <h3 className="text-base sm:text-lg font-semibold">Test Series</h3>
-          <a href="/admin/exams/questions" className="text-sm text-indigo-600 hover:text-indigo-700">Manage</a>
+          <a href="/admin/exams/questions" className="text-sm text-navy-600 hover:text-navy-700">Manage</a>
         </div>
         <div className="p-4 space-y-3">
           {testSeries.length > 0 ? testSeries.slice(0, 5).map(s => (
-            <div key={s.id} className="flex items-center justify-between p-3 rounded-lg border border-gray-100 dark:border-gray-800 hover:border-indigo-200">
+            <div key={s.id} className="flex items-center justify-between p-3 rounded-lg border border-gray-100 dark:border-gray-800 hover:border-navy-200">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-indigo-100 dark:bg-indigo-500/15 flex items-center justify-center">
-                  <FolderOpen className="w-4 h-4 text-indigo-600 dark:text-indigo-300" />
+                <div className="w-8 h-8 rounded-lg bg-navy-100 dark:bg-navy-500/15 flex items-center justify-center">
+                  <FolderOpen className="w-4 h-4 text-navy-600 dark:text-navy-300" />
                 </div>
                 <div>
                   <p className="text-sm font-medium text-gray-900 dark:text-gray-100">{s.name}</p>

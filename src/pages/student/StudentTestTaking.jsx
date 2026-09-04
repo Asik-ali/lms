@@ -289,7 +289,7 @@ export default function StudentTestTaking() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-950">
         <div className="text-center">
-          <div className="w-12 h-12 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin mx-auto" />
+          <div className="w-12 h-12 border-4 border-navy-500 border-t-transparent rounded-full animate-spin mx-auto" />
           <p className="mt-4 text-gray-500 dark:text-gray-400">Loading test...</p>
         </div>
       </div>
@@ -343,7 +343,7 @@ export default function StudentTestTaking() {
 
           <button
             onClick={() => setShowSubmitConfirm(true)}
-            className="px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 transition-colors flex-shrink-0"
+            className="px-4 py-2 bg-navy-600 text-white text-sm font-medium rounded-lg hover:bg-navy-700 transition-colors flex-shrink-0"
           >
             Submit Test
           </button>
@@ -356,7 +356,7 @@ export default function StudentTestTaking() {
             <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-800 overflow-hidden">
               <div className="px-5 py-3 border-b border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/60 flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-indigo-600 text-white text-sm font-bold">
+                  <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-navy-600 text-white text-sm font-bold">
                     Q{currentIdx + 1}
                   </span>
                   <div className="flex items-center gap-2">
@@ -411,7 +411,7 @@ export default function StudentTestTaking() {
                         href={currentQuestion.question}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 transition-colors whitespace-nowrap flex-shrink-0"
+                        className="px-4 py-2 bg-navy-600 text-white text-sm font-medium rounded-lg hover:bg-navy-700 transition-colors whitespace-nowrap flex-shrink-0"
                       >
                         Open Question
                       </a>
@@ -438,19 +438,19 @@ export default function StudentTestTaking() {
                       onClick={() => handleSelectOption(label)}
                       className={`flex items-center gap-4 p-4 rounded-xl border-2 transition-all text-left ${
                         isSelected
-                          ? 'border-indigo-500 bg-indigo-50 dark:bg-indigo-500/10 ring-2 ring-indigo-200'
+                          ? 'border-navy-500 bg-navy-50 dark:bg-navy-500/10 ring-2 ring-navy-200'
                           : 'border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 hover:border-gray-300 dark:hover:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800/60'
                       }`}
                     >
                       <span className={`flex items-center justify-center w-10 h-10 rounded-full text-sm font-bold flex-shrink-0 ${
-                        isSelected ? 'bg-indigo-600 text-white' : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400'
+                        isSelected ? 'bg-navy-600 text-white' : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400'
                       }`}>
                         {label}
                       </span>
-                      <span className={`text-sm font-medium ${isSelected ? 'text-indigo-700 dark:text-indigo-300' : 'text-gray-700 dark:text-gray-300'}`}>
+                      <span className={`text-sm font-medium ${isSelected ? 'text-navy-700 dark:text-navy-300' : 'text-gray-700 dark:text-gray-300'}`}>
                         {optionText || `Option ${label}`}
                       </span>
-                      {isSelected && <CheckCircle className="w-5 h-5 text-indigo-600 dark:text-indigo-300 ml-auto flex-shrink-0" />}
+                      {isSelected && <CheckCircle className="w-5 h-5 text-navy-600 dark:text-navy-300 ml-auto flex-shrink-0" />}
                     </button>
                   );
                 })}
@@ -515,7 +515,7 @@ export default function StudentTestTaking() {
                     key={q.id}
                     onClick={() => navigateToQuestion(idx)}
                     className={`relative w-full aspect-square rounded-lg text-sm font-bold transition-all ${
-                      isCurrent ? 'ring-2 ring-offset-1 ring-indigo-500 scale-110 z-10' : ''
+                      isCurrent ? 'ring-2 ring-offset-1 ring-navy-500 scale-110 z-10' : ''
                     } ${getStatusColor(r?.status, answered)}`}
                     title={`Q${idx + 1}`}
                   >
@@ -551,7 +551,7 @@ export default function StudentTestTaking() {
           <div className="mt-auto p-4 border-t border-gray-200 dark:border-gray-800">
             <button
               onClick={() => setShowSubmitConfirm(true)}
-              className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-indigo-600 text-white text-sm font-semibold rounded-lg hover:bg-indigo-700 transition-colors"
+              className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-navy-600 text-white text-sm font-semibold rounded-lg hover:bg-navy-700 transition-colors"
             >
               <Send className="w-4 h-4" />
               Submit Test
@@ -576,7 +576,7 @@ export default function StudentTestTaking() {
               <ChevronRight className="w-4 h-4" />
             </button>
           </div>
-          <button onClick={() => setShowSubmitConfirm(true)} className="px-3 py-2 text-xs font-medium bg-indigo-600 text-white rounded-lg">
+          <button onClick={() => setShowSubmitConfirm(true)} className="px-3 py-2 text-xs font-medium bg-navy-600 text-white rounded-lg">
             Submit
           </button>
         </div>
@@ -602,7 +602,7 @@ export default function StudentTestTaking() {
                   <button
                     key={q.id}
                     onClick={() => { navigateToQuestion(idx); setShowPalette(false); }}
-                    className={`relative aspect-square rounded-lg text-sm font-bold ${isCurrent ? 'ring-2 ring-offset-1 ring-indigo-500' : ''} ${getStatusColor(r?.status, answered)}`}
+                    className={`relative aspect-square rounded-lg text-sm font-bold ${isCurrent ? 'ring-2 ring-offset-1 ring-navy-500' : ''} ${getStatusColor(r?.status, answered)}`}
                   >
                     {idx + 1}
                     {marked && (
@@ -675,11 +675,11 @@ export default function StudentTestTaking() {
               <button
                 onClick={handleSubmit}
                 disabled={submitting}
-                className="flex-1 px-4 py-4 text-sm font-semibold text-indigo-600 border-l border-gray-200 dark:border-gray-800 hover:bg-indigo-50 dark:hover:bg-indigo-500/10 transition-colors disabled:opacity-40 flex items-center justify-center gap-2"
+                className="flex-1 px-4 py-4 text-sm font-semibold text-navy-600 border-l border-gray-200 dark:border-gray-800 hover:bg-navy-50 dark:hover:bg-navy-500/10 transition-colors disabled:opacity-40 flex items-center justify-center gap-2"
               >
                 {submitting ? (
                   <>
-                    <div className="w-4 h-4 border-2 border-indigo-600 border-t-transparent rounded-full animate-spin" />
+                    <div className="w-4 h-4 border-2 border-navy-600 border-t-transparent rounded-full animate-spin" />
                     Submitting...
                   </>
                 ) : (

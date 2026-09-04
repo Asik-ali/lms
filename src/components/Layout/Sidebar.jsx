@@ -85,7 +85,7 @@ export default function Sidebar({ mobileOpen, onClose }) {
   };
 
   const roleColors = {
-    admin: 'bg-indigo-600',
+    admin: 'bg-navy-600',
     student: 'bg-emerald-600',
   };
 

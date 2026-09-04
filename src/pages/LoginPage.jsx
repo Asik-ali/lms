@@ -37,14 +37,14 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-navy-600 via-purple-600 to-pink-500 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <div className="w-16 h-16 rounded-2xl bg-white/20 dark:bg-gray-900/30 backdrop-blur flex items-center justify-center mx-auto mb-4 overflow-hidden">
             <img src={logo} alt="EXAMSTICK" className="w-12 h-12 object-contain" />
           </div>
           <h1 className="text-3xl font-bold text-white">EXAMSTICK</h1>
-          <p className="text-indigo-200 mt-2">Sign in to your account</p>
+          <p className="text-navy-200 mt-2">Sign in to your account</p>
         </div>
 
         <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8">
@@ -75,7 +75,7 @@ export default function LoginPage() {
               </div>
             </div>
 
-            <button type="submit" className="w-full bg-indigo-600 text-white py-2.5 rounded-lg font-medium hover:bg-indigo-700 transition-colors cursor-pointer">
+            <button type="submit" className="w-full bg-navy-600 text-white py-2.5 rounded-lg font-medium hover:bg-navy-700 transition-colors cursor-pointer">
               Sign In
             </button>
           </form>
@@ -84,7 +84,7 @@ export default function LoginPage() {
 
           <div className="mt-6 pt-5 border-t border-gray-100 dark:border-gray-800 text-center text-sm text-gray-500 dark:text-gray-400">
             New to EXAMSTICK?{' '}
-            <Link to="/signup" className="font-medium text-indigo-600 hover:text-indigo-700">
+            <Link to="/signup" className="font-medium text-navy-600 hover:text-navy-700">
               Create an account
             </Link>
           </div>

@@ -216,7 +216,7 @@ export default function StudentBuyCourses() {
                       plan.items.map((it, i) => (
                         <div key={i} className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
                           {it.item_type === 'course'
-                            ? <BookOpen className="w-4 h-4 text-indigo-500 flex-shrink-0" />
+                            ? <BookOpen className="w-4 h-4 text-navy-500 flex-shrink-0" />
                             : <PenTool className="w-4 h-4 text-emerald-500 flex-shrink-0" />}
                           <span className="truncate">{it.label}</span>
                         </div>

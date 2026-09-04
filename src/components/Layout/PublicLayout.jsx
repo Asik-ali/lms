@@ -32,7 +32,7 @@ export default function PublicLayout() {
                 to={link.path}
                 className={`text-sm font-medium transition-colors ${
                   location.pathname === link.path
-                    ? 'text-indigo-600'
+                    ? 'text-navy-600'
                     : 'text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white'
                 }`}
               >
@@ -49,7 +49,7 @@ export default function PublicLayout() {
             >
               {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </button>
-            <Link to="/signup" className="hidden sm:inline-flex text-sm font-medium text-indigo-600 hover:text-indigo-700">
+            <Link to="/signup" className="hidden sm:inline-flex text-sm font-medium text-navy-600 hover:text-navy-700">
               Sign Up
             </Link>
             <Link to="/login" className="btn-primary hidden sm:inline-flex">
@@ -75,7 +75,7 @@ export default function PublicLayout() {
                   onClick={() => setMobileOpen(false)}
                   className={`block px-3 py-2 rounded-lg text-sm font-medium ${
                     location.pathname === link.path
-                      ? 'bg-indigo-50 text-indigo-700 dark:bg-indigo-500/10 dark:text-indigo-400'
+                      ? 'bg-navy-50 text-navy-700 dark:bg-navy-500/10 dark:text-navy-400'
                       : 'text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800'
                   }`}
                 >
@@ -85,14 +85,14 @@ export default function PublicLayout() {
               <Link
                 to="/signup"
                 onClick={() => setMobileOpen(false)}
-                className="block px-3 py-2 rounded-lg text-sm font-medium text-indigo-600 hover:bg-gray-100 dark:hover:bg-gray-800 mt-2"
+                className="block px-3 py-2 rounded-lg text-sm font-medium text-navy-600 hover:bg-gray-100 dark:hover:bg-gray-800 mt-2"
               >
                 Sign Up
               </Link>
               <Link
                 to="/login"
                 onClick={() => setMobileOpen(false)}
-                className="block px-3 py-2 rounded-lg text-sm font-medium bg-indigo-600 text-white text-center mt-1"
+                className="block px-3 py-2 rounded-lg text-sm font-medium bg-navy-600 text-white text-center mt-1"
               >
                 Login
               </Link>

@@ -5,7 +5,7 @@ import { getAllCalendarEvents, addCalendarEvent, deleteCalendarEvent } from '../
 import { showSuccess, showError } from '../../components/common/Toast';
 
 const colorOptions = [
-  { value: 'indigo', label: 'Indigo', bg: 'bg-indigo-500' },
+  { value: 'indigo', label: 'Indigo', bg: 'bg-navy-500' },
   { value: 'emerald', label: 'Green', bg: 'bg-emerald-500' },
   { value: 'amber', label: 'Amber', bg: 'bg-amber-500' },
   { value: 'rose', label: 'Red', bg: 'bg-rose-500' },
@@ -14,7 +14,7 @@ const colorOptions = [
 ];
 
 const colorMap = {
-  indigo: 'bg-indigo-500',
+  indigo: 'bg-navy-500',
   emerald: 'bg-emerald-500',
   amber: 'bg-amber-500',
   rose: 'bg-rose-500',
@@ -93,7 +93,7 @@ export default function AdminCalendar() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Calendar Events</h1>
-        <button onClick={() => setShowForm(true)} className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 cursor-pointer">
+        <button onClick={() => setShowForm(true)} className="flex items-center gap-2 px-4 py-2 bg-navy-600 text-white rounded-lg hover:bg-navy-700 cursor-pointer">
           <Plus className="w-4 h-4" /> Add Event
         </button>
       </div>
@@ -117,14 +117,14 @@ export default function AdminCalendar() {
             const dayEvents = getEventsForDay(day);
             const isToday = day && today.getDate() === day && today.getMonth() === month && today.getFullYear() === year;
             return (
-              <div key={i} className={`bg-white dark:bg-gray-900 p-2 min-h-[80px] ${isToday ? 'bg-indigo-50 dark:bg-indigo-500/10' : ''}`}>
+              <div key={i} className={`bg-white dark:bg-gray-900 p-2 min-h-[80px] ${isToday ? 'bg-navy-50 dark:bg-navy-500/10' : ''}`}>
                 {day && (
                   <>
-                    <span className={`text-sm font-medium ${isToday ? 'text-indigo-600' : 'text-gray-700 dark:text-gray-300'}`}>{day}</span>
+                    <span className={`text-sm font-medium ${isToday ? 'text-navy-600' : 'text-gray-700 dark:text-gray-300'}`}>{day}</span>
                     <div className="mt-1 space-y-1">
                       {dayEvents.slice(0, 2).map(e => (
                         <div key={e.id} className="group relative">
-                          <div className={`text-xs text-white px-1.5 py-0.5 rounded truncate ${colorMap[e.color] || 'bg-indigo-500'}`}>
+                          <div className={`text-xs text-white px-1.5 py-0.5 rounded truncate ${colorMap[e.color] || 'bg-navy-500'}`}>
                             {e.title}
                           </div>
                           <button onClick={() => handleDelete(e.id)} className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center cursor-pointer text-[10px] leading-none">×</button>
@@ -146,8 +146,8 @@ export default function AdminCalendar() {
         <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-4">All Events ({events.length})</h3>
         <div className="space-y-2">
           {events.sort((a, b) => a.date.localeCompare(b.date)).map(e => (
-            <div key={e.id} className="flex items-center gap-3 p-3 rounded-lg border border-gray-100 dark:border-gray-800 hover:border-indigo-200 group">
-              <div className={`w-3 h-3 rounded-full flex-shrink-0 ${colorMap[e.color] || 'bg-indigo-500'}`} />
+            <div key={e.id} className="flex items-center gap-3 p-3 rounded-lg border border-gray-100 dark:border-gray-800 hover:border-navy-200 group">
+              <div className={`w-3 h-3 rounded-full flex-shrink-0 ${colorMap[e.color] || 'bg-navy-500'}`} />
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-medium text-gray-900 dark:text-gray-100">{e.title}</p>
                 <p className="text-xs text-gray-500 dark:text-gray-400">{e.date} {e.time ? `at ${e.time}` : ''} {e.description ? `- ${e.description}` : ''}</p>
@@ -191,7 +191,7 @@ export default function AdminCalendar() {
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Color</label>
                 <div className="flex gap-2">
                   {colorOptions.map(c => (
-                    <button key={c.value} onClick={() => setForm({ ...form, color: c.value })} className={`w-8 h-8 rounded-full ${c.bg} ${form.color === c.value ? 'ring-2 ring-offset-2 ring-indigo-500' : ''} cursor-pointer`} />
+                    <button key={c.value} onClick={() => setForm({ ...form, color: c.value })} className={`w-8 h-8 rounded-full ${c.bg} ${form.color === c.value ? 'ring-2 ring-offset-2 ring-navy-500' : ''} cursor-pointer`} />
                   ))}
                 </div>
               </div>

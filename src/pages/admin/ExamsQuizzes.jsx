@@ -208,7 +208,7 @@ export default function TestSeries() {
             <span key={i} className="flex items-center gap-1">
               {i > 0 && <ChevronRight className="w-3 h-3" />}
               {b.go ? (
-                <button onClick={b.go} className="hover:text-indigo-600 cursor-pointer">{b.label}</button>
+                <button onClick={b.go} className="hover:text-navy-600 cursor-pointer">{b.label}</button>
               ) : (
                 <span className="text-gray-900 dark:text-gray-100 font-medium">{b.label}</span>
               )}
@@ -221,9 +221,9 @@ export default function TestSeries() {
       {level === 'series' && (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {seriesList.map(s => (
-            <button key={s.id} onClick={() => goSeries(s)} className="card p-5 text-left hover:border-indigo-300 hover:shadow-md transition-all cursor-pointer group">
+            <button key={s.id} onClick={() => goSeries(s)} className="card p-5 text-left hover:border-navy-300 hover:shadow-md transition-all cursor-pointer group">
               <div className="flex items-center gap-3 mb-2">
-                <div className="w-10 h-10 rounded-lg bg-indigo-100 dark:bg-indigo-500/15 flex items-center justify-center"><FolderOpen className="w-5 h-5 text-indigo-600 dark:text-indigo-300" /></div>
+                <div className="w-10 h-10 rounded-lg bg-navy-100 dark:bg-navy-500/15 flex items-center justify-center"><FolderOpen className="w-5 h-5 text-navy-600 dark:text-navy-300" /></div>
                 <div className="flex-1 min-w-0">
                   <p className="font-semibold text-gray-900 dark:text-gray-100 truncate">{s.name}</p>
                   {s.description && <p className="text-xs text-gray-500 dark:text-gray-400 truncate">{s.description}</p>}
@@ -234,7 +234,7 @@ export default function TestSeries() {
                   <input type="checkbox" checked={!!s.is_free} onChange={() => handleToggleFree(s)} className="h-3.5 w-3.5 rounded border-gray-300 dark:border-gray-600 text-emerald-600 focus:ring-emerald-500" title="Visible to all students" />
                   <span className={s.is_free ? 'font-medium text-emerald-600 dark:text-emerald-400' : 'text-gray-400 dark:text-gray-500'}>Free</span>
                 </label>
-                <button onClick={(e) => { e.stopPropagation(); openEditSeries(s); }} className="flex items-center gap-0.5 text-xs text-indigo-600 hover:text-indigo-800 cursor-pointer"><Edit2 className="w-3 h-3" /> Edit</button>
+                <button onClick={(e) => { e.stopPropagation(); openEditSeries(s); }} className="flex items-center gap-0.5 text-xs text-navy-600 hover:text-navy-800 cursor-pointer"><Edit2 className="w-3 h-3" /> Edit</button>
                 <button onClick={(e) => { e.stopPropagation(); handleDeleteSeries(s.id); }} className="text-xs text-red-500 hover:text-red-700 cursor-pointer">Delete</button>
                 {s.is_free && <span className="px-1.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 text-[10px] font-medium">All students</span>}
               </div>
@@ -254,7 +254,7 @@ export default function TestSeries() {
               <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-3">Sections</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {topLevelCategories.map(c => (
-                  <button key={c.id} onClick={() => goCategory(c)} className="card p-5 text-left hover:border-indigo-300 hover:shadow-md transition-all cursor-pointer group">
+                  <button key={c.id} onClick={() => goCategory(c)} className="card p-5 text-left hover:border-navy-300 hover:shadow-md transition-all cursor-pointer group">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-500/15 flex items-center justify-center"><FileText className="w-5 h-5 text-emerald-600 dark:text-emerald-300" /></div>
                       <div className="flex-1 min-w-0">
@@ -282,7 +282,7 @@ export default function TestSeries() {
               <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-3">Sub-categories</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {subCategories.map(c => (
-                  <button key={c.id} onClick={() => goCategory(c)} className="card p-5 text-left hover:border-indigo-300 hover:shadow-md transition-all cursor-pointer group">
+                  <button key={c.id} onClick={() => goCategory(c)} className="card p-5 text-left hover:border-navy-300 hover:shadow-md transition-all cursor-pointer group">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-lg bg-amber-100 dark:bg-amber-500/15 flex items-center justify-center"><FolderOpen className="w-5 h-5 text-amber-600 dark:text-amber-300" /></div>
                       <div className="flex-1 min-w-0">
@@ -299,9 +299,9 @@ export default function TestSeries() {
             <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-3">Tests</p>
             <div className="space-y-3">
               {testsList.map(t => (
-                <button key={t.id} onClick={() => goTest(t)} className="card p-5 text-left hover:border-indigo-300 hover:shadow-md transition-all cursor-pointer group w-full">
+                <button key={t.id} onClick={() => goTest(t)} className="card p-5 text-left hover:border-navy-300 hover:shadow-md transition-all cursor-pointer group w-full">
                   <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-indigo-100 dark:bg-indigo-500/15 flex items-center justify-center"><HelpCircle className="w-5 h-5 text-indigo-600 dark:text-indigo-300" /></div>
+                    <div className="w-10 h-10 rounded-lg bg-navy-100 dark:bg-navy-500/15 flex items-center justify-center"><HelpCircle className="w-5 h-5 text-navy-600 dark:text-navy-300" /></div>
                     <div className="flex-1 min-w-0">
                       <p className="font-semibold text-gray-900 dark:text-gray-100">{t.name}</p>
                       <div className="flex flex-wrap items-center gap-3 mt-1 text-xs text-gray-500 dark:text-gray-400">
@@ -311,7 +311,7 @@ export default function TestSeries() {
                         <span className={`px-2 py-0.5 rounded-full ${t.difficulty === 'Easy' ? 'bg-green-50 dark:bg-green-500/10 text-green-600 dark:text-green-400' : t.difficulty === 'Hard' ? 'bg-red-50 dark:bg-red-500/10 text-red-600 dark:text-red-400' : 'bg-amber-50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-400'}`}>{t.difficulty}</span>
                       </div>
                     </div>
-                    <button onClick={(e) => { e.stopPropagation(); openEditTest(t); }} className="p-1 text-gray-400 dark:text-gray-500 hover:text-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"><Edit2 className="w-4 h-4" /></button>
+                    <button onClick={(e) => { e.stopPropagation(); openEditTest(t); }} className="p-1 text-gray-400 dark:text-gray-500 hover:text-navy-600 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"><Edit2 className="w-4 h-4" /></button>
                     <button onClick={(e) => { e.stopPropagation(); handleDeleteTest(t.id); }} className="p-1 text-gray-400 dark:text-gray-500 hover:text-red-600 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"><Trash2 className="w-4 h-4" /></button>
                   </div>
                 </button>

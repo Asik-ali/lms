@@ -84,7 +84,7 @@ function SMTPTab() {
     <div className="card">
       <div className="card-header"><h3 className="text-lg font-semibold">SMTP Configuration</h3></div>
       <div className="p-6 space-y-4 max-w-xl">
-        <p className="text-sm text-gray-500 dark:text-gray-400">Configure your Gmail SMTP to send email notifications. Use an <a href="https://support.google.com/accounts/answer/185833" target="_blank" rel="noreferrer" className="text-indigo-600 underline">App Password</a> if you have 2FA enabled.</p>
+        <p className="text-sm text-gray-500 dark:text-gray-400">Configure your Gmail SMTP to send email notifications. Use an <a href="https://support.google.com/accounts/answer/185833" target="_blank" rel="noreferrer" className="text-navy-600 underline">App Password</a> if you have 2FA enabled.</p>
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">SMTP Host</label>
@@ -355,18 +355,18 @@ function BackupTab() {
           </div>
 
           {preview && (
-            <div className="border border-indigo-200 bg-indigo-50 dark:bg-indigo-500/10 rounded-lg p-4 space-y-2">
-              <div className="flex items-center gap-2 text-indigo-700 font-semibold">
+            <div className="border border-navy-200 bg-navy-50 dark:bg-navy-500/10 rounded-lg p-4 space-y-2">
+              <div className="flex items-center gap-2 text-navy-700 font-semibold">
                 <Eye className="w-4 h-4" />
                 Backup Preview
-                <span className="text-xs font-normal text-indigo-500">{preview.createdAt ? new Date(preview.createdAt).toLocaleString() : 'date unknown'}</span>
+                <span className="text-xs font-normal text-navy-500">{preview.createdAt ? new Date(preview.createdAt).toLocaleString() : 'date unknown'}</span>
               </div>
-              <p className="text-sm text-indigo-700">Total records: <strong>{preview.totalRows}</strong></p>
+              <p className="text-sm text-navy-700">Total records: <strong>{preview.totalRows}</strong></p>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-2 max-h-52 overflow-y-auto">
                 {preview.tables.map(({ table, count }) => (
                   <div key={table} className="flex items-center justify-between bg-white dark:bg-gray-900 rounded px-3 py-1.5 text-sm">
                     <span className="text-gray-700 dark:text-gray-300">{table}</span>
-                    <span className="font-medium text-indigo-700">{count}</span>
+                    <span className="font-medium text-navy-700">{count}</span>
                   </div>
                 ))}
               </div>
@@ -412,7 +412,7 @@ export default function SettingsPage() {
                 onClick={() => setActiveTab(i)}
                 className={`flex items-center gap-2 px-5 py-3 text-sm font-medium border-b-2 transition-colors whitespace-nowrap ${
                   i === activeTab
-                    ? 'border-indigo-600 text-indigo-600'
+                    ? 'border-navy-600 text-navy-600'
                     : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300'
                 }`}
               >

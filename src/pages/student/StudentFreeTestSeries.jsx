@@ -75,7 +75,7 @@ export default function StudentFreeTestSeries() {
             <span key={i} className="flex items-center gap-1">
               {i > 0 && <ChevronRight className="w-3 h-3" />}
               {b.go ? (
-                <button onClick={b.go} className="hover:text-indigo-600 cursor-pointer">{b.label}</button>
+                <button onClick={b.go} className="hover:text-navy-600 cursor-pointer">{b.label}</button>
               ) : (
                 <span className="text-gray-900 dark:text-gray-100 font-medium">{b.label}</span>
               )}

@@ -35,8 +35,8 @@ export default function StudentCourses() {
         {courses.map(c => (
           <div key={c.id} className="card hover:shadow-md transition-shadow">
             <div className="p-6">
-              <div className="w-12 h-12 rounded-lg bg-indigo-100 dark:bg-indigo-500/15 flex items-center justify-center mb-4">
-                <BookOpen className="w-6 h-6 text-indigo-600 dark:text-indigo-300" />
+              <div className="w-12 h-12 rounded-lg bg-navy-100 dark:bg-navy-500/15 flex items-center justify-center mb-4">
+                <BookOpen className="w-6 h-6 text-navy-600 dark:text-navy-300" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">{c.title}</h3>
               <div className="mt-3 space-y-1 text-sm">

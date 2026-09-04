@@ -292,8 +292,8 @@ export default function CourseManagement() {
                           onClick={() => { setActiveDay(day); setLessonForm({ title: '', videoUrl: '' }); setPdfForm({ title: '', pdfUrl: '' }); }}
                           className={`px-3 py-1.5 rounded-lg text-sm font-medium border transition-colors ${
                             activeDay === day
-                              ? 'bg-indigo-600 text-white border-indigo-600'
-                              : 'bg-gray-50 dark:bg-gray-800/60 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:border-indigo-400'
+                              ? 'bg-navy-600 text-white border-navy-600'
+                              : 'bg-gray-50 dark:bg-gray-800/60 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:border-navy-400'
                           }`}
                         >
                           Day {day}
@@ -323,12 +323,12 @@ export default function CourseManagement() {
                             {dayLessons.map((lesson, index) => (
                               <div key={lesson.id} className="flex items-center gap-3 p-3">
                                 <span className="text-sm font-medium text-gray-400 dark:text-gray-500">{index + 1}</span>
-                                <Video className="w-4 h-4 text-indigo-600 dark:text-indigo-300 shrink-0" />
+                                <Video className="w-4 h-4 text-navy-600 dark:text-navy-300 shrink-0" />
                                 <div className="min-w-0 flex-1">
                                   <p className="truncate text-sm font-medium text-gray-800 dark:text-gray-200">{lesson.title}</p>
                                   <p className="text-xs text-gray-500 dark:text-gray-400">{lesson.provider}</p>
                                 </div>
-                                <button type="button" onClick={() => setMediaViewer({ url: lesson.video_url, title: lesson.title, type: 'video' })} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-indigo-600" aria-label={`Open ${lesson.title}`}><ExternalLink className="w-4 h-4" /></button>
+                                <button type="button" onClick={() => setMediaViewer({ url: lesson.video_url, title: lesson.title, type: 'video' })} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-navy-600" aria-label={`Open ${lesson.title}`}><ExternalLink className="w-4 h-4" /></button>
                                 <button type="button" onClick={() => handleDeleteLesson(lesson.id)} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-red-600" aria-label={`Delete ${lesson.title}`}><Trash2 className="w-4 h-4" /></button>
                               </div>
                             ))}
@@ -354,11 +354,11 @@ export default function CourseManagement() {
                             {dayPdfs.map((pdf, index) => (
                               <div key={pdf.id} className="flex items-center gap-3 p-3">
                                 <span className="text-sm font-medium text-gray-400 dark:text-gray-500">{index + 1}</span>
-                                <FileText className="w-4 h-4 text-indigo-600 dark:text-indigo-300 shrink-0" />
+                                <FileText className="w-4 h-4 text-navy-600 dark:text-navy-300 shrink-0" />
                                 <div className="min-w-0 flex-1">
                                   <p className="truncate text-sm font-medium text-gray-800 dark:text-gray-200">{pdf.title}</p>
                                 </div>
-                                <button type="button" onClick={() => setMediaViewer({ url: pdf.pdf_url, title: pdf.title, type: 'pdf' })} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-indigo-600" aria-label={`Open ${pdf.title}`}><ExternalLink className="w-4 h-4" /></button>
+                                <button type="button" onClick={() => setMediaViewer({ url: pdf.pdf_url, title: pdf.title, type: 'pdf' })} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-navy-600" aria-label={`Open ${pdf.title}`}><ExternalLink className="w-4 h-4" /></button>
                                 <button type="button" onClick={() => handleDeletePdf(pdf.id)} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-red-600" aria-label={`Delete ${pdf.title}`}><Trash2 className="w-4 h-4" /></button>
                               </div>
                             ))}
@@ -403,7 +403,7 @@ export default function CourseManagement() {
                 <td className="table-cell text-gray-500 dark:text-gray-400">{c.duration}</td>
                 <td className="table-cell">
                   <div className="flex items-center gap-2">
-                    <button onClick={() => handleOpenEdit(c)} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-500/10 rounded-lg">
+                    <button onClick={() => handleOpenEdit(c)} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-navy-600 hover:bg-navy-50 dark:hover:bg-navy-500/10 rounded-lg">
                       <Edit2 className="w-4 h-4" />
                     </button>
                     <button onClick={() => handleDelete(c.id)} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-red-600 hover:bg-red-50 rounded-lg">

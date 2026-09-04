@@ -48,7 +48,7 @@ export default function TopicAnalysis({ responses = [], questions = [] }) {
   return (
     <div className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-gray-900 p-4 shadow-sm sm:p-6">
       <div className="mb-4 flex items-center gap-2">
-        <BookOpen className="h-5 w-5 text-indigo-500" />
+        <BookOpen className="h-5 w-5 text-navy-500" />
         <h3 className="text-sm font-bold uppercase tracking-wide text-slate-600 dark:text-slate-400">
           Topic Analysis
         </h3>

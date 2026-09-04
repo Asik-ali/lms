@@ -72,24 +72,24 @@ function AddStudentForm({ onBack, onStudentAdded }) {
           </div>
           <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">Student Added Successfully!</h2>
           <p className="text-gray-500 dark:text-gray-400 mb-6">{form.name} has been enrolled in {form.course}.</p>
-          <div className="max-w-sm mx-auto bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-200 rounded-xl p-5 mb-6">
-            <h3 className="text-sm font-semibold text-indigo-800 dark:text-indigo-300 mb-3">Login Credentials</h3>
-            <p className="text-xs text-indigo-600 dark:text-indigo-300 mb-3">Share these credentials with the student.</p>
+          <div className="max-w-sm mx-auto bg-navy-50 dark:bg-navy-500/10 border border-navy-200 rounded-xl p-5 mb-6">
+            <h3 className="text-sm font-semibold text-navy-800 dark:text-navy-300 mb-3">Login Credentials</h3>
+            <p className="text-xs text-navy-600 dark:text-navy-300 mb-3">Share these credentials with the student.</p>
             <div className="space-y-2 text-left">
-              <div className="flex items-center justify-between bg-white dark:bg-gray-900 rounded-lg px-3 py-2 border border-indigo-100">
+              <div className="flex items-center justify-between bg-white dark:bg-gray-900 rounded-lg px-3 py-2 border border-navy-100">
                 <span className="text-xs text-gray-500 dark:text-gray-400">Login email</span>
                 <span className="text-sm font-mono font-medium text-gray-900 dark:text-gray-100 break-all">{credentials.email}</span>
               </div>
-              <div className="flex items-center justify-between bg-white dark:bg-gray-900 rounded-lg px-3 py-2 border border-indigo-100">
+              <div className="flex items-center justify-between bg-white dark:bg-gray-900 rounded-lg px-3 py-2 border border-navy-100">
                 <span className="text-xs text-gray-500 dark:text-gray-400">Password</span>
                 <span className="text-sm font-mono font-medium text-gray-900 dark:text-gray-100">{credentials.password}</span>
               </div>
             </div>
-            <button onClick={copyCredentials} className="mt-3 w-full flex items-center justify-center gap-2 text-sm text-indigo-700 dark:text-indigo-300 bg-white dark:bg-gray-800 border border-indigo-200 rounded-lg px-3 py-2 hover:bg-indigo-100 dark:hover:bg-indigo-500/15 transition-colors cursor-pointer">
+            <button onClick={copyCredentials} className="mt-3 w-full flex items-center justify-center gap-2 text-sm text-navy-700 dark:text-navy-300 bg-white dark:bg-gray-800 border border-navy-200 rounded-lg px-3 py-2 hover:bg-navy-100 dark:hover:bg-navy-500/15 transition-colors cursor-pointer">
               {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
               {copied ? 'Copied!' : 'Copy Credentials'}
             </button>
-            <button onClick={quickLogin} className="mt-2 w-full flex items-center justify-center gap-2 text-sm text-indigo-700 dark:text-indigo-300 bg-white dark:bg-gray-800 border border-indigo-200 rounded-lg px-3 py-2 hover:bg-indigo-100 dark:hover:bg-indigo-500/15 transition-colors cursor-pointer">
+            <button onClick={quickLogin} className="mt-2 w-full flex items-center justify-center gap-2 text-sm text-navy-700 dark:text-navy-300 bg-white dark:bg-gray-800 border border-navy-200 rounded-lg px-3 py-2 hover:bg-navy-100 dark:hover:bg-navy-500/15 transition-colors cursor-pointer">
               <LogIn className="w-4 h-4" /> Quick Login as {form.name.split(' ')[0]}
             </button>
           </div>
@@ -254,7 +254,7 @@ function StudentProfile({ student, onBack, onSaved }) {
               return (
                 <label key={item.id} className="flex cursor-pointer items-center justify-between rounded-lg border border-gray-200 dark:border-gray-800 px-3 py-2 hover:bg-gray-50 dark:hover:bg-gray-800/60">
                   <span className="text-sm text-gray-700 dark:text-gray-300">{item.title}</span>
-                  <input type="checkbox" checked={checked} onChange={() => toggleCourse(item.title)} className="h-4 w-4 rounded border-gray-300 dark:border-gray-600 text-indigo-600 focus:ring-indigo-500" />
+                  <input type="checkbox" checked={checked} onChange={() => toggleCourse(item.title)} className="h-4 w-4 rounded border-gray-300 dark:border-gray-600 text-navy-600 focus:ring-navy-500" />
                 </label>
               );
             })}
@@ -326,7 +326,7 @@ function StudentProgress({ students, onBack, onRefresh }) {
                 </td>
                 <td className="table-cell">
                   <div className="flex items-center gap-2">
-                    <button onClick={() => { setEditingId(s.id); setEditVal(String(s.progress || 0)); }} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-500/10 rounded-lg cursor-pointer"><Save className="w-4 h-4" /></button>
+                    <button onClick={() => { setEditingId(s.id); setEditVal(String(s.progress || 0)); }} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-navy-600 hover:bg-navy-50 dark:hover:bg-navy-500/10 rounded-lg cursor-pointer"><Save className="w-4 h-4" /></button>
                     <button onClick={() => handleDeleteProgress(s.id)} className="p-1.5 text-gray-400 dark:text-gray-500 hover:text-red-600 hover:bg-red-50 rounded-lg cursor-pointer"><X className="w-4 h-4" /></button>
                   </div>
                 </td>
@@ -422,7 +422,7 @@ function CredentialsModal({ student, onClose }) {
             <button
               onClick={handleReset}
               disabled={resetting}
-              className="w-full flex items-center justify-center gap-2 bg-indigo-600 text-white rounded-lg px-4 py-2 hover:bg-indigo-700 disabled:opacity-50 cursor-pointer"
+              className="w-full flex items-center justify-center gap-2 bg-navy-600 text-white rounded-lg px-4 py-2 hover:bg-navy-700 disabled:opacity-50 cursor-pointer"
             >
               <KeyRound className="w-4 h-4" />
               {resetting ? 'Resetting...' : 'Reset Password'}
@@ -503,7 +503,7 @@ function CourseAccessModal({ student, courses, onClose, onSaved }) {
               return (
                 <label key={item.id} className="flex cursor-pointer items-center justify-between rounded-lg border border-gray-200 dark:border-gray-800 px-3 py-2 hover:bg-gray-50 dark:hover:bg-gray-800/60">
                   <span className="text-sm text-gray-700 dark:text-gray-300">{item.title}</span>
-                  <input type="checkbox" checked={checked} onChange={() => toggleCourse(item.title)} className="h-4 w-4 rounded border-gray-300 dark:border-gray-600 text-indigo-600 focus:ring-indigo-500" />
+                  <input type="checkbox" checked={checked} onChange={() => toggleCourse(item.title)} className="h-4 w-4 rounded border-gray-300 dark:border-gray-600 text-navy-600 focus:ring-navy-500" />
                 </label>
               );
             })}
@@ -522,7 +522,7 @@ function CourseAccessModal({ student, courses, onClose, onSaved }) {
               return (
                 <label key={ts.id} className="flex cursor-pointer items-center justify-between rounded-lg border border-gray-200 dark:border-gray-800 px-3 py-2 hover:bg-gray-50 dark:hover:bg-gray-800/60">
                   <span className="text-sm text-gray-700 dark:text-gray-300">{ts.name}</span>
-                  <input type="checkbox" checked={checked} onChange={() => toggleSeries(ts.name)} className="h-4 w-4 rounded border-gray-300 dark:border-gray-600 text-indigo-600 focus:ring-indigo-500" />
+                  <input type="checkbox" checked={checked} onChange={() => toggleSeries(ts.name)} className="h-4 w-4 rounded border-gray-300 dark:border-gray-600 text-navy-600 focus:ring-navy-500" />
                 </label>
               );
             })}
@@ -645,7 +645,7 @@ export default function StudentManagement() {
 
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Student Management</h1>
-        <button onClick={() => navigate('/admin/students/add')} className="flex items-center gap-2 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 cursor-pointer">
+        <button onClick={() => navigate('/admin/students/add')} className="flex items-center gap-2 bg-navy-600 text-white px-4 py-2 rounded-lg hover:bg-navy-700 cursor-pointer">
           <Plus className="w-4 h-4" /> Add Student
         </button>
       </div>
@@ -653,9 +653,9 @@ export default function StudentManagement() {
       <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
         <div className="relative flex-1 w-full sm:max-w-md">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 dark:text-gray-500" />
-          <input type="text" placeholder="Search students..." value={search} onChange={e => setSearch(e.target.value)} className="pl-10 pr-4 py-2 w-full border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none dark:bg-gray-800 dark:text-gray-100" />
+          <input type="text" placeholder="Search students..." value={search} onChange={e => setSearch(e.target.value)} className="pl-10 pr-4 py-2 w-full border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-navy-500 outline-none dark:bg-gray-800 dark:text-gray-100" />
         </div>
-        <select value={filterStatus} onChange={e => setFilterStatus(e.target.value)} className="appearance-none pl-4 pr-10 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none bg-white dark:bg-gray-800 dark:text-gray-100 w-full sm:w-auto">
+        <select value={filterStatus} onChange={e => setFilterStatus(e.target.value)} className="appearance-none pl-4 pr-10 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-navy-500 outline-none bg-white dark:bg-gray-800 dark:text-gray-100 w-full sm:w-auto">
           {statuses.map(s => <option key={s} value={s}>{s}</option>)}
         </select>
       </div>
@@ -677,7 +677,7 @@ export default function StudentManagement() {
             {filtered.map(s => (
               <tr key={s.id} className="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/60">
                 <td className="table-cell">
-                  <button onClick={() => { setSelectedStudent(s); navigate('/admin/students/profile'); }} className="font-medium text-indigo-600 hover:text-indigo-800 text-left">{s.name}</button>
+                  <button onClick={() => { setSelectedStudent(s); navigate('/admin/students/profile'); }} className="font-medium text-navy-600 hover:text-navy-800 text-left">{s.name}</button>
                 </td>
                 <td className="table-cell text-gray-500 dark:text-gray-400">{s.email}</td>
                 <td className="table-cell">{getCourseAccessLabel(s.course || '')}</td>
@@ -687,7 +687,7 @@ export default function StudentManagement() {
                 <td className="table-cell">{s.enrolled || '-'}</td>
                 <td className="table-cell">
                   <div className="flex items-center gap-2">
-                    <button onClick={() => { setSelectedStudent(s); navigate('/admin/students/profile'); }} className="text-xs text-indigo-600 hover:text-indigo-800 font-medium">View</button>
+                    <button onClick={() => { setSelectedStudent(s); navigate('/admin/students/profile'); }} className="text-xs text-navy-600 hover:text-navy-800 font-medium">View</button>
                     <button onClick={() => setCredentialStudent(s)} className="text-xs flex items-center gap-1 text-amber-600 dark:text-amber-400 hover:text-amber-800 font-medium">
                       <KeyRound className="w-3 h-3" /> Credentials
                     </button>

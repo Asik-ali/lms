@@ -71,7 +71,7 @@ export default function StudentTestDetail() {
   if (loading) {
     return (
       <div className="space-y-4">
-        <button type="button" onClick={() => navigate('/student/test-series')} className="inline-flex items-center gap-2 text-sm font-medium text-indigo-600">
+        <button type="button" onClick={() => navigate('/student/test-series')} className="inline-flex items-center gap-2 text-sm font-medium text-navy-600">
           <ArrowLeft className="w-4 h-4" /> Back to Test Series
         </button>
         <div className="card p-8 text-center text-gray-500 dark:text-gray-400">Loading test details...</div>
@@ -82,7 +82,7 @@ export default function StudentTestDetail() {
   if (!test) {
     return (
       <div className="space-y-4">
-        <button type="button" onClick={() => navigate('/student/test-series')} className="inline-flex items-center gap-2 text-sm font-medium text-indigo-600">
+        <button type="button" onClick={() => navigate('/student/test-series')} className="inline-flex items-center gap-2 text-sm font-medium text-navy-600">
           <ArrowLeft className="w-4 h-4" /> Back to Test Series
         </button>
         <div className="card p-8 text-center text-gray-500 dark:text-gray-400">Test not found.</div>
@@ -130,13 +130,13 @@ export default function StudentTestDetail() {
       <button
         type="button"
         onClick={() => navigate('/student/test-series')}
-        className="inline-flex items-center gap-2 text-sm font-medium text-indigo-600 hover:text-indigo-800"
+        className="inline-flex items-center gap-2 text-sm font-medium text-navy-600 hover:text-navy-800"
       >
         <ArrowLeft className="w-4 h-4" /> Back to Test Series
       </button>
 
       {/* Header */}
-      <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-6 text-white">
+      <div className="bg-gradient-to-r from-navy-600 to-purple-600 rounded-2xl p-6 text-white">
         <div className="flex items-start gap-4">
           <div className="w-14 h-14 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
             <BookOpen className="w-7 h-7" />
@@ -144,7 +144,7 @@ export default function StudentTestDetail() {
           <div className="min-w-0 flex-1">
             <h1 className="text-2xl font-bold mb-1">{test.name}</h1>
             {test.description && (
-              <p className="text-indigo-100 text-sm">{test.description}</p>
+              <p className="text-navy-100 text-sm">{test.description}</p>
             )}
           </div>
         </div>
@@ -163,7 +163,7 @@ export default function StudentTestDetail() {
       {/* Instructions */}
       <div className="card p-6">
         <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
-          <AlertCircle className="w-5 h-5 text-indigo-600" />
+          <AlertCircle className="w-5 h-5 text-navy-600" />
           Instructions
         </h2>
         <div className="rounded-lg bg-amber-50 dark:bg-amber-500/10 border border-amber-200 p-4 space-y-2">
@@ -180,13 +180,13 @@ export default function StudentTestDetail() {
       {syllabusLines.length > 0 && (
         <div className="card p-6">
           <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
-            <BookOpen className="w-5 h-5 text-indigo-600" />
+            <BookOpen className="w-5 h-5 text-navy-600" />
             Syllabus / Topics
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {syllabusLines.map((line, i) => (
               <div key={i} className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-800/60 rounded-lg px-3 py-2">
-                <span className="w-2 h-2 rounded-full bg-indigo-400 shrink-0" />
+                <span className="w-2 h-2 rounded-full bg-navy-400 shrink-0" />
                 {line}
               </div>
             ))}
@@ -198,7 +198,7 @@ export default function StudentTestDetail() {
       {attempts.length > 0 && (
         <div className="card p-6">
           <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
-            <History className="w-5 h-5 text-indigo-600" />
+            <History className="w-5 h-5 text-navy-600" />
             Your Previous Attempts
           </h2>
           <div className="overflow-x-auto">
@@ -218,7 +218,7 @@ export default function StudentTestDetail() {
                 {attempts.map((a, i) => (
                   <tr key={a.id} className="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/60">
                     <td className="px-4 py-2 font-medium text-gray-900 dark:text-gray-100">{i + 1}</td>
-                    <td className="px-4 py-2 font-semibold text-indigo-600">
+                    <td className="px-4 py-2 font-semibold text-navy-600">
                       {a.score !== null && a.score !== undefined ? `${a.score}/${a.total_marks || test.total_marks}` : '-'}
                     </td>
                     <td className="px-4 py-2 text-green-600 dark:text-green-400">{a.correct_count ?? '-'}</td>
@@ -264,7 +264,7 @@ export default function StudentTestDetail() {
 
 function InfoCard({ icon, label, value, color }) {
   const colorMap = {
-    indigo: 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-300 border-indigo-200',
+    indigo: 'bg-navy-50 dark:bg-navy-500/10 text-navy-600 dark:text-navy-300 border-navy-200',
     purple: 'bg-purple-50 dark:bg-purple-500/10 text-purple-600 dark:text-purple-300 border-purple-200',
     emerald: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-300 border-emerald-200',
     amber: 'bg-amber-50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-300 border-amber-200',

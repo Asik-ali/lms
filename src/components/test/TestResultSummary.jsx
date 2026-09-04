@@ -50,7 +50,7 @@ export default function TestResultSummary({ attempt }) {
 
   return (
     <div className="w-full max-w-4xl mx-auto p-4 sm:p-6">
-      <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-gradient-to-br from-indigo-50 dark:from-gray-900 to-white dark:to-gray-900 p-6 shadow-md">
+      <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-gradient-to-br from-navy-50 dark:from-gray-900 to-white dark:to-gray-900 p-6 shadow-md">
         <div className="flex flex-col items-center gap-1 text-center sm:flex-row sm:justify-between sm:text-left">
           <div>
             <h2 className="text-xl font-bold text-slate-800 dark:text-slate-200">
@@ -60,7 +60,7 @@ export default function TestResultSummary({ attempt }) {
               Here is how you performed in this attempt.
             </p>
           </div>
-          <div className="flex items-center gap-2 rounded-full bg-indigo-600 px-4 py-2 text-white shadow">
+          <div className="flex items-center gap-2 rounded-full bg-navy-600 px-4 py-2 text-white shadow">
             <Trophy className="h-5 w-5" />
             <span className="font-semibold">Rank #{rank}</span>
           </div>
@@ -71,7 +71,7 @@ export default function TestResultSummary({ attempt }) {
             icon={Award}
             label="Total Score"
             value={`${score} / ${totalMarks}`}
-            accent="bg-indigo-600"
+            accent="bg-navy-600"
           />
           <StatCard
             icon={Percent}

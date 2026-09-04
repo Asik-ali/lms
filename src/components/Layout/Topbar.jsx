@@ -23,7 +23,7 @@ export default function Topbar({ title, onMenuClick }) {
   }, []);
 
   const roleColors = {
-    admin: 'bg-indigo-100 text-indigo-800 dark:bg-indigo-500/15 dark:text-indigo-300',
+    admin: 'bg-navy-100 text-navy-800 dark:bg-navy-500/15 dark:text-navy-300',
     student: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-500/15 dark:text-emerald-300',
   };
 
@@ -100,7 +100,7 @@ export default function Topbar({ title, onMenuClick }) {
 
           <div className="relative">
             <button onClick={() => { setShowProfile(!showProfile); setShowNotifications(false); }} className="flex items-center gap-2 p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
-              <div className="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center">
+              <div className="w-8 h-8 rounded-full bg-navy-600 flex items-center justify-center">
                 <UserCircle className="w-6 h-6 text-white" />
               </div>
               <div className="hidden md:block text-left">
@@ -133,13 +133,13 @@ export default function Topbar({ title, onMenuClick }) {
             </div>
             <div className="p-6 space-y-6">
               <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full bg-indigo-600 flex items-center justify-center flex-shrink-0">
+                <div className="w-14 h-14 rounded-full bg-navy-600 flex items-center justify-center flex-shrink-0">
                   <UserCircle className="w-10 h-10 text-white" />
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">{user?.name || user?.username || 'User'}</h4>
                   <p className="text-sm text-gray-500 dark:text-gray-400">{user?.email || 'No email'}</p>
-                  <span className="text-xs px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-700 dark:bg-indigo-500/15 dark:text-indigo-300 font-medium mt-1 inline-block">{role}</span>
+                  <span className="text-xs px-2 py-0.5 rounded-full bg-navy-100 text-navy-700 dark:bg-navy-500/15 dark:text-navy-300 font-medium mt-1 inline-block">{role}</span>
                 </div>
               </div>
 
@@ -156,9 +156,9 @@ export default function Topbar({ title, onMenuClick }) {
                   </div>
                 )}
                 <form onSubmit={handleChangePassword} className="space-y-3">
-                  <input type="password" value={newPassword} onChange={e => setNewPassword(e.target.value)} placeholder="New password" className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-800 dark:text-gray-100" />
-                  <input type="password" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} placeholder="Confirm password" className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-800 dark:text-gray-100" />
-                  <button type="submit" disabled={pwLoading} className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm hover:bg-indigo-700 disabled:opacity-50 cursor-pointer">
+                  <input type="password" value={newPassword} onChange={e => setNewPassword(e.target.value)} placeholder="New password" className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:ring-2 focus:ring-navy-500 focus:border-navy-500 dark:bg-gray-800 dark:text-gray-100" />
+                  <input type="password" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} placeholder="Confirm password" className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:ring-2 focus:ring-navy-500 focus:border-navy-500 dark:bg-gray-800 dark:text-gray-100" />
+                  <button type="submit" disabled={pwLoading} className="flex items-center gap-2 px-4 py-2 bg-navy-600 text-white rounded-lg text-sm hover:bg-navy-700 disabled:opacity-50 cursor-pointer">
                     <Save className="w-4 h-4" /> {pwLoading ? 'Updating...' : 'Update Password'}
                   </button>
                 </form>

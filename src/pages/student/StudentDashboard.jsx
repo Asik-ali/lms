@@ -43,9 +43,9 @@ export default function StudentDashboard() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl p-6 text-white">
+      <div className="bg-gradient-to-r from-navy-600 to-purple-600 rounded-xl p-6 text-white">
         <h1 className="text-2xl font-bold">Welcome back, {user?.name || 'Student'}!</h1>
-        <p className="text-indigo-100 mt-1">{user?.course || 'Continue your learning journey'}</p>
+        <p className="text-navy-100 mt-1">{user?.course || 'Continue your learning journey'}</p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
@@ -69,7 +69,7 @@ export default function StudentDashboard() {
         <div className="lg:col-span-2 card">
           <div className="card-header flex justify-between items-center">
             <h3 className="text-lg font-semibold">My Courses</h3>
-            <button onClick={() => navigate('/student/courses')} className="text-sm text-indigo-600 hover:text-indigo-700 flex items-center gap-1">
+            <button onClick={() => navigate('/student/courses')} className="text-sm text-navy-600 hover:text-navy-700 flex items-center gap-1">
               View All <ChevronRight className="w-4 h-4" />
             </button>
           </div>
@@ -94,14 +94,14 @@ export default function StudentDashboard() {
           <div className="card">
             <div className="card-header">
               <h3 className="text-lg font-semibold flex items-center gap-2">
-                <Megaphone className="w-4 h-4 text-indigo-500" />
+                <Megaphone className="w-4 h-4 text-navy-500" />
                 Latest Announcements
               </h3>
             </div>
             <div className="p-4 space-y-3">
               {announcements.slice(0, 4).map(a => (
                 <div key={a.id} className="flex gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/60">
-                  <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0 bg-indigo-500" />
+                  <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0 bg-navy-500" />
                   <div>
                     <p className="text-sm font-medium text-gray-900 dark:text-gray-100">{a.title}</p>
                     <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{a.created}</p>

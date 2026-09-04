@@ -14,10 +14,10 @@ export default function ContactPage() {
 
   return (
     <div className="space-y-16">
-      <section className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-16">
+      <section className="bg-gradient-to-r from-navy-600 to-purple-600 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-3xl sm:text-4xl font-bold">Contact Us</h1>
-          <p className="mt-3 text-indigo-100">Have questions? We would love to hear from you.</p>
+          <p className="mt-3 text-navy-100">Have questions? We would love to hear from you.</p>
         </div>
       </section>
 
@@ -26,8 +26,8 @@ export default function ContactPage() {
           <div className="space-y-6">
             <div className="card p-6">
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 rounded-lg bg-indigo-100 dark:bg-indigo-500/15 flex items-center justify-center">
-                  <Mail className="w-5 h-5 text-indigo-600 dark:text-indigo-300" />
+                <div className="w-10 h-10 rounded-lg bg-navy-100 dark:bg-navy-500/15 flex items-center justify-center">
+                  <Mail className="w-5 h-5 text-navy-600 dark:text-navy-300" />
                 </div>
                 <div>
                   <p className="font-semibold text-gray-900 dark:text-gray-100">Email</p>
