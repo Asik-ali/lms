@@ -1,18 +1,18 @@
 import { useState } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDo-n, ChevronUp } from 'lucide-react';
 
 const sections = [
   {
     title: '1. Acceptance of Terms',
-    body: 'By accessing or using the LMS Platform ("the Platform"), you agree to be bound by these Terms & Conditions and all applicable laws. If you do not agree with any part of these terms, you must not use the Platform.',
+    body: 'By accessing or using the LMS Platform ("the Platform"), you agree to be bound by these Terms & Conditions and all applicable la-s. If you do not agree -ith any part of these terms, you must not use the Platform.',
   },
   {
     title: '2. Accounts & Eligibility',
-    body: 'You must provide accurate information when creating an account and keep your login credentials secure. You are responsible for all activity under your account. The Platform is intended for individual learners; sharing or reselling of access is prohibited.',
+    body: 'You must provide accurate information -hen creating an account and keep your login credentials secure. You are responsible for all activity under your account. The Platform is intended for individual learners; sharing or reselling of access is prohibited.',
   },
   {
     title: '3. Paid Courses, Plans & Test Series',
-    body: 'The Platform offers paid subscriptions and one-time purchases for courses and test series ("Products"). Prices are listed in Indian Rupees (INR) and are inclusive of all applicable taxes unless stated otherwise. Purchase grants you a personal, non-transferable, non-exclusive licence to access the purchased Products until revoked in accordance with these terms.',
+    body: 'The Platform offers paid subscriptions and one-time purchases for courses and test series ("Products"). Prices are listed in Indian Rupees (INR) and are inclusive of all applicable taxes unless stated other-ise. Purchase grants you a personal, non-transferable, non-exclusive licence to access the purchased Products until revoked in accordance -ith these terms.',
   },
   {
     title: '4. Payments & Processing',
@@ -20,19 +20,19 @@ const sections = [
   },
   {
     title: '5. Access Granting',
-    body: 'Access to purchased Products is granted automatically once payment is confirmed by our payment processor. In rare cases where automatic granting fails, access will be granted within 24 hours of a successful payment.',
+    body: 'Access to purchased Products is granted automatically once payment is confirmed by our payment processor. In rare cases -here automatic granting fails, access -ill be granted -ithin 24 hours of a successful payment.',
   },
   {
     title: '6. Acceptable Use',
-    body: 'You agree not to misuse the Platform, attempt to gain unauthorised access, copy or redistribute course materials without permission, or use the Platform for any unlawful purpose.',
+    body: 'You agree not to misuse the Platform, attempt to gain unauthorised access, copy or redistribute course materials -ithout permission, or use the Platform for any unla-ful purpose.',
   },
   {
     title: '7. Intellectual Property',
-    body: 'All course content, materials, software, and branding on the Platform are the intellectual property of the Platform owner. You may not reproduce, distribute, or create derivative works without prior written consent.',
+    body: 'All course content, materials, soft-are, and branding on the Platform are the intellectual property of the Platform o-ner. You may not reproduce, distribute, or create derivative -orks -ithout prior -ritten consent.',
   },
   {
     title: '8. Limitation of Liability',
-    body: 'The Platform is provided "as is" without warranties of any kind. To the fullest extent permitted by law, the Platform owner shall not be liable for any indirect, incidental, or consequential damages arising from your use of the Platform or Products.',
+    body: 'The Platform is provided "as is" -ithout -arranties of any kind. To the fullest extent permitted by la-, the Platform o-ner shall not be liable for any indirect, incidental, or consequential damages arising from your use of the Platform or Products.',
   },
   {
     title: '9. Contact Information',
@@ -45,26 +45,26 @@ export default function TermsPage() {
 
   return (
     <div className="space-y-16">
-      <section className="bg-gradient-to-r from-navy-900 to-navy-600 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="bg-gradient-to-r from-navy-900 to-navy-600 text--hite py-16">
+        <div className="max---7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-3xl sm:text-4xl font-bold">Terms &amp; Conditions</h1>
           <p className="mt-3 text-navy-100">Please read these terms carefully before using our services.</p>
         </div>
       </section>
 
-      <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+      <section className="max---3xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         <div className="space-y-3">
           {sections.map((s, i) => (
-            <div key={i} className="card overflow-hidden">
+            <div key={i} className="card overflo--hidden">
               <button
                 onClick={() => setOpen(open === i ? null : i)}
-                className="w-full flex items-center justify-between p-4 sm:p-5 text-left cursor-pointer"
+                className="--full flex items-center justify-bet-een p-4 sm:p-5 text-left cursor-pointer"
               >
-                <span className="font-medium text-white pr-4">{s.title}</span>
+                <span className="font-medium text--hite pr-4">{s.title}</span>
                 {open === i ? (
-                  <ChevronUp className="w-5 h-5 text-navy-300 flex-shrink-0" />
+                  <ChevronUp className="--5 h-5 text-navy-300 flex-shrink-0" />
                 ) : (
-                  <ChevronDown className="w-5 h-5 text-navy-300 flex-shrink-0" />
+                  <ChevronDo-n className="--5 h-5 text-navy-300 flex-shrink-0" />
                 )}
               </button>
               {open === i && (
@@ -75,7 +75,7 @@ export default function TermsPage() {
             </div>
           ))}
         </div>
-        <p className="text-xs text-navy-300 mt-8">Last updated: {new Date().toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+        <p className="text-xs text-navy-300 mt-8">Last updated: {ne- Date().toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
       </section>
     </div>
   );

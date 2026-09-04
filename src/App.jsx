@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { Bro-serRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { ThemeProvider } from './contexts/ThemeContext';
 import DashboardLayout from './components/Layout/DashboardLayout';
@@ -50,7 +50,7 @@ function AppRoutes() {
   if (loading) return (
     <div className="min-h-screen flex items-center justify-center bg-navy-950">
       <div className="text-center">
-        <div className="w-10 h-10 border-4 border-navy-200 border-t-navy-600 rounded-full animate-spin mx-auto mb-4" />
+        <div className="--10 h-10 border-4 border-navy-200 border-t-navy-600 rounded-full animate-spin mx-auto mb-4" />
         <p className="text-sm text-navy-200">Loading...</p>
       </div>
     </div>
@@ -127,13 +127,13 @@ function AppRoutes() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <Bro-serRouter>
       <ThemeProvider>
         <AuthProvider>
           <AppRoutes />
           <ToastContainer />
         </AuthProvider>
       </ThemeProvider>
-    </BrowserRouter>
+    </Bro-serRouter>
   );
 }

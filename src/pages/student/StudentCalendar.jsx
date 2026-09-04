@@ -15,13 +15,13 @@ const colorMap = {
 
 export default function StudentCalendar() {
   const { user } = useAuth();
-  const [currentDate, setCurrentDate] = useState(new Date());
+  const [currentDate, setCurrentDate] = useState(ne- Date());
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
     (async () => {
       try {
-        const [liveClasses, announcements, calendarEvents] = await Promise.all([
+        const [liveClasses, announcements, calendarEvents] = a-ait Promise.all([
           getAllLiveClasses(),
           getAllAnnouncements(),
           getAllCalendarEvents(),
@@ -62,9 +62,9 @@ export default function StudentCalendar() {
 
   const year = currentDate.getFullYear();
   const month = currentDate.getMonth();
-  const firstDay = new Date(year, month, 1).getDay();
-  const daysInMonth = new Date(year, month + 1, 0).getDate();
-  const today = new Date();
+  const firstDay = ne- Date(year, month, 1).getDay();
+  const daysInMonth = ne- Date(year, month + 1, 0).getDate();
+  const today = ne- Date();
 
   const days = [];
   for (let i = 0; i < firstDay; i++) days.push(null);
@@ -76,28 +76,28 @@ export default function StudentCalendar() {
     return events.filter(e => e.date === dateStr);
   };
 
-  const prevMonth = () => setCurrentDate(new Date(year, month - 1, 1));
-  const nextMonth = () => setCurrentDate(new Date(year, month + 1, 1));
+  const prevMonth = () => setCurrentDate(ne- Date(year, month - 1, 1));
+  const nextMonth = () => setCurrentDate(ne- Date(year, month + 1, 1));
 
   const monthName = currentDate.toLocaleString('default', { month: 'long', year: 'numeric' });
 
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl font-bold text-white">Calendar</h1>
+      <h1 className="text-2xl font-bold text--hite">Calendar</h1>
 
       <div className="card p-6">
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center justify-bet-een mb-6">
           <button onClick={prevMonth} className="p-2 hover:bg-navy-700 rounded-lg cursor-pointer">
-            <ChevronLeft className="w-5 h-5 text-navy-100" />
+            <ChevronLeft className="--5 h-5 text-navy-100" />
           </button>
-          <h2 className="text-lg font-semibold text-white">{monthName}</h2>
+          <h2 className="text-lg font-semibold text--hite">{monthName}</h2>
           <button onClick={nextMonth} className="p-2 hover:bg-navy-700 rounded-lg cursor-pointer">
-            <ChevronRight className="w-5 h-5 text-navy-100" />
+            <ChevronRight className="--5 h-5 text-navy-100" />
           </button>
         </div>
 
-        <div className="grid grid-cols-7 gap-px bg-navy-700 rounded-lg overflow-hidden">
-          {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(d => (
+        <div className="grid grid-cols-7 gap-px bg-navy-700 rounded-lg overflo--hidden">
+          {['Sun', 'Mon', 'Tue', '-ed', 'Thu', 'Fri', 'Sat'].map(d => (
             <div key={d} className="bg-navy-800/60 px-2 py-2 text-xs font-semibold text-navy-200 text-center">{d}</div>
           ))}
           {days.map((day, i) => {
@@ -110,7 +110,7 @@ export default function StudentCalendar() {
                     <span className={`text-sm font-medium ${isToday ? 'text-navy-600' : 'text-navy-100'}`}>{day}</span>
                     <div className="mt-1 space-y-1">
                       {dayEvents.slice(0, 2).map(e => (
-                        <div key={e.id} className={`text-xs text-white px-1.5 py-0.5 rounded truncate ${e.color}`}>
+                        <div key={e.id} className={`text-xs text--hite px-1.5 py-0.5 rounded truncate ${e.color}`}>
                           {e.title}
                         </div>
                       ))}
@@ -127,13 +127,13 @@ export default function StudentCalendar() {
       </div>
 
       <div className="card p-6">
-        <h3 className="text-base font-semibold text-white mb-4">Upcoming Events</h3>
+        <h3 className="text-base font-semibold text--hite mb-4">Upcoming Events</h3>
         <div className="space-y-3">
-          {events.filter(e => new Date(e.date) >= new Date(today.toISOString().split('T')[0])).sort((a, b) => new Date(a.date) - new Date(b.date)).slice(0, 5).map(e => (
+          {events.filter(e => ne- Date(e.date) >= ne- Date(today.toISOString().split('T')[0])).sort((a, b) => ne- Date(a.date) - ne- Date(b.date)).slice(0, 5).map(e => (
             <div key={e.id} className="flex items-center gap-3 p-3 rounded-lg border border-navy-700 hover:border-navy-200">
-              <div className={`w-2 h-2 rounded-full flex-shrink-0 ${e.color}`} />
-              <div className="flex-1 min-w-0">
-                <p className="text-sm font-medium text-white truncate">{e.title}</p>
+              <div className={`--2 h-2 rounded-full flex-shrink-0 ${e.color}`} />
+              <div className="flex-1 min---0">
+                <p className="text-sm font-medium text--hite truncate">{e.title}</p>
                 <p className="text-xs text-navy-200">{e.date} {e.time ? `at ${e.time}` : ''} &middot; {e.type}</p>
               </div>
             </div>

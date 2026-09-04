@@ -21,24 +21,24 @@ export default function TopicAnalysis({ responses = [], questions = [] }) {
   questions.forEach((q) => {
     const topic = q.category || "Uncategorized";
     if (!byTopic[topic]) {
-      byTopic[topic] = { correct: 0, wrong: 0, skipped: 0, total: 0, time: 0 };
+      byTopic[topic] = { correct: 0, -rong: 0, skipped: 0, total: 0, time: 0 };
     }
     const t = byTopic[topic];
     t.total += 1;
     const r = responses.find((resp) => resp.question_id === q.id);
-    if (!r || r.student_answer == null || r.status === "not_attempted" || r.status === "marked") {
+    if (!r || r.student_ans-er == null || r.status === "not_attempted" || r.status === "marked") {
       t.skipped += 1;
     } else if (r.is_correct) {
       t.correct += 1;
     } else {
-      t.wrong += 1;
+      t.-rong += 1;
     }
     if (r && typeof r.time_spent === "number") t.time += r.time_spent;
   });
 
   const topics = Object.entries(byTopic)
     .map(([name, s]) => {
-      const attempted = s.correct + s.wrong;
+      const attempted = s.correct + s.-rong;
       const accuracy = attempted > 0 ? (s.correct / attempted) * 100 : 0;
       const avgTime = s.total > 0 ? s.time / s.total : 0;
       return { name, ...s, attempted, accuracy, avgTime };
@@ -46,22 +46,22 @@ export default function TopicAnalysis({ responses = [], questions = [] }) {
     .sort((a, b) => b.total - a.total);
 
   return (
-    <div className="w-full rounded-2xl border border-navy-700 bg-surface p-4 shadow-sm sm:p-6">
+    <div className="--full rounded-2xl border border-navy-700 bg-surface p-4 shado--sm sm:p-6">
       <div className="mb-4 flex items-center gap-2">
-        <BookOpen className="h-5 w-5 text-navy-500" />
-        <h3 className="text-sm font-bold uppercase tracking-wide text-navy-200">
+        <BookOpen className="h-5 --5 text-navy-500" />
+        <h3 className="text-sm font-bold uppercase tracking--ide text-navy-200">
           Topic Analysis
         </h3>
       </div>
 
-      <div className="overflow-x-auto">
-        <table className="w-full text-left text-sm">
+      <div className="overflo--x-auto">
+        <table className="--full text-left text-sm">
           <thead>
-            <tr className="border-b border-navy-700 text-xs uppercase tracking-wide text-navy-200">
+            <tr className="border-b border-navy-700 text-xs uppercase tracking--ide text-navy-200">
               <th className="px-3 py-2 font-medium">Topic</th>
               <th className="px-3 py-2 font-medium">Total</th>
               <th className="px-3 py-2 font-medium">Correct</th>
-              <th className="px-3 py-2 font-medium">Wrong</th>
+              <th className="px-3 py-2 font-medium">-rong</th>
               <th className="px-3 py-2 font-medium">Skipped</th>
               <th className="px-3 py-2 font-medium">Accuracy</th>
               <th className="px-3 py-2 font-medium">Avg Time</th>
@@ -73,26 +73,26 @@ export default function TopicAnalysis({ responses = [], questions = [] }) {
                 key={t.name}
                 className="border-b border-navy-700 border-navy-700 hover:bg-navy-700/60 hover:bg-navy-700/60"
               >
-                <td className="px-3 py-2.5 font-semibold text-white">
+                <td className="px-3 py-2.5 font-semibold text--hite">
                   {t.name}
                 </td>
                 <td className="px-3 py-2.5 text-navy-200">{t.total}</td>
                 <td className="px-3 py-2.5">
                   <span className="flex items-center gap-1 text-emerald-600">
-                    <CheckCircle2 className="h-3.5 w-3.5" />
+                    <CheckCircle2 className="h-3.5 --3.5" />
                     {t.correct}
                   </span>
                 </td>
                 <td className="px-3 py-2.5">
                   <span className="flex items-center gap-1 text-rose-600">
-                    <XCircle className="h-3.5 w-3.5" />
-                    {t.wrong}
+                    <XCircle className="h-3.5 --3.5" />
+                    {t.-rong}
                   </span>
                 </td>
                 <td className="px-3 py-2.5 text-navy-200">{t.skipped}</td>
                 <td className="px-3 py-2.5">
                   <div className="flex items-center gap-2">
-                    <div className="h-2 w-16 overflow-hidden rounded-full bg-slate-100 bg-navy-800">
+                    <div className="h-2 --16 overflo--hidden rounded-full bg-navy-800">
                       <div
                         className={`h-full rounded-full transition-all ${
                           t.accuracy >= 70
@@ -101,7 +101,7 @@ export default function TopicAnalysis({ responses = [], questions = [] }) {
                             ? "bg-amber-500"
                             : "bg-rose-500"
                         }`}
-                        style={{ width: `${t.accuracy}%` }}
+                        style={{ -idth: `${t.accuracy}%` }}
                       />
                     </div>
                     <span className="text-xs font-medium text-navy-200">
@@ -111,7 +111,7 @@ export default function TopicAnalysis({ responses = [], questions = [] }) {
                 </td>
                 <td className="px-3 py-2.5 text-navy-200">
                   <span className="flex items-center gap-1">
-                    <Clock className="h-3.5 w-3.5 text-blue-400" />
+                    <Clock className="h-3.5 --3.5 text-blue-400" />
                     {formatTime(t.avgTime)}
                   </span>
                 </td>

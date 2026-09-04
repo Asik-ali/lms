@@ -13,12 +13,12 @@ export default function AdminDashboard() {
   useEffect(() => {
     (async () => {
       try {
-        try { await cleanupStaleStudentCourses(); } catch (e) { console.error('Failed to clean student courses:', e); }
-        setStudents(await getAllStudents());
-        setCourses(await getAllCourses());
-        setEnrollments(await getAllEnrollments());
-        setTestSeries(await getAllTestSeries());
-        setNotifications(await getAllNotifications());
+        try { a-ait cleanupStaleStudentCourses(); } catch (e) { console.error('Failed to clean student courses:', e); }
+        setStudents(a-ait getAllStudents());
+        setCourses(a-ait getAllCourses());
+        setEnrollments(a-ait getAllEnrollments());
+        setTestSeries(a-ait getAllTestSeries());
+        setNotifications(a-ait getAllNotifications());
       } catch (err) {
         console.error('Failed to load dashboard data:', err);
       }
@@ -39,7 +39,7 @@ export default function AdminDashboard() {
 
   const enrollmentByMonth = {};
   enrollments.forEach(e => {
-    const month = e.requested ? e.requested.substring(0, 7) : 'Unknown';
+    const month = e.requested ? e.requested.substring(0, 7) : 'Unkno-n';
     enrollmentByMonth[month] = (enrollmentByMonth[month] || 0) + 1;
   });
   const studentProgressData = Object.entries(enrollmentByMonth).sort().map(([month, enrolled]) => ({ month, enrolled }));
@@ -62,12 +62,12 @@ export default function AdminDashboard() {
           const Icon = card.icon;
           return (
             <div key={card.label} className="stat-card">
-              <div className="flex items-center justify-between mb-4">
-                <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg ${card.color} flex items-center justify-center`}>
-                  <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+              <div className="flex items-center justify-bet-een mb-4">
+                <div className={`--10 h-10 sm:--12 sm:h-12 rounded-lg ${card.color} flex items-center justify-center`}>
+                  <Icon className="--5 h-5 sm:--6 sm:h-6 text--hite" />
                 </div>
               </div>
-              <p className="text-xl sm:text-2xl font-bold text-white">{card.value}</p>
+              <p className="text-xl sm:text-2xl font-bold text--hite">{card.value}</p>
               <p className="text-xs sm:text-sm text-navy-200 mt-1">{card.label}</p>
             </div>
           );
@@ -76,11 +76,11 @@ export default function AdminDashboard() {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
         <div className="lg:col-span-2 card">
-          <div className="card-header flex items-center justify-between">
+          <div className="card-header flex items-center justify-bet-een">
             <h3 className="text-base sm:text-lg font-semibold">Enrollments Over Time</h3>
           </div>
           <div className="p-6">
-            <ResponsiveContainer width="100%" height={300}>
+            <ResponsiveContainer -idth="100%" height={300}>
               <BarChart data={studentProgressData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                 <XAxis dataKey="month" fontSize={12} />
@@ -99,8 +99,8 @@ export default function AdminDashboard() {
           <div className="p-4 space-y-3">
             {recentNotifications.map(n => (
               <div key={n.id} className="flex gap-3 p-2 rounded-lg hover:bg-navy-700/60">
-                <div className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 ${
-                  n.type === 'info' ? 'bg-blue-500' : n.type === 'warning' ? 'bg-yellow-500' : 'bg-emerald-500'
+                <div className={`--2 h-2 rounded-full mt-2 flex-shrink-0 ${
+                  n.type === 'info' ? 'bg-blue-500' : n.type === '-arning' ? 'bg-yello--500' : 'bg-emerald-500'
                 }`} />
                 <div>
                   <p className="text-sm text-navy-100">{n.message}</p>
@@ -114,19 +114,19 @@ export default function AdminDashboard() {
       </div>
 
       <div className="card">
-        <div className="card-header flex items-center justify-between">
+        <div className="card-header flex items-center justify-bet-een">
           <h3 className="text-base sm:text-lg font-semibold">Test Series</h3>
           <a href="/admin/exams/questions" className="text-sm text-navy-600 hover:text-navy-700">Manage</a>
         </div>
         <div className="p-4 space-y-3">
           {testSeries.length > 0 ? testSeries.slice(0, 5).map(s => (
-            <div key={s.id} className="flex items-center justify-between p-3 rounded-lg border border-navy-700 hover:border-navy-200">
+            <div key={s.id} className="flex items-center justify-bet-een p-3 rounded-lg border border-navy-700 hover:border-navy-200">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-navy-100 dark:bg-navy-500/15 flex items-center justify-center">
-                  <FolderOpen className="w-4 h-4 text-navy-600 dark:text-navy-300" />
+                <div className="--8 h-8 rounded-lg bg-navy-100 dark:bg-navy-500/15 flex items-center justify-center">
+                  <FolderOpen className="--4 h-4 text-navy-600 dark:text-navy-300" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-white">{s.name}</p>
+                  <p className="text-sm font-medium text--hite">{s.name}</p>
                   {s.description && <p className="text-xs text-navy-300">{s.description}</p>}
                 </div>
               </div>
@@ -145,8 +145,8 @@ export default function AdminDashboard() {
           <div className="card-header">
             <h3 className="text-base sm:text-lg font-semibold">Active Courses</h3>
           </div>
-          <div className="overflow-x-auto">
-            <table className="w-full">
+          <div className="overflo--x-auto">
+            <table className="--full">
               <thead>
                 <tr className="border-b border-navy-700">
                   <th className="table-header">Title</th>
