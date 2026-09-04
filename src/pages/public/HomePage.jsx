@@ -26,10 +26,10 @@ export default function HomePage() {
               Learn Without Limits
             </h1>
             <p className="mt-4 text-lg sm:text-xl text-navy-100">
-              A complete learning management system with courses, live classes, test series, and progress tracking.
+              A complete learning management system with <span className="font-semibold text-gold-300">courses</span>, <span className="font-semibold text-gold-300">live classes</span>, test series, and progress tracking.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
-              <Link to="/signup" className="inline-flex items-center justify-center gap-2 bg-white text-navy-700 px-6 py-3 rounded-lg font-semibold hover:bg-navy-50 transition-colors">
+              <Link to="/signup" className="inline-flex items-center justify-center gap-2 bg-gold-500 text-navy-950 px-6 py-3 rounded-lg font-semibold hover:bg-gold-300 transition-colors">
                 Create Account <ChevronRight className="w-4 h-4" />
               </Link>
               <Link to="/login" className="inline-flex items-center justify-center gap-2 border border-white/30 text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors">
@@ -76,11 +76,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-navy-600 py-16">
+      <section className="bg-navy-900 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-white">Ready to Start Learning?</h2>
           <p className="mt-2 text-navy-100">Create an account to access courses, live classes, and test series.</p>
-          <Link to="/signup" className="mt-6 inline-flex items-center gap-2 bg-white text-navy-700 px-6 py-3 rounded-lg font-semibold hover:bg-navy-50 transition-colors">
+          <Link to="/signup" className="mt-6 inline-flex items-center gap-2 bg-gold-500 text-navy-950 px-6 py-3 rounded-lg font-semibold hover:bg-gold-300 transition-colors">
             Sign Up Now <ChevronRight className="w-4 h-4" />
           </Link>
         </div>

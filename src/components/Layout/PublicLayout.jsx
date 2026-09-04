@@ -17,12 +17,12 @@ export default function PublicLayout() {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-950">
-      <header className="sticky top-0 z-40 bg-white border-b border-gray-200 dark:bg-gray-900 dark:border-gray-800">
+    <div className="min-h-screen flex flex-col bg-offwhite dark:bg-gray-950">
+      <header className="sticky top-0 z-40 bg-navy-900 border-b border-navy-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
             <img src={logo} alt="EXAMSTICK" className="w-8 h-8 object-contain" />
-            <span className="font-bold text-lg text-gray-900 dark:text-white">EXAMSTICK</span>
+            <span className="font-bold text-lg text-white">EXAMSTICK</span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-6">
@@ -32,8 +32,8 @@ export default function PublicLayout() {
                 to={link.path}
                 className={`text-sm font-medium transition-colors ${
                   location.pathname === link.path
-                    ? 'text-navy-600'
-                    : 'text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white'
+                    ? 'text-gold-300'
+                    : 'text-gray-300 hover:text-white'
                 }`}
               >
                 {link.label}
@@ -44,12 +44,12 @@ export default function PublicLayout() {
           <div className="flex items-center gap-3">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer"
+              className="p-2 rounded-lg hover:bg-navy-800 cursor-pointer"
               aria-label="Toggle theme"
             >
-              {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+              {theme === 'dark' ? <Sun className="w-5 h-5 text-gray-300" /> : <Moon className="w-5 h-5 text-gray-300" />}
             </button>
-            <Link to="/signup" className="hidden sm:inline-flex text-sm font-medium text-navy-600 hover:text-navy-700">
+            <Link to="/signup" className="hidden sm:inline-flex text-sm font-medium text-gray-300 hover:text-white">
               Sign Up
             </Link>
             <Link to="/login" className="btn-primary hidden sm:inline-flex">
@@ -57,16 +57,16 @@ export default function PublicLayout() {
             </Link>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 md:hidden cursor-pointer"
+              className="p-2 rounded-lg hover:bg-navy-800 md:hidden cursor-pointer"
               aria-label="Toggle menu"
             >
-              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {mobileOpen ? <X className="w-5 h-5 text-gray-300" /> : <Menu className="w-5 h-5 text-gray-300" />}
             </button>
           </div>
         </div>
 
         {mobileOpen && (
-          <div className="md:hidden border-t border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
+          <div className="md:hidden border-t border-navy-800 bg-navy-900">
             <nav className="px-4 py-3 space-y-1">
               {navLinks.map(link => (
                 <Link
@@ -75,8 +75,8 @@ export default function PublicLayout() {
                   onClick={() => setMobileOpen(false)}
                   className={`block px-3 py-2 rounded-lg text-sm font-medium ${
                     location.pathname === link.path
-                      ? 'bg-navy-50 text-navy-700 dark:bg-navy-500/10 dark:text-navy-400'
-                      : 'text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800'
+                      ? 'bg-navy-800 text-gold-300'
+                      : 'text-gray-300 hover:bg-navy-800 hover:text-white'
                   }`}
                 >
                   {link.label}
@@ -85,14 +85,14 @@ export default function PublicLayout() {
               <Link
                 to="/signup"
                 onClick={() => setMobileOpen(false)}
-                className="block px-3 py-2 rounded-lg text-sm font-medium text-navy-600 hover:bg-gray-100 dark:hover:bg-gray-800 mt-2"
+                className="block px-3 py-2 rounded-lg text-sm font-medium text-gray-300 hover:bg-navy-800 hover:text-white mt-2"
               >
                 Sign Up
               </Link>
               <Link
                 to="/login"
                 onClick={() => setMobileOpen(false)}
-                className="block px-3 py-2 rounded-lg text-sm font-medium bg-navy-600 text-white text-center mt-1"
+                className="block px-3 py-2 rounded-lg text-sm font-medium bg-gold-500 text-navy-950 text-center mt-1"
               >
                 Login
               </Link>

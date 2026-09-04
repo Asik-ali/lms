@@ -120,7 +120,7 @@ export default function SignupPage() {
                 </div>
               </div>
 
-              <button type="submit" disabled={isSubmitting} className="w-full bg-navy-600 text-white py-2.5 rounded-lg font-medium hover:bg-navy-700 transition-colors cursor-pointer disabled:opacity-60">
+              <button type="submit" disabled={isSubmitting} className="w-full bg-gold-500 text-navy-950 py-2.5 rounded-lg font-medium hover:bg-gold-300 transition-colors cursor-pointer disabled:opacity-60">
                 {isSubmitting ? 'Sending code...' : 'Send Verification Code'}
               </button>
             </form>
@@ -146,7 +146,7 @@ export default function SignupPage() {
                 </div>
               </div>
 
-              <button type="submit" disabled={isSubmitting} className="w-full bg-navy-600 text-white py-2.5 rounded-lg font-medium hover:bg-navy-700 transition-colors cursor-pointer disabled:opacity-60">
+              <button type="submit" disabled={isSubmitting} className="w-full bg-gold-500 text-navy-950 py-2.5 rounded-lg font-medium hover:bg-gold-300 transition-colors cursor-pointer disabled:opacity-60">
                 {isSubmitting ? 'Verifying...' : 'Verify & Create Account'}
               </button>
 
