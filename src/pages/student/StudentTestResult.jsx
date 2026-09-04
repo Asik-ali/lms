@@ -636,10 +636,10 @@ export default function StudentTestResult() {
                         <span className="text-xs text-navy-300">
                           Helpful?
                         </span>
-                        <button className="rounded-lg border border-navy-700 p-1.5 text-navy-300 hover:border-emerald-400 hover:text-emerald-400 transition">
+                        <button className="rounded-lg border border-navy-700 p-1.5 text-navy-300 hover:border-emerald-500 hover:text-emerald-600 dark:hover:text-emerald-400 transition">
                           <ThumbsUp className="h-4 w-4" />
                         </button>
-                        <button className="rounded-lg border border-navy-700 p-1.5 text-navy-300 hover:border-rose-400 hover:text-rose-400 transition">
+                        <button className="rounded-lg border border-navy-700 p-1.5 text-navy-300 hover:border-rose-500 hover:text-rose-600 dark:hover:text-rose-400 transition">
                           <ThumbsDown className="h-4 w-4" />
                         </button>
                       </div>

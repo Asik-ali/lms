@@ -235,7 +235,7 @@ export default function TestSeries() {
                   <span className={s.is_free ? 'font-medium text-emerald-600 dark:text-emerald-400' : 'text-navy-300'}>Free</span>
                 </label>
                 <button onClick={(e) => { e.stopPropagation(); openEditSeries(s); }} className="flex items-center gap-0.5 text-xs text-navy-600 hover:text-navy-500 dark:hover:text-navy-400 cursor-pointer"><Edit2 className="w-3 h-3" /> Edit</button>
-                <button onClick={(e) => { e.stopPropagation(); handleDeleteSeries(s.id); }} className="text-xs text-red-500 hover:text-red-700 dark:text-red-300 cursor-pointer">Delete</button>
+                <button onClick={(e) => { e.stopPropagation(); handleDeleteSeries(s.id); }} className="text-xs text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 dark:text-red-300 cursor-pointer">Delete</button>
                 {s.is_free && <span className="px-1.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 text-[10px] font-medium">All students</span>}
               </div>
             </button>

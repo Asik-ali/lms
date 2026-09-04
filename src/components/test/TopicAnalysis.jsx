@@ -111,7 +111,7 @@ export default function TopicAnalysis({ responses = [], questions = [] }) {
                 </td>
                 <td className="px-3 py-2.5 text-navy-200">
                   <span className="flex items-center gap-1">
-                    <Clock className="h-3.5 w-3.5 text-blue-400" />
+                    <Clock className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400" />
                     {formatTime(t.avgTime)}
                   </span>
                 </td>

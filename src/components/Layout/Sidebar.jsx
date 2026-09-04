@@ -156,7 +156,7 @@ export default function Sidebar({ mobileOpen, onClose }) {
       </nav>
 
       <div className="p-3 border-t border-navy-700">
-        <button onClick={handleLogout} className="w-full sidebar-link sidebar-link-inactive text-red-400 hover:text-red-700 dark:text-red-300 hover:bg-brand-red/10">
+        <button onClick={handleLogout} className="w-full sidebar-link sidebar-link-inactive text-red-700 dark:text-red-300 hover:text-red-600 dark:hover:text-red-200 hover:bg-brand-red/10">
           <LogOut className="w-5 h-5" />
           <span>Logout</span>
         </button>

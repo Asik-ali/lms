@@ -68,7 +68,7 @@ function AddStudentForm({ onBack, onStudentAdded }) {
         </button>
         <div className="card p-8 text-center">
           <div className="w-16 h-16 rounded-full bg-emerald-500/15 flex items-center justify-center mx-auto mb-4">
-            <UserPlus className="w-8 h-8 text-emerald-400" />
+            <UserPlus className="w-8 h-8 text-emerald-600 dark:text-emerald-400" />
           </div>
           <h2 className="text-xl font-semibold text-navy-100 mb-2">Student Added Successfully!</h2>
           <p className="text-navy-200 mb-6">{form.name} has been enrolled in {form.course}.</p>

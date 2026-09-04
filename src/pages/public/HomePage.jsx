@@ -41,8 +41,11 @@ export default function HomePage() {
               <Target className="w-4 h-4 text-gold-400" />
               India's trusted exam preparation platform
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight animate-fade-up">
-              Crack Your Exams With <span className="text-gold-400">{typedExam}</span><span className="type-cursor text-gold-400">|</span>
+            <h1 className="relative text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight animate-fade-up" aria-label="Crack Your Exams With ExamStick">
+              <span aria-hidden="true" className="invisible">Crack Your Exams With ExamStick|</span>
+              <span aria-hidden="true" className="absolute inset-0">
+                Crack Your Exams With <span className="text-gold-400">{typedExam}</span><span className="type-cursor text-gold-400">|</span>
+              </span>
             </h1>
             <p className="mt-6 text-lg sm:text-xl text-[#AECBF0] max-w-2xl animate-fade-up reveal-delay-1">
               A complete learning management system with <span className="font-semibold text-gold-400">courses</span>, <span className="font-semibold text-gold-400">live classes</span>, test series, and progress tracking — all in one place.
@@ -80,7 +83,7 @@ export default function HomePage() {
               return (
                 <div key={h.title} className="card p-7 hover:-translate-y-1.5 transition-all duration-300 reveal reveal-delay-1">
                   <div className="w-12 h-12 rounded-xl bg-navy-600/20 flex items-center justify-center mb-4">
-                    <Icon className="w-6 h-6 text-gold-400" />
+                    <Icon className="w-6 h-6 text-gold-600 dark:text-gold-400" />
                   </div>
                   <h3 className="text-lg font-bold text-navy-100">{h.title}</h3>
                   <p className="mt-2 text-sm text-navy-200">{h.desc}</p>
@@ -90,7 +93,7 @@ export default function HomePage() {
           </div>
 
           <div className="text-center mb-14 reveal">
-            <span className="text-gold-400 font-semibold uppercase tracking-widest text-sm">Platform Features</span>
+            <span className="text-gold-600 dark:text-gold-400 font-semibold uppercase tracking-widest text-sm">Platform Features</span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-navy-100 mt-3">Everything You Need To Succeed</h2>
             <p className="mt-3 text-navy-200 max-w-2xl mx-auto">Powerful tools designed for both admins and students.</p>
           </div>
