@@ -43,7 +43,7 @@
     color-scheme: dark;
   }
   body {
-    @apply bg-navy-950 text-grey-100 antialiased dark:bg-navy-950 dark:text-gray-100;
+    @apply bg-navy-950 text-gray-100 antialiased dark:bg-navy-950 dark:text-gray-100;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     color: #EDF2F9;
   }

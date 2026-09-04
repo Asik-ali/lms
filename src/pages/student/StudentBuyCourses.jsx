@@ -130,7 +130,7 @@ export default function StudentBuyCourses() {
             <h2 className="text-lg font-semibold text-white mb-3">Order History</h2>
             {history.orders.length === 0 ? (
               <div className="card p-8 text-center text-navy-300">
-                <History className="w-10 h-10 mx-auto mb-2 text-gray-300" />
+                <History className="w-10 h-10 mx-auto mb-2 text-navy-300" />
                 <p>No orders yet.</p>
               </div>
             ) : (
@@ -166,7 +166,7 @@ export default function StudentBuyCourses() {
             <h2 className="text-lg font-semibold text-white mb-3">My Purchases</h2>
             {history.purchases.length === 0 ? (
               <div className="card p-8 text-center text-navy-300">
-                <ShoppingCart className="w-10 h-10 mx-auto mb-2 text-gray-300" />
+                <ShoppingCart className="w-10 h-10 mx-auto mb-2 text-navy-300" />
                 <p>You haven't purchased anything yet.</p>
               </div>
             ) : (
@@ -192,7 +192,7 @@ export default function StudentBuyCourses() {
             </div>
           ) : plans.length === 0 ? (
             <div className="card p-10 text-center text-navy-300">
-              <ShoppingCart className="w-12 h-12 mx-auto mb-3 text-gray-300" />
+              <ShoppingCart className="w-12 h-12 mx-auto mb-3 text-navy-300" />
               <p>No plans available for purchase right now. Check back soon!</p>
             </div>
           ) : (

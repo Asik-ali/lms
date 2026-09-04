@@ -80,7 +80,7 @@ export default function StudentLiveClasses() {
 
       {!activeLive && (
         <div className="card p-12 text-center">
-          <Radio className="w-16 h-16 mx-auto mb-4 text-gray-300" />
+          <Radio className="w-16 h-16 mx-auto mb-4 text-navy-300" />
           <h3 className="text-lg font-semibold text-navy-100 mb-2">No Live Streams</h3>
           <p className="text-sm text-navy-300">There are no active live streams right now. Check back later.</p>
         </div>

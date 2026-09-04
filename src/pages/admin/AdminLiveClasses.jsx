@@ -131,7 +131,7 @@ export default function AdminLiveClasses() {
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
-              <tr className="border-b border-navy-700 bg-gray-50 bg-navy-800/60">
+              <tr className="border-b border-navy-700 bg-navy-800/60">
                 <th className="table-header">Title</th>
                 <th className="table-header">Date</th>
                 <th className="table-header">Time</th>
@@ -141,7 +141,7 @@ export default function AdminLiveClasses() {
             </thead>
             <tbody>
               {liveClasses.slice().reverse().map(lc => (
-                <tr key={lc.id} className="border-b border-navy-700 hover:bg-gray-50 hover:bg-navy-700/60">
+                <tr key={lc.id} className="border-b border-navy-700 hover:bg-navy-700/60">
                   <td className="table-cell font-medium">{lc.title}</td>
                   <td className="table-cell">{lc.date}</td>
                   <td className="table-cell">{lc.time}</td>
@@ -166,14 +166,14 @@ export default function AdminLiveClasses() {
                       {lc.status === 'Live' && (
                         <button
                           onClick={() => handleEndLive(lc.id)}
-                          className="p-1.5 text-navy-300 hover:text-red-600 hover:bg-red-50 rounded-lg cursor-pointer"
+                          className="p-1.5 text-navy-300 hover:text-red-600 hover:bg-brand-red/10 rounded-lg cursor-pointer"
                         >
                           <Square className="w-4 h-4" />
                         </button>
                       )}
                       <button
                         onClick={() => handleDeleteLive(lc.id)}
-                        className="p-1.5 text-navy-300 hover:text-red-600 hover:bg-red-50 rounded-lg cursor-pointer"
+                        className="p-1.5 text-navy-300 hover:text-red-600 hover:bg-brand-red/10 rounded-lg cursor-pointer"
                       >
                         <Trash2 className="w-4 h-4" />
                       </button>
@@ -184,7 +184,7 @@ export default function AdminLiveClasses() {
               {liveClasses.length === 0 && (
                 <tr>
                   <td colSpan={5} className="text-center py-12">
-                    <div className="flex flex-col items-center gap-3 text-gray-400">
+                    <div className="flex flex-col items-center gap-3 text-navy-300">
                       <Video className="w-10 h-10" />
                       <p className="text-sm">No live classes yet</p>
                       <p className="text-xs">Start a live stream using the form above</p>

@@ -157,7 +157,7 @@ export default function NotificationsPage() {
                 className={`flex items-center gap-2 px-6 py-3 text-sm font-medium border-b-2 transition-colors ${
                   i === activeTab
                     ? 'border-navy-600 text-navy-600'
-                    : 'border-transparent text-navy-200 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300'
+                    : 'border-transparent text-navy-200 hover:text-white hover:border-navy-500'
                 }`}
               >
                 <Icon className="w-4 h-4" />
@@ -174,7 +174,7 @@ export default function NotificationsPage() {
         <div className="card-header"><h3 className="text-lg font-semibold">Sent History</h3></div>
         <table className="w-full">
           <thead>
-            <tr className="border-b border-navy-700 bg-gray-50 bg-navy-800/60">
+            <tr className="border-b border-navy-700 bg-navy-800/60">
               <th className="table-header">Type</th>
               <th className="table-header">Recipient</th>
               <th className="table-header">Subject</th>
@@ -187,7 +187,7 @@ export default function NotificationsPage() {
               <tr><td colSpan={5} className="text-center py-8 text-navy-300">No notifications sent yet.</td></tr>
             )}
             {history.map(h => (
-              <tr key={h.id} className="border-b border-navy-700 hover:bg-gray-50 hover:bg-navy-700/60">
+              <tr key={h.id} className="border-b border-navy-700 hover:bg-navy-700/60">
                 <td className="table-cell font-medium">{h.type}</td>
                 <td className="table-cell">{h.recipient}</td>
                 <td className="table-cell text-navy-100">{h.subject}</td>

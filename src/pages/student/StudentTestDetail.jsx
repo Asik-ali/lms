@@ -113,14 +113,14 @@ export default function StudentTestDetail() {
     : [];
 
   const difficultyColor = {
-    Easy: 'bg-green-50 dark:bg-green-500/10 text-green-700 dark:text-green-300 border-green-200',
-    Moderate: 'bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-200',
-    Hard: 'bg-red-50 dark:bg-red-500/10 text-red-700 dark:text-red-300 border-red-200',
-    'Very Hard': 'bg-red-50 dark:bg-red-500/10 text-red-700 dark:text-red-300 border-red-200',
+    Easy: 'bg-emerald-500/10 text-emerald-300 border-emerald-500/40',
+    Moderate: 'bg-amber-500/10 text-amber-300 border-amber-200',
+    Hard: 'bg-brand-red/10 text-red-300 border-brand-red/40',
+    'Very Hard': 'bg-brand-red/10 text-red-300 border-brand-red/40',
   };
 
   const statusColor = {
-    active: 'bg-green-50 dark:bg-green-500/10 text-green-700 dark:text-green-300',
+    active: 'bg-emerald-500/10 text-emerald-300',
     draft: 'bg-navy-800 text-navy-200',
     archived: 'bg-navy-800 text-navy-300',
   };
@@ -185,7 +185,7 @@ export default function StudentTestDetail() {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {syllabusLines.map((line, i) => (
-              <div key={i} className="flex items-center gap-2 text-sm text-navy-100 bg-gray-50 bg-navy-800/60 rounded-lg px-3 py-2">
+              <div key={i} className="flex items-center gap-2 text-sm text-navy-100 bg-navy-800/60 rounded-lg px-3 py-2">
                 <span className="w-2 h-2 rounded-full bg-navy-400 shrink-0" />
                 {line}
               </div>
@@ -204,7 +204,7 @@ export default function StudentTestDetail() {
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-navy-700 bg-gray-50 bg-navy-800/60">
+                <tr className="border-b border-navy-700 bg-navy-800/60">
                   <th className="text-left px-4 py-2 font-semibold text-navy-100">#</th>
                   <th className="text-left px-4 py-2 font-semibold text-navy-100">Score</th>
                   <th className="text-left px-4 py-2 font-semibold text-navy-100">Correct</th>
@@ -216,17 +216,17 @@ export default function StudentTestDetail() {
               </thead>
               <tbody>
                 {attempts.map((a, i) => (
-                  <tr key={a.id} className="border-b border-navy-700 hover:bg-gray-50 hover:bg-navy-700/60">
+                  <tr key={a.id} className="border-b border-navy-700 hover:bg-navy-700/60">
                     <td className="px-4 py-2 font-medium text-white">{i + 1}</td>
                     <td className="px-4 py-2 font-semibold text-navy-600">
                       {a.score !== null && a.score !== undefined ? `${a.score}/${a.total_marks || test.total_marks}` : '-'}
                     </td>
-                    <td className="px-4 py-2 text-green-600 dark:text-green-400">{a.correct_count ?? '-'}</td>
-                    <td className="px-4 py-2 text-red-600 dark:text-red-400">{a.wrong_count ?? '-'}</td>
+                    <td className="px-4 py-2 text-emerald-300">{a.correct_count ?? '-'}</td>
+                    <td className="px-4 py-2 text-red-300">{a.wrong_count ?? '-'}</td>
                     <td className="px-4 py-2 text-navy-200">{a.skipped_count ?? '-'}</td>
                     <td className="px-4 py-2 text-navy-100">{a.time_taken != null ? `${Math.floor(a.time_taken / 60)}m ${a.time_taken % 60}s` : '-'}</td>
                     <td className="px-4 py-2">
-                      <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${a.status === 'completed' ? 'bg-green-50 dark:bg-green-500/10 text-green-700 dark:text-green-300' : 'bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-300'}`}>
+                      <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${a.status === 'completed' ? 'bg-emerald-500/10 text-emerald-300' : 'bg-amber-500/10 text-amber-300'}`}>
                         {a.status}
                       </span>
                     </td>
@@ -268,7 +268,7 @@ function InfoCard({ icon, label, value, color }) {
     purple: 'bg-purple-50 dark:bg-purple-500/10 text-purple-600 dark:text-purple-300 border-purple-200',
     emerald: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-300 border-emerald-200',
     amber: 'bg-amber-50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-300 border-amber-200',
-    red: 'bg-red-50 dark:bg-red-500/10 text-red-600 dark:text-red-300 border-red-200',
+    red: 'bg-brand-red/10 dark:bg-brand-red/10 text-red-600 dark:text-red-300 border-brand-red/40',
     cyan: 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-300 border-cyan-200',
     gray: 'bg-navy-800 text-navy-200 border-navy-700',
   };

@@ -80,7 +80,7 @@ const OPTION_LETTERS = ['A', 'B', 'C', 'D'];
 
 const DIFFICULTY_COLORS = {
   Easy: 'bg-emerald-100 dark:bg-emerald-500/15 text-emerald-700 dark:text-emerald-300',
-  Medium: 'bg-amber-100 dark:bg-amber-500/15 text-amber-700 dark:text-amber-300',
+  Medium: 'bg-amber-100 dark:bg-amber-500/15 text-amber-300',
   Hard: 'bg-rose-100 dark:bg-rose-500/15 text-rose-700 dark:text-rose-300',
 };
 
@@ -249,7 +249,7 @@ export default function StudentTestResult() {
     return (
       <div className="flex min-h-[60vh] flex-col items-center justify-center gap-4">
         <Loader2 className="h-10 w-10 animate-spin text-navy-600" />
-        <p className="text-sm text-slate-500 dark:text-slate-400">Loading your results...</p>
+        <p className="text-sm text-navy-200">Loading your results...</p>
       </div>
     );
   }
@@ -291,15 +291,15 @@ export default function StudentTestResult() {
         <div>
           <button
             onClick={() => navigate(-1)}
-            className="mb-1 flex items-center gap-1.5 text-sm text-slate-500 dark:text-slate-400 hover:text-navy-600"
+            className="mb-1 flex items-center gap-1.5 text-sm text-navy-200 hover:text-navy-600"
           >
             <ArrowLeft className="h-4 w-4" />
             Back
           </button>
-          <h1 className="text-xl font-bold text-slate-800 dark:text-slate-200 sm:text-2xl">
+          <h1 className="text-xl font-bold text-white sm:text-2xl">
             {test?.name || 'Test Result'}
           </h1>
-          <p className="text-sm text-slate-500 dark:text-slate-400">
+          <p className="text-sm text-navy-200">
             {test?.category && `${test.category} · `}
             Submitted {attempt?.submitted_at ? new Date(attempt.submitted_at).toLocaleDateString() : ''}
           </p>
@@ -307,7 +307,7 @@ export default function StudentTestResult() {
         <div className="flex items-center gap-2">
           <Link
             to={`/student/test-series`}
-            className="flex items-center gap-1.5 rounded-lg border border-slate-200 dark:border-slate-800 bg-surface px-3 py-2 text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/60"
+            className="flex items-center gap-1.5 rounded-lg border border-navy-700 bg-surface px-3 py-2 text-sm font-medium text-navy-100 hover:bg-navy-700/60 hover:bg-navy-700/60"
           >
             <BookOpen className="h-4 w-4" />
             <span className="hidden sm:inline">Test Series</span>
@@ -323,7 +323,7 @@ export default function StudentTestResult() {
       </div>
 
       {/* Tabs */}
-      <div className="overflow-x-auto rounded-xl border border-slate-200 dark:border-slate-800 bg-surface shadow-sm">
+      <div className="overflow-x-auto rounded-xl border border-navy-700 bg-surface shadow-sm">
         <nav className="flex">
           {TABS.map((tab) => {
             const Icon = tab.icon;
@@ -334,7 +334,7 @@ export default function StudentTestResult() {
                 className={`flex flex-1 items-center justify-center gap-2 border-b-2 px-3 py-3 text-sm font-medium transition ${
                   activeTab === tab.id
                     ? 'border-navy-600 text-navy-600 bg-navy-50/50 dark:bg-navy-500/10'
-                    : 'border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/60'
+                    : 'border-transparent text-navy-200 hover:text-slate-700 dark:hover:text-slate-300 hover:bg-navy-700/60 hover:bg-navy-700/60'
                 }`}
               >
                 <Icon className="h-4 w-4" />
@@ -353,55 +353,55 @@ export default function StudentTestResult() {
           />
 
           {/* Ranking Card */}
-          <div className="mx-auto max-w-4xl rounded-2xl border border-slate-200 dark:border-slate-800 bg-gradient-to-br from-navy-50 via-white to-navy-100 p-6 shadow-md">
+          <div className="mx-auto max-w-4xl rounded-2xl border border-navy-700 bg-gradient-to-br from-navy-900 via-navy-950 to-navy-800 p-6 shadow-md">
             <div className="flex items-center gap-2 mb-4">
               <Award className="h-5 w-5 text-navy-600" />
-              <h3 className="text-sm font-bold uppercase tracking-wide text-slate-600 dark:text-slate-400">
+              <h3 className="text-sm font-bold uppercase tracking-wide text-navy-200">
                 Your Ranking
               </h3>
             </div>
             {showRank ? (
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-4">
-              <div className="flex flex-col items-center rounded-xl border border-slate-100 dark:border-slate-800 bg-surface p-4 shadow-sm">
-                <span className="text-xs font-medium uppercase text-slate-500 dark:text-slate-400">Score</span>
-                <span className="mt-1 text-2xl font-bold text-slate-800 dark:text-slate-200">
+              <div className="flex flex-col items-center rounded-xl border border-navy-700 bg-surface p-4 shadow-sm">
+                <span className="text-xs font-medium uppercase text-navy-200">Score</span>
+                <span className="mt-1 text-2xl font-bold text-white">
                   {attempt?.score ?? 0}
-                  <span className="text-sm font-normal text-slate-400 dark:text-slate-500">
+                  <span className="text-sm font-normal text-navy-300">
                     /{attempt?.total_marks ?? 0}
                   </span>
                 </span>
               </div>
               <div className="flex flex-col items-center rounded-xl border border-navy-100 bg-navy-50 dark:bg-navy-500/10 p-4 shadow-sm">
-                <span className="text-xs font-medium uppercase text-slate-500 dark:text-slate-400">
+                <span className="text-xs font-medium uppercase text-navy-200">
                   All India Rank
                 </span>
                 <span className="mt-1 text-2xl font-bold text-navy-700 dark:text-navy-300">
                   #{rank}
-                  <span className="text-sm font-normal text-slate-400 dark:text-slate-500">
+                  <span className="text-sm font-normal text-navy-300">
                     {' '}/ {totalAttempts}
                   </span>
                 </span>
               </div>
               <div className="flex flex-col items-center rounded-xl border border-amber-100 bg-amber-50 dark:bg-amber-500/10 p-4 shadow-sm">
-                <span className="text-xs font-medium uppercase text-slate-500 dark:text-slate-400">Percentile</span>
-                <span className="mt-1 text-2xl font-bold text-amber-600 dark:text-amber-400">
+                <span className="text-xs font-medium uppercase text-navy-200">Percentile</span>
+                <span className="mt-1 text-2xl font-bold text-amber-300">
                   {percentile}%
                 </span>
               </div>
               <div className="flex flex-col items-center rounded-xl border border-emerald-100 bg-emerald-50 dark:bg-emerald-500/10 p-4 shadow-sm">
-                <span className="text-xs font-medium uppercase text-slate-500 dark:text-slate-400">
+                <span className="text-xs font-medium uppercase text-navy-200">
                   Better Than
                 </span>
                 <span className="mt-1 text-2xl font-bold text-emerald-600 dark:text-emerald-400">
                   {percentile}%
                 </span>
-                <span className="text-xs text-slate-500 dark:text-slate-400">of students</span>
+                <span className="text-xs text-navy-200">of students</span>
               </div>
             </div>
             ) : (
-              <div className="rounded-xl border border-slate-200 dark:border-slate-800 bg-surface p-6 text-center">
+              <div className="rounded-xl border border-navy-700 bg-surface p-6 text-center">
                 <Award className="h-8 w-8 text-slate-300 dark:text-slate-600 mx-auto mb-2" />
-                <p className="text-sm text-slate-500 dark:text-slate-400">
+                <p className="text-sm text-navy-200">
                   Rank is only calculated on your first attempt.
                 </p>
               </div>
@@ -418,7 +418,7 @@ export default function StudentTestResult() {
           {/* Palette Toggle (Mobile) */}
           <button
             onClick={() => setPaletteOpen(!paletteOpen)}
-            className="flex items-center justify-between rounded-xl border border-slate-200 dark:border-slate-800 bg-surface px-4 py-3 text-sm font-medium text-slate-700 dark:text-slate-300 shadow-sm lg:hidden"
+            className="flex items-center justify-between rounded-xl border border-navy-700 bg-surface px-4 py-3 text-sm font-medium text-navy-100 shadow-sm lg:hidden"
           >
             <span className="flex items-center gap-2">
               <Target className="h-4 w-4 text-navy-500" />
@@ -478,9 +478,9 @@ export default function StudentTestResult() {
                 skipped: {
                   label: 'Not Attempted',
                   icon: CircleSlash,
-                  color: 'text-slate-500 dark:text-slate-400',
-                  bg: 'bg-slate-50 dark:bg-slate-800/60',
-                  border: 'border-slate-200 dark:border-slate-800',
+                  color: 'text-navy-200',
+                  bg: 'bg-navy-800/60 dark:bg-slate-800/60',
+                  border: 'border-navy-700',
                   strip: 'bg-slate-400',
                 },
               };
@@ -503,7 +503,7 @@ export default function StudentTestResult() {
 
                   {/* Header */}
                   <div className={`flex flex-wrap items-center gap-2 border-b ${sc.border} ${sc.bg} px-4 py-3`}>
-                    <span className="text-sm font-bold text-slate-800 dark:text-slate-200">
+                    <span className="text-sm font-bold text-white">
                       Q{idx + 1}
                     </span>
                     <span className={`flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold ${sc.color}`}>
@@ -522,7 +522,7 @@ export default function StudentTestResult() {
                     {q.difficulty && (
                       <span
                         className={`rounded-full px-2 py-0.5 text-xs font-semibold ${
-                          DIFFICULTY_COLORS[q.difficulty] || 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
+                          DIFFICULTY_COLORS[q.difficulty] || 'bg-slate-100 dark:bg-slate-800 text-navy-200'
                         }`}
                       >
                         {q.difficulty}
@@ -535,7 +535,7 @@ export default function StudentTestResult() {
                     )}
                     <button
                       onClick={() => setReportModal(q)}
-                      className="ml-auto flex items-center gap-1 rounded-full border border-slate-200 dark:border-slate-800 bg-surface px-2.5 py-1 text-xs font-medium text-slate-600 dark:text-slate-400 hover:border-rose-300 hover:text-rose-600 transition"
+                      className="ml-auto flex items-center gap-1 rounded-full border border-navy-700 bg-surface px-2.5 py-1 text-xs font-medium text-navy-200 hover:border-rose-300 hover:text-rose-600 transition"
                     >
                       <Flag className="h-3 w-3" />
                       Report
@@ -566,7 +566,7 @@ export default function StudentTestResult() {
                           status === 'correct' && isStudentAnswer;
 
                         let optionClasses =
-                          'border-slate-200 dark:border-slate-800 bg-surface text-slate-700 dark:text-slate-300';
+                          'border-navy-700 bg-surface text-navy-100';
 
                         if (status === 'correct' && isStudentAnswer) {
                           optionClasses =
@@ -607,14 +607,14 @@ export default function StudentTestResult() {
                     </div>
 
                     {status === 'skipped' && (
-                      <p className="flex items-center gap-1.5 text-sm text-slate-500 dark:text-slate-400">
+                      <p className="flex items-center gap-1.5 text-sm text-navy-200">
                         <Info className="h-4 w-4" />
                         You did not attempt this question.
                       </p>
                     )}
 
                     {/* Explanation Toggle */}
-                    <div className="flex flex-wrap items-center gap-3 border-t border-slate-100 dark:border-slate-800 pt-3">
+                    <div className="flex flex-wrap items-center gap-3 border-t border-navy-700 pt-3">
                       <button
                         onClick={() =>
                           setExpandedExplanation((prev) => ({
@@ -622,7 +622,7 @@ export default function StudentTestResult() {
                             [q.id]: !prev[q.id],
                           }))
                         }
-                        className="flex items-center gap-1.5 rounded-lg border border-slate-200 dark:border-slate-800 bg-surface px-3 py-2 text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition"
+                        className="flex items-center gap-1.5 rounded-lg border border-navy-700 bg-surface px-3 py-2 text-sm font-medium text-navy-100 hover:bg-navy-700/60 hover:bg-navy-700/60 transition"
                       >
                         {isExpanded ? (
                           <ChevronUp className="h-4 w-4" />
@@ -633,13 +633,13 @@ export default function StudentTestResult() {
                       </button>
 
                       <div className="ml-auto flex items-center gap-1">
-                        <span className="text-xs text-slate-400 dark:text-slate-500">
+                        <span className="text-xs text-navy-300">
                           Helpful?
                         </span>
-                        <button className="rounded-lg border border-slate-200 dark:border-slate-800 p-1.5 text-slate-400 dark:text-slate-500 hover:border-emerald-300 hover:text-emerald-500 transition">
+                        <button className="rounded-lg border border-navy-700 p-1.5 text-navy-300 hover:border-emerald-400 hover:text-emerald-400 transition">
                           <ThumbsUp className="h-4 w-4" />
                         </button>
-                        <button className="rounded-lg border border-slate-200 dark:border-slate-800 p-1.5 text-slate-400 dark:text-slate-500 hover:border-rose-300 hover:text-rose-500 transition">
+                        <button className="rounded-lg border border-navy-700 p-1.5 text-navy-300 hover:border-rose-400 hover:text-rose-400 transition">
                           <ThumbsDown className="h-4 w-4" />
                         </button>
                       </div>
@@ -655,7 +655,7 @@ export default function StudentTestResult() {
                           </p>
                         )}
                         {status === 'skipped' && (
-                          <p className="flex items-center gap-1.5 text-sm font-semibold text-slate-600 dark:text-slate-400">
+                          <p className="flex items-center gap-1.5 text-sm font-semibold text-navy-200">
                             <Info className="h-4 w-4" />
                             This question was not attempted.
                           </p>
@@ -667,11 +667,11 @@ export default function StudentTestResult() {
                           </p>
                         )}
                         {q.explanation ? (
-                          <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                          <p className="text-sm text-navy-200 leading-relaxed">
                             {q.explanation}
                           </p>
                         ) : (
-                          <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                          <p className="text-sm text-navy-200 leading-relaxed">
                             {buildAutoExplanation(q)}
                           </p>
                         )}
@@ -683,9 +683,9 @@ export default function StudentTestResult() {
             })}
 
             {questions.length === 0 && (
-              <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-surface p-12 text-center">
+              <div className="rounded-2xl border border-navy-700 bg-surface p-12 text-center">
                 <FileText className="mx-auto mb-3 h-10 w-10 text-slate-300" />
-                <p className="text-sm text-slate-500 dark:text-slate-400">
+                <p className="text-sm text-navy-200">
                   No questions available for this test.
                 </p>
               </div>
@@ -710,10 +710,10 @@ export default function StudentTestResult() {
       )}
 
       {/* Bottom Actions */}
-      <div className="flex flex-wrap items-center justify-center gap-3 border-t border-slate-200 dark:border-slate-800 pt-6">
+      <div className="flex flex-wrap items-center justify-center gap-3 border-t border-navy-700 pt-6">
         <Link
           to="/student/test-series"
-          className="flex items-center gap-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-surface px-5 py-2.5 text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition shadow-sm"
+          className="flex items-center gap-2 rounded-xl border border-navy-700 bg-surface px-5 py-2.5 text-sm font-medium text-navy-100 hover:bg-navy-700/60 transition shadow-sm"
         >
           <ArrowLeft className="h-4 w-4" />
           Back to Test Series
@@ -732,7 +732,7 @@ export default function StudentTestResult() {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4">
           <div className="w-full max-w-md rounded-2xl bg-surface p-6 shadow-2xl">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200">
+              <h3 className="text-lg font-bold text-white">
                 Report Question
               </h3>
               <button
@@ -741,13 +741,13 @@ export default function StudentTestResult() {
                   setReportReason('');
                   setReportDesc('');
                 }}
-                className="rounded-lg p-1 text-slate-400 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800"
+                className="rounded-lg p-1 text-navy-300 hover:bg-navy-700"
               >
                 <X className="h-5 w-5" />
               </button>
             </div>
 
-            <p className="mb-4 text-sm text-slate-500 dark:text-slate-400">
+            <p className="mb-4 text-sm text-navy-200">
               Why are you reporting this question? Select a reason below.
             </p>
 
@@ -758,7 +758,7 @@ export default function StudentTestResult() {
                   className={`flex cursor-pointer items-center gap-3 rounded-xl border px-3 py-2.5 transition ${
                     reportReason === reason
                       ? 'border-navy-400 bg-navy-50 dark:bg-navy-500/10 ring-1 ring-navy-200'
-                      : 'border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/60'
+                      : 'border-navy-700 hover:bg-navy-700/60'
                   }`}
                 >
                   <input
@@ -769,7 +769,7 @@ export default function StudentTestResult() {
                     onChange={() => setReportReason(reason)}
                     className="h-4 w-4 text-navy-600 focus:ring-navy-500"
                   />
-                  <span className="text-sm text-slate-700 dark:text-slate-300">{reason}</span>
+                  <span className="text-sm text-navy-100">{reason}</span>
                 </label>
               ))}
             </div>
@@ -779,7 +779,7 @@ export default function StudentTestResult() {
               onChange={(e) => setReportDesc(e.target.value)}
               placeholder="Optional: Add more details..."
               rows={3}
-              className="mb-4 w-full rounded-xl border border-slate-200 dark:border-slate-800 px-3 py-2 text-sm text-slate-700 dark:text-slate-300 placeholder:text-slate-400 focus:border-navy-400 focus:ring-1 focus:ring-navy-200 outline-none resize-none"
+              className="mb-4 w-full rounded-xl border border-navy-700 px-3 py-2 text-sm text-navy-100 placeholder:text-navy-300 focus:border-navy-400 focus:ring-1 focus:ring-navy-600 outline-none resize-none bg-navy-950"
             />
 
             <div className="flex justify-end gap-2">
@@ -789,7 +789,7 @@ export default function StudentTestResult() {
                   setReportReason('');
                   setReportDesc('');
                 }}
-                className="rounded-lg border border-slate-200 dark:border-slate-800 px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/60"
+                className="rounded-lg border border-navy-700 px-4 py-2 text-sm font-medium text-navy-200 hover:bg-navy-700/60"
               >
                 Cancel
               </button>

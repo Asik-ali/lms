@@ -33,7 +33,7 @@ export default function StudentCalendar() {
             date: lc.date,
             time: lc.time,
             type: 'Live Class',
-            color: lc.status === 'Live' ? 'bg-red-500' : 'bg-blue-500',
+            color: lc.status === 'Live' ? 'bg-brand-red/100' : 'bg-blue-500',
           })),
           ...announcements.filter(a => a.status === 'Published').map(a => ({
             id: `ann-${a.id}`,
@@ -87,18 +87,18 @@ export default function StudentCalendar() {
 
       <div className="card p-6">
         <div className="flex items-center justify-between mb-6">
-          <button onClick={prevMonth} className="p-2 hover:bg-gray-100 hover:bg-navy-700 rounded-lg cursor-pointer">
+          <button onClick={prevMonth} className="p-2 hover:bg-navy-700 rounded-lg cursor-pointer">
             <ChevronLeft className="w-5 h-5 text-navy-100" />
           </button>
           <h2 className="text-lg font-semibold text-white">{monthName}</h2>
-          <button onClick={nextMonth} className="p-2 hover:bg-gray-100 hover:bg-navy-700 rounded-lg cursor-pointer">
+          <button onClick={nextMonth} className="p-2 hover:bg-navy-700 rounded-lg cursor-pointer">
             <ChevronRight className="w-5 h-5 text-navy-100" />
           </button>
         </div>
 
-        <div className="grid grid-cols-7 gap-px bg-gray-200 dark:bg-gray-700 rounded-lg overflow-hidden">
+        <div className="grid grid-cols-7 gap-px bg-navy-700 rounded-lg overflow-hidden">
           {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(d => (
-            <div key={d} className="bg-gray-50 bg-navy-800/60 px-2 py-2 text-xs font-semibold text-navy-200 text-center">{d}</div>
+            <div key={d} className="bg-navy-800/60 px-2 py-2 text-xs font-semibold text-navy-200 text-center">{d}</div>
           ))}
           {days.map((day, i) => {
             const dayEvents = getEventsForDay(day);

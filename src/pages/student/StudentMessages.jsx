@@ -90,7 +90,7 @@ export default function StudentMessages() {
       {showNew && (
         <div className="card p-6 space-y-4">
           <div className="flex items-center gap-2 mb-2">
-            <button onClick={() => setShowNew(false)} className="p-1 hover:bg-gray-100 hover:bg-navy-700 rounded cursor-pointer"><ArrowLeft className="w-4 h-4" /></button>
+            <button onClick={() => setShowNew(false)} className="p-1 hover:bg-navy-700 rounded cursor-pointer"><ArrowLeft className="w-4 h-4" /></button>
             <h2 className="text-lg font-semibold">New Support Ticket</h2>
           </div>
           <div>
@@ -105,7 +105,7 @@ export default function StudentMessages() {
             <button onClick={handleCreateTicket} disabled={loading} className="btn-primary flex items-center gap-2">
               <Send className="w-4 h-4" /> {loading ? 'Sending...' : 'Submit Ticket'}
             </button>
-            <button onClick={() => setShowNew(false)} className="px-4 py-2 rounded-lg border border-navy-700 text-navy-100 hover:bg-gray-50 hover:bg-navy-700/60 cursor-pointer">Cancel</button>
+            <button onClick={() => setShowNew(false)} className="px-4 py-2 rounded-lg border border-navy-700 text-navy-100 hover:bg-navy-700/60 cursor-pointer">Cancel</button>
           </div>
         </div>
       )}
@@ -117,7 +117,7 @@ export default function StudentMessages() {
               const cfg = statusConfig[t.status] || statusConfig.Open;
               const Icon = cfg.icon;
               return (
-                <button key={t.id} onClick={() => handleSelect(t)} className={`w-full text-left card p-4 transition-all cursor-pointer ${selected?.id === t.id ? 'border-navy-300 ring-1 ring-navy-200' : 'hover:border-gray-300'}`}>
+                <button key={t.id} onClick={() => handleSelect(t)} className={`w-full text-left card p-4 transition-all cursor-pointer ${selected?.id === t.id ? 'border-navy-300 ring-1 ring-navy-200' : 'hover:border-navy-500'}`}>
                   <div className="flex items-start gap-3">
                     <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${cfg.color}`}>
                       <Icon className="w-4 h-4" />
@@ -132,7 +132,7 @@ export default function StudentMessages() {
             })}
             {tickets.length === 0 && !showNew && (
               <div className="text-center py-8 text-navy-300">
-                <MessageSquare className="w-10 h-10 mx-auto mb-2 text-gray-300" />
+                <MessageSquare className="w-10 h-10 mx-auto mb-2 text-navy-300" />
                 <p>No tickets yet</p>
                 <button onClick={() => setShowNew(true)} className="text-sm text-navy-600 hover:text-navy-700 mt-2 cursor-pointer">Create your first ticket</button>
               </div>
@@ -151,7 +151,7 @@ export default function StudentMessages() {
                 </div>
 
                 <div className="space-y-3 max-h-96 overflow-y-auto">
-                  <div className="bg-gray-50 bg-navy-800/60 rounded-lg p-3">
+                  <div className="bg-navy-800/60 rounded-lg p-3">
                     <p className="text-xs text-navy-300 mb-1">You</p>
                     <p className="text-sm text-navy-100">{selected.message}</p>
                   </div>
@@ -181,7 +181,7 @@ export default function StudentMessages() {
             ) : (
               !showNew && (
                 <div className="card p-8 text-center text-navy-300">
-                  <MessageSquare className="w-12 h-12 mx-auto mb-3 text-gray-300" />
+                  <MessageSquare className="w-12 h-12 mx-auto mb-3 text-navy-300" />
                   <p>Select a ticket to view details</p>
                 </div>
               )

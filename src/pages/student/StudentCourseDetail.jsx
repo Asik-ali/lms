@@ -97,7 +97,7 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
           </div>
           <div className="flex flex-wrap gap-4 text-sm text-navy-100">
             <span className="inline-flex items-center gap-2"><Clock3 className="w-4 h-4" /> {course.duration}</span>
-            <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${course.status === 'Published' ? 'bg-green-500/20 text-green-100' : 'bg-gray-500/20 text-gray-200'}`}>{course.status}</span>
+            <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${course.status === 'Published' ? 'bg-emerald-500/20 text-emerald-100' : 'bg-navy-800/20 text-navy-200'}`}>{course.status}</span>
           </div>
         </div>
 
@@ -120,7 +120,7 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
                       <button
                         type="button"
                         onClick={() => setOpenDay(openDay === group.day ? null : group.day)}
-                        className="w-full flex items-center gap-2 px-4 py-3 bg-gray-50 bg-navy-800/60 cursor-pointer hover:bg-gray-100 hover:bg-navy-700"
+                        className="w-full flex items-center gap-2 px-4 py-3 bg-navy-800/60 cursor-pointer hover:bg-navy-700"
                       >
                         <CalendarDays className="w-4 h-4 text-navy-600 dark:text-navy-300" />
                         <span className="flex-1 text-left text-sm font-semibold text-white">
@@ -181,7 +181,7 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
           </div>
 
           <div className="flex flex-wrap gap-3">
-            <button type="button" onClick={() => navigate('/student/courses')} className="px-4 py-2 rounded-lg border border-navy-700 text-navy-100 hover:bg-gray-50 hover:bg-navy-700/60">Back to courses</button>
+            <button type="button" onClick={() => navigate('/student/courses')} className="px-4 py-2 rounded-lg border border-navy-700 text-navy-100 hover:bg-navy-700/60">Back to courses</button>
           </div>
         </div>
       </div>

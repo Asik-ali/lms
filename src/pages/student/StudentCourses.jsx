@@ -42,10 +42,10 @@ export default function StudentCourses() {
               <div className="mt-3 space-y-1 text-sm">
                 <p className="text-navy-200">Duration: <span className="text-navy-100">{c.duration}</span></p>
                 <p className="text-navy-200">Lessons: <span className="text-navy-100">{c.lessons}</span></p>
-                <span className={`inline-block px-2 py-0.5 rounded-full text-xs font-medium ${c.status === 'Published' ? 'bg-green-100 dark:bg-green-500/15 text-green-700 dark:text-green-300' : 'bg-navy-800 text-navy-100'}`}>{c.status}</span>
+                <span className={`inline-block px-2 py-0.5 rounded-full text-xs font-medium ${c.status === 'Published' ? 'bg-emerald-500/15 text-emerald-300' : 'bg-navy-800 text-navy-100'}`}>{c.status}</span>
               </div>
             </div>
-            <div className="px-6 py-3 border-t border-navy-700 bg-gray-50 bg-navy-800/60">
+            <div className="px-6 py-3 border-t border-navy-700 bg-navy-800/60">
               <button
                 type="button"
                 onClick={() => navigate(`/student/courses/${c.id}`)}
@@ -58,7 +58,7 @@ export default function StudentCourses() {
         ))}
         {courses.length === 0 && (
           <div className="col-span-full text-center py-12 text-navy-300">
-            <BookOpen className="w-12 h-12 mx-auto mb-3 text-gray-300" />
+            <BookOpen className="w-12 h-12 mx-auto mb-3 text-navy-300" />
             <p>No courses enrolled yet</p>
           </div>
         )}

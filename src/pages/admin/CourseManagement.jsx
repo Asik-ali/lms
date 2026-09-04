@@ -242,7 +242,7 @@ export default function CourseManagement() {
         <div className="card p-6">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-lg font-semibold">{editingId ? 'Edit Course' : 'Add Course'}</h2>
-            <button onClick={handleClose} className="p-1 text-navy-300 hover:text-gray-600 dark:hover:text-gray-400">
+            <button onClick={handleClose} className="p-1 text-navy-300 hover:text-white">
               <X className="w-5 h-5" />
             </button>
           </div>
@@ -293,7 +293,7 @@ export default function CourseManagement() {
                           className={`px-3 py-1.5 rounded-lg text-sm font-medium border transition-colors ${
                             activeDay === day
                               ? 'bg-navy-600 text-white border-navy-600'
-                              : 'bg-gray-50 bg-navy-800/60 border-gray-200 dark:border-gray-700 text-navy-100 hover:border-navy-400'
+                              : 'bg-navy-800/60 border-navy-700 text-navy-100 hover:border-navy-400'
                           }`}
                         >
                           Day {day}
@@ -382,7 +382,7 @@ export default function CourseManagement() {
         <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
-            <tr className="border-b border-navy-700 bg-gray-50 bg-navy-800/60">
+            <tr className="border-b border-navy-700 bg-navy-800/60">
               <th className="table-header">Title</th>
               <th className="table-header">Students</th>
               <th className="table-header">Lessons</th>
@@ -393,7 +393,7 @@ export default function CourseManagement() {
           </thead>
           <tbody>
             {filtered.map(c => (
-              <tr key={c.id} className="border-b border-navy-700 hover:bg-gray-50 hover:bg-navy-700/60">
+              <tr key={c.id} className="border-b border-navy-700 hover:bg-navy-700/60">
                 <td className="table-cell font-medium">{c.title}</td>
                 <td className="table-cell">{studentsPerCourse(c.title)}</td>
                 <td className="table-cell">{c.lessons}</td>
@@ -406,7 +406,7 @@ export default function CourseManagement() {
                     <button onClick={() => handleOpenEdit(c)} className="p-1.5 text-navy-300 hover:text-navy-600 hover:bg-navy-50 dark:hover:bg-navy-500/10 rounded-lg">
                       <Edit2 className="w-4 h-4" />
                     </button>
-                    <button onClick={() => handleDelete(c.id)} className="p-1.5 text-navy-300 hover:text-red-600 hover:bg-red-50 rounded-lg">
+                    <button onClick={() => handleDelete(c.id)} className="p-1.5 text-navy-300 hover:text-red-600 hover:bg-brand-red/10 rounded-lg">
                       <Trash2 className="w-4 h-4" />
                     </button>
                   </div>

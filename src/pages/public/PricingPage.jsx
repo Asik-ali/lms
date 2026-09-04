@@ -37,7 +37,7 @@ export default function PricingPage() {
           </div>
         ) : plans.length === 0 ? (
           <div className="card p-10 text-center text-navy-300">
-            <CreditCard className="w-12 h-12 mx-auto mb-3 text-gray-300" />
+            <CreditCard className="w-12 h-12 mx-auto mb-3 text-navy-300" />
             <p>No plans available right now. Check back soon!</p>
           </div>
         ) : (
@@ -50,7 +50,7 @@ export default function PricingPage() {
                   <div className="flex items-baseline gap-1 mb-4">
                     <IndianRupee className="w-4 h-4 text-navy-200" />
                     <span className="text-3xl font-bold text-white">{plan.price.toLocaleString('en-IN')}</span>
-                    <span className="text-sm text-gray-400">INR</span>
+                    <span className="text-sm text-navy-300">INR</span>
                   </div>
                   <div className="space-y-2 mb-6 flex-1">
                     {plan.items.length === 0 ? (

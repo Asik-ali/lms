@@ -98,9 +98,9 @@ export default function AdminDashboard() {
           </div>
           <div className="p-4 space-y-3">
             {recentNotifications.map(n => (
-              <div key={n.id} className="flex gap-3 p-2 rounded-lg hover:bg-gray-50 hover:bg-navy-700/60">
+              <div key={n.id} className="flex gap-3 p-2 rounded-lg hover:bg-navy-700/60">
                 <div className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 ${
-                  n.type === 'info' ? 'bg-blue-500' : n.type === 'warning' ? 'bg-yellow-500' : 'bg-green-500'
+                  n.type === 'info' ? 'bg-blue-500' : n.type === 'warning' ? 'bg-yellow-500' : 'bg-emerald-500'
                 }`} />
                 <div>
                   <p className="text-sm text-navy-100">{n.message}</p>
@@ -155,7 +155,7 @@ export default function AdminDashboard() {
               </thead>
               <tbody>
                 {courses.filter(c => c.status === 'Published').map(c => (
-                  <tr key={c.id} className="border-b border-navy-700 hover:bg-gray-50 hover:bg-navy-700/60">
+                  <tr key={c.id} className="border-b border-navy-700 hover:bg-navy-700/60">
                     <td className="table-cell font-medium">{c.title}</td>
                     <td className="table-cell">{studentsPerCourse(c.title)}</td>
                   </tr>

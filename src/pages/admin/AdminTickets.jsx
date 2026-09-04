@@ -5,7 +5,7 @@ import { getTickets, updateTicketStatus, getTicketReplies, addTicketReply, getAl
 import { showSuccess, showError } from '../../components/common/Toast';
 
 const statusConfig = {
-  Open: { icon: AlertCircle, color: 'text-amber-600 dark:text-amber-400 bg-amber-100 dark:bg-amber-500/15' },
+  Open: { icon: AlertCircle, color: 'text-amber-300 bg-amber-100 dark:bg-amber-500/15' },
   'In Progress': { icon: Clock, color: 'text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-500/15' },
   Resolved: { icon: CheckCircle, color: 'text-emerald-600 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-500/15' },
 };
@@ -107,7 +107,7 @@ export default function AdminTickets() {
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold text-white">Student Tickets</h1>
         <div className="flex items-center gap-2 text-sm">
-          <span className="px-2 py-1 rounded-full bg-amber-100 dark:bg-amber-500/15 text-amber-700 dark:text-amber-300 font-medium">{openCount} Open</span>
+          <span className="px-2 py-1 rounded-full bg-amber-100 dark:bg-amber-500/15 text-amber-300 font-medium">{openCount} Open</span>
           <span className="px-2 py-1 rounded-full bg-blue-100 dark:bg-blue-500/15 text-blue-700 dark:text-blue-300 font-medium">{inProgressCount} In Progress</span>
           <span className="px-2 py-1 rounded-full bg-emerald-100 dark:bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 font-medium">{resolvedCount} Resolved</span>
         </div>
@@ -119,7 +119,7 @@ export default function AdminTickets() {
             key={f}
             onClick={() => setFilter(f)}
             className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer ${
-              filter === f ? 'bg-navy-600 text-white' : 'bg-surface text-navy-100 border border-navy-700 hover:bg-gray-50 hover:bg-navy-700/60'
+              filter === f ? 'bg-navy-600 text-white' : 'bg-surface text-navy-100 border border-navy-700 hover:bg-navy-700/60'
             }`}
           >
             {f}
@@ -133,7 +133,7 @@ export default function AdminTickets() {
             const cfg = statusConfig[t.status] || statusConfig.Open;
             const Icon = cfg.icon;
             return (
-              <button key={t.id} onClick={() => handleSelect(t)} className={`w-full text-left card p-4 transition-all cursor-pointer ${selected?.id === t.id ? 'border-navy-300 ring-1 ring-navy-200' : 'hover:border-gray-300'}`}>
+              <button key={t.id} onClick={() => handleSelect(t)} className={`w-full text-left card p-4 transition-all cursor-pointer ${selected?.id === t.id ? 'border-navy-300 ring-1 ring-navy-200' : 'hover:border-navy-500'}`}>
                 <div className="flex items-start gap-3">
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${cfg.color}`}>
                     <Icon className="w-4 h-4" />
@@ -149,7 +149,7 @@ export default function AdminTickets() {
           })}
           {filtered.length === 0 && (
             <div className="text-center py-8 text-navy-300">
-              <MessageSquare className="w-10 h-10 mx-auto mb-2 text-gray-300" />
+              <MessageSquare className="w-10 h-10 mx-auto mb-2 text-navy-300" />
               <p>No tickets found</p>
             </div>
           )}
@@ -175,7 +175,7 @@ export default function AdminTickets() {
               </div>
 
               <div className="space-y-3 max-h-96 overflow-y-auto">
-                <div className="bg-gray-50 bg-navy-800/60 rounded-lg p-3">
+                <div className="bg-navy-800/60 rounded-lg p-3">
                   <p className="text-xs text-navy-300 mb-1">{getStudentName(selected.student_id)}</p>
                   <p className="text-sm text-navy-100">{selected.message}</p>
                 </div>
@@ -204,7 +204,7 @@ export default function AdminTickets() {
             </div>
           ) : (
             <div className="card p-8 text-center text-navy-300">
-              <MessageSquare className="w-12 h-12 mx-auto mb-3 text-gray-300" />
+              <MessageSquare className="w-12 h-12 mx-auto mb-3 text-navy-300" />
               <p>Select a ticket to view and reply</p>
             </div>
           )}

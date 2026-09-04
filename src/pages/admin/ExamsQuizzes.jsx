@@ -235,13 +235,13 @@ export default function TestSeries() {
                   <span className={s.is_free ? 'font-medium text-emerald-600 dark:text-emerald-400' : 'text-navy-300'}>Free</span>
                 </label>
                 <button onClick={(e) => { e.stopPropagation(); openEditSeries(s); }} className="flex items-center gap-0.5 text-xs text-navy-600 hover:text-navy-800 cursor-pointer"><Edit2 className="w-3 h-3" /> Edit</button>
-                <button onClick={(e) => { e.stopPropagation(); handleDeleteSeries(s.id); }} className="text-xs text-red-500 hover:text-red-700 cursor-pointer">Delete</button>
+                <button onClick={(e) => { e.stopPropagation(); handleDeleteSeries(s.id); }} className="text-xs text-red-500 hover:text-red-300 cursor-pointer">Delete</button>
                 {s.is_free && <span className="px-1.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 text-[10px] font-medium">All students</span>}
               </div>
             </button>
           ))}
           {seriesList.length === 0 && (
-            <div className="col-span-full text-center py-12 text-navy-300"><FolderOpen className="w-12 h-12 mx-auto mb-3 text-gray-300" /><p>Create your first exam series (SSC CGL, SSC MTS, etc.)</p></div>
+            <div className="col-span-full text-center py-12 text-navy-300"><FolderOpen className="w-12 h-12 mx-auto mb-3 text-navy-300" /><p>Create your first exam series (SSC CGL, SSC MTS, etc.)</p></div>
           )}
         </div>
       )}
@@ -269,7 +269,7 @@ export default function TestSeries() {
             </div>
           )}
           {topLevelCategories.length === 0 && (
-            <div className="text-center py-12 text-navy-300"><FileText className="w-12 h-12 mx-auto mb-3 text-gray-300" /><p>No categories yet. Add sections like "Full Mock Tests", "Previous Year Papers", "Sectional Tests".</p></div>
+            <div className="text-center py-12 text-navy-300"><FileText className="w-12 h-12 mx-auto mb-3 text-navy-300" /><p>No categories yet. Add sections like "Full Mock Tests", "Previous Year Papers", "Sectional Tests".</p></div>
           )}
         </div>
       )}
@@ -308,7 +308,7 @@ export default function TestSeries() {
                         <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {t.duration} min</span>
                         <span className="flex items-center gap-1"><Target className="w-3 h-3" /> {t.total_marks} marks</span>
                         <span className="flex items-center gap-1"><Globe className="w-3 h-3" /> {t.language}</span>
-                        <span className={`px-2 py-0.5 rounded-full ${t.difficulty === 'Easy' ? 'bg-green-50 dark:bg-green-500/10 text-green-600 dark:text-green-400' : t.difficulty === 'Hard' ? 'bg-red-50 dark:bg-red-500/10 text-red-600 dark:text-red-400' : 'bg-amber-50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-400'}`}>{t.difficulty}</span>
+                        <span className={`px-2 py-0.5 rounded-full ${t.difficulty === 'Easy' ? 'bg-emerald-500/10 dark:bg-emerald-500/10 text-emerald-300' : t.difficulty === 'Hard' ? 'bg-brand-red/10 dark:bg-brand-red/10 text-red-300' : 'bg-amber-50 dark:bg-amber-500/10 text-amber-300'}`}>{t.difficulty}</span>
                       </div>
                     </div>
                     <button onClick={(e) => { e.stopPropagation(); openEditTest(t); }} className="p-1 text-navy-300 hover:text-navy-600 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"><Edit2 className="w-4 h-4" /></button>
@@ -317,7 +317,7 @@ export default function TestSeries() {
                 </button>
               ))}
               {testsList.length === 0 && subCategories.length === 0 && (
-                <div className="text-center py-12 text-navy-300"><HelpCircle className="w-12 h-12 mx-auto mb-3 text-gray-300" /><p>No tests yet. Add your first test.</p></div>
+                <div className="text-center py-12 text-navy-300"><HelpCircle className="w-12 h-12 mx-auto mb-3 text-navy-300" /><p>No tests yet. Add your first test.</p></div>
               )}
             </div>
           </div>
@@ -327,7 +327,7 @@ export default function TestSeries() {
       {/* Level: Questions */}
       {level === 'questions' && currentTest && (
         <div className="space-y-4">
-          <div className="card p-4 bg-gray-50 bg-navy-800/60">
+          <div className="card p-4 bg-navy-800/60">
             <div className="flex flex-wrap items-center gap-4 text-sm text-navy-100">
               <span className="font-medium text-white">{currentTest.name}</span>
               <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {currentTest.duration} min</span>
@@ -341,7 +341,7 @@ export default function TestSeries() {
           <div className="card overflow-hidden">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-navy-700 bg-gray-50 bg-navy-800/60">
+                <tr className="border-b border-navy-700 bg-navy-800/60">
                   <th className="table-header">#</th>
                   <th className="table-header">Question</th>
                   <th className="table-header">Options</th>
@@ -351,7 +351,7 @@ export default function TestSeries() {
               </thead>
               <tbody>
                 {questions.map((q, i) => (
-                  <tr key={q.id} className="border-b border-navy-700 hover:bg-gray-50 hover:bg-navy-700/60">
+                  <tr key={q.id} className="border-b border-navy-700 hover:bg-navy-700/60">
                     <td className="table-cell text-navy-300">{i + 1}</td>
                     <td className="table-cell font-medium max-w-md"><span className="block line-clamp-2">{q.question}</span></td>
                     <td className="table-cell">
@@ -362,7 +362,7 @@ export default function TestSeries() {
                         {q.option_d && <p className="truncate max-w-xs">D. {q.option_d}</p>}
                       </div>
                     </td>
-                    <td className="table-cell"><span className="text-xs font-semibold bg-green-50 dark:bg-green-500/10 text-green-600 dark:text-green-400 px-2 py-0.5 rounded-full">{q.correct_answer}</span></td>
+                    <td className="table-cell"><span className="text-xs font-semibold bg-emerald-500/10 dark:bg-emerald-500/10 text-emerald-300 px-2 py-0.5 rounded-full">{q.correct_answer}</span></td>
                     <td className="table-cell"><button onClick={() => handleDeleteQuestion(q.id)} className="p-1 text-navy-300 hover:text-red-600 cursor-pointer"><Trash2 className="w-4 h-4" /></button></td>
                   </tr>
                 ))}
@@ -379,7 +379,7 @@ export default function TestSeries() {
           <div className="space-y-4">
             <div><label className="label">Series Name *</label><input value={formSeries.name} onChange={e => setFormSeries({ ...formSeries, name: e.target.value })} className="input-field w-full" placeholder="e.g. SSC CGL, SSC MTS" /></div>
             <div><label className="label">Description</label><input value={formSeries.description} onChange={e => setFormSeries({ ...formSeries, description: e.target.value })} className="input-field w-full" placeholder="Optional description" /></div>
-            <label className="flex cursor-pointer items-center justify-between rounded-lg border border-navy-700 px-3 py-2 hover:bg-gray-50 hover:bg-navy-700/60">
+            <label className="flex cursor-pointer items-center justify-between rounded-lg border border-navy-700 px-3 py-2 hover:bg-navy-700/60">
               <span>
                 <span className="block text-sm font-medium text-navy-100">Free for all students</span>
                 <span className="block text-xs text-navy-200">Visible in the Free Test Series section to every signed-in student. Leave off to assign via student access.</span>
@@ -396,7 +396,7 @@ export default function TestSeries() {
           <div className="space-y-4">
             <div><label className="label">Series Name *</label><input value={formSeries.name} onChange={e => setFormSeries({ ...formSeries, name: e.target.value })} className="input-field w-full" placeholder="e.g. SSC CGL, SSC MTS" /></div>
             <div><label className="label">Description</label><input value={formSeries.description} onChange={e => setFormSeries({ ...formSeries, description: e.target.value })} className="input-field w-full" placeholder="Optional description" /></div>
-            <label className="flex cursor-pointer items-center justify-between rounded-lg border border-navy-700 px-3 py-2 hover:bg-gray-50 hover:bg-navy-700/60">
+            <label className="flex cursor-pointer items-center justify-between rounded-lg border border-navy-700 px-3 py-2 hover:bg-navy-700/60">
               <span>
                 <span className="block text-sm font-medium text-navy-100">Free for all students</span>
                 <span className="block text-xs text-navy-200">Visible in the Free Test Series section to every signed-in student.</span>
@@ -516,7 +516,7 @@ function Modal({ title, onClose, children }) {
       <div className="bg-surface rounded-xl shadow-xl w-full max-w-md p-6 max-h-[85vh] overflow-y-auto">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-semibold text-white">{title}</h2>
-          <button onClick={onClose} className="p-1 text-navy-300 hover:text-gray-600 dark:hover:text-gray-400 cursor-pointer"><X className="w-5 h-5" /></button>
+          <button onClick={onClose} className="p-1 text-navy-300 hover:text-white cursor-pointer"><X className="w-5 h-5" /></button>
         </div>
         {children}
       </div>

@@ -75,7 +75,7 @@ export default function StudentDashboard() {
           </div>
           <div className="p-4 space-y-4">
             {myCourses.length > 0 ? myCourses.slice(0, 3).map(c => (
-              <div key={c.id} className="flex items-center gap-4 p-3 rounded-lg hover:bg-gray-50 hover:bg-navy-700/60">
+              <div key={c.id} className="flex items-center gap-4 p-3 rounded-lg hover:bg-navy-700/60">
                 <div className="flex-1 min-w-0">
                   <h4 className="text-sm font-medium text-white">{c.title}</h4>
                   <div className="flex items-center gap-3 mt-2">
@@ -100,7 +100,7 @@ export default function StudentDashboard() {
             </div>
             <div className="p-4 space-y-3">
               {announcements.slice(0, 4).map(a => (
-                <div key={a.id} className="flex gap-3 p-2 rounded-lg hover:bg-gray-50 hover:bg-navy-700/60">
+                <div key={a.id} className="flex gap-3 p-2 rounded-lg hover:bg-navy-700/60">
                   <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0 bg-navy-500" />
                   <div>
                     <p className="text-sm font-medium text-white">{a.title}</p>

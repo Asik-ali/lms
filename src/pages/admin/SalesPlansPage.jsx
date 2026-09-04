@@ -168,7 +168,7 @@ export default function SalesPlansPage() {
             <h2 className="text-lg font-semibold text-white">
               {form.id ? 'Edit Plan' : 'Create Plan'}
             </h2>
-            <button onClick={() => setShowForm(false)} className="p-1 hover:bg-gray-100 hover:bg-navy-700 rounded cursor-pointer">
+            <button onClick={() => setShowForm(false)} className="p-1 hover:bg-navy-700 rounded cursor-pointer">
               <X className="w-5 h-5" />
             </button>
           </div>
@@ -209,14 +209,14 @@ export default function SalesPlansPage() {
                     key={c.id}
                     type="button"
                     onClick={() => toggleItem('course', c.id)}
-                    className={`flex items-center gap-2 px-3 py-2 rounded-lg border text-left text-sm cursor-pointer transition-all ${on ? 'border-navy-400 bg-navy-50 dark:bg-navy-500/10 text-navy-700 dark:text-navy-300' : 'border-gray-200 dark:border-gray-700 text-navy-100 hover:border-gray-300'}`}
+                    className={`flex items-center gap-2 px-3 py-2 rounded-lg border text-left text-sm cursor-pointer transition-all ${on ? 'border-navy-400 bg-navy-50 dark:bg-navy-500/10 text-navy-700 dark:text-navy-300' : 'border-navy-700 text-navy-100 hover:border-navy-500'}`}
                   >
                     <BookOpen className="w-4 h-4 flex-shrink-0" />
                     <span className="truncate">{c.title}</span>
                   </button>
                 );
               })}
-              {courses.length === 0 && <p className="text-xs text-gray-400 col-span-full">No courses found.</p>}
+              {courses.length === 0 && <p className="text-xs text-navy-300 col-span-full">No courses found.</p>}
             </div>
           </div>
 
@@ -232,14 +232,14 @@ export default function SalesPlansPage() {
                     key={s.id}
                     type="button"
                     onClick={() => toggleItem('test_series', s.id)}
-                    className={`flex items-center gap-2 px-3 py-2 rounded-lg border text-left text-sm cursor-pointer transition-all ${on ? 'border-navy-400 bg-navy-50 dark:bg-navy-500/10 text-navy-700 dark:text-navy-300' : 'border-gray-200 dark:border-gray-700 text-navy-100 hover:border-gray-300'}`}
+                    className={`flex items-center gap-2 px-3 py-2 rounded-lg border text-left text-sm cursor-pointer transition-all ${on ? 'border-navy-400 bg-navy-50 dark:bg-navy-500/10 text-navy-700 dark:text-navy-300' : 'border-navy-700 text-navy-100 hover:border-navy-500'}`}
                   >
                     <PenTool className="w-4 h-4 flex-shrink-0" />
                     <span className="truncate">{s.name}</span>
                   </button>
                 );
               })}
-              {seriesList.length === 0 && <p className="text-xs text-gray-400 col-span-full">No test series found.</p>}
+              {seriesList.length === 0 && <p className="text-xs text-navy-300 col-span-full">No test series found.</p>}
             </div>
           </div>
 
@@ -248,7 +248,7 @@ export default function SalesPlansPage() {
               {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
               {saving ? 'Saving...' : form.id ? 'Update Plan' : 'Create Plan'}
             </button>
-            <button onClick={() => setShowForm(false)} className="px-4 py-2 rounded-lg border border-navy-700 text-navy-100 hover:bg-gray-50 hover:bg-navy-700/60 cursor-pointer">Cancel</button>
+            <button onClick={() => setShowForm(false)} className="px-4 py-2 rounded-lg border border-navy-700 text-navy-100 hover:bg-navy-700/60 cursor-pointer">Cancel</button>
           </div>
         </div>
       )}
@@ -260,7 +260,7 @@ export default function SalesPlansPage() {
           </div>
         ) : plans.length === 0 ? (
           <div className="card p-10 text-center text-navy-300">
-            <ShoppingCart className="w-12 h-12 mx-auto mb-3 text-gray-300" />
+            <ShoppingCart className="w-12 h-12 mx-auto mb-3 text-navy-300" />
             <p>No sales plans yet. Click "New Plan" to create one.</p>
           </div>
         ) : (
@@ -278,7 +278,7 @@ export default function SalesPlansPage() {
                 </div>
                 <div className="space-y-1.5 mb-5 text-sm text-navy-100 flex-1">
                   {(p.items || []).length === 0 ? (
-                    <p className="text-xs text-gray-400">No items (full access)</p>
+                    <p className="text-xs text-navy-300">No items (full access)</p>
                   ) : p.items.map((it, i) => (
                     <div key={i} className="flex items-center gap-2">
                       {it.item_type === 'course' ? <BookOpen className="w-4 h-4 text-navy-500 flex-shrink-0" /> : <PenTool className="w-4 h-4 text-emerald-500 flex-shrink-0" />}
@@ -288,7 +288,7 @@ export default function SalesPlansPage() {
                 </div>
                 <div className="flex gap-2 mt-auto">
                   <button onClick={() => openEdit(p)} className="btn-secondary flex-1 flex items-center justify-center gap-2 cursor-pointer"><Pencil className="w-4 h-4" /> Edit</button>
-                  <button onClick={() => handleDelete(p)} className="px-3 py-2 rounded-lg border border-red-200 dark:border-red-500/30 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-500/10 cursor-pointer"><Trash2 className="w-4 h-4" /></button>
+                  <button onClick={() => handleDelete(p)} className="px-3 py-2 rounded-lg border border-brand-red/40 text-red-300 hover:bg-brand-red/10 cursor-pointer"><Trash2 className="w-4 h-4" /></button>
                 </div>
               </div>
             ))}

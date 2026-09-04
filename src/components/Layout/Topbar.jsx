@@ -86,7 +86,7 @@ export default function Topbar({ title, onMenuClick }) {
                 <div className="max-h-64 overflow-y-auto">
                   {notifications.map(n => (
                     <div key={n.id} className="px-4 py-3 hover:bg-navy-800 border-b border-navy-700 last:border-0">
-                      <p className="text-sm text-gray-100">{n.message}</p>
+                      <p className="text-sm text-white">{n.message}</p>
                       <p className="text-xs text-navy-300 mt-1">{n.time}</p>
                     </div>
                   ))}

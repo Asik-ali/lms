@@ -63,12 +63,12 @@ function AddStudentForm({ onBack, onStudentAdded }) {
   if (submitted) {
     return (
       <div className="max-w-2xl">
-        <button onClick={() => { setSubmitted(false); setCredentials(null); }} className="flex items-center gap-2 text-sm text-navy-200 hover:text-gray-700 dark:hover:text-gray-300 mb-6">
+        <button onClick={() => { setSubmitted(false); setCredentials(null); }} className="flex items-center gap-2 text-sm text-navy-200 hover:text-white mb-6">
           <ArrowLeft className="w-4 h-4" /> Back
         </button>
         <div className="card p-8 text-center">
-          <div className="w-16 h-16 rounded-full bg-green-100 dark:bg-green-500/15 flex items-center justify-center mx-auto mb-4">
-            <UserPlus className="w-8 h-8 text-green-600 dark:text-green-300" />
+          <div className="w-16 h-16 rounded-full bg-emerald-500/15 flex items-center justify-center mx-auto mb-4">
+            <UserPlus className="w-8 h-8 text-emerald-400" />
           </div>
           <h2 className="text-xl font-semibold text-white mb-2">Student Added Successfully!</h2>
           <p className="text-navy-200 mb-6">{form.name} has been enrolled in {form.course}.</p>
@@ -104,7 +104,7 @@ function AddStudentForm({ onBack, onStudentAdded }) {
 
   return (
     <div className="max-w-2xl">
-      <button onClick={onBack} className="flex items-center gap-2 text-sm text-navy-200 hover:text-gray-700 dark:hover:text-gray-300 mb-6">
+      <button onClick={onBack} className="flex items-center gap-2 text-sm text-navy-200 hover:text-white mb-6">
         <ArrowLeft className="w-4 h-4" /> Back to Students
       </button>
       <div className="card">
@@ -113,7 +113,7 @@ function AddStudentForm({ onBack, onStudentAdded }) {
           <p className="text-sm text-navy-200 mt-1">Fill in the details to enroll a new student — credentials will be auto-generated</p>
         </div>
         <form onSubmit={handleSubmit} className="p-6 space-y-5">
-          {submitError && <p className="rounded-lg bg-red-50 dark:bg-red-500/10 px-3 py-2 text-sm text-red-700 dark:text-red-300">{submitError}</p>}
+          {submitError && <p className="rounded-lg bg-brand-red/10 dark:bg-brand-red/10 px-3 py-2 text-sm text-red-300">{submitError}</p>}
           <div>
             <label className="block text-sm font-medium text-navy-100 mb-1">Full Name *</label>
             <input type="text" value={form.name} onChange={e => setForm(p => ({ ...p, name: e.target.value }))} placeholder="Enter full name" className="input-field" required />
@@ -206,7 +206,7 @@ function StudentProfile({ student, onBack, onSaved }) {
 
   return (
     <div className="max-w-3xl space-y-6">
-      <button onClick={onBack} className="flex items-center gap-2 text-sm text-navy-200 hover:text-gray-700 dark:hover:text-gray-300">
+      <button onClick={onBack} className="flex items-center gap-2 text-sm text-navy-200 hover:text-white">
         <ArrowLeft className="w-4 h-4" /> Back to Students
       </button>
 
@@ -252,7 +252,7 @@ function StudentProfile({ student, onBack, onSaved }) {
             {courses.map(item => {
               const checked = normalizeCourseAccessSelection(form.course).includes(item.title);
               return (
-                <label key={item.id} className="flex cursor-pointer items-center justify-between rounded-lg border border-navy-700 px-3 py-2 hover:bg-gray-50 hover:bg-navy-700/60">
+                <label key={item.id} className="flex cursor-pointer items-center justify-between rounded-lg border border-navy-700 px-3 py-2 hover:bg-navy-700/60">
                   <span className="text-sm text-navy-100">{item.title}</span>
                   <input type="checkbox" checked={checked} onChange={() => toggleCourse(item.title)} className="h-4 w-4 rounded border-navy-700 text-navy-600 focus:ring-navy-500" />
                 </label>
@@ -289,14 +289,14 @@ function StudentProgress({ students, onBack, onRefresh }) {
 
   return (
     <div className="space-y-6">
-      <button onClick={onBack} className="flex items-center gap-2 text-sm text-navy-200 hover:text-gray-700 dark:hover:text-gray-300">
+      <button onClick={onBack} className="flex items-center gap-2 text-sm text-navy-200 hover:text-white">
         <ArrowLeft className="w-4 h-4" /> Back to Students
       </button>
       <h1 className="text-2xl font-bold text-white">Student Progress</h1>
       <div className="card overflow-hidden">
         <table className="w-full">
           <thead>
-            <tr className="border-b border-navy-700 bg-gray-50 bg-navy-800/60">
+            <tr className="border-b border-navy-700 bg-navy-800/60">
               <th className="table-header">Name</th>
               <th className="table-header">Course</th>
               <th className="table-header">Progress</th>
@@ -305,20 +305,20 @@ function StudentProgress({ students, onBack, onRefresh }) {
           </thead>
           <tbody>
             {students.map(s => (
-              <tr key={s.id} className="border-b border-navy-700 hover:bg-gray-50 hover:bg-navy-700/60">
+              <tr key={s.id} className="border-b border-navy-700 hover:bg-navy-700/60">
                 <td className="table-cell font-medium">{s.name}</td>
                 <td className="table-cell">{s.course || '-'}</td>
                 <td className="table-cell">
                   {editingId === s.id ? (
                     <div className="flex items-center gap-2">
                       <input type="number" min="0" max="100" value={editVal} onChange={e => setEditVal(e.target.value)} className="input-field w-20" />
-                      <button onClick={() => handleSave(s.id)} className="p-1 text-green-600 dark:text-green-400 hover:bg-green-50 dark:hover:bg-green-500/10 rounded"><Save className="w-4 h-4" /></button>
-                      <button onClick={() => setEditingId(null)} className="p-1 text-navy-300 hover:bg-gray-100 hover:bg-navy-700 rounded"><X className="w-4 h-4" /></button>
+                      <button onClick={() => handleSave(s.id)} className="p-1 text-emerald-300 hover:bg-emerald-500/10 rounded"><Save className="w-4 h-4" /></button>
+                      <button onClick={() => setEditingId(null)} className="p-1 text-navy-300 hover:bg-navy-700 rounded"><X className="w-4 h-4" /></button>
                     </div>
                   ) : (
                     <div className="flex items-center gap-2">
-                      <div className="flex-1 h-2 bg-gray-200 dark:bg-gray-700 rounded-full w-32 overflow-hidden">
-                        <div className={`h-full rounded-full ${s.progress >= 70 ? 'bg-green-500' : s.progress >= 40 ? 'bg-amber-500' : 'bg-red-500'}`} style={{ width: `${s.progress || 0}%` }} />
+                      <div className="flex-1 h-2 bg-navy-700 rounded-full w-32 overflow-hidden">
+                        <div className={`h-full rounded-full ${s.progress >= 70 ? 'bg-emerald-500' : s.progress >= 40 ? 'bg-amber-500' : 'bg-brand-red/100'}`} style={{ width: `${s.progress || 0}%` }} />
                       </div>
                       <span className="text-xs text-navy-200 w-8">{s.progress || 0}%</span>
                     </div>
@@ -327,7 +327,7 @@ function StudentProgress({ students, onBack, onRefresh }) {
                 <td className="table-cell">
                   <div className="flex items-center gap-2">
                     <button onClick={() => { setEditingId(s.id); setEditVal(String(s.progress || 0)); }} className="p-1.5 text-navy-300 hover:text-navy-600 hover:bg-navy-50 dark:hover:bg-navy-500/10 rounded-lg cursor-pointer"><Save className="w-4 h-4" /></button>
-                    <button onClick={() => handleDeleteProgress(s.id)} className="p-1.5 text-navy-300 hover:text-red-600 hover:bg-red-50 rounded-lg cursor-pointer"><X className="w-4 h-4" /></button>
+                    <button onClick={() => handleDeleteProgress(s.id)} className="p-1.5 text-navy-300 hover:text-red-600 hover:bg-brand-red/10 rounded-lg cursor-pointer"><X className="w-4 h-4" /></button>
                   </div>
                 </td>
               </tr>
@@ -379,7 +379,7 @@ function CredentialsModal({ student, onClose }) {
       <div className="bg-surface rounded-xl shadow-xl w-full max-w-md p-6 space-y-4">
         <div className="flex items-center justify-between">
           <h2 className="text-lg font-semibold text-white">Student Credentials</h2>
-          <button onClick={onClose} className="p-1 text-navy-300 hover:text-gray-600 dark:hover:text-gray-400"><X className="w-5 h-5" /></button>
+          <button onClick={onClose} className="p-1 text-navy-300 hover:text-white"><X className="w-5 h-5" /></button>
         </div>
 
         <div className="space-y-3">
@@ -389,20 +389,20 @@ function CredentialsModal({ student, onClose }) {
           </div>
           <div>
             <label className="text-xs text-navy-200">Username</label>
-            <p className="font-mono text-sm text-white bg-gray-50 bg-navy-800/60 px-3 py-2 rounded-lg border">{username}</p>
+            <p className="font-mono text-sm text-white bg-navy-800/60 px-3 py-2 rounded-lg border">{username}</p>
           </div>
         </div>
 
         {resetDone && generatedPassword ? (
-          <div className="bg-green-50 dark:bg-green-500/10 border border-green-200 rounded-xl p-4 space-y-3">
-            <div className="flex items-center gap-2 text-green-700 dark:text-green-300 font-medium text-sm">
+          <div className="bg-emerald-500/10 dark:bg-emerald-500/10 border border-emerald-500/40 rounded-xl p-4 space-y-3">
+            <div className="flex items-center gap-2 text-emerald-300 font-medium text-sm">
               <Check className="w-4 h-4" /> Password Reset Successfully
             </div>
             <div>
               <label className="text-xs text-navy-200">New Password</label>
               <p className="font-mono text-sm text-white bg-surface px-3 py-2 rounded-lg border mt-1 break-all">{generatedPassword}</p>
             </div>
-            <button onClick={copyPassword} className="w-full flex items-center justify-center gap-2 text-sm text-green-700 dark:text-green-300 bg-navy-800 border border-green-200 rounded-lg px-3 py-2 hover:bg-green-50 dark:hover:bg-green-500/10 cursor-pointer">
+            <button onClick={copyPassword} className="w-full flex items-center justify-center gap-2 text-sm text-emerald-300 bg-navy-800 border border-emerald-500/40 rounded-lg px-3 py-2 hover:bg-emerald-500/10 cursor-pointer">
               {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
               {copied ? 'Copied!' : 'Copy New Password'}
             </button>
@@ -430,7 +430,7 @@ function CredentialsModal({ student, onClose }) {
           </div>
         )}
 
-        <button onClick={onClose} className="w-full text-sm text-navy-200 hover:text-gray-700 dark:hover:text-gray-300 py-2 cursor-pointer">Close</button>
+        <button onClick={onClose} className="w-full text-sm text-navy-200 hover:text-white py-2 cursor-pointer">Close</button>
       </div>
     </div>
   );
@@ -489,7 +489,7 @@ function CourseAccessModal({ student, courses, onClose, onSaved }) {
             <h2 className="text-lg font-semibold text-white">Manage Access</h2>
             <p className="text-sm text-navy-200">{student.name}</p>
           </div>
-          <button onClick={onClose} className="p-1 text-navy-300 hover:text-gray-600 dark:hover:text-gray-400"><X className="w-5 h-5" /></button>
+          <button onClick={onClose} className="p-1 text-navy-300 hover:text-white"><X className="w-5 h-5" /></button>
         </div>
 
         <div className="rounded-lg border border-navy-700 p-4">
@@ -501,7 +501,7 @@ function CourseAccessModal({ student, courses, onClose, onSaved }) {
             {courses.map(item => {
               const checked = selectedCourses.includes(item.title);
               return (
-                <label key={item.id} className="flex cursor-pointer items-center justify-between rounded-lg border border-navy-700 px-3 py-2 hover:bg-gray-50 hover:bg-navy-700/60">
+                <label key={item.id} className="flex cursor-pointer items-center justify-between rounded-lg border border-navy-700 px-3 py-2 hover:bg-navy-700/60">
                   <span className="text-sm text-navy-100">{item.title}</span>
                   <input type="checkbox" checked={checked} onChange={() => toggleCourse(item.title)} className="h-4 w-4 rounded border-navy-700 text-navy-600 focus:ring-navy-500" />
                 </label>
@@ -520,7 +520,7 @@ function CourseAccessModal({ student, courses, onClose, onSaved }) {
             {testSeries.map(ts => {
               const checked = selectedSeries.includes(ts.name);
               return (
-                <label key={ts.id} className="flex cursor-pointer items-center justify-between rounded-lg border border-navy-700 px-3 py-2 hover:bg-gray-50 hover:bg-navy-700/60">
+                <label key={ts.id} className="flex cursor-pointer items-center justify-between rounded-lg border border-navy-700 px-3 py-2 hover:bg-navy-700/60">
                   <span className="text-sm text-navy-100">{ts.name}</span>
                   <input type="checkbox" checked={checked} onChange={() => toggleSeries(ts.name)} className="h-4 w-4 rounded border-navy-700 text-navy-600 focus:ring-navy-500" />
                 </label>
@@ -627,7 +627,7 @@ export default function StudentManagement() {
           <div className="w-full max-w-sm rounded-xl bg-surface p-6 shadow-xl space-y-4">
             <div className="flex items-center justify-between">
               <h2 className="text-lg font-semibold text-white">Delete Student</h2>
-              <button onClick={() => setDeleteStudent(null)} className="p-1 text-navy-300 hover:text-gray-600 dark:hover:text-gray-400"><X className="w-5 h-5" /></button>
+              <button onClick={() => setDeleteStudent(null)} className="p-1 text-navy-300 hover:text-white"><X className="w-5 h-5" /></button>
             </div>
             <p className="text-sm text-navy-100">
               Are you sure you want to permanently delete <span className="font-semibold text-white">{deleteStudent.name}</span>?
@@ -664,7 +664,7 @@ export default function StudentManagement() {
         <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
-            <tr className="border-b border-navy-700 bg-gray-50 bg-navy-800/60">
+            <tr className="border-b border-navy-700 bg-navy-800/60">
               <th className="table-header">Name</th>
               <th className="table-header">Email</th>
               <th className="table-header">Course</th>
@@ -675,7 +675,7 @@ export default function StudentManagement() {
           </thead>
           <tbody>
             {filtered.map(s => (
-              <tr key={s.id} className="border-b border-navy-700 hover:bg-gray-50 hover:bg-navy-700/60">
+              <tr key={s.id} className="border-b border-navy-700 hover:bg-navy-700/60">
                 <td className="table-cell">
                   <button onClick={() => { setSelectedStudent(s); navigate('/admin/students/profile'); }} className="font-medium text-navy-600 hover:text-navy-800 text-left">{s.name}</button>
                 </td>
@@ -688,13 +688,13 @@ export default function StudentManagement() {
                 <td className="table-cell">
                   <div className="flex items-center gap-2">
                     <button onClick={() => { setSelectedStudent(s); navigate('/admin/students/profile'); }} className="text-xs text-navy-600 hover:text-navy-800 font-medium">View</button>
-                    <button onClick={() => setCredentialStudent(s)} className="text-xs flex items-center gap-1 text-amber-600 dark:text-amber-400 hover:text-amber-800 font-medium">
+                    <button onClick={() => setCredentialStudent(s)} className="text-xs flex items-center gap-1 text-amber-300 hover:text-amber-800 font-medium">
                       <KeyRound className="w-3 h-3" /> Credentials
                     </button>
                     <button onClick={() => openCourseAccess(s)} className="text-xs flex items-center gap-1 text-emerald-600 dark:text-emerald-400 hover:text-emerald-800 font-medium">
                       <BookOpen className="w-3 h-3" /> Course
                     </button>
-                    <button onClick={() => setDeleteStudent(s)} className="text-xs flex items-center gap-1 text-red-600 dark:text-red-400 hover:text-red-800 font-medium">
+                    <button onClick={() => setDeleteStudent(s)} className="text-xs flex items-center gap-1 text-red-300 hover:text-red-800 font-medium">
                       <Trash2 className="w-3 h-3" /> Delete
                     </button>
                   </div>

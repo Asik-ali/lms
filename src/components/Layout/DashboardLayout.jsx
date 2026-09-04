@@ -43,7 +43,7 @@ export default function DashboardLayout() {
     .sort((a, b) => b.length - a.length)[0] || '';
 
   return (
-    <div className="min-h-screen bg-navy-950 text-gray-100">
+    <div className="min-h-screen bg-navy-950 text-white">
       {mobileMenuOpen && <button onClick={() => setMobileMenuOpen(false)} className="fixed inset-0 z-30 bg-navy-950/50 lg:hidden" aria-label="Close navigation menu" />}
       <Sidebar mobileOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
       <div className="min-w-0 transition-all duration-300 lg:ml-64">

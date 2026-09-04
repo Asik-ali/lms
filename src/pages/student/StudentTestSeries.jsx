@@ -121,7 +121,7 @@ export default function StudentTestSeries() {
           ))}
           {seriesList.length === 0 && (
             <div className="col-span-full text-center py-12 text-navy-300">
-              <FolderOpen className="w-12 h-12 mx-auto mb-3 text-gray-300" />
+              <FolderOpen className="w-12 h-12 mx-auto mb-3 text-navy-300" />
               <p>No test series assigned to you yet.</p>
             </div>
           )}
@@ -148,7 +148,7 @@ export default function StudentTestSeries() {
           })}
           {topLevelCategories.length === 0 && (
             <div className="col-span-full text-center py-12 text-navy-300">
-              <FileText className="w-12 h-12 mx-auto mb-3 text-gray-300" />
+              <FileText className="w-12 h-12 mx-auto mb-3 text-navy-300" />
               <p>No categories available yet.</p>
             </div>
           )}
@@ -185,7 +185,7 @@ export default function StudentTestSeries() {
                         <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {t.duration} min</span>
                         <span className="flex items-center gap-1"><Target className="w-3 h-3" /> {t.total_marks} marks</span>
                         <span className="flex items-center gap-1"><Globe className="w-3 h-3" /> {t.language}</span>
-                        <span className={`px-2 py-0.5 rounded-full ${t.difficulty === 'Easy' ? 'bg-green-50 dark:bg-green-500/15 text-green-600 dark:text-green-400' : t.difficulty === 'Hard' ? 'bg-red-50 dark:bg-red-500/15 text-red-600 dark:text-red-400' : 'bg-amber-50 dark:bg-amber-500/15 text-amber-600 dark:text-amber-400'}`}>{t.difficulty}</span>
+                        <span className={`px-2 py-0.5 rounded-full ${t.difficulty === 'Easy' ? 'bg-emerald-500/10 text-emerald-300' : t.difficulty === 'Hard' ? 'bg-brand-red/10 text-red-300' : 'bg-amber-500/10 text-amber-300'}`}>{t.difficulty}</span>
                       </div>
                     </div>
                     <span className="text-sm text-navy-600 dark:text-navy-300 font-medium">Start →</span>
@@ -194,7 +194,7 @@ export default function StudentTestSeries() {
               ))}
               {testsList.length === 0 && subCategories.length === 0 && (
                 <div className="text-center py-12 text-navy-300">
-                  <FileText className="w-12 h-12 mx-auto mb-3 text-gray-300" />
+                  <FileText className="w-12 h-12 mx-auto mb-3 text-navy-300" />
                   <p>No tests available yet.</p>
                 </div>
               )}

@@ -100,18 +100,18 @@ export default function AdminCalendar() {
 
       <div className="card p-6">
         <div className="flex items-center justify-between mb-6">
-          <button onClick={prevMonth} className="p-2 hover:bg-gray-100 hover:bg-navy-700 rounded-lg cursor-pointer">
+          <button onClick={prevMonth} className="p-2 hover:bg-navy-700 rounded-lg cursor-pointer">
             <ChevronLeft className="w-5 h-5 text-navy-100" />
           </button>
           <h2 className="text-lg font-semibold text-white">{monthName}</h2>
-          <button onClick={nextMonth} className="p-2 hover:bg-gray-100 hover:bg-navy-700 rounded-lg cursor-pointer">
+          <button onClick={nextMonth} className="p-2 hover:bg-navy-700 rounded-lg cursor-pointer">
             <ChevronRight className="w-5 h-5 text-navy-100" />
           </button>
         </div>
 
-        <div className="grid grid-cols-7 gap-px bg-gray-200 dark:bg-gray-700 rounded-lg overflow-hidden">
+        <div className="grid grid-cols-7 gap-px bg-navy-700 rounded-lg overflow-hidden">
           {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(d => (
-            <div key={d} className="bg-gray-50 bg-navy-800/60 px-2 py-2 text-xs font-semibold text-navy-200 text-center">{d}</div>
+            <div key={d} className="bg-navy-800/60 px-2 py-2 text-xs font-semibold text-navy-200 text-center">{d}</div>
           ))}
           {days.map((day, i) => {
             const dayEvents = getEventsForDay(day);
@@ -127,7 +127,7 @@ export default function AdminCalendar() {
                           <div className={`text-xs text-white px-1.5 py-0.5 rounded truncate ${colorMap[e.color] || 'bg-navy-500'}`}>
                             {e.title}
                           </div>
-                          <button onClick={() => handleDelete(e.id)} className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center cursor-pointer text-[10px] leading-none">×</button>
+                          <button onClick={() => handleDelete(e.id)} className="absolute -top-1 -right-1 w-4 h-4 bg-brand-red/100 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center cursor-pointer text-[10px] leading-none">×</button>
                         </div>
                       ))}
                       {dayEvents.length > 2 && (
@@ -166,7 +166,7 @@ export default function AdminCalendar() {
           <div className="bg-surface rounded-xl shadow-xl w-full max-w-md mx-4 p-6">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-lg font-semibold">Add Event</h3>
-              <button onClick={() => setShowForm(false)} className="p-1 hover:bg-gray-100 hover:bg-navy-700 rounded-lg cursor-pointer"><X className="w-5 h-5" /></button>
+              <button onClick={() => setShowForm(false)} className="p-1 hover:bg-navy-700 rounded-lg cursor-pointer"><X className="w-5 h-5" /></button>
             </div>
             <div className="space-y-4">
               <div>
