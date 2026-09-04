@@ -8,6 +8,7 @@ import {
   UserCircle, PenTool, Bell, X,
   BadgeCheck,
 } from 'lucide-react';
+import logo from '../../assets/image.png';
 
 const adminNav = [
   { section: 'Dashboard', icon: LayoutDashboard, path: '/admin' },
@@ -97,8 +98,8 @@ export default function Sidebar({ mobileOpen, onClose }) {
   return (
     <aside className={`fixed left-0 top-0 z-40 flex h-screen w-64 flex-col border-r border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 transition-transform duration-300 lg:translate-x-0 ${mobileOpen ? 'translate-x-0' : '-translate-x-full'}`}>
       <div className="flex items-center gap-3 px-4 h-16 border-b border-gray-200 dark:border-gray-800">
-        <BookOpen className="w-6 h-6 text-indigo-600 flex-shrink-0" />
-        <span className="font-bold text-lg">Lead Academy</span>
+        <img src={logo} alt="EXAMSTICK" className="w-8 h-8 object-contain flex-shrink-0" />
+        <span className="font-bold text-lg">EXAMSTICK</span>
         <button onClick={onClose} className="ml-auto p-1 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer lg:hidden" aria-label="Close navigation menu">
           <X className="w-5 h-5" />
         </button>

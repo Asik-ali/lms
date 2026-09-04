@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { BookOpen, User, Lock, AlertCircle, Eye, EyeOff } from 'lucide-react';
+import { User, Lock, AlertCircle, Eye, EyeOff } from 'lucide-react';
+import logo from '../assets/image.png';
 
 export default function LoginPage() {
   const { login } = useAuth();
@@ -39,10 +40,10 @@ export default function LoginPage() {
     <div className="min-h-screen bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <div className="w-16 h-16 rounded-2xl bg-white/20 dark:bg-gray-900/30 backdrop-blur flex items-center justify-center mx-auto mb-4">
-            <BookOpen className="w-8 h-8 text-white" />
+          <div className="w-16 h-16 rounded-2xl bg-white/20 dark:bg-gray-900/30 backdrop-blur flex items-center justify-center mx-auto mb-4 overflow-hidden">
+            <img src={logo} alt="EXAMSTICK" className="w-12 h-12 object-contain" />
           </div>
-          <h1 className="text-3xl font-bold text-white">Lead Academy</h1>
+          <h1 className="text-3xl font-bold text-white">EXAMSTICK</h1>
           <p className="text-indigo-200 mt-2">Sign in to your account</p>
         </div>
 
@@ -82,7 +83,7 @@ export default function LoginPage() {
          
 
           <div className="mt-6 pt-5 border-t border-gray-100 dark:border-gray-800 text-center text-sm text-gray-500 dark:text-gray-400">
-            New to Lead Academy?{' '}
+            New to EXAMSTICK?{' '}
             <Link to="/signup" className="font-medium text-indigo-600 hover:text-indigo-700">
               Create an account
             </Link>

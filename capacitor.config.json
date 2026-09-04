@@ -1,6 +1,6 @@
 {
   "appId": "com.lms.portal",
-  "appName": "Lead Academy",
+  "appName": "EXAMSTICK",
   "webDir": "dist",
   "server": {
     "androidScheme": "https"
