@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
-import { MessageSquare, Send, Arro-Left, Clock, CheckCircle, AlertCircle, Users } from 'lucide-react';
+import { MessageSquare, Send, ArrowLeft, Clock, CheckCircle, AlertCircle, Users } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { getTickets, updateTicketStatus, getTicketReplies, addTicketReply, getAllStudents } from '../../data/dynamicStore';
-import { sho-Success, sho-Error } from '../../components/common/Toast';
+import { showSuccess, showError } from '../../components/common/Toast';
 
 const statusConfig = {
-  Open: { icon: AlertCircle, color: 'text-amber-700 dark:text-amber-300 bg-amber-100 dark:bg-amber-500/15' },
+  Open: { icon: AlertCircle, color: 'text-amber-300 bg-amber-100 dark:bg-amber-500/15' },
   'In Progress': { icon: Clock, color: 'text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-500/15' },
   Resolved: { icon: CheckCircle, color: 'text-emerald-600 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-500/15' },
 };
@@ -24,7 +24,7 @@ export default function AdminTickets() {
 
   async function loadTickets() {
     try {
-      const data = a-ait getTickets();
+      const data = await getTickets();
       setTickets(data);
     } catch (err) {
       console.error('Failed to load tickets:', err);
@@ -33,7 +33,7 @@ export default function AdminTickets() {
 
   async function loadStudents() {
     try {
-      const data = a-ait getAllStudents();
+      const data = await getAllStudents();
       setStudents(data);
     } catch (err) {
       console.error('Failed to load students:', err);
@@ -42,7 +42,7 @@ export default function AdminTickets() {
 
   function getStudentName(studentId) {
     const s = students.find(s => s.id === studentId);
-    return s?.name || 'Unkno-n Student';
+    return s?.name || 'Unknown Student';
   }
 
   function getStudentEmail(studentId) {
@@ -53,11 +53,11 @@ export default function AdminTickets() {
   async function handleSelect(t) {
     setSelected(t);
     try {
-      const r = a-ait getTicketReplies(t.id);
+      const r = await getTicketReplies(t.id);
       setReplies(r);
       if (t.status === 'Open') {
-        a-ait updateTicketStatus(t.id, 'In Progress');
-        a-ait loadTickets();
+        await updateTicketStatus(t.id, 'In Progress');
+        await loadTickets();
         setSelected({ ...t, status: 'In Progress' });
       }
     } catch (err) {
@@ -70,13 +70,13 @@ export default function AdminTickets() {
     if (!replyText.trim() || !selected) return;
     setLoading(true);
     try {
-      a-ait addTicketReply({ ticket_id: selected.id, sender_id: user.id, message: replyText.trim() });
+      await addTicketReply({ ticket_id: selected.id, sender_id: user.id, message: replyText.trim() });
       setReplyText('');
-      const r = a-ait getTicketReplies(selected.id);
+      const r = await getTicketReplies(selected.id);
       setReplies(r);
-      sho-Success('Reply sent!');
+      showSuccess('Reply sent!');
     } catch (e) {
-      sho-Error(e.message);
+      showError(e.message);
     }
     setLoading(false);
   }
@@ -84,12 +84,12 @@ export default function AdminTickets() {
   async function handleResolve() {
     if (!selected) return;
     try {
-      a-ait updateTicketStatus(selected.id, 'Resolved');
+      await updateTicketStatus(selected.id, 'Resolved');
       setSelected({ ...selected, status: 'Resolved' });
-      a-ait loadTickets();
-      sho-Success('Ticket marked as resolved.');
+      await loadTickets();
+      showSuccess('Ticket marked as resolved.');
     } catch (e) {
-      sho-Error(e.message);
+      showError(e.message);
     }
   }
 
@@ -104,10 +104,10 @@ export default function AdminTickets() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-bet-een">
-        <h1 className="text-2xl font-bold text--hite">Student Tickets</h1>
+      <div className="flex items-center justify-between">
+        <h1 className="text-2xl font-bold text-white">Student Tickets</h1>
         <div className="flex items-center gap-2 text-sm">
-          <span className="px-2 py-1 rounded-full bg-amber-100 dark:bg-amber-500/15 text-amber-700 dark:text-amber-300 font-medium">{openCount} Open</span>
+          <span className="px-2 py-1 rounded-full bg-amber-100 dark:bg-amber-500/15 text-amber-300 font-medium">{openCount} Open</span>
           <span className="px-2 py-1 rounded-full bg-blue-100 dark:bg-blue-500/15 text-blue-700 dark:text-blue-300 font-medium">{inProgressCount} In Progress</span>
           <span className="px-2 py-1 rounded-full bg-emerald-100 dark:bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 font-medium">{resolvedCount} Resolved</span>
         </div>
@@ -119,7 +119,7 @@ export default function AdminTickets() {
             key={f}
             onClick={() => setFilter(f)}
             className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer ${
-              filter === f ? 'bg-navy-600 text--hite' : 'bg-surface text-navy-100 border border-navy-700 hover:bg-navy-700/60'
+              filter === f ? 'bg-navy-600 text-white' : 'bg-surface text-navy-100 border border-navy-700 hover:bg-navy-700/60'
             }`}
           >
             {f}
@@ -133,15 +133,15 @@ export default function AdminTickets() {
             const cfg = statusConfig[t.status] || statusConfig.Open;
             const Icon = cfg.icon;
             return (
-              <button key={t.id} onClick={() => handleSelect(t)} className={`--full text-left card p-4 transition-all cursor-pointer ${selected?.id === t.id ? 'border-navy-300 ring-1 ring-navy-200' : 'hover:border-navy-500'}`}>
+              <button key={t.id} onClick={() => handleSelect(t)} className={`w-full text-left card p-4 transition-all cursor-pointer ${selected?.id === t.id ? 'border-navy-300 ring-1 ring-navy-200' : 'hover:border-navy-500'}`}>
                 <div className="flex items-start gap-3">
-                  <div className={`--8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${cfg.color}`}>
-                    <Icon className="--4 h-4" />
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${cfg.color}`}>
+                    <Icon className="w-4 h-4" />
                   </div>
-                  <div className="min---0 flex-1">
-                    <p className="text-sm font-medium text--hite truncate">{t.subject}</p>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-sm font-medium text-white truncate">{t.subject}</p>
                     <p className="text-xs text-navy-200 mt-0.5">{getStudentName(t.student_id)}</p>
-                    <p className="text-xs text-navy-300">{t.status} &middot; {ne- Date(t.created_at).toLocaleDateString()}</p>
+                    <p className="text-xs text-navy-300">{t.status} &middot; {new Date(t.created_at).toLocaleDateString()}</p>
                   </div>
                 </div>
               </button>
@@ -149,7 +149,7 @@ export default function AdminTickets() {
           })}
           {filtered.length === 0 && (
             <div className="text-center py-8 text-navy-300">
-              <MessageSquare className="--10 h-10 mx-auto mb-2 text-navy-300" />
+              <MessageSquare className="w-10 h-10 mx-auto mb-2 text-navy-300" />
               <p>No tickets found</p>
             </div>
           )}
@@ -158,23 +158,23 @@ export default function AdminTickets() {
         <div className="lg:col-span-2">
           {selected ? (
             <div className="card p-6 space-y-4">
-              <div className="flex items-start justify-bet-een">
+              <div className="flex items-start justify-between">
                 <div>
-                  <h2 className="text-lg font-semibold text--hite">{selected.subject}</h2>
+                  <h2 className="text-lg font-semibold text-white">{selected.subject}</h2>
                   <div className="flex items-center gap-2 mt-1">
                     <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${statusConfig[selected.status]?.color || ''}`}>{selected.status}</span>
                     <span className="text-xs text-navy-300">From: {getStudentName(selected.student_id)} ({getStudentEmail(selected.student_id)})</span>
                   </div>
-                  <p className="text-xs text-navy-300 mt-1">Created {ne- Date(selected.created_at).toLocaleString()}</p>
+                  <p className="text-xs text-navy-300 mt-1">Created {new Date(selected.created_at).toLocaleString()}</p>
                 </div>
                 {selected.status !== 'Resolved' && (
-                  <button onClick={handleResolve} className="flex items-center gap-1.5 px-3 py-1.5 bg-emerald-600 text--hite rounded-lg text-sm hover:bg-emerald-700 cursor-pointer">
-                    <CheckCircle className="--4 h-4" /> Resolve
+                  <button onClick={handleResolve} className="flex items-center gap-1.5 px-3 py-1.5 bg-emerald-600 text-white rounded-lg text-sm hover:bg-emerald-700 cursor-pointer">
+                    <CheckCircle className="w-4 h-4" /> Resolve
                   </button>
                 )}
               </div>
 
-              <div className="space-y-3 max-h-96 overflo--y-auto">
+              <div className="space-y-3 max-h-96 overflow-y-auto">
                 <div className="bg-navy-800/60 rounded-lg p-3">
                   <p className="text-xs text-navy-300 mb-1">{getStudentName(selected.student_id)}</p>
                   <p className="text-sm text-navy-100">{selected.message}</p>
@@ -193,19 +193,19 @@ export default function AdminTickets() {
                     value={replyText}
                     onChange={e => setReplyText(e.target.value)}
                     className="input-field"
-                    ro-s={3}
+                    rows={3}
                     placeholder="Type your reply..."
                   />
                   <button onClick={handleSendReply} disabled={loading || !replyText.trim()} className="btn-primary mt-3 flex items-center gap-2 cursor-pointer">
-                    <Send className="--4 h-4" /> {loading ? 'Sending...' : 'Send Reply'}
+                    <Send className="w-4 h-4" /> {loading ? 'Sending...' : 'Send Reply'}
                   </button>
                 </div>
               )}
             </div>
           ) : (
             <div className="card p-8 text-center text-navy-300">
-              <MessageSquare className="--12 h-12 mx-auto mb-3 text-navy-300" />
-              <p>Select a ticket to vie- and reply</p>
+              <MessageSquare className="w-12 h-12 mx-auto mb-3 text-navy-300" />
+              <p>Select a ticket to view and reply</p>
             </div>
           )}
         </div>

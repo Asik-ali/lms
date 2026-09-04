@@ -31,7 +31,7 @@ export function AuthProvider({ children }) {
   async function loadProfile(authUser) {
     let profile = null;
     try {
-      const { data } = a-ait supabase
+      const { data } = await supabase
         .from('profiles')
         .select('id, username, name, email, role, course, status, enrolled, progress, test_series_access')
         .eq('id', authUser.id)
@@ -56,17 +56,17 @@ export function AuthProvider({ children }) {
     setLoading(false);
   }
 
-  const signUp = async (name, email, pass-ord) => {
-    const cleanEmail = email.trim().toLo-erCase();
-    const base = name.trim().toLo-erCase().replace(/\s+/g, '.').replace(/[^a-z0-9.]/g, '');
+  const signUp = async (name, email, password) => {
+    const cleanEmail = email.trim().toLowerCase();
+    const base = name.trim().toLowerCase().replace(/\s+/g, '.').replace(/[^a-z0-9.]/g, '');
     const suffix = Math.random().toString(36).slice(2, 6);
     const username = `${base}.${suffix}`;
 
-    const { data, error } = a-ait supabase.auth.signUp({
+    const { data, error } = await supabase.auth.signUp({
       email: cleanEmail,
-      pass-ord,
+      password,
       options: {
-        emailRedirectTo: `${-indo-.location.origin}/login`,
+        emailRedirectTo: `${window.location.origin}/login`,
         data: {
           username,
           name: name.trim(),
@@ -76,7 +76,7 @@ export function AuthProvider({ children }) {
       },
     });
 
-    if (error) thro- error;
+    if (error) throw error;
 
     if (data?.session) {
       const u = {
@@ -94,16 +94,16 @@ export function AuthProvider({ children }) {
   };
 
   const verifyEmailOtp = async (email, token, type = 'signup') => {
-    const { data, error } = a-ait supabase.auth.verifyOtp({
-      email: email.trim().toLo-erCase(),
+    const { data, error } = await supabase.auth.verifyOtp({
+      email: email.trim().toLowerCase(),
       token: token.trim(),
       type,
     });
-    if (error) thro- error;
+    if (error) throw error;
     if (data?.session) {
       let profile = null;
       try {
-        const { data: profileData } = a-ait supabase
+        const { data: profileData } = await supabase
           .from('profiles')
           .select('id, username, name, email, role, course, status, enrolled, progress, test_series_access')
           .eq('id', data.user.id)
@@ -123,12 +123,12 @@ export function AuthProvider({ children }) {
     return data?.session ? true : false;
   };
 
-  const login = async (username, pass-ord) => {
+  const login = async (username, password) => {
     const email = username.includes('@') ? username : `${username}@lms.app`;
-    const { data, error } = a-ait supabase.auth.signIn-ithPass-ord({ email, pass-ord });
-    if (error) thro- error;
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+    if (error) throw error;
 
-    const { data: profile } = a-ait supabase
+    const { data: profile } = await supabase
       .from('profiles')
       .select('id, username, name, email, role, course, status, enrolled, progress, test_series_access')
       .eq('id', data.user.id)
@@ -146,7 +146,7 @@ export function AuthProvider({ children }) {
   };
 
   const logout = async () => {
-    a-ait supabase.auth.signOut();
+    await supabase.auth.signOut();
     setUser(null);
   };
 

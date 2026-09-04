@@ -39,14 +39,14 @@ export default function DashboardLayout() {
   if (!user) return <Navigate to="/login" replace />;
 
   const currentPath = Object.keys(titles)
-    .filter(k => location.pathname === k || location.pathname.starts-ith(`${k}/`))
+    .filter(k => location.pathname === k || location.pathname.startsWith(`${k}/`))
     .sort((a, b) => b.length - a.length)[0] || '';
 
   return (
-    <div className="min-h-screen bg-navy-950 text--hite">
+    <div className="min-h-screen bg-navy-950 text-white">
       {mobileMenuOpen && <button onClick={() => setMobileMenuOpen(false)} className="fixed inset-0 z-30 bg-navy-950/50 lg:hidden" aria-label="Close navigation menu" />}
       <Sidebar mobileOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
-      <div className="min---0 transition-all duration-300 lg:ml-64">
+      <div className="min-w-0 transition-all duration-300 lg:ml-64">
         <Topbar title={titles[currentPath] || 'Dashboard'} onMenuClick={() => setMobileMenuOpen(true)} />
         <main className="p-4 sm:p-6 bg-navy-950 page-enter">
           <Outlet />

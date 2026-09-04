@@ -15,13 +15,13 @@ function arcPath(cx, cy, r, startAngle, endAngle) {
 export default function PerformanceChart({ attempt }) {
   const data = attempt || {};
   const correct = data.correct_count ?? 0;
-  const -rong = data.-rong_count ?? 0;
+  const wrong = data.wrong_count ?? 0;
   const skipped = data.skipped_count ?? 0;
-  const total = correct + -rong + skipped;
+  const total = correct + wrong + skipped;
 
   const segments = [
     { label: "Correct", value: correct, color: "#10b981" },
-    { label: "-rong", value: -rong, color: "#f43f5e" },
+    { label: "Wrong", value: wrong, color: "#f43f5e" },
     { label: "Skipped", value: skipped, color: "#94a3b8" },
   ];
 
@@ -35,36 +35,36 @@ export default function PerformanceChart({ attempt }) {
   const arcs = segments
     .filter((s) => s.value > 0 && total > 0)
     .map((s) => {
-      const s-eep = (s.value / total) * 360;
+      const sweep = (s.value / total) * 360;
       const seg = {
         ...s,
-        d: arcPath(cx, cy, r, angle, angle + s-eep),
+        d: arcPath(cx, cy, r, angle, angle + sweep),
       };
-      angle += s-eep;
+      angle += sweep;
       return seg;
     });
 
   const percentage =
-    total > 0 ? Math.round(((correct + -rong * 0) / total) * 100) : 0;
+    total > 0 ? Math.round(((correct + wrong * 0) / total) * 100) : 0;
   const score = data.score ?? 0;
   const totalMarks = data.total_marks ?? 0;
 
   return (
-    <div className="--full rounded-2xl border border-navy-700 bg-surface p-4 shado--sm sm:p-6">
-      <h3 className="mb-4 text-sm font-bold uppercase tracking--ide text-navy-200">
+    <div className="w-full rounded-2xl border border-navy-700 bg-surface p-4 shadow-sm sm:p-6">
+      <h3 className="mb-4 text-sm font-bold uppercase tracking-wide text-navy-200">
         Performance
       </h3>
 
-      <div className="flex flex-col items-center gap-6 sm:flex-ro- sm:justify-around">
-        <div className="relative" style={{ -idth: size, height: size }}>
-          <svg -idth={size} height={size} vie-Box={`0 0 ${size} ${size}`}>
+      <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-around">
+        <div className="relative" style={{ width: size, height: size }}>
+          <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
             <circle
               cx={cx}
               cy={cy}
               r={r}
               fill="none"
               stroke="#e2e8f0"
-              stroke-idth={stroke}
+              strokeWidth={stroke}
             />
             {arcs.map((a) => (
               <path
@@ -72,13 +72,13 @@ export default function PerformanceChart({ attempt }) {
                 d={a.d}
                 fill="none"
                 stroke={a.color}
-                stroke-idth={stroke}
+                strokeWidth={stroke}
                 strokeLinecap="butt"
               />
             ))}
           </svg>
           <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <span className="text-2xl font-bold text--hite">
+            <span className="text-2xl font-bold text-white">
               {score}
               {totalMarks > 0 && (
                 <span className="text-base font-medium text-navy-300">
@@ -92,20 +92,20 @@ export default function PerformanceChart({ attempt }) {
           </div>
         </div>
 
-        <div className="--full max---xs space-y-2">
+        <div className="w-full max-w-xs space-y-2">
           {segments.map((s) => (
             <div
               key={s.label}
-              className="flex items-center justify-bet-een rounded-lg border border-navy-700 border-navy-700 px-3 py-2"
+              className="flex items-center justify-between rounded-lg border border-navy-700 border-navy-700 px-3 py-2"
             >
               <span className="flex items-center gap-2 text-sm text-navy-200">
                 <span
-                  className="h-3 --3 rounded-full"
+                  className="h-3 w-3 rounded-full"
                   style={{ backgroundColor: s.color }}
                 />
                 {s.label}
               </span>
-              <span className="text-sm font-semibold text--hite">
+              <span className="text-sm font-semibold text-white">
                 {s.value}
                 <span className="ml-1 text-xs font-normal text-navy-300">
                   {total > 0 ? Math.round((s.value / total) * 100) : 0}%

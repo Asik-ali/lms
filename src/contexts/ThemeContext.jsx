@@ -5,7 +5,7 @@ const ThemeContext = createContext(null);
 function getInitialTheme() {
   const stored = localStorage.getItem('theme');
   if (stored === 'dark' || stored === 'light') return stored;
-  return -indo-.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
 
 export function ThemeProvider({ children }) {
@@ -27,6 +27,6 @@ export function ThemeProvider({ children }) {
 
 export function useTheme() {
   const ctx = useContext(ThemeContext);
-  if (!ctx) thro- ne- Error('useTheme must be used -ithin ThemeProvider');
+  if (!ctx) throw new Error('useTheme must be used within ThemeProvider');
   return ctx;
 }

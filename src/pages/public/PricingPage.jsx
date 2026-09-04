@@ -10,8 +10,8 @@ export default function PricingPage() {
   useEffect(() => {
     (async () => {
       try {
-        let p = a-ait getSalesPlans();
-        p = a-ait decoratePlanItems(p);
+        let p = await getSalesPlans();
+        p = await decoratePlanItems(p);
         setPlans(p);
       } catch (err) {
         console.error('Failed to load plans:', err);
@@ -23,52 +23,52 @@ export default function PricingPage() {
 
   return (
     <div className="space-y-16">
-      <section className="bg-gradient-to-r from-navy-900 to-navy-600 text--hite py-16">
-        <div className="max---7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="bg-gradient-to-r from-navy-900 to-navy-600 text-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-3xl sm:text-4xl font-bold">Pricing</h1>
           <p className="mt-3 text-navy-100">Choose a plan that fits your learning goals. All prices are in Indian Rupees (INR).</p>
         </div>
       </section>
 
-      <section className="max---7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         {loading ? (
           <div className="flex items-center justify-center py-16 text-navy-300">
-            <Loader2 className="--6 h-6 animate-spin mr-2" /> Loading plans...
+            <Loader2 className="w-6 h-6 animate-spin mr-2" /> Loading plans...
           </div>
         ) : plans.length === 0 ? (
           <div className="card p-10 text-center text-navy-300">
-            <CreditCard className="--12 h-12 mx-auto mb-3 text-navy-300" />
-            <p>No plans available right no-. Check back soon!</p>
+            <CreditCard className="w-12 h-12 mx-auto mb-3 text-navy-300" />
+            <p>No plans available right now. Check back soon!</p>
           </div>
         ) : (
           <>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {plans.map(plan => (
                 <div key={plan.id} className="card p-6 flex flex-col">
-                  <h2 className="text-lg font-bold text--hite mb-1">{plan.name}</h2>
+                  <h2 className="text-lg font-bold text-white mb-1">{plan.name}</h2>
                   {plan.description && <p className="text-sm text-navy-200 mb-4">{plan.description}</p>}
                   <div className="flex items-baseline gap-1 mb-4">
-                    <IndianRupee className="--4 h-4 text-navy-200" />
-                    <span className="text-3xl font-bold text--hite">{plan.price.toLocaleString('en-IN')}</span>
+                    <IndianRupee className="w-4 h-4 text-navy-200" />
+                    <span className="text-3xl font-bold text-white">{plan.price.toLocaleString('en-IN')}</span>
                     <span className="text-sm text-navy-300">INR</span>
                   </div>
                   <div className="space-y-2 mb-6 flex-1">
                     {plan.items.length === 0 ? (
                       <p className="flex items-center gap-2 text-sm text-navy-100">
-                        <Check className="--4 h-4 text-emerald-500" /> Full plan access
+                        <Check className="w-4 h-4 text-emerald-500" /> Full plan access
                       </p>
                     ) : (
                       plan.items.map((it, i) => (
                         <div key={i} className="flex items-center gap-2 text-sm text-navy-100">
                           {it.item_type === 'course'
-                            ? <BookOpen className="--4 h-4 text-navy-500 flex-shrink-0" />
-                            : <PenTool className="--4 h-4 text-emerald-500 flex-shrink-0" />}
+                            ? <BookOpen className="w-4 h-4 text-navy-500 flex-shrink-0" />
+                            : <PenTool className="w-4 h-4 text-emerald-500 flex-shrink-0" />}
                           <span className="truncate">{it.label}</span>
                         </div>
                       ))
                     )}
                   </div>
-                  <Link to="/signup" className="btn-primary --full flex items-center justify-center gap-2 text-center">
+                  <Link to="/signup" className="btn-primary w-full flex items-center justify-center gap-2 text-center">
                     Get Started
                   </Link>
                 </div>

@@ -19,10 +19,10 @@ export default function PublicLayout() {
   return (
     <div className="min-h-screen flex flex-col bg-navy-950">
       <header className="sticky top-0 z-40 bg-navy-900 border-b border-navy-700">
-        <div className="max---7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-bet-een">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
-            <img src={logo} alt="EXAMSTICK" className="--8 h-8 object-contain" />
-            <span className="font-bold text-lg text--hite">EXAMSTICK</span>
+            <img src={logo} alt="EXAMSTICK" className="w-8 h-8 object-contain" />
+            <span className="font-bold text-lg text-white">EXAMSTICK</span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-6">
@@ -33,7 +33,7 @@ export default function PublicLayout() {
                 className={`text-sm font-medium transition-all duration-200 ${
                   location.pathname === link.path
                     ? 'text-gold-400 border-b-2 border-gold-400 pb-0.5'
-                    : 'text-navy-100 hover:text--hite'
+                    : 'text-navy-100 hover:text-white'
                 }`}
               >
                 {link.label}
@@ -47,9 +47,9 @@ export default function PublicLayout() {
               className="p-2 rounded-lg hover:bg-navy-800 cursor-pointer"
               aria-label="Toggle theme"
             >
-              {theme === 'dark' ? <Sun className="--5 h-5 text-navy-100" /> : <Moon className="--5 h-5 text-navy-100" />}
+              {theme === 'dark' ? <Sun className="w-5 h-5 text-navy-100" /> : <Moon className="w-5 h-5 text-navy-100" />}
             </button>
-            <Link to="/signup" className="hidden sm:inline-flex text-sm font-medium text-navy-100 hover:text--hite">
+            <Link to="/signup" className="hidden sm:inline-flex text-sm font-medium text-navy-100 hover:text-white">
               Sign Up
             </Link>
             <Link to="/login" className="btn-primary hidden sm:inline-flex">
@@ -60,7 +60,7 @@ export default function PublicLayout() {
               className="p-2 rounded-lg hover:bg-navy-800 md:hidden cursor-pointer"
               aria-label="Toggle menu"
             >
-              {mobileOpen ? <X className="--5 h-5 text-navy-100" /> : <Menu className="--5 h-5 text-navy-100" />}
+              {mobileOpen ? <X className="w-5 h-5 text-navy-100" /> : <Menu className="w-5 h-5 text-navy-100" />}
             </button>
           </div>
         </div>
@@ -76,7 +76,7 @@ export default function PublicLayout() {
                   className={`block px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                     location.pathname === link.path
                       ? 'bg-navy-700 text-gold-300'
-                      : 'text-navy-100 hover:bg-navy-800 hover:text--hite'
+                      : 'text-navy-100 hover:bg-navy-800 hover:text-white'
                   }`}
                 >
                   {link.label}
@@ -85,7 +85,7 @@ export default function PublicLayout() {
               <Link
                 to="/signup"
                 onClick={() => setMobileOpen(false)}
-                className="block px-3 py-2 rounded-lg text-sm font-medium text-navy-100 hover:bg-navy-800 hover:text--hite mt-2"
+                className="block px-3 py-2 rounded-lg text-sm font-medium text-navy-100 hover:bg-navy-800 hover:text-white mt-2"
               >
                 Sign Up
               </Link>
@@ -106,17 +106,17 @@ export default function PublicLayout() {
       </main>
 
       <footer className="bg-dknavy border-t border-navy-700 text-navy-100">
-        <div className="max---7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <img src={logo} alt="EXAMSTICK" className="--6 h-6 object-contain" />
-                <span className="font-bold text--hite">EXAMSTICK</span>
+                <img src={logo} alt="EXAMSTICK" className="w-6 h-6 object-contain" />
+                <span className="font-bold text-white">EXAMSTICK</span>
               </div>
               <p className="text-sm text-navy-200">A modern learning management system for courses, live classes, and test series.</p>
             </div>
             <div>
-              <h4 className="text-sm font-semibold text--hite mb-3">Quick Links</h4>
+              <h4 className="text-sm font-semibold text-white mb-3">Quick Links</h4>
               <ul className="space-y-2 text-sm">
                 {navLinks.map(link => (
                   <li key={link.path}>
@@ -126,21 +126,21 @@ export default function PublicLayout() {
               </ul>
             </div>
             <div>
-              <h4 className="text-sm font-semibold text--hite mb-3">Support</h4>
+              <h4 className="text-sm font-semibold text-white mb-3">Support</h4>
               <ul className="space-y-2 text-sm">
                 <li><Link to="/faq" className="hover:text-gold-300 transition-colors">FAQ</Link></li>
                 <li><Link to="/contact" className="hover:text-gold-300 transition-colors">Contact Us</Link></li>
               </ul>
             </div>
             <div>
-              <h4 className="text-sm font-semibold text--hite mb-3">Legal</h4>
+              <h4 className="text-sm font-semibold text-white mb-3">Legal</h4>
               <ul className="space-y-2 text-sm">
                 <li><Link to="/terms" className="hover:text-gold-300 transition-colors">Terms &amp; Conditions</Link></li>
                 <li><Link to="/refunds" className="hover:text-gold-300 transition-colors">Refunds &amp; Cancellations</Link></li>
               </ul>
             </div>
             <div>
-              <h4 className="text-sm font-semibold text--hite mb-3">Contact</h4>
+              <h4 className="text-sm font-semibold text-white mb-3">Contact</h4>
               <ul className="space-y-2 text-sm text-navy-100">
                 <li>info@examstick.com</li>
                 <li>+91 555 123 4567</li>
@@ -148,7 +148,7 @@ export default function PublicLayout() {
             </div>
           </div>
           <div className="border-t border-navy-700 mt-8 pt-8 text-center text-xs text-navy-200">
-            &copy; {ne- Date().getFullYear()} EXAMSTICK Platform. All rights reserved.
+            &copy; {new Date().getFullYear()} EXAMSTICK Platform. All rights reserved.
           </div>
         </div>
       </footer>

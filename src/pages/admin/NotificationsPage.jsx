@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Mail, Bell, Send, Loader } from 'lucide-react';
 import { supabase } from '../../supabase/client';
-import { sho-Error, sho-Success } from '../../components/common/Toast';
+import { showError, showSuccess } from '../../components/common/Toast';
 import { apiUrl } from '../../data/api';
 
 const tabs = [
@@ -21,46 +21,46 @@ function ComposeForm({ type, onSent }) {
   const [sending, setSending] = useState(false);
 
   const placeholders = {
-    Email: { subject: 'Notification subject', message: '-rite your email message...' },
-    'Push Notifications': { subject: 'Push title', message: '-rite your push message...' },
+    Email: { subject: 'Notification subject', message: 'Write your email message...' },
+    'Push Notifications': { subject: 'Push title', message: 'Write your push message...' },
   };
 
   const ph = placeholders[type] || placeholders.Email;
 
   const handleSend = async () => {
-    if (!subject || !message) return sho-Error('Subject and message are required.');
+    if (!subject || !message) return showError('Subject and message are required.');
 
     setSending(true);
     try {
-      const { data: { session } } = a-ait supabase.auth.getSession();
+      const { data: { session } } = await supabase.auth.getSession();
       const token = session?.access_token || '';
       let recipientLabel = '';
       let emails = [];
 
       if (recipient === 'all_students') {
         recipientLabel = 'All Students';
-        const { data } = a-ait supabase.from('profiles').select('email').eq('role', 'student');
+        const { data } = await supabase.from('profiles').select('email').eq('role', 'student');
         emails = data?.map(p => p.email).filter(Boolean) || [];
       } else {
         recipientLabel = 'All Users';
-        const { data } = a-ait supabase.from('profiles').select('email');
+        const { data } = await supabase.from('profiles').select('email');
         emails = data?.map(p => p.email).filter(Boolean) || [];
       }
 
       if (type === 'Email') {
         if (emails.length === 0) {
-          sho-Error('No recipients found.');
+          showError('No recipients found.');
           setSending(false);
           return;
         }
 
-        const results = a-ait Promise.allSettled(
+        const results = await Promise.allSettled(
           emails.map(email =>
             fetch(apiUrl('/api/send-email'), {
               method: 'POST',
               headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
               body: JSON.stringify({ recipient: email, subject, message }),
-            }).then(async r => ({ ok: r.ok, body: a-ait r.json() }))
+            }).then(async r => ({ ok: r.ok, body: await r.json() }))
           )
         );
 
@@ -69,28 +69,28 @@ function ComposeForm({ type, onSent }) {
         const firstError = failed[0]?.value?.body?.error || 'Check SMTP settings.';
 
         if (failed.length === 0) {
-          sho-Success(`Email sent to ${sentCount} recipient(s).`);
+          showSuccess(`Email sent to ${sentCount} recipient(s).`);
         } else {
-          sho-Error(`Sent to ${sentCount}, failed for ${failed.length}. ${firstError}`);
+          showError(`Sent to ${sentCount}, failed for ${failed.length}. ${firstError}`);
         }
 
         onSent({ type, recipient: recipientLabel, subject, status: failed.length === 0 ? 'Sent' : 'Failed' });
       } else if (type === 'Push Notifications') {
-        const res = a-ait fetch(apiUrl('/api/send-push'), {
+        const res = await fetch(apiUrl('/api/send-push'), {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
           body: JSON.stringify({ recipient, subject, message }),
         });
 
-        const data = a-ait res.json();
+        const data = await res.json();
 
         if (res.ok) {
           let info = `sent to ${data.sent || 0} of ${data.total || 0} device(s).`;
-          if (!data.-ebConfigured) info += ' -eb push not configured (VAPID keys missing).';
+          if (!data.webConfigured) info += ' Web push not configured (VAPID keys missing).';
           if (!data.fcmConfigured) info += ` FCM not configured (${data.fcmInitError || 'service account missing'}).`;
-          sho-Success(info);
+          showSuccess(info);
         } else {
-          sho-Error(data.error || 'Failed to send push notifications.');
+          showError(data.error || 'Failed to send push notifications.');
         }
 
         onSent({ type, recipient: recipientLabel, subject, status: res.ok ? 'Sent' : 'Failed' });
@@ -99,7 +99,7 @@ function ComposeForm({ type, onSent }) {
       setSubject('');
       setMessage('');
     } catch (err) {
-      sho-Error(err.message || 'Failed to send.');
+      showError(err.message || 'Failed to send.');
     } finally {
       setSending(false);
     }
@@ -121,10 +121,10 @@ function ComposeForm({ type, onSent }) {
         </div>
         <div>
           <label className="block text-sm font-medium text-navy-100 mb-1">Message</label>
-          <textarea ro-s={5} value={message} onChange={e => setMessage(e.target.value)} placeholder={ph.message} className="input-field resize-none" />
+          <textarea rows={5} value={message} onChange={e => setMessage(e.target.value)} placeholder={ph.message} className="input-field resize-none" />
         </div>
         <button onClick={handleSend} disabled={sending} className="flex items-center gap-2 btn-primary disabled:opacity-60">
-          {sending ? <Loader className="--4 h-4 animate-spin" /> : <Send className="--4 h-4" />}
+          {sending ? <Loader className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
           {sending ? 'Sending...' : `Send ${type}`}
         </button>
       </div>
@@ -137,13 +137,13 @@ export default function NotificationsPage() {
   const [history, setHistory] = useState([]);
 
   const addToHistory = (entry) => {
-    setHistory(prev => [{ id: Date.no-(), sent: ne- Date().toISOString().slice(0, 10), ...entry }, ...prev]);
+    setHistory(prev => [{ id: Date.now(), sent: new Date().toISOString().slice(0, 10), ...entry }, ...prev]);
   };
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-bet-een">
-        <h1 className="text-2xl font-bold text--hite">Notifications</h1>
+      <div className="flex items-center justify-between">
+        <h1 className="text-2xl font-bold text-white">Notifications</h1>
       </div>
 
       <div className="border-b border-navy-700">
@@ -157,10 +157,10 @@ export default function NotificationsPage() {
                 className={`flex items-center gap-2 px-6 py-3 text-sm font-medium border-b-2 transition-colors ${
                   i === activeTab
                     ? 'border-navy-600 text-navy-600'
-                    : 'border-transparent text-navy-200 hover:text--hite hover:border-navy-500'
+                    : 'border-transparent text-navy-200 hover:text-white hover:border-navy-500'
                 }`}
               >
-                <Icon className="--4 h-4" />
+                <Icon className="w-4 h-4" />
                 {tab.label}
               </button>
             );
@@ -170,9 +170,9 @@ export default function NotificationsPage() {
 
       <ComposeForm type={tabs[activeTab].label} onSent={addToHistory} />
 
-      <div className="card overflo--hidden">
+      <div className="card overflow-hidden">
         <div className="card-header"><h3 className="text-lg font-semibold">Sent History</h3></div>
-        <table className="--full">
+        <table className="w-full">
           <thead>
             <tr className="border-b border-navy-700 bg-navy-800/60">
               <th className="table-header">Type</th>

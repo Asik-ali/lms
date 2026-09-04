@@ -1,22 +1,22 @@
 import { useState } from 'react';
-import { ChevronDo-n, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 
 const sections = [
   {
-    title: '1. Overvie-',
+    title: '1. Overview',
     body: 'This Refunds & Cancellations Policy applies to all purchases made on the LMS Platform, including paid courses, subscriptions, and test series. Access to purchased Products is digital and delivered instantly, so our cancellation and refund policy reflects the nature of digital content.',
   },
   {
-    title: '2. Ho- to Request a Refund',
-    body: 'To request a refund, contact our support team through the Contact page or Messages section -ithin 7 days of purchase. Include your order ID (beginning -ith "LMS") and the reason for the request. Refund requests are revie-ed on a case-by-case basis.',
+    title: '2. How to Request a Refund',
+    body: 'To request a refund, contact our support team through the Contact page or Messages section within 7 days of purchase. Include your order ID (beginning with "LMS") and the reason for the request. Refund requests are reviewed on a case-by-case basis.',
   },
   {
-    title: '3. No Refund for Do-nloaded or Fully Consumed Content',
-    body: 'Because digital Products are delivered immediately, refunds are not provided once content has been substantially accessed, do-nloaded, or consumed. This includes fully completed courses or fully taken test series.',
+    title: '3. No Refund for Downloaded or Fully Consumed Content',
+    body: 'Because digital Products are delivered immediately, refunds are not provided once content has been substantially accessed, downloaded, or consumed. This includes fully completed courses or fully taken test series.',
   },
   {
-    title: '4. -hen Refunds Are Granted',
-    body: 'Refunds may be granted in the follo-ing situations: (a) duplicate or erroneous charges, (b) the purchased Product is defective or inaccessible due to a Platform error that -e cannot resolve, or (c) you did not receive access to a purchased Product despite a successful payment.',
+    title: '4. When Refunds Are Granted',
+    body: 'Refunds may be granted in the following situations: (a) duplicate or erroneous charges, (b) the purchased Product is defective or inaccessible due to a Platform error that we cannot resolve, or (c) you did not receive access to a purchased Product despite a successful payment.',
   },
   {
     title: '5. Refund Processing',
@@ -24,7 +24,7 @@ const sections = [
   },
   {
     title: '6. Cancellations',
-    body: 'Recurring subscription plans may be cancelled at any time through your account. The subscription -ill remain active until the end of the current billing period. No partial refunds are provided for the remainder of a billing period after cancellation.',
+    body: 'Recurring subscription plans may be cancelled at any time through your account. The subscription will remain active until the end of the current billing period. No partial refunds are provided for the remainder of a billing period after cancellation.',
   },
   {
     title: '7. Contact Us',
@@ -37,26 +37,26 @@ export default function RefundPolicyPage() {
 
   return (
     <div className="space-y-16">
-      <section className="bg-gradient-to-r from-navy-900 to-navy-600 text--hite py-16">
-        <div className="max---7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="bg-gradient-to-r from-navy-900 to-navy-600 text-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-3xl sm:text-4xl font-bold">Refunds &amp; Cancellations</h1>
           <p className="mt-3 text-navy-100">Our policy for digital course and test series purchases.</p>
         </div>
       </section>
 
-      <section className="max---3xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+      <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         <div className="space-y-3">
           {sections.map((s, i) => (
-            <div key={i} className="card overflo--hidden">
+            <div key={i} className="card overflow-hidden">
               <button
                 onClick={() => setOpen(open === i ? null : i)}
-                className="--full flex items-center justify-bet-een p-4 sm:p-5 text-left cursor-pointer"
+                className="w-full flex items-center justify-between p-4 sm:p-5 text-left cursor-pointer"
               >
-                <span className="font-medium text--hite pr-4">{s.title}</span>
+                <span className="font-medium text-white pr-4">{s.title}</span>
                 {open === i ? (
-                  <ChevronUp className="--5 h-5 text-navy-300 flex-shrink-0" />
+                  <ChevronUp className="w-5 h-5 text-navy-300 flex-shrink-0" />
                 ) : (
-                  <ChevronDo-n className="--5 h-5 text-navy-300 flex-shrink-0" />
+                  <ChevronDown className="w-5 h-5 text-navy-300 flex-shrink-0" />
                 )}
               </button>
               {open === i && (
@@ -67,7 +67,7 @@ export default function RefundPolicyPage() {
             </div>
           ))}
         </div>
-        <p className="text-xs text-navy-300 mt-8">Last updated: {ne- Date().toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+        <p className="text-xs text-navy-300 mt-8">Last updated: {new Date().toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
       </section>
     </div>
   );

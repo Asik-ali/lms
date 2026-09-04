@@ -1,18 +1,18 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useNavigate, Navigate } from 'react-router-dom';
-import { Search, Plus, Arro-Left, UserPlus, Copy, Check, LogIn, Save, X, KeyRound, BookOpen, Trash2 } from 'lucide-react';
+import { Search, Plus, ArrowLeft, UserPlus, Copy, Check, LogIn, Save, X, KeyRound, BookOpen, Trash2 } from 'lucide-react';
 import { supabase } from '../../supabase/client';
 import { getAllStudents, getAllCourses, getAllTestSeries } from '../../data/dynamicStore';
 import { apiUrl } from '../../data/api';
 import { useAuth } from '../../contexts/AuthContext';
-import { sho-Error, sho-Success } from '../../components/common/Toast';
+import { showError, showSuccess } from '../../components/common/Toast';
 import { normalizeCourseAccessSelection, serializeCourseAccess, getCourseAccessLabel } from './studentCourseAccess';
 
 function AddStudentForm({ onBack, onStudentAdded }) {
   const { logout } = useAuth();
   const navigate = useNavigate();
   const [courses, setCourses] = useState([]);
-  const [form, setForm] = useState({ name: '', email: '', course: '', enrolled: ne- Date().toISOString().split('T')[0] });
+  const [form, setForm] = useState({ name: '', email: '', course: '', enrolled: new Date().toISOString().split('T')[0] });
   const [submitted, setSubmitted] = useState(false);
   const [credentials, setCredentials] = useState(null);
   const [copied, setCopied] = useState(false);
@@ -27,20 +27,20 @@ function AddStudentForm({ onBack, onStudentAdded }) {
     setSubmitError('');
     setIsSubmitting(true);
     try {
-      const res = a-ait fetch(apiUrl('/api/create-student'), {
+      const res = await fetch(apiUrl('/api/create-student'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: form.name,
-          email: form.email.trim().toLo-erCase(),
+          email: form.email.trim().toLowerCase(),
           course: form.course || null,
           enrolled: form.enrolled,
         }),
       });
-      const data = a-ait res.json();
-      if (!res.ok) thro- ne- Error(data.error || 'Unable to add the student.');
-      a-ait onStudentAdded();
-      setCredentials({ email: data.email, pass-ord: data.pass-ord });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Unable to add the student.');
+      await onStudentAdded();
+      setCredentials({ email: data.email, password: data.password });
       setSubmitted(true);
     } catch (error) {
       setSubmitError(error.message || 'Unable to add the student.');
@@ -50,51 +50,51 @@ function AddStudentForm({ onBack, onStudentAdded }) {
   };
 
   const copyCredentials = () => {
-    navigator.clipboard?.-riteText(`Email: ${credentials.email}\nPass-ord: ${credentials.pass-ord}`);
+    navigator.clipboard?.writeText(`Email: ${credentials.email}\nPassword: ${credentials.password}`);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
   const quickLogin = () => {
     logout();
-    navigate(`/login?username=${encodeURIComponent(credentials.email)}&pass-ord=${encodeURIComponent(credentials.pass-ord)}`);
+    navigate(`/login?username=${encodeURIComponent(credentials.email)}&password=${encodeURIComponent(credentials.password)}`);
   };
 
   if (submitted) {
     return (
-      <div className="max---2xl">
-        <button onClick={() => { setSubmitted(false); setCredentials(null); }} className="flex items-center gap-2 text-sm text-navy-200 hover:text--hite mb-6">
-          <Arro-Left className="--4 h-4" /> Back
+      <div className="max-w-2xl">
+        <button onClick={() => { setSubmitted(false); setCredentials(null); }} className="flex items-center gap-2 text-sm text-navy-200 hover:text-white mb-6">
+          <ArrowLeft className="w-4 h-4" /> Back
         </button>
         <div className="card p-8 text-center">
-          <div className="--16 h-16 rounded-full bg-emerald-500/15 flex items-center justify-center mx-auto mb-4">
-            <UserPlus className="--8 h-8 text-emerald-400" />
+          <div className="w-16 h-16 rounded-full bg-emerald-500/15 flex items-center justify-center mx-auto mb-4">
+            <UserPlus className="w-8 h-8 text-emerald-400" />
           </div>
-          <h2 className="text-xl font-semibold text--hite mb-2">Student Added Successfully!</h2>
+          <h2 className="text-xl font-semibold text-white mb-2">Student Added Successfully!</h2>
           <p className="text-navy-200 mb-6">{form.name} has been enrolled in {form.course}.</p>
-          <div className="max---sm mx-auto bg-navy-50 dark:bg-navy-500/10 border border-navy-200 rounded-xl p-5 mb-6">
+          <div className="max-w-sm mx-auto bg-navy-50 dark:bg-navy-500/10 border border-navy-200 rounded-xl p-5 mb-6">
             <h3 className="text-sm font-semibold text-navy-800 dark:text-navy-300 mb-3">Login Credentials</h3>
-            <p className="text-xs text-navy-600 dark:text-navy-300 mb-3">Share these credentials -ith the student.</p>
+            <p className="text-xs text-navy-600 dark:text-navy-300 mb-3">Share these credentials with the student.</p>
             <div className="space-y-2 text-left">
-              <div className="flex items-center justify-bet-een bg-surface rounded-lg px-3 py-2 border border-navy-100">
+              <div className="flex items-center justify-between bg-surface rounded-lg px-3 py-2 border border-navy-100">
                 <span className="text-xs text-navy-200">Login email</span>
-                <span className="text-sm font-mono font-medium text--hite break-all">{credentials.email}</span>
+                <span className="text-sm font-mono font-medium text-white break-all">{credentials.email}</span>
               </div>
-              <div className="flex items-center justify-bet-een bg-surface rounded-lg px-3 py-2 border border-navy-100">
-                <span className="text-xs text-navy-200">Pass-ord</span>
-                <span className="text-sm font-mono font-medium text--hite">{credentials.pass-ord}</span>
+              <div className="flex items-center justify-between bg-surface rounded-lg px-3 py-2 border border-navy-100">
+                <span className="text-xs text-navy-200">Password</span>
+                <span className="text-sm font-mono font-medium text-white">{credentials.password}</span>
               </div>
             </div>
-            <button onClick={copyCredentials} className="mt-3 --full flex items-center justify-center gap-2 text-sm text-navy-700 dark:text-navy-300 bg-navy-800 border border-navy-200 rounded-lg px-3 py-2 hover:bg-navy-100 dark:hover:bg-navy-500/15 transition-colors cursor-pointer">
-              {copied ? <Check className="--4 h-4" /> : <Copy className="--4 h-4" />}
+            <button onClick={copyCredentials} className="mt-3 w-full flex items-center justify-center gap-2 text-sm text-navy-700 dark:text-navy-300 bg-navy-800 border border-navy-200 rounded-lg px-3 py-2 hover:bg-navy-100 dark:hover:bg-navy-500/15 transition-colors cursor-pointer">
+              {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
               {copied ? 'Copied!' : 'Copy Credentials'}
             </button>
-            <button onClick={quickLogin} className="mt-2 --full flex items-center justify-center gap-2 text-sm text-navy-700 dark:text-navy-300 bg-navy-800 border border-navy-200 rounded-lg px-3 py-2 hover:bg-navy-100 dark:hover:bg-navy-500/15 transition-colors cursor-pointer">
-              <LogIn className="--4 h-4" /> Quick Login as {form.name.split(' ')[0]}
+            <button onClick={quickLogin} className="mt-2 w-full flex items-center justify-center gap-2 text-sm text-navy-700 dark:text-navy-300 bg-navy-800 border border-navy-200 rounded-lg px-3 py-2 hover:bg-navy-100 dark:hover:bg-navy-500/15 transition-colors cursor-pointer">
+              <LogIn className="w-4 h-4" /> Quick Login as {form.name.split(' ')[0]}
             </button>
           </div>
           <div className="flex items-center justify-center gap-3">
-            <button onClick={() => { setSubmitted(false); setCredentials(null); setForm({ name: '', email: '', course: courses[0]?.title || '', enrolled: ne- Date().toISOString().split('T')[0] }); }} className="btn-primary">Add Another</button>
+            <button onClick={() => { setSubmitted(false); setCredentials(null); setForm({ name: '', email: '', course: courses[0]?.title || '', enrolled: new Date().toISOString().split('T')[0] }); }} className="btn-primary">Add Another</button>
             <button onClick={onBack} className="btn-secondary">Back to Students</button>
           </div>
         </div>
@@ -103,14 +103,14 @@ function AddStudentForm({ onBack, onStudentAdded }) {
   }
 
   return (
-    <div className="max---2xl">
-      <button onClick={onBack} className="flex items-center gap-2 text-sm text-navy-200 hover:text--hite mb-6">
-        <Arro-Left className="--4 h-4" /> Back to Students
+    <div className="max-w-2xl">
+      <button onClick={onBack} className="flex items-center gap-2 text-sm text-navy-200 hover:text-white mb-6">
+        <ArrowLeft className="w-4 h-4" /> Back to Students
       </button>
       <div className="card">
         <div className="card-header">
-          <h2 className="text-lg font-semibold">Add Ne- Student</h2>
-          <p className="text-sm text-navy-200 mt-1">Fill in the details to enroll a ne- student — credentials -ill be auto-generated</p>
+          <h2 className="text-lg font-semibold">Add New Student</h2>
+          <p className="text-sm text-navy-200 mt-1">Fill in the details to enroll a new student — credentials will be auto-generated</p>
         </div>
         <form onSubmit={handleSubmit} className="p-6 space-y-5">
           {submitError && <p className="rounded-lg bg-brand-red/10 dark:bg-brand-red/10 px-3 py-2 text-sm text-red-300">{submitError}</p>}
@@ -183,7 +183,7 @@ function StudentProfile({ student, onBack, onSaved }) {
     if (!student) return;
     setSaving(true);
     try {
-      const { error } = a-ait supabase.from('profiles').update({
+      const { error } = await supabase.from('profiles').update({
         name: form.name,
         email: form.email,
         course: form.course || null,
@@ -191,23 +191,23 @@ function StudentProfile({ student, onBack, onSaved }) {
         enrolled: form.enrolled,
         progress: Number(form.progress),
       }).eq('id', student.id);
-      if (error) thro- error;
-      sho-Success('Student profile updated.');
-      a-ait onSaved();
+      if (error) throw error;
+      showSuccess('Student profile updated.');
+      await onSaved();
       onBack();
     } catch (error) {
-      sho-Error(error.message || 'Unable to update student profile.');
+      showError(error.message || 'Unable to update student profile.');
     } finally {
       setSaving(false);
     }
   };
 
-  if (!student) return <div className="p-6 text-navy-300">Select a student to vie- profile.</div>;
+  if (!student) return <div className="p-6 text-navy-300">Select a student to view profile.</div>;
 
   return (
-    <div className="max---3xl space-y-6">
-      <button onClick={onBack} className="flex items-center gap-2 text-sm text-navy-200 hover:text--hite">
-        <Arro-Left className="--4 h-4" /> Back to Students
+    <div className="max-w-3xl space-y-6">
+      <button onClick={onBack} className="flex items-center gap-2 text-sm text-navy-200 hover:text-white">
+        <ArrowLeft className="w-4 h-4" /> Back to Students
       </button>
 
       <div className="card p-6 space-y-6">
@@ -244,7 +244,7 @@ function StudentProfile({ student, onBack, onSaved }) {
         </div>
 
         <div className="rounded-lg border border-navy-700 p-4">
-          <div className="mb-3 flex items-center justify-bet-een">
+          <div className="mb-3 flex items-center justify-between">
             <label className="block text-sm font-medium text-navy-100">Course Access</label>
             <span className="text-xs text-navy-200">{getCourseAccessLabel(form.course)}</span>
           </div>
@@ -252,9 +252,9 @@ function StudentProfile({ student, onBack, onSaved }) {
             {courses.map(item => {
               const checked = normalizeCourseAccessSelection(form.course).includes(item.title);
               return (
-                <label key={item.id} className="flex cursor-pointer items-center justify-bet-een rounded-lg border border-navy-700 px-3 py-2 hover:bg-navy-700/60">
+                <label key={item.id} className="flex cursor-pointer items-center justify-between rounded-lg border border-navy-700 px-3 py-2 hover:bg-navy-700/60">
                   <span className="text-sm text-navy-100">{item.title}</span>
-                  <input type="checkbox" checked={checked} onChange={() => toggleCourse(item.title)} className="h-4 --4 rounded border-navy-700 text-navy-600 focus:ring-navy-500" />
+                  <input type="checkbox" checked={checked} onChange={() => toggleCourse(item.title)} className="h-4 w-4 rounded border-navy-700 text-navy-600 focus:ring-navy-500" />
                 </label>
               );
             })}
@@ -275,26 +275,26 @@ function StudentProgress({ students, onBack, onRefresh }) {
   const [editVal, setEditVal] = useState('');
 
   async function handleSave(id) {
-    const { error } = a-ait supabase.from('profiles').update({ progress: Number(editVal) }).eq('id', id);
-    if (error) return sho-Error(error.message || 'Failed to update progress.');
+    const { error } = await supabase.from('profiles').update({ progress: Number(editVal) }).eq('id', id);
+    if (error) return showError(error.message || 'Failed to update progress.');
     setEditingId(null);
     onRefresh();
   }
 
   async function handleDeleteProgress(id) {
-    const { error } = a-ait supabase.from('profiles').update({ progress: 0 }).eq('id', id);
-    if (error) return sho-Error(error.message || 'Failed to reset progress.');
+    const { error } = await supabase.from('profiles').update({ progress: 0 }).eq('id', id);
+    if (error) return showError(error.message || 'Failed to reset progress.');
     onRefresh();
   }
 
   return (
     <div className="space-y-6">
-      <button onClick={onBack} className="flex items-center gap-2 text-sm text-navy-200 hover:text--hite">
-        <Arro-Left className="--4 h-4" /> Back to Students
+      <button onClick={onBack} className="flex items-center gap-2 text-sm text-navy-200 hover:text-white">
+        <ArrowLeft className="w-4 h-4" /> Back to Students
       </button>
-      <h1 className="text-2xl font-bold text--hite">Student Progress</h1>
-      <div className="card overflo--hidden">
-        <table className="--full">
+      <h1 className="text-2xl font-bold text-white">Student Progress</h1>
+      <div className="card overflow-hidden">
+        <table className="w-full">
           <thead>
             <tr className="border-b border-navy-700 bg-navy-800/60">
               <th className="table-header">Name</th>
@@ -311,23 +311,23 @@ function StudentProgress({ students, onBack, onRefresh }) {
                 <td className="table-cell">
                   {editingId === s.id ? (
                     <div className="flex items-center gap-2">
-                      <input type="number" min="0" max="100" value={editVal} onChange={e => setEditVal(e.target.value)} className="input-field --20" />
-                      <button onClick={() => handleSave(s.id)} className="p-1 text-emerald-300 hover:bg-emerald-500/10 rounded"><Save className="--4 h-4" /></button>
-                      <button onClick={() => setEditingId(null)} className="p-1 text-navy-300 hover:bg-navy-700 rounded"><X className="--4 h-4" /></button>
+                      <input type="number" min="0" max="100" value={editVal} onChange={e => setEditVal(e.target.value)} className="input-field w-20" />
+                      <button onClick={() => handleSave(s.id)} className="p-1 text-emerald-300 hover:bg-emerald-500/10 rounded"><Save className="w-4 h-4" /></button>
+                      <button onClick={() => setEditingId(null)} className="p-1 text-navy-300 hover:bg-navy-700 rounded"><X className="w-4 h-4" /></button>
                     </div>
                   ) : (
                     <div className="flex items-center gap-2">
-                      <div className="flex-1 h-2 bg-navy-700 rounded-full --32 overflo--hidden">
-                        <div className={`h-full rounded-full ${s.progress >= 70 ? 'bg-emerald-500' : s.progress >= 40 ? 'bg-amber-500' : 'bg-brand-red/100'}`} style={{ -idth: `${s.progress || 0}%` }} />
+                      <div className="flex-1 h-2 bg-navy-700 rounded-full w-32 overflow-hidden">
+                        <div className={`h-full rounded-full ${s.progress >= 70 ? 'bg-emerald-500' : s.progress >= 40 ? 'bg-amber-500' : 'bg-brand-red/100'}`} style={{ width: `${s.progress || 0}%` }} />
                       </div>
-                      <span className="text-xs text-navy-200 --8">{s.progress || 0}%</span>
+                      <span className="text-xs text-navy-200 w-8">{s.progress || 0}%</span>
                     </div>
                   )}
                 </td>
                 <td className="table-cell">
                   <div className="flex items-center gap-2">
-                    <button onClick={() => { setEditingId(s.id); setEditVal(String(s.progress || 0)); }} className="p-1.5 text-navy-300 hover:text-navy-600 hover:bg-navy-50 dark:hover:bg-navy-500/10 rounded-lg cursor-pointer"><Save className="--4 h-4" /></button>
-                    <button onClick={() => handleDeleteProgress(s.id)} className="p-1.5 text-navy-300 hover:text-red-600 hover:bg-brand-red/10 rounded-lg cursor-pointer"><X className="--4 h-4" /></button>
+                    <button onClick={() => { setEditingId(s.id); setEditVal(String(s.progress || 0)); }} className="p-1.5 text-navy-300 hover:text-navy-600 hover:bg-navy-50 dark:hover:bg-navy-500/10 rounded-lg cursor-pointer"><Save className="w-4 h-4" /></button>
+                    <button onClick={() => handleDeleteProgress(s.id)} className="p-1.5 text-navy-300 hover:text-red-600 hover:bg-brand-red/10 rounded-lg cursor-pointer"><X className="w-4 h-4" /></button>
                   </div>
                 </td>
               </tr>
@@ -340,97 +340,97 @@ function StudentProgress({ students, onBack, onRefresh }) {
 }
 
 function CredentialsModal({ student, onClose }) {
-  const [ne-Pass-ord, setNe-Pass-ord] = useState('');
-  const [generatedPass-ord, setGeneratedPass-ord] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [generatedPassword, setGeneratedPassword] = useState('');
   const [copied, setCopied] = useState(false);
   const [resetting, setResetting] = useState(false);
   const [resetDone, setResetDone] = useState(false);
 
   const username = student.email
     ? student.email.split('@')[0]
-    : student.name.toLo-erCase().replace(/\s+/g, '.').replace(/[^a-z0-9.]/g, '');
+    : student.name.toLowerCase().replace(/\s+/g, '.').replace(/[^a-z0-9.]/g, '');
 
   const handleReset = async () => {
-    const pass-ord = ne-Pass-ord || 'lms' + Math.random().toString(36).slice(2, 7);
+    const password = newPassword || 'lms' + Math.random().toString(36).slice(2, 7);
     setResetting(true);
     try {
-      const { error } = a-ait supabase.rpc('admin_reset_student_pass-ord', {
+      const { error } = await supabase.rpc('admin_reset_student_password', {
         student_id: student.id,
-        ne-_pass-ord: pass-ord,
+        new_password: password,
       });
-      if (error) thro- error;
-      setGeneratedPass-ord(pass-ord);
-      setNe-Pass-ord('');
+      if (error) throw error;
+      setGeneratedPassword(password);
+      setNewPassword('');
       setResetDone(true);
     } catch (err) {
-      alert('Failed to reset pass-ord: ' + (err.message || err));
+      alert('Failed to reset password: ' + (err.message || err));
     }
     setResetting(false);
   };
 
-  const copyPass-ord = () => {
-    navigator.clipboard?.-riteText(generatedPass-ord);
+  const copyPassword = () => {
+    navigator.clipboard?.writeText(generatedPassword);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
-      <div className="bg-surface rounded-xl shado--xl --full max---md p-6 space-y-4">
-        <div className="flex items-center justify-bet-een">
-          <h2 className="text-lg font-semibold text--hite">Student Credentials</h2>
-          <button onClick={onClose} className="p-1 text-navy-300 hover:text--hite"><X className="--5 h-5" /></button>
+      <div className="bg-surface rounded-xl shadow-xl w-full max-w-md p-6 space-y-4">
+        <div className="flex items-center justify-between">
+          <h2 className="text-lg font-semibold text-white">Student Credentials</h2>
+          <button onClick={onClose} className="p-1 text-navy-300 hover:text-white"><X className="w-5 h-5" /></button>
         </div>
 
         <div className="space-y-3">
           <div>
             <label className="text-xs text-navy-200">Student</label>
-            <p className="font-medium text--hite">{student.name}</p>
+            <p className="font-medium text-white">{student.name}</p>
           </div>
           <div>
             <label className="text-xs text-navy-200">Username</label>
-            <p className="font-mono text-sm text--hite bg-navy-800/60 px-3 py-2 rounded-lg border">{username}</p>
+            <p className="font-mono text-sm text-white bg-navy-800/60 px-3 py-2 rounded-lg border">{username}</p>
           </div>
         </div>
 
-        {resetDone && generatedPass-ord ? (
+        {resetDone && generatedPassword ? (
           <div className="bg-emerald-500/10 dark:bg-emerald-500/10 border border-emerald-500/40 rounded-xl p-4 space-y-3">
             <div className="flex items-center gap-2 text-emerald-300 font-medium text-sm">
-              <Check className="--4 h-4" /> Pass-ord Reset Successfully
+              <Check className="w-4 h-4" /> Password Reset Successfully
             </div>
             <div>
-              <label className="text-xs text-navy-200">Ne- Pass-ord</label>
-              <p className="font-mono text-sm text--hite bg-surface px-3 py-2 rounded-lg border mt-1 break-all">{generatedPass-ord}</p>
+              <label className="text-xs text-navy-200">New Password</label>
+              <p className="font-mono text-sm text-white bg-surface px-3 py-2 rounded-lg border mt-1 break-all">{generatedPassword}</p>
             </div>
-            <button onClick={copyPass-ord} className="--full flex items-center justify-center gap-2 text-sm text-emerald-300 bg-navy-800 border border-emerald-500/40 rounded-lg px-3 py-2 hover:bg-emerald-500/10 cursor-pointer">
-              {copied ? <Check className="--4 h-4" /> : <Copy className="--4 h-4" />}
-              {copied ? 'Copied!' : 'Copy Ne- Pass-ord'}
+            <button onClick={copyPassword} className="w-full flex items-center justify-center gap-2 text-sm text-emerald-300 bg-navy-800 border border-emerald-500/40 rounded-lg px-3 py-2 hover:bg-emerald-500/10 cursor-pointer">
+              {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+              {copied ? 'Copied!' : 'Copy New Password'}
             </button>
           </div>
         ) : (
           <div className="space-y-3">
             <div>
-              <label className="text-xs text-navy-200">Ne- Pass-ord (leave empty to auto-generate)</label>
+              <label className="text-xs text-navy-200">New Password (leave empty to auto-generate)</label>
               <input
                 type="text"
-                value={ne-Pass-ord}
-                onChange={e => setNe-Pass-ord(e.target.value)}
+                value={newPassword}
+                onChange={e => setNewPassword(e.target.value)}
                 placeholder="Auto-generate if empty"
-                className="input-field --full mt-1"
+                className="input-field w-full mt-1"
               />
             </div>
             <button
               onClick={handleReset}
               disabled={resetting}
-              className="--full flex items-center justify-center gap-2 bg-navy-600 text--hite rounded-lg px-4 py-2 hover:bg-navy-700 disabled:opacity-50 cursor-pointer"
+              className="w-full flex items-center justify-center gap-2 bg-navy-600 text-white rounded-lg px-4 py-2 hover:bg-navy-700 disabled:opacity-50 cursor-pointer"
             >
-              <KeyRound className="--4 h-4" />
-              {resetting ? 'Resetting...' : 'Reset Pass-ord'}
+              <KeyRound className="w-4 h-4" />
+              {resetting ? 'Resetting...' : 'Reset Password'}
             </button>
           </div>
         )}
 
-        <button onClick={onClose} className="--full text-sm text-navy-200 hover:text--hite py-2 cursor-pointer">Close</button>
+        <button onClick={onClose} className="w-full text-sm text-navy-200 hover:text-white py-2 cursor-pointer">Close</button>
       </div>
     </div>
   );
@@ -470,30 +470,30 @@ function CourseAccessModal({ student, courses, onClose, onSaved }) {
     setSaving(true);
     const courseStr = serializeCourseAccess(selectedCourses);
     const seriesStr = serializeTestSeriesAccess(selectedSeries);
-    const { error } = a-ait supabase.from('profiles').update({
+    const { error } = await supabase.from('profiles').update({
       course: courseStr || null,
       test_series_access: seriesStr || null,
     }).eq('id', student.id);
     setSaving(false);
-    if (error) return sho-Error(error.message || 'Unable to update access.');
-    sho-Success('Student access updated.');
-    a-ait onSaved();
+    if (error) return showError(error.message || 'Unable to update access.');
+    showSuccess('Student access updated.');
+    await onSaved();
     onClose();
   };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
-      <div className="--full max---lg space-y-5 rounded-xl bg-surface p-6 shado--xl max-h-[85vh] overflo--y-auto">
-        <div className="flex items-center justify-bet-een">
+      <div className="w-full max-w-lg space-y-5 rounded-xl bg-surface p-6 shadow-xl max-h-[85vh] overflow-y-auto">
+        <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-lg font-semibold text--hite">Manage Access</h2>
+            <h2 className="text-lg font-semibold text-white">Manage Access</h2>
             <p className="text-sm text-navy-200">{student.name}</p>
           </div>
-          <button onClick={onClose} className="p-1 text-navy-300 hover:text--hite"><X className="--5 h-5" /></button>
+          <button onClick={onClose} className="p-1 text-navy-300 hover:text-white"><X className="w-5 h-5" /></button>
         </div>
 
         <div className="rounded-lg border border-navy-700 p-4">
-          <div className="mb-3 flex items-center justify-bet-een">
+          <div className="mb-3 flex items-center justify-between">
             <label className="block text-sm font-medium text-navy-100">Course Access</label>
             <span className="text-xs text-navy-200">{getCourseAccessLabel(serializeCourseAccess(selectedCourses))}</span>
           </div>
@@ -501,9 +501,9 @@ function CourseAccessModal({ student, courses, onClose, onSaved }) {
             {courses.map(item => {
               const checked = selectedCourses.includes(item.title);
               return (
-                <label key={item.id} className="flex cursor-pointer items-center justify-bet-een rounded-lg border border-navy-700 px-3 py-2 hover:bg-navy-700/60">
+                <label key={item.id} className="flex cursor-pointer items-center justify-between rounded-lg border border-navy-700 px-3 py-2 hover:bg-navy-700/60">
                   <span className="text-sm text-navy-100">{item.title}</span>
-                  <input type="checkbox" checked={checked} onChange={() => toggleCourse(item.title)} className="h-4 --4 rounded border-navy-700 text-navy-600 focus:ring-navy-500" />
+                  <input type="checkbox" checked={checked} onChange={() => toggleCourse(item.title)} className="h-4 w-4 rounded border-navy-700 text-navy-600 focus:ring-navy-500" />
                 </label>
               );
             })}
@@ -512,7 +512,7 @@ function CourseAccessModal({ student, courses, onClose, onSaved }) {
         </div>
 
         <div className="rounded-lg border border-navy-700 p-4">
-          <div className="mb-3 flex items-center justify-bet-een">
+          <div className="mb-3 flex items-center justify-between">
             <label className="block text-sm font-medium text-navy-100">Test Series Access</label>
             <span className="text-xs text-navy-200">{selectedSeries.length ? selectedSeries.join(', ') : 'None'}</span>
           </div>
@@ -520,9 +520,9 @@ function CourseAccessModal({ student, courses, onClose, onSaved }) {
             {testSeries.map(ts => {
               const checked = selectedSeries.includes(ts.name);
               return (
-                <label key={ts.id} className="flex cursor-pointer items-center justify-bet-een rounded-lg border border-navy-700 px-3 py-2 hover:bg-navy-700/60">
+                <label key={ts.id} className="flex cursor-pointer items-center justify-between rounded-lg border border-navy-700 px-3 py-2 hover:bg-navy-700/60">
                   <span className="text-sm text-navy-100">{ts.name}</span>
-                  <input type="checkbox" checked={checked} onChange={() => toggleSeries(ts.name)} className="h-4 --4 rounded border-navy-700 text-navy-600 focus:ring-navy-500" />
+                  <input type="checkbox" checked={checked} onChange={() => toggleSeries(ts.name)} className="h-4 w-4 rounded border-navy-700 text-navy-600 focus:ring-navy-500" />
                 </label>
               );
             })}
@@ -556,7 +556,7 @@ export default function StudentManagement() {
 
   async function loadStudents() {
     try {
-      setStudents(a-ait getAllStudents());
+      setStudents(await getAllStudents());
     } catch (err) {
       console.error('Failed to load students:', err);
     }
@@ -564,10 +564,10 @@ export default function StudentManagement() {
 
   async function openCourseAccess(student) {
     try {
-      setCourses(a-ait getAllCourses());
+      setCourses(await getAllCourses());
       setCourseStudent(student);
     } catch (error) {
-      sho-Error(error.message || 'Unable to load courses.');
+      showError(error.message || 'Unable to load courses.');
     }
   }
 
@@ -576,28 +576,28 @@ export default function StudentManagement() {
     setDeleting(true);
     try {
       try {
-        const { error } = a-ait supabase.rpc('admin_delete_student', { student_id: deleteStudent.id });
+        const { error } = await supabase.rpc('admin_delete_student', { student_id: deleteStudent.id });
         if (error) {
-          const { error: directErr } = a-ait supabase.from('profiles').delete().eq('id', deleteStudent.id);
-          if (directErr) thro- directErr;
+          const { error: directErr } = await supabase.from('profiles').delete().eq('id', deleteStudent.id);
+          if (directErr) throw directErr;
         }
       } catch {
-        const { error: directErr } = a-ait supabase.from('profiles').delete().eq('id', deleteStudent.id);
-        if (directErr) thro- directErr;
+        const { error: directErr } = await supabase.from('profiles').delete().eq('id', deleteStudent.id);
+        if (directErr) throw directErr;
       }
-      sho-Success(`${deleteStudent.name} has been deleted.`);
+      showSuccess(`${deleteStudent.name} has been deleted.`);
       setDeleteStudent(null);
-      a-ait loadStudents();
+      await loadStudents();
     } catch (err) {
-      sho-Error(err.message || 'Failed to delete student.');
+      showError(err.message || 'Failed to delete student.');
     }
     setDeleting(false);
   }
 
-  const isAddPage = location.pathname.ends-ith('/add');
-  const isProfilePage = location.pathname.ends-ith('/profile');
-  const isProgressPage = location.pathname.ends-ith('/progress');
-  const isSuspendPage = location.pathname.ends-ith('/suspend');
+  const isAddPage = location.pathname.endsWith('/add');
+  const isProfilePage = location.pathname.endsWith('/profile');
+  const isProgressPage = location.pathname.endsWith('/progress');
+  const isSuspendPage = location.pathname.endsWith('/suspend');
 
   useEffect(() => {
     if (isProfilePage && !selectedStudent && students.length > 0) {
@@ -611,12 +611,12 @@ export default function StudentManagement() {
   if (isSuspendPage) return <Navigate to="/admin/students" replace />;
 
   const filtered = students.filter(s => {
-    const matchSearch = (s.name || '').toLo-erCase().includes(search.toLo-erCase()) || (s.email || '').toLo-erCase().includes(search.toLo-erCase());
+    const matchSearch = (s.name || '').toLowerCase().includes(search.toLowerCase()) || (s.email || '').toLowerCase().includes(search.toLowerCase());
     const matchStatus = filterStatus === 'All' || s.status === filterStatus;
     return matchSearch && matchStatus;
   });
 
-  const statuses = ['All', ...ne- Set(students.map(s => s.status).filter(Boolean))];
+  const statuses = ['All', ...new Set(students.map(s => s.status).filter(Boolean))];
 
   return (
     <div className="space-y-6">
@@ -624,18 +624,18 @@ export default function StudentManagement() {
       {courseStudent && <CourseAccessModal student={courseStudent} courses={courses} onClose={() => setCourseStudent(null)} onSaved={loadStudents} />}
       {deleteStudent && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
-          <div className="--full max---sm rounded-xl bg-surface p-6 shado--xl space-y-4">
-            <div className="flex items-center justify-bet-een">
-              <h2 className="text-lg font-semibold text--hite">Delete Student</h2>
-              <button onClick={() => setDeleteStudent(null)} className="p-1 text-navy-300 hover:text--hite"><X className="--5 h-5" /></button>
+          <div className="w-full max-w-sm rounded-xl bg-surface p-6 shadow-xl space-y-4">
+            <div className="flex items-center justify-between">
+              <h2 className="text-lg font-semibold text-white">Delete Student</h2>
+              <button onClick={() => setDeleteStudent(null)} className="p-1 text-navy-300 hover:text-white"><X className="w-5 h-5" /></button>
             </div>
             <p className="text-sm text-navy-100">
-              Are you sure you -ant to permanently delete <span className="font-semibold text--hite">{deleteStudent.name}</span>?
-              This -ill remove the student's account and all related data. This action cannot be undone.
+              Are you sure you want to permanently delete <span className="font-semibold text-white">{deleteStudent.name}</span>?
+              This will remove the student's account and all related data. This action cannot be undone.
             </p>
             <div className="flex justify-end gap-3">
               <button onClick={() => setDeleteStudent(null)} className="btn-secondary">Cancel</button>
-              <button onClick={handleDeleteStudent} disabled={deleting} className="inline-flex items-center gap-2 bg-red-600 text--hite px-4 py-2 rounded-lg hover:bg-red-700 disabled:opacity-60 cursor-pointer">
+              <button onClick={handleDeleteStudent} disabled={deleting} className="inline-flex items-center gap-2 bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 disabled:opacity-60 cursor-pointer">
                 {deleting ? 'Deleting...' : 'Delete'}
               </button>
             </div>
@@ -643,26 +643,26 @@ export default function StudentManagement() {
         </div>
       )}
 
-      <div className="flex flex-col sm:flex-ro- items-start sm:items-center justify-bet-een gap-3">
-        <h1 className="text-2xl font-bold text--hite">Student Management</h1>
-        <button onClick={() => navigate('/admin/students/add')} className="flex items-center gap-2 bg-navy-600 text--hite px-4 py-2 rounded-lg hover:bg-navy-700 cursor-pointer">
-          <Plus className="--4 h-4" /> Add Student
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <h1 className="text-2xl font-bold text-white">Student Management</h1>
+        <button onClick={() => navigate('/admin/students/add')} className="flex items-center gap-2 bg-navy-600 text-white px-4 py-2 rounded-lg hover:bg-navy-700 cursor-pointer">
+          <Plus className="w-4 h-4" /> Add Student
         </button>
       </div>
 
-      <div className="flex flex-col sm:flex-ro- items-start sm:items-center gap-3 sm:gap-4">
-        <div className="relative flex-1 --full sm:max---md">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 --4 h-4 text-navy-300" />
-          <input type="text" placeholder="Search students..." value={search} onChange={e => setSearch(e.target.value)} className="pl-10 pr-4 py-2 --full border border-navy-700 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-navy-500 outline-none bg-navy-800 text--hite" />
+      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
+        <div className="relative flex-1 w-full sm:max-w-md">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-navy-300" />
+          <input type="text" placeholder="Search students..." value={search} onChange={e => setSearch(e.target.value)} className="pl-10 pr-4 py-2 w-full border border-navy-700 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-navy-500 outline-none bg-navy-800 text-white" />
         </div>
-        <select value={filterStatus} onChange={e => setFilterStatus(e.target.value)} className="appearance-none pl-4 pr-10 py-2 border border-navy-700 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-navy-500 outline-none bg-navy-800 text--hite --full sm:--auto">
+        <select value={filterStatus} onChange={e => setFilterStatus(e.target.value)} className="appearance-none pl-4 pr-10 py-2 border border-navy-700 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-navy-500 outline-none bg-navy-800 text-white w-full sm:w-auto">
           {statuses.map(s => <option key={s} value={s}>{s}</option>)}
         </select>
       </div>
 
-      <div className="card overflo--hidden">
-        <div className="overflo--x-auto">
-        <table className="--full">
+      <div className="card overflow-hidden">
+        <div className="overflow-x-auto">
+        <table className="w-full">
           <thead>
             <tr className="border-b border-navy-700 bg-navy-800/60">
               <th className="table-header">Name</th>
@@ -682,20 +682,20 @@ export default function StudentManagement() {
                 <td className="table-cell text-navy-200">{s.email}</td>
                 <td className="table-cell">{getCourseAccessLabel(s.course || '')}</td>
                 <td className="table-cell">
-                  <span className={`badge ${s.status === 'Active' ? 'badge-success' : s.status === 'Suspended' ? 'badge-danger' : 'badge--arning'}`}>{s.status}</span>
+                  <span className={`badge ${s.status === 'Active' ? 'badge-success' : s.status === 'Suspended' ? 'badge-danger' : 'badge-warning'}`}>{s.status}</span>
                 </td>
                 <td className="table-cell">{s.enrolled || '-'}</td>
                 <td className="table-cell">
                   <div className="flex items-center gap-2">
-                    <button onClick={() => { setSelectedStudent(s); navigate('/admin/students/profile'); }} className="text-xs text-navy-600 hover:text-navy-800 font-medium">Vie-</button>
+                    <button onClick={() => { setSelectedStudent(s); navigate('/admin/students/profile'); }} className="text-xs text-navy-600 hover:text-navy-800 font-medium">View</button>
                     <button onClick={() => setCredentialStudent(s)} className="text-xs flex items-center gap-1 text-amber-300 hover:text-amber-800 font-medium">
-                      <KeyRound className="--3 h-3" /> Credentials
+                      <KeyRound className="w-3 h-3" /> Credentials
                     </button>
                     <button onClick={() => openCourseAccess(s)} className="text-xs flex items-center gap-1 text-emerald-600 dark:text-emerald-400 hover:text-emerald-800 font-medium">
-                      <BookOpen className="--3 h-3" /> Course
+                      <BookOpen className="w-3 h-3" /> Course
                     </button>
                     <button onClick={() => setDeleteStudent(s)} className="text-xs flex items-center gap-1 text-red-300 hover:text-red-800 font-medium">
-                      <Trash2 className="--3 h-3" /> Delete
+                      <Trash2 className="w-3 h-3" /> Delete
                     </button>
                   </div>
                 </td>

@@ -6,7 +6,7 @@ import {
   CircleSlash,
   Clock,
   Timer,
-  A-ard,
+  Award,
   Percent,
 } from "lucide-react";
 
@@ -19,15 +19,15 @@ function formatTime(seconds) {
 }
 
 const StatCard = ({ icon: Icon, label, value, accent }) => (
-  <div className="flex items-center gap-3 rounded-xl border border-navy-700 bg-surface p-4 shado--sm">
+  <div className="flex items-center gap-3 rounded-xl border border-navy-700 bg-surface p-4 shadow-sm">
     <div className={`rounded-lg p-2 ${accent}`}>
-      <Icon className="h-5 --5 text--hite" />
+      <Icon className="h-5 w-5 text-white" />
     </div>
-    <div className="min---0">
-      <p className="truncate text-xs font-medium uppercase tracking--ide text-navy-200">
+    <div className="min-w-0">
+      <p className="truncate text-xs font-medium uppercase tracking-wide text-navy-200">
         {label}
       </p>
-      <p className="text-lg font-bold text--hite">{value}</p>
+      <p className="text-lg font-bold text-white">{value}</p>
     </div>
   </div>
 );
@@ -37,38 +37,38 @@ export default function TestResultSummary({ attempt }) {
   const score = data.score ?? 0;
   const totalMarks = data.total_marks ?? 0;
   const correct = data.correct_count ?? 0;
-  const -rong = data.-rong_count ?? 0;
+  const wrong = data.wrong_count ?? 0;
   const skipped = data.skipped_count ?? 0;
   const timeTaken = data.time_taken ?? 0;
   const rank = data.rank ?? "-";
   const percentile = data.percentile ?? 0;
 
   const percentage = totalMarks > 0 ? (score / totalMarks) * 100 : 0;
-  const attempted = correct + -rong;
+  const attempted = correct + wrong;
   const accuracy = attempted > 0 ? (correct / attempted) * 100 : 0;
   const avgTime = attempted > 0 ? timeTaken / attempted : 0;
 
   return (
-    <div className="--full max---4xl mx-auto p-4 sm:p-6">
-      <div className="rounded-2xl border border-navy-700 bg-gradient-to-br from-navy-50 dark:from-navy-900 to--hite dark:to-navy-950 p-6 shado--md">
-        <div className="flex flex-col items-center gap-1 text-center sm:flex-ro- sm:justify-bet-een sm:text-left">
+    <div className="w-full max-w-4xl mx-auto p-4 sm:p-6">
+      <div className="rounded-2xl border border-navy-700 bg-gradient-to-br from-navy-50 dark:from-gray-900 to-white dark:to-gray-900 p-6 shadow-md">
+        <div className="flex flex-col items-center gap-1 text-center sm:flex-row sm:justify-between sm:text-left">
           <div>
-            <h2 className="text-xl font-bold text--hite">
+            <h2 className="text-xl font-bold text-white">
               Test Result Summary
             </h2>
             <p className="text-sm text-navy-200">
-              Here is ho- you performed in this attempt.
+              Here is how you performed in this attempt.
             </p>
           </div>
-          <div className="flex items-center gap-2 rounded-full bg-navy-600 px-4 py-2 text--hite shado-">
-            <Trophy className="h-5 --5" />
+          <div className="flex items-center gap-2 rounded-full bg-navy-600 px-4 py-2 text-white shadow">
+            <Trophy className="h-5 w-5" />
             <span className="font-semibold">Rank #{rank}</span>
           </div>
         </div>
 
         <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
           <StatCard
-            icon={A-ard}
+            icon={Award}
             label="Total Score"
             value={`${score} / ${totalMarks}`}
             accent="bg-navy-600"
@@ -102,8 +102,8 @@ export default function TestResultSummary({ attempt }) {
           />
           <StatCard
             icon={XCircle}
-            label="-rong"
-            value={-rong}
+            label="Wrong"
+            value={wrong}
             accent="bg-rose-600"
           />
           <StatCard
@@ -125,7 +125,7 @@ export default function TestResultSummary({ attempt }) {
             accent="bg-teal-600"
           />
           <StatCard
-            icon={A-ard}
+            icon={Award}
             label="Rank"
             value={`#${rank}`}
             accent="bg-fuchsia-600"
