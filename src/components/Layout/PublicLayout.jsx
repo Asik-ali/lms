@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
-import { BookOpen, Menu, X, Sun, Moon } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 import { useTheme } from '../../contexts/ThemeContext';
+import logo from '../../assets/image.png';
 
 const navLinks = [
   { label: 'Home', path: '/' },
@@ -20,8 +21,8 @@ export default function PublicLayout() {
       <header className="sticky top-0 z-40 bg-white border-b border-gray-200 dark:bg-gray-900 dark:border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
-            <BookOpen className="w-6 h-6 text-indigo-600" />
-            <span className="font-bold text-lg text-gray-900 dark:text-white">LMS</span>
+            <img src={logo} alt="EXAMSTICK" className="w-8 h-8 object-contain" />
+            <span className="font-bold text-lg text-gray-900 dark:text-white">EXAMSTICK</span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-6">
@@ -109,8 +110,8 @@ export default function PublicLayout() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <BookOpen className="w-5 h-5 text-indigo-400" />
-                <span className="font-bold text-white">LMS</span>
+                <img src={logo} alt="EXAMSTICK" className="w-6 h-6 object-contain" />
+                <span className="font-bold text-white">EXAMSTICK</span>
               </div>
               <p className="text-sm">A modern learning management system for courses, live classes, and test series.</p>
             </div>

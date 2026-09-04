@@ -3,7 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { supabase } from '../supabase/client';
 import { useAuth } from '../contexts/AuthContext';
 import { apiUrl } from '../data/api';
-import { BookOpen, User, Mail, Lock, ShieldCheck, ChevronLeft, AlertCircle } from 'lucide-react';
+import { User, Mail, Lock, ShieldCheck, ChevronLeft, AlertCircle } from 'lucide-react';
+import logo from '../assets/image.png';
 
 export default function SignupPage() {
   const { login } = useAuth();
@@ -76,8 +77,8 @@ export default function SignupPage() {
     <div className="min-h-screen bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <div className="w-16 h-16 rounded-2xl bg-white/20 dark:bg-gray-900/30 backdrop-blur flex items-center justify-center mx-auto mb-4">
-            <BookOpen className="w-8 h-8 text-white" />
+          <div className="w-16 h-16 rounded-2xl bg-white/20 dark:bg-gray-900/30 backdrop-blur flex items-center justify-center mx-auto mb-4 overflow-hidden">
+            <img src={logo} alt="EXAMSTICK" className="w-12 h-12 object-contain" />
           </div>
           <h1 className="text-3xl font-bold text-white">Create Account</h1>
           <p className="text-indigo-200 mt-2">
