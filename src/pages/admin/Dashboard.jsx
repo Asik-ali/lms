@@ -58,10 +58,10 @@ export default function AdminDashboard() {
   return (
     <div className="space-y-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-        {statCards.map((card) => {
+        {statCards.map((card, i) => {
           const Icon = card.icon;
           return (
-            <div key={card.label} className="stat-card">
+            <div key={card.label} className={`stat-card animate-fade-up reveal-delay-${i + 1}`}>
               <div className="flex items-center justify-between mb-4">
                 <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg ${card.color} flex items-center justify-center`}>
                   <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
@@ -75,7 +75,7 @@ export default function AdminDashboard() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
-        <div className="lg:col-span-2 card">
+        <div className="lg:col-span-2 card animate-zoom-in">
           <div className="card-header flex items-center justify-between">
             <h3 className="text-base sm:text-lg font-semibold">Enrollments Over Time</h3>
           </div>
@@ -92,7 +92,7 @@ export default function AdminDashboard() {
           </div>
         </div>
 
-        <div className="card">
+        <div className="card animate-slide-in-right reveal-delay-2">
           <div className="card-header">
             <h3 className="text-base sm:text-lg font-semibold">Recent Notifications</h3>
           </div>
@@ -113,7 +113,7 @@ export default function AdminDashboard() {
         </div>
       </div>
 
-      <div className="card">
+      <div className="card animate-zoom-in reveal-delay-3">
         <div className="card-header flex items-center justify-between">
           <h3 className="text-base sm:text-lg font-semibold">Test Series</h3>
           <a href="/admin/exams/questions" className="text-sm text-navy-600 hover:text-navy-500 dark:hover:text-navy-400">Manage</a>
@@ -140,7 +140,7 @@ export default function AdminDashboard() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 animate-zoom-in reveal-delay-4">
         <div className="card lg:col-span-2">
           <div className="card-header">
             <h3 className="text-base sm:text-lg font-semibold">Active Courses</h3>

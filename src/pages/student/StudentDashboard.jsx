@@ -43,16 +43,16 @@ export default function StudentDashboard() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-gradient-to-r from-[#071A3D] to-navy-600 rounded-xl p-6 text-white dark:from-navy-900">
+      <div className="bg-gradient-to-r from-[#071A3D] to-navy-600 rounded-xl p-6 text-white dark:from-navy-900 animate-fade-up">
         <h1 className="text-2xl font-bold">Welcome back, {user?.name || 'Student'}!</h1>
         <p className="text-[#D6E4FA] mt-1">{user?.course || 'Continue your learning journey'}</p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-        {stats.map((s) => {
+        {stats.map((s, i) => {
           const Icon = s.icon;
           return (
-            <div key={s.label} className="stat-card">
+            <div key={s.label} className={`stat-card animate-fade-up reveal-delay-${i + 1}`}>
               <div className="flex items-center justify-between mb-4">
                 <div className={`w-12 h-12 rounded-lg ${s.color} flex items-center justify-center`}>
                   <Icon className="w-6 h-6 text-white" />
@@ -66,7 +66,7 @@ export default function StudentDashboard() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2 card">
+        <div className="lg:col-span-2 card animate-slide-in-right reveal-delay-2">
           <div className="card-header flex justify-between items-center">
             <h3 className="text-lg font-semibold">My Courses</h3>
             <button onClick={() => navigate('/student/courses')} className="text-sm text-navy-600 hover:text-navy-500 dark:hover:text-navy-400 flex items-center gap-1">
@@ -91,7 +91,7 @@ export default function StudentDashboard() {
         </div>
 
         <div className="space-y-6">
-          <div className="card">
+          <div className="card animate-zoom-in reveal-delay-3">
             <div className="card-header">
               <h3 className="text-lg font-semibold flex items-center gap-2">
                 <Megaphone className="w-4 h-4 text-navy-500" />
