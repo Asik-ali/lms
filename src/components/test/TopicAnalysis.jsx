@@ -71,20 +71,20 @@ export default function TopicAnalysis({ responses = [], questions = [] }) {
             {topics.map((t) => (
               <tr
                 key={t.name}
-                className="border-b border-navy-700 border-navy-700 hover:bg-navy-700/60 hover:bg-navy-700/60"
+                className="border-b border-navy-700 border-navy-700 hover:bg-navy-700/60"
               >
                 <td className="px-3 py-2.5 font-semibold text-navy-100">
                   {t.name}
                 </td>
                 <td className="px-3 py-2.5 text-navy-200">{t.total}</td>
                 <td className="px-3 py-2.5">
-                  <span className="flex items-center gap-1 text-emerald-600">
+                  <span className="flex items-center gap-1 text-emerald-600 dark:text-emerald-300">
                     <CheckCircle2 className="h-3.5 w-3.5" />
                     {t.correct}
                   </span>
                 </td>
                 <td className="px-3 py-2.5">
-                  <span className="flex items-center gap-1 text-rose-600">
+                  <span className="flex items-center gap-1 text-rose-600 dark:text-rose-300">
                     <XCircle className="h-3.5 w-3.5" />
                     {t.wrong}
                   </span>

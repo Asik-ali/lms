@@ -46,7 +46,7 @@ export default function TimeAnalysis({ responses = [], questions = [] }) {
         <h3 className="text-sm font-bold uppercase tracking-wide text-navy-200">
           Time Analysis
         </h3>
-        <span className="flex items-center gap-1 text-xs text-amber-600">
+        <span className="flex items-center gap-1 text-xs text-amber-600 dark:text-amber-400">
           <AlertTriangle className="h-4 w-4" />
           {slowCount} question(s) took &gt; 2× avg
         </span>
@@ -68,8 +68,8 @@ export default function TimeAnalysis({ responses = [], questions = [] }) {
               return (
                 <tr
                   key={r.idx}
-                  className={`border-b border-navy-700 border-navy-700 ${
-                    isSlow ? "bg-amber-50" : ""
+                  className={`border-b border-navy-700 ${
+                    isSlow ? "bg-amber-50 dark:bg-amber-500/10" : ""
                   }`}
                 >
                   <td className="px-3 py-2 font-semibold text-navy-100">
@@ -83,7 +83,7 @@ export default function TimeAnalysis({ responses = [], questions = [] }) {
                   </td>
                   <td
                     className={`px-3 py-2 font-medium ${
-                      isSlow ? "text-amber-700" : "text-navy-100"
+                      isSlow ? "text-amber-700 dark:text-amber-300" : "text-navy-100"
                     }`}
                   >
                     {formatTime(r.time)}

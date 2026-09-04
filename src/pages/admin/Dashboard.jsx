@@ -83,8 +83,8 @@ export default function AdminDashboard() {
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={studentProgressData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#94A3B8" />
-                <XAxis dataKey="month" fontSize={12} />
-                <YAxis fontSize={12} />
+                <XAxis dataKey="month" fontSize={12} tick={{ fill: '#94A3B8' }} />
+                <YAxis fontSize={12} tick={{ fill: '#94A3B8' }} />
                 <Tooltip />
                 <Bar dataKey="enrolled" fill="#1261D6" radius={[4, 4, 0, 0]} />
               </BarChart>
