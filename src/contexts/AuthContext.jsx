@@ -124,7 +124,10 @@ export function AuthProvider({ children }) {
   };
 
   const login = async (username, password) => {
-    const email = username.includes('@') ? username : `${username}@lms.app`;
+    const cleanUsername = username.trim();
+    const email = cleanUsername.includes('@')
+      ? cleanUsername
+      : (cleanUsername.toLowerCase() === 'admin' ? 'asik14923@gmail.com' : `${cleanUsername}@lms.app`);
     const { data, error } = await supabase.auth.signInWithPassword({ email, password });
     if (error) throw error;
 
