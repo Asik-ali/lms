@@ -95,7 +95,7 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
               <h1 className="text-2xl font-bold">{course.title}</h1>
             </div>
           </div>
-          <div className="flex flex-wrap gap-4 text-sm text-navy-100">
+          <div className="flex flex-wrap gap-4 text-sm text-[#D6E4FA]">
             <span className="inline-flex items-center gap-2"><Clock3 className="w-4 h-4" /> {course.duration}</span>
             <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${course.status === 'Published' ? 'bg-emerald-500/20 text-emerald-100' : 'bg-navy-800/20 text-navy-200'}`}>{course.status}</span>
           </div>

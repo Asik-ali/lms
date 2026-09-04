@@ -40,7 +40,7 @@ export default function RefundPolicyPage() {
       <section className="bg-gradient-to-r from-[#071A3D] to-navy-600 text-white dark:from-navy-900 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-3xl sm:text-4xl font-bold">Refunds &amp; Cancellations</h1>
-          <p className="mt-3 text-navy-100">Our policy for digital course and test series purchases.</p>
+          <p className="mt-3 text-[#D6E4FA]">Our policy for digital course and test series purchases.</p>
         </div>
       </section>
 

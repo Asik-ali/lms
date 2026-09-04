@@ -144,7 +144,7 @@ export default function StudentTestDetail() {
           <div className="min-w-0 flex-1">
             <h1 className="text-2xl font-bold mb-1">{test.name}</h1>
             {test.description && (
-              <p className="text-navy-100 text-sm">{test.description}</p>
+              <p className="text-[#D6E4FA] text-sm">{test.description}</p>
             )}
           </div>
         </div>

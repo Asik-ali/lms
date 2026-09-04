@@ -45,7 +45,7 @@ export default function StudentDashboard() {
     <div className="space-y-6">
       <div className="bg-gradient-to-r from-[#071A3D] to-navy-600 rounded-xl p-6 text-white dark:from-navy-900">
         <h1 className="text-2xl font-bold">Welcome back, {user?.name || 'Student'}!</h1>
-        <p className="text-navy-100 mt-1">{user?.course || 'Continue your learning journey'}</p>
+        <p className="text-[#D6E4FA] mt-1">{user?.course || 'Continue your learning journey'}</p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
@@ -55,7 +55,7 @@ export default function StudentDashboard() {
             <div key={s.label} className="stat-card">
               <div className="flex items-center justify-between mb-4">
                 <div className={`w-12 h-12 rounded-lg ${s.color} flex items-center justify-center`}>
-                  <Icon className="w-6 h-6 text-navy-100" />
+                  <Icon className="w-6 h-6 text-white" />
                 </div>
               </div>
               <p className="text-2xl font-bold text-navy-100">{s.value}</p>
