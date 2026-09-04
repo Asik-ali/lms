@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { BookOpen, Users, Video, Award, ChevronRight, GraduationCap, Laptop, Trophy, Clock, BarChart3, Target } from 'lucide-react';
 import useReveal from '../../hooks/useReveal';
+import useTypewriter from '../../hooks/useTypewriter';
 
 const features = [
   { icon: BookOpen, title: 'Course Management', desc: 'Organize courses with sections, lessons, PDFs, and video content.' },
@@ -26,6 +27,7 @@ const highlights = [
 
 export default function HomePage() {
   useReveal();
+  const typedExam = useTypewriter('ExamStick', { speed: 110, startDelay: 700 });
   return (
     <div className="space-y-0 bg-navy-950">
       <section className="relative overflow-hidden bg-gradient-to-br from-[#071A3D] via-[#081B3A] to-navy-600 text-white dark:from-navy-900 dark:via-navy-950 dark:to-navy-800">
@@ -40,7 +42,7 @@ export default function HomePage() {
               India's trusted exam preparation platform
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight animate-fade-up">
-              Crack Your Exams With <span className="text-gold-400">ExamStick</span>
+              Crack Your Exams With <span className="text-gold-400">{typedExam}</span><span className="type-cursor text-gold-400">|</span>
             </h1>
             <p className="mt-6 text-lg sm:text-xl text-[#AECBF0] max-w-2xl animate-fade-up reveal-delay-1">
               A complete learning management system with <span className="font-semibold text-gold-400">courses</span>, <span className="font-semibold text-gold-400">live classes</span>, test series, and progress tracking — all in one place.

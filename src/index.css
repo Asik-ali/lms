@@ -168,6 +168,17 @@
   }
 }
 
+.type-cursor {
+  display: inline-block;
+  margin-left: 2px;
+  color: inherit;
+  animation: lms-blink 1s step-end infinite;
+}
+@keyframes lms-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
 @keyframes lms-fade-in {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -227,7 +238,7 @@
   .animate-fade-in, .animate-fade-up, .animate-fade-down,
   .animate-zoom-in, .animate-slide-in-right, .animate-float,
   .animate-pulse-gold, .animate-shine::after,
-  .page-enter, .reveal {
+  .page-enter, .reveal, .type-cursor {
     animation: none !important;
     transition: none !important;
     opacity: 1 !important;
