@@ -378,7 +378,7 @@ export default function CourseManagement() {
         <MediaViewer {...mediaViewer} onClose={() => setMediaViewer(null)} />
       )}
 
-      <div className="card overflow-hidden">
+      <div className="card overflow-hidden animate-grow-in">
         <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
@@ -391,9 +391,9 @@ export default function CourseManagement() {
               <th className="table-header">Actions</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="animate-stagger">
             {filtered.map(c => (
-              <tr key={c.id} className="border-b border-navy-700 hover:bg-navy-700/60">
+              <tr key={c.id} className="border-b border-navy-700 hover:bg-navy-700/60 hover-lift">
                 <td className="table-cell font-medium">{c.title}</td>
                 <td className="table-cell">{studentsPerCourse(c.title)}</td>
                 <td className="table-cell">{c.lessons}</td>

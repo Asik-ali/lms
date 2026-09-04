@@ -119,19 +119,23 @@ export default function AdminDashboard() {
           <a href="/admin/exams/questions" className="text-sm text-navy-600 hover:text-navy-500 dark:hover:text-navy-400">Manage</a>
         </div>
         <div className="p-4 space-y-3">
-          {testSeries.length > 0 ? testSeries.slice(0, 5).map(s => (
-            <div key={s.id} className="flex items-center justify-between p-3 rounded-lg border border-navy-700 hover:border-navy-200">
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-navy-50 dark:bg-navy-500/15 flex items-center justify-center">
-                  <FolderOpen className="w-4 h-4 text-navy-600 dark:text-navy-300" />
+          {testSeries.length > 0 ? (
+            <div className="animate-stagger">
+              {testSeries.slice(0, 5).map(s => (
+                <div key={s.id} className="flex items-center justify-between p-3 rounded-lg border border-navy-700 hover:border-navy-200 hover-lift">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-navy-50 dark:bg-navy-500/15 flex items-center justify-center">
+                      <FolderOpen className="w-4 h-4 text-navy-600 dark:text-navy-300" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-navy-100">{s.name}</p>
+                      {s.description && <p className="text-xs text-navy-300">{s.description}</p>}
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-sm font-medium text-navy-100">{s.name}</p>
-                  {s.description && <p className="text-xs text-navy-300">{s.description}</p>}
-                </div>
-              </div>
+              ))}
             </div>
-          )) : (
+          ) : (
             <p className="text-sm text-navy-300 text-center py-4">No test series yet</p>
           )}
           {testSeries.length > 0 && (
@@ -153,9 +157,9 @@ export default function AdminDashboard() {
                   <th className="table-header">Students</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="animate-stagger">
                 {courses.filter(c => c.status === 'Published').map(c => (
-                  <tr key={c.id} className="border-b border-navy-700 hover:bg-navy-700/60">
+                  <tr key={c.id} className="border-b border-navy-700 hover:bg-navy-700/60 hover-lift">
                     <td className="table-cell font-medium">{c.title}</td>
                     <td className="table-cell">{studentsPerCourse(c.title)}</td>
                   </tr>

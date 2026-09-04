@@ -82,11 +82,11 @@ export default function AdminLiveClasses() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between animate-fade-up">
         <h1 className="text-2xl font-bold text-navy-100">Live Classes</h1>
       </div>
 
-      <div className="card">
+      <div className="card animate-grow-in">
         <div className="card-header flex items-center gap-2">
           <Radio className="w-5 h-5 text-red-500" />
           <h3 className="text-base sm:text-lg font-semibold">Start New Live</h3>
@@ -122,7 +122,7 @@ export default function AdminLiveClasses() {
         </div>
       </div>
 
-      <div className="card">
+      <div className="card animate-grow-in">
         <div className="card-header flex items-center gap-2">
           <Video className="w-5 h-5 text-navy-500" />
           <h3 className="text-base sm:text-lg font-semibold">All Live Classes</h3>
@@ -139,7 +139,7 @@ export default function AdminLiveClasses() {
                 <th className="table-header">Actions</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="animate-stagger">
               {liveClasses.slice().reverse().map(lc => (
                 <tr key={lc.id} className="border-b border-navy-700 hover:bg-navy-700/60">
                   <td className="table-cell font-medium">{lc.title}</td>

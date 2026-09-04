@@ -41,11 +41,11 @@ export default function AnnouncementsPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between animate-fade-up">
         <h1 className="text-2xl font-bold text-navy-100">Announcements</h1>
       </div>
 
-      <div className="card">
+      <div className="card animate-grow-in">
         <div className="card-header">
           <h3 className="text-lg font-semibold">Create Announcement</h3>
         </div>
@@ -73,9 +73,9 @@ export default function AnnouncementsPage() {
         </div>
       </div>
 
-      <div className="space-y-4">
+      <div className="space-y-4 animate-stagger">
         {announcements.map(a => (
-          <div key={a.id} className="card">
+          <div key={a.id} className="card hover-lift">
             <div className="p-6">
               <div className="flex items-start justify-between mb-3">
                 <div className="flex items-center gap-3">

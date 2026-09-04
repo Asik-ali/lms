@@ -74,17 +74,21 @@ export default function StudentDashboard() {
             </button>
           </div>
           <div className="p-4 space-y-4">
-            {myCourses.length > 0 ? myCourses.slice(0, 3).map(c => (
-              <div key={c.id} className="flex items-center gap-4 p-3 rounded-lg hover:bg-navy-700/60">
-                <div className="flex-1 min-w-0">
-                  <h4 className="text-sm font-medium text-navy-100">{c.title}</h4>
-                  <div className="flex items-center gap-3 mt-2">
-                    <span className="text-xs text-navy-300">{c.duration}</span>
+            {myCourses.length > 0 ? (
+              <div className="animate-stagger">
+                {myCourses.slice(0, 3).map(c => (
+                  <div key={c.id} className="flex items-center gap-4 p-3 rounded-lg hover:bg-navy-700/60 hover-lift">
+                    <div className="flex-1 min-w-0">
+                      <h4 className="text-sm font-medium text-navy-100">{c.title}</h4>
+                      <div className="flex items-center gap-3 mt-2">
+                        <span className="text-xs text-navy-300">{c.duration}</span>
+                      </div>
+                    </div>
+                    <button type="button" onClick={() => navigate(`/student/courses/${c.id}`)} className="btn-primary whitespace-nowrap">View</button>
                   </div>
-                </div>
-                <button type="button" onClick={() => navigate(`/student/courses/${c.id}`)} className="btn-primary whitespace-nowrap">View</button>
+                ))}
               </div>
-            )) : (
+            ) : (
               <p className="text-navy-300 text-center py-4">No courses enrolled yet</p>
             )}
           </div>
@@ -98,10 +102,10 @@ export default function StudentDashboard() {
                 Latest Announcements
               </h3>
             </div>
-            <div className="p-4 space-y-3">
+            <div className="p-4 space-y-3 animate-stagger">
               {announcements.slice(0, 4).map(a => (
                 <div key={a.id} className="flex gap-3 p-2 rounded-lg hover:bg-navy-700/60">
-                  <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0 bg-navy-500" />
+                  <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0 bg-navy-500 animate-pulse" />
                   <div>
                     <p className="text-sm font-medium text-navy-100">{a.title}</p>
                     <p className="text-xs text-navy-200 mt-0.5">{a.created}</p>

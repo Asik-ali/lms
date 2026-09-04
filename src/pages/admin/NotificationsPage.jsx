@@ -107,7 +107,7 @@ function ComposeForm({ type, onSent }) {
   };
 
   return (
-    <div className="card">
+    <div className="card animate-grow-in">
       <div className="card-header"><h3 className="text-lg font-semibold">Compose {type}</h3></div>
       <div className="p-6 space-y-4">
         <div>
@@ -149,11 +149,11 @@ export default function NotificationsPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between animate-fade-up">
         <h1 className="text-2xl font-bold text-navy-100">Notifications</h1>
       </div>
 
-      <div className="border-b border-navy-700">
+      <div className="border-b border-navy-700 animate-fade-up">
         <div className="flex gap-0 -mb-px">
           {tabs.map((tab, i) => {
             const Icon = tab.icon;
@@ -177,7 +177,7 @@ export default function NotificationsPage() {
 
       <ComposeForm type={tabs[activeTab].label} onSent={addToHistory} />
 
-      <div className="card overflow-hidden">
+      <div className="card overflow-hidden animate-grow-in">
         <div className="card-header"><h3 className="text-lg font-semibold">Sent History</h3></div>
         <table className="w-full">
           <thead>
@@ -189,12 +189,12 @@ export default function NotificationsPage() {
               <th className="table-header">Status</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="animate-stagger">
             {history.length === 0 && (
               <tr><td colSpan={5} className="text-center py-8 text-navy-300">No notifications sent yet.</td></tr>
             )}
             {history.map(h => (
-              <tr key={h.id} className="border-b border-navy-700 hover:bg-navy-700/60">
+              <tr key={h.id} className="border-b border-navy-700 hover:bg-navy-700/60 hover-lift">
                 <td className="table-cell font-medium">{h.type}</td>
                 <td className="table-cell">{h.recipient}</td>
                 <td className="table-cell text-navy-100">{h.subject}</td>

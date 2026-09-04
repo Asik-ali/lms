@@ -104,7 +104,7 @@ export default function AdminTickets() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between animate-fade-up">
         <h1 className="text-2xl font-bold text-navy-100">Student Tickets</h1>
         <div className="flex items-center gap-2 text-sm">
           <span className="px-2 py-1 rounded-full bg-amber-100 dark:bg-amber-500/15 text-amber-700 dark:text-amber-300 font-medium">{openCount} Open</span>
@@ -113,7 +113,7 @@ export default function AdminTickets() {
         </div>
       </div>
 
-      <div className="flex gap-2">
+      <div className="flex gap-2 animate-fade-up">
         {['All', 'Open', 'In Progress', 'Resolved'].map(f => (
           <button
             key={f}
@@ -128,12 +128,12 @@ export default function AdminTickets() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-1 space-y-2">
+        <div className="lg:col-span-1 space-y-2 animate-stagger">
           {filtered.map(t => {
             const cfg = statusConfig[t.status] || statusConfig.Open;
             const Icon = cfg.icon;
             return (
-              <button key={t.id} onClick={() => handleSelect(t)} className={`w-full text-left card p-4 transition-all cursor-pointer ${selected?.id === t.id ? 'border-navy-300 ring-1 ring-navy-200' : 'hover:border-navy-500'}`}>
+              <button key={t.id} onClick={() => handleSelect(t)} className={`w-full text-left card p-4 transition-all cursor-pointer hover-lift ${selected?.id === t.id ? 'border-navy-300 ring-1 ring-navy-200' : 'hover:border-navy-500'}`}>
                 <div className="flex items-start gap-3">
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${cfg.color}`}>
                     <Icon className="w-4 h-4" />

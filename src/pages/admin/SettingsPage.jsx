@@ -76,7 +76,7 @@ function SMTPTab() {
   }
 
   return (
-    <div className="card">
+    <div className="card animate-grow-in">
       <div className="card-header"><h3 className="text-lg font-semibold">SMTP Configuration</h3></div>
       <div className="p-6 space-y-4 max-w-xl">
         {/* <p className="text-sm text-navy-200">Configure your Gmail SMTP to send email notifications. Use an <a href="https://support.google.com/accounts/answer/185833" target="_blank" rel="noreferrer" className="text-navy-600 underline">App Password</a> if you have 2FA enabled.</p> */}
@@ -285,7 +285,7 @@ function BackupTab() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 animate-stagger">
       <div className="card">
         <div className="card-header"><h3 className="text-lg font-semibold">Automatic Backup</h3></div>
         <div className="p-6 space-y-4">
@@ -399,7 +399,7 @@ export default function SettingsPage() {
         <h1 className="text-2xl font-bold text-navy-100">Settings</h1>
       </div>
 
-      <div className="border-b border-navy-700">
+      <div className="border-b border-navy-700 animate-fade-up">
         <div className="flex gap-0 -mb-px overflow-x-auto">
           {tabsByIndex.map((tab, i) => {
             const Icon = tab.icon;
