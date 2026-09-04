@@ -194,7 +194,7 @@ export default function TestSeries() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between animate-fade-up">
         <h1 className="text-2xl font-bold text-navy-100">Test Series</h1>
         {level === 'series' && <button onClick={() => setShowAddSeries(true)} className="btn-primary flex items-center gap-2"><Plus className="w-4 h-4" /> Add Series</button>}
         {level === 'categories' && <button onClick={() => setShowAddCategory(true)} className="btn-primary flex items-center gap-2"><Plus className="w-4 h-4" /> Add Category</button>}
