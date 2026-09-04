@@ -23,7 +23,7 @@ async function seed() {
   }
 
   const users = [
-    { email: 'admin@lms.app', password: 'admin123', username: 'admin', name: 'Admin User', role: 'admin' },
+    { email: 'asik14923@gmail.com', password: 'admin123', username: 'admin', name: 'Admin User', role: 'admin' },
     { email: 'alice.johnson@lms.app', password: 'student123', username: 'alice.johnson', name: 'Alice Johnson', role: 'student', course: 'React Fundamentals', enrolled: '2026-01-15', progress: 85 },
     { email: 'bob.smith@lms.app', password: 'student123', username: 'bob.smith', name: 'Bob Smith', role: 'student', course: 'Node.js Advanced', enrolled: '2026-02-20', progress: 62 },
     { email: 'eve.davis@lms.app', password: 'student123', username: 'eve.davis', name: 'Eve Davis', role: 'student', course: 'Machine Learning', enrolled: '2026-05-12', progress: 78 },

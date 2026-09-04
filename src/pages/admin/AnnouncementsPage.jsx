@@ -8,7 +8,7 @@ export default function AnnouncementsPage() {
   const [content, setContent] = useState('');
   const [target, setTarget] = useState('All');
 
-  const targets = ['All', 'Students', 'Instructors', 'Admins'];
+  const targets = ['All', 'Students', 'Admins'];
 
   useEffect(() => { refresh(); }, []);
 
