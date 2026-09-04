@@ -122,7 +122,7 @@ export default function AdminDashboard() {
           {testSeries.length > 0 ? testSeries.slice(0, 5).map(s => (
             <div key={s.id} className="flex items-center justify-between p-3 rounded-lg border border-navy-700 hover:border-navy-200">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-navy-100 dark:bg-navy-500/15 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-lg bg-navy-50 dark:bg-navy-500/15 flex items-center justify-center">
                   <FolderOpen className="w-4 h-4 text-navy-600 dark:text-navy-300" />
                 </div>
                 <div>

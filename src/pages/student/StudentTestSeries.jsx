@@ -111,7 +111,7 @@ export default function StudentTestSeries() {
           {seriesList.map(s => (
             <button key={s.id} onClick={() => goSeries(s)} className="card p-5 text-left hover:border-navy-300 hover:shadow-md transition-all cursor-pointer">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-navy-100 dark:bg-navy-500/15 flex items-center justify-center"><FolderOpen className="w-5 h-5 text-navy-600 dark:text-navy-300" /></div>
+                <div className="w-10 h-10 rounded-lg bg-navy-50 dark:bg-navy-500/15 flex items-center justify-center"><FolderOpen className="w-5 h-5 text-navy-600 dark:text-navy-300" /></div>
                 <div>
                   <p className="font-semibold text-navy-100">{s.name}</p>
                   {s.description && <p className="text-xs text-navy-200">{s.description}</p>}
@@ -178,7 +178,7 @@ export default function StudentTestSeries() {
               {testsList.map(t => (
                 <button key={t.id} onClick={() => goTest(t)} className="card p-5 text-left hover:border-navy-300 hover:shadow-md transition-all cursor-pointer w-full">
                   <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-navy-100 dark:bg-navy-500/15 flex items-center justify-center"><FileText className="w-5 h-5 text-navy-600 dark:text-navy-300" /></div>
+                    <div className="w-10 h-10 rounded-lg bg-navy-50 dark:bg-navy-500/15 flex items-center justify-center"><FileText className="w-5 h-5 text-navy-600 dark:text-navy-300" /></div>
                     <div className="flex-1 min-w-0">
                       <p className="font-semibold text-navy-100">{t.name}</p>
                       <div className="flex flex-wrap items-center gap-3 mt-1 text-xs text-navy-200">

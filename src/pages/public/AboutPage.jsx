@@ -32,7 +32,7 @@ export default function AboutPage() {
             const Icon = v.icon;
             return (
               <div key={v.title} className="card p-6">
-                <div className="w-12 h-12 rounded-lg bg-navy-100 dark:bg-navy-500/15 flex items-center justify-center mb-4">
+                <div className="w-12 h-12 rounded-lg bg-navy-50 dark:bg-navy-500/15 flex items-center justify-center mb-4">
                   <Icon className="w-6 h-6 text-navy-600 dark:text-navy-300" />
                 </div>
                 <h3 className="text-lg font-semibold text-navy-100">{v.title}</h3>

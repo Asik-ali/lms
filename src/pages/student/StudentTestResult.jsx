@@ -510,7 +510,7 @@ export default function StudentTestResult() {
                       <StatusIcon className="h-3.5 w-3.5" />
                       {sc.label}
                     </span>
-                    <span className="rounded-full bg-navy-100 dark:bg-navy-500/15 px-2 py-0.5 text-xs font-semibold text-navy-600 dark:text-navy-300">
+                    <span className="rounded-full bg-navy-50 dark:bg-navy-500/15 px-2 py-0.5 text-xs font-semibold text-navy-600 dark:text-navy-300">
                       +{marks} mark{marks !== 1 ? 's' : ''}
                     </span>
                     {r?.time_spent > 0 && (
@@ -522,7 +522,7 @@ export default function StudentTestResult() {
                     {q.difficulty && (
                       <span
                         className={`rounded-full px-2 py-0.5 text-xs font-semibold ${
-                          DIFFICULTY_COLORS[q.difficulty] || 'bg-navy-100 dark:bg-navy-800 text-navy-600 dark:text-navy-200'
+                          DIFFICULTY_COLORS[q.difficulty] || 'bg-navy-50 dark:bg-navy-800 text-navy-600 dark:text-navy-200'
                         }`}
                       >
                         {q.difficulty}
