@@ -21,13 +21,13 @@ function formatTime(seconds) {
 const StatCard = ({ icon: Icon, label, value, accent }) => (
   <div className="flex items-center gap-3 rounded-xl border border-navy-700 bg-surface p-4 shadow-sm">
     <div className={`rounded-lg p-2 ${accent}`}>
-      <Icon className="h-5 w-5 text-white" />
+      <Icon className="h-5 w-5 text-navy-100" />
     </div>
     <div className="min-w-0">
       <p className="truncate text-xs font-medium uppercase tracking-wide text-navy-200">
         {label}
       </p>
-      <p className="text-lg font-bold text-white">{value}</p>
+      <p className="text-lg font-bold text-navy-100">{value}</p>
     </div>
   </div>
 );
@@ -50,10 +50,10 @@ export default function TestResultSummary({ attempt }) {
 
   return (
     <div className="w-full max-w-4xl mx-auto p-4 sm:p-6">
-      <div className="rounded-2xl border border-navy-700 bg-gradient-to-br from-navy-50 dark:from-gray-900 to-white dark:to-gray-900 p-6 shadow-md">
+      <div className="rounded-2xl border border-navy-700 bg-gradient-to-br from-[#F3F6FB] dark:from-navy-900 to-white dark:to-navy-950 p-6 shadow-md">
         <div className="flex flex-col items-center gap-1 text-center sm:flex-row sm:justify-between sm:text-left">
           <div>
-            <h2 className="text-xl font-bold text-white">
+            <h2 className="text-xl font-bold text-navy-100">
               Test Result Summary
             </h2>
             <p className="text-sm text-navy-200">

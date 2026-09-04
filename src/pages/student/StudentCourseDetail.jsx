@@ -86,7 +86,7 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
       </button>
 
       <div className="card overflow-hidden">
-        <div className="bg-gradient-to-r from-navy-900 to-navy-600 p-6 text-white">
+        <div className="bg-gradient-to-r from-[#071A3D] to-navy-600 p-6 text-white dark:from-navy-900">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-12 h-12 rounded-lg bg-white/20 flex items-center justify-center">
               <BookOpen className="w-6 h-6" />
@@ -104,7 +104,7 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
         <div className="p-6 space-y-6">
           <div className="grid md:grid-cols-2 gap-6">
             <div className="rounded-lg border border-navy-700 p-4">
-              <h3 className="font-semibold text-white mb-3">Course Info</h3>
+              <h3 className="font-semibold text-navy-100 mb-3">Course Info</h3>
               <ul className="space-y-2 text-sm text-navy-100">
                 <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5" /><span>Duration: {course.duration}</span></li>
                 <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5" /><span>Total lessons: {course.lessons}</span></li>
@@ -112,7 +112,7 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
             </div>
 
             <div className="rounded-lg border border-navy-700 p-4 md:col-span-2">
-              <h3 className="font-semibold text-white mb-3">Lessons &amp; Resources</h3>
+              <h3 className="font-semibold text-navy-100 mb-3">Lessons &amp; Resources</h3>
               {days.length > 0 ? (
                 <div className="space-y-4">
                   {days.map(group => (
@@ -123,7 +123,7 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
                         className="w-full flex items-center gap-2 px-4 py-3 bg-navy-800/60 cursor-pointer hover:bg-navy-700"
                       >
                         <CalendarDays className="w-4 h-4 text-navy-600 dark:text-navy-300" />
-                        <span className="flex-1 text-left text-sm font-semibold text-white">
+                        <span className="flex-1 text-left text-sm font-semibold text-navy-100">
                           {group.day > 0 ? `Day ${group.day}` : 'General'}
                         </span>
                         <span className="text-xs text-navy-300">{group.videos.length} V · {group.pdfs.length} P</span>
@@ -137,8 +137,8 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
                               <p className="text-xs font-medium text-navy-200 uppercase tracking-wide">Videos</p>
                               {group.videos.map((lesson, i) => (
                                 <div key={lesson.id} className="rounded-lg border border-navy-700 p-3">
-                                  <p className="text-sm font-semibold text-white">{i + 1}. {lesson.title}</p>
-                                  <button type="button" onClick={() => setMediaViewer({ url: lesson.video_url, title: lesson.title, type: 'video' })} className="mt-2 inline-flex items-center gap-1.5 text-sm text-navy-600 hover:text-navy-800">
+                                  <p className="text-sm font-semibold text-navy-100">{i + 1}. {lesson.title}</p>
+                                  <button type="button" onClick={() => setMediaViewer({ url: lesson.video_url, title: lesson.title, type: 'video' })} className="mt-2 inline-flex items-center gap-1.5 text-sm text-navy-600 hover:text-navy-500 dark:hover:text-navy-400">
                                     <Play className="w-3.5 h-3.5" /> Watch video
                                   </button>
                                 </div>
@@ -153,12 +153,12 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
                                 <div key={pdf.id} className="flex items-center gap-3 rounded-lg border border-navy-700 p-3">
                                   <FileText className="w-5 h-5 text-navy-600 shrink-0" />
                                   <div className="min-w-0 flex-1">
-                                    <p className="text-sm font-semibold text-white truncate">{i + 1}. {pdf.title}</p>
+                                    <p className="text-sm font-semibold text-navy-100 truncate">{i + 1}. {pdf.title}</p>
                                   </div>
                                   <button
                                     type="button"
                                     onClick={() => setMediaViewer({ url: pdf.pdf_url, title: pdf.title, type: 'pdf' })}
-                                    className="inline-flex items-center gap-1.5 text-sm font-medium text-navy-600 hover:text-navy-800 shrink-0"
+                                    className="inline-flex items-center gap-1.5 text-sm font-medium text-navy-600 hover:text-navy-500 dark:hover:text-navy-400 shrink-0"
                                   >
                                     View PDF
                                   </button>

@@ -5,7 +5,7 @@ import { getTickets, updateTicketStatus, getTicketReplies, addTicketReply, getAl
 import { showSuccess, showError } from '../../components/common/Toast';
 
 const statusConfig = {
-  Open: { icon: AlertCircle, color: 'text-amber-300 bg-amber-100 dark:bg-amber-500/15' },
+  Open: { icon: AlertCircle, color: 'text-amber-700 dark:text-amber-300 bg-amber-100 dark:bg-amber-500/15' },
   'In Progress': { icon: Clock, color: 'text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-500/15' },
   Resolved: { icon: CheckCircle, color: 'text-emerald-600 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-500/15' },
 };
@@ -105,9 +105,9 @@ export default function AdminTickets() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-white">Student Tickets</h1>
+        <h1 className="text-2xl font-bold text-navy-100">Student Tickets</h1>
         <div className="flex items-center gap-2 text-sm">
-          <span className="px-2 py-1 rounded-full bg-amber-100 dark:bg-amber-500/15 text-amber-300 font-medium">{openCount} Open</span>
+          <span className="px-2 py-1 rounded-full bg-amber-100 dark:bg-amber-500/15 text-amber-700 dark:text-amber-300 font-medium">{openCount} Open</span>
           <span className="px-2 py-1 rounded-full bg-blue-100 dark:bg-blue-500/15 text-blue-700 dark:text-blue-300 font-medium">{inProgressCount} In Progress</span>
           <span className="px-2 py-1 rounded-full bg-emerald-100 dark:bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 font-medium">{resolvedCount} Resolved</span>
         </div>
@@ -139,7 +139,7 @@ export default function AdminTickets() {
                     <Icon className="w-4 h-4" />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <p className="text-sm font-medium text-white truncate">{t.subject}</p>
+                    <p className="text-sm font-medium text-navy-100 truncate">{t.subject}</p>
                     <p className="text-xs text-navy-200 mt-0.5">{getStudentName(t.student_id)}</p>
                     <p className="text-xs text-navy-300">{t.status} &middot; {new Date(t.created_at).toLocaleDateString()}</p>
                   </div>
@@ -160,7 +160,7 @@ export default function AdminTickets() {
             <div className="card p-6 space-y-4">
               <div className="flex items-start justify-between">
                 <div>
-                  <h2 className="text-lg font-semibold text-white">{selected.subject}</h2>
+                  <h2 className="text-lg font-semibold text-navy-100">{selected.subject}</h2>
                   <div className="flex items-center gap-2 mt-1">
                     <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${statusConfig[selected.status]?.color || ''}`}>{selected.status}</span>
                     <span className="text-xs text-navy-300">From: {getStudentName(selected.student_id)} ({getStudentEmail(selected.student_id)})</span>

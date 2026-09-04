@@ -46,47 +46,47 @@ export default function ProfilePage() {
       <section className="bg-surface border border-navy-700 rounded-xl p-6">
         <div className="flex items-center gap-4">
           <div className="w-16 h-16 rounded-full bg-navy-600 flex items-center justify-center">
-            <UserCircle className="w-12 h-12 text-white" />
+            <UserCircle className="w-12 h-12 text-navy-100" />
           </div>
           <div>
-            <h2 className="text-xl font-semibold text-white">{user?.name || user?.username || 'User'}</h2>
+            <h2 className="text-xl font-semibold text-navy-100">{user?.name || user?.username || 'User'}</h2>
             <p className="text-sm text-navy-200">Your account information</p>
           </div>
         </div>
       </section>
 
-      <section className="bg-surface border border-navy-700 rounded-xl divide-y divide-gray-100 dark:divide-gray-800">
+      <section className="bg-surface border border-navy-700 rounded-xl divide-y divide-navy-200 dark:divide-navy-700">
         <div className="flex items-center gap-3 p-5">
           <Mail className="w-5 h-5 text-navy-300" />
           <div>
             <p className="text-xs text-navy-200">Email</p>
-            <p className="text-sm font-medium text-white">{user?.email || 'Not available'}</p>
+            <p className="text-sm font-medium text-navy-100">{user?.email || 'Not available'}</p>
           </div>
         </div>
         <div className="flex items-center gap-3 p-5">
           <Shield className="w-5 h-5 text-navy-300" />
           <div>
             <p className="text-xs text-navy-200">Role</p>
-            <p className="text-sm font-medium text-white">{role}</p>
+            <p className="text-sm font-medium text-navy-100">{role}</p>
           </div>
         </div>
       </section>
 
       <section className="bg-surface border border-navy-700 rounded-xl p-6">
-        <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+        <h3 className="text-lg font-semibold text-navy-100 mb-4 flex items-center gap-2">
           <Lock className="w-5 h-5" />
           Change Password
         </h3>
 
         {error && (
-          <div className="flex items-center gap-2 p-3 bg-brand-red/10 border border-brand-red/40 rounded-lg text-sm text-red-300 mb-4">
+          <div className="flex items-center gap-2 p-3 bg-brand-red/10 border border-brand-red/40 rounded-lg text-sm text-red-700 dark:text-red-300 mb-4">
             <AlertCircle className="w-4 h-4 flex-shrink-0" />
             {error}
           </div>
         )}
 
         {success && (
-          <div className="flex items-center gap-2 p-3 bg-emerald-500/10 border border-emerald-500/40 rounded-lg text-sm text-emerald-300 mb-4">
+          <div className="flex items-center gap-2 p-3 bg-emerald-500/10 border border-emerald-500/40 rounded-lg text-sm text-emerald-700 dark:text-emerald-300 mb-4">
             <CheckCircle className="w-4 h-4 flex-shrink-0" />
             {success}
           </div>
@@ -100,7 +100,7 @@ export default function ProfilePage() {
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
               placeholder="Enter new password"
-              className="w-full px-4 py-2 border border-navy-700 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-navy-500 bg-navy-800 text-white"
+              className="w-full px-4 py-2 border border-navy-700 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-navy-500 bg-navy-800 text-navy-100"
             />
           </div>
           <div>
@@ -110,13 +110,13 @@ export default function ProfilePage() {
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               placeholder="Confirm new password"
-              className="w-full px-4 py-2 border border-navy-700 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-navy-500 bg-navy-800 text-white"
+              className="w-full px-4 py-2 border border-navy-700 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-navy-500 bg-navy-800 text-navy-100"
             />
           </div>
           <button
             type="submit"
             disabled={loading}
-            className="flex items-center gap-2 px-4 py-2 bg-navy-600 text-white rounded-lg hover:bg-navy-700 disabled:opacity-50"
+            className="flex items-center gap-2 px-4 py-2 bg-navy-600 text-white rounded-lg hover:bg-navy-700 dark:hover:bg-[#0D4FB5] disabled:opacity-50"
           >
             <Save className="w-4 h-4" />
             {loading ? 'Updating...' : 'Update Password'}

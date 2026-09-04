@@ -21,7 +21,7 @@ export default function StudentAnnouncements() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-white">Announcements</h1>
+        <h1 className="text-2xl font-bold text-navy-100">Announcements</h1>
       </div>
 
       <div className="space-y-4">
@@ -34,7 +34,7 @@ export default function StudentAnnouncements() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between gap-2">
-                    <h3 className="text-lg font-semibold text-white">{a.title}</h3>
+                    <h3 className="text-lg font-semibold text-navy-100">{a.title}</h3>
                     <span className="badge badge-info whitespace-nowrap">{a.target}</span>
                   </div>
                   <div className="flex items-center gap-1.5 text-sm text-navy-300 mt-1">

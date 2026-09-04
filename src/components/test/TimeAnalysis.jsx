@@ -12,7 +12,7 @@ function StatusIcon({ status }) {
   if (status === "correct")
     return <CheckCircle2 className="h-4 w-4 text-emerald-500" />;
   if (status === "wrong") return <XCircle className="h-4 w-4 text-rose-500" />;
-  return <CircleSlash className="h-4 w-4 text-slate-400" />;
+  return <CircleSlash className="h-4 w-4 text-navy-300" />;
 }
 
 export default function TimeAnalysis({ responses = [], questions = [] }) {
@@ -90,7 +90,7 @@ export default function TimeAnalysis({ responses = [], questions = [] }) {
                   </td>
                   <td className="px-3 py-2">
                     {isSlow ? (
-                      <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 dark:bg-amber-500/15 px-2 py-0.5 text-xs font-semibold text-amber-300">
+                      <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 dark:bg-amber-500/15 px-2 py-0.5 text-xs font-semibold text-amber-700 dark:text-amber-300">
                         Slow
                       </span>
                     ) : (

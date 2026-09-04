@@ -73,7 +73,7 @@ export default function TopicAnalysis({ responses = [], questions = [] }) {
                 key={t.name}
                 className="border-b border-navy-700 border-navy-700 hover:bg-navy-700/60 hover:bg-navy-700/60"
               >
-                <td className="px-3 py-2.5 font-semibold text-white">
+                <td className="px-3 py-2.5 font-semibold text-navy-100">
                   {t.name}
                 </td>
                 <td className="px-3 py-2.5 text-navy-200">{t.total}</td>
@@ -92,7 +92,7 @@ export default function TopicAnalysis({ responses = [], questions = [] }) {
                 <td className="px-3 py-2.5 text-navy-200">{t.skipped}</td>
                 <td className="px-3 py-2.5">
                   <div className="flex items-center gap-2">
-                    <div className="h-2 w-16 overflow-hidden rounded-full bg-slate-100 bg-navy-800">
+                    <div className="h-2 w-16 overflow-hidden rounded-full bg-surface">
                       <div
                         className={`h-full rounded-full transition-all ${
                           t.accuracy >= 70

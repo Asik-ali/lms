@@ -14,7 +14,7 @@ export default function ContactPage() {
 
   return (
     <div className="space-y-16">
-      <section className="bg-gradient-to-r from-navy-900 to-navy-600 text-white py-16">
+      <section className="bg-gradient-to-r from-[#071A3D] to-navy-600 text-white dark:from-navy-900 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-3xl sm:text-4xl font-bold">Contact Us</h1>
           <p className="mt-3 text-navy-100">Have questions? We would love to hear from you.</p>
@@ -30,7 +30,7 @@ export default function ContactPage() {
                   <Mail className="w-5 h-5 text-navy-600 dark:text-navy-300" />
                 </div>
                 <div>
-                  <p className="font-semibold text-white">Email</p>
+                  <p className="font-semibold text-navy-100">Email</p>
                   <p className="text-sm text-navy-200">info@lms.edu</p>
                 </div>
               </div>
@@ -41,7 +41,7 @@ export default function ContactPage() {
                   <Phone className="w-5 h-5 text-emerald-600 dark:text-emerald-300" />
                 </div>
                 <div>
-                  <p className="font-semibold text-white">Phone</p>
+                  <p className="font-semibold text-navy-100">Phone</p>
                   <p className="text-sm text-navy-200">+1 (555) 123-4567</p>
                 </div>
               </div>
@@ -52,7 +52,7 @@ export default function ContactPage() {
                   <MapPin className="w-5 h-5 text-amber-600 dark:text-amber-300" />
                 </div>
                 <div>
-                  <p className="font-semibold text-white">Address</p>
+                  <p className="font-semibold text-navy-100">Address</p>
                   <p className="text-sm text-navy-200">123 Education St, Learning City</p>
                 </div>
               </div>
@@ -60,7 +60,7 @@ export default function ContactPage() {
           </div>
 
           <div className="lg:col-span-2 card p-6">
-            <h2 className="text-lg font-semibold text-white mb-4">Send a Message</h2>
+            <h2 className="text-lg font-semibold text-navy-100 mb-4">Send a Message</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>

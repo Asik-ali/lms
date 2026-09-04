@@ -79,7 +79,7 @@ export default function StudentMessages() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-white">Support Tickets</h1>
+        <h1 className="text-2xl font-bold text-navy-100">Support Tickets</h1>
         {!showNew && !selected && (
           <button onClick={() => setShowNew(true)} className="btn-primary flex items-center gap-2">
             <Plus className="w-4 h-4" /> New Ticket
@@ -123,7 +123,7 @@ export default function StudentMessages() {
                       <Icon className="w-4 h-4" />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <p className="text-sm font-medium text-white truncate">{t.subject}</p>
+                      <p className="text-sm font-medium text-navy-100 truncate">{t.subject}</p>
                       <p className="text-xs text-navy-300 mt-0.5">{t.status} &middot; {new Date(t.created_at).toLocaleDateString()}</p>
                     </div>
                   </div>
@@ -134,7 +134,7 @@ export default function StudentMessages() {
               <div className="text-center py-8 text-navy-300">
                 <MessageSquare className="w-10 h-10 mx-auto mb-2 text-navy-300" />
                 <p>No tickets yet</p>
-                <button onClick={() => setShowNew(true)} className="text-sm text-navy-600 hover:text-navy-700 mt-2 cursor-pointer">Create your first ticket</button>
+                <button onClick={() => setShowNew(true)} className="text-sm text-navy-600 hover:text-navy-500 dark:hover:text-navy-400 mt-2 cursor-pointer">Create your first ticket</button>
               </div>
             )}
           </div>
@@ -143,7 +143,7 @@ export default function StudentMessages() {
             {selected ? (
               <div className="card p-6 space-y-4">
                 <div>
-                  <h2 className="text-lg font-semibold text-white">{selected.subject}</h2>
+                  <h2 className="text-lg font-semibold text-navy-100">{selected.subject}</h2>
                   <div className="flex items-center gap-2 mt-1">
                     <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${statusConfig[selected.status]?.color || ''}`}>{selected.status}</span>
                     <span className="text-xs text-navy-300">Created {new Date(selected.created_at).toLocaleString()}</span>

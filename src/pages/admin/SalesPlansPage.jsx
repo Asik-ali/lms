@@ -154,7 +154,7 @@ export default function SalesPlansPage() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-white">Sales Plans</h1>
+        <h1 className="text-2xl font-bold text-navy-100">Sales Plans</h1>
         {!showForm && (
           <button onClick={openCreate} className="btn-primary flex items-center gap-2 cursor-pointer">
             <Plus className="w-4 h-4" /> New Plan
@@ -165,7 +165,7 @@ export default function SalesPlansPage() {
       {showForm && (
         <div className="card p-6 space-y-5">
           <div className="flex items-center justify-between">
-            <h2 className="text-lg font-semibold text-white">
+            <h2 className="text-lg font-semibold text-navy-100">
               {form.id ? 'Edit Plan' : 'Create Plan'}
             </h2>
             <button onClick={() => setShowForm(false)} className="p-1 hover:bg-navy-700 rounded cursor-pointer">
@@ -209,7 +209,7 @@ export default function SalesPlansPage() {
                     key={c.id}
                     type="button"
                     onClick={() => toggleItem('course', c.id)}
-                    className={`flex items-center gap-2 px-3 py-2 rounded-lg border text-left text-sm cursor-pointer transition-all ${on ? 'border-navy-400 bg-navy-50 dark:bg-navy-500/10 text-navy-700 dark:text-navy-300' : 'border-navy-700 text-navy-100 hover:border-navy-500'}`}
+                    className={`flex items-center gap-2 px-3 py-2 rounded-lg border text-left text-sm cursor-pointer transition-all ${on ? 'border-navy-400 bg-navy-50 dark:bg-navy-500/10 text-navy-600 dark:text-navy-300' : 'border-navy-700 text-navy-100 hover:border-navy-500'}`}
                   >
                     <BookOpen className="w-4 h-4 flex-shrink-0" />
                     <span className="truncate">{c.title}</span>
@@ -232,7 +232,7 @@ export default function SalesPlansPage() {
                     key={s.id}
                     type="button"
                     onClick={() => toggleItem('test_series', s.id)}
-                    className={`flex items-center gap-2 px-3 py-2 rounded-lg border text-left text-sm cursor-pointer transition-all ${on ? 'border-navy-400 bg-navy-50 dark:bg-navy-500/10 text-navy-700 dark:text-navy-300' : 'border-navy-700 text-navy-100 hover:border-navy-500'}`}
+                    className={`flex items-center gap-2 px-3 py-2 rounded-lg border text-left text-sm cursor-pointer transition-all ${on ? 'border-navy-400 bg-navy-50 dark:bg-navy-500/10 text-navy-600 dark:text-navy-300' : 'border-navy-700 text-navy-100 hover:border-navy-500'}`}
                   >
                     <PenTool className="w-4 h-4 flex-shrink-0" />
                     <span className="truncate">{s.name}</span>
@@ -268,13 +268,13 @@ export default function SalesPlansPage() {
             {plans.map(p => (
               <div key={p.id} className="card p-6 flex flex-col">
                 <div className="flex items-start justify-between mb-2">
-                  <h3 className="font-semibold text-white">{p.name}</h3>
+                  <h3 className="font-semibold text-navy-100">{p.name}</h3>
                   <span className={`badge ${statusBadge(p.status)}`}>{p.status}</span>
                 </div>
                 {p.description && <p className="text-sm text-navy-200 mb-3 line-clamp-2">{p.description}</p>}
                 <div className="flex items-baseline gap-1 mb-4">
                   <IndianRupee className="w-4 h-4 text-navy-200" />
-                  <span className="text-2xl font-bold text-white">{Number(p.price).toLocaleString('en-IN')}</span>
+                  <span className="text-2xl font-bold text-navy-100">{Number(p.price).toLocaleString('en-IN')}</span>
                 </div>
                 <div className="space-y-1.5 mb-5 text-sm text-navy-100 flex-1">
                   {(p.items || []).length === 0 ? (
@@ -288,7 +288,7 @@ export default function SalesPlansPage() {
                 </div>
                 <div className="flex gap-2 mt-auto">
                   <button onClick={() => openEdit(p)} className="btn-secondary flex-1 flex items-center justify-center gap-2 cursor-pointer"><Pencil className="w-4 h-4" /> Edit</button>
-                  <button onClick={() => handleDelete(p)} className="px-3 py-2 rounded-lg border border-brand-red/40 text-red-300 hover:bg-brand-red/10 cursor-pointer"><Trash2 className="w-4 h-4" /></button>
+                  <button onClick={() => handleDelete(p)} className="px-3 py-2 rounded-lg border border-brand-red/40 text-red-700 dark:text-red-300 hover:bg-brand-red/10 cursor-pointer"><Trash2 className="w-4 h-4" /></button>
                 </div>
               </div>
             ))}

@@ -92,8 +92,8 @@ export default function AdminCalendar() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-white">Calendar Events</h1>
-        <button onClick={() => setShowForm(true)} className="flex items-center gap-2 px-4 py-2 bg-navy-600 text-white rounded-lg hover:bg-navy-700 cursor-pointer">
+        <h1 className="text-2xl font-bold text-navy-100">Calendar Events</h1>
+        <button onClick={() => setShowForm(true)} className="flex items-center gap-2 px-4 py-2 bg-navy-600 text-white rounded-lg hover:bg-navy-700 dark:hover:bg-[#0D4FB5] cursor-pointer">
           <Plus className="w-4 h-4" /> Add Event
         </button>
       </div>
@@ -103,7 +103,7 @@ export default function AdminCalendar() {
           <button onClick={prevMonth} className="p-2 hover:bg-navy-700 rounded-lg cursor-pointer">
             <ChevronLeft className="w-5 h-5 text-navy-100" />
           </button>
-          <h2 className="text-lg font-semibold text-white">{monthName}</h2>
+          <h2 className="text-lg font-semibold text-navy-100">{monthName}</h2>
           <button onClick={nextMonth} className="p-2 hover:bg-navy-700 rounded-lg cursor-pointer">
             <ChevronRight className="w-5 h-5 text-navy-100" />
           </button>
@@ -143,13 +143,13 @@ export default function AdminCalendar() {
       </div>
 
       <div className="card p-6">
-        <h3 className="text-base font-semibold text-white mb-4">All Events ({events.length})</h3>
+        <h3 className="text-base font-semibold text-navy-100 mb-4">All Events ({events.length})</h3>
         <div className="space-y-2">
           {events.sort((a, b) => a.date.localeCompare(b.date)).map(e => (
             <div key={e.id} className="flex items-center gap-3 p-3 rounded-lg border border-navy-700 hover:border-navy-200 group">
               <div className={`w-3 h-3 rounded-full flex-shrink-0 ${colorMap[e.color] || 'bg-navy-500'}`} />
               <div className="flex-1 min-w-0">
-                <p className="text-sm font-medium text-white">{e.title}</p>
+                <p className="text-sm font-medium text-navy-100">{e.title}</p>
                 <p className="text-xs text-navy-200">{e.date} {e.time ? `at ${e.time}` : ''} {e.description ? `- ${e.description}` : ''}</p>
               </div>
               <button onClick={() => handleDelete(e.id)} className="p-1 text-navy-300 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer">

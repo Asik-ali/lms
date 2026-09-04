@@ -33,7 +33,7 @@ export default function ToastContainer() {
         const bg = t.type === 'success' ? 'bg-green-600' : 'bg-red-600';
         const Icon = t.type === 'success' ? CheckCircle : AlertCircle;
         return (
-          <div key={t.id} className={`flex items-center gap-2 ${bg} text-white px-4 py-3 rounded-lg shadow-lg text-sm`}>
+          <div key={t.id} className={`flex items-center gap-2 ${bg} text-navy-100 px-4 py-3 rounded-lg shadow-lg text-sm`}>
             <Icon className="w-4 h-4" />
             {t.message}
           </div>

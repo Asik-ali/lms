@@ -42,7 +42,7 @@ export default function AnnouncementsPage() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-white">Announcements</h1>
+        <h1 className="text-2xl font-bold text-navy-100">Announcements</h1>
       </div>
 
       <div className="card">
@@ -83,7 +83,7 @@ export default function AnnouncementsPage() {
                     <Megaphone className="w-5 h-5 text-navy-600 dark:text-navy-300" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-white">{a.title}</h4>
+                    <h4 className="font-semibold text-navy-100">{a.title}</h4>
                     <p className="text-xs text-navy-300">{a.created}</p>
                   </div>
                 </div>

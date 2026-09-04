@@ -115,7 +115,7 @@ export default function StudentBuyCourses() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-white">Buy Courses</h1>
+        <h1 className="text-2xl font-bold text-navy-100">Buy Courses</h1>
         <button
           onClick={() => setShowHistory(v => !v)}
           className="btn-secondary flex items-center gap-2"
@@ -127,7 +127,7 @@ export default function StudentBuyCourses() {
       {showHistory ? (
         <div className="space-y-6">
           <div>
-            <h2 className="text-lg font-semibold text-white mb-3">Order History</h2>
+            <h2 className="text-lg font-semibold text-navy-100 mb-3">Order History</h2>
             {history.orders.length === 0 ? (
               <div className="card p-8 text-center text-navy-300">
                 <History className="w-10 h-10 mx-auto mb-2 text-navy-300" />
@@ -163,7 +163,7 @@ export default function StudentBuyCourses() {
           </div>
 
           <div>
-            <h2 className="text-lg font-semibold text-white mb-3">My Purchases</h2>
+            <h2 className="text-lg font-semibold text-navy-100 mb-3">My Purchases</h2>
             {history.purchases.length === 0 ? (
               <div className="card p-8 text-center text-navy-300">
                 <ShoppingCart className="w-10 h-10 mx-auto mb-2 text-navy-300" />
@@ -174,7 +174,7 @@ export default function StudentBuyCourses() {
                 {history.purchases.map(p => (
                   <div key={p.id} className="card p-4 flex items-center justify-between">
                     <div>
-                      <p className="font-medium text-white">Order {p.order_id}</p>
+                      <p className="font-medium text-navy-100">Order {p.order_id}</p>
                       <p className="text-xs text-navy-200">{new Date(p.created_at).toLocaleString()}</p>
                     </div>
                     <span className="badge badge-success flex items-center gap-1"><CheckCircle className="w-3 h-3" /> {formatINR(p.amount)}</span>
@@ -199,12 +199,12 @@ export default function StudentBuyCourses() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {plans.map(plan => (
                 <div key={plan.id} className="card p-6 flex flex-col">
-                  <h2 className="text-lg font-bold text-white mb-1">{plan.name}</h2>
+                  <h2 className="text-lg font-bold text-navy-100 mb-1">{plan.name}</h2>
                   {plan.description && <p className="text-sm text-navy-200 mb-4">{plan.description}</p>}
 
                   <div className="flex items-baseline gap-1 mb-4">
                     <IndianRupee className="w-4 h-4 text-navy-200" />
-                    <span className="text-3xl font-bold text-white">
+                    <span className="text-3xl font-bold text-navy-100">
                       {plan.price.toLocaleString('en-IN')}
                     </span>
                   </div>

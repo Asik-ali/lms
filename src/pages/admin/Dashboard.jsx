@@ -67,7 +67,7 @@ export default function AdminDashboard() {
                   <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
               </div>
-              <p className="text-xl sm:text-2xl font-bold text-white">{card.value}</p>
+              <p className="text-xl sm:text-2xl font-bold text-navy-100">{card.value}</p>
               <p className="text-xs sm:text-sm text-navy-200 mt-1">{card.label}</p>
             </div>
           );
@@ -82,11 +82,11 @@ export default function AdminDashboard() {
           <div className="p-6">
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={studentProgressData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+                <CartesianGrid strokeDasharray="3 3" stroke="#94A3B8" />
                 <XAxis dataKey="month" fontSize={12} />
                 <YAxis fontSize={12} />
                 <Tooltip />
-                <Bar dataKey="enrolled" fill="#6366f1" radius={[4, 4, 0, 0]} />
+                <Bar dataKey="enrolled" fill="#1261D6" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -116,7 +116,7 @@ export default function AdminDashboard() {
       <div className="card">
         <div className="card-header flex items-center justify-between">
           <h3 className="text-base sm:text-lg font-semibold">Test Series</h3>
-          <a href="/admin/exams/questions" className="text-sm text-navy-600 hover:text-navy-700">Manage</a>
+          <a href="/admin/exams/questions" className="text-sm text-navy-600 hover:text-navy-500 dark:hover:text-navy-400">Manage</a>
         </div>
         <div className="p-4 space-y-3">
           {testSeries.length > 0 ? testSeries.slice(0, 5).map(s => (
@@ -126,7 +126,7 @@ export default function AdminDashboard() {
                   <FolderOpen className="w-4 h-4 text-navy-600 dark:text-navy-300" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-white">{s.name}</p>
+                  <p className="text-sm font-medium text-navy-100">{s.name}</p>
                   {s.description && <p className="text-xs text-navy-300">{s.description}</p>}
                 </div>
               </div>

@@ -84,7 +84,7 @@ export default function SignupPage() {
           <div className="w-20 h-20 rounded-2xl bg-surface border border-navy-600/40 flex items-center justify-center mx-auto mb-5 shadow-lg shadow-navy-900/40">
             <img src={logo} alt="EXAMSTICK" className="w-14 h-14 object-contain" />
           </div>
-          <h1 className="text-3xl font-bold text-white">Create Account</h1>
+          <h1 className="text-3xl font-bold text-navy-100">Create Account</h1>
           <p className="text-muted mt-2">
             {step === 'form' ? 'Join the EXAMSTICK platform' : 'Verify your email'}
           </p>
@@ -92,7 +92,7 @@ export default function SignupPage() {
 
         <div className="bg-surface rounded-2xl border border-navy-700 p-8 shadow-xl shadow-navy-900/40">
           {error && (
-            <div className="mb-5 flex items-center gap-2 p-3 bg-brand-red/10 border border-brand-red/40 rounded-lg text-sm text-red-300">
+            <div className="mb-5 flex items-center gap-2 p-3 bg-brand-red/10 border border-brand-red/40 rounded-lg text-sm text-red-700 dark:text-red-300">
               <AlertCircle className="w-4 h-4 flex-shrink-0" />
               {error}
             </div>
@@ -124,14 +124,14 @@ export default function SignupPage() {
                 </div>
               </div>
 
-              <button type="submit" disabled={isSubmitting} className="w-full bg-gold-500 text-navy-900 py-2.5 rounded-lg font-semibold hover:bg-gold-300 transition-all duration-200 cursor-pointer disabled:opacity-60 shadow-lg shadow-gold-500/20">
+              <button type="submit" disabled={isSubmitting} className="w-full bg-gold-500 text-[#071A3D] dark:text-navy-900 py-2.5 rounded-lg font-semibold hover:bg-gold-300 transition-all duration-200 cursor-pointer disabled:opacity-60 shadow-lg shadow-gold-500/20">
                 {isSubmitting ? 'Sending code...' : 'Send Verification Code'}
               </button>
             </form>
           ) : (
             <form onSubmit={handleVerify} className="space-y-5">
               <p className="text-sm text-navy-200">
-                We sent a 6-digit verification code to <span className="font-semibold text-white">{email}</span>. Enter it below to complete your signup. The code expires in 10 minutes.
+                We sent a 6-digit verification code to <span className="font-semibold text-navy-100">{email}</span>. Enter it below to complete your signup. The code expires in 10 minutes.
               </p>
 
               <div>
@@ -150,14 +150,14 @@ export default function SignupPage() {
                 </div>
               </div>
 
-              <button type="submit" disabled={isSubmitting} className="w-full bg-gold-500 text-navy-900 py-2.5 rounded-lg font-semibold hover:bg-gold-300 transition-all duration-200 cursor-pointer disabled:opacity-60 shadow-lg shadow-gold-500/20">
+              <button type="submit" disabled={isSubmitting} className="w-full bg-gold-500 text-[#071A3D] dark:text-navy-900 py-2.5 rounded-lg font-semibold hover:bg-gold-300 transition-all duration-200 cursor-pointer disabled:opacity-60 shadow-lg shadow-gold-500/20">
                 {isSubmitting ? 'Verifying...' : 'Verify & Create Account'}
               </button>
 
               <button
                 type="button"
                 onClick={() => setStep('form')}
-                className="w-full flex items-center justify-center gap-1 text-sm text-navy-200 hover:text-white cursor-pointer"
+                className="w-full flex items-center justify-center gap-1 text-sm text-navy-200 hover:text-navy-100 cursor-pointer"
               >
                 <ChevronLeft className="w-4 h-4" /> Back
               </button>
@@ -166,7 +166,7 @@ export default function SignupPage() {
 
           <div className="mt-6 pt-5 border-t border-navy-700 text-center text-sm text-navy-200">
             Already have an account?{' '}
-            <Link to="/login" className="font-medium text-gold-400 hover:text-gold-300">
+            <Link to="/login" className="font-medium text-gold-600 dark:text-gold-400 hover:text-gold-500 dark:hover:text-gold-300">
               Login
             </Link>
           </div>

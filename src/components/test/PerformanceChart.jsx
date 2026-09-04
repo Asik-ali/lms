@@ -78,7 +78,7 @@ export default function PerformanceChart({ attempt }) {
             ))}
           </svg>
           <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <span className="text-2xl font-bold text-white">
+            <span className="text-2xl font-bold text-navy-100">
               {score}
               {totalMarks > 0 && (
                 <span className="text-base font-medium text-navy-300">
@@ -105,7 +105,7 @@ export default function PerformanceChart({ attempt }) {
                 />
                 {s.label}
               </span>
-              <span className="text-sm font-semibold text-white">
+              <span className="text-sm font-semibold text-navy-100">
                 {s.value}
                 <span className="ml-1 text-xs font-normal text-navy-300">
                   {total > 0 ? Math.round((s.value / total) * 100) : 0}%

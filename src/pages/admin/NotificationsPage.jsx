@@ -143,7 +143,7 @@ export default function NotificationsPage() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-white">Notifications</h1>
+        <h1 className="text-2xl font-bold text-navy-100">Notifications</h1>
       </div>
 
       <div className="border-b border-navy-700">
@@ -157,7 +157,7 @@ export default function NotificationsPage() {
                 className={`flex items-center gap-2 px-6 py-3 text-sm font-medium border-b-2 transition-colors ${
                   i === activeTab
                     ? 'border-navy-600 text-navy-600'
-                    : 'border-transparent text-navy-200 hover:text-white hover:border-navy-500'
+                    : 'border-transparent text-navy-200 hover:text-navy-100 hover:border-navy-500'
                 }`}
               >
                 <Icon className="w-4 h-4" />

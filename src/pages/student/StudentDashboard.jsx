@@ -43,7 +43,7 @@ export default function StudentDashboard() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-gradient-to-r from-navy-900 to-navy-600 rounded-xl p-6 text-white">
+      <div className="bg-gradient-to-r from-[#071A3D] to-navy-600 rounded-xl p-6 text-white dark:from-navy-900">
         <h1 className="text-2xl font-bold">Welcome back, {user?.name || 'Student'}!</h1>
         <p className="text-navy-100 mt-1">{user?.course || 'Continue your learning journey'}</p>
       </div>
@@ -55,10 +55,10 @@ export default function StudentDashboard() {
             <div key={s.label} className="stat-card">
               <div className="flex items-center justify-between mb-4">
                 <div className={`w-12 h-12 rounded-lg ${s.color} flex items-center justify-center`}>
-                  <Icon className="w-6 h-6 text-white" />
+                  <Icon className="w-6 h-6 text-navy-100" />
                 </div>
               </div>
-              <p className="text-2xl font-bold text-white">{s.value}</p>
+              <p className="text-2xl font-bold text-navy-100">{s.value}</p>
               <p className="text-sm text-navy-200 mt-1">{s.label}</p>
             </div>
           );
@@ -69,7 +69,7 @@ export default function StudentDashboard() {
         <div className="lg:col-span-2 card">
           <div className="card-header flex justify-between items-center">
             <h3 className="text-lg font-semibold">My Courses</h3>
-            <button onClick={() => navigate('/student/courses')} className="text-sm text-navy-600 hover:text-navy-700 flex items-center gap-1">
+            <button onClick={() => navigate('/student/courses')} className="text-sm text-navy-600 hover:text-navy-500 dark:hover:text-navy-400 flex items-center gap-1">
               View All <ChevronRight className="w-4 h-4" />
             </button>
           </div>
@@ -77,7 +77,7 @@ export default function StudentDashboard() {
             {myCourses.length > 0 ? myCourses.slice(0, 3).map(c => (
               <div key={c.id} className="flex items-center gap-4 p-3 rounded-lg hover:bg-navy-700/60">
                 <div className="flex-1 min-w-0">
-                  <h4 className="text-sm font-medium text-white">{c.title}</h4>
+                  <h4 className="text-sm font-medium text-navy-100">{c.title}</h4>
                   <div className="flex items-center gap-3 mt-2">
                     <span className="text-xs text-navy-300">{c.duration}</span>
                   </div>
@@ -103,7 +103,7 @@ export default function StudentDashboard() {
                 <div key={a.id} className="flex gap-3 p-2 rounded-lg hover:bg-navy-700/60">
                   <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0 bg-navy-500" />
                   <div>
-                    <p className="text-sm font-medium text-white">{a.title}</p>
+                    <p className="text-sm font-medium text-navy-100">{a.title}</p>
                     <p className="text-xs text-navy-200 mt-0.5">{a.created}</p>
                   </div>
                 </div>

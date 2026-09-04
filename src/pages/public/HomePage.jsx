@@ -28,7 +28,7 @@ export default function HomePage() {
   useReveal();
   return (
     <div className="space-y-0 bg-navy-950">
-      <section className="relative overflow-hidden bg-gradient-to-br from-navy-900 via-navy-950 to-navy-800 text-white">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#071A3D] via-[#081B3A] to-navy-600 text-white dark:from-navy-900 dark:via-navy-950 dark:to-navy-800">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-10 left-1/4 w-72 h-72 rounded-full bg-navy-600/30 blur-3xl animate-float" />
           <div className="absolute bottom-10 right-1/4 w-80 h-80 rounded-full bg-gold-500/10 blur-3xl" />
@@ -42,11 +42,11 @@ export default function HomePage() {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight animate-fade-up">
               Crack Your Exams With <span className="text-gold-400">ExamStick</span>
             </h1>
-            <p className="mt-6 text-lg sm:text-xl text-navy-200 max-w-2xl animate-fade-up reveal-delay-1">
+            <p className="mt-6 text-lg sm:text-xl text-[#AECBF0] max-w-2xl animate-fade-up reveal-delay-1">
               A complete learning management system with <span className="font-semibold text-gold-400">courses</span>, <span className="font-semibold text-gold-400">live classes</span>, test series, and progress tracking — all in one place.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row gap-4 animate-fade-up reveal-delay-2">
-              <Link to="/signup" className="inline-flex items-center justify-center gap-2 bg-gold-500 text-navy-900 px-8 py-4 rounded-xl font-bold hover:bg-gold-300 transition-all duration-200 hover:-translate-y-1 shadow-lg shadow-gold-500/30 animate-shine">
+              <Link to="/signup" className="inline-flex items-center justify-center gap-2 bg-gold-500 text-[#071A3D] dark:text-navy-900 px-8 py-4 rounded-xl font-bold hover:bg-gold-300 transition-all duration-200 hover:-translate-y-1 shadow-lg shadow-gold-500/30 animate-shine">
                 Get Started Free <ChevronRight className="w-5 h-5" />
               </Link>
               <Link to="/login" className="btn-outline px-8 py-4 rounded-xl font-semibold">
@@ -61,7 +61,7 @@ export default function HomePage() {
                   <div key={s.label} className="reveal reveal-delay-1">
                     <Icon className="w-6 h-6 text-gold-400 mb-2" />
                     <p className="text-3xl font-bold text-white">{s.value}</p>
-                    <p className="text-sm text-navy-200 mt-1">{s.label}</p>
+                    <p className="text-sm text-[#AECBF0] mt-1">{s.label}</p>
                   </div>
                 );
               })}
@@ -80,7 +80,7 @@ export default function HomePage() {
                   <div className="w-12 h-12 rounded-xl bg-navy-600/20 flex items-center justify-center mb-4">
                     <Icon className="w-6 h-6 text-gold-400" />
                   </div>
-                  <h3 className="text-lg font-bold text-white">{h.title}</h3>
+                  <h3 className="text-lg font-bold text-navy-100">{h.title}</h3>
                   <p className="mt-2 text-sm text-navy-200">{h.desc}</p>
                 </div>
               );
@@ -89,7 +89,7 @@ export default function HomePage() {
 
           <div className="text-center mb-14 reveal">
             <span className="text-gold-400 font-semibold uppercase tracking-widest text-sm">Platform Features</span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white mt-3">Everything You Need To Succeed</h2>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-navy-100 mt-3">Everything You Need To Succeed</h2>
             <p className="mt-3 text-navy-200 max-w-2xl mx-auto">Powerful tools designed for both admins and students.</p>
           </div>
 
@@ -99,9 +99,9 @@ export default function HomePage() {
               return (
                 <div key={f.title} className="card p-7 hover:-translate-y-1.5 hover:border-navy-500 transition-all duration-300 reveal reveal-delay-1">
                   <div className="w-12 h-12 rounded-xl bg-navy-600/20 flex items-center justify-center mb-4 transition-transform duration-300 hover:scale-110">
-                    <Icon className="w-6 h-6 text-white" />
+                    <Icon className="w-6 h-6 text-navy-100" />
                   </div>
-                  <h3 className="text-lg font-bold text-white">{f.title}</h3>
+                  <h3 className="text-lg font-bold text-navy-100">{f.title}</h3>
                   <p className="mt-2 text-sm text-navy-200">{f.desc}</p>
                 </div>
               );
@@ -112,9 +112,9 @@ export default function HomePage() {
 
       <section className="py-20 bg-navy-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white reveal">Ready To Start Learning?</h2>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-navy-100 reveal">Ready To Start Learning?</h2>
           <p className="mt-4 text-lg text-navy-200 max-w-xl mx-auto reveal reveal-delay-1">Join thousands of students preparing for success with ExamStick.</p>
-          <Link to="/signup" className="mt-8 inline-flex items-center gap-2 bg-gold-500 text-navy-900 px-8 py-4 rounded-xl font-bold hover:bg-gold-300 hover:-translate-y-1 transition-all duration-200 shadow-lg shadow-gold-500/30 animate-pulse-gold reveal reveal-delay-2">
+          <Link to="/signup" className="mt-8 inline-flex items-center gap-2 bg-gold-500 text-[#071A3D] dark:text-navy-900 px-8 py-4 rounded-xl font-bold hover:bg-gold-300 hover:-translate-y-1 transition-all duration-200 shadow-lg shadow-gold-500/30 animate-pulse-gold reveal reveal-delay-2">
             Create Free Account <ChevronRight className="w-5 h-5" />
           </Link>
         </div>

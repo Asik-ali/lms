@@ -331,19 +331,19 @@ export default function StudentTestTaking() {
               <X className="w-5 h-5" />
             </button>
             <div className="min-w-0">
-              <h1 className="text-sm font-semibold text-white truncate">{test.name}</h1>
+              <h1 className="text-sm font-semibold text-navy-100 truncate">{test.name}</h1>
               <p className="text-xs text-navy-200">Q {currentIdx + 1} of {questions.length}</p>
             </div>
           </div>
 
-          <div className={`flex items-center gap-2 px-4 py-2 rounded-lg font-mono text-sm font-bold ${isLowTime ? 'bg-red-600 text-white animate-pulse' : 'bg-navy-800 text-white'}`}>
+          <div className={`flex items-center gap-2 px-4 py-2 rounded-lg font-mono text-sm font-bold ${isLowTime ? 'bg-red-600 text-white animate-pulse' : 'bg-navy-800 text-navy-100'}`}>
             <Clock className="w-4 h-4" />
             <span>{formatTime(timeLeft)}</span>
           </div>
 
           <button
             onClick={() => setShowSubmitConfirm(true)}
-            className="px-4 py-2 bg-navy-600 text-white text-sm font-medium rounded-lg hover:bg-navy-700 transition-colors flex-shrink-0"
+            className="px-4 py-2 bg-navy-600 text-white text-sm font-medium rounded-lg hover:bg-navy-700 dark:hover:bg-[#0D4FB5] transition-colors flex-shrink-0"
           >
             Submit Test
           </button>
@@ -367,9 +367,9 @@ export default function StudentTestTaking() {
                     )}
                     {currentQuestion.difficulty && (
                       <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${
-                        currentQuestion.difficulty === 'Easy' ? 'bg-emerald-500/10 text-emerald-300' :
-                        currentQuestion.difficulty === 'Medium' ? 'bg-amber-500/10 text-amber-300' :
-                        'bg-brand-red/10 text-red-300'
+                        currentQuestion.difficulty === 'Easy' ? 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-300' :
+                        currentQuestion.difficulty === 'Medium' ? 'bg-amber-500/10 text-amber-700 dark:text-amber-300' :
+                        'bg-brand-red/10 text-red-700 dark:text-red-300'
                       }`}>
                         {currentQuestion.difficulty}
                       </span>
@@ -411,14 +411,14 @@ export default function StudentTestTaking() {
                         href={currentQuestion.question}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-4 py-2 bg-navy-600 text-white text-sm font-medium rounded-lg hover:bg-navy-700 transition-colors whitespace-nowrap flex-shrink-0"
+                        className="px-4 py-2 bg-navy-600 text-white text-sm font-medium rounded-lg hover:bg-navy-700 dark:hover:bg-[#0D4FB5] transition-colors whitespace-nowrap flex-shrink-0"
                       >
                         Open Question
                       </a>
                     </div>
                   </div>
                 ) : (
-                  <div className="prose prose-sm max-w-none text-white">
+                  <div className="prose prose-sm max-w-none text-navy-100">
                     <p className="whitespace-pre-wrap">{currentQuestion.question}</p>
                   </div>
                 )}
@@ -447,7 +447,7 @@ export default function StudentTestTaking() {
                       }`}>
                         {label}
                       </span>
-                      <span className={`text-sm font-medium ${isSelected ? 'text-navy-700 dark:text-navy-300' : 'text-navy-100'}`}>
+                      <span className={`text-sm font-medium ${isSelected ? 'text-navy-600 dark:text-navy-300' : 'text-navy-100'}`}>
                         {optionText || `Option ${label}`}
                       </span>
                       {isSelected && <CheckCircle className="w-5 h-5 text-navy-600 dark:text-navy-300 ml-auto flex-shrink-0" />}
@@ -551,7 +551,7 @@ export default function StudentTestTaking() {
           <div className="mt-auto p-4 border-t border-navy-700">
             <button
               onClick={() => setShowSubmitConfirm(true)}
-              className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-navy-600 text-white text-sm font-semibold rounded-lg hover:bg-navy-700 transition-colors"
+              className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-navy-600 text-white text-sm font-semibold rounded-lg hover:bg-navy-700 dark:hover:bg-[#0D4FB5] transition-colors"
             >
               <Send className="w-4 h-4" />
               Submit Test
@@ -587,7 +587,7 @@ export default function StudentTestTaking() {
           <div className="absolute inset-0 bg-black/40" onClick={() => setShowPalette(false)} />
           <div className="relative bg-surface rounded-t-2xl w-full max-h-[70vh] overflow-y-auto p-5">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="font-semibold text-white">Question Palette</h3>
+              <h3 className="font-semibold text-navy-100">Question Palette</h3>
               <button onClick={() => setShowPalette(false)} className="p-1 rounded-lg hover:bg-navy-700">
                 <X className="w-5 h-5 text-navy-200" />
               </button>
@@ -628,27 +628,27 @@ export default function StudentTestTaking() {
           <div className="relative bg-surface rounded-2xl shadow-2xl w-full max-w-md overflow-hidden">
             <div className="p-6 text-center">
               <div className="w-16 h-16 rounded-full bg-amber-100 dark:bg-amber-500/15 flex items-center justify-center mx-auto mb-4">
-                <AlertTriangle className="w-8 h-8 text-amber-300" />
+                <AlertTriangle className="w-8 h-8 text-amber-700 dark:text-amber-300" />
               </div>
-              <h2 className="text-xl font-bold text-white mb-2">Submit Test?</h2>
+              <h2 className="text-xl font-bold text-navy-100 mb-2">Submit Test?</h2>
               <p className="text-sm text-navy-200 mb-6">
                 Are you sure you want to submit? You won't be able to change your answers after submission.
               </p>
 
               <div className="grid grid-cols-3 gap-3 mb-6">
                 <div className="bg-emerald-500/10 dark:bg-emerald-500/10 rounded-xl p-3">
-                  <div className="flex items-center justify-center gap-1 text-emerald-300 mb-1">
+                  <div className="flex items-center justify-center gap-1 text-emerald-700 dark:text-emerald-300 mb-1">
                     <CheckCircle className="w-4 h-4" />
                   </div>
-                  <p className="text-2xl font-bold text-emerald-300">{summary.answered}</p>
-                  <p className="text-xs text-emerald-300">Answered</p>
+                  <p className="text-2xl font-bold text-emerald-700 dark:text-emerald-300">{summary.answered}</p>
+                  <p className="text-xs text-emerald-700 dark:text-emerald-300">Answered</p>
                 </div>
                 <div className="bg-brand-red/10 dark:bg-brand-red/10 rounded-xl p-3">
-                  <div className="flex items-center justify-center gap-1 text-red-300 mb-1">
+                  <div className="flex items-center justify-center gap-1 text-red-700 dark:text-red-300 mb-1">
                     <XCircle className="w-4 h-4" />
                   </div>
-                  <p className="text-2xl font-bold text-red-300">{summary.notAttempted}</p>
-                  <p className="text-xs text-red-300">Not Attempted</p>
+                  <p className="text-2xl font-bold text-red-700 dark:text-red-300">{summary.notAttempted}</p>
+                  <p className="text-xs text-red-700 dark:text-red-300">Not Attempted</p>
                 </div>
                 <div className="bg-purple-50 dark:bg-purple-500/10 rounded-xl p-3">
                   <div className="flex items-center justify-center gap-1 text-purple-600 dark:text-purple-300 mb-1">
@@ -675,7 +675,7 @@ export default function StudentTestTaking() {
               <button
                 onClick={handleSubmit}
                 disabled={submitting}
-                className="flex-1 px-4 py-4 text-sm font-semibold text-white border-l border-navy-700 hover:bg-navy-700 transition-colors disabled:opacity-40 flex items-center justify-center gap-2"
+                className="flex-1 px-4 py-4 text-sm font-semibold text-navy-100 border-l border-navy-700 hover:bg-navy-700 transition-colors disabled:opacity-40 flex items-center justify-center gap-2"
               >
                 {submitting ? (
                   <>

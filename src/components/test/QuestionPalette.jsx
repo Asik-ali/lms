@@ -3,7 +3,7 @@ import React from "react";
 const PALETTE_LEGEND = [
   { label: "Correct", className: "bg-emerald-500 border-emerald-600" },
   { label: "Wrong", className: "bg-rose-500 border-rose-600" },
-  { label: "Not Attempted", className: "bg-slate-300 border-slate-400" },
+  { label: "Not Attempted", className: "bg-navy-200 border-navy-300" },
   { label: "Current", className: "bg-blue-600 border-blue-700 ring-2 ring-blue-300" },
 ];
 
@@ -31,7 +31,7 @@ export default function QuestionPalette({
   const statusClasses = {
     correct: "bg-emerald-500 border-emerald-600 text-white",
     wrong: "bg-rose-500 border-rose-600 text-white",
-    skipped: "bg-slate-300 border-slate-400 text-slate-700",
+    skipped: "bg-navy-200 border-navy-300 text-navy-600",
     current:
       "bg-blue-600 border-blue-700 text-white ring-2 ring-blue-300 ring-offset-1",
   };

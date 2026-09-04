@@ -219,7 +219,7 @@ export default function CourseManagement() {
   return (
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-        <h1 className="text-2xl font-bold text-white">Course Management</h1>
+        <h1 className="text-2xl font-bold text-navy-100">Course Management</h1>
         <button onClick={handleOpenAdd} className="btn-primary flex items-center gap-2">
           <Plus className="w-4 h-4" /> Add Course
         </button>
@@ -242,7 +242,7 @@ export default function CourseManagement() {
         <div className="card p-6">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-lg font-semibold">{editingId ? 'Edit Course' : 'Add Course'}</h2>
-            <button onClick={handleClose} className="p-1 text-navy-300 hover:text-white">
+            <button onClick={handleClose} className="p-1 text-navy-300 hover:text-navy-100">
               <X className="w-5 h-5" />
             </button>
           </div>
@@ -272,7 +272,7 @@ export default function CourseManagement() {
             {editingId && (
               <div className="rounded-lg border border-navy-700 p-4 space-y-5">
                 <div>
-                  <h3 className="text-sm font-semibold text-white">Video Lessons &amp; PDF Resources</h3>
+                  <h3 className="text-sm font-semibold text-navy-100">Video Lessons &amp; PDF Resources</h3>
                   <p className="text-sm text-navy-200">
                     {maxDays > 0
                       ? `This course has ${maxDays} days. Select a day to add videos and PDFs (all optional, multiple allowed per day).`
@@ -308,7 +308,7 @@ export default function CourseManagement() {
                   <>
                     <div className="rounded-lg border border-navy-700 p-4 space-y-4">
                       <div>
-                        <h3 className="text-sm font-semibold text-white">Day {activeDay} – Video Lessons</h3>
+                        <h3 className="text-sm font-semibold text-navy-100">Day {activeDay} – Video Lessons</h3>
                         <p className="text-sm text-navy-200">Add one or more videos for this day (all optional).</p>
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr_auto] gap-3">
@@ -319,13 +319,13 @@ export default function CourseManagement() {
                       {(() => {
                         const dayLessons = courseLessons.filter(l => Number(l.day) === activeDay);
                         return dayLessons.length ? (
-                          <div className="divide-y divide-gray-100 dark:divide-gray-800 rounded-lg border border-navy-700">
+                          <div className="divide-y divide-navy-200 dark:divide-navy-700 rounded-lg border border-navy-700">
                             {dayLessons.map((lesson, index) => (
                               <div key={lesson.id} className="flex items-center gap-3 p-3">
                                 <span className="text-sm font-medium text-navy-300">{index + 1}</span>
                                 <Video className="w-4 h-4 text-navy-600 dark:text-navy-300 shrink-0" />
                                 <div className="min-w-0 flex-1">
-                                  <p className="truncate text-sm font-medium text-white">{lesson.title}</p>
+                                  <p className="truncate text-sm font-medium text-navy-100">{lesson.title}</p>
                                   <p className="text-xs text-navy-200">{lesson.provider}</p>
                                 </div>
                                 <button type="button" onClick={() => setMediaViewer({ url: lesson.video_url, title: lesson.title, type: 'video' })} className="p-1.5 text-navy-300 hover:text-navy-600" aria-label={`Open ${lesson.title}`}><ExternalLink className="w-4 h-4" /></button>
@@ -339,7 +339,7 @@ export default function CourseManagement() {
 
                     <div className="rounded-lg border border-navy-700 p-4 space-y-4">
                       <div>
-                        <h3 className="text-sm font-semibold text-white">Day {activeDay} – PDF Resources</h3>
+                        <h3 className="text-sm font-semibold text-navy-100">Day {activeDay} – PDF Resources</h3>
                         <p className="text-sm text-navy-200">Add one or more PDFs for this day (all optional).</p>
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr_auto] gap-3">
@@ -350,13 +350,13 @@ export default function CourseManagement() {
                       {(() => {
                         const dayPdfs = coursePdfs.filter(p => Number(p.day) === activeDay);
                         return dayPdfs.length ? (
-                          <div className="divide-y divide-gray-100 dark:divide-gray-800 rounded-lg border border-navy-700">
+                          <div className="divide-y divide-navy-200 dark:divide-navy-700 rounded-lg border border-navy-700">
                             {dayPdfs.map((pdf, index) => (
                               <div key={pdf.id} className="flex items-center gap-3 p-3">
                                 <span className="text-sm font-medium text-navy-300">{index + 1}</span>
                                 <FileText className="w-4 h-4 text-navy-600 dark:text-navy-300 shrink-0" />
                                 <div className="min-w-0 flex-1">
-                                  <p className="truncate text-sm font-medium text-white">{pdf.title}</p>
+                                  <p className="truncate text-sm font-medium text-navy-100">{pdf.title}</p>
                                 </div>
                                 <button type="button" onClick={() => setMediaViewer({ url: pdf.pdf_url, title: pdf.title, type: 'pdf' })} className="p-1.5 text-navy-300 hover:text-navy-600" aria-label={`Open ${pdf.title}`}><ExternalLink className="w-4 h-4" /></button>
                                 <button type="button" onClick={() => handleDeletePdf(pdf.id)} className="p-1.5 text-navy-300 hover:text-red-600" aria-label={`Delete ${pdf.title}`}><Trash2 className="w-4 h-4" /></button>

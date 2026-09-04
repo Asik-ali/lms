@@ -49,10 +49,10 @@ export default function StudentLiveClasses() {
         <div className="card overflow-hidden border-2 border-red-500">
           <div className="bg-red-600 px-6 py-3 flex items-center gap-2">
             <span className="w-3 h-3 bg-white rounded-full animate-pulse" />
-            <h2 className="text-lg font-bold text-white">Live Now</h2>
+            <h2 className="text-lg font-bold text-navy-100">Live Now</h2>
           </div>
           <div className="p-6">
-            <h3 className="text-xl font-semibold text-white mb-2">{activeLive.title}</h3>
+            <h3 className="text-xl font-semibold text-navy-100 mb-2">{activeLive.title}</h3>
             {activeLive.description && <p className="text-sm text-navy-200 mb-4">{activeLive.description}</p>}
             {activeLive.youtube_url ? (
               <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
@@ -88,12 +88,12 @@ export default function StudentLiveClasses() {
 
       {upcoming.length > 0 && (
         <div>
-          <h3 className="text-lg font-semibold text-white mb-4">Upcoming Classes</h3>
+          <h3 className="text-lg font-semibold text-navy-100 mb-4">Upcoming Classes</h3>
           <div className="grid gap-4">
             {upcoming.map(lc => (
               <div key={lc.id} className="card p-5 flex items-center justify-between">
                 <div>
-                  <h4 className="font-semibold text-white">{lc.title}</h4>
+                  <h4 className="font-semibold text-navy-100">{lc.title}</h4>
                   <div className="flex items-center gap-3 mt-1 text-sm text-navy-200">
                     <span className="flex items-center gap-1"><Calendar className="w-3.5 h-3.5" /> {lc.date}</span>
                     <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {lc.time}</span>
@@ -108,12 +108,12 @@ export default function StudentLiveClasses() {
 
       {ended.length > 0 && (
         <div>
-          <h3 className="text-lg font-semibold text-white mb-4">Past Classes</h3>
+          <h3 className="text-lg font-semibold text-navy-100 mb-4">Past Classes</h3>
           <div className="grid gap-4">
             {ended.map(lc => (
               <div key={lc.id} className="card p-5 flex items-center justify-between opacity-60">
                 <div>
-                  <h4 className="font-semibold text-white">{lc.title}</h4>
+                  <h4 className="font-semibold text-navy-100">{lc.title}</h4>
                   <div className="flex items-center gap-3 mt-1 text-sm text-navy-200">
                     <span className="flex items-center gap-1"><Calendar className="w-3.5 h-3.5" /> {lc.date}</span>
                     <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {lc.time}</span>

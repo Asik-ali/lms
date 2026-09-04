@@ -195,7 +195,7 @@ export default function TestSeries() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-white">Test Series</h1>
+        <h1 className="text-2xl font-bold text-navy-100">Test Series</h1>
         {level === 'series' && <button onClick={() => setShowAddSeries(true)} className="btn-primary flex items-center gap-2"><Plus className="w-4 h-4" /> Add Series</button>}
         {level === 'categories' && <button onClick={() => setShowAddCategory(true)} className="btn-primary flex items-center gap-2"><Plus className="w-4 h-4" /> Add Category</button>}
         {level === 'tests' && <button onClick={() => setShowAddTest(true)} className="btn-primary flex items-center gap-2"><Plus className="w-4 h-4" /> Add Test</button>}
@@ -210,7 +210,7 @@ export default function TestSeries() {
               {b.go ? (
                 <button onClick={b.go} className="hover:text-navy-600 cursor-pointer">{b.label}</button>
               ) : (
-                <span className="text-white font-medium">{b.label}</span>
+                <span className="text-navy-100 font-medium">{b.label}</span>
               )}
             </span>
           ))}
@@ -225,7 +225,7 @@ export default function TestSeries() {
               <div className="flex items-center gap-3 mb-2">
                 <div className="w-10 h-10 rounded-lg bg-navy-100 dark:bg-navy-500/15 flex items-center justify-center"><FolderOpen className="w-5 h-5 text-navy-600 dark:text-navy-300" /></div>
                 <div className="flex-1 min-w-0">
-                  <p className="font-semibold text-white truncate">{s.name}</p>
+                  <p className="font-semibold text-navy-100 truncate">{s.name}</p>
                   {s.description && <p className="text-xs text-navy-200 truncate">{s.description}</p>}
                 </div>
               </div>
@@ -234,8 +234,8 @@ export default function TestSeries() {
                   <input type="checkbox" checked={!!s.is_free} onChange={() => handleToggleFree(s)} className="h-3.5 w-3.5 rounded border-navy-700 text-emerald-600 focus:ring-emerald-500" title="Visible to all students" />
                   <span className={s.is_free ? 'font-medium text-emerald-600 dark:text-emerald-400' : 'text-navy-300'}>Free</span>
                 </label>
-                <button onClick={(e) => { e.stopPropagation(); openEditSeries(s); }} className="flex items-center gap-0.5 text-xs text-navy-600 hover:text-navy-800 cursor-pointer"><Edit2 className="w-3 h-3" /> Edit</button>
-                <button onClick={(e) => { e.stopPropagation(); handleDeleteSeries(s.id); }} className="text-xs text-red-500 hover:text-red-300 cursor-pointer">Delete</button>
+                <button onClick={(e) => { e.stopPropagation(); openEditSeries(s); }} className="flex items-center gap-0.5 text-xs text-navy-600 hover:text-navy-500 dark:hover:text-navy-400 cursor-pointer"><Edit2 className="w-3 h-3" /> Edit</button>
+                <button onClick={(e) => { e.stopPropagation(); handleDeleteSeries(s.id); }} className="text-xs text-red-500 hover:text-red-700 dark:text-red-300 cursor-pointer">Delete</button>
                 {s.is_free && <span className="px-1.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 text-[10px] font-medium">All students</span>}
               </div>
             </button>
@@ -258,7 +258,7 @@ export default function TestSeries() {
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-500/15 flex items-center justify-center"><FileText className="w-5 h-5 text-emerald-600 dark:text-emerald-300" /></div>
                       <div className="flex-1 min-w-0">
-                        <p className="font-semibold text-white">{c.name}</p>
+                        <p className="font-semibold text-navy-100">{c.name}</p>
                         <p className="text-xs text-navy-200">Click to explore</p>
                       </div>
                       <button onClick={(e) => { e.stopPropagation(); handleDeleteCategory(c.id); }} className="p-1 text-navy-300 hover:text-red-600 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"><Trash2 className="w-4 h-4" /></button>
@@ -286,7 +286,7 @@ export default function TestSeries() {
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-lg bg-amber-100 dark:bg-amber-500/15 flex items-center justify-center"><FolderOpen className="w-5 h-5 text-amber-600 dark:text-amber-300" /></div>
                       <div className="flex-1 min-w-0">
-                        <p className="font-semibold text-white">{c.name}</p>
+                        <p className="font-semibold text-navy-100">{c.name}</p>
                       </div>
                       <button onClick={(e) => { e.stopPropagation(); handleDeleteCategory(c.id); }} className="p-1 text-navy-300 hover:text-red-600 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"><Trash2 className="w-4 h-4" /></button>
                     </div>
@@ -303,12 +303,12 @@ export default function TestSeries() {
                   <div className="flex items-center gap-4">
                     <div className="w-10 h-10 rounded-lg bg-navy-100 dark:bg-navy-500/15 flex items-center justify-center"><HelpCircle className="w-5 h-5 text-navy-600 dark:text-navy-300" /></div>
                     <div className="flex-1 min-w-0">
-                      <p className="font-semibold text-white">{t.name}</p>
+                      <p className="font-semibold text-navy-100">{t.name}</p>
                       <div className="flex flex-wrap items-center gap-3 mt-1 text-xs text-navy-200">
                         <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {t.duration} min</span>
                         <span className="flex items-center gap-1"><Target className="w-3 h-3" /> {t.total_marks} marks</span>
                         <span className="flex items-center gap-1"><Globe className="w-3 h-3" /> {t.language}</span>
-                        <span className={`px-2 py-0.5 rounded-full ${t.difficulty === 'Easy' ? 'bg-emerald-500/10 dark:bg-emerald-500/10 text-emerald-300' : t.difficulty === 'Hard' ? 'bg-brand-red/10 dark:bg-brand-red/10 text-red-300' : 'bg-amber-50 dark:bg-amber-500/10 text-amber-300'}`}>{t.difficulty}</span>
+                        <span className={`px-2 py-0.5 rounded-full ${t.difficulty === 'Easy' ? 'bg-emerald-500/10 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-300' : t.difficulty === 'Hard' ? 'bg-brand-red/10 dark:bg-brand-red/10 text-red-700 dark:text-red-300' : 'bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-300'}`}>{t.difficulty}</span>
                       </div>
                     </div>
                     <button onClick={(e) => { e.stopPropagation(); openEditTest(t); }} className="p-1 text-navy-300 hover:text-navy-600 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"><Edit2 className="w-4 h-4" /></button>
@@ -329,7 +329,7 @@ export default function TestSeries() {
         <div className="space-y-4">
           <div className="card p-4 bg-navy-800/60">
             <div className="flex flex-wrap items-center gap-4 text-sm text-navy-100">
-              <span className="font-medium text-white">{currentTest.name}</span>
+              <span className="font-medium text-navy-100">{currentTest.name}</span>
               <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {currentTest.duration} min</span>
               <span className="flex items-center gap-1"><Target className="w-3 h-3" /> {currentTest.total_marks} marks</span>
               <span className="flex items-center gap-1"><Globe className="w-3 h-3" /> {currentTest.language}</span>
@@ -362,7 +362,7 @@ export default function TestSeries() {
                         {q.option_d && <p className="truncate max-w-xs">D. {q.option_d}</p>}
                       </div>
                     </td>
-                    <td className="table-cell"><span className="text-xs font-semibold bg-emerald-500/10 dark:bg-emerald-500/10 text-emerald-300 px-2 py-0.5 rounded-full">{q.correct_answer}</span></td>
+                    <td className="table-cell"><span className="text-xs font-semibold bg-emerald-500/10 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 px-2 py-0.5 rounded-full">{q.correct_answer}</span></td>
                     <td className="table-cell"><button onClick={() => handleDeleteQuestion(q.id)} className="p-1 text-navy-300 hover:text-red-600 cursor-pointer"><Trash2 className="w-4 h-4" /></button></td>
                   </tr>
                 ))}
@@ -515,8 +515,8 @@ function Modal({ title, onClose, children }) {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
       <div className="bg-surface rounded-xl shadow-xl w-full max-w-md p-6 max-h-[85vh] overflow-y-auto">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-semibold text-white">{title}</h2>
-          <button onClick={onClose} className="p-1 text-navy-300 hover:text-white cursor-pointer"><X className="w-5 h-5" /></button>
+          <h2 className="text-lg font-semibold text-navy-100">{title}</h2>
+          <button onClick={onClose} className="p-1 text-navy-300 hover:text-navy-100 cursor-pointer"><X className="w-5 h-5" /></button>
         </div>
         {children}
       </div>

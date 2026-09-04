@@ -59,8 +59,8 @@ export default function MediaViewer({ url, title, type, onClose }) {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4" onClick={onClose}>
       <div className="relative w-full max-w-4xl bg-surface rounded-xl overflow-hidden" onClick={e => e.stopPropagation()}>
         <div className="flex items-center justify-between p-4 border-b border-navy-700">
-          <h3 className="text-lg font-semibold text-white truncate pr-4">{title}</h3>
-          <button onClick={onClose} className="p-1 text-navy-300 hover:text-white rounded-lg hover:bg-navy-700 shrink-0">
+          <h3 className="text-lg font-semibold text-navy-100 truncate pr-4">{title}</h3>
+          <button onClick={onClose} className="p-1 text-navy-300 hover:text-navy-100 rounded-lg hover:bg-navy-700 shrink-0">
             <X className="w-5 h-5" />
           </button>
         </div>

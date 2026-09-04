@@ -23,7 +23,7 @@ export default function PricingPage() {
 
   return (
     <div className="space-y-16">
-      <section className="bg-gradient-to-r from-navy-900 to-navy-600 text-white py-16">
+      <section className="bg-gradient-to-r from-[#071A3D] to-navy-600 text-white dark:from-navy-900 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-3xl sm:text-4xl font-bold">Pricing</h1>
           <p className="mt-3 text-navy-100">Choose a plan that fits your learning goals. All prices are in Indian Rupees (INR).</p>
@@ -45,11 +45,11 @@ export default function PricingPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {plans.map(plan => (
                 <div key={plan.id} className="card p-6 flex flex-col">
-                  <h2 className="text-lg font-bold text-white mb-1">{plan.name}</h2>
+                  <h2 className="text-lg font-bold text-navy-100 mb-1">{plan.name}</h2>
                   {plan.description && <p className="text-sm text-navy-200 mb-4">{plan.description}</p>}
                   <div className="flex items-baseline gap-1 mb-4">
                     <IndianRupee className="w-4 h-4 text-navy-200" />
-                    <span className="text-3xl font-bold text-white">{plan.price.toLocaleString('en-IN')}</span>
+                    <span className="text-3xl font-bold text-navy-100">{plan.price.toLocaleString('en-IN')}</span>
                     <span className="text-sm text-navy-300">INR</span>
                   </div>
                   <div className="space-y-2 mb-6 flex-1">

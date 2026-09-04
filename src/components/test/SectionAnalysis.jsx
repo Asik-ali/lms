@@ -53,14 +53,14 @@ export default function SectionAnalysis({ responses = [], questions = [] }) {
         {sections.map((s) => (
           <div key={s.name} className="rounded-xl border border-navy-700 border-navy-700 p-4">
             <div className="flex flex-wrap items-center justify-between gap-2">
-              <span className="font-semibold text-white">{s.name}</span>
+              <span className="font-semibold text-navy-100">{s.name}</span>
               <span className="text-xs text-navy-200">
                 {s.correct} correct · {s.wrong} wrong · {s.skipped} skipped
               </span>
             </div>
 
             <div className="mt-2 flex items-center gap-3">
-              <div className="h-2.5 flex-1 overflow-hidden rounded-full bg-slate-100 bg-navy-800">
+              <div className="h-2.5 flex-1 overflow-hidden rounded-full bg-surface">
                 <div
                   className="h-full rounded-full bg-emerald-500 transition-all"
                   style={{ width: `${s.accuracy}%` }}

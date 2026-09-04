@@ -113,14 +113,14 @@ export default function StudentTestDetail() {
     : [];
 
   const difficultyColor = {
-    Easy: 'bg-emerald-500/10 text-emerald-300 border-emerald-500/40',
-    Moderate: 'bg-amber-500/10 text-amber-300 border-amber-200',
-    Hard: 'bg-brand-red/10 text-red-300 border-brand-red/40',
-    'Very Hard': 'bg-brand-red/10 text-red-300 border-brand-red/40',
+    Easy: 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border-emerald-500/40',
+    Moderate: 'bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-200',
+    Hard: 'bg-brand-red/10 text-red-700 dark:text-red-300 border-brand-red/40',
+    'Very Hard': 'bg-brand-red/10 text-red-700 dark:text-red-300 border-brand-red/40',
   };
 
   const statusColor = {
-    active: 'bg-emerald-500/10 text-emerald-300',
+    active: 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-300',
     draft: 'bg-navy-800 text-navy-200',
     archived: 'bg-navy-800 text-navy-300',
   };
@@ -130,13 +130,13 @@ export default function StudentTestDetail() {
       <button
         type="button"
         onClick={() => navigate('/student/test-series')}
-        className="inline-flex items-center gap-2 text-sm font-medium text-navy-600 hover:text-navy-800"
+        className="inline-flex items-center gap-2 text-sm font-medium text-navy-600 hover:text-navy-500 dark:hover:text-navy-400"
       >
         <ArrowLeft className="w-4 h-4" /> Back to Test Series
       </button>
 
       {/* Header */}
-      <div className="bg-gradient-to-r from-navy-900 to-navy-600 rounded-2xl p-6 text-white">
+      <div className="bg-gradient-to-r from-[#071A3D] to-navy-600 rounded-2xl p-6 text-white dark:from-navy-900">
         <div className="flex items-start gap-4">
           <div className="w-14 h-14 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
             <BookOpen className="w-7 h-7" />
@@ -162,7 +162,7 @@ export default function StudentTestDetail() {
 
       {/* Instructions */}
       <div className="card p-6">
-        <h2 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+        <h2 className="text-lg font-bold text-navy-100 mb-4 flex items-center gap-2">
           <AlertCircle className="w-5 h-5 text-navy-600" />
           Instructions
         </h2>
@@ -179,7 +179,7 @@ export default function StudentTestDetail() {
       {/* Syllabus / Topics */}
       {syllabusLines.length > 0 && (
         <div className="card p-6">
-          <h2 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+          <h2 className="text-lg font-bold text-navy-100 mb-4 flex items-center gap-2">
             <BookOpen className="w-5 h-5 text-navy-600" />
             Syllabus / Topics
           </h2>
@@ -197,7 +197,7 @@ export default function StudentTestDetail() {
       {/* Previous Attempts */}
       {attempts.length > 0 && (
         <div className="card p-6">
-          <h2 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+          <h2 className="text-lg font-bold text-navy-100 mb-4 flex items-center gap-2">
             <History className="w-5 h-5 text-navy-600" />
             Your Previous Attempts
           </h2>
@@ -217,16 +217,16 @@ export default function StudentTestDetail() {
               <tbody>
                 {attempts.map((a, i) => (
                   <tr key={a.id} className="border-b border-navy-700 hover:bg-navy-700/60">
-                    <td className="px-4 py-2 font-medium text-white">{i + 1}</td>
+                    <td className="px-4 py-2 font-medium text-navy-100">{i + 1}</td>
                     <td className="px-4 py-2 font-semibold text-navy-600">
                       {a.score !== null && a.score !== undefined ? `${a.score}/${a.total_marks || test.total_marks}` : '-'}
                     </td>
-                    <td className="px-4 py-2 text-emerald-300">{a.correct_count ?? '-'}</td>
-                    <td className="px-4 py-2 text-red-300">{a.wrong_count ?? '-'}</td>
+                    <td className="px-4 py-2 text-emerald-700 dark:text-emerald-300">{a.correct_count ?? '-'}</td>
+                    <td className="px-4 py-2 text-red-700 dark:text-red-300">{a.wrong_count ?? '-'}</td>
                     <td className="px-4 py-2 text-navy-200">{a.skipped_count ?? '-'}</td>
                     <td className="px-4 py-2 text-navy-100">{a.time_taken != null ? `${Math.floor(a.time_taken / 60)}m ${a.time_taken % 60}s` : '-'}</td>
                     <td className="px-4 py-2">
-                      <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${a.status === 'completed' ? 'bg-emerald-500/10 text-emerald-300' : 'bg-amber-500/10 text-amber-300'}`}>
+                      <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${a.status === 'completed' ? 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-300' : 'bg-amber-500/10 text-amber-700 dark:text-amber-300'}`}>
                         {a.status}
                       </span>
                     </td>
@@ -252,7 +252,7 @@ export default function StudentTestDetail() {
           type="button"
           onClick={handleStartTest}
           disabled={starting}
-          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 disabled:bg-green-400 text-white font-semibold px-8 py-3 rounded-xl transition-colors cursor-pointer disabled:cursor-not-allowed shadow-lg shadow-green-600/20"
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 disabled:bg-green-400 text-navy-100 font-semibold px-8 py-3 rounded-xl transition-colors cursor-pointer disabled:cursor-not-allowed shadow-lg shadow-green-600/20"
         >
           <Play className="w-5 h-5" />
           {starting ? 'Starting...' : 'Start Test'}

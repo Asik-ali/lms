@@ -356,17 +356,17 @@ function BackupTab() {
 
           {preview && (
             <div className="border border-navy-200 bg-navy-50 dark:bg-navy-500/10 rounded-lg p-4 space-y-2">
-              <div className="flex items-center gap-2 text-navy-700 font-semibold">
+              <div className="flex items-center gap-2 text-navy-500 dark:text-navy-100 font-semibold">
                 <Eye className="w-4 h-4" />
                 Backup Preview
                 <span className="text-xs font-normal text-navy-500">{preview.createdAt ? new Date(preview.createdAt).toLocaleString() : 'date unknown'}</span>
               </div>
-              <p className="text-sm text-navy-700">Total records: <strong>{preview.totalRows}</strong></p>
+              <p className="text-sm text-navy-500 dark:text-navy-100">Total records: <strong>{preview.totalRows}</strong></p>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-2 max-h-52 overflow-y-auto">
                 {preview.tables.map(({ table, count }) => (
                   <div key={table} className="flex items-center justify-between bg-surface rounded px-3 py-1.5 text-sm">
                     <span className="text-navy-100">{table}</span>
-                    <span className="font-medium text-navy-700">{count}</span>
+                    <span className="font-medium text-navy-500 dark:text-navy-100">{count}</span>
                   </div>
                 ))}
               </div>
@@ -399,7 +399,7 @@ export default function SettingsPage() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-white">Settings</h1>
+        <h1 className="text-2xl font-bold text-navy-100">Settings</h1>
       </div>
 
       <div className="border-b border-navy-700">
@@ -413,7 +413,7 @@ export default function SettingsPage() {
                 className={`flex items-center gap-2 px-5 py-3 text-sm font-medium border-b-2 transition-colors whitespace-nowrap ${
                   i === activeTab
                     ? 'border-navy-600 text-navy-600'
-                    : 'border-transparent text-navy-200 hover:text-white hover:border-navy-500'
+                    : 'border-transparent text-navy-200 hover:text-navy-100 hover:border-navy-500'
                 }`}
               >
                 <Icon className="w-4 h-4" />

@@ -28,7 +28,7 @@ export default function StudentCourses() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-white">My Courses</h1>
+        <h1 className="text-2xl font-bold text-navy-100">My Courses</h1>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -38,11 +38,11 @@ export default function StudentCourses() {
               <div className="w-12 h-12 rounded-lg bg-navy-100 dark:bg-navy-500/15 flex items-center justify-center mb-4">
                 <BookOpen className="w-6 h-6 text-navy-600 dark:text-navy-300" />
               </div>
-              <h3 className="text-lg font-semibold text-white">{c.title}</h3>
+              <h3 className="text-lg font-semibold text-navy-100">{c.title}</h3>
               <div className="mt-3 space-y-1 text-sm">
                 <p className="text-navy-200">Duration: <span className="text-navy-100">{c.duration}</span></p>
                 <p className="text-navy-200">Lessons: <span className="text-navy-100">{c.lessons}</span></p>
-                <span className={`inline-block px-2 py-0.5 rounded-full text-xs font-medium ${c.status === 'Published' ? 'bg-emerald-500/15 text-emerald-300' : 'bg-navy-800 text-navy-100'}`}>{c.status}</span>
+                <span className={`inline-block px-2 py-0.5 rounded-full text-xs font-medium ${c.status === 'Published' ? 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-300' : 'bg-navy-800 text-navy-100'}`}>{c.status}</span>
               </div>
             </div>
             <div className="px-6 py-3 border-t border-navy-700 bg-navy-800/60">

@@ -63,33 +63,33 @@ function AddStudentForm({ onBack, onStudentAdded }) {
   if (submitted) {
     return (
       <div className="max-w-2xl">
-        <button onClick={() => { setSubmitted(false); setCredentials(null); }} className="flex items-center gap-2 text-sm text-navy-200 hover:text-white mb-6">
+        <button onClick={() => { setSubmitted(false); setCredentials(null); }} className="flex items-center gap-2 text-sm text-navy-200 hover:text-navy-100 mb-6">
           <ArrowLeft className="w-4 h-4" /> Back
         </button>
         <div className="card p-8 text-center">
           <div className="w-16 h-16 rounded-full bg-emerald-500/15 flex items-center justify-center mx-auto mb-4">
             <UserPlus className="w-8 h-8 text-emerald-400" />
           </div>
-          <h2 className="text-xl font-semibold text-white mb-2">Student Added Successfully!</h2>
+          <h2 className="text-xl font-semibold text-navy-100 mb-2">Student Added Successfully!</h2>
           <p className="text-navy-200 mb-6">{form.name} has been enrolled in {form.course}.</p>
           <div className="max-w-sm mx-auto bg-navy-50 dark:bg-navy-500/10 border border-navy-200 rounded-xl p-5 mb-6">
-            <h3 className="text-sm font-semibold text-navy-800 dark:text-navy-300 mb-3">Login Credentials</h3>
+            <h3 className="text-sm font-semibold text-[#0A1E42] dark:text-navy-300 mb-3">Login Credentials</h3>
             <p className="text-xs text-navy-600 dark:text-navy-300 mb-3">Share these credentials with the student.</p>
             <div className="space-y-2 text-left">
               <div className="flex items-center justify-between bg-surface rounded-lg px-3 py-2 border border-navy-100">
                 <span className="text-xs text-navy-200">Login email</span>
-                <span className="text-sm font-mono font-medium text-white break-all">{credentials.email}</span>
+                <span className="text-sm font-mono font-medium text-navy-100 break-all">{credentials.email}</span>
               </div>
               <div className="flex items-center justify-between bg-surface rounded-lg px-3 py-2 border border-navy-100">
                 <span className="text-xs text-navy-200">Password</span>
-                <span className="text-sm font-mono font-medium text-white">{credentials.password}</span>
+                <span className="text-sm font-mono font-medium text-navy-100">{credentials.password}</span>
               </div>
             </div>
-            <button onClick={copyCredentials} className="mt-3 w-full flex items-center justify-center gap-2 text-sm text-navy-700 dark:text-navy-300 bg-navy-800 border border-navy-200 rounded-lg px-3 py-2 hover:bg-navy-100 dark:hover:bg-navy-500/15 transition-colors cursor-pointer">
+            <button onClick={copyCredentials} className="mt-3 w-full flex items-center justify-center gap-2 text-sm text-navy-600 dark:text-navy-300 bg-navy-800 border border-navy-200 rounded-lg px-3 py-2 hover:bg-navy-100 dark:hover:bg-navy-500/15 transition-colors cursor-pointer">
               {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
               {copied ? 'Copied!' : 'Copy Credentials'}
             </button>
-            <button onClick={quickLogin} className="mt-2 w-full flex items-center justify-center gap-2 text-sm text-navy-700 dark:text-navy-300 bg-navy-800 border border-navy-200 rounded-lg px-3 py-2 hover:bg-navy-100 dark:hover:bg-navy-500/15 transition-colors cursor-pointer">
+            <button onClick={quickLogin} className="mt-2 w-full flex items-center justify-center gap-2 text-sm text-navy-600 dark:text-navy-300 bg-navy-800 border border-navy-200 rounded-lg px-3 py-2 hover:bg-navy-100 dark:hover:bg-navy-500/15 transition-colors cursor-pointer">
               <LogIn className="w-4 h-4" /> Quick Login as {form.name.split(' ')[0]}
             </button>
           </div>
@@ -104,7 +104,7 @@ function AddStudentForm({ onBack, onStudentAdded }) {
 
   return (
     <div className="max-w-2xl">
-      <button onClick={onBack} className="flex items-center gap-2 text-sm text-navy-200 hover:text-white mb-6">
+      <button onClick={onBack} className="flex items-center gap-2 text-sm text-navy-200 hover:text-navy-100 mb-6">
         <ArrowLeft className="w-4 h-4" /> Back to Students
       </button>
       <div className="card">
@@ -113,7 +113,7 @@ function AddStudentForm({ onBack, onStudentAdded }) {
           <p className="text-sm text-navy-200 mt-1">Fill in the details to enroll a new student — credentials will be auto-generated</p>
         </div>
         <form onSubmit={handleSubmit} className="p-6 space-y-5">
-          {submitError && <p className="rounded-lg bg-brand-red/10 dark:bg-brand-red/10 px-3 py-2 text-sm text-red-300">{submitError}</p>}
+          {submitError && <p className="rounded-lg bg-brand-red/10 dark:bg-brand-red/10 px-3 py-2 text-sm text-red-700 dark:text-red-300">{submitError}</p>}
           <div>
             <label className="block text-sm font-medium text-navy-100 mb-1">Full Name *</label>
             <input type="text" value={form.name} onChange={e => setForm(p => ({ ...p, name: e.target.value }))} placeholder="Enter full name" className="input-field" required />
@@ -206,7 +206,7 @@ function StudentProfile({ student, onBack, onSaved }) {
 
   return (
     <div className="max-w-3xl space-y-6">
-      <button onClick={onBack} className="flex items-center gap-2 text-sm text-navy-200 hover:text-white">
+      <button onClick={onBack} className="flex items-center gap-2 text-sm text-navy-200 hover:text-navy-100">
         <ArrowLeft className="w-4 h-4" /> Back to Students
       </button>
 
@@ -289,10 +289,10 @@ function StudentProgress({ students, onBack, onRefresh }) {
 
   return (
     <div className="space-y-6">
-      <button onClick={onBack} className="flex items-center gap-2 text-sm text-navy-200 hover:text-white">
+      <button onClick={onBack} className="flex items-center gap-2 text-sm text-navy-200 hover:text-navy-100">
         <ArrowLeft className="w-4 h-4" /> Back to Students
       </button>
-      <h1 className="text-2xl font-bold text-white">Student Progress</h1>
+      <h1 className="text-2xl font-bold text-navy-100">Student Progress</h1>
       <div className="card overflow-hidden">
         <table className="w-full">
           <thead>
@@ -312,7 +312,7 @@ function StudentProgress({ students, onBack, onRefresh }) {
                   {editingId === s.id ? (
                     <div className="flex items-center gap-2">
                       <input type="number" min="0" max="100" value={editVal} onChange={e => setEditVal(e.target.value)} className="input-field w-20" />
-                      <button onClick={() => handleSave(s.id)} className="p-1 text-emerald-300 hover:bg-emerald-500/10 rounded"><Save className="w-4 h-4" /></button>
+                      <button onClick={() => handleSave(s.id)} className="p-1 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-500/10 rounded"><Save className="w-4 h-4" /></button>
                       <button onClick={() => setEditingId(null)} className="p-1 text-navy-300 hover:bg-navy-700 rounded"><X className="w-4 h-4" /></button>
                     </div>
                   ) : (
@@ -378,31 +378,31 @@ function CredentialsModal({ student, onClose }) {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
       <div className="bg-surface rounded-xl shadow-xl w-full max-w-md p-6 space-y-4">
         <div className="flex items-center justify-between">
-          <h2 className="text-lg font-semibold text-white">Student Credentials</h2>
-          <button onClick={onClose} className="p-1 text-navy-300 hover:text-white"><X className="w-5 h-5" /></button>
+          <h2 className="text-lg font-semibold text-navy-100">Student Credentials</h2>
+          <button onClick={onClose} className="p-1 text-navy-300 hover:text-navy-100"><X className="w-5 h-5" /></button>
         </div>
 
         <div className="space-y-3">
           <div>
             <label className="text-xs text-navy-200">Student</label>
-            <p className="font-medium text-white">{student.name}</p>
+            <p className="font-medium text-navy-100">{student.name}</p>
           </div>
           <div>
             <label className="text-xs text-navy-200">Username</label>
-            <p className="font-mono text-sm text-white bg-navy-800/60 px-3 py-2 rounded-lg border">{username}</p>
+            <p className="font-mono text-sm text-navy-100 bg-navy-800/60 px-3 py-2 rounded-lg border">{username}</p>
           </div>
         </div>
 
         {resetDone && generatedPassword ? (
           <div className="bg-emerald-500/10 dark:bg-emerald-500/10 border border-emerald-500/40 rounded-xl p-4 space-y-3">
-            <div className="flex items-center gap-2 text-emerald-300 font-medium text-sm">
+            <div className="flex items-center gap-2 text-emerald-700 dark:text-emerald-300 font-medium text-sm">
               <Check className="w-4 h-4" /> Password Reset Successfully
             </div>
             <div>
               <label className="text-xs text-navy-200">New Password</label>
-              <p className="font-mono text-sm text-white bg-surface px-3 py-2 rounded-lg border mt-1 break-all">{generatedPassword}</p>
+              <p className="font-mono text-sm text-navy-100 bg-surface px-3 py-2 rounded-lg border mt-1 break-all">{generatedPassword}</p>
             </div>
-            <button onClick={copyPassword} className="w-full flex items-center justify-center gap-2 text-sm text-emerald-300 bg-navy-800 border border-emerald-500/40 rounded-lg px-3 py-2 hover:bg-emerald-500/10 cursor-pointer">
+            <button onClick={copyPassword} className="w-full flex items-center justify-center gap-2 text-sm text-emerald-700 dark:text-emerald-300 bg-navy-800 border border-emerald-500/40 rounded-lg px-3 py-2 hover:bg-emerald-500/10 cursor-pointer">
               {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
               {copied ? 'Copied!' : 'Copy New Password'}
             </button>
@@ -422,7 +422,7 @@ function CredentialsModal({ student, onClose }) {
             <button
               onClick={handleReset}
               disabled={resetting}
-              className="w-full flex items-center justify-center gap-2 bg-navy-600 text-white rounded-lg px-4 py-2 hover:bg-navy-700 disabled:opacity-50 cursor-pointer"
+              className="w-full flex items-center justify-center gap-2 bg-navy-600 text-white rounded-lg px-4 py-2 hover:bg-navy-700 dark:hover:bg-[#0D4FB5] disabled:opacity-50 cursor-pointer"
             >
               <KeyRound className="w-4 h-4" />
               {resetting ? 'Resetting...' : 'Reset Password'}
@@ -430,7 +430,7 @@ function CredentialsModal({ student, onClose }) {
           </div>
         )}
 
-        <button onClick={onClose} className="w-full text-sm text-navy-200 hover:text-white py-2 cursor-pointer">Close</button>
+        <button onClick={onClose} className="w-full text-sm text-navy-200 hover:text-navy-100 py-2 cursor-pointer">Close</button>
       </div>
     </div>
   );
@@ -486,10 +486,10 @@ function CourseAccessModal({ student, courses, onClose, onSaved }) {
       <div className="w-full max-w-lg space-y-5 rounded-xl bg-surface p-6 shadow-xl max-h-[85vh] overflow-y-auto">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-lg font-semibold text-white">Manage Access</h2>
+            <h2 className="text-lg font-semibold text-navy-100">Manage Access</h2>
             <p className="text-sm text-navy-200">{student.name}</p>
           </div>
-          <button onClick={onClose} className="p-1 text-navy-300 hover:text-white"><X className="w-5 h-5" /></button>
+          <button onClick={onClose} className="p-1 text-navy-300 hover:text-navy-100"><X className="w-5 h-5" /></button>
         </div>
 
         <div className="rounded-lg border border-navy-700 p-4">
@@ -626,11 +626,11 @@ export default function StudentManagement() {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
           <div className="w-full max-w-sm rounded-xl bg-surface p-6 shadow-xl space-y-4">
             <div className="flex items-center justify-between">
-              <h2 className="text-lg font-semibold text-white">Delete Student</h2>
-              <button onClick={() => setDeleteStudent(null)} className="p-1 text-navy-300 hover:text-white"><X className="w-5 h-5" /></button>
+              <h2 className="text-lg font-semibold text-navy-100">Delete Student</h2>
+              <button onClick={() => setDeleteStudent(null)} className="p-1 text-navy-300 hover:text-navy-100"><X className="w-5 h-5" /></button>
             </div>
             <p className="text-sm text-navy-100">
-              Are you sure you want to permanently delete <span className="font-semibold text-white">{deleteStudent.name}</span>?
+              Are you sure you want to permanently delete <span className="font-semibold text-navy-100">{deleteStudent.name}</span>?
               This will remove the student's account and all related data. This action cannot be undone.
             </p>
             <div className="flex justify-end gap-3">
@@ -644,8 +644,8 @@ export default function StudentManagement() {
       )}
 
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-        <h1 className="text-2xl font-bold text-white">Student Management</h1>
-        <button onClick={() => navigate('/admin/students/add')} className="flex items-center gap-2 bg-navy-600 text-white px-4 py-2 rounded-lg hover:bg-navy-700 cursor-pointer">
+        <h1 className="text-2xl font-bold text-navy-100">Student Management</h1>
+        <button onClick={() => navigate('/admin/students/add')} className="flex items-center gap-2 bg-navy-600 text-white px-4 py-2 rounded-lg hover:bg-navy-700 dark:hover:bg-[#0D4FB5] cursor-pointer">
           <Plus className="w-4 h-4" /> Add Student
         </button>
       </div>
@@ -653,9 +653,9 @@ export default function StudentManagement() {
       <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
         <div className="relative flex-1 w-full sm:max-w-md">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-navy-300" />
-          <input type="text" placeholder="Search students..." value={search} onChange={e => setSearch(e.target.value)} className="pl-10 pr-4 py-2 w-full border border-navy-700 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-navy-500 outline-none bg-navy-800 text-white" />
+          <input type="text" placeholder="Search students..." value={search} onChange={e => setSearch(e.target.value)} className="pl-10 pr-4 py-2 w-full border border-navy-700 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-navy-500 outline-none bg-navy-800 text-navy-100" />
         </div>
-        <select value={filterStatus} onChange={e => setFilterStatus(e.target.value)} className="appearance-none pl-4 pr-10 py-2 border border-navy-700 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-navy-500 outline-none bg-navy-800 text-white w-full sm:w-auto">
+        <select value={filterStatus} onChange={e => setFilterStatus(e.target.value)} className="appearance-none pl-4 pr-10 py-2 border border-navy-700 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-navy-500 outline-none bg-navy-800 text-navy-100 w-full sm:w-auto">
           {statuses.map(s => <option key={s} value={s}>{s}</option>)}
         </select>
       </div>
@@ -677,7 +677,7 @@ export default function StudentManagement() {
             {filtered.map(s => (
               <tr key={s.id} className="border-b border-navy-700 hover:bg-navy-700/60">
                 <td className="table-cell">
-                  <button onClick={() => { setSelectedStudent(s); navigate('/admin/students/profile'); }} className="font-medium text-navy-600 hover:text-navy-800 text-left">{s.name}</button>
+                  <button onClick={() => { setSelectedStudent(s); navigate('/admin/students/profile'); }} className="font-medium text-navy-600 hover:text-navy-500 dark:hover:text-navy-400 text-left">{s.name}</button>
                 </td>
                 <td className="table-cell text-navy-200">{s.email}</td>
                 <td className="table-cell">{getCourseAccessLabel(s.course || '')}</td>
@@ -687,14 +687,14 @@ export default function StudentManagement() {
                 <td className="table-cell">{s.enrolled || '-'}</td>
                 <td className="table-cell">
                   <div className="flex items-center gap-2">
-                    <button onClick={() => { setSelectedStudent(s); navigate('/admin/students/profile'); }} className="text-xs text-navy-600 hover:text-navy-800 font-medium">View</button>
-                    <button onClick={() => setCredentialStudent(s)} className="text-xs flex items-center gap-1 text-amber-300 hover:text-amber-800 font-medium">
+                    <button onClick={() => { setSelectedStudent(s); navigate('/admin/students/profile'); }} className="text-xs text-navy-600 hover:text-navy-500 dark:hover:text-navy-400 font-medium">View</button>
+                    <button onClick={() => setCredentialStudent(s)} className="text-xs flex items-center gap-1 text-amber-700 dark:text-amber-300 hover:text-amber-800 font-medium">
                       <KeyRound className="w-3 h-3" /> Credentials
                     </button>
                     <button onClick={() => openCourseAccess(s)} className="text-xs flex items-center gap-1 text-emerald-600 dark:text-emerald-400 hover:text-emerald-800 font-medium">
                       <BookOpen className="w-3 h-3" /> Course
                     </button>
-                    <button onClick={() => setDeleteStudent(s)} className="text-xs flex items-center gap-1 text-red-300 hover:text-red-800 font-medium">
+                    <button onClick={() => setDeleteStudent(s)} className="text-xs flex items-center gap-1 text-red-700 dark:text-red-300 hover:text-red-800 font-medium">
                       <Trash2 className="w-3 h-3" /> Delete
                     </button>
                   </div>

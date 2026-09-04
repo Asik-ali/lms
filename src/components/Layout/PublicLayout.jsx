@@ -22,7 +22,7 @@ export default function PublicLayout() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
             <img src={logo} alt="EXAMSTICK" className="w-8 h-8 object-contain" />
-            <span className="font-bold text-lg text-white">EXAMSTICK</span>
+            <span className="font-bold text-lg text-navy-100">EXAMSTICK</span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-6">
@@ -32,8 +32,8 @@ export default function PublicLayout() {
                 to={link.path}
                 className={`text-sm font-medium transition-all duration-200 ${
                   location.pathname === link.path
-                    ? 'text-gold-400 border-b-2 border-gold-400 pb-0.5'
-                    : 'text-navy-100 hover:text-white'
+                    ? 'text-gold-600 dark:text-gold-400 border-b-2 border-gold-600 dark:border-gold-400 pb-0.5'
+                    : 'text-navy-100 hover:text-navy-100'
                 }`}
               >
                 {link.label}
@@ -49,7 +49,7 @@ export default function PublicLayout() {
             >
               {theme === 'dark' ? <Sun className="w-5 h-5 text-navy-100" /> : <Moon className="w-5 h-5 text-navy-100" />}
             </button>
-            <Link to="/signup" className="hidden sm:inline-flex text-sm font-medium text-navy-100 hover:text-white">
+            <Link to="/signup" className="hidden sm:inline-flex text-sm font-medium text-navy-100 hover:text-navy-100">
               Sign Up
             </Link>
             <Link to="/login" className="btn-primary hidden sm:inline-flex">
@@ -75,8 +75,8 @@ export default function PublicLayout() {
                   onClick={() => setMobileOpen(false)}
                   className={`block px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                     location.pathname === link.path
-                      ? 'bg-navy-700 text-gold-300'
-                      : 'text-navy-100 hover:bg-navy-800 hover:text-white'
+                      ? 'bg-navy-600 text-white dark:bg-navy-700 dark:text-gold-300'
+                      : 'text-navy-100 hover:bg-navy-700/60 hover:text-navy-600 dark:hover:bg-navy-800 dark:hover:text-white'
                   }`}
                 >
                   {link.label}
@@ -85,14 +85,14 @@ export default function PublicLayout() {
               <Link
                 to="/signup"
                 onClick={() => setMobileOpen(false)}
-                className="block px-3 py-2 rounded-lg text-sm font-medium text-navy-100 hover:bg-navy-800 hover:text-white mt-2"
+                className="block px-3 py-2 rounded-lg text-sm font-medium text-navy-100 hover:bg-navy-700/60 hover:text-navy-600 dark:hover:bg-navy-800 dark:hover:text-white mt-2"
               >
                 Sign Up
               </Link>
               <Link
                 to="/login"
                 onClick={() => setMobileOpen(false)}
-                className="block px-3 py-2 rounded-lg text-sm font-medium bg-gold-500 text-navy-900 text-center mt-1"
+                className="block px-3 py-2 rounded-lg text-sm font-medium bg-gold-500 text-[#071A3D] dark:text-navy-900 text-center mt-1"
               >
                 Login
               </Link>
@@ -111,36 +111,36 @@ export default function PublicLayout() {
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <img src={logo} alt="EXAMSTICK" className="w-6 h-6 object-contain" />
-                <span className="font-bold text-white">EXAMSTICK</span>
+                <span className="font-bold text-navy-100">EXAMSTICK</span>
               </div>
               <p className="text-sm text-navy-200">A modern learning management system for courses, live classes, and test series.</p>
             </div>
             <div>
-              <h4 className="text-sm font-semibold text-white mb-3">Quick Links</h4>
+              <h4 className="text-sm font-semibold text-navy-100 mb-3">Quick Links</h4>
               <ul className="space-y-2 text-sm">
                 {navLinks.map(link => (
                   <li key={link.path}>
-                    <Link to={link.path} className="hover:text-gold-300 transition-colors">{link.label}</Link>
+                    <Link to={link.path} className="hover:text-gold-600 dark:hover:text-gold-300 transition-colors">{link.label}</Link>
                   </li>
                 ))}
               </ul>
             </div>
             <div>
-              <h4 className="text-sm font-semibold text-white mb-3">Support</h4>
+              <h4 className="text-sm font-semibold text-navy-100 mb-3">Support</h4>
               <ul className="space-y-2 text-sm">
-                <li><Link to="/faq" className="hover:text-gold-300 transition-colors">FAQ</Link></li>
-                <li><Link to="/contact" className="hover:text-gold-300 transition-colors">Contact Us</Link></li>
+                <li><Link to="/faq" className="hover:text-gold-600 dark:hover:text-gold-300 transition-colors">FAQ</Link></li>
+                <li><Link to="/contact" className="hover:text-gold-600 dark:hover:text-gold-300 transition-colors">Contact Us</Link></li>
               </ul>
             </div>
             <div>
-              <h4 className="text-sm font-semibold text-white mb-3">Legal</h4>
+              <h4 className="text-sm font-semibold text-navy-100 mb-3">Legal</h4>
               <ul className="space-y-2 text-sm">
-                <li><Link to="/terms" className="hover:text-gold-300 transition-colors">Terms &amp; Conditions</Link></li>
-                <li><Link to="/refunds" className="hover:text-gold-300 transition-colors">Refunds &amp; Cancellations</Link></li>
+                <li><Link to="/terms" className="hover:text-gold-600 dark:hover:text-gold-300 transition-colors">Terms &amp; Conditions</Link></li>
+                <li><Link to="/refunds" className="hover:text-gold-600 dark:hover:text-gold-300 transition-colors">Refunds &amp; Cancellations</Link></li>
               </ul>
             </div>
             <div>
-              <h4 className="text-sm font-semibold text-white mb-3">Contact</h4>
+              <h4 className="text-sm font-semibold text-navy-100 mb-3">Contact</h4>
               <ul className="space-y-2 text-sm text-navy-100">
                 <li>info@examstick.com</li>
                 <li>+91 555 123 4567</li>

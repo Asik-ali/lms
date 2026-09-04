@@ -23,8 +23,8 @@ export default function Topbar({ title, onMenuClick }) {
   }, []);
 
   const roleColors = {
-    admin: 'bg-navy-600/15 text-navy-200',
-    student: 'bg-gold-500/15 text-gold-300',
+    admin: 'bg-navy-600/15 text-navy-600 dark:text-navy-200',
+    student: 'bg-gold-500/15 text-gold-700 dark:text-gold-300',
   };
 
   const role = user?.role ? `${user.role.charAt(0).toUpperCase()}${user.role.slice(1)}` : 'User';
@@ -58,9 +58,9 @@ export default function Topbar({ title, onMenuClick }) {
       <header className="h-16 bg-navy-950 border-b border-navy-700 flex items-center justify-between gap-3 px-4 sm:px-6 sticky top-0 z-20">
         <div className="flex min-w-0 items-center gap-3">
           <button onClick={onMenuClick} className="p-2 -ml-2 rounded-lg hover:bg-navy-800 lg:hidden" aria-label="Open navigation menu">
-            <Menu className="w-5 h-5 text-white" />
+            <Menu className="w-5 h-5 text-navy-100" />
           </button>
-          <h1 className="truncate text-lg sm:text-xl font-semibold text-white">{title || 'Dashboard'}</h1>
+          <h1 className="truncate text-lg sm:text-xl font-semibold text-navy-100">{title || 'Dashboard'}</h1>
         </div>
 
         <div className="flex shrink-0 items-center gap-2 sm:gap-4">
@@ -81,12 +81,12 @@ export default function Topbar({ title, onMenuClick }) {
             {showNotifications && (
               <div className="absolute right-0 mt-2 w-80 bg-surface rounded-xl shadow-lg border border-navy-700 overflow-hidden animate-zoom-in">
                 <div className="px-4 py-3 border-b border-navy-700">
-                  <p className="text-sm font-semibold text-white">Notifications</p>
+                  <p className="text-sm font-semibold text-navy-100">Notifications</p>
                 </div>
                 <div className="max-h-64 overflow-y-auto">
                   {notifications.map(n => (
                     <div key={n.id} className="px-4 py-3 hover:bg-navy-800 border-b border-navy-700 last:border-0">
-                      <p className="text-sm text-white">{n.message}</p>
+                      <p className="text-sm text-navy-100">{n.message}</p>
                       <p className="text-xs text-navy-300 mt-1">{n.time}</p>
                     </div>
                   ))}
@@ -104,7 +104,7 @@ export default function Topbar({ title, onMenuClick }) {
                 <UserCircle className="w-6 h-6 text-white" />
               </div>
               <div className="hidden md:block text-left">
-                <p className="text-sm font-medium text-white">{user?.name}</p>
+                <p className="text-sm font-medium text-navy-100">{user?.name}</p>
                 <p className={`text-xs ${roleColors[user?.role] || 'text-navy-300'}`}>{user?.role?.charAt(0).toUpperCase() + user?.role?.slice(1)}</p>
               </div>
               <ChevronDown className="w-4 h-4 text-navy-300 hidden md:block" />
@@ -112,11 +112,11 @@ export default function Topbar({ title, onMenuClick }) {
             {showProfile && (
               <div className="absolute right-0 mt-2 w-48 bg-surface rounded-xl shadow-lg border border-navy-700 overflow-hidden animate-zoom-in">
                 <div className="px-4 py-3 border-b border-navy-700">
-                  <p className="text-sm font-medium text-white">{user?.name}</p>
+                  <p className="text-sm font-medium text-navy-100">{user?.name}</p>
                   <p className="text-xs text-navy-300">{user?.email}</p>
                 </div>
                 <div className="py-1">
-                  <button onClick={openProfileModal} className="w-full px-4 py-2 text-sm text-left text-navy-100 hover:bg-navy-800 hover:text-white cursor-pointer">Profile</button>
+                  <button onClick={openProfileModal} className="w-full px-4 py-2 text-sm text-left text-navy-100 hover:bg-navy-700/60 hover:text-navy-600 dark:hover:bg-navy-800 dark:hover:text-white cursor-pointer">Profile</button>
                 </div>
               </div>
             )}
@@ -128,7 +128,7 @@ export default function Topbar({ title, onMenuClick }) {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 animate-fade-in">
           <div className="bg-surface rounded-xl shadow-xl w-full max-w-md mx-4 overflow-hidden animate-zoom-in">
             <div className="flex items-center justify-between px-6 py-4 border-b border-navy-700">
-              <h3 className="text-lg font-semibold text-white">Profile</h3>
+              <h3 className="text-lg font-semibold text-navy-100">Profile</h3>
               <button onClick={() => { setShowProfileModal(false); setPwError(''); setPwSuccess(''); }} className="p-1 hover:bg-navy-800 rounded-lg cursor-pointer text-navy-200"><X className="w-5 h-5" /></button>
             </div>
             <div className="p-6 space-y-6">
@@ -137,28 +137,28 @@ export default function Topbar({ title, onMenuClick }) {
                   <UserCircle className="w-10 h-10 text-white" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold text-white">{user?.name || user?.username || 'User'}</h4>
+                  <h4 className="text-lg font-semibold text-navy-100">{user?.name || user?.username || 'User'}</h4>
                   <p className="text-sm text-navy-300">{user?.email || 'No email'}</p>
-                  <span className={`text-xs px-2 py-0.5 rounded-full ${roleColors[user?.role] || 'bg-navy-600/15 text-navy-200'} font-medium mt-1 inline-block`}>{role}</span>
+                  <span className={`text-xs px-2 py-0.5 rounded-full ${roleColors[user?.role] || 'bg-navy-600/15 text-navy-600 dark:text-navy-200'} font-medium mt-1 inline-block`}>{role}</span>
                 </div>
               </div>
 
               <div className="border-t border-navy-700 pt-4">
-                <h5 className="text-sm font-semibold text-white mb-3 flex items-center gap-2"><Lock className="w-4 h-4 text-navy-200" /> Change Password</h5>
+                <h5 className="text-sm font-semibold text-navy-100 mb-3 flex items-center gap-2"><Lock className="w-4 h-4 text-navy-200" /> Change Password</h5>
                 {pwError && (
-                  <div className="flex items-center gap-2 p-2 bg-brand-red/10 border border-brand-red/40 rounded-lg text-sm text-red-300 mb-3">
+                  <div className="flex items-center gap-2 p-2 bg-brand-red/10 border border-brand-red/40 rounded-lg text-sm text-red-700 dark:text-red-300 mb-3">
                     <AlertCircle className="w-4 h-4 flex-shrink-0" /> {pwError}
                   </div>
                 )}
                 {pwSuccess && (
-                  <div className="flex items-center gap-2 p-2 bg-emerald-500/10 border border-emerald-500/40 rounded-lg text-sm text-emerald-300 mb-3">
+                  <div className="flex items-center gap-2 p-2 bg-emerald-500/10 border border-emerald-500/40 rounded-lg text-sm text-emerald-700 dark:text-emerald-300 mb-3">
                     <CheckCircle className="w-4 h-4 flex-shrink-0" /> {pwSuccess}
                   </div>
                 )}
                 <form onSubmit={handleChangePassword} className="space-y-3">
                   <input type="password" value={newPassword} onChange={e => setNewPassword(e.target.value)} placeholder="New password" className="input-field" />
                   <input type="password" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} placeholder="Confirm password" className="input-field" />
-                  <button type="submit" disabled={pwLoading} className="flex items-center gap-2 px-4 py-2 bg-navy-600 text-white rounded-lg text-sm hover:bg-navy-700 disabled:opacity-50 cursor-pointer transition-colors">
+                  <button type="submit" disabled={pwLoading} className="flex items-center gap-2 px-4 py-2 bg-navy-600 text-white rounded-lg text-sm hover:bg-navy-700 dark:hover:bg-[#0D4FB5] disabled:opacity-50 cursor-pointer transition-colors">
                     <Save className="w-4 h-4" /> {pwLoading ? 'Updating...' : 'Update Password'}
                   </button>
                 </form>

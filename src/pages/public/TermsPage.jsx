@@ -45,7 +45,7 @@ export default function TermsPage() {
 
   return (
     <div className="space-y-16">
-      <section className="bg-gradient-to-r from-navy-900 to-navy-600 text-white py-16">
+      <section className="bg-gradient-to-r from-[#071A3D] to-navy-600 text-white dark:from-navy-900 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-3xl sm:text-4xl font-bold">Terms &amp; Conditions</h1>
           <p className="mt-3 text-navy-100">Please read these terms carefully before using our services.</p>
@@ -60,7 +60,7 @@ export default function TermsPage() {
                 onClick={() => setOpen(open === i ? null : i)}
                 className="w-full flex items-center justify-between p-4 sm:p-5 text-left cursor-pointer"
               >
-                <span className="font-medium text-white pr-4">{s.title}</span>
+                <span className="font-medium text-navy-100 pr-4">{s.title}</span>
                 {open === i ? (
                   <ChevronUp className="w-5 h-5 text-navy-300 flex-shrink-0" />
                 ) : (

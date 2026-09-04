@@ -83,14 +83,14 @@ export default function StudentCalendar() {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl font-bold text-white">Calendar</h1>
+      <h1 className="text-2xl font-bold text-navy-100">Calendar</h1>
 
       <div className="card p-6">
         <div className="flex items-center justify-between mb-6">
           <button onClick={prevMonth} className="p-2 hover:bg-navy-700 rounded-lg cursor-pointer">
             <ChevronLeft className="w-5 h-5 text-navy-100" />
           </button>
-          <h2 className="text-lg font-semibold text-white">{monthName}</h2>
+          <h2 className="text-lg font-semibold text-navy-100">{monthName}</h2>
           <button onClick={nextMonth} className="p-2 hover:bg-navy-700 rounded-lg cursor-pointer">
             <ChevronRight className="w-5 h-5 text-navy-100" />
           </button>
@@ -110,7 +110,7 @@ export default function StudentCalendar() {
                     <span className={`text-sm font-medium ${isToday ? 'text-navy-600' : 'text-navy-100'}`}>{day}</span>
                     <div className="mt-1 space-y-1">
                       {dayEvents.slice(0, 2).map(e => (
-                        <div key={e.id} className={`text-xs text-white px-1.5 py-0.5 rounded truncate ${e.color}`}>
+                        <div key={e.id} className={`text-xs text-navy-100 px-1.5 py-0.5 rounded truncate ${e.color}`}>
                           {e.title}
                         </div>
                       ))}
@@ -127,13 +127,13 @@ export default function StudentCalendar() {
       </div>
 
       <div className="card p-6">
-        <h3 className="text-base font-semibold text-white mb-4">Upcoming Events</h3>
+        <h3 className="text-base font-semibold text-navy-100 mb-4">Upcoming Events</h3>
         <div className="space-y-3">
           {events.filter(e => new Date(e.date) >= new Date(today.toISOString().split('T')[0])).sort((a, b) => new Date(a.date) - new Date(b.date)).slice(0, 5).map(e => (
             <div key={e.id} className="flex items-center gap-3 p-3 rounded-lg border border-navy-700 hover:border-navy-200">
               <div className={`w-2 h-2 rounded-full flex-shrink-0 ${e.color}`} />
               <div className="flex-1 min-w-0">
-                <p className="text-sm font-medium text-white truncate">{e.title}</p>
+                <p className="text-sm font-medium text-navy-100 truncate">{e.title}</p>
                 <p className="text-xs text-navy-200">{e.date} {e.time ? `at ${e.time}` : ''} &middot; {e.type}</p>
               </div>
             </div>
