@@ -166,6 +166,40 @@
     background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.35), transparent);
     animation: lms-shine 3s ease-in-out infinite;
   }
+  .animate-grow-in {
+    animation: lms-grow-in 0.5s ease-out both;
+  }
+  .animate-pop {
+    animation: lms-pop 0.4s ease-out both;
+  }
+  .animate-slide-up-soft {
+    animation: lms-slide-up-soft 0.5s ease-out both;
+  }
+  .animate-fade-in-slow {
+    animation: lms-fade-in 1.2s ease-out both;
+  }
+  .animate-stagger > * {
+    animation: lms-slide-up-soft 0.5s ease-out both;
+    animation-delay: calc(var(--stagger-index, 0) * 90ms);
+  }
+  .animate-stagger > *:nth-child(1) { --stagger-index: 0; }
+  .animate-stagger > *:nth-child(2) { --stagger-index: 1; }
+  .animate-stagger > *:nth-child(3) { --stagger-index: 2; }
+  .animate-stagger > *:nth-child(4) { --stagger-index: 3; }
+  .animate-stagger > *:nth-child(5) { --stagger-index: 4; }
+  .animate-stagger > *:nth-child(6) { --stagger-index: 5; }
+  .animate-stagger > *:nth-child(7) { --stagger-index: 6; }
+  .animate-stagger > *:nth-child(8) { --stagger-index: 7; }
+  .animate-stagger > *:nth-child(9) { --stagger-index: 8; }
+  .animate-stagger > *:nth-child(10) { --stagger-index: 9; }
+  .animate-stagger > *:nth-child(11) { --stagger-index: 10; }
+  .animate-stagger > *:nth-child(12) { --stagger-index: 11; }
+  .hover-lift {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .hover-lift:hover {
+    transform: translateY(-3px);
+  }
 }
 
 .type-cursor {
@@ -211,6 +245,19 @@
   0% { left: -150%; }
   60%, 100% { left: 150%; }
 }
+@keyframes lms-grow-in {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes lms-pop {
+  0% { opacity: 0; transform: scale(0.6); }
+  70% { transform: scale(1.08); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes lms-slide-up-soft {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
 .page-enter {
   animation: lms-page-in 0.35s ease-out both;
@@ -238,7 +285,9 @@
   .animate-fade-in, .animate-fade-up, .animate-fade-down,
   .animate-zoom-in, .animate-slide-in-right, .animate-float,
   .animate-pulse-gold, .animate-shine::after,
-  .page-enter, .reveal, .type-cursor {
+  .animate-grow-in, .animate-pop, .animate-slide-up-soft,
+  .animate-fade-in-slow, .animate-stagger > *,
+  .page-enter, .reveal, .type-cursor, .hover-lift {
     animation: none !important;
     transition: none !important;
     opacity: 1 !important;

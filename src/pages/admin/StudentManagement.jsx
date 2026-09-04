@@ -289,11 +289,11 @@ function StudentProgress({ students, onBack, onRefresh }) {
 
   return (
     <div className="space-y-6">
-      <button onClick={onBack} className="flex items-center gap-2 text-sm text-navy-200 hover:text-navy-100">
+      <button onClick={onBack} className="flex items-center gap-2 text-sm text-navy-200 hover:text-navy-100 animate-fade-up">
         <ArrowLeft className="w-4 h-4" /> Back to Students
       </button>
-      <h1 className="text-2xl font-bold text-navy-100">Student Progress</h1>
-      <div className="card overflow-hidden">
+      <h1 className="text-2xl font-bold text-navy-100 animate-fade-up">Student Progress</h1>
+      <div className="card overflow-hidden animate-grow-in">
         <table className="w-full">
           <thead>
             <tr className="border-b border-navy-700 bg-navy-800/60">
@@ -303,7 +303,7 @@ function StudentProgress({ students, onBack, onRefresh }) {
               <th className="table-header">Actions</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="animate-stagger">
             {students.map(s => (
               <tr key={s.id} className="border-b border-navy-700 hover:bg-navy-700/60">
                 <td className="table-cell font-medium">{s.name}</td>
@@ -643,14 +643,14 @@ export default function StudentManagement() {
         </div>
       )}
 
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 animate-fade-up">
         <h1 className="text-2xl font-bold text-navy-100">Student Management</h1>
         <button onClick={() => navigate('/admin/students/add')} className="flex items-center gap-2 bg-navy-600 text-white px-4 py-2 rounded-lg hover:bg-navy-700 dark:hover:bg-[#0D4FB5] cursor-pointer">
           <Plus className="w-4 h-4" /> Add Student
         </button>
       </div>
 
-      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 animate-fade-up">
         <div className="relative flex-1 w-full sm:max-w-md">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-navy-300" />
           <input type="text" placeholder="Search students..." value={search} onChange={e => setSearch(e.target.value)} className="pl-10 pr-4 py-2 w-full border border-navy-700 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-navy-500 outline-none bg-navy-800 text-navy-100" />
@@ -660,7 +660,7 @@ export default function StudentManagement() {
         </select>
       </div>
 
-      <div className="card overflow-hidden">
+      <div className="card overflow-hidden animate-grow-in">
         <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
@@ -673,9 +673,9 @@ export default function StudentManagement() {
               <th className="table-header">Actions</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="animate-stagger">
             {filtered.map(s => (
-              <tr key={s.id} className="border-b border-navy-700 hover:bg-navy-700/60">
+              <tr key={s.id} className="border-b border-navy-700 hover:bg-navy-700/60 hover-lift">
                 <td className="table-cell">
                   <button onClick={() => { setSelectedStudent(s); navigate('/admin/students/profile'); }} className="font-medium text-navy-600 hover:text-navy-500 dark:hover:text-navy-400 text-left">{s.name}</button>
                 </td>

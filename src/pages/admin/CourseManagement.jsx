@@ -218,14 +218,14 @@ export default function CourseManagement() {
 
   return (
     <div className="space-y-6">
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 animate-fade-up">
         <h1 className="text-2xl font-bold text-navy-100">Course Management</h1>
         <button onClick={handleOpenAdd} className="btn-primary flex items-center gap-2">
           <Plus className="w-4 h-4" /> Add Course
         </button>
       </div>
 
-      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 animate-fade-up">
         <div className="relative flex-1 w-full sm:max-w-md">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-navy-300" />
           <input
