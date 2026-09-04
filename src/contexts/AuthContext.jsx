@@ -125,11 +125,21 @@ export function AuthProvider({ children }) {
 
   const login = async (username, password) => {
     const cleanUsername = username.trim();
-    const email = cleanUsername.includes('@')
-      ? cleanUsername
-      : (cleanUsername.toLowerCase() === 'admin' ? 'asik14923@gmail.com' : `${cleanUsername}@lms.app`);
-    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-    if (error) throw error;
+    const emails = cleanUsername.includes('@')
+      ? [cleanUsername]
+      : (cleanUsername.toLowerCase() === 'admin'
+        ? ['asik14923@gmail.com', 'admin@lms.app']
+        : [`${cleanUsername}@lms.app`]);
+
+    let data = null;
+    let lastError = null;
+    for (const email of emails) {
+      const res = await supabase.auth.signInWithPassword({ email, password });
+      if (res.error) { lastError = res.error; continue; }
+      data = res.data;
+      break;
+    }
+    if (!data) throw lastError || new Error('Invalid login credentials');
 
     const { data: profile } = await supabase
       .from('profiles')

@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react';
-import { Bell, Search, ChevronDown, UserCircle, Menu, X, Lock, Save, AlertCircle, CheckCircle, Sun, Moon } from 'lucide-react';
+import { Bell, Search, ChevronDown, UserCircle, Menu, X, Lock, Save, AlertCircle, CheckCircle, Sun, Moon, Users, BookOpen, PenTool, Megaphone } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { useTheme } from '../../contexts/ThemeContext';
 import { supabase } from '../../supabase/client';
-import { getAllNotifications } from '../../data/dynamicStore';
+import { useNavigate } from 'react-router-dom';
+import { getAllNotifications, getAllStudents, getAllCourses, getAllTestSeries, getAllAnnouncements } from '../../data/dynamicStore';
 
 export default function Topbar({ title, onMenuClick }) {
   const { user } = useAuth();
   const { theme, toggleTheme } = useTheme();
+  const navigate = useNavigate();
   const [showNotifications, setShowNotifications] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
   const [notifications, setNotifications] = useState([]);
@@ -17,10 +19,49 @@ export default function Topbar({ title, onMenuClick }) {
   const [pwLoading, setPwLoading] = useState(false);
   const [pwError, setPwError] = useState('');
   const [pwSuccess, setPwSuccess] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchData, setSearchData] = useState({ students: [], courses: [], series: [], announcements: [] });
 
   useEffect(() => {
     getAllNotifications().then(setNotifications).catch(() => {});
   }, []);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const [students, courses, series, announcements] = await Promise.all([
+          getAllStudents(), getAllCourses(), getAllTestSeries(), getAllAnnouncements(),
+        ]);
+        setSearchData({
+          students: students || [],
+          courses: courses || [],
+          series: series || [],
+          announcements: announcements || [],
+        });
+      } catch {
+        // search data unavailable
+      }
+    })();
+  }, []);
+
+  const isAdmin = user?.role === 'admin' || user?.role === 'instructor';
+
+  const q = searchQuery.trim().toLowerCase();
+  const queryResults = q.length < 1 ? [] : [
+    { label: 'Students', icon: Users, items: searchData.students.filter(s => (s.name || '').toLowerCase().includes(q) || (s.email || '').toLowerCase().includes(q)).slice(0, 5).map(s => ({ key: `s${s.id}`, title: s.name, subtitle: s.email, path: '/admin/students' })) },
+    { label: 'Courses', icon: BookOpen, items: searchData.courses.filter(c => (c.title || '').toLowerCase().includes(q)).slice(0, 5).map(c => ({ key: `c${c.id}`, title: c.title, subtitle: c.status, path: '/admin/courses' })) },
+    { label: 'Test Series', icon: PenTool, items: searchData.series.filter(s => (s.name || '').toLowerCase().includes(q)).slice(0, 5).map(s => ({ key: `t${s.id}`, title: s.name, subtitle: s.description || '', path: '/admin/exams/questions' })) },
+    { label: 'Announcements', icon: Megaphone, items: searchData.announcements.filter(a => (a.title || '').toLowerCase().includes(q)).slice(0, 5).map(a => ({ key: `a${a.id}`, title: a.title, subtitle: a.target || '', path: '/admin/announcements' })) },
+  ].filter(g => g.items.length > 0);
+
+  const goToSearchResult = (item) => {
+    navigate(item.path);
+    setSearchQuery('');
+    setSearchOpen(false);
+    setShowNotifications(false);
+    setShowProfile(false);
+  };
 
   const roleColors = {
     admin: 'bg-navy-600/15 text-navy-600 dark:text-navy-200',
@@ -68,13 +109,59 @@ export default function Topbar({ title, onMenuClick }) {
             {theme === 'dark' ? <Sun className="w-5 h-5 text-navy-200" /> : <Moon className="w-5 h-5 text-navy-200" />}
           </button>
 
-          <div className="relative hidden xl:block">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-navy-300" />
-            <input type="text" placeholder="Search..." className="input-field w-64 pl-10" />
-          </div>
+          {isAdmin && (
+            <div className="relative hidden md:block">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-navy-300 pointer-events-none" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={e => { setSearchQuery(e.target.value); setSearchOpen(true); }}
+                onFocus={() => setSearchOpen(true)}
+                placeholder="Search students, courses..."
+                className="pl-10 pr-3 py-2 w-48 xl:w-72 bg-navy-950 border border-navy-700 rounded-lg text-sm text-navy-100 placeholder:text-navy-300 focus:outline-none focus:ring-2 focus:ring-navy-600 focus:border-navy-600"
+              />
+              {searchOpen && (
+                <>
+                  <div className="fixed inset-0 z-10 cursor-default" onClick={() => setSearchOpen(false)} />
+                  <div className="absolute right-0 mt-2 w-[22rem] bg-surface rounded-xl shadow-lg border border-navy-700 overflow-hidden animate-zoom-in z-20">
+                    <div className="px-4 py-3 border-b border-navy-700">
+                      <p className="text-sm font-semibold text-navy-100">Search Results</p>
+                    </div>
+                    {queryResults.length === 0 ? (
+                      <p className="px-4 py-6 text-sm text-navy-300 text-center">
+                        {q.length ? `No results for "${searchQuery}"` : 'Start typing to search'}
+                      </p>
+                    ) : (
+                      <div className="max-h-80 overflow-y-auto">
+                        {queryResults.map(group => {
+                          const GroupIcon = group.icon;
+                          return (
+                            <div key={group.label} className="pt-1">
+                              <p className="px-4 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-navy-300 bg-navy-50/60 dark:bg-navy-800/60 sticky top-0 flex items-center gap-1.5">
+                                <GroupIcon className="w-3 h-3" /> {group.label}
+                              </p>
+                              {group.items.map(item => (
+                                <button key={item.key} onClick={() => goToSearchResult(item)} className="w-full flex items-center gap-3 px-4 py-2.5 text-left hover:bg-navy-700/60">
+                                  <GroupIcon className="w-4 h-4 text-navy-500 shrink-0" />
+                                  <span className="min-w-0 flex-1">
+                                    <span className="block text-sm text-navy-100 truncate">{item.title}</span>
+                                    <span className="block text-xs text-navy-300 truncate">{item.subtitle}</span>
+                                  </span>
+                                </button>
+                              ))}
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </div>
+                </>
+              )}
+            </div>
+          )}
 
           <div className="relative">
-            <button onClick={() => { setShowNotifications(!showNotifications); setShowProfile(false); }} className="relative p-2 rounded-lg hover:bg-navy-800">
+            <button onClick={() => { setShowNotifications(!showNotifications); setShowProfile(false); setSearchOpen(false); }} className="relative p-2 rounded-lg hover:bg-navy-800">
               <Bell className="w-5 h-5 text-navy-200" />
               {notifications.length > 0 && <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-brand-red rounded-full"></span>}
             </button>
@@ -99,7 +186,7 @@ export default function Topbar({ title, onMenuClick }) {
           </div>
 
           <div className="relative">
-            <button onClick={() => { setShowProfile(!showProfile); setShowNotifications(false); }} className="flex items-center gap-2 p-1.5 rounded-lg hover:bg-navy-800">
+            <button onClick={() => { setShowProfile(!showProfile); setShowNotifications(false); setSearchOpen(false); }} className="flex items-center gap-2 p-1.5 rounded-lg hover:bg-navy-800">
               <div className="w-8 h-8 rounded-full bg-navy-600 flex items-center justify-center">
                 <UserCircle className="w-6 h-6 text-white" />
               </div>
