@@ -126,7 +126,7 @@ export default function Sidebar({ mobileOpen, onClose }) {
           if (hasSub) {
             return (
               <div key={item.section}>
-                <button onClick={() => toggleExpand(item.section)} className={`w-full sidebar-link ${hasActiveSubmenu(item) ? 'sidebar-link-active' : 'sidebar-link-inactive'}`}>
+                <button onClick={() => toggleExpand(item.section)} className="w-full sidebar-link sidebar-link-inactive">
                   <Icon className="w-5 h-5 flex-shrink-0" />
                   <>
                     <span className="flex-1 text-left truncate">{item.section}</span>
@@ -136,7 +136,7 @@ export default function Sidebar({ mobileOpen, onClose }) {
                 {expandedItem && (
                   <div className="ml-8 mt-1 space-y-1">
                     {item.submenu.map(sub => (
-                      <NavLink key={sub.path} to={sub.path} onClick={onClose} className={({ isActive: active }) => `sidebar-link text-xs ${active ? 'sidebar-link-active' : 'sidebar-link-inactive'}`}>
+                      <NavLink key={sub.path} to={sub.path} end onClick={onClose} className={({ isActive: active }) => `sidebar-link text-xs ${active ? 'sidebar-link-active' : 'sidebar-link-inactive'}`}>
                         {sub.label}
                       </NavLink>
                     ))}
