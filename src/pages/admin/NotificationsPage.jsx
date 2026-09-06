@@ -15,7 +15,7 @@ const recipientOptions = [
   { value: 'all_users', label: 'All Users' },
 ];
 
-function ComposeForm({ type, onSent }) {
+function ComposeForm({ type }) {
   const [recipient, setRecipient] = useState('all_students');
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
@@ -35,15 +35,12 @@ function ComposeForm({ type, onSent }) {
     try {
       const { data: { session } } = await supabase.auth.getSession();
       const token = session?.access_token || '';
-      let recipientLabel = '';
       let emails = [];
 
       if (recipient === 'all_students') {
-        recipientLabel = 'All Students';
         const { data } = await supabase.from('profiles').select('email').eq('role', 'student');
         emails = data?.map(p => p.email).filter(Boolean) || [];
       } else {
-        recipientLabel = 'All Users';
         const { data } = await supabase.from('profiles').select('email');
         emails = data?.map(p => p.email).filter(Boolean) || [];
       }
@@ -75,8 +72,7 @@ function ComposeForm({ type, onSent }) {
           showError(`Sent to ${sentCount}, failed for ${failed.length}. ${firstError}`);
         }
 
-        onSent({ type, recipient: recipientLabel, subject, status: failed.length === 0 ? 'Sent' : 'Failed' });
-      } else if (type === 'Push Notifications') {
+        } else if (type === 'Push Notifications') {
         const res = await fetch(apiUrl('/api/send-push'), {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
@@ -93,8 +89,6 @@ function ComposeForm({ type, onSent }) {
         } else {
           showError(data.error || 'Failed to send push notifications.');
         }
-
-        onSent({ type, recipient: recipientLabel, subject, status: res.ok ? 'Sent' : 'Failed' });
       }
 
       setSubject('');
@@ -141,11 +135,6 @@ export default function NotificationsPage() {
     '/admin/notifications/push': 1,
   };
   const activeTab = tabsByPath[location.pathname] ?? 0;
-  const [history, setHistory] = useState([]);
-
-  const addToHistory = (entry) => {
-    setHistory(prev => [{ id: Date.now(), sent: new Date().toISOString().slice(0, 10), ...entry }, ...prev]);
-  };
 
   return (
     <div className="space-y-6">
@@ -175,38 +164,7 @@ export default function NotificationsPage() {
         </div>
       </div>
 
-      <ComposeForm type={tabs[activeTab].label} onSent={addToHistory} />
-
-      <div className="card overflow-hidden animate-grow-in">
-        <div className="card-header"><h3 className="text-lg font-semibold">Sent History</h3></div>
-        <table className="w-full">
-          <thead>
-            <tr className="border-b border-navy-700 bg-navy-800/60">
-              <th className="table-header">Type</th>
-              <th className="table-header">Recipient</th>
-              <th className="table-header">Subject</th>
-              <th className="table-header">Date</th>
-              <th className="table-header">Status</th>
-            </tr>
-          </thead>
-          <tbody className="animate-stagger">
-            {history.length === 0 && (
-              <tr><td colSpan={5} className="text-center py-8 text-navy-300">No notifications sent yet.</td></tr>
-            )}
-            {history.map(h => (
-              <tr key={h.id} className="border-b border-navy-700 hover:bg-navy-700/60 hover-lift">
-                <td className="table-cell font-medium">{h.type}</td>
-                <td className="table-cell">{h.recipient}</td>
-                <td className="table-cell text-navy-100">{h.subject}</td>
-                <td className="table-cell text-navy-200">{h.sent}</td>
-                <td className="table-cell">
-                  <span className={`badge ${h.status === 'Sent' ? 'badge-success' : 'badge-danger'}`}>{h.status}</span>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <ComposeForm type={tabs[activeTab].label} />
     </div>
   );
 }
