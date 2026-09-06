@@ -38,6 +38,9 @@ export default defineConfig(({ mode }) => {
   Object.assign(process.env, env);
 
   return {
+    build: {
+      target: 'es2018',
+    },
     plugins: [
       react(),
       tailwindcss(),
