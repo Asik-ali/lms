@@ -2,15 +2,9 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { ThemeProvider } from './contexts/ThemeContext';
 import DashboardLayout from './components/Layout/DashboardLayout';
-import PublicLayout from './components/Layout/PublicLayout';
 import ToastContainer from './components/common/Toast';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
-import AboutPage from './pages/public/AboutPage';
-import ContactPage from './pages/public/ContactPage';
-import FAQPage from './pages/public/FAQPage';
-import TermsPage from './pages/public/TermsPage';
-import RefundPolicyPage from './pages/public/RefundPolicyPage';
 
 import AdminDashboard from './pages/admin/Dashboard';
 import StudentManagement from './pages/admin/StudentManagement';
@@ -59,14 +53,7 @@ function AppRoutes() {
     <Routes>
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignupPage />} />
-      <Route element={<PublicLayout />}>
-        <Route path="/" element={<Navigate to="/login" replace />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/faq" element={<FAQPage />} />
-        <Route path="/terms" element={<TermsPage />} />
-        <Route path="/refunds" element={<RefundPolicyPage />} />
-      </Route>
+      <Route path="/" element={<Navigate to="/login" replace />} />
       <Route path="*" element={<Navigate to="/login" replace />} />
     </Routes>
   );
@@ -75,14 +62,7 @@ function AppRoutes() {
     <Routes>
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignupPage />} />
-      <Route element={<PublicLayout />}>
-        <Route path="/" element={<Navigate to={`/${user.role}`} replace />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/faq" element={<FAQPage />} />
-        <Route path="/terms" element={<TermsPage />} />
-        <Route path="/refunds" element={<RefundPolicyPage />} />
-      </Route>
+      <Route path="/" element={<Navigate to={`/${user.role}`} replace />} />
       <Route path="/admin" element={<RoleGuard role="admin"><DashboardLayout /></RoleGuard>}>
         <Route index element={<AdminDashboard />} />
         <Route path="calendar" element={<AdminCalendar />} />
