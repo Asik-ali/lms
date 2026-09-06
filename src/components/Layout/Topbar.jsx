@@ -173,7 +173,7 @@ export default function Topbar({ title, onMenuClick }) {
               {visibleAnnouncements.length > 0 && <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-brand-red rounded-full"></span>}
             </button>
             {showNotifications && (
-              <div className="absolute right-0 mt-2 w-80 bg-surface rounded-xl shadow-lg border border-navy-700 overflow-hidden animate-zoom-in">
+              <div className="fixed right-3 sm:right-6 top-16 z-40 w-80 max-w-[calc(100vw-1.5rem)] bg-surface rounded-xl shadow-lg border border-navy-700 overflow-hidden animate-zoom-in">
                 <div className="px-4 py-3 border-b border-navy-700">
                   <p className="text-sm font-semibold text-navy-100">Announcements</p>
                 </div>
