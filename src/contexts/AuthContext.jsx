@@ -128,7 +128,7 @@ export function AuthProvider({ children }) {
     const emails = cleanUsername.includes('@')
       ? [cleanUsername]
       : (cleanUsername.toLowerCase() === 'admin'
-        ? ['asik14923@gmail.com', 'admin@lms.app']
+        ? ['asik14923@gmail.com']
         : [`${cleanUsername}@lms.app`]);
 
     let data = null;

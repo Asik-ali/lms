@@ -66,7 +66,7 @@ export default async function handler(req, res) {
 
   try {
     if (vapidPublicKey && vapidPrivateKey) {
-      webpush.setVapidDetails('mailto:admin@lms.com', vapidPublicKey.trim(), vapidPrivateKey.trim());
+      webpush.setVapidDetails('mailto:asik14923@gmail.com', vapidPublicKey.trim(), vapidPrivateKey.trim());
     }
   } catch (err) {
     return res.status(500).json({ error: 'Invalid VAPID key configuration: ' + err.message });
