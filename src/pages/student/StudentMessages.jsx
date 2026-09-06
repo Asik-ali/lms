@@ -79,7 +79,7 @@ export default function StudentMessages() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-navy-100">Supports Tickets</h1>
+        <h1 className="text-2xl font-bold text-navy-100">Support Tickets</h1>
         {!showNew && !selected && (
           <button onClick={() => setShowNew(true)} className="btn-primary flex items-center gap-2">
             <Plus className="w-4 h-4" /> New Ticket
