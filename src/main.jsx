@@ -2,7 +2,7 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import { registerServiceWorker, subscribeToPush } from './data/pushNotifications.js'
-import { isNativePlatform, registerNativePush } from './data/nativePush.js'
+import { isNativePlatform, requestNativePushPermission, registerNativePush } from './data/nativePush.js'
 
 async function waitForSession() {
   const { supabase } = await import('./supabase/client.js');
@@ -59,7 +59,20 @@ async function setupWebPush() {
 }
 
 if (isNativePlatform()) {
+  // Prompt for notification permission immediately on launch (Android 13+
+  // shows the system dialog), then register for FCM once signed in. Also
+  // re-attempt after login so permission/registration is picked up on all phones.
+  requestNativePushPermission().catch(err => console.error('Push permission request failed:', err));
   registerNativePush().catch(err => console.error('Native push setup failed:', err));
+
+  import('./supabase/client.js').then(({ supabase }) => {
+    supabase.auth.onAuthStateChange((event) => {
+      if (event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') {
+        requestNativePushPermission().catch(() => {});
+        registerNativePush().catch(() => {});
+      }
+    });
+  });
 } else {
   setupWebPush();
 

@@ -20,27 +20,38 @@ async function toast(message, type = 'error') {
   } catch { /* ignore */ }
 }
 
-export async function registerNativePush() {
-  if (!Capacitor.isNativePlatform()) return null;
+// Android 13+ ships runtime notification permission. Ask for it up front (and
+// wherever else it is convenient) so every phone surfaces the system prompt
+// for the user to allow push notifications.
+export async function requestNativePushPermission() {
+  if (!Capacitor.isNativePlatform()) return false;
 
   const { PushNotifications } = await import('@capacitor/push-notifications');
 
-  // Android 13+ requires the POST_NOTIFICATIONS runtime permission.
-  let permissionStatus = { receive: false };
   try {
-    permissionStatus = await PushNotifications.checkPermissions();
-    if (permissionStatus.receive !== 'granted') {
-      permissionStatus = await PushNotifications.requestPermissions();
+    let status = await PushNotifications.checkPermissions();
+    if (status.receive !== 'granted') {
+      status = await PushNotifications.requestPermissions();
     }
+    if (status.receive !== 'granted') {
+      log('Permission not granted:', JSON.stringify(status));
+      toast('Push notifications are disabled. Allow notifications in your phone settings to receive alerts.');
+      return false;
+    }
+    return true;
   } catch (e) {
-    log('checkPermissions error:', e);
+    log('requestPermissions error:', e);
+    return false;
   }
+}
 
-  if (permissionStatus.receive !== 'granted') {
-    log('Permission not granted:', JSON.stringify(permissionStatus));
-    toast('Push permission not granted. Enable notifications in app settings to receive push.');
-    return null;
-  }
+export async function registerNativePush() {
+  if (!Capacitor.isNativePlatform()) return null;
+
+  const granted = await requestNativePushPermission();
+  if (!granted) return null;
+
+  const { PushNotifications } = await import('@capacitor/push-notifications');
 
   const { supabase } = await import('../supabase/client');
   let session;
