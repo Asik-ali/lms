@@ -3,7 +3,8 @@
   "appName": "EXAMSTICK",
   "webDir": "dist",
   "server": {
-    "androidScheme": "https"
+    "androidScheme": "https",
+    "url": "https://asiklms.vercel.app"
   },
   "android": {
     "allowMixedContent": true
