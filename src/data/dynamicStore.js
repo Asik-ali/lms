@@ -512,6 +512,11 @@ export async function addAnnouncement(row) {
   return data;
 }
 
+export async function deleteAnnouncement(id) {
+  const { error } = await supabase.from('announcements').delete().eq('id', id);
+  if (error) throw error;
+}
+
 export async function getEnrollments({ page = 0, pageSize = DEFAULT_PAGE_SIZE } = {}) {
   const from = page * pageSize;
   const to = from + pageSize - 1;

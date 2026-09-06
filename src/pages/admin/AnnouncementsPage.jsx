@@ -1,12 +1,15 @@
-import { useState, useEffect } from 'react';
-import { Megaphone, Send } from 'lucide-react';
-import { getAllAnnouncements, addAnnouncement } from '../../data/dynamicStore';
+import { useState } from 'react';
+import { Megaphone, Send, Trash2 } from 'lucide-react';
+import { getAllAnnouncements, addAnnouncement, deleteAnnouncement } from '../../data/dynamicStore';
 
 export default function AnnouncementsPage() {
   const [announcements, setAnnouncements] = useState([]);
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [target, setTarget] = useState('All');
+  const [deletingId, setDeletingId] = useState(null);
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
 
   const targets = ['All', 'Students', 'Admins'];
 
@@ -22,6 +25,8 @@ export default function AnnouncementsPage() {
 
   async function handlePublish() {
     if (!title.trim() || !content.trim()) return;
+    setError('');
+    setSuccess('');
     try {
       await addAnnouncement({
         title: title.trim(),
@@ -33,9 +38,28 @@ export default function AnnouncementsPage() {
       setTitle('');
       setContent('');
       setTarget('All');
+      setSuccess('Announcement published.');
       refresh();
     } catch (err) {
+      setError(err.message || 'Failed to publish announcement.');
       console.error('Failed to publish announcement:', err);
+    }
+  }
+
+  async function handleDelete(a) {
+    if (!window.confirm(`Delete "${a.title}"? This cannot be undone.`)) return;
+    setError('');
+    setSuccess('');
+    setDeletingId(a.id);
+    try {
+      await deleteAnnouncement(a.id);
+      setSuccess('Announcement deleted.');
+      refresh();
+    } catch (err) {
+      setError(err.message || 'Failed to delete announcement.');
+      console.error('Failed to delete announcement:', err);
+    } finally {
+      setDeletingId(null);
     }
   }
 
@@ -50,6 +74,16 @@ export default function AnnouncementsPage() {
           <h3 className="text-lg font-semibold">Create Announcement</h3>
         </div>
         <div className="p-6 space-y-4">
+          {error && (
+            <div className="flex items-center gap-2 p-3 bg-brand-red/10 border border-brand-red/40 rounded-lg text-sm text-red-700 dark:text-red-300">
+              {error}
+            </div>
+          )}
+          {success && (
+            <div className="flex items-center gap-2 p-3 bg-emerald-500/10 border border-emerald-500/40 rounded-lg text-sm text-emerald-700 dark:text-emerald-300">
+              {success}
+            </div>
+          )}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="md:col-span-2">
               <label className="block text-sm font-medium text-navy-100 mb-1">Title</label>
@@ -90,6 +124,14 @@ export default function AnnouncementsPage() {
                 <div className="flex items-center gap-2">
                   <span className="badge-info">{a.target}</span>
                   <span className={`badge ${a.status === 'Published' ? 'badge-success' : 'badge-warning'}`}>{a.status}</span>
+                  <button
+                    onClick={() => handleDelete(a)}
+                    disabled={deletingId === a.id}
+                    className="p-2 rounded-lg text-navy-300 hover:text-red-500 hover:bg-brand-red/10 transition-colors cursor-pointer disabled:opacity-50"
+                    title="Delete announcement"
+                  >
+                    <Trash2 className="w-4 h-4" />
+                  </button>
                 </div>
               </div>
               <p className="text-sm text-navy-100 leading-relaxed">{a.content}</p>
