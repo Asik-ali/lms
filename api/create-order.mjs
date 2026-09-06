@@ -1,4 +1,4 @@
-import { createServiceClient, getAuthedUser } from './_auth.mjs';
+import { createServiceClient, getAuthedUser, setCors } from './_auth.mjs';
 import { createCashfreeOrder, CASHFREE_ORDER_PREFIX } from './_cashfree.mjs';
 
 function getOrigin(req) {
@@ -9,6 +9,8 @@ function getOrigin(req) {
 }
 
 export default async function handler(req, res) {
+  if (setCors(req, res)) return;
+
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }

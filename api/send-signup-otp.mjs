@@ -1,8 +1,11 @@
 import crypto from 'crypto';
 import nodemailer from 'nodemailer';
 import { createClient } from '@supabase/supabase-js';
+import { setCors } from './_auth.mjs';
 
 export default async function handler(req, res) {
+  if (setCors(req, res)) return;
+
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }

@@ -1,4 +1,4 @@
-import { createServiceClient, requireAdmin } from './_auth.mjs';
+import { createServiceClient, requireAdmin, setCors } from './_auth.mjs';
 
 async function getPlanWithItems(supabase, id) {
   const { data: plan, error } = await supabase
@@ -19,6 +19,8 @@ async function getPlanWithItems(supabase, id) {
 }
 
 export default async function handler(req, res) {
+  if (setCors(req, res)) return;
+
   const supabase = createServiceClient();
 
   try {
