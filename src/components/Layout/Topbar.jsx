@@ -4,7 +4,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import { useTheme } from '../../contexts/ThemeContext';
 import { supabase } from '../../supabase/client';
 import { useNavigate } from 'react-router-dom';
-import { getAllNotifications, getAllStudents, getAllCourses, getAllTestSeries, getAllAnnouncements } from '../../data/dynamicStore';
+import { getAllStudents, getAllCourses, getAllTestSeries, getAllAnnouncements } from '../../data/dynamicStore';
 
 export default function Topbar({ title, onMenuClick }) {
   const { user } = useAuth();
@@ -12,7 +12,7 @@ export default function Topbar({ title, onMenuClick }) {
   const navigate = useNavigate();
   const [showNotifications, setShowNotifications] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
-  const [notifications, setNotifications] = useState([]);
+  const [announcements, setAnnouncements] = useState([]);
   const [showProfileModal, setShowProfileModal] = useState(false);
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -23,8 +23,17 @@ export default function Topbar({ title, onMenuClick }) {
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchData, setSearchData] = useState({ students: [], courses: [], series: [], announcements: [] });
 
+  const isAdmin = user?.role === 'admin' || user?.role === 'instructor';
+
+  const visibleAnnouncements = announcements.filter(a => {
+    const t = (a.target || '').toLowerCase();
+    return t === 'all' || (isAdmin ? t.includes('admin') : t.includes('student'));
+  });
+
   useEffect(() => {
-    getAllNotifications().then(setNotifications).catch(() => {});
+    getAllAnnouncements()
+      .then(data => setAnnouncements((data || []).filter(a => a.status === 'Published')))
+      .catch(() => {});
   }, []);
 
   useEffect(() => {
@@ -44,8 +53,6 @@ export default function Topbar({ title, onMenuClick }) {
       }
     })();
   }, []);
-
-  const isAdmin = user?.role === 'admin' || user?.role === 'instructor';
 
   const q = searchQuery.trim().toLowerCase();
   const queryResults = q.length < 1 ? [] : [
@@ -163,22 +170,26 @@ export default function Topbar({ title, onMenuClick }) {
           <div className="relative">
             <button onClick={() => { setShowNotifications(!showNotifications); setShowProfile(false); setSearchOpen(false); }} className="relative p-2 rounded-lg hover:bg-navy-800">
               <Bell className="w-5 h-5 text-navy-200" />
-              {notifications.length > 0 && <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-brand-red rounded-full"></span>}
+              {visibleAnnouncements.length > 0 && <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-brand-red rounded-full"></span>}
             </button>
             {showNotifications && (
               <div className="absolute right-0 mt-2 w-80 bg-surface rounded-xl shadow-lg border border-navy-700 overflow-hidden animate-zoom-in">
                 <div className="px-4 py-3 border-b border-navy-700">
-                  <p className="text-sm font-semibold text-navy-100">Notifications</p>
+                  <p className="text-sm font-semibold text-navy-100">Announcements</p>
                 </div>
                 <div className="max-h-64 overflow-y-auto">
-                  {notifications.map(n => (
-                    <div key={n.id} className="px-4 py-3 hover:bg-navy-800 border-b border-navy-700 last:border-0">
-                      <p className="text-sm text-navy-100">{n.message}</p>
-                      <p className="text-xs text-navy-300 mt-1">{n.time}</p>
+                  {visibleAnnouncements.map(a => (
+                    <div key={a.id} className="px-4 py-3 hover:bg-navy-800 border-b border-navy-700 last:border-0">
+                      <div className="flex items-center justify-between gap-2">
+                        <p className="text-sm font-medium text-navy-100 truncate">{a.title}</p>
+                        <span className="badge badge-info whitespace-nowrap text-[10px]">{a.target}</span>
+                      </div>
+                      <p className="text-xs text-navy-300 mt-1 line-clamp-2">{a.content}</p>
+                      <p className="text-[11px] text-navy-400 mt-1">{a.created}</p>
                     </div>
                   ))}
-                  {notifications.length === 0 && (
-                    <p className="px-4 py-6 text-sm text-navy-300 text-center">No notifications</p>
+                  {visibleAnnouncements.length === 0 && (
+                    <p className="px-4 py-6 text-sm text-navy-300 text-center">No announcements</p>
                   )}
                 </div>
               </div>
