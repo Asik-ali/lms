@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Megaphone, Send, Trash2 } from 'lucide-react';
 import { getAllAnnouncements, addAnnouncement, deleteAnnouncement } from '../../data/dynamicStore';
 
@@ -73,7 +73,7 @@ export default function AnnouncementsPage() {
         <div className="card-header">
           <h3 className="text-lg font-semibold">Create Announcement</h3>
         </div>
-        <div className="p-6 space-y-4">
+        <div className="p-4 sm:p-6 space-y-4">
           {error && (
             <div className="flex items-center gap-2 p-3 bg-brand-red/10 border border-brand-red/40 rounded-lg text-sm text-red-700 dark:text-red-300">
               {error}
@@ -109,21 +109,21 @@ export default function AnnouncementsPage() {
 
       <div className="space-y-4 animate-stagger">
         {announcements.map(a => (
-          <div key={a.id} className="card hover-lift">
-            <div className="p-6">
-              <div className="flex items-start justify-between mb-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-navy-50 dark:bg-navy-500/15 flex items-center justify-center">
+          <div key={a.id} className="card hover-lift overflow-hidden">
+            <div className="p-4 sm:p-6">
+              <div className="flex flex-col gap-3 mb-3 sm:flex-row sm:items-start sm:justify-between">
+                <div className="flex items-start gap-3 min-w-0">
+                  <div className="w-10 h-10 rounded-lg bg-navy-50 dark:bg-navy-500/15 flex items-center justify-center flex-shrink-0">
                     <Megaphone className="w-5 h-5 text-navy-600 dark:text-navy-300" />
                   </div>
-                  <div>
-                    <h4 className="font-semibold text-navy-100">{a.title}</h4>
+                  <div className="min-w-0">
+                    <h4 className="font-semibold text-navy-100 break-words">{a.title}</h4>
                     <p className="text-xs text-navy-300">{a.created}</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <span className="badge-info">{a.target}</span>
-                  <span className={`badge ${a.status === 'Published' ? 'badge-success' : 'badge-warning'}`}>{a.status}</span>
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="badge-info whitespace-nowrap">{a.target}</span>
+                  <span className={`badge whitespace-nowrap ${a.status === 'Published' ? 'badge-success' : 'badge-warning'}`}>{a.status}</span>
                   <button
                     onClick={() => handleDelete(a)}
                     disabled={deletingId === a.id}
@@ -134,7 +134,7 @@ export default function AnnouncementsPage() {
                   </button>
                 </div>
               </div>
-              <p className="text-sm text-navy-100 leading-relaxed">{a.content}</p>
+              <p className="text-sm text-navy-100 leading-relaxed break-words">{a.content}</p>
             </div>
           </div>
         ))}
