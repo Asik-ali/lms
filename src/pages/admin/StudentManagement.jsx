@@ -368,10 +368,16 @@ function CredentialsModal({ student, onClose }) {
     setResetting(false);
   };
 
-  const copyPassword = () => {
-    navigator.clipboard?.writeText(generatedPassword);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  const copyPassword = async () => {
+    try {
+      if (!navigator.clipboard?.writeText) throw new Error('Clipboard is unavailable');
+      await navigator.clipboard.writeText(generatedPassword);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      setCopied(false);
+      showError('Could not copy the password. Please copy it manually.');
+    }
   };
 
   return (

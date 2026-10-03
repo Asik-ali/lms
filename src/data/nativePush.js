@@ -24,6 +24,14 @@ async function toast(message, type = 'error') {
 // wherever else it is convenient) so every phone surfaces the system prompt
 // for the user to allow push notifications.
 export async function requestNativePushPermission() {
+  if (permissionInFlight) return permissionInFlight;
+  permissionInFlight = requestPermission().finally(() => { permissionInFlight = null; });
+  return permissionInFlight;
+}
+
+let permissionInFlight = null;
+
+async function requestPermission() {
   if (!Capacitor.isNativePlatform()) return false;
 
   const { PushNotifications } = await import('@capacitor/push-notifications');
