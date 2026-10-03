@@ -375,8 +375,8 @@ function CredentialsModal({ student, onClose }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
-      <div className="bg-surface rounded-xl shadow-xl w-full max-w-md p-6 space-y-4">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
+      <div className="bg-surface rounded-xl shadow-xl w-full max-w-md p-6 space-y-4 max-h-[calc(100dvh-2rem)] overflow-y-auto">
         <div className="flex items-center justify-between">
           <h2 className="text-lg font-semibold text-navy-100">Student Credentials</h2>
           <button onClick={onClose} className="p-1 text-navy-300 hover:text-navy-100"><X className="w-5 h-5" /></button>
@@ -603,7 +603,7 @@ export default function StudentManagement() {
     if (isProfilePage && !selectedStudent && students.length > 0) {
       setSelectedStudent(students[0]);
     }
-  }, [isProfilePage, students]);
+  }, [isProfilePage, students, selectedStudent]);
 
   if (isAddPage) return <AddStudentForm onBack={() => navigate('/admin/students')} onStudentAdded={loadStudents} />;
   if (isProfilePage) return <StudentProfile student={selectedStudent} onBack={() => { setSelectedStudent(null); navigate('/admin/students'); }} onSaved={loadStudents} />;

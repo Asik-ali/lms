@@ -39,6 +39,7 @@ function RoleGuard({ role, children }) {
 
 function AppRoutes() {
   const { user, loading } = useAuth();
+  const homePath = user?.role === 'admin' || user?.role === 'instructor' ? '/admin' : '/student';
 
   if (loading) return (
     <div className="min-h-screen flex items-center justify-center bg-navy-950">
@@ -62,7 +63,7 @@ function AppRoutes() {
     <Routes>
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignupPage />} />
-      <Route path="/" element={<Navigate to={`/${user.role}`} replace />} />
+      <Route path="/" element={<Navigate to={homePath} replace />} />
       <Route path="/admin" element={<RoleGuard role="admin"><DashboardLayout /></RoleGuard>}>
         <Route index element={<AdminDashboard />} />
         <Route path="calendar" element={<AdminCalendar />} />
@@ -99,7 +100,7 @@ function AppRoutes() {
         <Route path="settings" element={<SettingsPage />} />
       </Route>
 
-      <Route path="*" element={<Navigate to={`/${user.role}`} replace />} />
+      <Route path="*" element={<Navigate to={homePath} replace />} />
     </Routes>
   );
 }

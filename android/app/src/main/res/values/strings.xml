@@ -4,4 +4,9 @@
     <string name="title_activity_main">EXAMSTICK</string>
     <string name="package_name">com.lms.portal</string>
     <string name="custom_url_scheme">com.lms.portal</string>
+    <string name="no_internet_title">No internet</string>
+    <string name="no_internet_message">Please turn on mobile data or Wi-Fi, then tap Retry.</string>
+    <string name="connection_error_title">Unable to connect</string>
+    <string name="connection_error_message">Please try again in a moment.</string>
+    <string name="connection_retry">Retry</string>
 </resources>

@@ -1,4 +1,5 @@
 import { supabase } from '../supabase/client';
+import { gradeAttempt } from './gradeAttempt';
 
 const DEFAULT_PAGE_SIZE = 50;
 
@@ -401,32 +402,21 @@ export async function getResponses(attemptId) {
 export async function submitAttempt(attemptId, totalTime) {
   const responses = await getResponses(attemptId);
 
-  const { data: attemptRow } = await supabase.from('test_attempts').select('test_id, total_marks, student_id').eq('id', attemptId).single();
+  const { data: attemptRow, error: attemptError } = await supabase.from('test_attempts').select('test_id, total_marks, student_id').eq('id', attemptId).single();
+  if (attemptError) throw attemptError;
   const testId = attemptRow?.test_id;
 
-  const { data: questions } = await supabase.from('questions').select('id, correct_answer').eq('test_id', testId);
-  const answerMap = {};
-  (questions || []).forEach(q => { answerMap[q.id] = q.correct_answer; });
-
-  const graded = (responses || []).map(r => {
-    let is_correct = null;
-    if (r.student_answer) {
-      const correct = answerMap[r.question_id];
-      is_correct = correct != null && String(r.student_answer).trim().toUpperCase() === String(correct).trim().toUpperCase() ? true : false;
-    }
-    return { attempt_id: attemptId, question_id: r.question_id, is_correct, status: r.status };
-  });
-  for (const g of graded) {
-    await supabase.from('test_responses').update({ is_correct: g.is_correct }).eq('attempt_id', g.attempt_id).eq('question_id', g.question_id);
+  const { data: questions, error: questionsError } = await supabase.from('questions').select('id, correct_answer').eq('test_id', testId);
+  if (questionsError) throw questionsError;
+  const { data: test, error: testError } = await supabase.from('tests').select('total_marks').eq('id', testId).single();
+  if (testError) throw testError;
+  const total_marks = test.total_marks ?? attemptRow.total_marks;
+  const { graded, correct_count, wrong_count, skipped_count, score } = gradeAttempt(questions || [], responses, total_marks);
+  const responseIds = new Set(responses.map(row => row.question_id));
+  for (const row of graded.filter(row => responseIds.has(row.question_id))) {
+    const { error } = await supabase.from('test_responses').update({ is_correct: row.is_correct }).eq('attempt_id', attemptId).eq('question_id', row.question_id);
+    if (error) throw error;
   }
-
-  const correct_count = graded.filter(r => r.is_correct === true).length;
-  const wrong_count = graded.filter(r => r.is_correct === false && (r.status === 'answered' || r.status === 'marked')).length;
-  const skipped_count = responses.filter(r => r.status === 'not_attempted' || (r.status === 'marked' && !r.student_answer)).length;
-
-  const totalQ = responses.length || 1;
-  const marksPerQ = attemptRow && attemptRow.total_marks ? Math.floor(attemptRow.total_marks / totalQ) : 1;
-  const score = correct_count * marksPerQ;
 
   // Rank is frozen on the student's FIRST attempt only; later attempts do not recompute it.
   let rank = null;
@@ -449,10 +439,8 @@ export async function submitAttempt(attemptId, totalTime) {
     percentile = totalFirst > 0 ? ((totalFirst - rank) / totalFirst * 100).toFixed(1) : '100';
   }
 
-  const { data, error } = await supabase.from('test_attempts').update({ score, correct_count, wrong_count, skipped_count, time_taken: totalTime, rank, percentile, submitted_at: new Date().toISOString(), status: 'completed' }).eq('id', attemptId).select('id, test_id, student_id, score, total_marks, correct_count, wrong_count, skipped_count, time_taken, rank, percentile, started_at, submitted_at, status').single();
+  const { data, error } = await supabase.from('test_attempts').update({ score, total_marks, correct_count, wrong_count, skipped_count, time_taken: totalTime, rank, percentile, submitted_at: new Date().toISOString(), status: 'completed' }).eq('id', attemptId).select('id, test_id, student_id, score, total_marks, correct_count, wrong_count, skipped_count, time_taken, rank, percentile, started_at, submitted_at, status').single();
   if (error) throw error;
-
-  await supabase.from('test_attempts').update({ score }).eq('id', attemptId);
 
   return { ...data, rank, percentile };
 }

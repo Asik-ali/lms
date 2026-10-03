@@ -12,6 +12,7 @@ export default function LoginPage() {
   const [password, setPassword] = useState(searchParams.get('password') || '');
   const [error, setError] = useState('');
   const [showPw, setShowPw] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
     const u = searchParams.get('username');
@@ -20,19 +21,23 @@ export default function LoginPage() {
   }, []);
 
   const handleLoginDirect = async (user, pass) => {
+    setSubmitting(true);
     try {
       const u = await login(user, pass);
       if (u.role === 'student') navigate('/student');
       else navigate('/admin');
     } catch {
-      setError('Invalid username or password');
+      setError(navigator.onLine ? 'Unable to sign in. Check your credentials and try again.' : 'No internet. Please turn on mobile data or Wi-Fi.');
+    } finally {
+      setSubmitting(false);
     }
   };
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setError('');
-    if (!username || !password) { setError('Please enter username and password'); return; }
+    if (submitting) return;
+    if (!username.trim() || !password) { setError('Please enter username and password'); return; }
     await handleLoginDirect(username, password);
   };
 
@@ -51,7 +56,7 @@ export default function LoginPage() {
           <p className="text-muted mt-2">Sign in to your account</p>
         </div>
 
-        <div className="bg-surface rounded-2xl border border-navy-700 p-8 shadow-xl shadow-[#091E42]/40">
+        <div className="bg-surface rounded-2xl border border-navy-700 p-5 sm:p-8 shadow-xl shadow-[#091E42]/40">
           <form onSubmit={handleLogin} className="space-y-5">
             {error && (
               <div className="flex items-center gap-2 p-3 bg-brand-red/10 border border-brand-red/40 rounded-lg text-sm text-red-700 dark:text-red-300">
@@ -79,8 +84,8 @@ export default function LoginPage() {
               </div>
             </div>
 
-            <button type="submit" className="w-full bg-gold-500 text-[#071A3D] dark:text-navy-900 py-2.5 rounded-lg font-semibold hover:bg-gold-300 transition-all duration-200 cursor-pointer shadow-lg shadow-gold-500/20">
-              Sign In
+            <button disabled={submitting} type="submit" className="w-full bg-gold-500 text-[#071A3D] dark:text-navy-900 py-2.5 rounded-lg font-semibold hover:bg-gold-300 transition-all duration-200 cursor-pointer shadow-lg shadow-gold-500/20 disabled:opacity-60">
+              {submitting ? 'Signing in...' : 'Sign In'}
             </button>
           </form>
 

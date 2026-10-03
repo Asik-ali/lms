@@ -430,11 +430,11 @@ export default function TestSeries() {
           <div className="space-y-4">
             <div><label className="label">Test Name *</label><input value={formTest.name} onChange={e => setFormTest({ ...formTest, name: e.target.value })} className="input-field w-full" placeholder="e.g. Mock Test 01, SSC MTS 2025" /></div>
             <div><label className="label">Description</label><input value={formTest.description} onChange={e => setFormTest({ ...formTest, description: e.target.value })} className="input-field w-full" placeholder="Optional" /></div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div><label className="label">Duration (min)</label><input type="number" value={formTest.duration} onChange={e => setFormTest({ ...formTest, duration: Number(e.target.value) })} className="input-field w-full" /></div>
               <div><label className="label">Total Marks</label><input type="number" value={formTest.total_marks} onChange={e => setFormTest({ ...formTest, total_marks: Number(e.target.value) })} className="input-field w-full" /></div>
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div><label className="label">Difficulty</label>
                 <select value={formTest.difficulty} onChange={e => setFormTest({ ...formTest, difficulty: e.target.value })} className="input-field w-full">
                   <option>Easy</option><option>Moderate</option><option>Hard</option><option>Exam-Level</option>
@@ -461,7 +461,7 @@ export default function TestSeries() {
             <div><label className="label">Option B *</label><input value={formQuestion.option_b} onChange={e => setFormQuestion({ ...formQuestion, option_b: e.target.value })} className="input-field w-full" placeholder="Option B" /></div>
             <div><label className="label">Option C</label><input value={formQuestion.option_c} onChange={e => setFormQuestion({ ...formQuestion, option_c: e.target.value })} className="input-field w-full" placeholder="Option C (optional)" /></div>
             <div><label className="label">Option D</label><input value={formQuestion.option_d} onChange={e => setFormQuestion({ ...formQuestion, option_d: e.target.value })} className="input-field w-full" placeholder="Option D (optional)" /></div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div><label className="label">Correct Answer *</label>
                 <select value={formQuestion.correct_answer} onChange={e => setFormQuestion({ ...formQuestion, correct_answer: e.target.value })} className="input-field w-full">
                   <option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option>
@@ -484,11 +484,11 @@ export default function TestSeries() {
           <div className="space-y-4">
             <div><label className="label">Test Name *</label><input value={formTest.name} onChange={e => setFormTest({ ...formTest, name: e.target.value })} className="input-field w-full" /></div>
             <div><label className="label">Description</label><input value={formTest.description} onChange={e => setFormTest({ ...formTest, description: e.target.value })} className="input-field w-full" placeholder="Optional" /></div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div><label className="label">Duration (min)</label><input type="number" value={formTest.duration} onChange={e => setFormTest({ ...formTest, duration: Number(e.target.value) })} className="input-field w-full" /></div>
               <div><label className="label">Total Marks</label><input type="number" value={formTest.total_marks} onChange={e => setFormTest({ ...formTest, total_marks: Number(e.target.value) })} className="input-field w-full" /></div>
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div><label className="label">Difficulty</label>
                 <select value={formTest.difficulty} onChange={e => setFormTest({ ...formTest, difficulty: e.target.value })} className="input-field w-full">
                   <option>Easy</option><option>Moderate</option><option>Hard</option><option>Exam-Level</option>
@@ -512,7 +512,7 @@ export default function TestSeries() {
 
 function Modal({ title, onClose, children }) {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
       <div className="bg-surface rounded-xl shadow-xl w-full max-w-md p-6 max-h-[85vh] overflow-y-auto">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-semibold text-navy-100">{title}</h2>

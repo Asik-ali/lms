@@ -1,12 +1,11 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useAuth } from '../../contexts/AuthContext';
 import { supabase } from '../../supabase/client';
-import { saveResponse, getAttempt, getResponses, submitAttempt } from '../../data/dynamicStore';
+import { saveResponse, getResponses, submitAttempt } from '../../data/dynamicStore';
 import { showSuccess, showError } from '../../components/common/Toast';
 import {
   Clock, ChevronLeft, ChevronRight, AlertTriangle,
-  CheckCircle, XCircle, Circle, Flag, Send, X, RotateCcw
+  CheckCircle, XCircle, Flag, Send, X, RotateCcw
 } from 'lucide-react';
 
 const OPTION_LABELS = ['A', 'B', 'C', 'D'];
@@ -28,7 +27,6 @@ function formatTime(seconds) {
 export default function StudentTestTaking() {
   const { attemptId } = useParams();
   const navigate = useNavigate();
-  const { user } = useAuth();
 
   const [loading, setLoading] = useState(true);
   const [attempt, setAttempt] = useState(null);
@@ -46,6 +44,8 @@ export default function StudentTestTaking() {
   const lastVisitTimeRef = useRef(Date.now());
   const currentIdxRef = useRef(0);
   const timeLeftRef = useRef(0);
+  const submitInFlightRef = useRef(false);
+  const autoSubmitRef = useRef(null);
 
   useEffect(() => {
     currentIdxRef.current = currentIdx;
@@ -55,11 +55,7 @@ export default function StudentTestTaking() {
     timeLeftRef.current = timeLeft;
   }, [timeLeft]);
 
-  useEffect(() => {
-    loadData();
-  }, [attemptId]);
-
-  async function loadData() {
+  const loadData = useCallback(async () => {
     try {
       setLoading(true);
       const { data: attemptData } = await supabase
@@ -77,16 +73,19 @@ export default function StudentTestTaking() {
         return;
       }
 
-      const { data: testData } = await supabase
+      const { data: testData, error: testError } = await supabase
         .from('tests')
         .select('*')
         .eq('id', attemptData.test_id)
         .single();
+      if (!testData) throw new Error('Test not found');
 
-      const { data: questionsData } = await supabase
+      if (testError || !testData) throw testError || new Error('Test not found');
+      const { data: questionsData, error: questionsError } = await supabase
         .from('questions')
         .select('*')
         .eq('test_id', attemptData.test_id);
+      if (questionsError) throw questionsError;
 
       const existingResponses = await getResponses(attemptId);
 
@@ -121,23 +120,38 @@ export default function StudentTestTaking() {
     } finally {
       setLoading(false);
     }
-  }
+  }, [attemptId, navigate]);
 
   useEffect(() => {
-    if (loading || timeLeft <= 0 && !loading) return;
-    const interval = setInterval(() => {
-      setTimeLeft(prev => {
-        const next = prev - 1;
-        if (next <= 0) {
-          clearInterval(interval);
-          handleAutoSubmit();
-          return 0;
-        }
-        return next;
-      });
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [loading, attempt !== null]);
+    loadData();
+  }, [loadData]);
+
+  useEffect(() => {
+    autoSubmitRef.current = handleAutoSubmit;
+  });
+
+  useEffect(() => {
+    if (loading || !attempt || !test) return;
+    const deadline = new Date(attempt.started_at).getTime() + (test.duration || 90) * 60000;
+    if (!Number.isFinite(deadline)) return;
+    let expired = false;
+    const tick = () => {
+      const remaining = Math.max(0, Math.ceil((deadline - Date.now()) / 1000));
+      timeLeftRef.current = remaining;
+      setTimeLeft(remaining);
+      if (remaining === 0 && !expired) {
+        expired = true;
+        autoSubmitRef.current?.();
+      }
+    };
+    tick();
+    const interval = setInterval(tick, 1000);
+    document.addEventListener('visibilitychange', tick);
+    return () => {
+      clearInterval(interval);
+      document.removeEventListener('visibilitychange', tick);
+    };
+  }, [loading, attempt, test]);
 
   useEffect(() => {
     const handler = (e) => {
@@ -177,17 +191,20 @@ export default function StudentTestTaking() {
       );
     } catch (err) {
       console.error('Auto-save failed:', err);
+      throw err;
     }
   }, [questions, attempt, attemptId, responses, saveTimeSpent]);
 
   const navigateToQuestion = useCallback(async (idx) => {
-    await autoSaveCurrent();
+    try {
+      await autoSaveCurrent();
+    } catch {
+      showError('Could not save your answer. Check your connection and try again.');
+      return;
+    }
     setCurrentIdx(idx);
     lastVisitTimeRef.current = Date.now();
-    setIframeFailed(prev => {
-      const next = {};
-      return next;
-    });
+    setIframeFailed({});
   }, [autoSaveCurrent]);
 
   function handleSelectOption(optionLabel) {
@@ -241,6 +258,8 @@ export default function StudentTestTaking() {
   }
 
   async function handleSubmit() {
+    if (submitInFlightRef.current) return;
+    submitInFlightRef.current = true;
     setSubmitting(true);
     try {
       await autoSaveCurrent();
@@ -252,12 +271,16 @@ export default function StudentTestTaking() {
       console.error(err);
       showError('Failed to submit test');
     } finally {
+      submitInFlightRef.current = false;
       setSubmitting(false);
       setShowSubmitConfirm(false);
     }
   }
 
   async function handleAutoSubmit() {
+    if (submitInFlightRef.current) return;
+    submitInFlightRef.current = true;
+    setSubmitting(true);
     try {
       await autoSaveCurrent();
       const totalTime = (test?.duration || 90) * 60;
@@ -267,6 +290,10 @@ export default function StudentTestTaking() {
     } catch (err) {
       console.error(err);
       showError('Failed to auto-submit');
+      setShowSubmitConfirm(true);
+    } finally {
+      submitInFlightRef.current = false;
+      setSubmitting(false);
     }
   }
 
@@ -318,7 +345,7 @@ export default function StudentTestTaking() {
   return (
     <div className="min-h-screen bg-navy-800 flex flex-col">
       <header className="bg-surface border-b border-navy-700 sticky top-0 z-30 shadow-sm">
-        <div className="max-w-[1600px] mx-auto px-4 h-14 flex items-center justify-between gap-4">
+        <div className="max-w-[1600px] mx-auto px-3 sm:px-4 min-h-14 py-2 flex flex-wrap items-center justify-between gap-2 sm:gap-4">
           <div className="flex items-center gap-3 min-w-0">
             <button
               onClick={() => {
@@ -336,12 +363,13 @@ export default function StudentTestTaking() {
             </div>
           </div>
 
-          <div className={`flex items-center gap-2 px-4 py-2 rounded-lg font-mono text-sm font-bold ${isLowTime ? 'bg-red-600 text-white animate-pulse' : 'bg-navy-800 text-navy-100'}`}>
+          <div className={`flex shrink-0 items-center gap-2 px-2 sm:px-4 py-2 rounded-lg font-mono text-sm font-bold ${isLowTime ? 'bg-red-600 text-white animate-pulse' : 'bg-navy-800 text-navy-100'}`}>
             <Clock className="w-4 h-4" />
             <span>{formatTime(timeLeft)}</span>
           </div>
 
           <button
+            disabled={submitting}
             onClick={() => setShowSubmitConfirm(true)}
             className="px-4 py-2 bg-navy-600 text-white text-sm font-medium rounded-lg hover:bg-navy-700 dark:hover:bg-[#0D4FB5] transition-colors flex-shrink-0"
           >
@@ -351,7 +379,7 @@ export default function StudentTestTaking() {
       </header>
 
       <div className="flex-1 flex overflow-hidden max-w-[1600px] mx-auto w-full">
-        <div className="flex-1 overflow-y-auto">
+        <div className="flex-1 min-w-0 overflow-y-auto">
           <div className="p-4 sm:p-6 lg:p-8 space-y-6">
             <div className="bg-surface rounded-xl shadow-sm border border-navy-700 overflow-hidden">
               <div className="px-5 py-3 border-b border-navy-700 bg-navy-800/60 flex items-center justify-between">

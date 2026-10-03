@@ -28,14 +28,14 @@ export default function ToastContainer() {
   }, []);
 
   return (
-    <div className="fixed top-4 right-4 z-50 flex flex-col gap-2">
+    <div aria-live="polite" className="fixed top-4 right-4 z-50 flex max-w-[calc(100vw-2rem)] flex-col gap-2">
       {toasts.map(t => {
         const bg = t.type === 'success' ? 'bg-green-600' : 'bg-red-600';
         const Icon = t.type === 'success' ? CheckCircle : AlertCircle;
         return (
-          <div key={t.id} className={`flex items-center gap-2 ${bg} text-navy-100 px-4 py-3 rounded-lg shadow-lg text-sm`}>
-            <Icon className="w-4 h-4" />
-            {t.message}
+          <div key={t.id} className={`flex items-center gap-2 ${bg} text-white px-4 py-3 rounded-lg shadow-lg text-sm`}>
+            <Icon className="w-4 h-4 shrink-0" />
+            <span className="min-w-0 break-words">{t.message}</span>
           </div>
         );
       })}

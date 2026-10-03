@@ -8,27 +8,43 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    let active = true;
+    let revision = 0;
+    const pending = new Set();
     supabase.auth.getSession().then(({ data: { session }, error }) => {
+      if (!active || revision !== 0) return;
       if (error || !session?.user) {
         setLoading(false);
         return;
       }
-      return loadProfile(session.user);
-    }).catch(() => setLoading(false));
+      return loadProfile(session.user, () => active && revision === 0);
+    }).catch(() => { if (active && revision === 0) setLoading(false); });
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      const currentRevision = ++revision;
       if (session?.user) {
-        loadProfile(session.user);
+        // Run database requests after the auth callback releases its session lock.
+        const timer = setTimeout(() => {
+          pending.delete(timer);
+          if (active && revision === currentRevision) {
+            loadProfile(session.user, () => active && revision === currentRevision);
+          }
+        }, 0);
+        pending.add(timer);
       } else {
         setUser(null);
         setLoading(false);
       }
     });
 
-    return () => subscription.unsubscribe();
+    return () => {
+      active = false;
+      pending.forEach(clearTimeout);
+      subscription.unsubscribe();
+    };
   }, []);
 
-  async function loadProfile(authUser) {
+  async function loadProfile(authUser, isCurrent = () => true) {
     let profile = null;
     try {
       const { data } = await supabase
@@ -41,6 +57,7 @@ export function AuthProvider({ children }) {
       profile = null;
     }
 
+    if (!isCurrent()) return;
     if (profile) {
       setUser({ ...profile, id: profile.id });
     } else {

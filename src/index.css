@@ -75,6 +75,13 @@
     @apply bg-navy-950 text-navy-100 antialiased;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
+  #root {
+    min-height: 100dvh;
+    min-width: 0;
+  }
+  button, input, select, textarea {
+    touch-action: manipulation;
+  }
 }
 
 @layer components {
@@ -310,11 +317,6 @@
 }
 
   @media (max-width: 639px) {
-    .grid.grid-cols-2,
-    .grid.grid-cols-3,
-    .grid.grid-cols-4 {
-      grid-template-columns: minmax(0, 1fr) !important;
-    }
     .stat-card {
       @apply p-4;
     }

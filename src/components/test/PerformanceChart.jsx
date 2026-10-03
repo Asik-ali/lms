@@ -6,6 +6,11 @@ function polarToCartesian(cx, cy, r, angleDeg) {
 }
 
 function arcPath(cx, cy, r, startAngle, endAngle) {
+  if (endAngle - startAngle >= 360) {
+    const start = polarToCartesian(cx, cy, r, startAngle);
+    const middle = polarToCartesian(cx, cy, r, startAngle + 180);
+    return `M ${start.x} ${start.y} A ${r} ${r} 0 1 0 ${middle.x} ${middle.y} A ${r} ${r} 0 1 0 ${start.x} ${start.y}`;
+  }
   const start = polarToCartesian(cx, cy, r, endAngle);
   const end = polarToCartesian(cx, cy, r, startAngle);
   const largeArc = endAngle - startAngle <= 180 ? 0 : 1;
@@ -44,8 +49,6 @@ export default function PerformanceChart({ attempt }) {
       return seg;
     });
 
-  const percentage =
-    total > 0 ? Math.round(((correct + wrong * 0) / total) * 100) : 0;
   const score = data.score ?? 0;
   const totalMarks = data.total_marks ?? 0;
 
