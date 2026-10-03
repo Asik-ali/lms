@@ -168,7 +168,17 @@ CREATE TABLE IF NOT EXISTS course_lessons (
 );
 
 ALTER TABLE course_lessons ENABLE ROW LEVEL SECURITY;
-CREATE POLICY "Everyone can read course lessons" ON course_lessons FOR SELECT USING (true);
+CREATE POLICY "Enrolled students can read course lessons" ON course_lessons FOR SELECT TO authenticated
+USING (
+  EXISTS (
+    SELECT 1 FROM public.courses c
+    JOIN public.profiles p ON p.id = auth.uid()
+    CROSS JOIN LATERAL unnest(string_to_array(coalesce(p.course, ''), ',')) AS access_entry(access_name)
+    WHERE c.id = course_lessons.course_id
+      AND lower(trim(access_name)) = lower(trim(c.title))
+      AND lower(coalesce(p.status, '')) <> 'suspended'
+  )
+);
 CREATE POLICY "Admins can manage course lessons" ON course_lessons FOR ALL USING (public.is_admin());
 
 -- Instructors
