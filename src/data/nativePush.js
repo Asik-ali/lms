@@ -46,6 +46,14 @@ export async function requestNativePushPermission() {
 }
 
 export async function registerNativePush() {
+  if (registrationInFlight) return registrationInFlight;
+  registrationInFlight = registerDevice().finally(() => { registrationInFlight = null; });
+  return registrationInFlight;
+}
+
+let registrationInFlight = null;
+
+async function registerDevice() {
   if (!Capacitor.isNativePlatform()) return null;
 
   const granted = await requestNativePushPermission();
@@ -74,29 +82,23 @@ export async function registerNativePush() {
     return null;
   }
 
-  try {
-    await PushNotifications.register();
-  } catch (e) {
-    log('PushNotifications.register error:', e);
-    toast('Push registration failed: ' + (e?.message || e));
-    return null;
-  }
-
   return new Promise((resolve) => {
     let settled = false;
-    const cleanup = () => {
+    const handles = [];
+    const timeout = setTimeout(() => cleanup(null), 15000);
+    const cleanup = (result) => {
       if (settled) return;
       settled = true;
-      try { PushNotifications.removeAllListeners(); } catch { /* ignore */ }
-      resolve(true);
+      clearTimeout(timeout);
+      handles.forEach(handle => Promise.resolve(handle.remove()).catch(() => {}));
+      resolve(result);
     };
-
-    PushNotifications.addListener('registration', async (tokenData) => {
+    const onRegistration = async (tokenData) => {
+      if (settled) return;
       const fcmToken = tokenData?.value;
       log('FCM token received:', fcmToken ? 'yes' : 'no');
       if (!userId || !fcmToken || !token) {
-        toast('Push failed: no FCM token generated from Firebase.');
-        cleanup();
+        cleanup(null);
         return;
       }
       try {
@@ -109,21 +111,36 @@ export async function registerNativePush() {
         const body = await res.text().catch(() => '');
         log('save FCM token body:', body);
         if (res.ok) {
-          toast('Push notifications enabled for this device.', 'success');
+          cleanup(true);
         } else {
-          toast('Push save failed: ' + (body || res.status));
+          toast('Unable to enable notifications. Please try again later.');
+          cleanup(null);
         }
       } catch (e) {
         log('save FCM token error:', e);
-        toast('Push save error: ' + (e?.message || e));
+        toast('Unable to enable notifications. Check your internet connection.');
+        cleanup(null);
       }
-      cleanup();
-    });
-
-    PushNotifications.addListener('registrationError', (err) => {
+    };
+    const onRegistrationError = (err) => {
       log('registration error:', err);
-      toast('Push registration error: ' + (err?.message || JSON.stringify(err) || err));
-      cleanup();
-    });
+      toast('Unable to enable notifications. Please try again later.');
+      cleanup(null);
+    };
+
+    // Attach both listeners before register: Android can emit its token immediately.
+    (async () => {
+      try {
+        for (const [event, listener] of [['registration', onRegistration], ['registrationError', onRegistrationError]]) {
+          const handle = await PushNotifications.addListener(event, listener);
+          if (settled) { await handle.remove(); return; }
+          handles.push(handle);
+        }
+        await PushNotifications.register();
+      } catch (error) {
+        log('Push registration failed:', error);
+        cleanup(null);
+      }
+    })();
   });
 }

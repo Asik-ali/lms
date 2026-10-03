@@ -1,39 +1,40 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { ThemeProvider } from './contexts/ThemeContext';
 import DashboardLayout from './components/Layout/DashboardLayout';
 import ToastContainer from './components/common/Toast';
-import LoginPage from './pages/LoginPage';
-import SignupPage from './pages/SignupPage';
-import ProfilePage from './pages/ProfilePage';
+const LoginPage = lazy(() => import('./pages/LoginPage'));
+const SignupPage = lazy(() => import('./pages/SignupPage'));
+const ProfilePage = lazy(() => import('./pages/ProfilePage'));
 
-import AdminDashboard from './pages/admin/Dashboard';
-import StudentManagement from './pages/admin/StudentManagement';
-import CourseManagement from './pages/admin/CourseManagement';
-import QuestionBank from './pages/admin/ExamsQuizzes';
-import AnnouncementsPage from './pages/admin/AnnouncementsPage';
-import NotificationsPage from './pages/admin/NotificationsPage';
-import SettingsPage from './pages/admin/SettingsPage';
-import AdminTickets from './pages/admin/AdminTickets';
-import AdminCalendar from './pages/admin/AdminCalendar';
-import AdminLiveClasses from './pages/admin/AdminLiveClasses';
-import StudentDashboard from './pages/student/StudentDashboard';
-import StudentCourses from './pages/student/StudentCourses';
-import StudentCourseDetail from './pages/student/StudentCourseDetail';
-import StudentLiveClasses from './pages/student/StudentLiveClasses';
-import StudentMessages from './pages/student/StudentMessages';
-import StudentCalendar from './pages/student/StudentCalendar';
-import StudentTestSeries from './pages/student/StudentTestSeries';
-import StudentFreeTestSeries from './pages/student/StudentFreeTestSeries';
-import StudentTestDetail from './pages/student/StudentTestDetail';
-import StudentTestTaking from './pages/student/StudentTestTaking';
-import StudentTestResult from './pages/student/StudentTestResult';
+const AdminDashboard = lazy(() => import('./pages/admin/Dashboard'));
+const StudentManagement = lazy(() => import('./pages/admin/StudentManagement'));
+const CourseManagement = lazy(() => import('./pages/admin/CourseManagement'));
+const QuestionBank = lazy(() => import('./pages/admin/ExamsQuizzes'));
+const AnnouncementsPage = lazy(() => import('./pages/admin/AnnouncementsPage'));
+const NotificationsPage = lazy(() => import('./pages/admin/NotificationsPage'));
+const SettingsPage = lazy(() => import('./pages/admin/SettingsPage'));
+const AdminTickets = lazy(() => import('./pages/admin/AdminTickets'));
+const AdminCalendar = lazy(() => import('./pages/admin/AdminCalendar'));
+const AdminLiveClasses = lazy(() => import('./pages/admin/AdminLiveClasses'));
+const StudentDashboard = lazy(() => import('./pages/student/StudentDashboard'));
+const StudentCourses = lazy(() => import('./pages/student/StudentCourses'));
+const StudentCourseDetail = lazy(() => import('./pages/student/StudentCourseDetail'));
+const StudentLiveClasses = lazy(() => import('./pages/student/StudentLiveClasses'));
+const StudentMessages = lazy(() => import('./pages/student/StudentMessages'));
+const StudentCalendar = lazy(() => import('./pages/student/StudentCalendar'));
+const StudentTestSeries = lazy(() => import('./pages/student/StudentTestSeries'));
+const StudentFreeTestSeries = lazy(() => import('./pages/student/StudentFreeTestSeries'));
+const StudentTestDetail = lazy(() => import('./pages/student/StudentTestDetail'));
+const StudentTestTaking = lazy(() => import('./pages/student/StudentTestTaking'));
+const StudentTestResult = lazy(() => import('./pages/student/StudentTestResult'));
 
-import StudentAnnouncements from './pages/student/StudentAnnouncements';
+const StudentAnnouncements = lazy(() => import('./pages/student/StudentAnnouncements'));
 
 function RoleGuard({ role, children }) {
   const { user } = useAuth();
-  const effectiveRole = user?.role === 'instructor' ? 'admin' : user?.role;
+  const effectiveRole = user?.role === 'admin' || user?.role === 'instructor' ? 'admin' : 'student';
   if (effectiveRole !== role) return <Navigate to={`/${effectiveRole || 'admin'}`} replace />;
   return children;
 }
@@ -111,7 +112,9 @@ export default function App() {
     <BrowserRouter>
       <ThemeProvider>
         <AuthProvider>
-          <AppRoutes />
+          <Suspense fallback={<div role="status" className="min-h-dvh flex items-center justify-center bg-navy-950 text-navy-100">Loading...</div>}>
+            <AppRoutes />
+          </Suspense>
           <ToastContainer />
         </AuthProvider>
       </ThemeProvider>

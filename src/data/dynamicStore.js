@@ -132,8 +132,13 @@ export async function deleteCourseLesson(id) {
   if (error) throw error;
 }
 
-export async function getCoursePdfs(courseId) {
+export async function getCoursePdfs(courseId, { hideSource = false } = {}) {
   const numericId = Number(courseId);
+  if (hideSource) {
+    const { data, error } = await supabase.rpc('course_pdf_metadata', { p_course_id: numericId });
+    if (error) throw error;
+    return data || [];
+  }
   const { data, error } = await supabase
     .from('course_pdfs')
     .select('id, course_id, title, pdf_url, day, position')

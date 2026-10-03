@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { User, Lock, AlertCircle, Eye, EyeOff } from 'lucide-react';
@@ -13,14 +13,9 @@ export default function LoginPage() {
   const [error, setError] = useState('');
   const [showPw, setShowPw] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const autoLoginStarted = useRef(false);
 
-  useEffect(() => {
-    const u = searchParams.get('username');
-    const p = searchParams.get('password');
-    if (u && p) handleLoginDirect(u, p);
-  }, []);
-
-  const handleLoginDirect = async (user, pass) => {
+  const handleLoginDirect = useCallback(async (user, pass) => {
     setSubmitting(true);
     try {
       const u = await login(user, pass);
@@ -31,7 +26,19 @@ export default function LoginPage() {
     } finally {
       setSubmitting(false);
     }
-  };
+  }, [login, navigate]);
+
+  useEffect(() => {
+    if (autoLoginStarted.current) return;
+    const u = searchParams.get('username');
+    const p = searchParams.get('password');
+    if (!u || !p) return;
+    autoLoginStarted.current = true;
+    const cleanUrl = new URL(window.location.href);
+    cleanUrl.searchParams.delete('password');
+    window.history.replaceState(window.history.state, '', cleanUrl.pathname + cleanUrl.search + cleanUrl.hash);
+    handleLoginDirect(u, p);
+  }, [searchParams, handleLoginDirect]);
 
   const handleLogin = async (e) => {
     e.preventDefault();

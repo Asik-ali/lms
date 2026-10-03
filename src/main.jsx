@@ -1,6 +1,7 @@
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
+import ErrorBoundary from './components/common/ErrorBoundary.jsx'
 import { registerServiceWorker, subscribeToPush } from './data/pushNotifications.js'
 import { isNativePlatform, requestNativePushPermission, registerNativePush } from './data/nativePush.js'
 
@@ -88,4 +89,4 @@ if (isNativePlatform()) {
   });
 }
 
-createRoot(document.getElementById('root')).render(<App />)
+createRoot(document.getElementById('root')).render(<ErrorBoundary><App /></ErrorBoundary>)

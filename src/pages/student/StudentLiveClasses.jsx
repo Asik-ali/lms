@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react';
 import { Radio, Calendar, Clock } from 'lucide-react';
 import { getAllLiveClasses } from '../../data/dynamicStore';
+import ProtectedYouTubePlayer from '../../components/common/ProtectedYouTubePlayer';
 
 function getYouTubeEmbedUrl(url) {
   if (!url) return null;
   try {
     const u = new URL(url);
     if (u.hostname === 'youtu.be') return `https://www.youtube.com/embed/${u.pathname.slice(1)}`;
-    if (u.hostname.endsWith('youtube.com')) {
-      if (u.pathname === '/embed') return url;
-      const v = u.searchParams.get('v');
+    if (u.hostname === 'youtube.com' || u.hostname.endsWith('.youtube.com')) {
+      const v = u.searchParams.get('v') || u.pathname.match(/^\/(?:embed|shorts|live)\/([^/]+)/)?.[1];
       if (v) return `https://www.youtube.com/embed/${v}`;
       if (u.pathname.startsWith('/live/')) return `https://www.youtube.com/embed/${u.pathname.split('/live/')[1]}`;
     }
@@ -55,15 +55,9 @@ export default function StudentLiveClasses() {
             <h3 className="text-xl font-semibold text-navy-100 mb-2">{activeLive.title}</h3>
             {activeLive.description && <p className="text-sm text-navy-200 mb-4">{activeLive.description}</p>}
             {activeLive.youtube_url ? (
-              <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-                <iframe
-                  src={getYouTubeEmbedUrl(activeLive.youtube_url)}
-                  title={activeLive.title}
-                  className="absolute inset-0 w-full h-full rounded-lg"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
+              getYouTubeEmbedUrl(activeLive.youtube_url)
+                ? <ProtectedYouTubePlayer embedUrl={getYouTubeEmbedUrl(activeLive.youtube_url)} title={activeLive.title} />
+                : <p className="text-navy-200">The live video link is unavailable.</p>
             ) : (
               <div className="bg-navy-800 rounded-lg p-8 text-center text-navy-200">
                 <Radio className="w-12 h-12 mx-auto mb-3 text-red-500" />

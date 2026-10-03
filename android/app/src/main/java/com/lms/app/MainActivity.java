@@ -20,6 +20,18 @@ public class MainActivity extends BridgeActivity {
     private boolean pageFailed;
 
     @Override
+    protected void onCreate(android.os.Bundle savedInstanceState) {
+        getWindow().addFlags(android.view.WindowManager.LayoutParams.FLAG_SECURE);
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void onResume() {
+        getWindow().addFlags(android.view.WindowManager.LayoutParams.FLAG_SECURE);
+        super.onResume();
+    }
+
+    @Override
     protected void load() {
         super.load();
         ProtectedMediaChromeClient.install(this, bridge);

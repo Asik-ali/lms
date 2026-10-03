@@ -8,7 +8,9 @@
     "build": "vite build",
     "preview": "vite preview",
     "seed": "node src/supabase/seed.js",
-    "lint": "oxlint"
+    "lint": "oxlint",
+    "test": "node --test tests/*.test.mjs",
+    "test:browser": "playwright test"
   },
   "dependencies": {
     "@capacitor/android": "^8.5.0",
@@ -21,14 +23,21 @@
     "html2canvas": "^1.4.1",
     "jspdf": "^4.2.1",
     "lucide-react": "^1.27.0",
-    "nodemailer": "^9.0.3",
+    "nodemailer": "^10.0.13",
+    "pdfjs-dist": "^6.3.289",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
-    "react-router-dom": "^6.30.4",
+    "react-router-dom": "^7.18.4",
     "recharts": "^2.15.4",
     "web-push": "^3.6.7"
   },
+  "overrides": {
+    "xcode": {
+      "uuid": "^11.1.1"
+    }
+  },
   "devDependencies": {
+    "@playwright/test": "^1.63.0",
     "@tailwindcss/vite": "^4.3.3",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",

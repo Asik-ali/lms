@@ -3,7 +3,8 @@ import { createContext, useContext, useEffect, useState } from 'react';
 const ThemeContext = createContext(null);
 
 function getInitialTheme() {
-  const stored = localStorage.getItem('theme');
+  let stored;
+  try { stored = localStorage.getItem('theme'); } catch { /* Storage may be disabled. */ }
   if (stored === 'dark' || stored === 'light') return stored;
   return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
@@ -15,7 +16,7 @@ export function ThemeProvider({ children }) {
     const root = document.documentElement;
     if (theme === 'dark') root.classList.add('dark');
     else root.classList.remove('dark');
-    localStorage.setItem('theme', theme);
+    try { localStorage.setItem('theme', theme); } catch { /* Keep the theme in memory. */ }
   }, [theme]);
 
   return (

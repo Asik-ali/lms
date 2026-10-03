@@ -19,15 +19,15 @@ function formatTime(seconds) {
 }
 
 const StatCard = ({ icon: Icon, label, value, accent }) => (
-  <div className="flex items-center gap-3 rounded-xl border border-navy-700 bg-surface p-4 shadow-sm">
-    <div className={`rounded-lg p-2 ${accent}`}>
-      <Icon className="h-5 w-5 text-navy-100" />
+  <div className="flex min-w-0 flex-col items-start gap-2 rounded-xl border border-navy-700 bg-surface p-3 sm:p-4 shadow-sm">
+    <div className={`shrink-0 rounded-lg p-2 ${accent}`}>
+      <Icon className="h-5 w-5 text-white" />
     </div>
     <div className="min-w-0">
-      <p className="truncate text-xs font-medium uppercase tracking-wide text-navy-200">
+      <p className="text-xs font-medium uppercase tracking-wide text-navy-200">
         {label}
       </p>
-      <p className="text-lg font-bold text-navy-100">{value}</p>
+      <p className="text-base sm:text-lg font-bold text-navy-100">{value}</p>
     </div>
   </div>
 );
@@ -41,7 +41,7 @@ export default function TestResultSummary({ attempt }) {
   const skipped = data.skipped_count ?? 0;
   const timeTaken = data.time_taken ?? 0;
   const rank = data.rank ?? "-";
-  const percentile = data.percentile ?? 0;
+  const percentile = data.percentile;
 
   const percentage = totalMarks > 0 ? (score / totalMarks) * 100 : 0;
   const attempted = correct + wrong;
@@ -49,8 +49,8 @@ export default function TestResultSummary({ attempt }) {
   const avgTime = attempted > 0 ? timeTaken / attempted : 0;
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 sm:p-6">
-      <div className="rounded-2xl border border-navy-700 bg-gradient-to-br from-[#F3F6FB] dark:from-navy-900 to-white dark:to-navy-950 p-6 shadow-md">
+    <div className="w-full max-w-4xl mx-auto">
+      <div className="rounded-2xl border border-navy-700 bg-gradient-to-br from-[#F3F6FB] dark:from-navy-900 to-white dark:to-navy-950 p-4 sm:p-6 shadow-md">
         <div className="flex flex-col items-center gap-1 text-center sm:flex-row sm:justify-between sm:text-left">
           <div>
             <h2 className="text-xl font-bold text-navy-100">
@@ -60,10 +60,10 @@ export default function TestResultSummary({ attempt }) {
               Here is how you performed in this attempt.
             </p>
           </div>
-          <div className="flex items-center gap-2 rounded-full bg-navy-600 px-4 py-2 text-white shadow">
+          {data.rank != null && <div className="flex items-center gap-2 rounded-full bg-navy-600 px-4 py-2 text-white shadow">
             <Trophy className="h-5 w-5" />
             <span className="font-semibold">Rank #{rank}</span>
-          </div>
+          </div>}
         </div>
 
         <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
@@ -82,7 +82,7 @@ export default function TestResultSummary({ attempt }) {
           <StatCard
             icon={Trophy}
             label="Percentile"
-            value={`${percentile}%`}
+            value={percentile == null ? '—' : `${percentile}%`}
             accent="bg-amber-500"
           />
           <StatCard
@@ -110,7 +110,7 @@ export default function TestResultSummary({ attempt }) {
             icon={CircleSlash}
             label="Not Attempted"
             value={skipped}
-            accent="bg-navy-800/600"
+            accent="bg-slate-500"
           />
           <StatCard
             icon={Clock}
@@ -127,7 +127,7 @@ export default function TestResultSummary({ attempt }) {
           <StatCard
             icon={Award}
             label="Rank"
-            value={`#${rank}`}
+            value={data.rank == null ? '—' : `#${rank}`}
             accent="bg-fuchsia-600"
           />
         </div>

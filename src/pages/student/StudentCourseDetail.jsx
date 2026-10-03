@@ -39,7 +39,7 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
         if (match) {
           const [courseLessons, coursePdfs] = await Promise.all([
             getCourseLessons(match.id),
-            getCoursePdfs(match.id),
+            getCoursePdfs(match.id, { hideSource: true }),
           ]);
           setLessons(courseLessons);
           setPdfs(coursePdfs);
@@ -157,7 +157,7 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
                                   </div>
                                   <button
                                     type="button"
-                                    onClick={() => setMediaViewer({ url: pdf.pdf_url, title: pdf.title, type: 'pdf' })}
+                                    onClick={() => setMediaViewer({ fileId: pdf.id, title: pdf.title, type: 'pdf' })}
                                     className="inline-flex items-center gap-1.5 text-sm font-medium text-navy-600 hover:text-navy-500 dark:hover:text-navy-400 shrink-0"
                                   >
                                     View PDF

@@ -1,5 +1,9 @@
-import { useEffect, useState } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import { X } from 'lucide-react';
+import ProtectedYouTubePlayer from './ProtectedYouTubePlayer';
+import { useAuth } from '../../contexts/AuthContext';
+
+const ProtectedPdfViewer = lazy(() => import('./ProtectedPdfViewer'));
 
 function getYouTubeEmbedUrl(url) {
   try {
@@ -37,9 +41,19 @@ function getGoogleDrivePreviewUrl(url) {
   return null;
 }
 
-export default function MediaViewer({ url, title, type, onClose }) {
+export default function MediaViewer({ url, title, type, fileId, onClose }) {
+  const { user } = useAuth();
+  const [covered, setCovered] = useState(document.hidden);
   const [videoError, setVideoError] = useState(false);
   useEffect(() => { setVideoError(false); }, [url]);
+  useEffect(() => {
+    const onVisibility = () => {
+      setCovered(document.hidden);
+      if (document.hidden) document.querySelectorAll('video').forEach(video => video.pause());
+    };
+    document.addEventListener('visibilitychange', onVisibility);
+    return () => document.removeEventListener('visibilitychange', onVisibility);
+  }, []);
   useEffect(() => {
     const handleKey = (e) => { if (e.key === 'Escape') onClose(); };
     document.addEventListener('keydown', handleKey);
@@ -60,11 +74,10 @@ export default function MediaViewer({ url, title, type, onClose }) {
     const parsed = new URL(url);
     if (['https:', 'http:'].includes(parsed.protocol)) safeUrl = parsed.href;
   } catch { /* Missing or invalid content should show the fallback. */ }
-  const pdfSrc = drivePreview || (safeUrl ? `${safeUrl.split('#')[0]}#toolbar=0&navpanes=0` : null);
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4" onClick={onClose}>
-      <div role="dialog" aria-modal="true" aria-label={title} className="relative w-full max-w-4xl max-h-[calc(100dvh-2rem)] overflow-y-auto bg-surface rounded-xl" onClick={e => e.stopPropagation()}>
+      <div role="dialog" aria-modal="true" aria-label={title} className="relative w-full max-w-4xl max-h-[calc(100dvh-2rem)] overflow-y-auto bg-surface rounded-xl" onClick={e => e.stopPropagation()} onContextMenu={event => event.preventDefault()} onCopy={event => event.preventDefault()} onDragStart={event => event.preventDefault()}>
         <div className="flex items-center justify-between p-4 border-b border-navy-700">
           <h3 className="text-lg font-semibold text-navy-100 truncate pr-4">{title}</h3>
           <button aria-label="Close media viewer" onClick={onClose} className="p-1 text-navy-300 hover:text-navy-100 rounded-lg hover:bg-navy-700 shrink-0">
@@ -72,10 +85,12 @@ export default function MediaViewer({ url, title, type, onClose }) {
           </button>
         </div>
         <div className="p-4">
-          {safeUrl && type === 'video' && (ytEmbed || drivePreview) ? (
+          {safeUrl && type === 'video' && ytEmbed ? (
+            <ProtectedYouTubePlayer embedUrl={ytEmbed} title={title} />
+          ) : safeUrl && type === 'video' && drivePreview ? (
             <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
               <iframe
-                src={ytEmbed || drivePreview}
+                src={drivePreview}
                 referrerPolicy="strict-origin-when-cross-origin"
                 sandbox="allow-scripts allow-same-origin"
                 title={title}
@@ -83,6 +98,7 @@ export default function MediaViewer({ url, title, type, onClose }) {
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; fullscreen"
                 allowFullScreen
               />
+              <div aria-hidden="true" className="absolute top-0 right-0 w-20 h-16 bg-black z-10" />
             </div>
           ) : safeUrl && type === 'video' && directVideo && !isDrive ? (
             <div>
@@ -91,14 +107,10 @@ export default function MediaViewer({ url, title, type, onClose }) {
             </video>
             {videoError && <p role="alert" className="mt-3 text-sm text-navy-200">This video could not be played. Check your connection or ask the course administrator for a supported video link.</p>}
             </div>
-          ) : safeUrl && type === 'pdf' ? (
-            <iframe
-              src={pdfSrc}
-              sandbox="allow-scripts allow-same-origin"
-              title={title}
-              className="w-full rounded-lg"
-              style={{ height: '80vh' }}
-            />
+          ) : (safeUrl || fileId) && type === 'pdf' ? (
+            <Suspense fallback={<p className="p-6 text-center">Loading PDF viewer...</p>}>
+              <ProtectedPdfViewer url={safeUrl} fileId={fileId} title={title} />
+            </Suspense>
           ) : (
             <div className="text-center py-10">
               <p className="text-navy-200 mb-4">
@@ -106,7 +118,9 @@ export default function MediaViewer({ url, title, type, onClose }) {
               </p>
             </div>
           )}
+          <p aria-hidden="true" className="pointer-events-none select-none text-right text-xs text-navy-300 mt-2">{user?.email || user?.name || 'EXAMSTICK'}</p>
         </div>
+        {covered && <div className="absolute inset-0 bg-black z-20" aria-hidden="true" />}
       </div>
     </div>
   );

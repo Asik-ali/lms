@@ -17,7 +17,7 @@ export function setCors(req, res) {
   res.setHeader('Access-Control-Allow-Origin', allowed ? origin : process.env.VITE_SITE_URL || '*');
   res.setHeader('Vary', 'Origin');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, apikey, X-Client-Info');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, Range, apikey, X-Client-Info');
   res.setHeader('Access-Control-Max-Age', '86400');
 
   if (req.method === 'OPTIONS') {
@@ -69,8 +69,9 @@ export async function getAuthedUser(req, supabase) {
   if (error || !data?.user) return null;
   const { data: profile } = await supabase
     .from('profiles')
-    .select('id, username, name, email, role, course, test_series_access')
+    .select('id, username, name, email, role, status, course, test_series_access')
     .eq('id', data.user.id)
     .maybeSingle();
+  if (String(profile?.status || '').toLowerCase() === 'suspended') return null;
   return profile || null;
 }
