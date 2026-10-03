@@ -4,9 +4,10 @@ import App from './App.jsx'
 import ErrorBoundary from './components/common/ErrorBoundary.jsx'
 import { registerServiceWorker, subscribeToPush } from './data/pushNotifications.js'
 import { isNativePlatform, requestNativePushPermission, registerNativePush } from './data/nativePush.js'
+import { supabase } from './supabase/client.js'
+import { showError } from './components/common/Toast.jsx'
 
 async function waitForSession() {
-  const { supabase } = await import('./supabase/client.js');
   const { data: { session } } = await supabase.auth.getSession();
   if (session?.user) return session;
 
@@ -52,7 +53,6 @@ async function setupWebPush() {
     // Surface a clear hint so users know it's environmental, not their account.
     if (err?.name === 'AbortError' || /push service/i.test(err?.message || '')) {
       try {
-        const { showError } = await import('./components/common/Toast.jsx');
         showError('Push is blocked in this browser (it refused the push service). Use Google Chrome, enable push in browser settings, and ensure no VPN/ad-blocker blocks push servers.');
       } catch { /* ignore */ }
     }
@@ -66,22 +66,18 @@ if (isNativePlatform()) {
   requestNativePushPermission().catch(err => console.error('Push permission request failed:', err));
   registerNativePush().catch(err => console.error('Native push setup failed:', err));
 
-  import('./supabase/client.js').then(({ supabase }) => {
-    supabase.auth.onAuthStateChange((event) => {
-      if (event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') {
-        requestNativePushPermission().catch(() => {});
-        registerNativePush().catch(() => {});
-      }
-    });
+  supabase.auth.onAuthStateChange((event) => {
+    if (event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') {
+      requestNativePushPermission().catch(() => {});
+      registerNativePush().catch(() => {});
+    }
   });
 } else {
   setupWebPush();
 
   // Re-try subscription when user logs in (auth state change) or tab regains focus.
-  import('./supabase/client.js').then(({ supabase }) => {
-    supabase.auth.onAuthStateChange((event) => {
-      if (event === 'SIGNED_IN') setupWebPush();
-    });
+  supabase.auth.onAuthStateChange((event) => {
+    if (event === 'SIGNED_IN') setupWebPush();
   });
 
   document.addEventListener('visibilitychange', () => {

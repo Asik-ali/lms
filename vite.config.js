@@ -42,6 +42,15 @@ export default defineConfig(({ mode }) => {
   return {
     build: {
       target: 'es2018',
+      rolldownOptions: {
+        output: {
+          codeSplitting: {
+            groups: [
+              { name: 'supabase', test: /node_modules[\\/]@supabase[\\/]/ },
+            ],
+          },
+        },
+      },
     },
     plugins: [
       react(),

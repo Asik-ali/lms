@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Play, Pause, Maximize, Volume2, VolumeX } from 'lucide-react';
+import { Play, Pause, Maximize, Volume2, VolumeX, ShieldCheck, RotateCcw } from 'lucide-react';
 
 let apiPromise;
 function loadPlayerApi() {
@@ -103,7 +103,10 @@ export default function ProtectedYouTubePlayer({ embedUrl, title }) {
 
   const togglePlayback = () => {
     if (state === 1) player.current?.pauseVideo();
-    else player.current?.playVideo();
+    else {
+      if (state === 0) player.current?.seekTo(0, true);
+      player.current?.playVideo();
+    }
   };
 
   useEffect(() => {
@@ -114,13 +117,18 @@ export default function ProtectedYouTubePlayer({ embedUrl, title }) {
 
   return (
     <div ref={container} className="w-full bg-black rounded-lg overflow-hidden flex flex-col" onContextMenu={event => event.preventDefault()}>
-      <div className="relative aspect-video w-full overflow-hidden">
-        <div ref={host} className="absolute inset-0 pointer-events-none" />
-        <div aria-hidden="true" className="absolute inset-x-0 top-0 h-16 bg-black pointer-events-auto" />
-        <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-12 bg-black pointer-events-auto" />
+      <div className="relative aspect-video w-full overflow-hidden flex-1">
+        <div ref={host} className="absolute inset-0 pointer-events-none" style={{ visibility: ready && !error && (state === 1 || state === 3) ? 'visible' : 'hidden' }} />
+        <div aria-hidden="true" className="absolute inset-x-0 top-0 h-20 bg-black pointer-events-auto" />
+        <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-20 bg-black pointer-events-auto" />
         {(error || (state !== 1 && state !== 3)) && (
-          <button disabled={!ready || Boolean(error)} onClick={togglePlayback} aria-label="Play lesson" className="absolute inset-0 bg-black text-white flex items-center justify-center">
-            {error ? <span role="alert" className="px-6 text-sm">{error}</span> : ready ? <Play className="w-12 h-12" /> : <span>Loading video...</span>}
+          <button disabled={!ready || Boolean(error)} onClick={togglePlayback} aria-label="Play lesson" className="absolute inset-0 bg-gradient-to-br from-slate-900 to-black text-white flex flex-col gap-4 items-center justify-center p-6">
+            {error ? <span role="alert" className="px-6 text-sm">{error}</span> : <>
+              <span className="flex items-center gap-2 text-xs uppercase tracking-widest text-slate-400"><ShieldCheck className="w-4 h-4" /> Lesson player</span>
+              <span className="max-w-lg text-center text-base sm:text-xl font-semibold line-clamp-2">{title}</span>
+              {ready ? <span className="rounded-full bg-white/10 p-4">{state === 0 ? <RotateCcw className="w-8 h-8" /> : <Play className="w-8 h-8" />}</span> : null}
+              <span className="text-sm text-slate-300">{!ready ? 'Loading video...' : state === 0 ? 'Replay lesson' : state === 2 ? 'Resume lesson' : 'Start lesson'}</span>
+            </>}
           </button>
         )}
       </div>

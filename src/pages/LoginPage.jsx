@@ -56,14 +56,14 @@ export default function LoginPage() {
       </div>
       <div className="w-full max-w-md relative animate-fade-up">
         <div className="text-center mb-8">
-          <div className="w-20 h-20 rounded-2xl bg-surface border border-navy-600/40 flex items-center justify-center mx-auto mb-5 shadow-lg shadow-[#091E42]/40">
-            <img src={logo} alt="EXAMSTICK" className="w-14 h-14 object-contain" />
+          <div className="w-24 h-24 rounded-full bg-[#0B1424] border border-gold-500/40 flex items-center justify-center mx-auto mb-5 shadow-lg shadow-gold-500/10 overflow-hidden">
+            <img src={logo} alt="EXAMSTICK" className="w-full h-full object-contain" />
           </div>
-          <h1 className="text-3xl font-bold text-navy-100">EXAMSTICK</h1>
+          <h1 className="text-3xl font-bold tracking-tight text-navy-100">EXAM<span className="text-gold-700 dark:text-gold-400">STICK</span></h1>
           <p className="text-muted mt-2">Sign in to your account</p>
         </div>
 
-        <div className="bg-surface rounded-2xl border border-navy-700 p-5 sm:p-8 shadow-xl shadow-[#091E42]/40">
+        <div className="bg-surface rounded-2xl border border-navy-700 border-t-2 border-t-gold-500 p-5 sm:p-8 shadow-xl shadow-black/5 dark:shadow-black/20">
           <form onSubmit={handleLogin} className="space-y-5">
             {error && (
               <div className="flex items-center gap-2 p-3 bg-brand-red/10 border border-brand-red/40 rounded-lg text-sm text-red-700 dark:text-red-300">

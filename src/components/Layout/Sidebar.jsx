@@ -98,8 +98,8 @@ export default function Sidebar({ mobileOpen, onClose }) {
   return (
     <aside className={`fixed left-0 top-0 z-40 flex h-dvh w-64 max-w-[calc(100vw-2rem)] flex-col border-r border-navy-700 bg-navy-950 transition-transform duration-300 lg:translate-x-0 ${mobileOpen ? 'translate-x-0' : '-translate-x-full'}`}>
       <div className="flex shrink-0 items-center gap-3 px-4 h-16 border-b border-navy-700">
-        <img src={logo} alt="EXAMSTICK" className="w-8 h-8 object-contain flex-shrink-0" />
-        <span className="font-bold text-lg text-navy-100">EXAMSTICK</span>
+        <img src={logo} alt="EXAMSTICK" className="w-10 h-10 rounded-full object-contain flex-shrink-0 ring-1 ring-gold-500/30" />
+        <span className="font-bold text-lg tracking-tight text-navy-100">EXAM<span className="text-gold-700 dark:text-gold-400">STICK</span></span>
         <button onClick={onClose} className="ml-auto p-1 rounded-lg hover:bg-navy-700/60 text-navy-100 hover:text-navy-600 dark:hover:bg-navy-800 dark:hover:text-white cursor-pointer lg:hidden" aria-label="Close navigation menu">
           <X className="w-5 h-5" />
         </button>

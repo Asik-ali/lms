@@ -1,5 +1,7 @@
 import { Capacitor } from '@capacitor/core';
 import { apiUrl } from './api';
+import { supabase } from '../supabase/client.js';
+import { showError, showSuccess } from '../components/common/Toast.jsx';
 
 // Register this device for native push (FCM token) via Capacitor.
 // This is a browser-web-workaround: Capacitor PushNotifications only runs in a
@@ -14,7 +16,6 @@ function log(...args) {
 
 async function toast(message, type = 'error') {
   try {
-    const { showError, showSuccess } = await import('../components/common/Toast.jsx');
     const fn = type === 'success' ? showSuccess : showError;
     fn(message);
   } catch { /* ignore */ }
@@ -69,7 +70,6 @@ async function registerDevice() {
 
   const { PushNotifications } = await import('@capacitor/push-notifications');
 
-  const { supabase } = await import('../supabase/client');
   let session;
   const { data: { session: initial } } = await supabase.auth.getSession();
   if (initial?.user) {

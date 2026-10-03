@@ -1,4 +1,5 @@
 import { apiUrl } from './api';
+import { supabase } from '../supabase/client.js';
 
 let _registration = null;
 
@@ -33,7 +34,7 @@ export async function getVapidPublicKey() {
 }
 
 async function saveSubscription(subscription) {
-  const { data: { session } } = await import('../supabase/client.js').then(m => m.supabase.auth.getSession());
+  const { data: { session } } = await supabase.auth.getSession();
   const userId = session?.user?.id;
   if (!userId) {
     log('saveSubscription aborted: no session / not logged in');
