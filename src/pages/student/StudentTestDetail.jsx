@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import {
   ArrowLeft,
@@ -29,19 +29,16 @@ export default function StudentTestDetail() {
   const [loading, setLoading] = useState(true);
   const [starting, setStarting] = useState(false);
 
-  useEffect(() => {
-    if (!testId) return;
-    loadData();
-  }, [testId]);
-
-  async function loadData() {
+  const loadData = useCallback(async () => {
     setLoading(true);
     try {
       const [testRes, countRes, attemptsData] = await Promise.all([
         supabase.from('tests').select('*').eq('id', testId).single(),
         supabase.from('questions').select('id', { count: 'exact', head: true }).eq('test_id', testId),
-        user ? getTestAttemptHistory(testId, user.id) : Promise.resolve([]),
+        user?.id ? getTestAttemptHistory(testId, user.id) : Promise.resolve([]),
       ]);
+      if (testRes.error) throw testRes.error;
+      if (countRes.error) throw countRes.error;
       setTest(testRes.data);
       setQuestionCount(countRes.count ?? 0);
       setAttempts(attemptsData);
@@ -50,7 +47,11 @@ export default function StudentTestDetail() {
       showError('Failed to load test details');
     }
     setLoading(false);
-  }
+  }, [testId, user?.id]);
+
+  useEffect(() => {
+    if (testId) loadData();
+  }, [testId, loadData]);
 
   const marksPerQ = questionCount > 0 ? Math.floor((test?.total_marks || 0) / questionCount) : 0;
 

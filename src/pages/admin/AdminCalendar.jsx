@@ -98,7 +98,7 @@ export default function AdminCalendar() {
         </button>
       </div>
 
-      <div className="card p-6">
+      <div className="card p-3 sm:p-6">
         <div className="flex items-center justify-between mb-6">
           <button onClick={prevMonth} className="p-2 hover:bg-navy-700 rounded-lg cursor-pointer">
             <ChevronLeft className="w-5 h-5 text-navy-100" />
@@ -111,13 +111,13 @@ export default function AdminCalendar() {
 
         <div className="grid grid-cols-7 gap-px bg-navy-700 rounded-lg overflow-hidden">
           {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(d => (
-            <div key={d} className="bg-navy-800/60 px-2 py-2 text-xs font-semibold text-navy-200 text-center">{d}</div>
+            <div key={d} className="bg-navy-800/60 px-0.5 sm:px-2 py-2 text-[10px] sm:text-xs font-semibold text-navy-200 text-center">{d}</div>
           ))}
           {days.map((day, i) => {
             const dayEvents = getEventsForDay(day);
             const isToday = day && today.getDate() === day && today.getMonth() === month && today.getFullYear() === year;
             return (
-              <div key={i} className={`bg-surface p-2 min-h-[80px] ${isToday ? 'bg-navy-50 dark:bg-navy-500/10' : ''}`}>
+              <div key={i} className={`bg-surface min-w-0 p-1 sm:p-2 min-h-[64px] sm:min-h-[80px] ${isToday ? 'bg-navy-50 dark:bg-navy-500/10' : ''}`}>
                 {day && (
                   <>
                     <span className={`text-sm font-medium ${isToday ? 'text-navy-600' : 'text-navy-100'}`}>{day}</span>
@@ -142,7 +142,7 @@ export default function AdminCalendar() {
         </div>
       </div>
 
-      <div className="card p-6">
+      <div className="card p-3 sm:p-6">
         <h3 className="text-base font-semibold text-navy-100 mb-4">All Events ({events.length})</h3>
         <div className="space-y-2">
           {events.sort((a, b) => a.date.localeCompare(b.date)).map(e => (

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { supabase } from '../../supabase/client';
@@ -110,11 +110,7 @@ export default function StudentTestResult() {
   const [reportDesc, setReportDesc] = useState('');
   const [submittingReport, setSubmittingReport] = useState(false);
 
-  useEffect(() => {
-    loadResult();
-  }, [attemptId]);
-
-  async function loadResult() {
+  const loadResult = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
@@ -129,16 +125,18 @@ export default function StudentTestResult() {
         return;
       }
 
-      const { data: testData } = await supabase
+      const { data: testData, error: testError } = await supabase
         .from('tests')
         .select('*')
         .eq('id', attemptData.test_id)
         .single();
+      if (testError) throw testError;
 
-      const { data: questionsData } = await supabase
+      const { data: questionsData, error: questionsError } = await supabase
         .from('questions')
         .select('*')
         .eq('test_id', attemptData.test_id);
+      if (questionsError) throw questionsError;
 
       const responsesData = await getResponses(attemptId);
 
@@ -196,7 +194,9 @@ export default function StudentTestResult() {
     } finally {
       setLoading(false);
     }
-  }
+  }, [attemptId]);
+
+  useEffect(() => { loadResult(); }, [loadResult]);
 
   function getResponseForQuestion(qIdx) {
     const q = questions[qIdx];
@@ -206,7 +206,7 @@ export default function StudentTestResult() {
 
   function getQuestionStatus(qIdx) {
     const r = getResponseForQuestion(qIdx);
-    if (!r || r.status === 'not_attempted' || r.status === 'marked' || !r.student_answer) {
+    if (!r || !r.student_answer) {
       return 'skipped';
     }
     return r.is_correct ? 'correct' : 'wrong';
@@ -240,7 +240,7 @@ export default function StudentTestResult() {
   function getMarksForQuestion(qIdx) {
     if (!attempt) return 0;
     const totalQ = questions.length || 1;
-    const marksPerQ = Math.floor((attempt.total_marks || 0) / totalQ);
+    const marksPerQ = (attempt.total_marks || 0) / totalQ;
     const status = getQuestionStatus(qIdx);
     return status === 'correct' ? marksPerQ : 0;
   }
@@ -730,7 +730,7 @@ export default function StudentTestResult() {
       {/* Report Modal */}
       {reportModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4">
-          <div className="w-full max-w-md rounded-2xl bg-surface p-6 shadow-2xl">
+          <div className="w-full max-w-md max-h-[calc(100dvh-2rem)] overflow-y-auto rounded-2xl bg-surface p-6 shadow-2xl">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-lg font-bold text-navy-100">
                 Report Question

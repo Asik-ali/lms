@@ -20,9 +20,9 @@ export default async function handler(req, res) {
   const supabase = createClient(supabaseUrl, serviceKey);
 
   try {
-    const { name, email, password } = req.body;
+    const { name, email, password } = req.body || {};
 
-    if (!name || !email || !password) {
+    if (typeof name !== 'string' || !name.trim() || typeof email !== 'string' || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim()) || typeof password !== 'string' || !password) {
       return res.status(400).json({ error: 'Name, email, and password are required.' });
     }
 

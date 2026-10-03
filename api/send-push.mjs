@@ -76,7 +76,7 @@ export default async function handler(req, res) {
     const allowed = await requireAdmin(req, res, supabase);
     if (!allowed) return;
 
-    const { message, subject, recipient } = req.body;
+    const { message, subject, recipient } = req.body || {};
 
     if (!message || !subject) {
       return res.status(400).json({ error: 'Missing subject or message' });
@@ -90,7 +90,7 @@ export default async function handler(req, res) {
       if (userIds.length) {
         const { data: subs } = await supabase
           .from('push_subscriptions')
-          .select('subscription, token_type')
+          .select('id, user_id, subscription, token_type')
           .in('user_id', userIds);
         rows = subs || [];
       }
@@ -100,12 +100,12 @@ export default async function handler(req, res) {
       if (userIds.length) {
         const { data: subs } = await supabase
           .from('push_subscriptions')
-          .select('subscription, token_type')
+          .select('id, user_id, subscription, token_type')
           .in('user_id', userIds);
         rows = subs || [];
       }
     } else {
-      const { data } = await supabase.from('push_subscriptions').select('subscription, token_type');
+      const { data } = await supabase.from('push_subscriptions').select('id, user_id, subscription, token_type');
       rows = data || [];
     }
 
@@ -126,9 +126,9 @@ export default async function handler(req, res) {
         webSubs.map(({ sub }) => {
           let parsed = sub;
           if (typeof sub === 'string') {
-            try { parsed = JSON.parse(sub); } catch { return null; }
+            try { parsed = JSON.parse(sub); } catch { throw new Error('Invalid push subscription'); }
           }
-          if (!parsed || !parsed.endpoint || !parsed.keys) return null;
+          if (!parsed || !parsed.endpoint || !parsed.keys) throw new Error('Invalid push subscription');
           return webpush.sendNotification(parsed, payload);
         })
       );
@@ -165,7 +165,7 @@ export default async function handler(req, res) {
           } else if (r.status === 'rejected') {
             const err = r.reason;
             const code = err?.code || '';
-            if (code.includes('NOT_FOUND') || code.includes('UNREGISTERED') || code.includes('INVALID_ARGUMENT')) {
+            if (code === 'messaging/registration-token-not-registered' || code === 'messaging/invalid-registration-token') {
               staleIds.push(fcmTokens[i].id);
             }
           }

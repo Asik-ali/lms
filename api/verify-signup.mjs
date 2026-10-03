@@ -18,8 +18,8 @@ export default async function handler(req, res) {
   const supabase = createClient(supabaseUrl, serviceKey);
 
   try {
-    const { email, otp } = req.body;
-    if (!email || !otp) {
+    const { email, otp } = req.body || {};
+    if (typeof email !== 'string' || typeof otp !== 'string' || !email.trim() || !/^\d{6}$/.test(otp.trim())) {
       return res.status(400).json({ error: 'Email and verification code are required.' });
     }
 
@@ -83,7 +83,6 @@ export default async function handler(req, res) {
     return res.status(200).json({
       success: true,
       email: cleanEmail,
-      password: signup.password,
       userId,
     });
   } catch (err) {

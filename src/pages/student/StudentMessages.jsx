@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { MessageSquare, Send, Plus, ArrowLeft, Clock, CheckCircle, AlertCircle } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { getTickets, addTicket, getTicketReplies, addTicketReply } from '../../data/dynamicStore';
@@ -21,9 +21,7 @@ export default function StudentMessages() {
   const [newMessage, setNewMessage] = useState('');
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => { loadTickets(); }, [user?.id]);
-
-  async function loadTickets() {
+  const loadTickets = useCallback(async () => {
     if (!user?.id) return;
     try {
       const data = await getTickets(user.id);
@@ -31,7 +29,9 @@ export default function StudentMessages() {
     } catch (err) {
       console.error('Failed to load tickets:', err);
     }
-  }
+  }, [user?.id]);
+
+  useEffect(() => { loadTickets(); }, [loadTickets]);
 
   async function handleSelect(t) {
     setSelected(t);

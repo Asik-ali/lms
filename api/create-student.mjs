@@ -7,13 +7,12 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const supabase = createServiceClient();
-
   try {
+    const supabase = createServiceClient();
     const allowed = await requireAdmin(req, res, supabase);
     if (!allowed) return;
 
-    const { name, email, course, enrolled } = req.body;
+    const { name, email, course, enrolled } = req.body || {};
 
     if (!name || !email) {
       return res.status(400).json({ error: 'Name and email are required.' });

@@ -45,10 +45,10 @@ export default function ProfilePage() {
     <div className="max-w-3xl space-y-6">
       <section className="bg-surface border border-navy-700 rounded-xl p-6">
         <div className="flex items-center gap-4">
-          <div className="w-16 h-16 rounded-full bg-navy-600 flex items-center justify-center">
+          <div className="w-16 h-16 shrink-0 rounded-full bg-navy-600 flex items-center justify-center">
             <UserCircle className="w-12 h-12 text-navy-100" />
           </div>
-          <div>
+          <div className="min-w-0 break-words">
             <h2 className="text-xl font-semibold text-navy-100">{user?.name || user?.username || 'User'}</h2>
             <p className="text-sm text-navy-200">Your account information</p>
           </div>
@@ -57,8 +57,8 @@ export default function ProfilePage() {
 
       <section className="bg-surface border border-navy-700 rounded-xl divide-y divide-navy-200 dark:divide-navy-700">
         <div className="flex items-center gap-3 p-5">
-          <Mail className="w-5 h-5 text-navy-300" />
-          <div>
+          <Mail className="w-5 h-5 shrink-0 text-navy-300" />
+          <div className="min-w-0 break-words">
             <p className="text-xs text-navy-200">Email</p>
             <p className="text-sm font-medium text-navy-100">{user?.email || 'Not available'}</p>
           </div>

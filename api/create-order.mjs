@@ -15,9 +15,8 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const supabase = createServiceClient();
-
   try {
+    const supabase = createServiceClient();
     const profile = await getAuthedUser(req, supabase);
     if (!profile || profile.role !== 'student') {
       return res.status(401).json({ error: 'Please login as a student to purchase.' });
@@ -34,6 +33,9 @@ export default async function handler(req, res) {
       .maybeSingle();
     if (planErr) throw planErr;
     if (!plan) return res.status(404).json({ error: 'Plan not found or not active.' });
+    if (!Number.isFinite(Number(plan.price)) || Number(plan.price) <= 0) {
+      return res.status(400).json({ error: 'This plan does not have a valid checkout price.' });
+    }
 
     const orderId = `${CASHFREE_ORDER_PREFIX}-${Date.now()}-${Math.floor(Math.random() * 100000)}`;
 
@@ -59,10 +61,12 @@ export default async function handler(req, res) {
     });
 
     const paymentSessionId = cashfreeOrder.payment_session_id || '';
-    await supabase
+    if (!paymentSessionId) throw new Error('Payment session was not created');
+    const { error: sessionError } = await supabase
       .from('purchase_orders')
       .update({ payment_session_id: paymentSessionId })
       .eq('id', storedOrder.id);
+    if (sessionError) throw sessionError;
 
     return res.status(200).json({
       success: true,

@@ -60,7 +60,9 @@ public class MainActivity extends BridgeActivity {
                     super.onReceivedError(view, request, error);
                     return;
                 }
-                showConnectionError(request.getUrl().toString(), true);
+                int code = error.getErrorCode();
+                boolean connectionError = code == ERROR_HOST_LOOKUP || code == ERROR_CONNECT || code == ERROR_TIMEOUT;
+                showConnectionError(request.getUrl().toString(), connectionError);
             }
 
             @Override
@@ -76,7 +78,7 @@ public class MainActivity extends BridgeActivity {
             public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
                 handler.cancel();
                 // SSL errors from embedded media must not hide the entire app.
-                if (error.getUrl().equals(view.getUrl())) showConnectionError(null, false);
+                if (error.getUrl() != null && error.getUrl().equals(view.getUrl())) showConnectionError(null, false);
             }
 
             @Override

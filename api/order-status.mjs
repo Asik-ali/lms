@@ -3,9 +3,8 @@ import { createServiceClient, getAuthedUser, setCors } from './_auth.mjs';
 export default async function handler(req, res) {
   if (setCors(req, res)) return;
 
-  const supabase = createServiceClient();
-
   try {
+    const supabase = createServiceClient();
     const profile = await getAuthedUser(req, supabase);
     if (!profile) return res.status(401).json({ error: 'Not authorized' });
 

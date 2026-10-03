@@ -7,10 +7,9 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const supabase = createServiceClient();
-
   try {
-    const { userId, subscription, tokenType = 'web' } = req.body;
+    const supabase = createServiceClient();
+    const { userId, subscription, tokenType = 'web' } = req.body || {};
     const token_type = tokenType === 'fcm' ? 'fcm' : 'web';
 
     if (!userId || !subscription) {

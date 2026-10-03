@@ -21,9 +21,8 @@ async function getPlanWithItems(supabase, id) {
 export default async function handler(req, res) {
   if (setCors(req, res)) return;
 
-  const supabase = createServiceClient();
-
   try {
+    const supabase = createServiceClient();
     const allowed = await requireAdmin(req, res, supabase);
     if (!allowed) return;
 
@@ -44,8 +43,8 @@ export default async function handler(req, res) {
     // POST /api/sales-plans  -> create plan with items
     if (req.method === 'POST') {
       const { name, description, price, status, items } = req.body || {};
-      if (!name?.trim()) return res.status(400).json({ error: 'Plan name is required.' });
-      if (price === undefined || price === null || Number(price) < 0) {
+      if (typeof name !== 'string' || !name.trim()) return res.status(400).json({ error: 'Plan name is required.' });
+      if (price === undefined || price === null || !Number.isFinite(Number(price)) || Number(price) < 0) {
         return res.status(400).json({ error: 'A valid price is required.' });
       }
       if (!Array.isArray(items) || items.length === 0) {
@@ -76,6 +75,12 @@ export default async function handler(req, res) {
       if (!id) return res.status(400).json({ error: 'Plan id is required.' });
 
       const body = req.body || {};
+      if (body.price !== undefined && (!Number.isFinite(Number(body.price)) || Number(body.price) < 0)) {
+        return res.status(400).json({ error: 'A valid price is required.' });
+      }
+      if (body.name !== undefined && (typeof body.name !== 'string' || !body.name.trim())) {
+        return res.status(400).json({ error: 'Plan name is required.' });
+      }
       const update = {};
       if (body.name !== undefined) update.name = body.name.trim();
       if (body.description !== undefined) update.description = body.description;
@@ -91,7 +96,8 @@ export default async function handler(req, res) {
       if (error) throw error;
 
       if (Array.isArray(body.items)) {
-        await supabase.from('sales_plan_items').delete().eq('plan_id', id);
+        const { error: deleteError } = await supabase.from('sales_plan_items').delete().eq('plan_id', id);
+        if (deleteError) throw deleteError;
         if (body.items.length > 0) {
           const rows = body.items.map(it => ({
             plan_id: id,

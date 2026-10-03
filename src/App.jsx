@@ -5,6 +5,7 @@ import DashboardLayout from './components/Layout/DashboardLayout';
 import ToastContainer from './components/common/Toast';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
+import ProfilePage from './pages/ProfilePage';
 
 import AdminDashboard from './pages/admin/Dashboard';
 import StudentManagement from './pages/admin/StudentManagement';
@@ -97,7 +98,7 @@ function AppRoutes() {
         <Route path="calendar" element={<StudentCalendar />} />
         <Route path="announcements" element={<StudentAnnouncements />} />
         <Route path="messages" element={<StudentMessages />} />
-        <Route path="settings" element={<SettingsPage />} />
+        <Route path="settings" element={<ProfilePage />} />
       </Route>
 
       <Route path="*" element={<Navigate to={homePath} replace />} />

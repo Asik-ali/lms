@@ -11,8 +11,10 @@ export function verifyWebhookSignature(rawBody, timestamp, signature, secret) {
 export async function readRawBody(req) {
   if (Buffer.isBuffer(req.rawBody)) return req.rawBody;
   if (typeof req.rawBody === 'string') return Buffer.from(req.rawBody);
-  if (Buffer.isBuffer(req.body)) return req.body;
-  if (typeof req.body === 'string') return Buffer.from(req.body);
+  // Vercel exposes body through a lazy parser; do not invoke that getter.
+  const body = Object.getOwnPropertyDescriptor(req, 'body')?.value;
+  if (Buffer.isBuffer(body)) return body;
+  if (typeof body === 'string') return Buffer.from(body);
   const chunks = [];
   let size = 0;
   for await (const chunk of req) {

@@ -8,13 +8,12 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const supabase = createServiceClient();
-
   try {
+    const supabase = createServiceClient();
     const allowed = await requireAdmin(req, res, supabase);
     if (!allowed) return;
 
-    const { recipient, subject, message, smtpConfig } = req.body;
+    const { recipient, subject, message, smtpConfig } = req.body || {};
 
     let smtp = smtpConfig;
     if (!smtp || !smtp.username || !smtp.password) {

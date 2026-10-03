@@ -1,7 +1,8 @@
 import nodemailer from 'nodemailer';
-import { createServiceClient, requireAdmin } from './_auth.mjs';
+import { createServiceClient, requireAdmin, setCors, getBearerToken } from './_auth.mjs';
 
 const backupTables = [
+  'profiles', 'sales_plans', 'sales_plan_items', 'purchase_orders', 'purchases',
   'courses', 'course_pdfs', 'course_lessons',
   'assignments', 'assignment_submissions', 'quizzes', 'questions', 'attendance',
   'announcements', 'enrollments', 'notifications', 'live_classes',
@@ -14,9 +15,15 @@ async function fetchBackup(supabase) {
   const entries = [];
   for (const table of backupTables) {
     try {
-      const { data, error } = await supabase.from(table).select('*');
-      if (error) throw error;
-      entries.push([table, data || []]);
+      const rows = [];
+      const pageSize = 500;
+      for (let offset = 0; ; offset += pageSize) {
+        const { data, error } = await supabase.from(table).select('*').order('id').range(offset, offset + pageSize - 1);
+        if (error) throw error;
+        rows.push(...(data || []));
+        if (!data || data.length < pageSize) break;
+      }
+      entries.push([table, rows]);
     } catch (err) {
       entries.push([table, { __error: err.message }]);
     }
@@ -101,6 +108,7 @@ async function hasRunToday(supabase) {
     .from('backup_log')
     .select('id')
     .eq('type', 'cron')
+    .eq('status', 'success')
     .gte('created_at', start.toISOString())
     .limit(1)
     .maybeSingle();
@@ -108,9 +116,11 @@ async function hasRunToday(supabase) {
 }
 
 export default async function handler(req, res) {
-  const supabase = createServiceClient();
+  if (setCors(req, res)) return;
+  let supabase;
 
   try {
+    supabase = createServiceClient();
     if (req.method === 'POST') {
       // Require an authenticated admin (block anonymous data-exfiltration abuse)
       const allowed = await requireAdmin(req, res, supabase);
@@ -132,6 +142,10 @@ export default async function handler(req, res) {
     }
 
     if (req.method === 'GET') {
+      const cronSecret = process.env.CRON_SECRET;
+      if (!cronSecret || getBearerToken(req) !== cronSecret) {
+        if (!await requireAdmin(req, res, supabase)) return;
+      }
       // Only email once per day automatically to avoid duplicate backup emails.
       if (await hasRunToday(supabase)) {
         return res.status(200).json({ success: true, cron: true, skipped: true });
@@ -173,7 +187,7 @@ export default async function handler(req, res) {
 
     return res.status(405).json({ error: 'Method not allowed' });
   } catch (err) {
-    await logBackup(supabase, {
+    if (supabase) await logBackup(supabase, {
       type: 'cron',
       emailedTo: [],
       counts: {},

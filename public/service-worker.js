@@ -1,5 +1,9 @@
 self.addEventListener('push', event => {
-  const data = event.data?.json() || { title: 'New notification', body: '' };
+  let data = { title: 'New notification', body: '' };
+  if (event.data) {
+    try { data = { ...data, ...event.data.json() }; }
+    catch { data.body = event.data.text(); }
+  }
 
   const options = {
     body: data.body || '',

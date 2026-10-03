@@ -79,6 +79,9 @@
     min-height: 100dvh;
     min-width: 0;
   }
+  .dashboard-content {
+    overflow-wrap: anywhere;
+  }
   button, input, select, textarea {
     touch-action: manipulation;
   }

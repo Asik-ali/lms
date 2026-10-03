@@ -221,15 +221,15 @@ export default function TestSeries() {
       {level === 'series' && (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {seriesList.map(s => (
-            <button key={s.id} onClick={() => goSeries(s)} className="card p-5 text-left hover:border-navy-300 hover:shadow-md transition-all cursor-pointer group">
-              <div className="flex items-center gap-3 mb-2">
+            <div key={s.id} className="card p-5 text-left hover:border-navy-300 hover:shadow-md transition-all group">
+              <button onClick={() => goSeries(s)} className="flex w-full text-left items-center gap-3 mb-2 cursor-pointer">
                 <div className="w-10 h-10 rounded-lg bg-navy-50 dark:bg-navy-500/15 flex items-center justify-center"><FolderOpen className="w-5 h-5 text-navy-600 dark:text-navy-300" /></div>
                 <div className="flex-1 min-w-0">
                   <p className="font-semibold text-navy-100 truncate">{s.name}</p>
                   {s.description && <p className="text-xs text-navy-200 truncate">{s.description}</p>}
                 </div>
-              </div>
-              <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+              </button>
+              <div className="flex flex-wrap items-center gap-2">
                 <label className="flex items-center gap-1.5 text-xs cursor-pointer select-none">
                   <input type="checkbox" checked={!!s.is_free} onChange={() => handleToggleFree(s)} className="h-3.5 w-3.5 rounded border-navy-700 text-emerald-600 focus:ring-emerald-500" title="Visible to all students" />
                   <span className={s.is_free ? 'font-medium text-emerald-600 dark:text-emerald-400' : 'text-navy-300'}>Free</span>
@@ -238,7 +238,7 @@ export default function TestSeries() {
                 <button onClick={(e) => { e.stopPropagation(); handleDeleteSeries(s.id); }} className="text-xs text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 dark:text-red-300 cursor-pointer">Delete</button>
                 {s.is_free && <span className="px-1.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 text-[10px] font-medium">All students</span>}
               </div>
-            </button>
+            </div>
           ))}
           {seriesList.length === 0 && (
             <div className="col-span-full text-center py-12 text-navy-300"><FolderOpen className="w-12 h-12 mx-auto mb-3 text-navy-300" /><p>Create your first exam series (SSC CGL, SSC MTS, etc.)</p></div>
@@ -254,16 +254,18 @@ export default function TestSeries() {
               <p className="text-sm font-medium text-navy-200 mb-3">Sections</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {topLevelCategories.map(c => (
-                  <button key={c.id} onClick={() => goCategory(c)} className="card p-5 text-left hover:border-navy-300 hover:shadow-md transition-all cursor-pointer group">
+                  <div key={c.id} className="card p-5 text-left hover:border-navy-300 hover:shadow-md transition-all group">
                     <div className="flex items-center gap-3">
+                      <button onClick={() => goCategory(c)} className="flex min-w-0 flex-1 items-center gap-3 text-left cursor-pointer">
                       <div className="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-500/15 flex items-center justify-center"><FileText className="w-5 h-5 text-emerald-600 dark:text-emerald-300" /></div>
                       <div className="flex-1 min-w-0">
                         <p className="font-semibold text-navy-100">{c.name}</p>
                         <p className="text-xs text-navy-200">Click to explore</p>
                       </div>
-                      <button onClick={(e) => { e.stopPropagation(); handleDeleteCategory(c.id); }} className="p-1 text-navy-300 hover:text-red-600 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"><Trash2 className="w-4 h-4" /></button>
+                      </button>
+                      <button aria-label={`Delete ${c.name}`} onClick={() => handleDeleteCategory(c.id)} className="p-2 shrink-0 text-navy-300 hover:text-red-600 cursor-pointer"><Trash2 className="w-4 h-4" /></button>
                     </div>
-                  </button>
+                  </div>
                 ))}
               </div>
             </div>
@@ -282,15 +284,17 @@ export default function TestSeries() {
               <p className="text-sm font-medium text-navy-200 mb-3">Sub-categories</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {subCategories.map(c => (
-                  <button key={c.id} onClick={() => goCategory(c)} className="card p-5 text-left hover:border-navy-300 hover:shadow-md transition-all cursor-pointer group">
+                  <div key={c.id} className="card p-5 text-left hover:border-navy-300 hover:shadow-md transition-all group">
                     <div className="flex items-center gap-3">
+                      <button onClick={() => goCategory(c)} className="flex min-w-0 flex-1 items-center gap-3 text-left cursor-pointer">
                       <div className="w-10 h-10 rounded-lg bg-amber-100 dark:bg-amber-500/15 flex items-center justify-center"><FolderOpen className="w-5 h-5 text-amber-600 dark:text-amber-300" /></div>
                       <div className="flex-1 min-w-0">
                         <p className="font-semibold text-navy-100">{c.name}</p>
                       </div>
-                      <button onClick={(e) => { e.stopPropagation(); handleDeleteCategory(c.id); }} className="p-1 text-navy-300 hover:text-red-600 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"><Trash2 className="w-4 h-4" /></button>
+                      </button>
+                      <button aria-label={`Delete ${c.name}`} onClick={() => handleDeleteCategory(c.id)} className="p-2 shrink-0 text-navy-300 hover:text-red-600 cursor-pointer"><Trash2 className="w-4 h-4" /></button>
                     </div>
-                  </button>
+                  </div>
                 ))}
               </div>
             </div>
@@ -299,8 +303,9 @@ export default function TestSeries() {
             <p className="text-sm font-medium text-navy-200 mb-3">Tests</p>
             <div className="space-y-3">
               {testsList.map(t => (
-                <button key={t.id} onClick={() => goTest(t)} className="card p-5 text-left hover:border-navy-300 hover:shadow-md transition-all cursor-pointer group w-full">
+                <div key={t.id} className="card p-5 text-left hover:border-navy-300 hover:shadow-md transition-all group w-full">
                   <div className="flex items-center gap-4">
+                    <button onClick={() => goTest(t)} className="flex min-w-0 flex-1 items-center gap-4 text-left cursor-pointer">
                     <div className="w-10 h-10 rounded-lg bg-navy-50 dark:bg-navy-500/15 flex items-center justify-center"><HelpCircle className="w-5 h-5 text-navy-600 dark:text-navy-300" /></div>
                     <div className="flex-1 min-w-0">
                       <p className="font-semibold text-navy-100">{t.name}</p>
@@ -311,10 +316,11 @@ export default function TestSeries() {
                         <span className={`px-2 py-0.5 rounded-full ${t.difficulty === 'Easy' ? 'bg-emerald-500/10 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-300' : t.difficulty === 'Hard' ? 'bg-brand-red/10 dark:bg-brand-red/10 text-red-700 dark:text-red-300' : 'bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-300'}`}>{t.difficulty}</span>
                       </div>
                     </div>
-                    <button onClick={(e) => { e.stopPropagation(); openEditTest(t); }} className="p-1 text-navy-300 hover:text-navy-600 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"><Edit2 className="w-4 h-4" /></button>
-                    <button onClick={(e) => { e.stopPropagation(); handleDeleteTest(t.id); }} className="p-1 text-navy-300 hover:text-red-600 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"><Trash2 className="w-4 h-4" /></button>
+                    </button>
+                    <button aria-label={`Edit ${t.name}`} onClick={() => openEditTest(t)} className="p-2 shrink-0 text-navy-300 hover:text-navy-600 cursor-pointer"><Edit2 className="w-4 h-4" /></button>
+                    <button aria-label={`Delete ${t.name}`} onClick={() => handleDeleteTest(t.id)} className="p-2 shrink-0 text-navy-300 hover:text-red-600 cursor-pointer"><Trash2 className="w-4 h-4" /></button>
                   </div>
-                </button>
+                </div>
               ))}
               {testsList.length === 0 && subCategories.length === 0 && (
                 <div className="text-center py-12 text-navy-300"><HelpCircle className="w-12 h-12 mx-auto mb-3 text-navy-300" /><p>No tests yet. Add your first test.</p></div>

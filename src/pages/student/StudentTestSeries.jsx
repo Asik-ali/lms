@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { FolderOpen, FileText, ChevronRight, ExternalLink, Clock, Target, Globe } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { getAllTestSeries, getCategoriesBySeries, getTestsByCategoryId } from '../../data/dynamicStore';
@@ -25,9 +25,7 @@ export default function StudentTestSeries() {
   const [currentCategory, setCurrentCategory] = useState(null);
   const [level, setLevel] = useState('series');
 
-  useEffect(() => { loadSeries(); }, [user?.test_series_access]);
-
-  async function loadSeries() {
+  const loadSeries = useCallback(async () => {
     try {
       const all = await getAllTestSeries();
       const access = normalizeAccess(user?.test_series_access || '');
@@ -40,7 +38,9 @@ export default function StudentTestSeries() {
       console.error('Failed to load test series:', err);
       setSeriesList([]);
     }
-  }
+  }, [user?.test_series_access]);
+
+  useEffect(() => { loadSeries(); }, [loadSeries]);
 
   async function goSeries(s) {
     setCurrentSeries(s);

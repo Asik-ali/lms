@@ -15,6 +15,7 @@ export function setCors(req, res) {
   const origin = req.headers?.origin || '';
   const allowed = origin && (ALLOWED_ORIGINS.includes(origin) || /^https:\/\/asiklms\.vercel\.app$/.test(origin));
   res.setHeader('Access-Control-Allow-Origin', allowed ? origin : process.env.VITE_SITE_URL || '*');
+  res.setHeader('Vary', 'Origin');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, apikey, X-Client-Info');
   res.setHeader('Access-Control-Max-Age', '86400');

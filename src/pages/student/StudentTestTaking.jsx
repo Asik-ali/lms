@@ -78,8 +78,6 @@ export default function StudentTestTaking() {
         .select('*')
         .eq('id', attemptData.test_id)
         .single();
-      if (!testData) throw new Error('Test not found');
-
       if (testError || !testData) throw testError || new Error('Test not found');
       const { data: questionsData, error: questionsError } = await supabase
         .from('questions')
@@ -485,8 +483,8 @@ export default function StudentTestTaking() {
               </div>
             </div>
 
-            <div className="flex items-center justify-between gap-3">
-              <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <div className="flex flex-wrap items-center gap-2">
                 <button
                   onClick={handleMarkForReview}
                   className={`flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${

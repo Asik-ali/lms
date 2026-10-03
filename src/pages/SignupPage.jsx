@@ -64,7 +64,7 @@ export default function SignupPage() {
       if (!res.ok) throw new Error(data.error || 'Verification failed.');
 
       await supabase.auth.signOut();
-      const u = await login(data.email, data.password);
+      const u = await login(data.email, password);
       navigate(u.role === 'student' ? '/student' : '/admin');
     } catch (err) {
       setError(err.message || 'Verification failed.');
