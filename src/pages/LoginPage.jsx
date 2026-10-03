@@ -35,6 +35,7 @@ export default function LoginPage() {
     if (!u || !p) return;
     autoLoginStarted.current = true;
     const cleanUrl = new URL(window.location.href);
+    cleanUrl.searchParams.delete('username');
     cleanUrl.searchParams.delete('password');
     window.history.replaceState(window.history.state, '', cleanUrl.pathname + cleanUrl.search + cleanUrl.hash);
     handleLoginDirect(u, p);
