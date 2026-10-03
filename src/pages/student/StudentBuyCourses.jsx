@@ -25,7 +25,10 @@ function loadCashfreeSdk() {
     script.onerror = () => reject(new Error('Failed to load Cashfree SDK'));
     document.head.appendChild(script);
   });
-  return sdkPromise;
+  return sdkPromise.catch(error => {
+    sdkPromise = null;
+    throw error;
+  });
 }
 
 const statusConfig = {
@@ -101,13 +104,18 @@ export default function StudentBuyCourses() {
 
       const Cashfree = await loadCashfreeSdk();
       const cashfree = Cashfree({ mode: CASHFREE_MODE });
-      cashfree.checkout({
+      const result = await cashfree.checkout({
         paymentSessionId: data.payment_session_id,
-        redirectTarget: '_self',
+        redirectTarget: '_modal',
       });
-      showSuccess('Redirecting to secure checkout...');
+      if (result?.error) throw new Error(result.error.message || 'Checkout failed');
+      if (result?.paymentDetails) {
+        showSuccess('Payment received. Your purchase is being verified.');
+        await loadHistory();
+      }
     } catch (err) {
       showError(err.message);
+    } finally {
       setCheckingOut('');
     }
   }

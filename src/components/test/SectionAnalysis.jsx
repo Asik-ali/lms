@@ -26,7 +26,7 @@ export default function SectionAnalysis({ responses = [], questions = [] }) {
     const sec = byCategory[cat];
     sec.total += 1;
     const r = responses.find((resp) => resp.question_id === q.id);
-    if (!r || r.student_answer == null || r.status === "not_attempted" || r.status === "marked") {
+    if (!r || !r.student_answer) {
       sec.skipped += 1;
     } else if (r.is_correct) {
       sec.correct += 1;
