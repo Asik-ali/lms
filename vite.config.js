@@ -64,7 +64,7 @@ export default defineConfig(({ mode }) => {
             if (req.url.startsWith('/api/create-student')) return handleApi(req, res, '/create-student');
             if (req.url.startsWith('/api/send-push')) return handleApi(req, res, '/send-push');
             if (req.url.startsWith('/api/save-subscription')) return handleApi(req, res, '/save-subscription');
-            if (req.url.startsWith('/api/vapid-public-key')) return handleApi(req, res, '/vapid-public-key');
+            if (req.url.startsWith('/api/vapid-public-key')) return handleApi(req, res, '/_vapid-public-key');
             if (req.url.startsWith('/api/send-signup-otp')) return handleApi(req, res, '/send-signup-otp');
             if (req.url.startsWith('/api/verify-signup')) return handleApi(req, res, '/verify-signup');
             if (req.url.startsWith('/api/backup')) return handleApi(req, res, '/backup');

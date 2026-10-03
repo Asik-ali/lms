@@ -1,4 +1,5 @@
 import webpush from 'web-push';
+import vapidPublicKeyHandler from './_vapid-public-key.mjs';
 import { createServiceClient, requireAdmin, setCors } from './_auth.mjs';
 
 let firebaseMessaging = null;
@@ -53,6 +54,9 @@ async function getFcmApp() {
 }
 
 export default async function handler(req, res) {
+  if (req.query?.operation === 'vapid-public-key') {
+    return vapidPublicKeyHandler(req, res);
+  }
   if (setCors(req, res)) return;
 
   if (req.method !== 'POST') {
