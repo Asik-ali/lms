@@ -25,7 +25,7 @@ function formatTime(seconds) {
   return `${Math.floor(value / 60)}:${String(value % 60).padStart(2, '0')}`;
 }
 
-export default function ProtectedYouTubePlayer({ embedUrl, title }) {
+export default function ProtectedYouTubePlayer({ embedUrl, title, watermark }) {
   const host = useRef(null);
   const container = useRef(null);
   const player = useRef(null);
@@ -131,6 +131,7 @@ export default function ProtectedYouTubePlayer({ embedUrl, title }) {
             </>}
           </button>
         )}
+        {watermark && <span aria-hidden="true" className="absolute right-3 bottom-3 pointer-events-none select-none rounded bg-black/40 px-2 py-1 text-xs text-white/60 max-w-[80%] truncate">{watermark}</span>}
       </div>
       <div className="flex flex-wrap items-center gap-2 sm:gap-3 p-3 text-white bg-black">
         <button disabled={!ready || Boolean(error)} onClick={togglePlayback} aria-label={state === 1 ? 'Pause lesson' : 'Play lesson'}>{state === 1 ? <Pause /> : <Play />}</button>

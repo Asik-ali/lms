@@ -54,7 +54,7 @@ export default function HomePage() {
               <Link to="/signup" className="inline-flex items-center justify-center gap-2 bg-gold-500 text-[#071A3D] dark:text-navy-900 px-8 py-4 rounded-xl font-bold hover:bg-gold-300 transition-all duration-200 hover:-translate-y-1 shadow-lg shadow-gold-500/30 animate-shine">
                 Get Started Free <ChevronRight className="w-5 h-5" />
               </Link>
-              <Link to="/login" className="btn-outline px-8 py-4 rounded-xl font-semibold">
+              <Link to="/login" className="inline-flex items-center justify-center border border-white/40 bg-white/5 text-white hover:bg-white/15 transition-colors px-8 py-4 rounded-xl font-semibold">
                 Student Login
               </Link>
             </div>

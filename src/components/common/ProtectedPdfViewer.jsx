@@ -7,7 +7,7 @@ import { apiUrl } from '../../data/api';
 
 GlobalWorkerOptions.workerSrc = workerUrl;
 
-export default function ProtectedPdfViewer({ url, fileId, title }) {
+export default function ProtectedPdfViewer({ url, fileId, title, watermark }) {
   const canvas = useRef(null);
   const [pdf, setPdf] = useState(null);
   const [page, setPage] = useState(1);
@@ -75,10 +75,21 @@ export default function ProtectedPdfViewer({ url, fileId, title }) {
       element.width = viewport.width;
       element.height = viewport.height;
       render = result.render({ canvasContext: element.getContext('2d'), viewport });
-      return render.promise;
+      return render.promise.then(() => {
+        if (!active || !watermark) return;
+        const context = element.getContext('2d');
+        context.save();
+        context.translate(element.width / 2, element.height / 2);
+        context.rotate(-Math.PI / 6);
+        context.font = `${Math.max(14, Math.min(32, element.width / (watermark.length * 0.7)))}px sans-serif`;
+        context.fillStyle = 'rgba(80, 80, 80, 0.16)';
+        context.textAlign = 'center';
+        context.fillText(watermark, 0, 0, element.width * 0.8);
+        context.restore();
+      });
     }).catch(err => { if (active && err.name !== 'RenderingCancelledException') setError('This PDF page could not be displayed.'); });
     return () => { active = false; render?.cancel(); };
-  }, [pdf, page, zoom]);
+  }, [pdf, page, zoom, watermark]);
 
   return (
     <div onContextMenu={event => event.preventDefault()} className="select-none">

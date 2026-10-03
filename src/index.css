@@ -8,9 +8,9 @@
   --color-navy-100: var(--nv-100);
   --color-navy-200: var(--nv-200);
   --color-navy-300: var(--nv-300);
-  --color-navy-400: #6D9BD8;
-  --color-navy-500: #3474C5;
-  --color-navy-600: #205EAA;
+  --color-navy-400: #60A5FA;
+  --color-navy-500: #2583E8;
+  --color-navy-600: var(--nv-accent);
   --color-navy-700: var(--nv-700);
   --color-navy-800: var(--nv-800);
   --color-navy-900: var(--nv-900);
@@ -20,10 +20,10 @@
   --color-gold-100: #FFF1C2;
   --color-gold-200: #FFE392;
   --color-gold-300: #FFD45C;
-  --color-gold-400: #F5C344;
-  --color-gold-500: #EAB638;
-  --color-gold-600: #996B13;
-  --color-gold-700: #7D5510;
+  --color-gold-400: #FFD447;
+  --color-gold-500: #F5BE19;
+  --color-gold-600: #946400;
+  --color-gold-700: #775000;
   --color-gold-800: #63420E;
   --color-gold-900: #49320E;
 
@@ -36,32 +36,34 @@
 :root {
   --sidebar-width: 260px;
   color-scheme: light;
-  --nv-50: #EEF3FA;
-  --nv-100: #15243B;
-  --nv-200: #445168;
-  --nv-300: #647085;
-  --nv-700: #E2E5EA;
+  --nv-accent: #075DBB;
+  --nv-50: #EAF3FF;
+  --nv-100: #071A3D;
+  --nv-200: #334866;
+  --nv-300: #526580;
+  --nv-700: #DCE6F3;
   --nv-800: #FFFFFF;
-  --nv-900: #F4F3EF;
-  --nv-950: #F8F7F3;
+  --nv-900: #EDF3FB;
+  --nv-950: #F5F8FD;
   --nv-surface: #FFFFFF;
-  --nv-dknavy: #F0F1F4;
-  --nvmuted: #647085;
+  --nv-dknavy: #EAF1FB;
+  --nvmuted: #526580;
 }
 
 .dark {
   color-scheme: dark;
-  --nv-50: #F5F7FC;
-  --nv-100: #EDF1F8;
-  --nv-200: #BDC7D8;
-  --nv-300: #95A4BA;
-  --nv-700: #29374D;
-  --nv-800: #18253B;
-  --nv-900: #101B2D;
-  --nv-950: #0B1424;
-  --nv-surface: #142035;
-  --nv-dknavy: #0D1728;
-  --nvmuted: #95A4BA;
+  --nv-accent: #60A5FA;
+  --nv-50: #F0F6FF;
+  --nv-100: #F0F6FF;
+  --nv-200: #BECEE5;
+  --nv-300: #97AECF;
+  --nv-700: #233E63;
+  --nv-800: #122B4E;
+  --nv-900: #0B2040;
+  --nv-950: #06152D;
+  --nv-surface: #0E2444;
+  --nv-dknavy: #081B36;
+  --nvmuted: #97AECF;
 }
 
 @layer base {
@@ -106,20 +108,20 @@
     @apply flex items-center gap-3 px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 text-navy-100;
   }
   .sidebar-link-active {
-    @apply bg-gold-500/15 text-gold-700 dark:text-gold-300;
+    @apply bg-navy-600/10 text-navy-600 dark:bg-navy-600/15 dark:text-navy-600;
     box-shadow: inset 3px 0 0 var(--color-gold-500);
   }
   .sidebar-link-inactive {
-    @apply text-navy-200 hover:bg-gold-500/10 hover:text-gold-700 dark:hover:bg-navy-800 dark:hover:text-gold-300;
+    @apply text-navy-200 hover:bg-navy-600/5 hover:text-navy-600 dark:hover:bg-navy-800 dark:hover:text-gold-300;
   }
   .stat-card {
     @apply bg-surface rounded-xl border border-navy-700 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold-500/50 hover:shadow-lg hover:shadow-black/5 dark:shadow-black/15;
   }
   .btn-primary {
-    @apply bg-gold-500 text-[#101B2D] px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gold-300 transition-all duration-200 cursor-pointer inline-flex items-center justify-center gap-2;
+    @apply bg-[#075DBB] text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#064C99] transition-all duration-200 cursor-pointer inline-flex items-center justify-center gap-2;
   }
   .btn-secondary {
-    @apply bg-navy-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#194B88] transition-colors duration-200 cursor-pointer inline-flex items-center justify-center gap-2;
+    @apply bg-navy-600/10 text-navy-600 border border-navy-600/20 px-4 py-2 rounded-lg text-sm font-semibold hover:bg-navy-600/20 transition-colors duration-200 cursor-pointer inline-flex items-center justify-center gap-2;
   }
   .btn-outline {
     @apply bg-transparent text-navy-600 dark:text-gold-300 px-4 py-2 rounded-lg text-sm font-semibold border border-navy-700 hover:bg-navy-600 hover:text-white dark:hover:bg-gold-500/10 dark:hover:text-gold-200 transition-colors duration-200 cursor-pointer inline-flex items-center justify-center gap-2;
@@ -131,7 +133,7 @@
     @apply px-4 py-3 text-sm text-navy-100;
   }
   .input-field {
-    @apply w-full px-3 py-2 bg-navy-950 border border-navy-700 rounded-lg text-sm text-navy-100 placeholder:text-navy-300 focus:outline-none focus:ring-2 focus:ring-gold-500/40 focus:border-gold-500;
+    @apply w-full px-3 py-2 bg-surface border border-navy-700 rounded-lg text-sm text-navy-100 placeholder:text-navy-300 focus:outline-none focus:ring-2 focus:ring-navy-600/20 focus:border-navy-600;
   }
   .card {
     @apply bg-surface rounded-xl border border-navy-700 overflow-hidden;

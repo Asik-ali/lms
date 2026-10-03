@@ -28,6 +28,31 @@ test('video errors remain visible after playback starts', async ({ page }) => {
   await expect(page.getByRole('button', { name: 'Pause lesson' })).toBeDisabled();
 });
 
+test('direct videos use app controls and retain the viewer watermark', async ({ page }) => {
+  // Hold the media request while exercising browser media events deterministically.
+  await page.route('**/tests/lesson.mp4', () => {});
+  await page.goto('/tests/viewers.html?native', { waitUntil: 'domcontentloaded' });
+  await page.locator('video').evaluate(video => {
+    Object.defineProperty(video, 'duration', { value: 120 });
+    video.play = async () => video.dispatchEvent(new Event('play'));
+    video.pause = () => video.dispatchEvent(new Event('pause'));
+    video.dispatchEvent(new Event('loadedmetadata'));
+  });
+  await expect(page.locator('video')).not.toHaveAttribute('controls');
+  await page.getByRole('button', { name: 'Play lesson', exact: true }).last().click();
+  await expect(page.getByRole('button', { name: 'Pause lesson' })).toBeVisible();
+  await expect(page.getByText('student@example.com')).toBeVisible();
+  await page.getByRole('button', { name: 'Mute video' }).click();
+  await expect.poll(() => page.locator('video').evaluate(video => video.muted)).toBe(true);
+  await page.getByRole('combobox', { name: 'Playback speed' }).selectOption('1.5');
+  await expect.poll(() => page.locator('video').evaluate(video => video.playbackRate)).toBe(1.5);
+  await page.getByRole('button', { name: 'Pause lesson' }).click();
+  await expect(page.getByRole('button', { name: 'Play lesson', exact: true }).last()).toBeVisible();
+  await page.locator('video').evaluate(video => video.dispatchEvent(new Event('error')));
+  await expect(page.getByRole('alert')).toContainText('could not be played');
+  await expect(page.getByRole('button', { name: 'Play lesson', exact: true }).last()).toBeDisabled();
+});
+
 test('development server routes protected PDF requests to the API', async ({ request }) => {
   const response = await request.post('/api/course-pdf?fileId=1');
   expect(response.status()).toBe(405);

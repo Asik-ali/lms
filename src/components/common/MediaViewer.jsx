@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect, useState } from 'react';
 import { X } from 'lucide-react';
 import ProtectedYouTubePlayer from './ProtectedYouTubePlayer';
+import PrivateVideoPlayer from './PrivateVideoPlayer';
 import { useAuth } from '../../contexts/AuthContext';
 
 const ProtectedPdfViewer = lazy(() => import('./ProtectedPdfViewer'));
@@ -44,8 +45,7 @@ function getGoogleDrivePreviewUrl(url) {
 export default function MediaViewer({ url, title, type, fileId, onClose }) {
   const { user } = useAuth();
   const [covered, setCovered] = useState(document.hidden);
-  const [videoError, setVideoError] = useState(false);
-  useEffect(() => { setVideoError(false); }, [url]);
+  const watermark = user?.email || user?.name || 'EXAMSTICK';
   useEffect(() => {
     const onVisibility = () => {
       setCovered(document.hidden);
@@ -86,7 +86,7 @@ export default function MediaViewer({ url, title, type, fileId, onClose }) {
         </div>
         <div className="p-4">
           {safeUrl && type === 'video' && ytEmbed ? (
-            <ProtectedYouTubePlayer embedUrl={ytEmbed} title={title} />
+            <ProtectedYouTubePlayer embedUrl={ytEmbed} title={title} watermark={watermark} />
           ) : safeUrl && type === 'video' && drivePreview ? (
             <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
               <iframe
@@ -101,15 +101,10 @@ export default function MediaViewer({ url, title, type, fileId, onClose }) {
               <div aria-hidden="true" className="absolute top-0 right-0 w-20 h-16 bg-black z-10" />
             </div>
           ) : safeUrl && type === 'video' && directVideo && !isDrive ? (
-            <div>
-            <video key={url} controls playsInline preload="metadata" controlsList="nodownload noremoteplayback" disablePictureInPicture onContextMenu={e => e.preventDefault()} onError={() => setVideoError(true)} className="w-full rounded-lg bg-black" style={{ maxHeight: '65dvh' }} src={url}>
-              Your browser does not support the video tag.
-            </video>
-            {videoError && <p role="alert" className="mt-3 text-sm text-navy-200">This video could not be played. Check your connection or ask the course administrator for a supported video link.</p>}
-            </div>
+            <PrivateVideoPlayer url={url} title={title} watermark={watermark} />
           ) : (safeUrl || fileId) && type === 'pdf' ? (
             <Suspense fallback={<p className="p-6 text-center">Loading PDF viewer...</p>}>
-              <ProtectedPdfViewer url={safeUrl} fileId={fileId} title={title} />
+              <ProtectedPdfViewer url={safeUrl} fileId={fileId} title={title} watermark={watermark} />
             </Suspense>
           ) : (
             <div className="text-center py-10">
