@@ -9,7 +9,6 @@ GlobalWorkerOptions.workerSrc = workerUrl;
 
 export default function ProtectedPdfViewer({ url, fileId, title }) {
   const canvas = useRef(null);
-  const documentRef = useRef(null);
   const [pdf, setPdf] = useState(null);
   const [page, setPage] = useState(1);
   const [zoom, setZoom] = useState(1);
@@ -37,16 +36,20 @@ export default function ProtectedPdfViewer({ url, fileId, title }) {
             const body = await response.json().catch(() => ({}));
             throw new Error(body.error || 'Unable to load PDF');
           }
-          const total = Number(response.headers.get('content-range')?.split('/')[1]);
-          if (!total) throw new Error('The PDF size could not be read');
-          return { total, bytes: new Uint8Array(await response.arrayBuffer()) };
+          const range = response.headers.get('content-range')?.match(/^bytes (\d+)-(\d+)\/(\d+)$/);
+          const total = Number(range?.[3]);
+          const bytes = new Uint8Array(await response.arrayBuffer());
+          if (!range || Number(range[1]) !== begin || Number(range[2]) !== begin + bytes.length - 1 || !total || begin + bytes.length > total || bytes.length > end - begin) {
+            throw new Error('The server returned an invalid PDF range. Please reload the viewer.');
+          }
+          return { total, bytes };
         };
         const first = await fetchRange(0, 1024 * 1024);
         if (!active) return;
         const transport = new PDFDataRangeTransport(first.total, first.bytes);
         transport.requestDataRange = (begin, end) => {
           fetchRange(begin, end).then(result => { if (active) transport.onDataRange(begin, result.bytes); })
-            .catch(err => { if (active) { setError(err.message); setLoading(false); } });
+            .catch(err => { if (active) { setError(err.message); setLoading(false); task?.destroy(); } });
         };
         transport.abort = () => controller.abort();
         task = getDocument({ range: transport, length: first.total, rangeChunkSize: 1024 * 1024, disableAutoFetch: true, disableStream: true });
@@ -54,11 +57,11 @@ export default function ProtectedPdfViewer({ url, fileId, title }) {
         task = getDocument({ url, disableAutoFetch: true, disableStream: true });
       }
       const result = await task.promise;
-      if (active) { documentRef.current = result; setPdf(result); }
+      if (active) { setPdf(result); }
       else await result.destroy();
     })().catch(err => { if (active) setError(err.message || 'Unable to display PDF'); })
       .finally(() => { if (active) setLoading(false); });
-    return () => { active = false; controller.abort(); task?.destroy(); documentRef.current = null; };
+    return () => { active = false; controller.abort(); task?.destroy(); };
   }, [url, fileId]);
 
   useEffect(() => {

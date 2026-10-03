@@ -1,5 +1,9 @@
 import { test, expect } from '@playwright/test';
 
+test.beforeEach(async ({ page }) => {
+  await page.route('https://www.youtube.com/**', route => route.fulfill({ body: '<html></html>', contentType: 'text/html' }));
+});
+
 test('protected video controls work without clickable provider links', async ({ page }) => {
   await page.goto('/tests/viewers.html');
   await expect(page.getByRole('button', { name: 'Play lesson', exact: true }).last()).toBeEnabled();
@@ -7,12 +11,27 @@ test('protected video controls work without clickable provider links', async ({ 
   await expect(page.getByRole('button', { name: 'Pause lesson' })).toBeVisible();
   await expect(page.locator('iframe')).toHaveCSS('pointer-events', 'none');
   await expect(page.locator('iframe')).toHaveAttribute('tabindex', '-1');
-  await expect(page.locator('iframe')).toHaveAttribute('sandbox', 'allow-scripts allow-same-origin');
+  await expect(page.locator('iframe')).toHaveAttribute('sandbox', 'allow-scripts allow-same-origin allow-presentation');
+  await expect(page.locator('iframe')).toHaveAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
   await page.getByRole('button', { name: 'Mute video' }).click();
   await expect(page.getByRole('button', { name: 'Unmute video' })).toBeVisible();
   await page.getByRole('button', { name: 'Pause lesson' }).click();
   await expect(page.getByRole('button', { name: 'Play lesson', exact: true }).last()).toBeVisible();
   await expect(page.locator('a')).toHaveCount(0);
+});
+
+test('video errors remain visible after playback starts', async ({ page }) => {
+  await page.goto('/tests/viewers.html');
+  await page.getByRole('button', { name: 'Play lesson', exact: true }).last().click();
+  await page.evaluate(() => window.simulateVideoError(100));
+  await expect(page.getByRole('alert')).toContainText('unavailable or private');
+  await expect(page.getByRole('button', { name: 'Pause lesson' })).toBeDisabled();
+});
+
+test('development server routes protected PDF requests to the API', async ({ request }) => {
+  const response = await request.post('/api/course-pdf?fileId=1');
+  expect(response.status()).toBe(405);
+  expect(await response.json()).toEqual({ error: 'Method not allowed' });
 });
 
 test('PDF renders with pagination and no Drive browser-opening controls', async ({ page }) => {

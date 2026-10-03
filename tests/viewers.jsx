@@ -11,9 +11,8 @@ window.YT = {
     constructor(mount, options) {
       this.options = options;
       this.time = 0;
-      this.iframe = document.createElement('iframe');
-      this.iframe.src = 'about:blank';
-      mount.replaceWith(this.iframe);
+      this.iframe = mount;
+      window.simulateVideoError = code => options.events.onError({ data: code });
       setTimeout(() => options.events.onReady(), 0);
     }
     getIframe() { return this.iframe; }
@@ -24,7 +23,7 @@ window.YT = {
     seekTo(time) { this.time = time; }
     mute() {}
     unMute() {}
-    destroy() { this.iframe.remove(); }
+    destroy() { this.iframe.remove(); delete window.simulateVideoError; }
   },
 };
 

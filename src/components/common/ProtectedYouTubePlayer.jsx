@@ -50,7 +50,16 @@ export default function ProtectedYouTubePlayer({ embedUrl, title }) {
     setMuted(false);
     setRate(1);
     setRates([1]);
-    const mount = document.createElement('div');
+    const mount = document.createElement('iframe');
+    const source = new URL(embedUrl);
+    source.search = new URLSearchParams({ enablejsapi: '1', controls: '0', disablekb: '1', fs: '0', playsinline: '1', rel: '0', origin: window.location.origin }).toString();
+    mount.title = title;
+    mount.referrerPolicy = 'strict-origin-when-cross-origin';
+    mount.allow = 'autoplay; encrypted-media; fullscreen; picture-in-picture';
+    mount.tabIndex = -1;
+    mount.style.cssText = 'width:100%;height:100%;border:0;pointer-events:none';
+    mount.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-presentation');
+    mount.src = source.href;
     host.current.replaceChildren(mount);
     loadPlayerApi().then(YT => {
       if (!active) return;
@@ -66,7 +75,8 @@ export default function ProtectedYouTubePlayer({ embedUrl, title }) {
             iframe.title = title;
             iframe.tabIndex = -1;
             iframe.style.pointerEvents = 'none';
-            iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin');
+            iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+            iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-presentation');
             setReady(true);
             setRates(instance.getAvailablePlaybackRates?.() || [1]);
             timer = setInterval(() => {
@@ -75,7 +85,16 @@ export default function ProtectedYouTubePlayer({ embedUrl, title }) {
             }, 500);
           },
           onStateChange: event => { if (active) setState(event.data); },
-          onError: () => { if (active) setError('This lesson could not be played. Please contact the course administrator.'); },
+          onError: event => {
+            if (!active) return;
+            const messages = {
+              100: 'This video is unavailable or private. Ask the administrator for an accessible lesson.',
+              101: 'The video owner has disabled playback inside this app.',
+              150: 'The video owner has disabled playback inside this app.',
+              153: 'YouTube could not verify this player. Please reload the app or contact the administrator.',
+            };
+            setError(messages[event.data] || 'This lesson could not be played. Please contact the course administrator.');
+          },
         },
       });
     }).catch(err => { if (active) setError(err.message); });
@@ -99,7 +118,7 @@ export default function ProtectedYouTubePlayer({ embedUrl, title }) {
         <div ref={host} className="absolute inset-0 pointer-events-none" />
         <div aria-hidden="true" className="absolute inset-x-0 top-0 h-16 bg-black pointer-events-auto" />
         <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-12 bg-black pointer-events-auto" />
-        {state !== 1 && state !== 3 && (
+        {(error || (state !== 1 && state !== 3)) && (
           <button disabled={!ready || Boolean(error)} onClick={togglePlayback} aria-label="Play lesson" className="absolute inset-0 bg-black text-white flex items-center justify-center">
             {error ? <span role="alert" className="px-6 text-sm">{error}</span> : ready ? <Play className="w-12 h-12" /> : <span>Loading video...</span>}
           </button>
@@ -116,7 +135,7 @@ export default function ProtectedYouTubePlayer({ embedUrl, title }) {
         </select>}
         <button aria-label="Fullscreen video" onClick={async () => {
           try { if (document.fullscreenElement) await document.exitFullscreen(); else await container.current.requestFullscreen(); }
-          catch { setError('Fullscreen is unavailable on this device.'); }
+          catch { /* Playback remains available when fullscreen is unsupported. */ }
         }}><Maximize /></button>
       </div>
     </div>

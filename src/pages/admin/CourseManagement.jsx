@@ -358,7 +358,7 @@ export default function CourseManagement() {
                                 <div className="min-w-0 flex-1">
                                   <p className="truncate text-sm font-medium text-navy-100">{pdf.title}</p>
                                 </div>
-                                <button type="button" onClick={() => setMediaViewer({ url: pdf.pdf_url, title: pdf.title, type: 'pdf' })} className="p-1.5 text-navy-300 hover:text-navy-600" aria-label={`Open ${pdf.title}`}><ExternalLink className="w-4 h-4" /></button>
+                                <button type="button" onClick={() => setMediaViewer({ fileId: pdf.id, title: pdf.title, type: 'pdf' })} className="p-1.5 text-navy-300 hover:text-navy-600" aria-label={`Open ${pdf.title}`}><ExternalLink className="w-4 h-4" /></button>
                                 <button type="button" onClick={() => handleDeletePdf(pdf.id)} className="p-1.5 text-navy-300 hover:text-red-600" aria-label={`Delete ${pdf.title}`}><Trash2 className="w-4 h-4" /></button>
                               </div>
                             ))}

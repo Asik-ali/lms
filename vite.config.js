@@ -21,6 +21,8 @@ async function handleApi(req, res, path) {
       this.setHeader('Content-Type', 'application/json');
       this.end(JSON.stringify(data));
     };
+    res.send = function (data) { this.end(data); return this; };
+    req.query = Object.fromEntries(new URL(req.url, 'http://localhost').searchParams);
     const { default: handler } = await import(new URL(`./api${path}.mjs`, import.meta.url).href);
     await handler(req, res);
   } catch (err) {
@@ -48,6 +50,7 @@ export default defineConfig(({ mode }) => {
         name: 'api-proxy',
         configureServer(server) {
           server.middlewares.use(async (req, res, next) => {
+            if (new URL(req.url, 'http://localhost').pathname === '/api/course-pdf') return handleApi(req, res, '/course-pdf');
             if (req.url.startsWith('/api/send-email')) return handleApi(req, res, '/send-email');
             if (req.url.startsWith('/api/create-student')) return handleApi(req, res, '/create-student');
             if (req.url.startsWith('/api/send-push')) return handleApi(req, res, '/send-push');
