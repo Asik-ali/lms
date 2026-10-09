@@ -1,0 +1,19 @@
+{
+  "paperSource": "Polity sectional test 1 english(2).txt",
+  "additionalPaperSources": ["Polity_Sectional_Test_1_Question_Paper_v2(2).txt"],
+  "additionalPaperAuthorization": "User explicitly confirmed English and Tamil Polity Sectional Test I use the same 100-answer key. Applied as supplied, without changing option letters.",
+  "imageSource": "WhatsApp Image 2026-10-08 at 12.04.06 PM.jpeg",
+  "verification": "All 100 user-provided entries visually match the supplied handwritten image. This verifies transcription, not factual correctness of the source key.",
+  "answers": [
+    "A", "C", "D", "A", "B", "C", "C", "B", "D", "B",
+    "C", "B", "B", "B", "D", "A", "D", "B", "C", "C",
+    "C", "B", "B", "D", "A", "A", "A", "A", "C", "D",
+    "B", "C", "C", "B", "C", "B", "C", "B", "C", "B",
+    "C", "A", "A", "A", "D", "B", "D", "B", "A", "B",
+    "D", "B", "C", "A", "D", "B", "C", "A", "A", "A",
+    "D", "D", "A", "A", "A", "C", "A", "C", "B", "A",
+    "B", "D", "B", "B", "B", "B", "C", "A", "B", "D",
+    "B", "A", "C", "D", "B", "C", "C", "C", "C", "D",
+    "B", "D", "C", "A", "D", "C", "A", "B", "A", "B"
+  ]
+}

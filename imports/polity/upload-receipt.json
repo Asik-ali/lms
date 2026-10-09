@@ -1,0 +1,48 @@
+{
+  "seriesId": 7,
+  "categoryId": 20,
+  "tests": [
+    {
+      "name": "Polity Sectional Test I (English)",
+      "testId": 29,
+      "questions": 100,
+      "answers": 100,
+      "status": "Draft"
+    },
+    {
+      "name": "Polity Sectional Test II (English)",
+      "testId": 30,
+      "questions": 100,
+      "answers": 99,
+      "status": "Draft"
+    },
+    {
+      "name": "Polity Sectional Test II (Tamil)",
+      "testId": 34,
+      "questions": 100,
+      "answers": 99,
+      "status": "Draft"
+    },
+    {
+      "name": "Polity Sectional Test I (Tamil)",
+      "testId": 31,
+      "questions": 100,
+      "answers": 100,
+      "status": "Draft"
+    },
+    {
+      "name": "Polity Full Test (English)",
+      "testId": 32,
+      "questions": 200,
+      "answers": 200,
+      "status": "Draft"
+    },
+    {
+      "name": "Polity Full Test (Tamil)",
+      "testId": 33,
+      "questions": 200,
+      "answers": 200,
+      "status": "Draft"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "paperSource": "Polity full test english(2).txt",
+  "additionalPaperSources": ["Polity full test tamil(2).txt"],
+  "additionalPaperAuthorization": "User confirmed that Tamil Polity Full Test uses the same answer key as English Polity Full Test.",
+  "imageSource": "WhatsApp Image 2026-10-08 at 12.05.37 PM.jpeg",
+  "verification": "All 200 user-provided answers visually match the handwritten image, including the corrected C at question 36. This verifies transcription, not factual correctness of the source key.",
+  "answers": [
+    "A", "A", "A", "D", "D", "A", "D", "D", "C", "D",
+    "C", "B", "B", "A", "C", "B", "A", "A", "A", "C",
+    "A", "A", "A", "D", "C", "C", "A", "C", "D", "C",
+    "C", "C", "B", "A", "D", "C", "D", "D", "C", "C",
+    "B", "D", "B", "A", "A", "D", "B", "B", "D", "A",
+    "B", "C", "B", "A", "A", "A", "A", "C", "A", "A",
+    "C", "B", "D", "A", "B", "C", "B", "D", "D", "D",
+    "C", "A", "D", "A", "A", "A", "B", "A", "B", "B",
+    "B", "C", "C", "B", "A", "B", "A", "B", "B", "D",
+    "A", "A", "B", "C", "D", "B", "B", "C", "D", "A",
+    "C", "B", "C", "D", "C", "A", "C", "A", "C", "C",
+    "D", "D", "D", "A", "A", "A", "D", "C", "B", "B",
+    "D", "C", "C", "B", "A", "C", "C", "C", "A", "C",
+    "C", "B", "C", "C", "A", "B", "C", "C", "C", "C",
+    "C", "D", "C", "B", "D", "B", "C", "C", "B", "C",
+    "B", "C", "D", "A", "B", "C", "C", "D", "D", "B",
+    "B", "B", "B", "B", "C", "D", "D", "B", "C", "B",
+    "A", "B", "B", "B", "C", "B", "C", "A", "D", "A",
+    "C", "A", "C", "A", "C", "D", "C", "A", "C", "B",
+    "C", "C", "B", "C", "B", "B", "C", "A", "C", "D"
+  ]
+}
