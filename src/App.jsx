@@ -6,6 +6,8 @@ import DashboardLayout from './components/Layout/DashboardLayout';
 import ToastContainer from './components/common/Toast';
 const LoginPage = lazy(() => import('./pages/LoginPage'));
 const SignupPage = lazy(() => import('./pages/SignupPage'));
+const PrivacyPolicyPage = lazy(() => import('./pages/public/PrivacyPolicyPage'));
+const DeleteAccountPage = lazy(() => import('./pages/public/DeleteAccountPage'));
 const ProfilePage = lazy(() => import('./pages/ProfilePage'));
 
 const AdminDashboard = lazy(() => import('./pages/admin/Dashboard'));
@@ -113,7 +115,11 @@ export default function App() {
       <ThemeProvider>
         <AuthProvider>
           <Suspense fallback={<div role="status" className="min-h-dvh flex items-center justify-center bg-navy-950 text-navy-100">Loading...</div>}>
-            <AppRoutes />
+            <Routes>
+              <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+              <Route path="/delete-account" element={<DeleteAccountPage />} />
+              <Route path="*" element={<AppRoutes />} />
+            </Routes>
           </Suspense>
           <ToastContainer />
         </AuthProvider>

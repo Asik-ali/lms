@@ -98,6 +98,7 @@ export default function LoginPage() {
           </form>
 
           <div className="mt-6 pt-5 border-t border-navy-700 text-center text-sm text-navy-200">
+            <p className="mb-3"><Link to="/privacy-policy" className="underline">Privacy Policy</Link>{' · '}<Link to="/delete-account" className="underline">Delete account</Link></p>
             New to EXAMSTICK?{' '}
             <Link to="/signup" className="font-medium text-gold-600 dark:text-gold-400 hover:text-gold-500 dark:hover:text-gold-300">
               Create an account
