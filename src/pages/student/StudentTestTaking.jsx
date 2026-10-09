@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { supabase } from '../../supabase/client';
 import { saveResponse, getResponses, submitAttempt } from '../../data/dynamicStore';
+import { localizeQuestion, orderQuestions, questionTranslation } from '../../data/bilingualQuestions';
 import { showSuccess, showError } from '../../components/common/Toast';
 import {
   Clock, ChevronLeft, ChevronRight, AlertTriangle,
@@ -32,6 +33,7 @@ export default function StudentTestTaking() {
   const [attempt, setAttempt] = useState(null);
   const [test, setTest] = useState(null);
   const [questions, setQuestions] = useState([]);
+  const [questionLanguage, setQuestionLanguage] = useState('English');
   const [currentIdx, setCurrentIdx] = useState(0);
   const [responses, setResponses] = useState({});
   const [timeLeft, setTimeLeft] = useState(0);
@@ -82,7 +84,7 @@ export default function StudentTestTaking() {
       const { data: questionsData, error: questionsError } = await supabase
         .from('questions')
         .select('*')
-        .eq('test_id', attemptData.test_id);
+        .eq('test_id', attemptData.test_id).order('id');
       if (questionsError) throw questionsError;
 
       const existingResponses = await getResponses(attemptId);
@@ -103,7 +105,7 @@ export default function StudentTestTaking() {
 
       setAttempt(attemptData);
       setTest(testData);
-      setQuestions(questionsData || []);
+      setQuestions(orderQuestions(questionsData || []));
       setResponses(responseMap);
       questionTimesRef.current = qTimes;
       lastVisitTimeRef.current = Date.now();
@@ -335,7 +337,7 @@ export default function StudentTestTaking() {
     );
   }
 
-  const currentQuestion = questions[currentIdx];
+  const currentQuestion = localizeQuestion(questions[currentIdx], questionLanguage);
   const currentResponse = responses[currentQuestion?.id];
   const summary = getSummary();
   const isLowTime = timeLeft <= 300 && timeLeft > 0;
@@ -366,6 +368,17 @@ export default function StudentTestTaking() {
             <span>{formatTime(timeLeft)}</span>
           </div>
 
+          {questionTranslation(questions[currentIdx]) && (
+            <div className="flex gap-1" role="group" aria-label="Question language">
+              {['English', 'Tamil'].map(language => (
+                <button key={language} type="button" aria-pressed={questionLanguage === language}
+                  onClick={() => setQuestionLanguage(language)}
+                  className={`px-3 py-2 rounded-lg text-sm font-medium ${questionLanguage === language ? 'bg-navy-600 text-white' : 'bg-navy-800 text-navy-100'}`}>
+                  {language === 'Tamil' ? 'தமிழ்' : 'English'}
+                </button>
+              ))}
+            </div>
+          )}
           <button
             disabled={submitting}
             onClick={() => setShowSubmitConfirm(true)}

@@ -1,30 +1,27 @@
-# Polity question import
+﻿# Polity bilingual tests
 
-The six original UTF-8 question papers are backed up in `sources/`. The five supplied photos are in `answer-keys/`. These files are outside `public/` so Vite does not serve the papers or answer keys as static assets.
+Supabase now contains three canonical draft tests in Polity Import Drafts / Polity:
 
-Run `node scripts/prepare-polity-import.mjs` from the repository root to regenerate `prepared.json`. It contains 800 question records across six draft papers. Source wording is preserved, including apparent source errors. The parser handles lowercase and Greek option labels, irregular spacing, labelled statements in stems, and reordered options. All six papers now parse without option-format warnings.
+- Sectional Test I: 100 bilingual questions, 100 supplied answers.
+- Sectional Test II: 100 bilingual questions, 99 supplied answers. Question 100 remains null.
+- Full Test: 200 bilingual questions, 200 supplied answers.
 
-## Cloud upload completed
+English test and question IDs are retained. Duplicate Tamil tests are Archived and filtered out of the updated student listings. Their questions and historical attempts remain intact. Existing Tamil attempts still use the original test. The updated frontend needs deployment for the language toggle and filtering to appear on a hosted app.
 
-All 800 questions and 798 supplied answers were uploaded to Supabase under the non-free series `Polity Import Drafts`, category `Polity`, with all six tests marked `Draft`. Every saved question, option, and answer was read back and compared with the payload. See `upload-receipt.json` for IDs and counts.
+The test-taking and solution pages offer English and Tamil modes. Switching changes only question and option text; IDs, answer letters, progress, timer and grading stay the same. Questions sort by source number, with ID ordering for legacy tests.
 
-`cloud-payload.json` is 364,998 bytes; staging metadata and redundant whitespace are omitted. It removes staging metadata, repeated optional fields, and redundant whitespace. This measures payload size, not actual PostgreSQL disk usage. Source files and photos remain local backups.
+## Storage
 
-`node scripts/upload-polity-import.mjs` regenerates the compact payload and resumes matching draft imports without duplicating rows. It requires the existing Supabase server credentials in `.env`; credentials are never included in the payload. The draft series is not free and should not be assigned to students until review is complete. Draft status alone is not an access-control rule in the current LMS.
+Six original papers are in sources/; five key photos and the supplied JSON keys are in answer-keys/. These backups are outside public/. Shared answer keys follow the user's explicit confirmation.
 
-## Recommended storage
+Translations use a tagged JSON envelope in the existing questions.explanation field (format: lms-bilingual-v1). It contains the source number, Tamil stem/options and separate explanation text. The student frontend unwraps this metadata. Future admin explanation editing must preserve the envelope. Plain explanations remain supported.
 
-Use the existing Supabase `test_series`, `test_categories`, `tests`, and `questions` tables for online tests. Keep these source files as backups. Do not ship the answer keys in the public static directory.
+prepare-polity-import.mjs regenerates source staging data. upload-polity-import.mjs is disabled after merging to prevent recreating separate tests. merge-polity-tests.mjs attaches and verifies translations using server credentials from .env. bilingual-receipt.json records the final canonical and archived IDs. upload-receipt.json describes the historical six-test upload.
 
-## Required review before cloud import
+## Question review
 
-- English Sectional Test I: all 100 supplied answers visually match photo `12.04.06 PM`. The verified transcription is saved in `answer-keys/sectional-test-1-english.json` and applied when regenerating the English draft. This verifies agreement with the image, not the factual correctness of the original key.
-- English Sectional Test II: the 99 supplied answers visually match photo `12.04.08 PM`, including the overwritten B at question 81. Saved in `answer-keys/sectional-test-2-english.json` and applied to the English draft. Question 100 has no answer written and remains null. Verification checks transcription against the image, not factual correctness.
-- English Full Test: all 200 supplied answers visually match photo `12.05.37 PM`, including the corrected C at question 36. Saved in `answer-keys/full-test-english.json` and applied to the English draft. This verifies transcription against the image, not factual correctness.
-- Tamil Polity Sectional Test I: user explicitly confirmed the English key also applies to Tamil. All 100 answers are assigned and verified in Supabase using that supplied mapping.
-- Tamil Polity Sectional Test II: supplied in `sources/Polity_Sectional_Test_2_Tamil.txt`, parsed into 100 questions, and uploaded with 99 answers using the user-confirmed shared English key. Question 100 remains null.
-- Tamil Polity Full Test: user confirmed it uses the same 200-answer key as English Full Test. The shared key in `answer-keys/full-test-english.json` is applied to both drafts. This mapping is based on user confirmation.
-- Photos `12.05.39 PM` and `12.05.40 PM` are labelled Tamil language tests and contain 100 answers each. They do not establish answers for the Tamil Polity papers.
-- Review source content, supplied answer correctness, duration, and marks before publication. Upload settings use 1 mark per question and 90/180 minutes as draft placeholders.
+All 400 numbered pairs were checked for non-empty stems, four options, matching supplied answer letters and exact source-to-cloud text. This does not certify factual correctness or complete semantic translation equivalence. Source wording and supplied keys were preserved.
 
-English and Tamil Sectional Test I each have 100 assigned answers; English and Tamil Sectional Test II each have 99, with question 100 unanswered in both; English and Tamil Full Tests each have 200. The only missing answers among the 800 uploaded questions are Sectional Test II question 100 in English and Tamil, explicitly stored as null. `readyForCloud` remains false as a publication-readiness flag until outstanding keys and content have been reviewed.
+question-review.json flags 92 numbered pairs with numerical differences for comparison. Differences may reflect formatting rather than errors. Sectional Test I Q99 has different matching-statement numbering and options in the supplied papers. Sectional Test II Q100 has no supplied answer. Review these source issues before publication.
+
+Validation: production build and all 13 Node tests pass, including language-switch identity/answer preservation and question ordering.

@@ -45,7 +45,7 @@ export default function StudentFreeTestSeries() {
     } catch (err) {
       console.error('Failed to load tests:', err);
     }
-    setTestsList(tests);
+    setTestsList(tests.filter(test => test.status !== 'Archived'));
     setLevel('tests');
   }
 

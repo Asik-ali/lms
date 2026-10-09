@@ -1,0 +1,30 @@
+{
+  "tests": [
+    {
+      "name": "Polity Sectional Test I",
+      "testId": 29,
+      "archivedTamilTestId": 31,
+      "questions": 100,
+      "answers": 100
+    },
+    {
+      "name": "Polity Sectional Test II",
+      "testId": 30,
+      "archivedTamilTestId": 34,
+      "questions": 100,
+      "answers": 99
+    },
+    {
+      "name": "Polity Full Test",
+      "testId": 32,
+      "archivedTamilTestId": 33,
+      "questions": 200,
+      "answers": 200
+    }
+  ],
+  "sourceReview": [
+    "Sectional Test I Q99: matching-statement numbering and options differ between supplied English and Tamil papers; source review required.",
+    "Sectional Test II Q100: no supplied answer; remains null."
+  ],
+  "verification": "All 400 numbered pairs checked for non-empty stems, four options, shared supplied answer letters and exact source-to-cloud text. Semantic/factual source correctness is not certified."
+}

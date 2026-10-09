@@ -3,6 +3,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { supabase } from '../../supabase/client';
 import { getAttempt, getResponses, reportQuestion } from '../../data/dynamicStore';
+import { localizeQuestion, orderQuestions, questionTranslation } from '../../data/bilingualQuestions';
 import { showSuccess, showError } from '../../components/common/Toast';
 import {
   BarChart3,
@@ -94,6 +95,7 @@ export default function StudentTestResult() {
   const [attempt, setAttempt] = useState(null);
   const [test, setTest] = useState(null);
   const [questions, setQuestions] = useState([]);
+  const [questionLanguage, setQuestionLanguage] = useState('English');
   const [responses, setResponses] = useState([]);
   const [rank, setRank] = useState(0);
   const [totalAttempts, setTotalAttempts] = useState(0);
@@ -181,7 +183,7 @@ export default function StudentTestResult() {
 
       setAttempt(attemptData);
       setTest(testData);
-      setQuestions(questionsData || []);
+      setQuestions(orderQuestions(questionsData || []));
       setResponses(responsesData || []);
       setRank(shownRank ?? 0);
       setTotalAttempts(participants);
@@ -452,7 +454,18 @@ export default function StudentTestResult() {
 
           {/* Questions List */}
           <div className="flex-1 space-y-6">
-            {questions.map((q, idx) => {
+            {questions.some(q => questionTranslation(q)) && (
+              <div className="flex gap-2" role="group" aria-label="Solution language">
+                {['English', 'Tamil'].map(language => (
+                  <button key={language} type="button" aria-pressed={questionLanguage === language}
+                    onClick={() => setQuestionLanguage(language)} className="btn-secondary">
+                    {language === 'Tamil' ? 'தமிழ்' : 'English'}
+                  </button>
+                ))}
+              </div>
+            )}
+            {questions.map((originalQuestion, idx) => {
+              const q = localizeQuestion(originalQuestion, questionLanguage);
               const status = getQuestionStatus(idx);
               const r = getResponseForQuestion(idx);
               const marks = getMarksForQuestion(idx);

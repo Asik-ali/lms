@@ -1,0 +1,1401 @@
+[
+  {
+    "test": "Polity Sectional Test I",
+    "number": 1,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "option_c",
+        "english": "2 years, 11 months, 8 days",
+        "tamil": "3 வருடங்கள், 11 மாதங்கள், 8 நாட்கள்"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test I",
+    "number": 4,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "option_b",
+        "english": "26 January 1949",
+        "tamil": "26 ஜனவரி 1950"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test I",
+    "number": 11,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Arrange the following events in chronological order:\n\n    1. Wavell Plan\n    1. Mountbatten Plan\n    1. Cabinet Mission Plan\n    1. Simla Conference",
+        "tamil": "பின்வரும் நிகழ்வுகளை காலவரிசைப்படி ஒழுங்கமைக்கவும்:\n1) வேவல் திட்டம்\n2) மௌண்ட் பேட்டன் திட்டம்\n3) அமைச்சரவை தூதுக்குழுத் திட்டம்\n4) சிம்லா மாநாடு"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test I",
+    "number": 16,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "option_d",
+        "english": "7th Schedule",
+        "tamil": "6 வது அட்டவணை"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test I",
+    "number": 19,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Select the word added to the Preamble through the Constitutional Amendment Act in\n 1976:",
+        "tamil": "முகவுரையில் 1976-ம் ஆண்டு 42-வது அரசியல் சாசன திருத்தச்சட்டத்தின் மூலமாக\nசேர்த்த வார்த்தையை தேர்வு செய்யவும்."
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test I",
+    "number": 20,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "option_d",
+        "english": "4, 3, 2, 1",
+        "tamil": "1, 4, 3, 2"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test I",
+    "number": 25,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "option_d",
+        "english": "14",
+        "tamil": "20"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test I",
+    "number": 32,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "The Directive Principles of State Policy in the Indian Constitution resemble which of\n the following?",
+        "tamil": "இந்திய அரசியலமைப்பின் வழிகாட்டு நெறிமுறைகள் 1935 இந்திய சாசனத்தின்\n__________ போல் தோற்றம் அளிப்பவையாகும்."
+      },
+      {
+        "field": "option_a",
+        "english": "Magna Carta 1215",
+        "tamil": "மகா சாசனம்"
+      },
+      {
+        "field": "option_b",
+        "english": "Instrument of Instructions 1935",
+        "tamil": "பட்டயச் சட்டம் 1813"
+      },
+      {
+        "field": "option_c",
+        "english": "Charter Act 1813",
+        "tamil": "அறிவுறுத்தல் செயற்கருவி (Instrument of Instructions)"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test I",
+    "number": 54,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "option_c",
+        "english": "76th Amendment Act",
+        "tamil": "78வது சட்டதிருத்தம்"
+      },
+      {
+        "field": "option_d",
+        "english": "78th Amendment Act",
+        "tamil": "76வது சட்டதிருத்தம்"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test I",
+    "number": 60,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Match the Following cases with their respective years:\n\na) Berubari Union Case — 1. 1988\n\nb) LIC of India Case — 2. 1960\n\nc) Kehar Singh Case — 3. 1973\n\n— 4. 1995\n\nOptions:",
+        "tamil": "பொருத்துக:\na) பெருபாரி வழக்கு - 1. 1995\nb) LIC வழக்கு - 2. 1960\nc) கேசவானந்த பாரதி வழக்கு - 3. 1973"
+      },
+      {
+        "field": "option_a",
+        "english": "2, 4, 1",
+        "tamil": "2, 1, 3"
+      },
+      {
+        "field": "option_b",
+        "english": "2, 1, 4",
+        "tamil": "1, 2, 3"
+      },
+      {
+        "field": "option_c",
+        "english": "1, 3, 4",
+        "tamil": "4, 3, 2"
+      },
+      {
+        "field": "option_d",
+        "english": "2, 1, 3",
+        "tamil": "2, 3, 1"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test I",
+    "number": 62,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Which of the following was INCORRECTLY included in the list of classical languages\n declared in 2024?",
+        "tamil": "செம்மொழியாக அறிவிக்கப்பட்ட மொழிகளில் தவறானது எது?"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test I",
+    "number": 63,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Consider the following statements:\n\n    1. This Act was passed to appease the Moderates in the Congress.\n    1. It is considered the climax of the 'Divide and Rule' policy followed by the British\n         government.\n    1. It was viewed as a victory for Moderate leader Gopal Krishna Gokhale. Which Act do\n         the above statements refer to?",
+        "tamil": "1. காங்கிரஸில் இருந்து மிதவாதிகளை திருப்தி படுத்தும் நோக்கில் இச்சட்டம்\nஇயற்றப்பட்டது.\n2. இச்சட்டம் இங்கிலாந்து அரசு பின்பற்றிய பிரித்தாளும் கொள்கையின் உச்சகட்டமாக\nகருதப்படுகிறது.\n3. இது மிதவாத தலைவர் கோபால கிருஷ்ண கோகலேவுக்கு கிடைத்த வெற்றியாக\nகருதப்படுகிறது.\nமேற்காண் கூற்று எந்த சட்டத்தைப்பற்றி கூறுகிறது?"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test I",
+    "number": 65,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "option_a",
+        "english": "3, 1, 4, 2",
+        "tamil": "1, 2, 3, 4"
+      },
+      {
+        "field": "option_c",
+        "english": "4, 2, 1, 3",
+        "tamil": "4, 2, 3, 1"
+      },
+      {
+        "field": "option_d",
+        "english": "1, 2, 4, 3",
+        "tamil": "3, 2, 1, 4"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test I",
+    "number": 67,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Consider the following matches:\n\n    1. Punjab Reorganisation Act — 1966\n    1. State of Mizoram Act — 1986\n    1. State of Arunachal Pradesh Act — 1975\n    1. State of Goa Act — 1985 Which of the above pair(s) is/are INCORRECT?",
+        "tamil": "1) பஞ்சாப் மறுசீரமைப்புச்சட்டம் - 1966\n2) மிசோரம் மாநிலச் சட்டம் - 1986\n3) அருணாச்சலப் பிரதேச மாநிலச் சட்டம் - 1975\n4) கோவா மாநிலச் சட்டம் - 1987\nமேற்காண் கூற்றுகளில் தவறானது எது?"
+      },
+      {
+        "field": "option_c",
+        "english": "3 and 4 (Corrected based on standard facts, Tamil paper lists 2,4)",
+        "tamil": "2, 4 தவறு"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test I",
+    "number": 72,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Find the INCORRECT pair:",
+        "tamil": "தவறான இணையைக் காண்க:\nA) அந்நியச்செலவாணி காப்பு மற்றும் தடுப்பு நடவடிக்கைச் சட்டம் - 1974\nB) தேசிய பாதுகாப்புச் சட்டம் - 1980\nC) கள்ளச்சந்தை மற்றும் அத்தியாவசியப் பொருட்கள் பராமரிப்பு சட்டம் - 1980\n\nD) போதை மருந்துகள் மற்றும் மனநோய் சார்ந்த பொருட்களில் விரோத போக்குவரத்தை\nதடுக்கும் சட்டம் - 1986"
+      },
+      {
+        "field": "option_a",
+        "english": "Conservation of Foreign Exchange and Prevention of Smuggling Activities Act (COFEPOSA)\n— 1974",
+        "tamil": "A மட்டும்"
+      },
+      {
+        "field": "option_b",
+        "english": "National Security Act (NSA) — 1980",
+        "tamil": "B மட்டும்"
+      },
+      {
+        "field": "option_c",
+        "english": "Prevention of Blackmarketing and Maintenance of Supplies of Essential Commodities Act —\n1980",
+        "tamil": "C மட்டும்"
+      },
+      {
+        "field": "option_d",
+        "english": "Prevention of Illicit Traffic in Narcotic Drugs and Psychotropic Substances Act — 1986",
+        "tamil": "D மட்டும்"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test I",
+    "number": 73,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Through which of the following grounds does a citizen's Indian citizenship terminate?\n\n    1. When a person acquires the citizenship of another country.\n    1. By registration.\n    1. When an Indian citizen trades with an enemy country during a war.",
+        "tamil": "ஒரு இந்தியக்குடிமகனின் குடியுரிமை கீ ழ்க்கண்ட எதனால் முடிவுக்கு வருகிறது?\n1. ஒருவர் வேறு நாட்டுக்குடியுரிமை பெறும் போது\n2. பதிவு செய்வதன் மூலம்\n3. போரின் போது எதிரி நாட்டோடு இந்திய குடிமகன் வணிகம் செய்யும் போது."
+      },
+      {
+        "field": "option_b",
+        "english": "1 only",
+        "tamil": "1 மற்றும் 3 மட்டும்"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test I",
+    "number": 75,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Match the following:\n\na) Indian Penal Code — 1. 1948\n\nb) Factories Act — 2. 1952\n\nc) Mines Act — 3. 1961\n\nd) Maternity Benefit Act — 4. 1860\n\nOptions:",
+        "tamil": "பொருத்துக:\na) இந்திய தண்டனை சட்டம் - 1. 1860\nb) தொழிற்சாலை சட்டம் - 2. 1948\nc) சுரங்க பணி சட்டம் - 3. 1952\nd) பேறுகால உதவிச்சட்டம் - 4. 1961"
+      },
+      {
+        "field": "option_b",
+        "english": "2, 4, 1, 3",
+        "tamil": "1, 2, 3, 4"
+      },
+      {
+        "field": "option_c",
+        "english": "2, 3, 1, 4",
+        "tamil": "4, 2, 3, 1"
+      },
+      {
+        "field": "option_d",
+        "english": "4, 1, 2, 3",
+        "tamil": "1, 2, 4, 3"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test I",
+    "number": 78,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "option_c",
+        "english": "Article 75",
+        "tamil": "75(1)"
+      },
+      {
+        "field": "option_d",
+        "english": "Article 78",
+        "tamil": "78(2)"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test I",
+    "number": 80,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Arrange the former Chief Ministers of Tamil Nadu (Madras State) in chronological\n order:\n\n   1. Mr. T. Prakasam\n   1. Mr. P.S. Kumaraswamy Raja\n   1. Mr. M. Bhaktavatsalam\n   1. Mr. B. Munuswamy Naidu",
+        "tamil": "தமிழக முதலமைச்சர்களை காலவரிசைப்படுத்துக:\n1. திரு. ஓ. பி. ராமசாமி / டி. பிரகாசம்\n2. திரு. பி. எஸ். குமாரசாமி ராஜா\n3. திரு. எம். பக்தவத்சலம்\n4. திரு. பி. முனுசாமி நாயுடு"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test I",
+    "number": 81,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Which of the following statements regarding the religious diversity of India is/are\n correct?\n\n   1. The state does not recognize any specific religion as the official state religion in our\n        country.\n   1. Practicing any religion is not a Fundamental Right in our country.",
+        "tamil": "இந்தியாவின் மத பன்முகத்தன்மை பற்றிய பின்வரும் கூற்றுகளில் சரியானவை\nஎது?\n1. நம் நாட்டில் எந்த ஒரு குறிப்பிட்ட மதத்தையும் அரசு மதமாக அங்கீ கரிக்கவில்லை.\n2. நம் நாட்டில் எந்த ஒரு மதத்தையும் பின்பற்றுவது அடிப்படை உரிமையன்று."
+      },
+      {
+        "field": "option_a",
+        "english": "Both 1 and 2 are\n        correct",
+        "tamil": "இரண்டும் சரி"
+      },
+      {
+        "field": "option_d",
+        "english": "Both 1 and 2 are incorrect",
+        "tamil": "இரண்டும் தவறு"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test I",
+    "number": 92,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Who among the following are appointed by the President?\n\n    1. Foreign Ambassadors / High Commissioners\n    1. Governor of the Reserve Bank of India\n    1. Chairperson of the National Commission for Minorities\n    1. Chief of Integrated Defence Staff",
+        "tamil": "குடியரசு தலைவரால் நியமிக்கப்படுபவர்கள் யார்?\n1. வெளிநாட்டு தூதுவர்கள்\n2. ரிசர்வ் வங்கி கவர்னர்\n3. தேசிய சிறுபான்மையினர் ஆணையத்தலைவர்\n4. ஒருங்கிணைந்த பாதுகாப்பு தலைவர்"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test I",
+    "number": 94,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Arrange the stages of passing a Bill in Parliament in correct order:\n\n    1. Second Reading\n    1. Committee Stage\n    1. Report Stage\n    1. First Reading\n    1. Third Reading",
+        "tamil": "மசோதாக்கள் நிறைவேற்றும் முறையை வரிசைப்படுத்துக:\n1. முதல் வாசிப்பு\n2. குழு நிலை\n3. அறிக்கை நிலை\n4. இரண்டாம் வாசிப்பு\n5. மூன்றாவது வாசிப்பு"
+      },
+      {
+        "field": "option_a",
+        "english": "4, 1, 2, 3, 5",
+        "tamil": "1, 4, 2, 3, 5"
+      },
+      {
+        "field": "option_c",
+        "english": "4, 2, 1, 5, 3",
+        "tamil": "4, 2, 5, 1, 3"
+      },
+      {
+        "field": "option_d",
+        "english": "4, 1, 3, 2, 5",
+        "tamil": "1, 2, 3, 4, 5"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test I",
+    "number": 95,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Select the correct match(es):\n\n    1. Public Account of India — Article 266(2)\n    1. Contingency Fund of India — Article 267\n    1. Consolidated Fund of India — Article 266(1)",
+        "tamil": "சரியான இணையைக் தேர்க:\n1. பொதுக்கணக்கு நிதி - 266(2)\n2. இந்திய அவசரகால நிதி - 267\n3. இந்திய தொகுப்பு நிதி - 266(1)"
+      },
+      {
+        "field": "option_c",
+        "english": "1, 2",
+        "tamil": "2 மட்டும்"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test I",
+    "number": 96,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Choose the INCORRECT pair(s) regarding the establishment of Supreme Courts\n under British rule:\n\n    1. Calcutta — 1884\n    1. Madras — 1773\n    1. Bombay — 1801",
+        "tamil": "தவறான இணையைத் தேர்வு செய்க (உச்சநீதிமன்றம்/உயர்நீதிமன்றம் தோற்றம்):\n1. கல்கத்தா - 1862\n2. மதராஸ் - 1862\n3. பம்பாய் - 1862"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test I",
+    "number": 97,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Which states have faced President's Rule (Article 356) maximum times (9 times)?\n\n    1. Kerala\n    1. Punjab\n    1. Tamil Nadu\n    1. Assam",
+        "tamil": "குடியரசுத்தலைவர் ஆட்சி அதிகபட்சமாக ஒன்பது முறை நடைமுறைப்படுத்தப்பட்ட\nமாநிலங்கள்?"
+      },
+      {
+        "field": "option_a",
+        "english": "1 and 2 only",
+        "tamil": "கேரளா மற்றும் பஞ்சாப்"
+      },
+      {
+        "field": "option_b",
+        "english": "2 and 3 only",
+        "tamil": "பஞ்சாப் மற்றும் தமிழ்நாடு"
+      },
+      {
+        "field": "option_c",
+        "english": "2 and 4 only",
+        "tamil": "தமிழ்நாடு மற்றும் அசாம்"
+      },
+      {
+        "field": "option_d",
+        "english": "1, 2, 3, and 4",
+        "tamil": "அனைத்தும்"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test I",
+    "number": 99,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "option_a",
+        "english": "2, 3, 1, 4",
+        "tamil": "4, 2, 1, 3"
+      },
+      {
+        "field": "option_b",
+        "english": "3, 4, 1, 2",
+        "tamil": "3, 4, 2, 1"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test II",
+    "number": 3,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Arrange the following bodies in ascending order (smallest to largest):\n\n    1. District Panchayat\n    2. Village Panchayat\n    3. Gram Sabha\n    4. Panchayat Union",
+        "tamil": "கீ ழ்வரும் அமைப்புகளைச் சிறியதிலிருந்து பெரியது என வரிசைப்படுத்துக:\n மாவட்ட ஊராட்சி மன்றம்\n  கிராம ஊராட்சி\n   கிராம சபை\n    ஊராட்சி ஒன்றியம்"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test II",
+    "number": 7,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "option_b",
+        "english": "3 & 1",
+        "tamil": "3 & 4"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test II",
+    "number": 8,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "The Lord Viscount Peel Committee (1931) is associated with examining which of the\n following?",
+        "tamil": "1981 ஆம் ஆண்டு லார்டு விஸ்கௌண்ட் பீல் கமிட்டி தொடர்புடையது:"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test II",
+    "number": 11,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "What was the number of women candidates who won in the first General Elections\n held in 1951-52?",
+        "tamil": "1952-ல் நடைபெற்ற முதல் பொதுத்தேர்தலில் வெற்றி பெற்ற பெண்\n வேட்பாளர்களின் எண்ணிக்கை?"
+      },
+      {
+        "field": "option_c",
+        "english": "24",
+        "tamil": "2"
+      },
+      {
+        "field": "option_d",
+        "english": "25",
+        "tamil": "222"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test II",
+    "number": 19,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "option_a",
+        "english": "Article 226",
+        "tamil": "Article 23&226"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test II",
+    "number": 22,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "option_d",
+        "english": "4, 3, 1, 2",
+        "tamil": "1, 2, 3, 4"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test II",
+    "number": 26,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "option_a",
+        "english": "14",
+        "tamil": "43"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test II",
+    "number": 36,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Under which clause of Article 16 does Tamil Nadu provide reservation for Backward\n Classes?",
+        "tamil": "தமிழ்நாடு பிற்படுத்தப்பட்டோர் ஆணையம், எந்த அரசியல் அமைப்பின்\n சட்டப்பிரிவின் கீ ழ் அமைக்கப்பட்டது?"
+      },
+      {
+        "field": "option_d",
+        "english": "Article 16(1)",
+        "tamil": "16(7)"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test II",
+    "number": 43,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "option_d",
+        "english": "1, 2, and 3",
+        "tamil": "3 மட்டும்"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test II",
+    "number": 45,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "option_d",
+        "english": "Neither 1 nor 2",
+        "tamil": "இரண்டும் அல்ல"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test II",
+    "number": 48,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Arrange the former Chief Ministers of Tamil Nadu in chronological order:\n\n   1. Mr. T. Prakasam\n   2. Mr. P.S. Kumaraswamy Raja3\n   3. Mr. M. Bhaktavatsalam4\n   4. Mr. B. Munuswamy Naidu",
+        "tamil": "தமிழக முதல்வர்களை காலவரிசைப்படுத்துக:\n திரு. T. பிரகாசம்\n  திரு. P.S. குமாரசாமி ராஜா\n   திரு. M. பக்தவத்சலம்\n    திரு. P.T. ராஜன் / T. சுப்பராயன்"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test II",
+    "number": 49,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Match High Courts with their year/date of establishment:\n\na) Meghalaya — 1. 2019\n\nb) Manipur — 2. 23 March 2013\n\nc) Tripura — 3. 25 March 2013\n\nd) Telangana — 4. 26 March 2013\n\nOptions:",
+        "tamil": "பொருத்துக (உயர்நீதிமன்றம் உருவாக்க தேதிகள்):\n a) மேகாலயா - 1) 25 மார்ச் 2013\n b) மணிப்பூர் - 2) 23 மார்ச் 2013\n c) திரிபுரா - 3) 1 ஜனவரி 2019\n d) தெலுங்கானா - 4) 26 மார்ச் 2013"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test II",
+    "number": 51,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Match the Following Days:\n\na) March 22 — 1. World Water Day\n\nb) October 2 — 2. Local Self-Government Day\n\nc) November 1 — 3. Workers' Day\n\nd) May 1 — 4. Gandhi jeyanthi\n\nOptions:",
+        "tamil": "பொருத்துக:\n a) மே 1 - 1) உலக தண்ண ீர் தினம்\n b) அக்டோபர் 2 - 2) உள்ளாட்சி தினம்\n c) நவம்பர் 1 - 3) உழைப்பாளர் தினம்\n d) மார்ச் 22 - 4) காந்தி பிறந்த தினம்"
+      },
+      {
+        "field": "option_c",
+        "english": "1, 3, 2, 4",
+        "tamil": "3, 2, 1, 4"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test II",
+    "number": 62,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "option_c",
+        "english": "8th Schedule",
+        "tamil": "11-வது அட்டவணை"
+      },
+      {
+        "field": "option_d",
+        "english": "11th Schedule",
+        "tamil": "8-வது அட்டவணை"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test II",
+    "number": 67,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "option_b",
+        "english": "Rule 49-O of the Conduct of Elections Rules, 1961 describes this option.",
+        "tamil": "இம்முறையைப் பற்றி இந்திய தேர்தல் நடத்தை விதிகள் (1961) சட்டத்தின்\n விதி எண் 49-O விவரிக்கிறது."
+      },
+      {
+        "field": "option_c",
+        "english": "India became the 4th country in the world to introduce NOTA.",
+        "tamil": "உலக அளவில் இம்முறையினை அறிமுகம் செய்ததில் 14-வது நாடு இந்தியா."
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test II",
+    "number": 69,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "option_a",
+        "english": "4, 1, 2, 3",
+        "tamil": "4, 3, 2, 1"
+      },
+      {
+        "field": "option_b",
+        "english": "4, 2, 3, 1",
+        "tamil": "4, 1, 2, 3"
+      },
+      {
+        "field": "option_c",
+        "english": "4, 3, 2, 1",
+        "tamil": "4,2, 1, 3"
+      },
+      {
+        "field": "option_d",
+        "english": "1, 4, 3, 2",
+        "tamil": "1, 2, 3, 4"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test II",
+    "number": 78,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "option_d",
+        "english": "1, 3, 4, 2",
+        "tamil": "2, 1, 4, 3"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test II",
+    "number": 79,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Consider the following statements regarding the Supreme Court of India. Choose the\n correct statement(s):\n\n   1. It was inaugurated on January 28, 1950, in New Delhi.\n   2. High Courts were established under Letters Patent issued by Queen Victoria in 1862.\n   3. At the time of commencement of the Constitution, it consisted of a Chief Justice and 7\n        other judges.",
+        "tamil": "இந்திய உச்சநீதிமன்றம் தொடர்பாக கீ ழ்க்கண்ட கூற்றுகளை கவனிக்கவும்.\n சரியானவையை தேர்ந்தெடு:\n 1.இது 1950 ஜனவரி 28-ம் தேதி புதுதில்லியில் தொடங்கப்பட்டது.\n 2.இது 1862-ம் ஆண்டு ராணி விக்டோரியா காலத்தில் வெளியிடப்பட்ட சட்டத்தின்\n கீ ழ் உயர்நீதிமன்றங்களைப் போல நிறுவப்பட்டது.\n 3.அரசியலமைப்பு தொடக்கத்தில், இதில் ஒரு தலைமை நீதிபதி மற்றும் 7\n நீதிபதிகள் இருந்தனர்."
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test II",
+    "number": 80,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Match Articles of the Indian Constitution with their provisions:\n\n   1. Article 214 — High Courts for States\n   2. Article 215 — High Court to be a Court of Record\n   3. Article 216 — Constitution of High Courts\n   4. Article 217 — Appointment and conditions of the office of a Judge of a High Court\n\n       How many of the given pairs are correctly matched?",
+        "tamil": "இந்திய அரசியலமைப்பின் சரத்துக்கள் மற்றும் அவற்றின் இணைகளைக்\n காண்க:\n சரத்து 214 - மாநிலங்களுக்கான உயர் நீதிமன்றங்கள்\n  சரத்து 215 - உயர்நீதிமன்றம் ஒரு நீதிப் பதிவேடு (Court of Record)\n   சரத்து 216 - உயர்நீதிமன்ற நீதிபதிகள்நியமனம்\n    சரத்து 217 - உயர்நீதிமன்ற அமைப்பு\n     கொடுக்கப்பட்ட இணைகளில் எத்தனை சரியானவை?"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test II",
+    "number": 81,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "option_d",
+        "english": "Neither 1 nor 2",
+        "tamil": "எதுவும் இல்லை"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test II",
+    "number": 82,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Choose the correct statement(s):\n\n   1. NHRC was established on October 12, 1993.\n   2. NHRC consists of a Chairperson and 10 members.\n   3. Justice Ranganath Misra was the first Chairperson of NHRC.",
+        "tamil": "சரியானவையை தேர்ந்தெடு:\n 1.NHRC 1993 அக்டோபர் 12-ம் தேதி அமைக்கப்பட்டது.\n 2.NHRC தலைவர் மற்றும் உறுப்பினர்களைக் கொண்டது.\n 3.NHRC-ன் முதல் தலைவர் நீதிபதி ரங்கநாத் மிஸ்ரா ஆவார்."
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test II",
+    "number": 92,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "option_d",
+        "english": "Neither 1 nor 2",
+        "tamil": "எதுவும் இல்லை"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test II",
+    "number": 94,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Who was the Chairman of the Study Team on Panchayati Raj Finances (1963)?",
+        "tamil": "பஞ்சாயத்து ராஜ் நிதி ஆய்வு குழுவின் தலைவர் யார்?"
+      }
+    ]
+  },
+  {
+    "test": "Polity Sectional Test II",
+    "number": 95,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Match the terms used for local bodies in different States during early Panchayati Raj\n era:\n\na) Central India (Madhya Pradesh) — 1.pancha gulangal\n\nb) Bihar — 2. Pancha madaligal\n\nc) Rajasthan — 3. Grama jana pathagal\n\nOptions:",
+        "tamil": "பொருத்துக (பஞ்சாயத்து ராஜ் அமைப்பின் பெயர்கள்):\n மத்திய இந்தியா - a) பஞ்ச குலங்கள்\n  பகீ ார் - b) பஞ்ச மண்டலிகள்\n   இராஜஸ்தான் - c) கிராம ஜனபாதங்கள்"
+      },
+      {
+        "field": "option_a",
+        "english": "2, 3, 1",
+        "tamil": "231"
+      },
+      {
+        "field": "option_b",
+        "english": "2, 1, 3",
+        "tamil": "213"
+      },
+      {
+        "field": "option_c",
+        "english": "1, 2, 3",
+        "tamil": "123"
+      },
+      {
+        "field": "option_d",
+        "english": "3, 2, 1",
+        "tamil": "321"
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 13,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Consider the following statements about the Preamble to the Indian Constitution:\ni)Jawaharlal Nehru called it the \"Identity Card of the Constitution\".\n\nii )It reveals the source of authority of the Constitution.\niii)It reveals the nature of the Indian state.\niv)It reveals the objectives/principles of the Indian Constitution.\nWhich of the above statements is/are incorrect?",
+        "tamil": "இந்திய அரசியலமைப்பு முகவுரை பற்றிய வாக்கியங்களை கவனிக்கவும்\n1. ஜவஹர்லால் நேரு அவர்கள் இதனை \"அரசியல் சாசனத்தின் அடையாள\nஅட்டை\" என்று கூறினார்.\n2. இது அரசியல் சாசனத்தின் அதிகாரத்தை வெளிப்படுத்துகிறது\n3. இந்திய நாட்டின் தன்மையை வெளிப்படுத்துகிறது.\n4. இந்திய அரசியல் சாசனத்தின் கொள்கைகளை வெளிப்படுத்துகிறது\n\nமேலே காணப்படும் வாக்கியங்களில் எது / எவை தவறானவை?"
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 26,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Arrange the following chronologically based on the year of their establishment:\ni)‘Central Vigilance Commission\nii)Central Bureau of Investigation\niii)Central Information Commission\niv)Lokpal and Lokayuktas Act",
+        "tamil": "கீ ழ்காண்பவற்றை அதன் தோற்றுவிக்கப்பட்ட ஆண்டின் அடிப்படையில்\nசரியாக கால வரிசைப்படுத்தவும் :\n1. மத்திய கண்காணிப்பு ஆணையம்\n2. மத்திய புலனாய்வு குழு\n3. மத்திய தகவல் ஆணையம்\n4. லோக்பால் மற்றும் லோக் ஆயுக்தா சட்டம்"
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 29,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Which of the following is incorrectly matched?\nArticle 361 – Immunity to the President from criminal proceedings in court.\n Article 352 – Proclamation of National Emergency.\n  Article 356 – President's Rule in a State.\n   Article 360 – Finance Commission.",
+        "tamil": "கீ ழ்வருவனவற்றுள் எது தவறாக பொருத்தப்பட்டுள்ளது?\n1. ஷரத்து 361\nநீதிமன்றத்தில் குடியரசுத் தலைவருக்கு எதிரான குற்றவியல் நடவடிக்கைகளில்\nஇருந்து பாதுகாப்பைப் பெறுகிறார்.\n\n2. ஷரத்து 352\nதேசிய நெருக்கடிகால பிரகடனம்\n\n3. ஷரத்து 356\nமாநிலத்தில் குடியரசுத் தலைவர் ஆட்சி\n\n4. ஷரத்து 360\nநிதி ஆணையம்"
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 32,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Consider the following statements:\ni)A retired judge of the Supreme Court can sit and act as a judge of the Supreme Court again.\nii)If required, the Supreme Court can sit anywhere in India.\niii)Article 144 deals with the advisory jurisdiction of the Supreme Court.\n iv)Only the Supreme Court has the power to issue Habeas Corpus writ.\n Which of the statements given above are correct?",
+        "tamil": "கீ ழ்வரும் வாக்கியங்களை கவனிக்கவும்.\n1.உச்ச நீதிமன்றத்தின் முன்னாள் நீதிபதி மீ ண்டும் உச்ச நீதிமன்ற நீதிபதியாக\nபணியாற்றலாம்.\n\n2.தேவை ஏற்பட்டால், உச்ச நீதிமன்றம் இந்தியாவின் எந்தப்பகுதியிலிருந்தும்\nசெயல்படலாம்.\n3.உறுப்பு 144 உச்சநீதிமன்றத்தின் ஆலோசனை அதிகாரங்களை கையாள்கிறது.\n4.ஆட்கொணர்வு நீதிப்பேராணை அதிகாரம் உச்சநீதிமன்றத்துக்கு மட்டுமே\nஉண்டு\n\nமேற்கூறிய வாக்கியங்களுள் எவை சரியானவை?"
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 39,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Choose the correct match:\ni)Taxes levied and collected by the Centre but assigned to the States – Article 269\nii)Duties levied by the Centre but collected and appropriated by the States – Article 268\niii)Taxes levied and collected by the Centre and distributed between Centre and States/UTs –\nArticle 267",
+        "tamil": "சரியான இணையைத் தேர்ந்தெடு :\n1. மத்திய அரசால் விதிக்கப்பட்டு, வசூலிக்கப்பட்டு மாநிலங்களுக்கு ஒதுக்கக்\nகூடிய வளங்கள்\nஷரத்து 269\n\n2. மத்திய அரசால் விதிக்கப்பட்டு, ஆனால் மாநில அரசு வசூலிப்பது மற்றும்\nபயன்படுத்துவது\nஷரத்து 268\n\n3. மத்திய அரசால் விதிக்கப்பட்டு, வசூலிக்கப்பட்டு மாநிலங்கள் மற்றும் யூனியன்\nபிரதேசங்களுக்கு பகிர்ந்தளிக்கக்கூடிய வரிகள்\nஷரத்து 267"
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 46,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "What are the limitations on the sovereignty of the Indian Parliament?\ni)Fundamental Rights\nii)Judicial Review\niii)Federalism\niv)Written Constitution",
+        "tamil": "கீ ழ் சொல்லப்பட்டுள்ளவற்றுள் இந்திய பாராளுமன்றத்தின்\nஇறையாண்மைக்கு உள்ள வரம்புகள்\n\n1. அடிப்படை உரிமைகள்\n\n2. நீதிப்புணராய்வு\n\n3. கூட்டாட்சி\n\n4. எழுதப்பட்ட அரசியலமைப்பு"
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 47,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Money Bill:\ni)Cannot be introduced in Rajya Sabha.\nii)Must be certified by the Speaker.\niii)Can be amended by Rajya Sabha.\niv)Must be assented by the President without delay.\n Choose the correct statements:",
+        "tamil": "பண மசோதா:\n\nமாநிலங்களவையில் இதை அறிமுகப்படுத்த முடியாது 1.\n\nசபாநாயகரால் சான்றளிக்கப்பட வேண்டும் 2.\n\n3. மாநிலங்களவையால் திருத்தப்படலாம்\n\n4. குடியரசுத் தலைவர் தாமதமின்றி ஒப்புதல் அளிக்க வேண்டும்\n\nகீ ழே கொடுக்கப்பட்டுள்ளவை கொண்டு மேலுள்ள கூற்றுகளில் எவை\nசரியானவை எனத் தேர்ந்தெடுக்கவும் :"
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 59,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Choose the incorrect statement(s):\ni)The President is the Head of the Government.\nii)The Prime Minister is the real executive.\niii)Proportional representation is related to the Prime Minister's election.\niv)The executive power of the Union is vested in the President and is nominal.",
+        "tamil": "பிழையான கூற்றினைத் தேர்வு செய்க.\n\n1.குடியரசுத் தலைவர் அரசாங்கத்தின் தலைவராவார்\n\n2.பிரதமரே உண்மையான செயலாட்சியாளர்\n\n3. விகிதாச்சார பிரதிநிதித்துவ முறை பிரதமர் தேர்தலுடன் தொடர்புடையது\n\n4.ஒன்றியத்தின் செயலாட்சி அதிகாரம் குடியரசுத் தலைவருடையது,\nபெயரளவிலானது"
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 63,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Consider the following statements and find the INCORRECT ones:\ni)The Constitution imposes a time limit on the President to give assent to a bill passed by the\nlegislature.\nii)Under Article 143, the President can consult the Supreme Court regarding a withheld bill.\niii)The President has identical powers over bills passed by Parliament and State Legislatures.\n iv)The President cannot withhold assent indefinitely on a bill passed by Parliament.",
+        "tamil": "கீ ழ்க்கண்ட கூற்றுக்களைக் கருதவும், தவறான கூற்றுகளைக் கண்டறியவும்.\n\n1. சட்டமன்றம் இயற்றிய மசோதாவுக்கும் குடியரசு தலைவர் தன்னுடைய\nஇசைவைத் தர அரசியலமைப்புச் சட்டம் ஓர் எல்லையை வலியுறுத்தியுள்ளது\n\n2. சட்ட உறுப்பு 143-ன் கீ ழ் குடியரசு தலைவர் நிறுத்தி வைத்திருக்கும் மசோதா\nபற்றி உச்ச நீதிமன்றத்திடம் ஆலோசிக்கலாம்\n\n3. பாராளுமன்றம் மற்றும் சட்ட மன்றங்கள் இயற்றிய மசோதாக்கள் மீ து குடியரசு\nதலைவர் ஒரே மாதிரியான அதிகாரத்தை கொண்டிருக்கிறார்.\n\n4. பாராளுமன்றம் இயற்றிய மசோதா மீ து குடியரசு தலைவர், கால\nவரையறையின்றி ஒப்புதல் தராமல் வைத்திருக்க முடியாது."
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 64,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "The Veto power of the Indian President includes:\ni)Pocket Veto\nii)Absolute Veto\niii)Suspensive Veto\niv)Qualified Veto",
+        "tamil": "இந்திய குடியரசுத்தலைவரின் 'தடுப்பாணை' அதிகாரத்தில்\nஉள்ளடக்கியிருப்பது.\n\n1. பாக்கெட் தடுப்பாணை\n\n2. முழுமையான தடுப்பாணை\n\n3. இடைநீக்க தடுப்பாணை\n\n4. தகுதிவாய்ந்த தடுப்பாணை"
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 68,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Choose the correct clause added to Article 51-A through the 86th Constitutional Amendment\nAct:",
+        "tamil": "86-வது சட்டத்திருத்தம் மூலம் இந்திய அரசியலமைப்புச் சட்டத்தின் விதி 51-A\nல் சேர்க்கப்பட்ட சரியான சரத்தைக் கீ ழ்கண்டவற்றிலிருந்து தேர்ந்தெடுக்கவும்."
+      },
+      {
+        "field": "option_d",
+        "english": "Duty of parents to provide education to children between 6 to 14 years",
+        "tamil": "பெற்றோர் தங்கள் ஆறிலிருந்து பதிநான்கு வயது வரை உள்ள\nகுழந்தைகளுக்கான கல்வி வழங்குதல்"
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 79,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Which of the following is an INCORRECT pair?\ni)Abolition of Titles – Article 18\nii)Directive Principles superior to Fundamental Rights – Article 31B\niii)Abolition of Untouchability – Article 17\niv)Equality before law and equal protection – Article 14",
+        "tamil": "கீ ழ்காண்பவற்றில் எது தவறான இணை?\n\n1. பட்டங்கள் ஒழிப்பு-விதி 18\n\n2. அடிப்படை உரிமைகளை விட அரசு வழிகாட்டி நெறிமுறைகள். மேலானவை\n-விதி 31 B\n\n3.தீண்டாமை ஒழிப்பு-விதி 17\n\n4.சட்டத்திற்கு முன் அனைவரும் சமம் மற்றும் சமமான பாதுகாப்பு -விதி 14"
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 81,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Which of the following statement(s) is/are true regarding the Citizenship Amendment Act\n(CAA) 2019?\ni)Citizenship will be granted to all foreigners living in India for over 6 years.\nii)Citizenship to Hindus, Sikhs, Buddhists, Jains, Parsis, or Christians from Afghanistan,\nBangladesh, and Pakistan entering India before 31 Dec 2014.\niii)Citizenship granted within 6 years instead of 12 years for specified communities.\niv)CAA helps in preparing the National Register of Citizens.",
+        "tamil": "குடியுரிமை திருத்தச் சட்டம் (CAA) 2019 பற்றிய பின்வரும் கூற்றுகளில்\nஎது/எவை உண்மையானவை?\n\n1. இந்தியாவில் 6 ஆண்டுகளுக்கு மேல் வாழ்ந்த அனைத்து வெளிநாட்டினருக்கும்\nகுடியுரிமை வழங்கப்படும்\n\n2. ஆப்கானிஸ்தான், பங்களாதேஷ் மற்றும் பாகிஸ்தானில் இருந்து வந்து 31\nடிசம்பர் 2014க்கு முன் இந்தியாவிற்குள் நுழைந்த இந்துக்கள், சீக்கியர்கள்,\nபௌத்தர்கள், ஜைனர்கள், பார்சிகள் அல்லது கிறிஸ்துவ சமூகங்களின்\nஉறுப்பினர்களுக்கு குடியுரிமை\n\n3. குறிப்பிட்ட சமூகங்களைச் சேர்ந்தவர்களுக்கு 12 ஆண்டுகளுக்கு பதிலாக 6\nஆண்டுகளுக்குள் குடியுரிமை வழங்கப்படும்\n\n4. குடிமக்களின் தேசிய பதிவேட்டை தயாரிப்பதில் CAA உதவும்"
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 110,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Who is the present Legislative Assembly Speaker of Tamil Nadu (as of 2026 context)?",
+        "tamil": "தற்போது தமிழகத்தில் சட்டபேரவை சபாநாயகராக இருப்பவர்?"
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 115,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Match List I with List II and select the correct answer:\nList I\na. UPSC\nb. Planning Commission\nc. Finance Commission\nd. Election Commission\nList II\n Article 39\n  Article 315\n   Article 280\n    Article 324",
+        "tamil": "பட்டியல் | மற்றும் பட்டியல் II ஐ பொருத்தி கீ ழே கொடுக்கப்பட்டுள்ள சரியான\nவிடையை தேர்வு செய்க\n\nபட்டியல் |          பட்டியல் ||\n\na.யூ.பி.எஸ்.ஸி   1. ஷரத்து 39\n\nb. திட்டக்குழு   2. ஷரத்து 315\n\nC.நிதிக்குழு     3.ஷரத்து. 280\n\nd.தேர்தல் ஆணையம் 4. ஷரத்து 324"
+      },
+      {
+        "field": "option_a",
+        "english": "2 1 3 4",
+        "tamil": "2134"
+      },
+      {
+        "field": "option_b",
+        "english": "1 2 4 3",
+        "tamil": "1243"
+      },
+      {
+        "field": "option_c",
+        "english": "3 4 1 2",
+        "tamil": "3412"
+      },
+      {
+        "field": "option_d",
+        "english": "2 3 4 1",
+        "tamil": "2341"
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 117,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Which of the following is/are correct about Lok Sabha?\ni)Lok Sabha is generally called the Lower House of the Indian Parliament.\n ii)Members of Lok Sabha are directly elected by the people.\n iii)The 44th Amendment increased Lok Sabha strength to 454.",
+        "tamil": "மக்களலையைப் பற்றிக் கீ ழ்வருவனவற்றுள் எது/எவை சரியானது/\nசரியானவை?\n\nமக்களவை பொதுவாக இந்தியப் பாராளுமன்றத்தில் கீ ழவை என்று\nஅழைக்கப்படுகிறது\n\n2. மக்களலை உறுப்பினர்கள் நேரடியாக மக்களால் தேர்ந்தெடுக்கப்படுகிறார்கள்.\n\n3. 44வது சட்டதிருத்தத்தால் மக்களவை உறுப்பினர்களின் எண்ணிக்கையை 454\nஆக உயர்த்தியது"
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 120,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Examine the following statements:\ni)National Emergency has been proclaimed twice so far in India.\nii)President's Rule has been imposed maximum of 8 times in Kerala and Punjab.\niii)Financial Emergency has never been proclaimed in India so far.",
+        "tamil": "1. இதுவரை இந்தியாவில் 2 முறை தேசிய அவசர நிலை\nபிரகடனப்படுத்தப்பட்டுள்ளது.\n\n2. கேரளா மற்றும் பஞ்சாப் மாநிலங்களில் அதிகபட்சமாக 8 முறை குடியரசுத்\nதலைவர் ஆட்சி நடைமுறைப்படுத்தப்பட்டுள்ளது.\n\n3. நிதிநெருக்கடி நிலை இதுவரை இந்தியாவில் பிரகடனப்படுத்தப்படவில்லை.\n\nமேற்காணும் கூற்றுகளை ஆராய்க."
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 122,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Choose the correct matches regarding Directive Principles of State Policy:\ni)\"Life-giving provisions of the Constitution\" – L.M. Singhvi\nii)\"Paradise on earth\" – M.C. Setalvad\n\niii)\"Moral precept for state authorities\" – B.R. Ambedkar\niv)\"Fostering goals of social revolution\" – Granville Austin\nv)\"Manifesto of aims and aspirations\" – K.C. Wheare",
+        "tamil": "அரசு நெறிமுறைக் கோட்பாடுகள் குறித்த சரியான இணைகளைத்\nதேர்ந்தெடுக்கவும்:\n\n1. “அரசியலமைப்பின் உயிர்நாடி போன்ற விதிகள்” -எல்.எம். சிங்வி\n\n2. பூமியில் சொர்க்கம் -எம்.சி. செதல்வாட்\n\n3. அரசு அதிகாரிகளுக்கான தார்மீ க நெறிமுறைகள் - பி.ஆர். அம்பேத்கர்\n\n\n4.சமூகப் புரட்சியின் நோக்கத்தை முன்னெடுத்தல்-கிரான்வில் ஆஸ்டின்\n\n5. குறிக்கோள்கள் மற்றும் அபிலாஷைகளின் அறிக்கை-கே.சி. வேர்"
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 125,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Consider the following statements:\ni)Originally, Article 19 contained seven rights.\n ii)State can impose \"reasonable\" restrictions on Article 19 rights based on grounds mentioned in\n that article as well as other grounds.\n iii)Reasonable restrictions on Right to Assembly are imposed on two grounds: Sovereignty &\n Integrity of India, and Public Order.\n iv)Freedom of movement under Article 19 covers movement inside as well as outside the\n country.\n Select the correct statement(s):",
+        "tamil": "பின்வரும் கூற்றுகளைக் கருத்தில் கொள்க\n1. தொடக்கத்தில், பிரிவு 19 ஏழு உரிமைகளைக் கொண்டிருந்தது\n\n2. பிரிவு 19-ல் உள்ள உரிமைகளை அனுபவிப்பதன் மீ து, அப்பிரிவிலேயே\nகுறிப்பிடப்பட்டுள்ள காரணங்கள் மற்றும் வேறு ஏதேனும் காரணங்கள் ஆகிய\nஇரண்டின் அடிப்படையிலும் அரசு \"நியாயமான\" கட்டுப்பாடுகளை விதிக்கலாம்\n\n3. கூடும் உரிமைக்கான (assembly) நியாயமான கட்டுப்பாடுகள் இரண்டு\nகாரணங்களின் அடிப்படையில் விதிக்கப்படுகின்றன இந்தியாவின்\nஇறையாண்மை மற்றும் ஒருமைப்பாடு மற்றும் பொது ஒழுங்கு\n\n4. பிரிவு 19-ல் உள்ள நடமாடும் சுதந்திரம், நாட்டிற்குள்ளும் நாட்டிற்கு\nவெளியேயும்\nநடமாடும் உரிமையைக் கையாள்கிறது\n\nசரியான கூற்றைத் தேர்ந்தெடுக்கவும்:"
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 128,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Consider the following statements regarding the Fazal Ali Commission:\ni)It was a three-member committee consisting of Fazal Ali, Panikkar, and Kunzru.\nii)It was based on linguistic and cultural homogeneity.\niii)It rejected the theory of \"One Language, One State\".\niv)Recommended abolition of the 4-fold classification of states/territories.\nChoose the correct statements:",
+        "tamil": "ஃபசல் அலி ஆணையம் தொடர்பான பின்வரும் கூற்றுகளைக் கருத்தில்\nகொள்க:\n\n1. ஃபசல் அலி, பணிக்கர் மற்றும் குன்ஸ்ட் ஆகிய மூவர் கொண்ட குழு.\n\n2. மொழி மற்றும் கலாச்சார ஒருமைப்பாட்டை அடிப்படையாக கொண்டது\n3. \"ஒரு மொழி\" \"ஒரு மாநிலம்\" என்ற கோட்பாட்டை நிராகரித்தது.\n\n4. மாநிலங்கள்.மற்றும் பிரதேசங்களின் முப்பிரிவு வகைப்பாட்டை ஒழிக்கப்\nபரிந்துரைத்தது.\n\nசரியான கூற்றுகளை தேர்க"
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 129,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Consider the following statements:\ni. Formation of new states is not considered a constitutional amendment under Article 368.\nii. Parliament's power to diminish state area under Article 3 includes power to cede Indian\nterritory to a foreign country.\niii. India is correctly described as an \"Indestructible Union of Destructible States\".\niv. Settlement of a boundary dispute between India and another country requires a constitutional\namendment.\nChoose the correct statements:",
+        "tamil": "பின்வரும் கூற்றுகளைக் கருத்தில் கொள்க\n\n1. புதிய மாநிலங்களை உருவாக்குவது, அரசியலமைப்புச் சட்டம் பிரிவு 368-ன் கீ ழ்\nஅரசியலமைப்புத் திருத்தமாகக் கருதப்படாது.\n\nii. பிரிவு 3-ன் கீ ழ் ஒரு மாநிலத்தின் பரப்பளவைக் குறைப்பதற்கான\nநாடாளுமன்றத்தின் அதிகாரத்தில், இந்தியப் பகுதியை ஒரு வெளிநாட்டிற்கு\nவிட்டுக்கொடுக்கும் அதிகாரமும் அடங்கும்.\n\niii. இந்தியா \"பிரிக்கக்கூடிய மாநிலங்களின் பிரிக்க முடியாத ஒன்றியம்\" என்று\nசரியாக விவரிக்கப்படுகிறது.\n\niv. இந்தியாவுக்கும் மற்றொரு நாட்டிற்கும் இடையிலான எல்லைப்\nபிரச்சனையைத் தீர்ப்பதற்கு அரசியலமைப்புத் திருத்தம் தேவைப்படுகிறது.\n\nசரியான கூற்றுகளை தேர்க"
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 135,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Consider the following statements regarding the Drafting Committee:\ni)The Drafting Committee had 7 members including the Chairman.\nii)N. Madhava Rau replaced B.L. Mitter.\niii)T.T. Krishnamachari replaced D.P. Khaitan.\niv)The Drafting Committee took more than 6 months to prepare its draft.\nSelect the correct statements:",
+        "tamil": "வரைவுக் குழு (Drafting Committee) பற்றிய பின்வரும் கூற்றுகளைக் கருத்தில்\nகொள்க\n\n1. வரைவுக் குழுவில் தலைவர் உட்பட 7 உறுப்பினர்கள் இருந்தனர்.\n\n2. N. மாதவ ராவ், B.L. மிட்டருக்குப் பதிலாக நியமிக்கப்பட்டார்.\n\n3. T.T. கிருஷ்ணமாச்சாரி, D.P. கைதான்க்கு பதிலாக நியமிக்கப்பட்டார்.\n\n4. வரைவுக் குழு தனது வரைவைத் தயாரிக்க 6 மாதங்களுக்கும் மேலான\nகாலத்தை எடுத்துக்கொண்டது.\n\nசரியான கூற்றுகளைத் தேர்ந்தெடுக்கவும்."
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 136,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "How many pairs are correctly matched regarding the Government of India Act 1935?\nFederal List – 59 items\n Provincial List – 53 items\n  Concurrent List – 36 items",
+        "tamil": "1935-ஆம் ஆண்டின் இந்திய அரசுச் சட்டம் தொடர்பாகப் பின்வருவனவற்றில்\nஎத்தனை\n\nஇணைகள் சரியானவை என்பதைக் கண்டறியவும்.\n\n1. மத்தியப் பட்டியல் (Federal list) 59 இனங்கள்\n\n2. மாகாணப் பட்டியல் (Provincial list) 53 இனங்கள்\n\n3. பொதுப் பட்டியல் (Concurrent list) 36 இனங்கள்"
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 137,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Select the INCORRECT statement regarding qualifications for a Legislative Assembly\nmember:\ni)Must be a citizen of India.\nii)Must make an oath/affirmation before a person authorized by Election Commission.\niii)Must not be less than 30 years of age.\niv)Must possess other qualifications prescribed by Parliament/Legislature.",
+        "tamil": "சட்டமன்ற உறுப்பினருக்கான தகுதிகள் குறித்த தவறான கூற்றைத்\nதேர்ந்தெடுக்கவும்:\n1. அவர் இந்தியக் குடிமகனாக இருக்க வேண்டும்\n\n2. தேர்தல் ஆணையத்தால் அங்கீ கரிக்கப்பட்ட நபர் முன்னிலையில் உறுதிமொழி\nஅல்லது உறுதிப்பிரமாணம் ஏற்க வேண்டும்\n\n4. சட்டமன்றத்தால் நிர்ணயிக்கப்பட்ட பிற தகுதிகளைக் கொண்டிருக்க\nவேண்டும்.\n\n3. 30 வயதுக்குக் குறையாதவராக இருக்க வேண்டும்"
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 139,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Examine the following statements:\ni)Chief Minister must be a member of the State Legislature.\nii)If not a member at the time of appointment, must become a member within 12 months.\niii)The tenure of Chief Minister is fixed at 5 years.\nWhich of the above statements is/are correct?",
+        "tamil": "பின்வரும் கூற்றுகளை ஆய்க.\n\n1. முதலமைச்சர் மாநில சட்டமன்ற உறுப்பினராக இருக்க வேண்டும்.\n\n2. முதலமைச்சர் நியமனத்தின் போது சட்டமன்ற உறுப்பினராக இல்லையெனில்,\n12 மாதங்களுக்குள் சட்டமன்ற உறுப்பினராக வேண்டும்.\n\n3. முதலமைச்சரின் பதவிக்காலம் 5 ஆண்டுகளாக நிர்ணயிக்கப்பட்டுள்ளது.\n\nமேற்கூறிய கூற்றுகளில் சரியானது/வை எது/எவை?"
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 140,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Which of the following pairs are INCORRECTLY matched?\ni)Starred Question – Member desires an oral answer\nii)Unstarred Question – Supplementary questions can be asked later\niii)Short Notice Question – Asked giving notice of less than 10 days\niv)Starred Question – Only 50 questions listed for oral answers",
+        "tamil": "பின்வரும் இணைகளுள் தவறாக பொருந்தி உள்ளனவை?\n1. நட்சத்திரமிட்ட கேள்வி- ஒரு உறுப்பினர் வாய்வழி பதிலை விரும்புகிறார்\n\n2. நட்சத்திரமிடப்படாத கேள்வி -கூடுதல் கேள்விகளை பின்னர் கேட்கலாம்\n\n3. குறுகிய கால கேள்வி -10 நாட்களுக்கும் குறைவான கால அவகாசம்\nஅளித்துகேட்கப்பட்டது\n\n4.நட்சத்திரமிட்ட கேள்வி -50 கேள்விகள் மட்டுமே வாய்வழி பதிலுக்கு\nபட்டியலிடப்படும்"
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 142,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "option_a",
+        "english": "1/3rd",
+        "tamil": "மூன்றில் ஒரு பங்கு"
+      },
+      {
+        "field": "option_b",
+        "english": "1/4th",
+        "tamil": "நான்கில் ஒரு பங்கு"
+      },
+      {
+        "field": "option_c",
+        "english": "1/5th",
+        "tamil": "ஐந்தில் ஒரு பங்கு"
+      },
+      {
+        "field": "option_d",
+        "english": "1/6th",
+        "tamil": "ஆறில் ஒரு பங்கு"
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 143,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Which of the following features were borrowed from the British Constitution?\ni)Prerogative writs\nii)Rule of Law\niii)Impeachment of President\niv)Judicial Review",
+        "tamil": "பின்வருவனவற்றுள் பிரிட்டனிடமிருந்து பெறப்பட்ட அரசமைப்பு முறைகள்\nஎவை?\n\n1. இடைக்கால தடையாணைகள்\n\n2. சட்டத்தின் ஆட்சி\n\n3. குடியரசுத்தலைவர் மீ தான பதவிநீக்க தீர்மானம்\n\n4. நீதி சீராய்வு"
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 145,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "option_a",
+        "english": "22 April 1954",
+        "tamil": "1954ஆம் ஆண்டு, ஏப்ரல் 22ஆம் நாள்"
+      },
+      {
+        "field": "option_b",
+        "english": "24 April 1954",
+        "tamil": "1954ஆம் ஆண்டு, ஏப்ரல் 24ஆம் நாள்"
+      },
+      {
+        "field": "option_c",
+        "english": "26 April 1954",
+        "tamil": "1954ஆம் ஆண்டு, ஏப்ரல் 26ஆம் நாள்"
+      },
+      {
+        "field": "option_d",
+        "english": "28 April 1954",
+        "tamil": "1954ஆம் ஆண்டு, ஏப்ரல் 28ஆம் நாள்"
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 149,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Choose the correct statement(s):\ni)The final session of the Constituent Assembly met on 24.01.1950 to sign/approve the\nConstitution.\nii)Dr. Rajendra Prasad presided.\niii)The debates of Constituent Assembly from 9 Dec 1946 to 24 Jan 1950 consist of 12 volumes.",
+        "tamil": "பின்வருவனவற்றுள் சரியான விடையைத்தேர்ந்தெடு. அரசமைப்பு\nநிர்ணயசபையின் இறுதி நிகழ்வான அரசமைப்பிற்கு ஒப்புதல் தருவதற்காக சபை\n24.01.1949 அன்று கூடியது.\n\n2. டாக்டர் ராஜேந்திர பிரசாத் தலைமையேற்றார்.\n\n3. 9 டிசம்பர் 1946 முதல் 24 ஜனவரி 1950 வரை அரசமைப்பு நிர்ணயச்சபையில்\nநிகழ்ந்த விவாதங்களின் தொகுப்பு 12 தொகுதிகளைக்கொண்டதாகும்."
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 155,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "option_a",
+        "english": "Part-XIV",
+        "tamil": "பகுதி-14"
+      },
+      {
+        "field": "option_b",
+        "english": "Part-XV",
+        "tamil": "பகுதி-15"
+      },
+      {
+        "field": "option_c",
+        "english": "Part-XVI",
+        "tamil": "பகுதி-16"
+      },
+      {
+        "field": "option_d",
+        "english": "Part-XVII",
+        "tamil": "பகுதி-17"
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 160,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Choose the correct statement:\ni)When the President is unable to discharge duties due to illness or absence, the Vice-President\ndischarges President's functions.\nii)In case of resignation, death, or removal of President, Vice-President acts as President for a\n maximum period of 6 months.",
+        "tamil": "சரியான கூற்றைத் தேர்ந்தெடு.\n\n1. குடியரசுத்தலைவர் உடல்நலக்குறைவால் தனது கடமைகளை ஆற்ற\nஇயலாதபோதும் அல்லது நாட்டில் இல்லாத போதும்\nதுணைக்குடியரசுத்தலைவர் குடியரசுத்தலைவரின் பணிகளைக் கவனிப்பார்.\n\n2. குடியரசுத்தலைவர் பதவித்துறப்பு, இறப்பு, அரசியலமைப்பை மீ றிய\nகுற்றச்சாட்டின் மூலம் பதவி நீக்கும் போது துணைக்குடியரசுத்தலைவர்\nஅதிகபட்சமாக 6 மாத காலத்திற்கு அவர் பணிகளைக் கவனிப்பார்."
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 166,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "option_b",
+        "english": "8 Schedules, 1 Preamble (22 Parts), 395 Articles",
+        "tamil": "8 அட்டவணைகள், 23 முகவுரை, 395 சட்டப்பிரிவுகள்"
+      },
+      {
+        "field": "option_d",
+        "english": "8 Schedules, 1 Preamble (22 Parts), 395 Articles",
+        "tamil": "8 அட்டவணைகள், 22 முகவுரை, 395 சட்டப்பிரிவுகள்"
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 172,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Which Article deals with the creation or abolition of Legislative Councils in States?",
+        "tamil": "மாநிலங்களில் சட்ட மேலவைகளை (Legislative Councils) 25 அல்லது நீக்குதல்\nபற்றிக் கூறும் விதி எது?"
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 174,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "option_a",
+        "english": "Article 243I",
+        "tamil": "விதி 2431"
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 180,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Which of the following statements is/are correct?\nA person cannot change nationality.\n A person can change citizenship.\n\nA person can change nationality.\n A person cannot change citizenship.",
+        "tamil": "கீ ழ்காணும் கூற்றுகளில் எது சரியானது\n\n1.ஒருவர் தனது நாட்டுரிமையை மாற்ற முடியாது\n2.ஒருவர் தனது குடியுரிமையை மாற்ற முடியும்.\n3. ஒருவர் தனது நாட்டுரிமையை மாற்ற முடியும்.\n4. ஒருவர் தனது குடியுரிமையை மாற்ற முடியாது."
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 185,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Choose the incorrect statement(s):\ni)The term of office of President is 5 years.\nii)A person previously elected as President is eligible for re-election.\niii)President is directly elected by the people.",
+        "tamil": "கீ ழ்க்கண்டவற்றுள் தவறானவற்றைத் தேர்ந்தெடுக்க.\n1. குடியரசுத்தலைவரின் பதவிக்காலம் 5 ஆண்டுகள்\n2. ஏற்கனவே குடியரசுத்தலைவராக தேர்ந்தெடுக்கப்பட்ட ஒருவர் மீ ண்டும்\nதேர்ந்தெடுக்கப்பட தகுதியுடையவராவர்.\n3. குடியரசுத்தலைவர் மக்களால் நேரடியாக தேர்ந்தெடுக்கப்படுகிறார்."
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 187,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Which of the following statements about the President is/are correct?\ni)Executive Head of Central Government and nominal executive.\nii)Holds responsibility to constitute judiciary.",
+        "tamil": "கீ ழ்க்கண்டவற்றில் குடியரசுத்தலைவரைப் பற்றிய கூற்றுகளில் சரியானவை\nஎவை?\n\nநிர்வாகத்தலைவர் 1. மத்திய அரசின் நிர்வாகத்தலைவர் மற்றும் பெயரளவில்\nநிர்வாகம் பெற்றவர்.\n\n2. நீதித்துறையை அமைக்கும் பொறுப்பை பெற்றவர்."
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 189,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Select the correct statement:\ni)High Courts are highest courts at state level, yet function under guidance and supervision of\nSupreme Court.\nii)Every High Court consists of a Chief Justice and other judges. The number varies from state\nto state.\niii)The number of High Court judges is determined by the Governor.",
+        "tamil": "கீ ழ்க்கண்டவற்றில் சரியான கூற்றைத் தேர்ந்தெடு.\n\n1. மாநில அளவில் உயர்நீதிமன்றங்களே மிக உயர்ந்த நீதிமன்றங் களாகும்,\nஇருப்பினும் உச்சநீதிமன்றங்களின் வழிகாட்டுதல்கள் மற்றும் மேற்பார்வையின்\nகீ ழ் உயர் நீதிமன்றங்கள் செயல்படுகின்றன.\n\n2. ஒவ்வொரு நீதிமன்றமும் தலைமை நீதிபதி மற்றும் பல நீதிபதிகளைக்\nகொண்டுள்ளது. உயர்நீதிமன்ற நீதிபதிகளின் எண்ணிக்கை மாநிலத்திற்கு\nமாநிலம் வேறுபடும்.\n\n3. உயர்நீதிமன்ற நீதிபதிகளின் எண்ணிக்கை ஆளுநரால்\nதீர்மானிக்கப்படுகிறது."
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 190,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Select the correct answer:\ni)The Constitution guarantees as a basic principle that every individual enjoys certain\nfundamental rights.\nii)In Part III of Indian Constitution, clauses for fundamental rights are stated.\niii)Fundamental Rights are categorized under 7 heads.",
+        "tamil": "பின்வருவனவற்றுள் சரியான விடையைத்தேர்ந்தெடு.\n\n1. ஒவ்வொரு தனிநபரும் குறிப்பிட்ட அடிப்படை உரிமைகளை அனுபவிப்பதை\nஅடிப்படைக் கொள்கையாக அரசமைப்பு உறுதிப்படுத்தியுள்ளது.\n\n2. இந்திய அரசமைப்பு, பகுதி III இல், அடிப்படை உரிமைகளுக்கான பிரிவுகள்\nகுறிப்பிடப்பட்டுள்ளன.\n\n3. அடிப்படை உரிமைகள் 7 தலைப்புகளில் வகைப்படுத்தப்பட்டுள்ளன."
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 192,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Choose the INCORRECT statement regarding powers and duties of Cabinet: i)Annual\nBudget is finalized by Cabinet and it prepares plan report to meet state expenditure.\nii)When a bill is introduced in legislature, it decides whether it is ordinary bill or money bill.",
+        "tamil": "அமைச்சரவையின் அதிகாரங்கள் மற்றும் பணிகளில் பற்றிய கூற்றில்\nதவறானதைத் தேர்ந்தெடு.\n\n1. ஆண்டு வரவு செலவுத்திட்டம் அமைச்சரவையால் இறுதி செய்யப்படுகிறது.\nமாநிலத்தின் செலவுகளைச் சமாளிக்க திட்ட அறிக்கையை உருவாக்குகிறது.\n\n2. ஒரு மசோதா சட்டமன்றத்தில் அறிமுகப்படுத்தப்படும் போது அது சாதாரண\nமசோதாவா அல்லது நிதி மசோதாவா எனத் தீர்மானிக்கிறது"
+      }
+    ]
+  },
+  {
+    "test": "Polity Full Test",
+    "number": 196,
+    "review": "Numerical text differs across supplied languages; may be translation formatting or a source discrepancy.",
+    "fields": [
+      {
+        "field": "question",
+        "english": "Select the INCORRECT statement:\ni)Money Bill can be introduced in Legislative Assembly only with prior permission of Governor.\nii) Financial grant cannot be made without Governor's recommendation.\niii)Governor cannot allocate funds from Contingency Fund for unforeseen expenses.",
+        "tamil": "கீ ழ்க்காணும் கூற்றுகளில் தவறான கூற்றைத் தேர்ந்தெடு.\n\n1. ஆளுநரின் முன் அனுமதியுடன் தான் பணமசோதாவை சட்டமன்றத்தில்\nஅறிமுகப்படுத்த முடியும். ஆளுநரின் பரிந்துரையின்றி நிதி ஒதுக்கீ டு செய்ய\nமுடியாது.\n\n2. அரசின் எதிர்பாராச் செலவினங்களுக்காக ஆளுநர் அவசர நிதியிலிருந்து நிதி\nஒதுக்கீ டு செய்ய முடியாது."
+      }
+    ]
+  }
+]

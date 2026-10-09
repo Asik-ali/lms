@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import { createClient } from '@supabase/supabase-js';
+if (fs.existsSync('imports/polity/bilingual-receipt.json')) throw new Error('Polity tests have been merged. Use merge-polity-tests.mjs; do not recreate separate language tests.');
 
 const env = Object.fromEntries(fs.readFileSync('.env', 'utf8').split(/\r?\n/).flatMap(line => {
   const match = line.match(/^\s*([\w]+)\s*=\s*(.*)\s*$/);
