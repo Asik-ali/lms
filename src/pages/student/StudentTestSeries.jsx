@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { getAllTestSeries, getCategoriesBySeries, getTestsByCategoryId } from '../../data/dynamicStore';
 import { useAuth } from '../../contexts/AuthContext';
 import { supabase } from '../../supabase/client';
+import TestExperienceHeader from '../../components/test/TestExperienceHeader';
 
 function normalizeAccess(value) {
   if (!value) return [];
@@ -88,8 +89,8 @@ export default function StudentTestSeries() {
   ].filter(Boolean);
 
   return (
-    <div className="space-y-6">
-      <h1 className="text-2xl font-bold text-navy-100">Test Series</h1>
+    <div className="test-experience space-y-6">
+      <TestExperienceHeader title="Test Series" subtitle="Choose your next challenge. Practice at your pace and track every step forward." />
 
       {breadcrumb.length > 1 && (
         <nav className="flex items-center gap-1 text-sm text-navy-200 flex-wrap">

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { FolderOpen, FileText, ChevronRight, Clock, Target, Globe, BadgeCheck } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { getFreeTestSeries, getCategoriesBySeries, getTestsByCategoryId } from '../../data/dynamicStore';
+import TestExperienceHeader from '../../components/test/TestExperienceHeader';
 
 export default function StudentFreeTestSeries() {
   const navigate = useNavigate();
@@ -63,11 +64,8 @@ export default function StudentFreeTestSeries() {
   ].filter(Boolean);
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center gap-2">
-        <h1 className="text-2xl font-bold text-navy-100">Free Test Series</h1>
-        <span className="px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 text-xs font-medium">Free</span>
-      </div>
+    <div className="test-experience space-y-6">
+      <TestExperienceHeader title="Free Test Series" subtitle="Build confidence with free practice tests. Pick a subject and get started." />
 
       {breadcrumb.length > 1 && (
         <nav className="flex items-center gap-1 text-sm text-navy-200 flex-wrap">

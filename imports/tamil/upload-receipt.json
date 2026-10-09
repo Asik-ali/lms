@@ -1,0 +1,96 @@
+{
+  "seriesId": 8,
+  "seriesName": "தமிழ் — அலகு வாரியான தேர்வுகள்",
+  "tests": [
+    {
+      "source": "அலகு 2 - சொல்லகராதி (i)(2).txt",
+      "testId": 35,
+      "categoryId": 21,
+      "language": "Tamil",
+      "status": "Draft",
+      "questions": 100,
+      "answers": 100,
+      "reviewFlags": 56
+    },
+    {
+      "source": "அலகு 2. சொல்லகராதி (ii) (iii)(2).txt",
+      "testId": 36,
+      "categoryId": 21,
+      "language": "Tamil",
+      "status": "Draft",
+      "questions": 100,
+      "answers": 100,
+      "reviewFlags": 45
+    },
+    {
+      "source": "அலகு 3 முழு தேர்வு(2).txt",
+      "testId": 37,
+      "categoryId": 22,
+      "language": "Tamil",
+      "status": "Draft",
+      "questions": 100,
+      "answers": 100,
+      "reviewFlags": 36
+    },
+    {
+      "source": "அலகு 3-எழுதும் திறன் ( i)(2).txt",
+      "testId": 38,
+      "categoryId": 22,
+      "language": "Tamil",
+      "status": "Draft",
+      "questions": 100,
+      "answers": 100,
+      "reviewFlags": 31
+    },
+    {
+      "source": "அலகு 4-முழு தேர்வு(2).txt",
+      "testId": 39,
+      "categoryId": 23,
+      "language": "Tamil",
+      "status": "Draft",
+      "questions": 100,
+      "answers": 100,
+      "reviewFlags": 66
+    },
+    {
+      "source": "தமிழ் - இலக்கணம் i)எழுத்து(2).txt",
+      "testId": 40,
+      "categoryId": 24,
+      "language": "Tamil",
+      "status": "Draft",
+      "questions": 100,
+      "answers": 100,
+      "reviewFlags": 33
+    },
+    {
+      "source": "தமிழ் -இலக்கணம் (full)(2).txt",
+      "testId": 41,
+      "categoryId": 24,
+      "language": "Tamil",
+      "status": "Draft",
+      "questions": 100,
+      "answers": 100,
+      "reviewFlags": 43
+    },
+    {
+      "source": "தமிழ் -இலக்கணம் ii) சொல்(2).txt",
+      "testId": 42,
+      "categoryId": 24,
+      "language": "Tamil",
+      "status": "Draft",
+      "questions": 100,
+      "answers": 100,
+      "reviewFlags": 58
+    },
+    {
+      "source": "தமிழ் அலகு 2 (முழு தேர்வு)(2).txt",
+      "testId": 43,
+      "categoryId": 21,
+      "language": "Tamil",
+      "status": "Draft",
+      "questions": 100,
+      "answers": 100,
+      "reviewFlags": 46
+    }
+  ]
+}

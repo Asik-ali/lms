@@ -3,7 +3,7 @@
     {
       "source": "அலகு 2 - சொல்லகராதி (i)(2).txt",
       "questionCount": 100,
-      "missingAnswers": 100,
+      "missingAnswers": 0,
       "issues": [
         {
           "number": 1,
@@ -234,7 +234,7 @@
     {
       "source": "அலகு 2. சொல்லகராதி (ii) (iii)(2).txt",
       "questionCount": 100,
-      "missingAnswers": 100,
+      "missingAnswers": 0,
       "issues": [
         {
           "number": 1,
@@ -421,7 +421,7 @@
     {
       "source": "அலகு 3 முழு தேர்வு(2).txt",
       "questionCount": 100,
-      "missingAnswers": 100,
+      "missingAnswers": 0,
       "issues": [
         {
           "number": 2,
@@ -572,7 +572,7 @@
     {
       "source": "அலகு 3-எழுதும் திறன் ( i)(2).txt",
       "questionCount": 100,
-      "missingAnswers": 100,
+      "missingAnswers": 0,
       "issues": [
         {
           "number": 4,
@@ -703,7 +703,7 @@
     {
       "source": "அலகு 4-முழு தேர்வு(2).txt",
       "questionCount": 100,
-      "missingAnswers": 100,
+      "missingAnswers": 0,
       "issues": [
         {
           "number": 4,
@@ -974,7 +974,7 @@
     {
       "source": "தமிழ் - இலக்கணம் i)எழுத்து(2).txt",
       "questionCount": 100,
-      "missingAnswers": 100,
+      "missingAnswers": 0,
       "issues": [
         {
           "number": 1,
@@ -1113,7 +1113,7 @@
     {
       "source": "தமிழ் -இலக்கணம் (full)(2).txt",
       "questionCount": 100,
-      "missingAnswers": 100,
+      "missingAnswers": 0,
       "issues": [
         {
           "number": 4,
@@ -1292,7 +1292,7 @@
     {
       "source": "தமிழ் -இலக்கணம் ii) சொல்(2).txt",
       "questionCount": 100,
-      "missingAnswers": 100,
+      "missingAnswers": 0,
       "issues": [
         {
           "number": 1,
@@ -1531,7 +1531,7 @@
     {
       "source": "தமிழ் அலகு 2 (முழு தேர்வு)(2).txt",
       "questionCount": 100,
-      "missingAnswers": 100,
+      "missingAnswers": 0,
       "issues": [
         {
           "number": 1,

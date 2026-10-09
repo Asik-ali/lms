@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { supabase } from '../../supabase/client';
 import { saveResponse, getResponses, submitAttempt } from '../../data/dynamicStore';
 import { localizeQuestion, orderQuestions, questionTranslation } from '../../data/bilingualQuestions';
+import QuestionLanguageSwitch from '../../components/test/QuestionLanguageSwitch';
 import { showSuccess, showError } from '../../components/common/Toast';
 import {
   Clock, ChevronLeft, ChevronRight, AlertTriangle,
@@ -343,7 +344,7 @@ export default function StudentTestTaking() {
   const isLowTime = timeLeft <= 300 && timeLeft > 0;
 
   return (
-    <div className="min-h-screen bg-navy-800 flex flex-col">
+    <div className="test-taking min-h-screen bg-navy-950 flex flex-col">
       <header className="bg-surface border-b border-navy-700 sticky top-0 z-30 shadow-sm">
         <div className="max-w-[1600px] mx-auto px-3 sm:px-4 min-h-14 py-2 flex flex-wrap items-center justify-between gap-2 sm:gap-4">
           <div className="flex items-center gap-3 min-w-0">
@@ -369,20 +370,12 @@ export default function StudentTestTaking() {
           </div>
 
           {questionTranslation(questions[currentIdx]) && (
-            <div className="flex gap-1" role="group" aria-label="Question language">
-              {['English', 'Tamil'].map(language => (
-                <button key={language} type="button" aria-pressed={questionLanguage === language}
-                  onClick={() => setQuestionLanguage(language)}
-                  className={`px-3 py-2 rounded-lg text-sm font-medium ${questionLanguage === language ? 'bg-navy-600 text-white' : 'bg-navy-800 text-navy-100'}`}>
-                  {language === 'Tamil' ? 'தமிழ்' : 'English'}
-                </button>
-              ))}
-            </div>
+            <QuestionLanguageSwitch value={questionLanguage} onChange={setQuestionLanguage} />
           )}
           <button
             disabled={submitting}
             onClick={() => setShowSubmitConfirm(true)}
-            className="px-4 py-2 bg-navy-600 text-white text-sm font-medium rounded-lg hover:bg-navy-700 dark:hover:bg-[#0D4FB5] transition-colors flex-shrink-0"
+            className="px-4 py-2.5 bg-blue-700 dark:bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-800 dark:hover:bg-blue-500 transition-colors flex-shrink-0 disabled:opacity-50"
           >
             Submit Test
           </button>
@@ -395,7 +388,7 @@ export default function StudentTestTaking() {
             <div className="bg-surface rounded-xl shadow-sm border border-navy-700 overflow-hidden">
               <div className="px-5 py-3 border-b border-navy-700 bg-navy-800/60 flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-navy-600 text-white text-sm font-bold">
+                  <span className="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-blue-700 dark:bg-blue-600 text-white text-sm font-bold">
                     Q{currentIdx + 1}
                   </span>
                   <div className="flex items-center gap-2">
@@ -457,8 +450,8 @@ export default function StudentTestTaking() {
                     </div>
                   </div>
                 ) : (
-                  <div className="prose prose-sm max-w-none text-navy-100">
-                    <p className="whitespace-pre-wrap">{currentQuestion.question}</p>
+                  <div className="max-w-none text-navy-100">
+                    <p lang={questionLanguage === 'Tamil' ? 'ta' : 'en'} className="whitespace-pre-wrap text-base sm:text-lg leading-loose">{currentQuestion.question}</p>
                   </div>
                 )}
               </div>
@@ -477,16 +470,16 @@ export default function StudentTestTaking() {
                       onClick={() => handleSelectOption(label)}
                       className={`flex items-center gap-4 p-4 rounded-xl border-2 transition-all text-left ${
                         isSelected
-                          ? 'border-navy-500 bg-navy-50 dark:bg-navy-500/10 ring-2 ring-navy-200'
+                          ? 'border-blue-600 dark:border-blue-400 bg-blue-50 dark:bg-blue-400/10 ring-2 ring-blue-600/15 dark:ring-blue-400/20'
                           : 'border-navy-700 bg-surface hover:border-navy-500 hover:bg-navy-700/60'
                       }`}
                     >
                       <span className={`flex items-center justify-center w-10 h-10 rounded-full text-sm font-bold flex-shrink-0 ${
-                        isSelected ? 'bg-navy-600 text-white' : 'bg-navy-800 text-navy-100'
+                        isSelected ? 'bg-blue-700 dark:bg-blue-600 text-white' : 'bg-navy-900 text-navy-100'
                       }`}>
                         {label}
                       </span>
-                      <span className={`text-sm font-medium ${isSelected ? 'text-navy-600 dark:text-navy-300' : 'text-navy-100'}`}>
+                      <span lang={questionLanguage === 'Tamil' ? 'ta' : 'en'} className={`text-base leading-relaxed font-medium ${isSelected ? 'text-blue-900 dark:text-blue-100' : 'text-navy-100'}`}>
                         {optionText || `Option ${label}`}
                       </span>
                       {isSelected && <CheckCircle className="w-5 h-5 text-navy-600 dark:text-navy-300 ml-auto flex-shrink-0" />}

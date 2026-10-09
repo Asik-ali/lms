@@ -4,6 +4,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import { supabase } from '../../supabase/client';
 import { getAttempt, getResponses, reportQuestion } from '../../data/dynamicStore';
 import { localizeQuestion, orderQuestions, questionTranslation } from '../../data/bilingualQuestions';
+import QuestionLanguageSwitch from '../../components/test/QuestionLanguageSwitch';
 import { showSuccess, showError } from '../../components/common/Toast';
 import {
   BarChart3,
@@ -455,14 +456,7 @@ export default function StudentTestResult() {
           {/* Questions List */}
           <div className="flex-1 space-y-6">
             {questions.some(q => questionTranslation(q)) && (
-              <div className="flex gap-2" role="group" aria-label="Solution language">
-                {['English', 'Tamil'].map(language => (
-                  <button key={language} type="button" aria-pressed={questionLanguage === language}
-                    onClick={() => setQuestionLanguage(language)} className="btn-secondary">
-                    {language === 'Tamil' ? 'தமிழ்' : 'English'}
-                  </button>
-                ))}
-              </div>
+              <QuestionLanguageSwitch value={questionLanguage} onChange={setQuestionLanguage} />
             )}
             {questions.map((originalQuestion, idx) => {
               const q = localizeQuestion(originalQuestion, questionLanguage);

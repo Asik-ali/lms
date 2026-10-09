@@ -55,9 +55,16 @@ function category(name) {
 }
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const sourceDirectory = 'imports/tamil/source';
+  const answerKeys = fs.existsSync('imports/tamil/answer-keys.json') ? JSON.parse(fs.readFileSync('imports/tamil/answer-keys.json', 'utf8')) : {};
   const papers = fs.readdirSync(sourceDirectory).filter(name => name.endsWith('.txt')).sort().map(source => {
     const raw = fs.readFileSync(path.join(sourceDirectory, source), 'utf8');
     const questions = parsePaper(raw);
+    const key = answerKeys[source];
+    if (key) {
+      const answers = key.answers.trim().split(/\s+/);
+      if (answers.length !== questions.length || answers.some(answer => !/^[A-D]$/.test(answer))) throw new Error(`Invalid answer key: ${source}`);
+      questions.forEach((question, index) => { question.correct_answer = answers[index]; });
+    }
     const issues = questions.flatMap(question => {
       const text = [question.question, question.option_a, question.option_b, question.option_c, question.option_d].join('\n');
       const flags = [];
@@ -66,10 +73,10 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
       if ([question.option_a, question.option_b, question.option_c, question.option_d].some((option, index, options) => options.indexOf(option) !== index)) flags.push('Repeated option text; check source');
       return flags.map(issue => ({ number: question.number, issue }));
     });
-    return { source, name: source.replace(/\(2\)\.txt$/, '').trim(), category: category(source), language: 'Tamil', questions, issues, answerKeyStatus: 'Missing from supplied files' };
+    return { source, name: source.replace(/\(2\)\.txt$/, '').trim(), category: category(source), language: 'Tamil', questions, issues, answerKeyStatus: key ? 'User-provided; 100 answers matched by question number' : 'Missing from supplied files' };
   });
   if (papers.length !== 9) throw new Error(`Expected 9 papers; found ${papers.length}`);
   fs.writeFileSync('imports/tamil/prepared.json', JSON.stringify(papers, null, 2) + '\n');
-  fs.writeFileSync('imports/tamil/question-review.json', JSON.stringify({ papers: papers.map(({ source, issues, questions }) => ({ source, questionCount: questions.length, missingAnswers: questions.length, issues })) }, null, 2) + '\n');
-  for (const paper of papers) console.log(`${paper.source}: ${paper.questions.length} questions; ${paper.issues.length} text review flags; no answer key`);
+  fs.writeFileSync('imports/tamil/question-review.json', JSON.stringify({ papers: papers.map(({ source, issues, questions }) => ({ source, questionCount: questions.length, missingAnswers: questions.filter(question => !question.correct_answer).length, issues })) }, null, 2) + '\n');
+  for (const paper of papers) console.log(`${paper.source}: ${paper.questions.length} questions; ${paper.issues.length} text review flags; ${paper.questions.filter(question => question.correct_answer).length} answers`);
 }
