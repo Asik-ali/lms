@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { correctTamil } from './tamil-spelling.mjs';
 
 const root = fileURLToPath(new URL('../imports/polity/', import.meta.url));
 const verifiedKeys = [
@@ -65,6 +66,11 @@ const result = papers.map(([source, name, language, expectedCount]) => {
     if (options.length !== 4 || new Set(options.map(m => m[1])).size !== 4) {
       issues.push(`Question ${start.number}: options need manual review`);
       row.source_text = block;
+    }
+    if (language === 'Tamil') {
+      for (const field of ['question', 'option_a', 'option_b', 'option_c', 'option_d']) {
+        if (row[field]) row[field] = correctTamil(row[field]);
+      }
     }
     return row;
   });

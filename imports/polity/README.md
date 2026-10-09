@@ -25,3 +25,11 @@ All 400 numbered pairs were checked for non-empty stems, four options, matching 
 question-review.json flags 92 numbered pairs with numerical differences for comparison. Differences may reflect formatting rather than errors. Sectional Test I Q99 has different matching-statement numbering and options in the supplied papers. Sectional Test II Q100 has no supplied answer. Review these source issues before publication.
 
 Validation: production build and all 13 Node tests pass, including language-switch identity/answer preservation and question ordering.
+
+## Tamil spelling corrections
+
+Corrected 103 text fields across 91 canonical bilingual questions (13 Sectional I, 20 Sectional II, 58 Full Test). Corrections cover clear OCR spacing and spelling errors such as கீழ், அங்கீகரிக்கப்பட்ட, மீண்டும், ஒதுக்கீடு, நவீன், நாட்டிலிருந்து, and displaced vowel signs in வீட்டு / பூர்வீக. Supabase readback matched the corrected prepared text; supplied answer keys were unchanged.
+
+Original source backups and archived Tamil attempts remain unchanged. `scripts/tamil-spelling.mjs` applies corrections reproducibly to staging data. `tamil-spelling-changes.json` records each changed field before and after. `scripts/update-polity-tamil-spelling.mjs` applies and verifies corrections in the merged drafts. Do not rerun the original merge against the corrected staging data and unchanged archived source rows.
+
+Ambiguous source wording and translation/content discrepancies remain for manual source review; the spelling pass does not certify the papers as error-free. The Tamil spelling regression test passes.

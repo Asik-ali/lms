@@ -1,0 +1,1723 @@
+{
+  "papers": [
+    {
+      "source": "அலகு 2 - சொல்லகராதி (i)(2).txt",
+      "questionCount": 100,
+      "missingAnswers": 100,
+      "issues": [
+        {
+          "number": 1,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 2,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 3,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 4,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 5,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 6,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 7,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 8,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 10,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 11,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 12,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 13,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 14,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 15,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 24,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 26,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 27,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 28,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 29,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 33,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 35,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 37,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 42,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 47,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 48,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 51,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 52,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 55,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 57,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 59,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 62,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 63,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 65,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 66,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 68,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 69,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 70,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 71,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 72,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 75,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 77,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 78,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 79,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 81,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 84,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 85,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 87,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 88,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 91,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 92,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 93,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 95,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 96,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 97,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 99,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 100,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        }
+      ]
+    },
+    {
+      "source": "அலகு 2. சொல்லகராதி (ii) (iii)(2).txt",
+      "questionCount": 100,
+      "missingAnswers": 100,
+      "issues": [
+        {
+          "number": 1,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 3,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 4,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 10,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 13,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 16,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 18,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 20,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 22,
+          "issue": "Option B is missing or has an unreadable label in the supplied file"
+        },
+        {
+          "number": 24,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 26,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 28,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 29,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 30,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 31,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 33,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 40,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 43,
+          "issue": "Option A is missing or has an unreadable label in the supplied file"
+        },
+        {
+          "number": 43,
+          "issue": "Option B is missing or has an unreadable label in the supplied file"
+        },
+        {
+          "number": 43,
+          "issue": "Option C is missing or has an unreadable label in the supplied file"
+        },
+        {
+          "number": 43,
+          "issue": "Option D is missing or has an unreadable label in the supplied file"
+        },
+        {
+          "number": 43,
+          "issue": "Repeated option text; check source"
+        },
+        {
+          "number": 48,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 55,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 56,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 57,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 62,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 65,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 66,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 68,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 69,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 72,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 79,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 80,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 81,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 82,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 84,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 85,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 87,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 90,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 91,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 95,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 96,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 99,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 100,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        }
+      ]
+    },
+    {
+      "source": "அலகு 3 முழு தேர்வு(2).txt",
+      "questionCount": 100,
+      "missingAnswers": 100,
+      "issues": [
+        {
+          "number": 2,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 5,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 7,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 8,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 15,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 18,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 21,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 25,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 30,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 31,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 32,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 34,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 36,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 38,
+          "issue": "Option D is missing or has an unreadable label in the supplied file"
+        },
+        {
+          "number": 40,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 41,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 43,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 44,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 46,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 48,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 53,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 54,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 66,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 68,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 69,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 72,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 74,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 83,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 85,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 86,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 89,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 90,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 91,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 97,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 98,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 100,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        }
+      ]
+    },
+    {
+      "source": "அலகு 3-எழுதும் திறன் ( i)(2).txt",
+      "questionCount": 100,
+      "missingAnswers": 100,
+      "issues": [
+        {
+          "number": 4,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 5,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 7,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 9,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 11,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 12,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 14,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 17,
+          "issue": "Option A is missing or has an unreadable label in the supplied file"
+        },
+        {
+          "number": 25,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 26,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 27,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 30,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 31,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 37,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 43,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 45,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 48,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 52,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 53,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 61,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 63,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 64,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 66,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 68,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 71,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 76,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 77,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 84,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 85,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 91,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 96,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        }
+      ]
+    },
+    {
+      "source": "அலகு 4-முழு தேர்வு(2).txt",
+      "questionCount": 100,
+      "missingAnswers": 100,
+      "issues": [
+        {
+          "number": 4,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 5,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 6,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 7,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 8,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 9,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 13,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 14,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 16,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 17,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 18,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 19,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 20,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 21,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 23,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 24,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 25,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 26,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 27,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 28,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 29,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 30,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 31,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 32,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 33,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 35,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 36,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 37,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 38,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 39,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 40,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 41,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 43,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 45,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 46,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 47,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 48,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 50,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 51,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 52,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 60,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 61,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 65,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 66,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 68,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 70,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 71,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 72,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 73,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 75,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 76,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 77,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 78,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 79,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 80,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 81,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 82,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 83,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 86,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 87,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 88,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 89,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 90,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 91,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 92,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 94,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        }
+      ]
+    },
+    {
+      "source": "தமிழ் - இலக்கணம் i)எழுத்து(2).txt",
+      "questionCount": 100,
+      "missingAnswers": 100,
+      "issues": [
+        {
+          "number": 1,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 5,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 16,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 17,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 19,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 20,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 21,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 23,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 27,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 32,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 33,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 41,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 45,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 46,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 49,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 54,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 57,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 57,
+          "issue": "Repeated option text; check source"
+        },
+        {
+          "number": 58,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 59,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 60,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 61,
+          "issue": "Option C is missing or has an unreadable label in the supplied file"
+        },
+        {
+          "number": 62,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 73,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 77,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 80,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 81,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 82,
+          "issue": "Option A is missing or has an unreadable label in the supplied file"
+        },
+        {
+          "number": 82,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 86,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 91,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 92,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 93,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        }
+      ]
+    },
+    {
+      "source": "தமிழ் -இலக்கணம் (full)(2).txt",
+      "questionCount": 100,
+      "missingAnswers": 100,
+      "issues": [
+        {
+          "number": 4,
+          "issue": "Option B is missing or has an unreadable label in the supplied file"
+        },
+        {
+          "number": 15,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 18,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 21,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 24,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 26,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 27,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 28,
+          "issue": "Option A is missing or has an unreadable label in the supplied file"
+        },
+        {
+          "number": 30,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 31,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 32,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 33,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 34,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 35,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 36,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 37,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 46,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 49,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 52,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 56,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 63,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 66,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 67,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 69,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 71,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 72,
+          "issue": "Option B is missing or has an unreadable label in the supplied file"
+        },
+        {
+          "number": 72,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 73,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 74,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 75,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 77,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 78,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 84,
+          "issue": "Option B is missing or has an unreadable label in the supplied file"
+        },
+        {
+          "number": 85,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 88,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 89,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 90,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 91,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 93,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 94,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 95,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 96,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 97,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        }
+      ]
+    },
+    {
+      "source": "தமிழ் -இலக்கணம் ii) சொல்(2).txt",
+      "questionCount": 100,
+      "missingAnswers": 100,
+      "issues": [
+        {
+          "number": 1,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 2,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 3,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 4,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 5,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 6,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 7,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 8,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 9,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 10,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 11,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 12,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 13,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 15,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 16,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 18,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 19,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 20,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 21,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 22,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 24,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 27,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 31,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 33,
+          "issue": "Repeated option text; check source"
+        },
+        {
+          "number": 37,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 38,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 39,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 40,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 42,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 43,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 44,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 45,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 46,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 47,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 52,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 53,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 54,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 62,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 63,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 68,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 69,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 70,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 71,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 74,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 76,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 77,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 78,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 80,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 83,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 85,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 86,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 87,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 89,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 90,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 91,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 94,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 97,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 98,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        }
+      ]
+    },
+    {
+      "source": "தமிழ் அலகு 2 (முழு தேர்வு)(2).txt",
+      "questionCount": 100,
+      "missingAnswers": 100,
+      "issues": [
+        {
+          "number": 1,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 3,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 5,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 6,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 8,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 9,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 11,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 12,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 15,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 16,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 17,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 18,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 19,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 22,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 23,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 24,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 25,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 26,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 30,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 33,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 45,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 48,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 52,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 53,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 55,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 57,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 59,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 60,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 64,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 66,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 67,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 79,
+          "issue": "Option B is missing or has an unreadable label in the supplied file"
+        },
+        {
+          "number": 79,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 80,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 84,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 85,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 87,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 89,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 91,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 93,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 94,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 95,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 96,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 97,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 98,
+          "issue": "Option B is missing or has an unreadable label in the supplied file"
+        },
+        {
+          "number": 98,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        }
+      ]
+    }
+  ]
+}
