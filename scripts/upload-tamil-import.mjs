@@ -20,10 +20,12 @@ async function ensure(table, match, row) {
 }
 const seriesName = 'தமிழ் — அலகு வாரியான தேர்வுகள்';
 const series = await ensure('test_series', { name: seriesName }, { name: seriesName, description: 'Nine Tamil-only tests. Answer keys supplied by the user. Drafts pending review of source extraction errors.', is_free: false });
-const categories = [...new Set(papers.map(paper => paper.category))];
+const categories = ['அலகு 1 — இலக்கணம்', 'அலகு 2 — சொல்லகராதி', 'அலகு 3 — எழுதும் திறன்', 'அலகு 4'];
 const receipt = { seriesId: series.id, seriesName, tests: [] };
 for (const paper of papers) {
   const category = await ensure('test_categories', { series_id: series.id, name: paper.category }, { series_id: series.id, name: paper.category, position: categories.indexOf(paper.category) });
+  if (!categories.includes(paper.category)) throw new Error(`Unknown Tamil category: ${paper.category}`);
+  if (category.position !== categories.indexOf(paper.category)) await checked(db.from('test_categories').update({ position: categories.indexOf(paper.category) }).eq('id', category.id).eq('series_id', series.id));
   const test = await ensure('tests', { category_id: category.id, name: paper.name }, { category_id: category.id, name: paper.name, language: 'Tamil', status: 'Draft', duration: 90, total_marks: 100, question_count: 100, syllabus: paper.category, description: `Source: ${paper.source}. User-supplied answer key matched for all 100 questions. ${paper.issues.length} source text/option review flags; review before publication.` });
   if (test.status !== 'Draft') throw new Error(`Refusing to modify non-draft test ${test.id}`);
   const existing = await checked(db.from('questions').select('id,question,option_a,option_b,option_c,option_d,correct_answer').eq('test_id', test.id).order('id'));
