@@ -23,7 +23,7 @@ export function parseQuestion(body, number) {
 }
 
 export function parsePaper(source) {
-  const text = source.replace(/^\uFEFF/, '').replace(/\r\n/g, '\n').replace(/^--- Page \d+ ---\s*$/gm, '');
+  const text = source.replace(/^\uFEFF/, '').replace(/\r\n/g, '\n').replace(/^(?:--- Page \d+ ---|=+ PAGE \d+ =+)\s*$/gm, '');
   const candidates = [...text.matchAll(/^[ \t]*(\d{1,3})[.)][ \t]*/gm)];
   const boundaries = [];
   let expected = 1;
@@ -75,7 +75,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     });
     return { source, name: source.replace(/\(2\)\.txt$/, '').trim(), category: category(source), language: 'Tamil', questions, issues, answerKeyStatus: key ? 'User-provided; 100 answers matched by question number' : 'Missing from supplied files' };
   });
-  if (papers.length !== 9) throw new Error(`Expected 9 papers; found ${papers.length}`);
+  if (papers.length !== 10) throw new Error(`Expected 10 papers; found ${papers.length}`);
   fs.writeFileSync('imports/tamil/prepared.json', JSON.stringify(papers, null, 2) + '\n');
   fs.writeFileSync('imports/tamil/question-review.json', JSON.stringify({ papers: papers.map(({ source, issues, questions }) => ({ source, questionCount: questions.length, missingAnswers: questions.filter(question => !question.correct_answer).length, issues })) }, null, 2) + '\n');
   for (const paper of papers) console.log(`${paper.source}: ${paper.questions.length} questions; ${paper.issues.length} text review flags; ${paper.questions.filter(question => question.correct_answer).length} answers`);

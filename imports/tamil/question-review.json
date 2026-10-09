@@ -419,6 +419,153 @@
       ]
     },
     {
+      "source": "அலகு 3 - எழுதும் திறன் (ii)(2).txt",
+      "questionCount": 100,
+      "missingAnswers": 0,
+      "issues": [
+        {
+          "number": 1,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 2,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 7,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 8,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 9,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 11,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 13,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 20,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 24,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 25,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 27,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 29,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 34,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 36,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 41,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 43,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 48,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 49,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 51,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 57,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 62,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 63,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 64,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 65,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 69,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 70,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 71,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 77,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 78,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 85,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 88,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 92,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 94,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 95,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        },
+        {
+          "number": 96,
+          "issue": "Possible Tamil text extraction error; check original PDF"
+        }
+      ]
+    },
+    {
       "source": "அலகு 3 முழு தேர்வு(2).txt",
       "questionCount": 100,
       "missingAnswers": 0,

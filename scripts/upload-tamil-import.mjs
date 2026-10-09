@@ -3,7 +3,7 @@ import { createClient } from '@supabase/supabase-js';
 
 const papers = JSON.parse(fs.readFileSync('imports/tamil/prepared.json', 'utf8'));
 const fields = ['question', 'option_a', 'option_b', 'option_c', 'option_d', 'correct_answer'];
-if (papers.length !== 9 || papers.some(paper => paper.questions.length !== 100 || paper.questions.some((question, index) => question.number !== index + 1 || !question.question || !/^[A-D]$/.test(question.correct_answer)))) throw new Error('Expected nine complete, numbered answer keys');
+if (papers.length !== 10 || papers.some(paper => paper.questions.length !== 100 || paper.questions.some((question, index) => question.number !== index + 1 || !question.question || !/^[A-D]$/.test(question.correct_answer)))) throw new Error('Expected ten complete, numbered answer keys');
 if (!process.env.VITE_SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) throw new Error('Missing Supabase configuration');
 const db = createClient(process.env.VITE_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY, { auth: { persistSession: false, autoRefreshToken: false } });
 async function checked(query) {
@@ -47,4 +47,4 @@ for (const paper of papers) {
   fs.writeFileSync('imports/tamil/upload-receipt.json', JSON.stringify(receipt, null, 2) + '\n');
   console.log(`${paper.name}: verified 100 questions and 100 answers (Tamil, Draft)`);
 }
-console.log('Verified nine draft tests, 900 questions and 900 answers.');
+console.log('Verified ten draft tests, 1000 questions and 1000 answers.');

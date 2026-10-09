@@ -1,10 +1,4 @@
 {
-  "matchedPapers": 9,
-  "unmatched": [
-    {
-      "file": "06_அலகு_II_எழுதும்_திறன்_ii.txt",
-      "reason": "No matching question paper in the supplied nine-file archive",
-      "answers": 100
-    }
-  ]
+  "matchedPapers": 10,
+  "unmatched": []
 }
