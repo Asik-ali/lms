@@ -1,0 +1,2409 @@
+{
+  "scope": "Structural screening of all 1000 imported questions; visual inspection of all 12 missing-option cases, both duplicate-option cases, and the original vocabulary PDF page 1. Full linguistic and subject-matter verification is still outstanding.",
+  "pdfFindings": [
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 22,
+      "page": 7,
+      "finding": "PDF has option B with text அதனால்; TXT uses Greek Β, which the parser did not recognize.",
+      "resolution": "Repair parser label recognition."
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 43,
+      "page": 14,
+      "finding": "PDF also has four numbered statements and no A–D answer choices.",
+      "resolution": "Author must specify how the statements map to the supplied answer letter; do not invent choices."
+    },
+    {
+      "test": "அலகு 3 முழு தேர்வு",
+      "number": 38,
+      "page": 11,
+      "finding": "PDF has complete option D; TXT label is malformed as [D).",
+      "resolution": "Repair label parsing; preserve intentionally incorrect sentences."
+    },
+    {
+      "test": "அலகு 3-எழுதும் திறன் ( i)",
+      "number": 17,
+      "page": 5,
+      "finding": "PDF has complete option A; TXT uses Greek Α.",
+      "resolution": "Repair parser label recognition."
+    },
+    {
+      "test": "தமிழ் - இலக்கணம் i)எழுத்து",
+      "number": 61,
+      "page": 17,
+      "finding": "Third option is labeled O in the PDF itself.",
+      "resolution": "Normalize label to C after source review; preserve its intentionally different spelling."
+    },
+    {
+      "test": "தமிழ் - இலக்கணம் i)எழுத்து",
+      "number": 82,
+      "page": 23,
+      "finding": "PDF has complete option A; TXT label is malformed as A].",
+      "resolution": "Repair label parsing."
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 4,
+      "page": 1,
+      "finding": "Second option is labeled 8) in the PDF itself.",
+      "resolution": "Normalize label to B after source review."
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 28,
+      "page": 8,
+      "finding": "PDF option A is missing the closing bracket.",
+      "resolution": "Repair label parsing."
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 72,
+      "page": 21,
+      "finding": "PDF option B has an extra opening bracket.",
+      "resolution": "Repair label parsing."
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 84,
+      "page": 25,
+      "finding": "PDF option B has an extra opening bracket.",
+      "resolution": "Repair label parsing."
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 79,
+      "page": 24,
+      "finding": "PDF itself labels both the second and fourth choices D.",
+      "resolution": "Normalize second choice label to B after source review."
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 98,
+      "page": 29,
+      "finding": "PDF itself labels both the second and third choices C.",
+      "resolution": "Normalize second choice label to B after source review."
+    },
+    {
+      "test": "தமிழ் - இலக்கணம் i)எழுத்து",
+      "number": 57,
+      "page": 16,
+      "finding": "Repeated A/C option text is also present in the PDF.",
+      "resolution": "Author review required to produce distinct choices."
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 33,
+      "page": 9,
+      "finding": "Repeated A/C option text is also present in the PDF.",
+      "resolution": "Author review required to produce distinct choices."
+    }
+  ],
+  "tests": 10,
+  "questions": 1000,
+  "missingOptions": [
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 22,
+      "missing": [
+        "B"
+      ],
+      "source": "சரியான இணைப்புச் சொல் எழுதுக.\nதமிழகத்தில் மழை பெய்து வருகிறது. —--\nஇரண்டு நாள் மழை நீடிக்கும் என வானிலை ஆய்வு மையம் அறிவிப்பு\n\n(A) ஏனெனில்\n\n(Β) அதனால்\n\n(C) எனவே\n\n(D)மேலும்"
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 43,
+      "missing": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "source": "தவறான இணையைத் தேர்க.\n\nபேச்சு வழக்கு-எழுத்து வழக்கு\n\n1. குடிக்கூலி -குடக்கூலி\n\n2. துகை_த தொகை\n\n3. கழட்டு -கழற்று\n\n4. தாவாரம் -தாழ்வாரம்"
+    },
+    {
+      "test": "அலகு 3 முழு தேர்வு",
+      "number": 38,
+      "missing": [
+        "D"
+      ],
+      "source": "பிழையில்லாத் தொடரைத் தேர்க\n\nA) ஒன்று அல்லது இரண்டு தருக\n.\nB) தென்றல் மெல்ல வீசின.\n\nC) பத்து பழங்களில் ஒரு பழமே நல்லன.\n\n[D) தலைவி தலைவனனோடு சென்றார்."
+    },
+    {
+      "test": "அலகு 3-எழுதும் திறன் ( i)",
+      "number": 17,
+      "missing": [
+        "A"
+      ],
+      "source": "ஒருவா பேசுவதை, அவர் பேசியபடியே கூறுவது எவ்வகைத் தொடர்?\n\n(Α) செய்வினை தொடர்\n\n(B) பிறவினைத் தொடர்\n\n(C)நேர்கூற்றுத் தொடர்\n\n(D) அயற்கூற்றுத் தொடர்"
+    },
+    {
+      "test": "தமிழ் - இலக்கணம் i)எழுத்து",
+      "number": 61,
+      "missing": [
+        "C"
+      ],
+      "source": "பிரித்து எழுதுக\n\nகருப்பு நாண்\n\nA) கருப்பு +நாண்\n\nB) கரும்பு +நாண்\n\nO கருப்பு + நான்\n\nD) கரும்பு +நான்"
+    },
+    {
+      "test": "தமிழ் - இலக்கணம் i)எழுத்து",
+      "number": 82,
+      "missing": [
+        "A"
+      ],
+      "source": "ககோட்டடோவியம் என்னும் சொல்லைப் பிரித்து எழுதக் கிடைப்பது?\n\nA] ககோட்டு ஓவியம்\n\nB) ககோடு + ஓவியம்\n\nC) ககோ + ஓவியம்\n\nD) ககோ+ஓட்டு + ஓவியம்"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 4,
+      "missing": [
+        "B"
+      ],
+      "source": "பிரித்து எழுதுக கருநிறத்தரக்கியர்\n\nA) கரு +நிறத்து + அரக்கியர்\n\n8) கருநிறத்து + அரக்கியர்\n\nC) கருமைநிற + அரக்கியர்\n\nD) கருமை + நிறத்து +அரக்கியர்"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 28,
+      "missing": [
+        "A"
+      ],
+      "source": "ஒருமை - பன்மை பிழை நீக்குக :\n\nபிழையற்ற தொடரைத் தெரிவு செய்க.\n\n(A பானையை உடைத்தது கண்ணன் அல்லன்\n\n(B) பானையை உடைத்தது கண்ணன் அன்று\n\n(C) பானையை உடைத்தது கண்ணன் அல்லர்\n\n(D) பானையை உடைத்தது கண்ணன் அல்லீர்"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 72,
+      "missing": [
+        "B"
+      ],
+      "source": "சரியான வேர்ச்ச சொல்லைத் தேர்வு செய்க:\n\n பொருந்தாத இணையைத் தேர்வு செய்க:\n\n1. ஆய்வகம் -ஆய்வு\n\n2. ஆழம் பார்த்தல்- ஆழம்\n\n3. ஆளவந்தார்- ஆள்\n\n(A) 1 மற்றும் 2\n\n((B) 2 மற்றும் 3\n\nC) 2 மட்டும்\n\n(D) 3 மட்டும்"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 84,
+      "missing": [
+        "B"
+      ],
+      "source": "ஒற்றுப்பிழையற்ற தொடரைத் தேர்வு செய்க:\n\n1. பாடக் கேட்டேன்\n\n2. எட்டுத்தேர்\n\n3. கேளா செவி\n\n(A) 1, 2 மற்றும் 3 சரி\n\n((B) 1 மற்றும் 3 சரி\n\nC) 1 மற்றும் 2 சரி\n\n(D) 2 மற்றும் 3 சரி"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 79,
+      "missing": [
+        "B"
+      ],
+      "source": "மடி' எனும் சொல்லிற்கு இருப பொருள் தரும் இணைகளில் சரியான\nஇணையைக் கண்டறிக\n\n(A) கூம்பல் -பசும்பல்\n\n(D) சசோம்பல்- மடித்தல்\n\n(C) ஆம்பல்- புலம்பல்\n\n(D) ஏசல்- வீசல்"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 98,
+      "missing": [
+        "B"
+      ],
+      "source": "ஈதல் என்பதன் எதிர்ச்ச சொல்\n\n(A) கொடுத்தல்\n\n(C) ஏற்றல்\n\n(C) அளித்தல்\n\n(D) வழங்குதல்"
+    }
+  ],
+  "duplicateOptions": [
+    {
+      "test": "தமிழ் - இலக்கணம் i)எழுத்து",
+      "number": 57,
+      "options": [
+        "தொன்மைச் சிறப்பும் தலைமைச் சிறப்புமே தமிழை இன்று உயர்தனிச்\nசெம்ம மொழிகளாய் உயர்ந்து நிற்கச் செய்துள்ளது",
+        "தொன்மைச் சிறப்பும் தலைமைச் சிறப்புமே தமிழை இன்று உயர்தனிச்\nசெம்ம மொழியாய் உயர்ந்து நிற்கச் செய்துள்ளன",
+        "தொன்மைச் சிறப்பும் தலைமைச் சிறப்புமே தமிழை இன்று உயர்தனிச்\nசெம்ம மொழிகளாய் உயர்ந்து நிற்கச் செய்துள்ளது",
+        "தொன்மைச் சிறப்பும் தலைமைச் சிறப்புமே தமிழை இன்று உயர்தனிச்\nசெம்ம மொழியாய் உயர்ந்து நிற்கச் செய்துள்ளது"
+      ]
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 33,
+      "options": [
+        "சென்னைக்கு அருகாமையில் இருப்பது மதுரை அல்ல",
+        "சென்னைக்கு பக்கத்தில் இருப்பது மதுரை இல்லை",
+        "சென்னைக்கு அருகாமையில் இருப்பது மதுரை அல்ல",
+        "சென்னைக்கு அருகில் இருப்பது மதுரை அன்று"
+      ]
+    }
+  ],
+  "extractionFlags": [
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 1,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 2,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 3,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 4,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 5,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 6,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 7,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 8,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 10,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 11,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 12,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 13,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 14,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 15,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 24,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 26,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 27,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 28,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 29,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 33,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 35,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 37,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 42,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 47,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 48,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 51,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 52,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 55,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 57,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 59,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 62,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 63,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 65,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 66,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 68,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 69,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 70,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 71,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 72,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 75,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 77,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 78,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 79,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 81,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 84,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 85,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 87,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 88,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 91,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 92,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 93,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 95,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 96,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 97,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 99,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 100,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 1,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 3,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 4,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 10,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 13,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 16,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 18,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 20,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 24,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 26,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 28,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 29,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 30,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 31,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 33,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 40,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 48,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 55,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 56,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 57,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 62,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 65,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 66,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 68,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 69,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 72,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 79,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 80,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 81,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 82,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 84,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 85,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 87,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 90,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 91,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 95,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 96,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 99,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 2. சொல்லகராதி (ii) (iii)",
+      "number": 100,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 - எழுதும் திறன் (ii)",
+      "number": 1,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 - எழுதும் திறன் (ii)",
+      "number": 2,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 - எழுதும் திறன் (ii)",
+      "number": 7,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 - எழுதும் திறன் (ii)",
+      "number": 8,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 - எழுதும் திறன் (ii)",
+      "number": 9,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 - எழுதும் திறன் (ii)",
+      "number": 11,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 - எழுதும் திறன் (ii)",
+      "number": 13,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 - எழுதும் திறன் (ii)",
+      "number": 20,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 - எழுதும் திறன் (ii)",
+      "number": 24,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 - எழுதும் திறன் (ii)",
+      "number": 25,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 - எழுதும் திறன் (ii)",
+      "number": 27,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 - எழுதும் திறன் (ii)",
+      "number": 29,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 - எழுதும் திறன் (ii)",
+      "number": 34,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 - எழுதும் திறன் (ii)",
+      "number": 36,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 - எழுதும் திறன் (ii)",
+      "number": 41,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 - எழுதும் திறன் (ii)",
+      "number": 43,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 - எழுதும் திறன் (ii)",
+      "number": 48,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 - எழுதும் திறன் (ii)",
+      "number": 49,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 - எழுதும் திறன் (ii)",
+      "number": 51,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 - எழுதும் திறன் (ii)",
+      "number": 57,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 - எழுதும் திறன் (ii)",
+      "number": 62,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 - எழுதும் திறன் (ii)",
+      "number": 63,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 - எழுதும் திறன் (ii)",
+      "number": 64,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 - எழுதும் திறன் (ii)",
+      "number": 65,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 - எழுதும் திறன் (ii)",
+      "number": 69,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 - எழுதும் திறன் (ii)",
+      "number": 70,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 - எழுதும் திறன் (ii)",
+      "number": 71,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 - எழுதும் திறன் (ii)",
+      "number": 77,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 - எழுதும் திறன் (ii)",
+      "number": 78,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 - எழுதும் திறன் (ii)",
+      "number": 85,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 - எழுதும் திறன் (ii)",
+      "number": 88,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 - எழுதும் திறன் (ii)",
+      "number": 92,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 - எழுதும் திறன் (ii)",
+      "number": 94,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 - எழுதும் திறன் (ii)",
+      "number": 95,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 - எழுதும் திறன் (ii)",
+      "number": 96,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 முழு தேர்வு",
+      "number": 2,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 முழு தேர்வு",
+      "number": 5,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 முழு தேர்வு",
+      "number": 7,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 முழு தேர்வு",
+      "number": 8,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 முழு தேர்வு",
+      "number": 15,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 முழு தேர்வு",
+      "number": 18,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 முழு தேர்வு",
+      "number": 21,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 முழு தேர்வு",
+      "number": 25,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 முழு தேர்வு",
+      "number": 30,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 முழு தேர்வு",
+      "number": 31,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 முழு தேர்வு",
+      "number": 32,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 முழு தேர்வு",
+      "number": 34,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 முழு தேர்வு",
+      "number": 36,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 முழு தேர்வு",
+      "number": 40,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 முழு தேர்வு",
+      "number": 41,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 முழு தேர்வு",
+      "number": 43,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 முழு தேர்வு",
+      "number": 44,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 முழு தேர்வு",
+      "number": 46,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 முழு தேர்வு",
+      "number": 48,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 முழு தேர்வு",
+      "number": 53,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 முழு தேர்வு",
+      "number": 54,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 முழு தேர்வு",
+      "number": 66,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 முழு தேர்வு",
+      "number": 68,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 முழு தேர்வு",
+      "number": 69,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 முழு தேர்வு",
+      "number": 72,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 முழு தேர்வு",
+      "number": 74,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 முழு தேர்வு",
+      "number": 83,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 முழு தேர்வு",
+      "number": 85,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 முழு தேர்வு",
+      "number": 86,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 முழு தேர்வு",
+      "number": 89,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 முழு தேர்வு",
+      "number": 90,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 முழு தேர்வு",
+      "number": 91,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 முழு தேர்வு",
+      "number": 97,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 முழு தேர்வு",
+      "number": 98,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3 முழு தேர்வு",
+      "number": 100,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3-எழுதும் திறன் ( i)",
+      "number": 4,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3-எழுதும் திறன் ( i)",
+      "number": 5,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3-எழுதும் திறன் ( i)",
+      "number": 7,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3-எழுதும் திறன் ( i)",
+      "number": 9,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3-எழுதும் திறன் ( i)",
+      "number": 11,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3-எழுதும் திறன் ( i)",
+      "number": 12,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3-எழுதும் திறன் ( i)",
+      "number": 14,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3-எழுதும் திறன் ( i)",
+      "number": 25,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3-எழுதும் திறன் ( i)",
+      "number": 26,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3-எழுதும் திறன் ( i)",
+      "number": 27,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3-எழுதும் திறன் ( i)",
+      "number": 30,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3-எழுதும் திறன் ( i)",
+      "number": 31,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3-எழுதும் திறன் ( i)",
+      "number": 37,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3-எழுதும் திறன் ( i)",
+      "number": 43,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3-எழுதும் திறன் ( i)",
+      "number": 45,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3-எழுதும் திறன் ( i)",
+      "number": 48,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3-எழுதும் திறன் ( i)",
+      "number": 52,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3-எழுதும் திறன் ( i)",
+      "number": 53,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3-எழுதும் திறன் ( i)",
+      "number": 61,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3-எழுதும் திறன் ( i)",
+      "number": 63,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3-எழுதும் திறன் ( i)",
+      "number": 64,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3-எழுதும் திறன் ( i)",
+      "number": 66,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3-எழுதும் திறன் ( i)",
+      "number": 68,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3-எழுதும் திறன் ( i)",
+      "number": 71,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3-எழுதும் திறன் ( i)",
+      "number": 76,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3-எழுதும் திறன் ( i)",
+      "number": 77,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3-எழுதும் திறன் ( i)",
+      "number": 84,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3-எழுதும் திறன் ( i)",
+      "number": 85,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3-எழுதும் திறன் ( i)",
+      "number": 91,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 3-எழுதும் திறன் ( i)",
+      "number": 96,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 4,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 5,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 6,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 7,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 8,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 9,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 13,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 14,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 16,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 17,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 18,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 19,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 20,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 21,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 23,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 24,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 25,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 26,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 27,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 28,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 29,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 30,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 31,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 32,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 33,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 35,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 36,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 37,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 38,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 39,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 40,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 41,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 43,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 45,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 46,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 47,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 48,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 50,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 51,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 52,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 60,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 61,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 65,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 66,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 68,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 70,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 71,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 72,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 73,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 75,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 76,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 77,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 78,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 79,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 80,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 81,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 82,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 83,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 86,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 87,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 88,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 89,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 90,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 91,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 92,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "அலகு 4-முழு தேர்வு",
+      "number": 94,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் - இலக்கணம் i)எழுத்து",
+      "number": 1,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் - இலக்கணம் i)எழுத்து",
+      "number": 5,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் - இலக்கணம் i)எழுத்து",
+      "number": 16,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் - இலக்கணம் i)எழுத்து",
+      "number": 17,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் - இலக்கணம் i)எழுத்து",
+      "number": 19,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் - இலக்கணம் i)எழுத்து",
+      "number": 20,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் - இலக்கணம் i)எழுத்து",
+      "number": 21,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் - இலக்கணம் i)எழுத்து",
+      "number": 23,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் - இலக்கணம் i)எழுத்து",
+      "number": 27,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் - இலக்கணம் i)எழுத்து",
+      "number": 32,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் - இலக்கணம் i)எழுத்து",
+      "number": 33,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் - இலக்கணம் i)எழுத்து",
+      "number": 41,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் - இலக்கணம் i)எழுத்து",
+      "number": 45,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் - இலக்கணம் i)எழுத்து",
+      "number": 46,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் - இலக்கணம் i)எழுத்து",
+      "number": 49,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் - இலக்கணம் i)எழுத்து",
+      "number": 54,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் - இலக்கணம் i)எழுத்து",
+      "number": 57,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் - இலக்கணம் i)எழுத்து",
+      "number": 58,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் - இலக்கணம் i)எழுத்து",
+      "number": 59,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் - இலக்கணம் i)எழுத்து",
+      "number": 60,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் - இலக்கணம் i)எழுத்து",
+      "number": 62,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் - இலக்கணம் i)எழுத்து",
+      "number": 73,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் - இலக்கணம் i)எழுத்து",
+      "number": 77,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் - இலக்கணம் i)எழுத்து",
+      "number": 80,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் - இலக்கணம் i)எழுத்து",
+      "number": 81,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் - இலக்கணம் i)எழுத்து",
+      "number": 82,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் - இலக்கணம் i)எழுத்து",
+      "number": 86,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் - இலக்கணம் i)எழுத்து",
+      "number": 91,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் - இலக்கணம் i)எழுத்து",
+      "number": 92,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் - இலக்கணம் i)எழுத்து",
+      "number": 93,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 15,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 18,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 21,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 24,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 26,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 27,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 30,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 31,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 32,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 33,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 34,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 35,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 36,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 37,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 46,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 49,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 52,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 56,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 63,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 66,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 67,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 69,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 71,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 72,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 73,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 74,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 75,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 77,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 78,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 85,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 88,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 89,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 90,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 91,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 93,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 94,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 95,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 96,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் (full)",
+      "number": 97,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 1,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 2,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 3,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 4,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 5,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 6,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 7,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 8,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 9,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 10,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 11,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 12,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 13,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 15,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 16,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 18,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 19,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 20,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 21,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 22,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 24,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 27,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 31,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 37,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 38,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 39,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 40,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 42,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 43,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 44,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 45,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 46,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 47,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 52,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 53,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 54,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 62,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 63,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 68,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 69,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 70,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 71,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 74,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 76,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 77,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 78,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 80,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 83,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 85,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 86,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 87,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 89,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 90,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 91,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 94,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 97,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் -இலக்கணம் ii) சொல்",
+      "number": 98,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 1,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 3,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 5,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 6,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 8,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 9,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 11,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 12,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 15,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 16,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 17,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 18,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 19,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 22,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 23,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 24,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 25,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 26,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 30,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 33,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 45,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 48,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 52,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 53,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 55,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 57,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 59,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 60,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 64,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 66,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 67,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 79,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 80,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 84,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 85,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 87,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 89,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 91,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 93,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 94,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 95,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 96,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 97,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    },
+    {
+      "test": "தமிழ் அலகு 2 (முழு தேர்வு)",
+      "number": 98,
+      "issue": "Possible Tamil text extraction error; check original PDF"
+    }
+  ],
+  "sourceVerifiedExamples": [
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 4,
+      "before": "ஒரு மொழியைத் ததோக",
+      "after": "ஒரு மொழியைத் தேர்க",
+      "reason": "Original PDF page 1 visually checked"
+    },
+    {
+      "test": "அலகு 2 - சொல்லகராதி (i)",
+      "number": 4,
+      "field": "option_d",
+      "before": "மமோ",
+      "after": "மோ",
+      "reason": "Original PDF page 1 visually checked"
+    }
+  ],
+  "recommendations": [
+    "Repair option labels using the original PDF; do not infer missing answer text.",
+    "Review doubled Tamil characters and detached letter fragments against source pages.",
+    "Preserve deliberately incorrect spellings, sentences, and matching pairs used as answer choices.",
+    "Preserve answer letters and question order; supplied answer keys are not independent proof of subject-matter correctness.",
+    "Keep tests as drafts until source discrepancies have been resolved."
+  ]
+}
