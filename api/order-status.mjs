@@ -1,7 +1,11 @@
+import { getCashfreeOrder } from './_cashfree.mjs';
+import { fulfillPaidOrder, isVerifiedPaidOrder } from './_fulfillment.mjs';
 import { createServiceClient, getAuthedUser, setCors } from './_auth.mjs';
 
 export default async function handler(req, res) {
   if (setCors(req, res)) return;
+
+  if (req.method !== 'GET') return res.status(405).json({ error: 'Method not allowed' });
 
   try {
     const supabase = createServiceClient();
@@ -18,7 +22,15 @@ export default async function handler(req, res) {
         .eq('student_id', profile.id)
         .maybeSingle();
       if (error) throw error;
-      return res.status(200).json(order || null);
+      if (!order) return res.status(404).json({ error: 'Order not found' });
+      if (order.status !== 'PAID') {
+        const remote = await getCashfreeOrder(order.order_id);
+        if (isVerifiedPaidOrder(remote, order)) {
+          await fulfillPaidOrder(supabase, order.order_id);
+          order.status = 'PAID';
+        }
+      }
+      return res.status(200).json(order);
     }
 
     // Return the student's recent orders + completed purchases

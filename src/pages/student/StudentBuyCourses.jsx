@@ -43,7 +43,7 @@ function formatINR(amount) {
 }
 
 export default function StudentBuyCourses() {
-  const { user } = useAuth();
+  const { user, refreshProfile } = useAuth();
   const [searchParams, setSearchParams] = useSearchParams();
   const [plans, setPlans] = useState([]);
   const [loadingPlans, setLoadingPlans] = useState(true);
@@ -61,19 +61,31 @@ export default function StudentBuyCourses() {
     }
   }, [user?.id]);
 
-  useEffect(() => {
-    loadHistory();
-    const status = searchParams.get('status');
-    const orderId = searchParams.get('order_id');
-    if (status === 'return' && orderId) {
-      if (window.confirm('You have been redirected back from the payment page. Check the status of your order?')) {
-        setShowHistory(true);
-      }
-      searchParams.delete('status');
-      searchParams.delete('order_id');
-      setSearchParams(searchParams, { replace: true });
+  const verifyPayment = useCallback(async (orderId) => {
+    const { data: { session } } = await supabase.auth.getSession();
+    const response = await fetch(apiUrl(`/api/order-status?orderId=${encodeURIComponent(orderId)}`), {
+      headers: { Authorization: `Bearer ${session?.access_token || ''}` },
+    });
+    const order = await response.json();
+    if (!response.ok) throw new Error(order.error || 'Unable to verify payment');
+    if (order.status === 'PAID') {
+      await refreshProfile();
+      showSuccess('Payment successful. Your courses and tests are unlocked.');
+    } else {
+      showError('Payment is not confirmed yet. Access remains locked. Check payment status again shortly.');
     }
-  }, [searchParams, setSearchParams, loadHistory]);
+    await loadHistory();
+  }, [refreshProfile, loadHistory]);
+
+  useEffect(() => { loadHistory(); }, [loadHistory]);
+
+  useEffect(() => {
+    const orderId = searchParams.get('order_id');
+    if (searchParams.get('status') !== 'return' || !orderId) return;
+    setShowHistory(true);
+    setSearchParams({}, { replace: true });
+    verifyPayment(orderId).catch(err => showError(err.message));
+  }, [searchParams, setSearchParams, verifyPayment]);
 
   useEffect(() => {
     (async () => {
@@ -103,15 +115,14 @@ export default function StudentBuyCourses() {
       if (!res.ok) throw new Error(data.error || 'Failed to create order');
 
       const Cashfree = await loadCashfreeSdk();
-      const cashfree = Cashfree({ mode: CASHFREE_MODE });
+      const cashfree = Cashfree({ mode: data.mode || CASHFREE_MODE });
       const result = await cashfree.checkout({
         paymentSessionId: data.payment_session_id,
         redirectTarget: '_modal',
       });
       if (result?.error) throw new Error(result.error.message || 'Checkout failed');
       if (result?.paymentDetails) {
-        showSuccess('Payment received. Your purchase is being verified.');
-        await loadHistory();
+        await verifyPayment(data.order_id);
       }
     } catch (err) {
       showError(err.message);
@@ -123,7 +134,7 @@ export default function StudentBuyCourses() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-navy-100">Buy Courses</h1>
+        <h1 className="text-2xl font-bold text-navy-100">Buy Courses & Tests</h1>
         <button
           onClick={() => setShowHistory(v => !v)}
           className="btn-secondary flex items-center gap-2"
@@ -159,7 +170,7 @@ export default function StudentBuyCourses() {
                         <tr key={o.id} className="border-b border-navy-700">
                           <td className="table-cell font-mono text-xs">{o.order_id}</td>
                           <td className="table-cell">{formatINR(o.amount)}</td>
-                          <td className="table-cell"><span className={`badge ${cfg.cls}`}>{cfg.label}</span></td>
+                          <td className="table-cell"><span className={`badge ${cfg.cls}`}>{cfg.label}</span>{o.status !== 'PAID' && <button className="ml-2 text-xs underline" onClick={() => verifyPayment(o.order_id).catch(err => showError(err.message))}>Check payment</button>}</td>
                           <td className="table-cell">{new Date(o.created_at).toLocaleString()}</td>
                         </tr>
                       );
@@ -234,7 +245,7 @@ export default function StudentBuyCourses() {
 
                   <button
                     onClick={() => handleCheckout(plan)}
-                    disabled={checkingOut === plan.id}
+                    disabled={Boolean(checkingOut)}
                     className="btn-primary w-full flex items-center justify-center gap-2 mt-auto cursor-pointer"
                   >
                     {checkingOut === plan.id ? (

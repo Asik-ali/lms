@@ -1,3 +1,4 @@
+import usePlayerFullscreen from './usePlayerFullscreen';
 import { useEffect, useRef, useState } from 'react';
 import { Play, Pause, Maximize, Volume2, VolumeX, ShieldCheck, RotateCcw } from 'lucide-react';
 
@@ -28,6 +29,7 @@ function formatTime(seconds) {
 export default function ProtectedYouTubePlayer({ embedUrl, title, watermark }) {
   const host = useRef(null);
   const container = useRef(null);
+  const { expanded, toggleFullscreen } = usePlayerFullscreen(container);
   const player = useRef(null);
   const [ready, setReady] = useState(false);
   const [state, setState] = useState(-1);
@@ -84,6 +86,7 @@ export default function ProtectedYouTubePlayer({ embedUrl, title, watermark }) {
               setDuration(instance.getDuration());
             }, 500);
           },
+          onAutoplayBlocked: () => { if (active) setState(2); },
           onStateChange: event => { if (active) setState(event.data); },
           onError: event => {
             if (!active) return;
@@ -116,13 +119,13 @@ export default function ProtectedYouTubePlayer({ embedUrl, title, watermark }) {
   }, []);
 
   return (
-    <div ref={container} className="w-full bg-black rounded-lg overflow-hidden flex flex-col" onContextMenu={event => event.preventDefault()}>
-      <div className="relative aspect-video w-full overflow-hidden flex-1">
-        <div ref={host} className="absolute inset-0 pointer-events-none" style={{ visibility: ready && !error && (state === 1 || state === 3) ? 'visible' : 'hidden' }} />
-        <div aria-hidden="true" className="absolute inset-x-0 top-0 h-20 bg-black pointer-events-auto" />
-        <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-20 bg-black pointer-events-auto" />
+    <div ref={container} className={`w-full bg-black rounded-lg overflow-hidden flex flex-col player-shell ${expanded ? "player-expanded" : ""}`} onContextMenu={event => event.preventDefault()}>
+      <div className="relative aspect-video w-full overflow-hidden shrink-0">
+        <div ref={host} className="absolute inset-0 pointer-events-none"  />
+        <div aria-hidden="true" className="absolute inset-x-0 top-0 h-[10%] bg-black pointer-events-auto" />
+        <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-[10%] bg-black pointer-events-auto" />
         {(error || (state !== 1 && state !== 3)) && (
-          <button disabled={!ready || Boolean(error)} onClick={togglePlayback} aria-label="Play lesson" className="absolute inset-0 bg-gradient-to-br from-slate-900 to-black text-white flex flex-col gap-4 items-center justify-center p-6">
+          <button disabled={!ready || Boolean(error)} onClick={togglePlayback} aria-label="Play lesson" className="absolute inset-0 bg-gradient-to-br from-slate-900 to-black text-white flex flex-col gap-2 sm:gap-4 items-center justify-center p-2 sm:p-6">
             {error ? <span role="alert" className="px-6 text-sm">{error}</span> : <>
               <span className="flex items-center gap-2 text-xs uppercase tracking-widest text-slate-400"><ShieldCheck className="w-4 h-4" /> Lesson player</span>
               <span className="max-w-lg text-center text-base sm:text-xl font-semibold line-clamp-2">{title}</span>
@@ -142,10 +145,7 @@ export default function ProtectedYouTubePlayer({ embedUrl, title, watermark }) {
         {rates.length > 1 && <select aria-label="Playback speed" value={rate} onChange={event => { const next = Number(event.target.value); player.current?.setPlaybackRate(next); setRate(next); }} className="bg-black text-white text-xs">
           {rates.map(value => <option key={value} value={value}>{value}x</option>)}
         </select>}
-        <button aria-label="Fullscreen video" onClick={async () => {
-          try { if (document.fullscreenElement) await document.exitFullscreen(); else await container.current.requestFullscreen(); }
-          catch { /* Playback remains available when fullscreen is unsupported. */ }
-        }}><Maximize /></button>
+        <button aria-label={expanded ? 'Exit fullscreen video' : 'Fullscreen video'} onClick={toggleFullscreen}><Maximize /></button>
       </div>
     </div>
   );

@@ -1,74 +1,8 @@
 import { createServiceClient } from './_auth.mjs';
+import { fulfillPaidOrder } from './_fulfillment.mjs';
 import { readRawBody, verifyWebhookSignature } from './_webhook.mjs';
 
 export const config = { api: { bodyParser: false } };
-
-async function grantPlanAccess(supabase, studentId, planId) {
-  const { data: items, error: itemsErr } = await supabase
-    .from('sales_plan_items')
-    .select('item_type, item_id')
-    .eq('plan_id', planId);
-  if (itemsErr) throw itemsErr;
-
-  const courseIds = (items || []).filter(i => i.item_type === 'course').map(i => i.item_id);
-  const seriesIds = (items || []).filter(i => i.item_type === 'test_series').map(i => i.item_id);
-
-  const { data: profile, error: profileErr } = await supabase
-    .from('profiles')
-    .select('id, course, test_series_access')
-    .eq('id', studentId)
-    .maybeSingle();
-  if (profileErr) throw profileErr;
-  if (!profile) throw new Error('Student profile not found');
-
-  const currentCourses = (profile.course || '').split(',').map(s => s.trim()).filter(Boolean);
-  const currentSeries = (profile.test_series_access || '').split(',').map(s => s.trim()).filter(Boolean);
-  const grantedCourseNames = [];
-  const grantedSeriesNames = [];
-
-  if (courseIds.length > 0) {
-    const { data: courses, error: cErr } = await supabase
-      .from('courses')
-      .select('id, title')
-      .in('id', courseIds);
-    if (cErr) throw cErr;
-    for (const c of courses || []) {
-      if (!currentCourses.includes(c.title)) {
-        currentCourses.push(c.title);
-        grantedCourseNames.push(c.title);
-      }
-    }
-  }
-
-  if (seriesIds.length > 0) {
-    const { data: series, error: sErr } = await supabase
-      .from('test_series')
-      .select('id, name')
-      .in('id', seriesIds);
-    if (sErr) throw sErr;
-    for (const s of series || []) {
-      if (!currentSeries.includes(s.name)) {
-        currentSeries.push(s.name);
-        grantedSeriesNames.push(s.name);
-      }
-    }
-  }
-
-  const { error: upErr } = await supabase
-    .from('profiles')
-    .update({
-      course: currentCourses.join(', ') || null,
-      test_series_access: currentSeries.join(', ') || null,
-    })
-    .eq('id', studentId);
-  if (upErr) throw upErr;
-
-  return {
-    granted: [...grantedCourseNames, ...grantedSeriesNames],
-    courses: grantedCourseNames,
-    series: grantedSeriesNames,
-  };
-}
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -115,25 +49,8 @@ export default async function handler(req, res) {
     }
 
     if (orderStatus === 'PAID') {
-      const grant = await grantPlanAccess(supabase, order.student_id, order.plan_id);
-
-      const { error: purchaseErr } = await supabase.from('purchases').upsert({
-        order_id: orderId,
-        plan_id: order.plan_id,
-        student_id: order.student_id,
-        amount: order.amount,
-        granted: true,
-      }, { onConflict: 'order_id' });
-      if (purchaseErr) throw purchaseErr;
-      const { error: paidError } = await supabase.from('purchase_orders').update({ status: 'PAID' }).eq('id', order.id);
-      if (paidError) throw paidError;
-
-      return res.status(200).json({
-        success: true,
-        granted: grant.granted,
-        courses: grant.courses,
-        series: grant.series,
-      });
+      await fulfillPaidOrder(supabase, orderId);
+      return res.status(200).json({ success: true, status: 'PAID' });
     }
 
     if (orderStatus === 'FAILED' || orderStatus === 'CANCELLED') {

@@ -15,7 +15,8 @@ function parseBody(req) {
 
 async function handleApi(req, res, path) {
   try {
-    await parseBody(req);
+    // Signature verification must receive the original webhook bytes.
+    if (path !== '/cashfree-webhook') await parseBody(req);
     res.status = function (code) { this.statusCode = code; return this; };
     res.json = function (data) {
       this.setHeader('Content-Type', 'application/json');

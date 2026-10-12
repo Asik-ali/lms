@@ -49,7 +49,8 @@ export async function createCashfreeOrder({ orderId, amount, customer, planName,
       customer_phone: customer.phone || '9000000000',
     },
     order_meta: {
-      return_url: `${baseUrl}/student/buy-courses?status=return`,
+      return_url: `${baseUrl}/student/buy-courses?status=return&order_id=${encodeURIComponent(orderId)}`,
+      notify_url: `${baseUrl}/api/cashfree-webhook`,
     },
   };
   const res = await fetch(`${CASHFREE_API}/orders`, {
@@ -61,5 +62,13 @@ export async function createCashfreeOrder({ orderId, amount, customer, planName,
   if (!res.ok) {
     throw new Error(data.message || data.error || 'Failed to create Cashfree order');
   }
+  return data;
+}
+
+export async function getCashfreeOrder(orderId) {
+  const { headers } = getCashfreeHeaders(true);
+  const response = await fetch(`${CASHFREE_API}/orders/${encodeURIComponent(orderId)}`, { headers });
+  const data = await response.json();
+  if (!response.ok) throw new Error(data.message || 'Unable to verify payment');
   return data;
 }

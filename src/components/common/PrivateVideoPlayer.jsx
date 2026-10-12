@@ -1,3 +1,4 @@
+import usePlayerFullscreen from './usePlayerFullscreen';
 import { useEffect, useRef, useState } from 'react';
 import { Maximize, Pause, Play, RotateCcw, Volume2, VolumeX } from 'lucide-react';
 
@@ -9,6 +10,7 @@ const clock = seconds => {
 export default function PrivateVideoPlayer({ url, title, watermark }) {
   const video = useRef(null);
   const container = useRef(null);
+  const { expanded, toggleFullscreen } = usePlayerFullscreen(container);
   const [playing, setPlaying] = useState(false);
   const [ended, setEnded] = useState(false);
   const [ready, setReady] = useState(false);
@@ -45,8 +47,8 @@ export default function PrivateVideoPlayer({ url, title, watermark }) {
     }
   };
 
-  return <div ref={container} className="w-full rounded-lg overflow-hidden bg-black text-white flex flex-col" onContextMenu={event => event.preventDefault()}>
-    <div className="relative aspect-video flex-1 min-h-0">
+  return <div ref={container} className={`w-full rounded-lg overflow-hidden bg-black text-white flex flex-col player-shell ${expanded ? "player-expanded" : ""}`} onContextMenu={event => event.preventDefault()}>
+    <div className="relative aspect-video shrink-0 min-h-0">
       <video ref={video} key={url} src={url} aria-label={title} playsInline preload="metadata" disablePictureInPicture disableRemotePlayback
         className="absolute inset-0 w-full h-full object-contain"
         onLoadedMetadata={event => {
@@ -60,7 +62,7 @@ export default function PrivateVideoPlayer({ url, title, watermark }) {
         onError={() => setError('This video could not be played. Ask the course administrator for a supported video file.')}
       />
       {(error || !playing) && <button aria-label={ended ? 'Replay lesson' : 'Play lesson'} disabled={!ready || Boolean(error)} onClick={toggle}
-        className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-gradient-to-br from-slate-900 to-black p-6">
+        className="absolute inset-0 flex flex-col items-center justify-center gap-2 sm:gap-4 bg-gradient-to-br from-slate-900 to-black p-2 sm:p-6">
         {error ? <span role="alert" className="text-sm">{error}</span> : <>
           <span className="text-xs uppercase tracking-widest text-slate-400">Lesson player</span>
           <span className="text-center text-base sm:text-xl font-semibold line-clamp-2">{title}</span>
@@ -80,10 +82,7 @@ export default function PrivateVideoPlayer({ url, title, watermark }) {
       <select aria-label="Playback speed" value={rate} disabled={!ready || Boolean(error)} className="bg-black text-white text-xs" onChange={event => { const next = Number(event.target.value); video.current.playbackRate = next; setRate(next); }}>
         {[0.5, 0.75, 1, 1.25, 1.5, 2].map(value => <option key={value} value={value}>{value}x</option>)}
       </select>
-      <button aria-label="Fullscreen video" onClick={async () => {
-        try { if (document.fullscreenElement) await document.exitFullscreen(); else await container.current.requestFullscreen(); }
-        catch { /* Fullscreen may be unavailable in the device WebView. */ }
-      }}><Maximize /></button>
+      <button aria-label={expanded ? 'Exit fullscreen video' : 'Fullscreen video'} onClick={toggleFullscreen}><Maximize /></button>
     </div>
   </div>;
 }

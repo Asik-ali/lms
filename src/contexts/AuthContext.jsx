@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import { supabase } from '../supabase/client';
 
 const AuthContext = createContext(null);
@@ -175,13 +175,23 @@ export function AuthProvider({ children }) {
     return u;
   };
 
+  const refreshProfile = useCallback(async () => {
+    const { data: { user: current } } = await supabase.auth.getUser();
+    if (!current) return;
+    const { data, error } = await supabase.from('profiles')
+      .select('id, username, name, email, role, course, status, enrolled, progress, test_series_access')
+      .eq('id', current.id).single();
+    if (error) throw error;
+    setUser(data);
+  }, []);
+
   const logout = async () => {
     await supabase.auth.signOut();
     setUser(null);
   };
 
   return (
-    <AuthContext.Provider value={{ user, signUp, verifyEmailOtp, login, logout, loading }}>
+    <AuthContext.Provider value={{ user, signUp, verifyEmailOtp, login, logout, loading, refreshProfile }}>
       {children}
     </AuthContext.Provider>
   );

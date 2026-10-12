@@ -38,7 +38,7 @@ async function seed() {
     });
     if (authErr) { console.error(`  Failed to create ${u.username}:`, authErr.message); continue; }
 
-    const { error: profileErr } = await supabase.from('profiles').insert({
+    const { error: profileErr } = await supabase.from('profiles').upsert({
       id: authData.user.id,
       username: u.username,
       name: u.name,

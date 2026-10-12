@@ -74,6 +74,7 @@ export default async function handler(req, res) {
       payment_session_id: paymentSessionId,
       amount: plan.price,
       plan_name: plan.name,
+      mode: (process.env.CASHFREE_MODE || 'production').toLowerCase(),
     });
   } catch (err) {
     return res.status(500).json({ error: err.message || 'Failed to create order' });

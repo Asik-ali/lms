@@ -81,3 +81,22 @@ test('website login renders after routing upgrade and validates empty credential
   await page.getByRole('button', { name: 'Sign In', exact: true }).click();
   await expect(page.getByText('Please enter username and password', { exact: true })).toBeVisible();
 });
+
+for (const native of [false, true]) {
+  test(`mobile ${native ? 'direct' : 'YouTube'} player supports fullscreen fallback`, async ({ page }) => {
+    await page.setViewportSize({ width: 360, height: 640 });
+    await page.addInitScript(() => { Element.prototype.requestFullscreen = undefined; });
+    if (native) await page.route('**/tests/lesson.mp4', () => {});
+    await page.goto(`/tests/viewers.html${native ? '?native' : ''}`, { waitUntil: 'domcontentloaded' });
+    const shell = page.locator('.player-shell');
+    const bounds = await shell.boundingBox();
+    expect(bounds.width).toBeLessThanOrEqual(360);
+    const play = page.getByRole('button', { name: 'Play lesson', exact: true }).last();
+    expect((await play.boundingBox()).height).toBeGreaterThanOrEqual(44);
+    await page.getByRole('button', { name: 'Fullscreen video', exact: true }).click();
+    await expect(shell).toHaveClass(/player-expanded/);
+    expect((await shell.boundingBox()).height).toBe(640);
+    await page.keyboard.press('Escape');
+    await expect(shell).not.toHaveClass(/player-expanded/);
+  });
+}
