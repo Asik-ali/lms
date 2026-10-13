@@ -31,3 +31,4 @@ dist-ssr
 .vercel
 playwright-report/
 test-results/
+.local-data/
