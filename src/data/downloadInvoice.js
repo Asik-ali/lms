@@ -12,7 +12,7 @@ export async function downloadInvoice(orderId) {
   const [{ default: html2canvas }, { jsPDF }] = await Promise.all([import('html2canvas'), import('jspdf')]);
   const sheet = document.createElement('div');
   // Plain DOM text preserves Unicode titles and prevents markup injection.
-  sheet.style.cssText = 'position:absolute;left:-10000px;top:0;width:760px;padding:48px;background:#fff;color:#172b46;font:15px Arial,sans-serif;line-height:1.6;box-sizing:border-box;';
+  sheet.style.cssText = 'position:absolute;left:-10000px;top:0;width:760px;padding:36px;background:#fff;color:#202020;font:12px Arial,sans-serif;line-height:1.5;box-sizing:border-box;';
   const add = (text, css = '', parent = sheet) => {
     const element = document.createElement('div');
     element.textContent = text;
@@ -20,28 +20,59 @@ export async function downloadInvoice(orderId) {
     parent.appendChild(element);
     return element;
   };
+  const header = add('', 'display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #222;padding-bottom:16px;');
   const logo = document.createElement('img');
   logo.src = logoUrl;
   logo.alt = invoice.seller;
-  logo.style.cssText = 'display:block;width:160px;height:80px;object-fit:contain;object-position:left center;margin-bottom:16px;';
-  sheet.appendChild(logo);
-  add('PAYMENT INVOICE', 'font-size:12px;letter-spacing:2px;margin-bottom:28px;color:#62748b;');
-  add(invoice.number, 'font-size:18px;font-weight:bold;overflow-wrap:anywhere;');
-  add(`Issued: ${new Intl.DateTimeFormat('en-IN', { dateStyle: 'medium', timeZone: 'Asia/Kolkata' }).format(new Date(invoice.date))}`);
-  add(`Order: ${invoice.orderId}`, 'font-size:12px;color:#62748b;overflow-wrap:anywhere;');
-  add('PAID', 'margin:16px 0;color:#167044;font-weight:bold;');
-  add('BILLED TO', 'font-size:11px;letter-spacing:1px;color:#62748b;margin-top:24px;');
-  add(invoice.customer.name || 'Student', 'font-weight:bold;');
-  add(invoice.customer.email || '', 'margin-bottom:28px;overflow-wrap:anywhere;');
-  add('PURCHASE DETAILS', 'padding:12px 0;border-bottom:2px solid #d8e3f0;font-weight:bold;font-size:12px;letter-spacing:1px;');
+  logo.style.cssText = 'display:block;width:130px;height:64px;object-fit:contain;object-position:left center;';
+  header.appendChild(logo);
+  const heading = add('', 'text-align:right;', header);
+  add('INVOICE', 'font-size:24px;font-weight:bold;letter-spacing:1px;', heading);
+  add('Original for recipient', 'font-size:10px;color:#666;', heading);
+  const date = new Intl.DateTimeFormat('en-IN', { dateStyle: 'medium', timeZone: 'Asia/Kolkata' }).format(new Date(invoice.date));
+  const metadata = add('', 'display:flex;gap:24px;padding:18px 0;border-bottom:1px solid #ccc;');
+  const reference = add('', 'flex:1;overflow-wrap:anywhere;', metadata);
+  add('Invoice details', 'font-weight:bold;margin-bottom:6px;', reference);
+  add(`Invoice no: ${invoice.number}`, '', reference);
+  add(`Invoice date: ${date}`, '', reference);
+  const payment = add('', 'flex:1;overflow-wrap:anywhere;', metadata);
+  add('Order details', 'font-weight:bold;margin-bottom:6px;', payment);
+  add(`Order ID: ${invoice.orderId}`, '', payment);
+  add('Payment status: PAID', 'font-weight:bold;color:#167044;', payment);
+  const parties = add('', 'display:flex;gap:24px;padding:20px 0;');
+  const seller = add('', 'flex:1;', parties);
+  add('Sold by', 'font-weight:bold;margin-bottom:6px;', seller);
+  add(invoice.seller, 'font-weight:bold;', seller);
+  add('Online courses and test series', 'color:#666;', seller);
+  const buyer = add('', 'flex:1;overflow-wrap:anywhere;', parties);
+  add('Bill to', 'font-weight:bold;margin-bottom:6px;', buyer);
+  add(invoice.customer.name || 'Student', 'font-weight:bold;', buyer);
+  add(invoice.customer.email || '', '', buyer);
+  add('Digital delivery to student account', 'color:#666;margin-top:4px;', buyer);
   const money = value => new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(value);
-  for (const item of invoice.items) {
-    const row = add('', 'display:flex;justify-content:space-between;gap:24px;padding:16px 0;border-bottom:1px solid #e5ecf4;');
-    add(item.name, 'flex:1;overflow-wrap:anywhere;', row);
-    add(money(item.price), 'white-space:nowrap;font-weight:bold;', row);
-  }
-  add(`Total paid: ${money(invoice.amount)}`, 'text-align:right;font-size:24px;font-weight:bold;padding:24px 0;');
-  add('Thank you for learning with EXAMSTICK.', 'font-size:12px;color:#62748b;border-top:1px solid #d8e3f0;padding-top:20px;');
+  const table = document.createElement('table');
+  table.style.cssText = 'width:100%;border-collapse:collapse;table-layout:fixed;margin:8px 0 0;';
+  sheet.appendChild(table);
+  const cell = (row, text, heading = false, css = '') => {
+    const element = document.createElement(heading ? 'th' : 'td');
+    element.textContent = text;
+    element.style.cssText = `padding:12px 10px;border:1px solid #bbb;vertical-align:top;text-align:left;overflow-wrap:anywhere;${css}`;
+    row.appendChild(element);
+  };
+  const columnHeaders = document.createElement('tr');
+  table.appendChild(columnHeaders);
+  ['#', 'Description', 'Qty', 'Unit price', 'Amount'].forEach((text, index) => cell(columnHeaders, text, true,
+    `background:#f3f3f3;${index === 0 ? 'width:24px;' : index === 1 ? 'width:270px;' : index === 2 ? 'width:30px;' : 'text-align:right;'}`));
+  invoice.items.forEach((item, index) => {
+    const row = document.createElement('tr'); table.appendChild(row);
+    cell(row, String(index + 1)); cell(row, item.name); cell(row, '1');
+    cell(row, money(item.price), false, 'text-align:right;'); cell(row, money(item.price), false, 'text-align:right;');
+  });
+  const total = add('', 'display:flex;justify-content:flex-end;border-bottom:2px solid #222;padding:18px 0;');
+  add('TOTAL PAID', 'font-weight:bold;margin-right:28px;padding-top:4px;', total);
+  add(money(invoice.amount), 'font-size:20px;font-weight:bold;', total);
+  add('Digital products • No physical shipment', 'font-size:10px;color:#666;margin-top:20px;');
+  add('Thank you for learning with EXAMSTICK.', 'font-size:11px;color:#444;margin-top:6px;');
   document.body.appendChild(sheet);
   try {
     await logo.decode();
