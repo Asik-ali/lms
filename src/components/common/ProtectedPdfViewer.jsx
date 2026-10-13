@@ -1,7 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import { getDocument, GlobalWorkerOptions, PDFDataRangeTransport } from 'pdfjs-dist';
 import workerUrl from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
-import { ChevronLeft, ChevronRight, Minus, Plus } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Minus, Plus, Maximize, Minimize } from 'lucide-react';
+import PdfLoading from './PdfLoading';
+import usePlayerFullscreen from './usePlayerFullscreen';
+import './ProtectedPdfViewer.css';
 import { supabase } from '../../supabase/client';
 import { apiUrl } from '../../data/api';
 
@@ -9,11 +12,20 @@ GlobalWorkerOptions.workerSrc = workerUrl;
 
 export default function ProtectedPdfViewer({ url, fileId, title, watermark }) {
   const canvas = useRef(null);
+  const container = useRef(null);
+  const { expanded, toggleFullscreen } = usePlayerFullscreen(container);
+  const [nativeFullscreen, setNativeFullscreen] = useState(false);
+  const [rendering, setRendering] = useState(false);
   const [pdf, setPdf] = useState(null);
   const [page, setPage] = useState(1);
   const [zoom, setZoom] = useState(1);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const changed = () => setNativeFullscreen(document.fullscreenElement === container.current);
+    document.addEventListener('fullscreenchange', changed);
+    return () => document.removeEventListener('fullscreenchange', changed);
+  }, []);
 
   useEffect(() => {
     let active = true;
@@ -68,6 +80,7 @@ export default function ProtectedPdfViewer({ url, fileId, title, watermark }) {
     if (!pdf || !canvas.current) return;
     let active = true;
     let render;
+    setRendering(true);
     pdf.getPage(page).then(result => {
       if (!active) return;
       const viewport = result.getViewport({ scale: zoom * 1.5 });
@@ -87,13 +100,20 @@ export default function ProtectedPdfViewer({ url, fileId, title, watermark }) {
         context.fillText(watermark, 0, 0, element.width * 0.8);
         context.restore();
       });
-    }).catch(err => { if (active && err.name !== 'RenderingCancelledException') setError('This PDF page could not be displayed.'); });
+    }).catch(err => { if (active && err.name !== 'RenderingCancelledException') setError('This PDF page could not be displayed.'); })
+      .finally(() => { if (active) setRendering(false); });
     return () => { active = false; render?.cancel(); };
   }, [pdf, page, zoom, watermark]);
 
   return (
-    <div onContextMenu={event => event.preventDefault()} className="select-none">
-      {loading && <p className="p-6 text-center">Loading PDF...</p>}
+    <div ref={container} onContextMenu={event => event.preventDefault()} className={`pdf-viewer select-none ${expanded ? 'pdf-viewer-expanded' : ''}`}>
+      <div className="pdf-toolbar flex flex-wrap justify-between items-center gap-2 p-2 border-b border-navy-700">
+        <span className="text-sm font-medium truncate min-w-0 flex-1">{title}</span>
+        <button type="button" aria-label={expanded || nativeFullscreen ? 'Exit fullscreen PDF' : 'Fullscreen PDF'} onClick={toggleFullscreen} className="inline-flex min-h-11 min-w-11 items-center justify-center gap-2 rounded-lg px-3 hover:bg-navy-50 dark:hover:bg-navy-900">
+          {expanded || nativeFullscreen ? <Minimize size={18} /> : <Maximize size={18} />}<span className="text-xs">{expanded || nativeFullscreen ? 'Exit fullscreen' : 'Fullscreen'}</span>
+        </button>
+      </div>
+      {loading && <PdfLoading />}
       {error && <p role="alert" className="p-6 text-center text-navy-200">{error}</p>}
       {pdf && !error && <>
         <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-3 p-3">
@@ -104,7 +124,8 @@ export default function ProtectedPdfViewer({ url, fileId, title, watermark }) {
           <span className="text-xs">{Math.round(zoom * 100)}%</span>
           <button aria-label="Zoom in" disabled={zoom >= 3} onClick={() => setZoom(value => Math.min(3, value + 0.25))}><Plus /></button>
         </div>
-        <div className="overflow-auto max-h-[65dvh] bg-gray-200 p-2">
+        <div aria-busy={rendering} className="pdf-page-area relative overflow-auto bg-gray-200 p-2">
+          {rendering && <div className="absolute inset-0 z-10 flex items-start justify-center bg-white/80 pt-6"><PdfLoading message="Rendering page..." /></div>}
           <canvas ref={canvas} aria-label={`${title}, page ${page}`} className="block mx-auto" style={{ width: `${zoom * 100}%`, height: 'auto' }} />
         </div>
       </>}

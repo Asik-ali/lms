@@ -1,5 +1,17 @@
 import { test, expect } from '@playwright/test';
 
+test('PDF supports mobile fullscreen fallback and returns to its normal size', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.addInitScript(() => { Element.prototype.requestFullscreen = undefined; });
+  await page.goto('/tests/viewers.html');
+  await expect(page.locator('canvas')).toBeVisible();
+  await page.getByRole('button', { name: 'Fullscreen PDF', exact: true }).click();
+  await expect(page.locator('.pdf-viewer')).toHaveClass(/pdf-viewer-expanded/);
+  expect((await page.locator('.pdf-viewer').boundingBox()).height).toBe(844);
+  await page.getByRole('button', { name: 'Exit fullscreen PDF' }).click();
+  await expect(page.locator('.pdf-viewer')).not.toHaveClass(/pdf-viewer-expanded/);
+});
+
 test.beforeEach(async ({ page }) => {
   await page.route('https://www.youtube.com/**', route => route.fulfill({ body: '<html></html>', contentType: 'text/html' }));
 });

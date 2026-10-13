@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect, useState } from 'react';
 import { X } from 'lucide-react';
 import ProtectedYouTubePlayer from './ProtectedYouTubePlayer';
 import PrivateVideoPlayer from './PrivateVideoPlayer';
+import PdfLoading from './PdfLoading';
 import { useAuth } from '../../contexts/AuthContext';
 
 const ProtectedPdfViewer = lazy(() => import('./ProtectedPdfViewer'));
@@ -55,7 +56,7 @@ export default function MediaViewer({ url, title, type, fileId, onClose }) {
     return () => document.removeEventListener('visibilitychange', onVisibility);
   }, []);
   useEffect(() => {
-    const handleKey = (e) => { if (e.key === 'Escape') onClose(); };
+    const handleKey = (e) => { if (e.key === 'Escape' && !document.fullscreenElement) onClose(); };
     document.addEventListener('keydown', handleKey);
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
@@ -103,7 +104,7 @@ export default function MediaViewer({ url, title, type, fileId, onClose }) {
           ) : safeUrl && type === 'video' && directVideo && !isDrive ? (
             <PrivateVideoPlayer url={url} title={title} watermark={watermark} />
           ) : (safeUrl || fileId) && type === 'pdf' ? (
-            <Suspense fallback={<p className="p-6 text-center">Loading PDF viewer...</p>}>
+            <Suspense fallback={<PdfLoading message="Preparing PDF viewer..." />}>
               <ProtectedPdfViewer url={safeUrl} fileId={fileId} title={title} watermark={watermark} />
             </Suspense>
           ) : (
