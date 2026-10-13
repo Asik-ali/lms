@@ -1,5 +1,6 @@
 import { supabase } from '../supabase/client';
 import { apiUrl } from './api';
+import logoUrl from '../assets/image.png';
 
 export async function downloadInvoice(orderId) {
   const { data: { session } } = await supabase.auth.getSession();
@@ -19,7 +20,11 @@ export async function downloadInvoice(orderId) {
     parent.appendChild(element);
     return element;
   };
-  add(invoice.seller, 'font-size:28px;font-weight:bold;color:#1261d6;');
+  const logo = document.createElement('img');
+  logo.src = logoUrl;
+  logo.alt = invoice.seller;
+  logo.style.cssText = 'display:block;width:160px;height:80px;object-fit:contain;object-position:left center;margin-bottom:16px;';
+  sheet.appendChild(logo);
   add('PAYMENT INVOICE', 'font-size:12px;letter-spacing:2px;margin-bottom:28px;color:#62748b;');
   add(invoice.number, 'font-size:18px;font-weight:bold;overflow-wrap:anywhere;');
   add(`Issued: ${new Intl.DateTimeFormat('en-IN', { dateStyle: 'medium', timeZone: 'Asia/Kolkata' }).format(new Date(invoice.date))}`);
@@ -36,10 +41,10 @@ export async function downloadInvoice(orderId) {
     add(money(item.price), 'white-space:nowrap;font-weight:bold;', row);
   }
   add(`Total paid: ${money(invoice.amount)}`, 'text-align:right;font-size:24px;font-weight:bold;padding:24px 0;');
-  add('Payment processed through Cashfree · Currency: INR', 'font-size:12px;color:#62748b;border-top:1px solid #d8e3f0;padding-top:20px;');
-  add('Thank you for learning with EXAMSTICK.', 'font-size:12px;color:#62748b;margin-top:8px;');
+  add('Thank you for learning with EXAMSTICK.', 'font-size:12px;color:#62748b;border-top:1px solid #d8e3f0;padding-top:20px;');
   document.body.appendChild(sheet);
   try {
+    await logo.decode();
     await document.fonts.ready;
     const canvas = await html2canvas(sheet, { scale: 1.5, backgroundColor: '#ffffff', logging: false });
     const pdf = new jsPDF({ unit: 'mm', format: 'a4' });
