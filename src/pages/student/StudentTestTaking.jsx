@@ -467,7 +467,7 @@ export default function StudentTestTaking() {
                 {OPTION_LABELS.map(label => {
                   const isSelected = currentResponse?.student_answer === label;
                   const optionKey = `option_${label.toLowerCase()}`;
-                  const optionText = currentQuestion?.[optionKey] || '';
+                  const optionText = (currentQuestion?.[optionKey] || '').replace(/\s*\(shown in the original question\)\s*$/i, '');
                   return (
                     <button
                       key={label}

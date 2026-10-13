@@ -185,7 +185,7 @@ for md_file in sorted(md_root.glob('*.md')):
         if re.search(r'\(E\)', raw):
             issues.append(f'Question {number}: source has option E; application supports A–D')
         if number in question_images:
-            choices = {f'option_{label}': f'Option {label.upper()} (shown in the original question)' for label in 'abcd'}
+            choices = {f'option_{label}': f'Option {label.upper()}' for label in 'abcd'}
             missing = []
         questions.append({'number': number, 'question': stem or raw, **choices, 'correct_answer': answer, 'source_text': raw, 'source_images': question_images.get(number, [])})
     papers.append({'name': name, 'source': md_file.name, 'pdfSource': original.name, 'topic': topic, 'language': language, 'questions': questions, 'issues': issues})
