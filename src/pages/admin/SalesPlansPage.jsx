@@ -1,7 +1,6 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { Plus, Pencil, Trash2, X, Save, Loader2, BookOpen, PenTool, ShoppingCart, IndianRupee } from 'lucide-react';
 import { supabase } from '../../supabase/client';
-import { getAllCourses, getAllTestSeries } from '../../data/dynamicStore';
 import { apiUrl } from '../../data/api';
 import { showSuccess, showError } from '../../components/common/Toast';
 
@@ -16,6 +15,8 @@ export default function SalesPlansPage() {
   const [seriesList, setSeriesList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+  const [deletingIds, setDeletingIds] = useState(new Set());
+  const deleteRequests = useRef(new Set());
   const [form, setForm] = useState(emptyForm);
   const [showForm, setShowForm] = useState(false);
 
@@ -25,14 +26,13 @@ export default function SalesPlansPage() {
   }, []);
 
   const loadPlans = useCallback(async () => {
-    const token = await apiToken();
-    const res = await fetch(apiUrl('/api/sales-plans'), {
-      headers: { Authorization: `Bearer ${token}` },
-    });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error || 'Failed to load plans');
+    // RLS already authorizes the admin; avoid a serverless hop and repeated auth checks for reads.
+    const { data, error } = await supabase.from('sales_plans')
+      .select('id, name, description, price, status, created_at, items:sales_plan_items(id, item_type, item_id)')
+      .order('created_at', { ascending: false });
+    if (error) throw error;
     return data || [];
-  }, [apiToken]);
+  }, []);
 
   const refresh = useCallback(async () => {
     setLoading(true);
@@ -53,9 +53,14 @@ export default function SalesPlansPage() {
   useEffect(() => {
     (async () => {
       try {
-        const [c, s] = await Promise.all([getAllCourses(), getAllTestSeries()]);
-        setCourses(c || []);
-        setSeriesList(s || []);
+        const [c, s] = await Promise.all([
+          supabase.from('courses').select('id, title').order('title'),
+          supabase.from('test_series').select('id, name').order('name'),
+        ]);
+        if (c.error) throw c.error;
+        if (s.error) throw s.error;
+        setCourses(c.data || []);
+        setSeriesList(s.data || []);
       } catch (err) {
         console.error('Failed to load courses/series:', err);
       }
@@ -112,7 +117,10 @@ export default function SalesPlansPage() {
       if (!res.ok) throw new Error(data.error || 'Failed to save plan');
       showSuccess(form.id ? 'Plan updated!' : 'Plan created!');
       setShowForm(false);
-      await refresh();
+      const savedPlan = { ...data, items: form.items.map(item => ({ ...item })) };
+      setPlans(current => form.id
+        ? current.map(plan => plan.id === form.id ? savedPlan : plan)
+        : [savedPlan, ...current]);
     } catch (err) {
       showError(err.message);
     } finally {
@@ -121,19 +129,25 @@ export default function SalesPlansPage() {
   }
 
   async function handleDelete(p) {
-    if (!window.confirm(`Delete plan "${p.name}"? Plans with payment history will be archived to preserve student purchases.`)) return;
-    const token = await apiToken();
+    if (deleteRequests.current.has(p.id)) return;
+    if (!window.confirm(`Delete plan "${p.name}"? This permanently removes the plan. Existing payment records and student access are preserved.`)) return;
+    deleteRequests.current.add(p.id);
+    setDeletingIds(new Set(deleteRequests.current));
     try {
+      const token = await apiToken();
       const res = await fetch(`${apiUrl('/api/sales-plans')}?planId=${p.id}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(data.error || 'Failed to delete plan');
-      showSuccess(data.archived ? 'Plan archived. Hidden from the shop; existing orders and access are preserved.' : 'Plan deleted');
-      await refresh();
+      showSuccess('Plan permanently deleted');
+      setPlans(current => current.filter(plan => plan.id !== p.id));
     } catch (err) {
       showError(err.message);
+    } finally {
+      deleteRequests.current.delete(p.id);
+      setDeletingIds(new Set(deleteRequests.current));
     }
   }
 
@@ -307,8 +321,8 @@ export default function SalesPlansPage() {
                   ))}
                 </div>
                 <div className="flex gap-2 mt-auto">
-                  <button onClick={() => openEdit(p)} className="btn-secondary flex-1 flex items-center justify-center gap-2 cursor-pointer"><Pencil className="w-4 h-4" /> Edit</button>
-                  <button aria-label={`Delete ${p.name}`} title="Delete or archive plan" onClick={() => handleDelete(p)} className="px-3 py-2 rounded-lg border border-brand-red/40 text-red-700 dark:text-red-300 hover:bg-brand-red/10 cursor-pointer"><Trash2 className="w-4 h-4" /></button>
+                  <button disabled={deletingIds.has(p.id)} onClick={() => openEdit(p)} className="btn-secondary flex-1 flex items-center justify-center gap-2 cursor-pointer"><Pencil className="w-4 h-4" /> Edit</button>
+                  <button disabled={deletingIds.has(p.id)} aria-busy={deletingIds.has(p.id)} aria-label={deletingIds.has(p.id) ? `Deleting ${p.name}` : `Delete ${p.name}`} title="Permanently delete plan" onClick={() => handleDelete(p)} className="px-3 py-2 rounded-lg border border-brand-red/40 text-red-700 dark:text-red-300 hover:bg-brand-red/10 cursor-pointer">{deletingIds.has(p.id) ? <Loader2 className="w-4 h-4 animate-spin" /> : <Trash2 className="w-4 h-4" />}</button>
                 </div>
               </div>
             ))}

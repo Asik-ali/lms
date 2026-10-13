@@ -1,0 +1,297 @@
+{
+  "seriesId": 9,
+  "tests": [
+    {
+      "name": "3D Mensuration (25)",
+      "testId": 45,
+      "categoryId": 25,
+      "topic": "3D Mensuration",
+      "language": "English",
+      "status": "Draft",
+      "questions": 25,
+      "answers": 25,
+      "issues": []
+    },
+    {
+      "name": "AP GP (25)",
+      "testId": 46,
+      "categoryId": 26,
+      "topic": "Arithmetic and Geometric Progressions",
+      "language": "English",
+      "status": "Draft",
+      "questions": 25,
+      "answers": 25,
+      "issues": []
+    },
+    {
+      "name": "AP GP (தமிழ் 25)",
+      "testId": 47,
+      "categoryId": 26,
+      "topic": "Arithmetic and Geometric Progressions",
+      "language": "Tamil",
+      "status": "Draft",
+      "questions": 25,
+      "answers": 23,
+      "issues": [
+        "Question 24: answer unavailable or unsupported in source",
+        "Question 25: answer unavailable or unsupported in source"
+      ]
+    },
+    {
+      "name": "average ( தமிழ் 25)",
+      "testId": 48,
+      "categoryId": 27,
+      "topic": "Average",
+      "language": "Tamil",
+      "status": "Draft",
+      "questions": 25,
+      "answers": 20,
+      "issues": [
+        "Question 21: answer unavailable or unsupported in source",
+        "Question 22: answer unavailable or unsupported in source",
+        "Question 23: answer unavailable or unsupported in source",
+        "Question 24: answer unavailable or unsupported in source",
+        "Question 25: answer unavailable or unsupported in source"
+      ]
+    },
+    {
+      "name": "Average (25)",
+      "testId": 49,
+      "categoryId": 27,
+      "topic": "Average",
+      "language": "English",
+      "status": "Draft",
+      "questions": 25,
+      "answers": 24,
+      "issues": [
+        "Question 25: answer unavailable or unsupported in source"
+      ]
+    },
+    {
+      "name": "CI (25)",
+      "testId": 50,
+      "categoryId": 28,
+      "topic": "Compound Interest",
+      "language": "English",
+      "status": "Draft",
+      "questions": 25,
+      "answers": 25,
+      "issues": []
+    },
+    {
+      "name": "CI (தமிழ் 25)",
+      "testId": 51,
+      "categoryId": 28,
+      "topic": "Compound Interest",
+      "language": "Tamil",
+      "status": "Draft",
+      "questions": 25,
+      "answers": 25,
+      "issues": []
+    },
+    {
+      "name": "LCM & HCF (வினா25)",
+      "testId": 52,
+      "categoryId": 29,
+      "topic": "LCM and HCF",
+      "language": "Tamil",
+      "status": "Draft",
+      "questions": 25,
+      "answers": 23,
+      "issues": [
+        "Question 24: answer unavailable or unsupported in source",
+        "Question 25: answer unavailable or unsupported in source"
+      ]
+    },
+    {
+      "name": "LCM and HCF (25)",
+      "testId": 53,
+      "categoryId": 29,
+      "topic": "LCM and HCF",
+      "language": "English",
+      "status": "Draft",
+      "questions": 25,
+      "answers": 25,
+      "issues": []
+    },
+    {
+      "name": "Mensuration 2D (25)",
+      "testId": 54,
+      "categoryId": 30,
+      "topic": "2D Mensuration",
+      "language": "English",
+      "status": "Draft",
+      "questions": 25,
+      "answers": 24,
+      "issues": [
+        "Question 25: answer unavailable or unsupported in source"
+      ]
+    },
+    {
+      "name": "percentage (25)",
+      "testId": 55,
+      "categoryId": 31,
+      "topic": "Percentage",
+      "language": "English",
+      "status": "Draft",
+      "questions": 25,
+      "answers": 25,
+      "issues": []
+    },
+    {
+      "name": "Profit and Loss (25)",
+      "testId": 56,
+      "categoryId": 32,
+      "topic": "Profit and Loss",
+      "language": "English",
+      "status": "Draft",
+      "questions": 25,
+      "answers": 25,
+      "issues": [
+        "Scanned source: OCR formulas and option labels need review against the PDF."
+      ]
+    },
+    {
+      "name": "Profit and Loss (தமிழ் 25)",
+      "testId": 57,
+      "categoryId": 32,
+      "topic": "Profit and Loss",
+      "language": "Tamil",
+      "status": "Draft",
+      "questions": 25,
+      "answers": 25,
+      "issues": []
+    },
+    {
+      "name": "Ratio and Proportion (25)",
+      "testId": 58,
+      "categoryId": 33,
+      "topic": "Ratio and Proportion",
+      "language": "English",
+      "status": "Draft",
+      "questions": 25,
+      "answers": 25,
+      "issues": []
+    },
+    {
+      "name": "Ratio and Proportion (தமிழ் 25)",
+      "testId": 59,
+      "categoryId": 33,
+      "topic": "Ratio and Proportion",
+      "language": "Tamil",
+      "status": "Draft",
+      "questions": 25,
+      "answers": 21,
+      "issues": [
+        "Question 4: missing or unreadable option labels A, C",
+        "Question 5: answer unavailable or unsupported in source",
+        "Question 10: answer unavailable or unsupported in source",
+        "Question 15: answer unavailable or unsupported in source",
+        "Question 20: answer unavailable or unsupported in source"
+      ]
+    },
+    {
+      "name": "SI (25)",
+      "testId": 60,
+      "categoryId": 34,
+      "topic": "Simple Interest",
+      "language": "English",
+      "status": "Draft",
+      "questions": 25,
+      "answers": 25,
+      "issues": []
+    },
+    {
+      "name": "SI (தமிழ் 25)",
+      "testId": 61,
+      "categoryId": 34,
+      "topic": "Simple Interest",
+      "language": "Tamil",
+      "status": "Draft",
+      "questions": 25,
+      "answers": 20,
+      "issues": [
+        "Question 21: answer unavailable or unsupported in source",
+        "Question 22: answer unavailable or unsupported in source",
+        "Question 23: answer unavailable or unsupported in source",
+        "Question 24: answer unavailable or unsupported in source",
+        "Question 25: answer unavailable or unsupported in source"
+      ]
+    },
+    {
+      "name": "simplification(25)",
+      "testId": 62,
+      "categoryId": 34,
+      "topic": "Simple Interest",
+      "language": "English",
+      "status": "Draft",
+      "questions": 25,
+      "answers": 25,
+      "issues": [
+        "Question 19: missing or unreadable option labels B, C, D"
+      ]
+    },
+    {
+      "name": "Time and Work (25)",
+      "testId": 63,
+      "categoryId": 35,
+      "topic": "Time and Work",
+      "language": "English",
+      "status": "Draft",
+      "questions": 25,
+      "answers": 25,
+      "issues": [
+        "Question 21: missing or unreadable option labels C, D",
+        "Question 22: missing or unreadable option labels C, D",
+        "Question 25: missing or unreadable option labels C, D"
+      ]
+    },
+    {
+      "name": "அளவியல் - 2D (25)",
+      "testId": 64,
+      "categoryId": 30,
+      "topic": "2D Mensuration",
+      "language": "Tamil",
+      "status": "Draft",
+      "questions": 25,
+      "answers": 25,
+      "issues": []
+    },
+    {
+      "name": "அளவியல் 3D (25)_copy",
+      "testId": 65,
+      "categoryId": 25,
+      "topic": "3D Mensuration",
+      "language": "Tamil",
+      "status": "Draft",
+      "questions": 25,
+      "answers": 23,
+      "issues": [
+        "Question 24: answer unavailable or unsupported in source",
+        "Question 25: answer unavailable or unsupported in source"
+      ]
+    },
+    {
+      "name": "சதவீதம் (25)",
+      "testId": 66,
+      "categoryId": 31,
+      "topic": "Percentage",
+      "language": "Tamil",
+      "status": "Draft",
+      "questions": 25,
+      "answers": 25,
+      "issues": []
+    },
+    {
+      "name": "சதவீதம் - 26",
+      "testId": 67,
+      "categoryId": 31,
+      "topic": "Percentage",
+      "language": "Tamil",
+      "status": "Draft",
+      "questions": 10,
+      "answers": 10,
+      "issues": []
+    }
+  ]
+}
