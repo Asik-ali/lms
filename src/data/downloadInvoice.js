@@ -1,6 +1,6 @@
 import { supabase } from '../supabase/client';
 import { apiUrl } from './api';
-import logoUrl from '../assets/image.png';
+import logoUrl from '../assets/invoice-logo-transparent.png';
 
 export async function downloadInvoice(orderId) {
   const { data: { session } } = await supabase.auth.getSession();
@@ -24,7 +24,8 @@ export async function downloadInvoice(orderId) {
   const logo = document.createElement('img');
   logo.src = logoUrl;
   logo.alt = invoice.seller;
-  logo.style.cssText = 'display:block;width:130px;height:64px;object-fit:contain;object-position:left center;';
+  // Use intrinsic dimensions: html2canvas does not reliably reproduce object-fit.
+  logo.style.cssText = 'display:block;width:110px;height:auto;max-width:110px;flex-shrink:0;';
   header.appendChild(logo);
   const heading = add('', 'text-align:right;', header);
   add('INVOICE', 'font-size:24px;font-weight:bold;letter-spacing:1px;', heading);
@@ -61,11 +62,11 @@ export async function downloadInvoice(orderId) {
   };
   const columnHeaders = document.createElement('tr');
   table.appendChild(columnHeaders);
-  ['#', 'Description', 'Qty', 'Unit price', 'Amount'].forEach((text, index) => cell(columnHeaders, text, true,
-    `background:#f3f3f3;${index === 0 ? 'width:24px;' : index === 1 ? 'width:270px;' : index === 2 ? 'width:30px;' : 'text-align:right;'}`));
+  ['S.No', 'Description', 'Qty', 'Unit price', 'Amount'].forEach((text, index) => cell(columnHeaders, text, true,
+    `background:#f3f3f3;${index === 0 ? 'width:42px;white-space:nowrap;text-align:center;' : index === 1 ? 'width:250px;' : index === 2 ? 'width:44px;white-space:nowrap;text-align:center;' : 'text-align:right;white-space:nowrap;'}`));
   invoice.items.forEach((item, index) => {
     const row = document.createElement('tr'); table.appendChild(row);
-    cell(row, String(index + 1)); cell(row, item.name); cell(row, '1');
+    cell(row, String(index + 1), false, 'text-align:center;white-space:nowrap;'); cell(row, item.name); cell(row, '1', false, 'text-align:center;white-space:nowrap;');
     cell(row, money(item.price), false, 'text-align:right;'); cell(row, money(item.price), false, 'text-align:right;');
   });
   const total = add('', 'display:flex;justify-content:flex-end;border-bottom:2px solid #222;padding:18px 0;');
@@ -76,6 +77,7 @@ export async function downloadInvoice(orderId) {
   document.body.appendChild(sheet);
   try {
     await logo.decode();
+    logo.style.height = `${110 * logo.naturalHeight / logo.naturalWidth}px`;
     await document.fonts.ready;
     const canvas = await html2canvas(sheet, { scale: 1.5, backgroundColor: '#ffffff', logging: false });
     const pdf = new jsPDF({ unit: 'mm', format: 'a4' });
