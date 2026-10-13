@@ -62,8 +62,16 @@ export default async function handler(req, res) {
     // DELETE /api/sales-plans?planId=X
     if (req.method === 'DELETE') {
       const id = Number(req.query?.planId);
-      if (!id) return res.status(400).json({ error: 'Plan id is required.' });
+      if (!Number.isSafeInteger(id) || id <= 0) return res.status(400).json({ error: 'Plan id is required.' });
       const { error } = await supabase.from('sales_plans').delete().eq('id', id);
+      // Referenced plans must remain available for payment fulfillment and history.
+      // Let the foreign key detect references, including concurrent checkouts.
+      if (error?.code === '23503') {
+        const { error: archiveError } = await supabase.from('sales_plans')
+          .update({ status: 'inactive' }).eq('id', id);
+        if (archiveError) throw archiveError;
+        return res.status(200).json({ success: true, archived: true });
+      }
       if (error) throw error;
       return res.status(200).json({ success: true });
     }

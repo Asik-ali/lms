@@ -121,18 +121,16 @@ export default function SalesPlansPage() {
   }
 
   async function handleDelete(p) {
-    if (!window.confirm(`Delete plan "${p.name}"? This cannot be undone.`)) return;
+    if (!window.confirm(`Delete plan "${p.name}"? Plans with payment history will be archived to preserve student purchases.`)) return;
     const token = await apiToken();
     try {
       const res = await fetch(`${apiUrl('/api/sales-plans')}?planId=${p.id}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` },
       });
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        throw new Error(data.error || 'Failed to delete plan');
-      }
-      showSuccess('Plan deleted');
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || 'Failed to delete plan');
+      showSuccess(data.archived ? 'Plan archived. Hidden from the shop; existing orders and access are preserved.' : 'Plan deleted');
       await refresh();
     } catch (err) {
       showError(err.message);
@@ -310,7 +308,7 @@ export default function SalesPlansPage() {
                 </div>
                 <div className="flex gap-2 mt-auto">
                   <button onClick={() => openEdit(p)} className="btn-secondary flex-1 flex items-center justify-center gap-2 cursor-pointer"><Pencil className="w-4 h-4" /> Edit</button>
-                  <button onClick={() => handleDelete(p)} className="px-3 py-2 rounded-lg border border-brand-red/40 text-red-700 dark:text-red-300 hover:bg-brand-red/10 cursor-pointer"><Trash2 className="w-4 h-4" /></button>
+                  <button aria-label={`Delete ${p.name}`} title="Delete or archive plan" onClick={() => handleDelete(p)} className="px-3 py-2 rounded-lg border border-brand-red/40 text-red-700 dark:text-red-300 hover:bg-brand-red/10 cursor-pointer"><Trash2 className="w-4 h-4" /></button>
                 </div>
               </div>
             ))}
