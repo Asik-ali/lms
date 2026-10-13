@@ -2,7 +2,7 @@ import './StudentShop.css';
 import { ownsPlan, cartSelection, cartTotal } from '../../data/shopCart';
 import { useState, useEffect, useCallback } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
-import { ShoppingCart, BookOpen, PenTool, CheckCircle, CreditCard, History, Loader2, ShieldCheck, Layers, ArrowRight, Trash2 } from 'lucide-react';
+import { ShoppingCart, BookOpen, PenTool, CheckCircle, CreditCard, History, Loader2, Download, ShieldCheck, Layers, ArrowRight, Trash2 } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { supabase } from '../../supabase/client';
 import { getSalesPlans, decoratePlanItems, getMyPurchaseHistory } from '../../data/dynamicStore';
@@ -53,6 +53,17 @@ export default function StudentBuyCourses() {
   const [checkingOut, setCheckingOut] = useState('');
   const [history, setHistory] = useState({ orders: [], purchases: [] });
   const [showHistory, setShowHistory] = useState(false);
+  const [invoiceOrder, setInvoiceOrder] = useState('');
+
+  async function handleInvoice(orderId) {
+    if (invoiceOrder) return;
+    setInvoiceOrder(orderId);
+    try {
+      const { downloadInvoice } = await import('../../data/downloadInvoice');
+      await downloadInvoice(orderId);
+    } catch (error) { showError(error.message); }
+    finally { setInvoiceOrder(''); }
+  }
   const [cart, setCart] = useState(() => {
     try {
       const ids = JSON.parse(localStorage.getItem(`lms-cart-${user?.id}`) || '[]');
@@ -247,12 +258,18 @@ export default function StudentBuyCourses() {
             ) : (
               <div className="space-y-3">
                 {history.purchases.map(p => (
-                  <div key={p.id} className="card p-4 flex items-center justify-between">
+                  <div key={p.id} className="card p-4 flex flex-wrap gap-4 items-center justify-between">
                     <div>
                       <p className="font-medium text-navy-100">Order {p.order_id}</p>
                       <p className="text-xs text-navy-200">{new Date(p.created_at).toLocaleString()}</p>
                     </div>
-                    <span className="badge badge-success flex items-center gap-1"><CheckCircle className="w-3 h-3" /> {formatINR(p.amount)}</span>
+                    <div className="flex flex-wrap items-center gap-3 justify-end">
+                      <span className="badge badge-success flex items-center gap-1"><CheckCircle className="w-3 h-3" /> {formatINR(p.amount)}</span>
+                      <button className="btn-secondary inline-flex items-center gap-2 min-h-11" disabled={Boolean(invoiceOrder)} onClick={() => handleInvoice(p.order_id)}>
+                        {invoiceOrder === p.order_id ? <Loader2 size={16} className="animate-spin" /> : <Download size={16} />}
+                        {invoiceOrder === p.order_id ? 'Generating...' : 'Download invoice'}
+                      </button>
+                    </div>
                   </div>
                 ))}
               </div>

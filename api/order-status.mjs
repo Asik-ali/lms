@@ -13,6 +13,7 @@ export default async function handler(req, res) {
     if (!profile) return res.status(401).json({ error: 'Not authorized' });
 
     const { orderId } = req.query || {};
+    if (req.query?.operation === 'invoice' && !orderId) return res.status(400).json({ error: 'Order ID is required.' });
 
     if (orderId) {
       const { data: order, error } = await supabase
@@ -23,6 +24,22 @@ export default async function handler(req, res) {
         .maybeSingle();
       if (error) throw error;
       if (!order) return res.status(404).json({ error: 'Order not found' });
+      if (req.query?.operation === 'invoice') {
+        if (order.status !== 'PAID') return res.status(409).json({ error: 'Invoices are available only after payment confirmation.' });
+        const { data: purchase, error: purchaseError } = await supabase.from('purchases')
+          .select('order_id, amount, granted, created_at').eq('order_id', orderId)
+          .eq('student_id', profile.id).maybeSingle();
+        if (purchaseError) throw purchaseError;
+        if (!purchase?.granted || Number(purchase.amount) !== Number(order.amount)) {
+          return res.status(409).json({ error: 'Your purchase is still being finalized. Please try again shortly.' });
+        }
+        return res.status(200).json({
+          number: `INV-${order.order_id}`, orderId: order.order_id, date: purchase.created_at,
+          seller: 'EXAMSTICK', customer: { name: profile.name, email: profile.email },
+          amount: Number(order.amount), currency: 'INR', status: 'PAID',
+          items: order.cart_plans || [{ name: 'Course / test purchase', price: Number(order.amount) }],
+        });
+      }
       if (order.status !== 'PAID') {
         const remote = await getCashfreeOrder(order.order_id);
         if (isVerifiedPaidOrder(remote, order)) {
