@@ -341,9 +341,6 @@ export default function StudentBuyCourses() {
       )}
       </div>
 
-      <p className="text-xs text-navy-300 flex items-center gap-1.5">
-        <CreditCard className="w-3 h-3" /> Payments are processed securely via Cashfree. Your access is granted automatically after successful payment.
-      </p>
     </div>
   );
 }
