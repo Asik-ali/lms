@@ -1,4 +1,5 @@
 import { supabase } from '../supabase/client';
+import { sortTests } from './testOrder';
 import { gradeAttempt } from './gradeAttempt';
 
 const DEFAULT_PAGE_SIZE = 50;
@@ -310,7 +311,7 @@ export async function deleteTestCategory(id) {
 export async function getTestsByCategoryId(categoryId) {
   const { data, error } = await supabase.from('tests').select('id, category_id, name, description, duration, total_marks, question_count, difficulty, language, instructions, syllabus, status, created_at').eq('category_id', categoryId).order('created_at');
   if (error) throw error;
-  return data || [];
+  return sortTests(data || []);
 }
 
 export async function addTest({ category_id, name, description, duration, total_marks, difficulty, language, instructions, syllabus }) {
