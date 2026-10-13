@@ -6,6 +6,11 @@ import { registerServiceWorker, subscribeToPush } from './data/pushNotifications
 import { isNativePlatform, requestNativePushPermission, registerNativePush } from './data/nativePush.js'
 import { supabase } from './supabase/client.js'
 import { showError } from './components/common/Toast.jsx'
+import { installInspectionShortcutExit } from './data/inspectionShortcuts.js'
+
+// Shortcut deterrent only; authorization is enforced by APIs and database policies.
+const removeInspectionShortcutExit = installInspectionShortcutExit(supabase.auth)
+if (import.meta.hot) import.meta.hot.dispose(removeInspectionShortcutExit)
 
 async function waitForSession() {
   const { data: { session } } = await supabase.auth.getSession();
