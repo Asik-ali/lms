@@ -25,6 +25,7 @@ const adminNav = [
 
     ]
   },
+  { section: 'Student Purchases', icon: ShoppingCart, path: '/admin/purchases' },
   { section: 'Prices & Bundles', icon: ShoppingCart, path: '/admin/sales-plans' },
   { section: 'Test Series', icon: PenTool, path: '/admin/exams/questions' },
   { section: 'Live Classes', icon: Video, path: '/admin/live-classes' },

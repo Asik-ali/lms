@@ -21,6 +21,7 @@ const SettingsPage = lazy(() => import('./pages/admin/SettingsPage'));
 const AdminTickets = lazy(() => import('./pages/admin/AdminTickets'));
 const AdminCalendar = lazy(() => import('./pages/admin/AdminCalendar'));
 const AdminLiveClasses = lazy(() => import('./pages/admin/AdminLiveClasses'));
+const StudentPurchases = lazy(() => import('./pages/admin/StudentPurchases'));
 const SalesPlansPage = lazy(() => import('./pages/admin/SalesPlansPage'));
 const StudentBuyCourses = lazy(() => import('./pages/student/StudentBuyCourses'));
 const StudentDashboard = lazy(() => import('./pages/student/StudentDashboard'));
@@ -85,6 +86,7 @@ function AppRoutes() {
         <Route path="students/suspend" element={<StudentManagement />} />
         <Route path="courses" element={<CourseManagement />} />
         <Route path="sales-plans" element={<SalesPlansPage />} />
+        <Route path="purchases" element={<StudentPurchases />} />
         <Route path="courses/create" element={<CourseManagement />} />
         <Route path="exams/questions" element={<QuestionBank />} />
         <Route path="live-classes" element={<AdminLiveClasses />} />

@@ -9,6 +9,7 @@ import { useLocation } from 'react-router-dom';
 
 const titles = {
   '/admin': 'Dashboard',
+  '/admin/purchases': 'Student Purchases',
   '/admin/calendar': 'Calendar',
   '/admin/students': 'All Students',
   '/admin/students/add': 'Add Student',
