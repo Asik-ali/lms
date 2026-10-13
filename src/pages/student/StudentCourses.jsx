@@ -60,6 +60,7 @@ export default function StudentCourses() {
           <div className="col-span-full text-center py-12 text-navy-300">
             <BookOpen className="w-12 h-12 mx-auto mb-3 text-navy-300" />
             <p>No courses enrolled yet</p>
+            <button onClick={() => navigate("/student/buy-courses")} className="btn-primary mt-4">Browse courses and prices</button>
           </div>
         )}
       </div>

@@ -20,6 +20,8 @@ const SettingsPage = lazy(() => import('./pages/admin/SettingsPage'));
 const AdminTickets = lazy(() => import('./pages/admin/AdminTickets'));
 const AdminCalendar = lazy(() => import('./pages/admin/AdminCalendar'));
 const AdminLiveClasses = lazy(() => import('./pages/admin/AdminLiveClasses'));
+const SalesPlansPage = lazy(() => import('./pages/admin/SalesPlansPage'));
+const StudentBuyCourses = lazy(() => import('./pages/student/StudentBuyCourses'));
 const StudentDashboard = lazy(() => import('./pages/student/StudentDashboard'));
 const StudentCourses = lazy(() => import('./pages/student/StudentCourses'));
 const StudentCourseDetail = lazy(() => import('./pages/student/StudentCourseDetail'));
@@ -77,6 +79,7 @@ function AppRoutes() {
         <Route path="students/progress" element={<StudentManagement />} />
         <Route path="students/suspend" element={<StudentManagement />} />
         <Route path="courses" element={<CourseManagement />} />
+        <Route path="sales-plans" element={<SalesPlansPage />} />
         <Route path="courses/create" element={<CourseManagement />} />
         <Route path="exams/questions" element={<QuestionBank />} />
         <Route path="live-classes" element={<AdminLiveClasses />} />
@@ -91,6 +94,7 @@ function AppRoutes() {
       <Route path="/student" element={<RoleGuard role="student"><DashboardLayout /></RoleGuard>}>
         <Route index element={<StudentDashboard />} />
         <Route path="courses" element={<StudentCourses />} />
+        <Route path="buy-courses" element={<StudentBuyCourses />} />
         <Route path="courses/:courseId" element={<StudentCourseDetail />} />
         <Route path="live-classes" element={<StudentLiveClasses />} />
         <Route path="test-series" element={<StudentTestSeries />} />

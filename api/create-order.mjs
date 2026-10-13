@@ -22,41 +22,24 @@ export default async function handler(req, res) {
       return res.status(401).json({ error: 'Please login as a student to purchase.' });
     }
 
-    const { planId } = req.body || {};
-    if (!planId) return res.status(400).json({ error: 'Plan id is required.' });
-
-    const { data: plan, error: planErr } = await supabase
-      .from('sales_plans')
-      .select('id, name, description, price, status')
-      .eq('id', planId)
-      .eq('status', 'active')
-      .maybeSingle();
-    if (planErr) throw planErr;
-    if (!plan) return res.status(404).json({ error: 'Plan not found or not active.' });
-    if (!Number.isFinite(Number(plan.price)) || Number(plan.price) <= 0) {
-      return res.status(400).json({ error: 'This plan does not have a valid checkout price.' });
+    const requested = req.body?.planIds || (req.body?.planId ? [req.body.planId] : []);
+    if (!Array.isArray(requested) || !requested.length || requested.length > 50 ||
+        requested.some(id => !Number.isSafeInteger(Number(id)) || Number(id) <= 0)) {
+      return res.status(400).json({ error: 'Select between 1 and 50 valid plans.' });
     }
-
-    const orderId = `${CASHFREE_ORDER_PREFIX}-${Date.now()}-${Math.floor(Math.random() * 100000)}`;
-
-    const { data: storedOrder, error: orderErr } = await supabase
-      .from('purchase_orders')
-      .insert({
-        order_id: orderId,
-        plan_id: plan.id,
-        student_id: profile.id,
-        amount: plan.price,
-        status: 'PENDING',
-      })
-      .select('id, order_id, payment_session_id, amount, status')
-      .single();
-    if (orderErr) throw orderErr;
+    const planIds = [...new Set(requested.map(Number))];
+    const orderId = `${CASHFREE_ORDER_PREFIX}-${Date.now()}-${crypto.randomUUID().slice(0, 8)}`;
+    const { data: storedOrder, error: orderErr } = await supabase.rpc('create_purchase_cart', {
+      cashfree_order_id: orderId, buyer_id: profile.id, selected_plan_ids: planIds,
+    });
+    if (orderErr) return res.status(400).json({ error: orderErr.message || 'Unable to create cart order' });
+    const planName = storedOrder.plan_name;
 
     const cashfreeOrder = await createCashfreeOrder({
       orderId,
-      amount: plan.price,
+      amount: storedOrder.amount,
       customer: profile,
-      planName: plan.name,
+      planName,
       origin: getOrigin(req),
     });
 
@@ -72,8 +55,8 @@ export default async function handler(req, res) {
       success: true,
       order_id: orderId,
       payment_session_id: paymentSessionId,
-      amount: plan.price,
-      plan_name: plan.name,
+      amount: storedOrder.amount,
+      plan_name: planName,
       mode: (process.env.CASHFREE_MODE || 'production').toLowerCase(),
     });
   } catch (err) {
