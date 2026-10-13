@@ -55,6 +55,7 @@ export default async function handler(req, res) {
       .from('purchase_orders')
       .select('id, order_id, plan_id, amount, status, created_at, cart_plans')
       .eq('student_id', profile.id)
+      .gte('created_at', '2026-09-30T18:30:00.000Z')
       .order('created_at', { ascending: false });
     if (oErr) throw oErr;
 
@@ -62,6 +63,7 @@ export default async function handler(req, res) {
       .from('purchases')
       .select('id, order_id, plan_id, amount, created_at')
       .eq('student_id', profile.id)
+      .gte('created_at', '2026-09-30T18:30:00.000Z')
       .order('created_at', { ascending: false });
     if (pErr) throw pErr;
 

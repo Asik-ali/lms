@@ -22,7 +22,7 @@ export default function StudentPurchases() {
     let request = supabase.from('profiles').select(
       'id, name, email, orders:purchase_orders!inner(id, order_id, amount, status, created_at, cart_plans, plan:sales_plans(name))',
       { count: 'exact' },
-    ).eq('role', 'student').eq('orders.status', 'PAID').order('name').order('id').range(page * pageSize, (page + 1) * pageSize - 1);
+    ).eq('role', 'student').eq('orders.status', 'PAID').gte('orders.created_at', '2026-09-30T18:30:00.000Z').order('name').order('id').range(page * pageSize, (page + 1) * pageSize - 1);
     const term = query.replace(/[^\p{L}\p{N}\s@._-]/gu, '').trim();
     if (term) request = request.or(`name.ilike.%${term}%,email.ilike.%${term}%`);
     const result = await request;
@@ -35,7 +35,7 @@ export default function StudentPurchases() {
   return <div className="space-y-6">
     <div className="flex flex-wrap justify-between items-center gap-3">
       <div><h1 className="text-2xl font-bold text-navy-100">Student Purchases</h1>
-        <p className="text-sm text-navy-200 mt-2">Students with confirmed purchases and their purchased plans.</p></div>
+        <p className="text-sm text-navy-200 mt-2">Confirmed purchases from 1 October 2026 onward.</p></div>
       <button className="btn-secondary inline-flex items-center gap-2" onClick={load} disabled={loading}><RefreshCw size={16} /> Refresh</button>
     </div>
     <label className="flex items-center gap-3 card p-3"><Search size={18} className="text-navy-300" />
