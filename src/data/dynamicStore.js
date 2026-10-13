@@ -748,11 +748,13 @@ export async function decoratePlanItems(plans) {
   let courses = [];
   let series = [];
   if (courseIds.length) {
-    const { data } = await supabase.from('courses').select('id, title').in('id', courseIds);
+    const { data, error } = await supabase.from('courses').select('id, title').in('id', courseIds);
+    if (error) throw error;
     courses = data || [];
   }
   if (seriesIds.length) {
-    const { data } = await supabase.from('test_series').select('id, name').in('id', seriesIds);
+    const { data, error } = await supabase.from('test_series').select('id, name').in('id', seriesIds);
+    if (error) throw error;
     series = data || [];
   }
   const courseMap = byId(courses);
@@ -775,7 +777,7 @@ export async function getMyPurchaseHistory(studentId) {
 
   const { data: orders, error: oErr } = await supabase
     .from('purchase_orders')
-    .select('id, order_id, plan_id, amount, status, created_at')
+    .select('id, order_id, plan_id, amount, status, created_at, cart_plans')
     .eq('student_id', studentId)
     .order('created_at', { ascending: false });
   if (oErr) throw oErr;

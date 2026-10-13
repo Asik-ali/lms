@@ -1,3 +1,4 @@
+import { randomUUID } from 'node:crypto';
 import { createServiceClient, getAuthedUser, setCors } from './_auth.mjs';
 import { createCashfreeOrder, CASHFREE_ORDER_PREFIX } from './_cashfree.mjs';
 
@@ -28,7 +29,7 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Select between 1 and 50 valid plans.' });
     }
     const planIds = [...new Set(requested.map(Number))];
-    const orderId = `${CASHFREE_ORDER_PREFIX}-${Date.now()}-${crypto.randomUUID().slice(0, 8)}`;
+    const orderId = `${CASHFREE_ORDER_PREFIX}-${Date.now()}-${randomUUID().slice(0, 8)}`;
     const { data: storedOrder, error: orderErr } = await supabase.rpc('create_purchase_cart', {
       cashfree_order_id: orderId, buyer_id: profile.id, selected_plan_ids: planIds,
     });

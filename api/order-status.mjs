@@ -17,7 +17,7 @@ export default async function handler(req, res) {
     if (orderId) {
       const { data: order, error } = await supabase
         .from('purchase_orders')
-        .select('id, order_id, plan_id, student_id, amount, status, created_at')
+        .select('id, order_id, plan_id, student_id, amount, status, created_at, cart_plans')
         .eq('order_id', orderId)
         .eq('student_id', profile.id)
         .maybeSingle();
@@ -36,7 +36,7 @@ export default async function handler(req, res) {
     // Return the student's recent orders + completed purchases
     const { data: orders, error: oErr } = await supabase
       .from('purchase_orders')
-      .select('id, order_id, plan_id, amount, status, created_at')
+      .select('id, order_id, plan_id, amount, status, created_at, cart_plans')
       .eq('student_id', profile.id)
       .order('created_at', { ascending: false });
     if (oErr) throw oErr;

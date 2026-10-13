@@ -90,13 +90,13 @@ export default function SalesPlansPage() {
 
   async function handleSave() {
     if (!form.name.trim()) return showError('Plan name is required');
-    if (form.price === '' || Number(form.price) < 0) return showError('Enter a valid price');
+    if (form.price === '' || !Number.isFinite(Number(form.price)) || Number(form.price) <= 0 || Math.abs(Number(form.price) * 100 - Math.round(Number(form.price) * 100)) > 0.000001) return showError('Enter a positive price with at most two decimal places');
     if (form.items.length === 0) return showError('Select at least one course or test series');
 
     setSaving(true);
-    const token = await apiToken();
     const url = form.id ? `${apiUrl('/api/sales-plans')}?planId=${form.id}` : apiUrl('/api/sales-plans');
     try {
+      const token = await apiToken();
       const res = await fetch(url, {
         method: form.id ? 'PUT' : 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
@@ -154,7 +154,7 @@ export default function SalesPlansPage() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-navy-100">Sales Plans</h1>
+        <h1 className="text-2xl font-bold text-navy-100">Prices & Bundles</h1>
         {!showForm && (
           <button onClick={openCreate} className="btn-primary flex items-center gap-2 cursor-pointer">
             <Plus className="w-4 h-4" /> New Plan
@@ -162,6 +162,7 @@ export default function SalesPlansPage() {
         )}
       </div>
 
+      <p className="text-navy-200">Set a price for one course or test series, or choose several items and set one bundle price.</p>
       {showForm && (
         <div className="card p-6 space-y-5">
           <div className="flex items-center justify-between">
@@ -173,6 +174,26 @@ export default function SalesPlansPage() {
             </button>
           </div>
 
+          <div className="space-y-3">
+            <label className="block text-sm font-medium text-navy-100">Start with an individual course or test series</label>
+            <select aria-label="Individual course or test series" className="input-field w-full" value="" onChange={event => {
+              if (!event.target.value) return;
+              const [type, id] = event.target.value.split(':');
+              const item = type === 'course' ? courses.find(c => Number(c.id) === Number(id)) : seriesList.find(s => Number(s.id) === Number(id));
+              setForm(f => ({ ...f, name: type === 'course' ? item.title : item.name, items: [{ item_type: type, item_id: Number(id) }] }));
+            }}>
+              <option value="">Choose an item to sell individually</option>
+              <optgroup label="Courses">{courses.map(c => <option key={c.id} value={`course:${c.id}`}>{c.title}</option>)}</optgroup>
+              <optgroup label="Test Series">{seriesList.map(s => <option key={s.id} value={`test_series:${s.id}`}>{s.name}</option>)}</optgroup>
+            </select>
+            <div className="flex flex-wrap gap-2">
+              <button type="button" className="btn-secondary" onClick={() => setForm(f => ({ ...f, name: f.name || 'All-in-one Bundle', items: [...courses.map(c => ({ item_type: 'course', item_id: Number(c.id) })), ...seriesList.map(s => ({ item_type: 'test_series', item_id: Number(s.id) }))] }))}>All-in-one bundle</button>
+              <button type="button" className="btn-secondary" onClick={() => setForm(f => ({ ...f, items: courses.map(c => ({ item_type: 'course', item_id: Number(c.id) })) }))}>All courses</button>
+              <button type="button" className="btn-secondary" onClick={() => setForm(f => ({ ...f, items: seriesList.map(s => ({ item_type: 'test_series', item_id: Number(s.id) })) }))}>All test series</button>
+              <button type="button" className="btn-secondary" onClick={() => setForm(f => ({ ...f, items: [] }))}>Choose custom bundle</button>
+            </div>
+            <p className="text-xs text-navy-300">Choose the included items below. All-in-one selects the current catalog; newly added content can be included by editing the bundle.</p>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-navy-100 mb-1">Plan Name *</label>
@@ -180,7 +201,7 @@ export default function SalesPlansPage() {
             </div>
             <div>
               <label className="block text-sm font-medium text-navy-100 mb-1">Price (INR) *</label>
-              <input type="number" min="0" value={form.price} onChange={e => setForm(f => ({ ...f, price: e.target.value }))} className="input-field w-full" placeholder="e.g. 4999" />
+              <input type="number" min="0.01" step="0.01" value={form.price} onChange={e => setForm(f => ({ ...f, price: e.target.value }))} className="input-field w-full" placeholder="e.g. 4999" />
             </div>
           </div>
 
@@ -244,6 +265,7 @@ export default function SalesPlansPage() {
           </div>
 
           <div className="flex gap-3">
+            <p className="text-sm text-navy-200 self-center">{form.items.length} items - {form.items.length === 1 ? "Individual price" : "Bundle total price"}</p>
             <button onClick={handleSave} disabled={saving} className="btn-primary flex items-center gap-2 cursor-pointer">
               {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
               {saving ? 'Saving...' : form.id ? 'Update Plan' : 'Create Plan'}
@@ -278,7 +300,7 @@ export default function SalesPlansPage() {
                 </div>
                 <div className="space-y-1.5 mb-5 text-sm text-navy-100 flex-1">
                   {(p.items || []).length === 0 ? (
-                    <p className="text-xs text-navy-300">No items (full access)</p>
+                    <p className="text-xs text-navy-300">No items configured</p>
                   ) : p.items.map((it, i) => (
                     <div key={i} className="flex items-center gap-2">
                       {it.item_type === 'course' ? <BookOpen className="w-4 h-4 text-navy-500 flex-shrink-0" /> : <PenTool className="w-4 h-4 text-emerald-500 flex-shrink-0" />}

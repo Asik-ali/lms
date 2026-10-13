@@ -41,7 +41,7 @@ export async function createCashfreeOrder({ orderId, amount, customer, planName,
     order_id: orderId,
     order_amount: Number(amount),
     order_currency: 'INR',
-    order_note: `Purchase - ${planName}`,
+    order_note: `Purchase - ${planName}`.slice(0, 200),
     customer_details: {
       customer_id: customer.id,
       customer_name: customer.name || 'Student',

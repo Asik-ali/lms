@@ -1,5 +1,6 @@
+import { ownsPlan, cartSelection, cartTotal } from '../../data/shopCart';
 import { useState, useEffect, useCallback } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, Link } from 'react-router-dom';
 import { ShoppingCart, BookOpen, PenTool, CheckCircle, CreditCard, History, Loader2, IndianRupee } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { supabase } from '../../supabase/client';
@@ -39,7 +40,7 @@ const statusConfig = {
 };
 
 function formatINR(amount) {
-  return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(amount || 0);
+  return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 2 }).format(amount || 0);
 }
 
 export default function StudentBuyCourses() {
@@ -47,9 +48,31 @@ export default function StudentBuyCourses() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [plans, setPlans] = useState([]);
   const [loadingPlans, setLoadingPlans] = useState(true);
+  const [shopError, setShopError] = useState('');
   const [checkingOut, setCheckingOut] = useState('');
   const [history, setHistory] = useState({ orders: [], purchases: [] });
   const [showHistory, setShowHistory] = useState(false);
+  const [cart, setCart] = useState(() => {
+    try {
+      const ids = JSON.parse(localStorage.getItem(`lms-cart-${user?.id}`) || '[]');
+      return { owner: user?.id, ids: Array.isArray(ids) ? ids : [] };
+    } catch { return { owner: user?.id, ids: [] }; }
+  });
+  const cartIds = cart.owner === user?.id ? cart.ids : [];
+  const cartPlans = cartSelection(plans, cartIds, user);
+  const total = cartTotal(cartPlans);
+  const contentKeys = cartPlans.flatMap(plan => plan.items.map(item => `${item.item_type}:${item.item_id}`));
+  const overlaps = new Set(contentKeys).size < contentKeys.length;
+
+  function updateCart(ids) {
+    setCart({ owner: user.id, ids });
+    try { localStorage.setItem(`lms-cart-${user.id}`, JSON.stringify(ids)); } catch { /* Cart works without local storage. */ }
+  }
+
+  function addToCart(plan) {
+    if (!cartIds.some(id => String(id) === String(plan.id))) updateCart([...cartIds, plan.id]);
+  }
+
 
   const loadHistory = useCallback(async () => {
     if (!user?.id) return;
@@ -70,6 +93,12 @@ export default function StudentBuyCourses() {
     if (!response.ok) throw new Error(order.error || 'Unable to verify payment');
     if (order.status === 'PAID') {
       await refreshProfile();
+      const paidIds = new Set((order.cart_plans || []).map(plan => String(plan.id)));
+      setCart(current => {
+        const ids = current.ids.filter(id => !paidIds.has(String(id)));
+        try { localStorage.setItem(`lms-cart-${current.owner}`, JSON.stringify(ids)); } catch { /* Optional persistence. */ }
+        return { ...current, ids };
+      });
       showSuccess('Payment successful. Your courses and tests are unlocked.');
     } else {
       showError('Payment is not confirmed yet. Access remains locked. Check payment status again shortly.');
@@ -94,22 +123,23 @@ export default function StudentBuyCourses() {
         p = await decoratePlanItems(p);
         setPlans(p);
       } catch (err) {
-        console.error('Failed to load sales plans:', err);
+        setShopError(err.message || 'Unable to load the shop. Please try again.');
       } finally {
         setLoadingPlans(false);
       }
     })();
   }, []);
 
-  async function handleCheckout(plan) {
-    setCheckingOut(plan.id);
+  async function handleCheckout() {
+    if (!cartPlans.length || checkingOut) return;
+    setCheckingOut('cart');
     try {
       const { data: { session } } = await supabase.auth.getSession();
       const token = session?.access_token || '';
       const res = await fetch(apiUrl('/api/create-order'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
-        body: JSON.stringify({ planId: plan.id }),
+        body: JSON.stringify({ planIds: cartPlans.map(plan => plan.id) }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Failed to create order');
@@ -134,7 +164,7 @@ export default function StudentBuyCourses() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-navy-100">Buy Courses & Tests</h1>
+        <h1 className="text-2xl font-bold text-navy-100">Shop Courses & Tests</h1>
         <button
           onClick={() => setShowHistory(v => !v)}
           className="btn-secondary flex items-center gap-2"
@@ -143,6 +173,26 @@ export default function StudentBuyCourses() {
         </button>
       </div>
 
+      <p className="text-navy-200">Choose a course, test series, or bundle. Pay securely to unlock its included content.</p>
+      {!showHistory && cartIds.length > 0 && !loadingPlans && (
+        <section aria-label="Shopping cart" className="card p-5 space-y-4">
+          <h2 className="text-lg font-semibold text-navy-100">Your cart ({cartPlans.length})</h2>
+          {cartPlans.map(plan => <div key={plan.id} className="flex flex-wrap items-center justify-between gap-3 text-navy-100">
+            <span>{plan.name} - {formatINR(plan.price)}</span>
+            <button disabled={Boolean(checkingOut)} className="btn-secondary" aria-label={`Remove ${plan.name} from cart`} onClick={() => updateCart(cartIds.filter(id => String(id) !== String(plan.id)))}>Remove</button>
+          </div>)}
+          {cartPlans.length !== cartIds.length && <p className="text-sm text-navy-200">Unavailable or already unlocked items are excluded from checkout.</p>}
+          {overlaps && <p className="text-sm text-amber-700 dark:text-amber-300">Some selections include the same content. Each plan is charged at its listed price. Remove overlapping selections if you only need that content once.</p>}
+          <div className="flex flex-wrap items-center justify-between gap-3 border-t border-navy-700 pt-4">
+            <span className="text-xl font-bold text-navy-100">Total: {formatINR(total)}</span>
+            <button onClick={handleCheckout} disabled={!cartPlans.length || Boolean(checkingOut)} className="btn-primary flex items-center gap-2">
+              {checkingOut ? <Loader2 className="w-4 h-4 animate-spin" /> : <CreditCard className="w-4 h-4" />}
+              {checkingOut ? 'Processing payment...' : `Pay ${formatINR(total)}`}
+            </button>
+            <button disabled={Boolean(checkingOut)} className="btn-secondary" onClick={() => updateCart([])}>Clear cart</button>
+          </div>
+        </section>
+      )}
       {showHistory ? (
         <div className="space-y-6">
           <div>
@@ -168,7 +218,7 @@ export default function StudentBuyCourses() {
                       const cfg = statusConfig[o.status] || statusConfig.PENDING;
                       return (
                         <tr key={o.id} className="border-b border-navy-700">
-                          <td className="table-cell font-mono text-xs">{o.order_id}</td>
+                          <td className="table-cell text-xs"><span className="font-mono">{o.order_id}</span><p className="text-navy-200 mt-1">{(o.cart_plans || []).map(plan => plan.name).join(", ")}</p></td>
                           <td className="table-cell">{formatINR(o.amount)}</td>
                           <td className="table-cell"><span className={`badge ${cfg.cls}`}>{cfg.label}</span>{o.status !== 'PAID' && <button className="ml-2 text-xs underline" onClick={() => verifyPayment(o.order_id).catch(err => showError(err.message))}>Check payment</button>}</td>
                           <td className="table-cell">{new Date(o.created_at).toLocaleString()}</td>
@@ -209,15 +259,19 @@ export default function StudentBuyCourses() {
             <div className="flex items-center justify-center py-16 text-navy-300">
               <Loader2 className="w-6 h-6 animate-spin mr-2" /> Loading plans...
             </div>
-          ) : plans.length === 0 ? (
+          ) : shopError ? <div className="card p-6" role="alert">{shopError}<button className="btn-secondary ml-3" onClick={() => window.location.reload()}>Try again</button></div> : plans.length === 0 ? (
             <div className="card p-10 text-center text-navy-300">
               <ShoppingCart className="w-12 h-12 mx-auto mb-3 text-navy-300" />
               <p>No plans available for purchase right now. Check back soon!</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {plans.map(plan => (
+              {plans.map(plan => {
+                const owned = ownsPlan(plan, user);
+                const inCart = cartIds.some(id => String(id) === String(plan.id));
+                return (
                 <div key={plan.id} className="card p-6 flex flex-col">
+                  <span className="text-xs text-navy-300 mb-2">{plan.items.length > 1 ? 'Bundle' : plan.items[0]?.item_type === 'course' ? 'Course' : 'Test Series'}</span>
                   <h2 className="text-lg font-bold text-navy-100 mb-1">{plan.name}</h2>
                   {plan.description && <p className="text-sm text-navy-200 mb-4">{plan.description}</p>}
 
@@ -230,7 +284,7 @@ export default function StudentBuyCourses() {
 
                   <div className="space-y-2 mb-6">
                     {plan.items.length === 0 ? (
-                      <p className="text-sm text-navy-300">Full plan access</p>
+                      <p className="text-sm text-navy-300">No content available</p>
                     ) : (
                       plan.items.map((it, i) => (
                         <div key={i} className="flex items-center gap-2 text-sm text-navy-100">
@@ -243,19 +297,19 @@ export default function StudentBuyCourses() {
                     )}
                   </div>
 
-                  <button
-                    onClick={() => handleCheckout(plan)}
-                    disabled={Boolean(checkingOut)}
+                  {owned ? <>
+                    <span className="badge badge-success mb-3">Access unlocked</span>
+                    <Link className="btn-primary text-center mt-auto" to={plan.items[0]?.item_type === 'course' ? `/student/courses/${plan.items[0].item_id}` : '/student/test-series'}>Open content</Link>
+                  </> : <button
+                    onClick={() => addToCart(plan)}
+                    disabled={Boolean(checkingOut) || inCart || plan.price <= 0 || !plan.items.length}
                     className="btn-primary w-full flex items-center justify-center gap-2 mt-auto cursor-pointer"
                   >
-                    {checkingOut === plan.id ? (
-                      <><Loader2 className="w-4 h-4 animate-spin" /> Creating order...</>
-                    ) : (
-                      <><CreditCard className="w-4 h-4" /> Buy for {formatINR(plan.price)}</>
-                    )}
-                  </button>
+                    <ShoppingCart className="w-4 h-4" /> {inCart ? 'Added to cart' : 'Add to cart'}
+                  </button>}
+
                 </div>
-              ))}
+              ); })}
             </div>
           )}
         </>

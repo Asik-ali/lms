@@ -47,7 +47,7 @@ for md_file in sorted(md_root.glob('*.md')):
     document = pdf.open(original)
     pages = [unique_spans(page) for page in document]
     language = 'Tamil' if re.search(r'[\u0b80-\u0bff]', name) else 'English'
-    topic = next(value for pattern, value in topics if pattern.lower() in name.lower())
+    topic = next(value for pattern, value in topics if pattern.lower() in name.lower() and (pattern != 'Ratio' or name.lower().startswith('ratio')))
     expected_count = 10 if '26' in name else 25
     question_texts = {}
     answers = {}
@@ -146,6 +146,12 @@ for md_file in sorted(md_root.glob('*.md')):
                 right = document[page_number].rect.width/2 if two_columns and marker['x'] < document[page_number].rect.width/2 else document[page_number].rect.width-25
                 selected = [span for span in pages[page_number] if left <= span['bbox'][0] < right and top <= span['bbox'][1] < bottom]
                 sections.append(text_lines(selected))
+                image_root = out/'question-images'/f'paper-{len(papers)+1:02d}'
+                image_root.mkdir(parents=True, exist_ok=True)
+                target = image_root/f'q{marker["number"]:02d}-{len(sections)}.png'
+                if bottom > top:
+                    document[page_number].get_pixmap(matrix=pdf.Matrix(2,2), clip=pdf.Rect(left, max(0, top-8), right, bottom-8)).save(target)
+                    question_images.setdefault(marker['number'], []).append(target.as_posix())
             question_texts[marker['number']] = re.sub(r'^\s*\d{1,2}[.:)]\s*', '', '\n'.join(sections)).strip()
     questions = []
     for number in range(1, expected_count+1):
