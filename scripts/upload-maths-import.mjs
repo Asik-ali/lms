@@ -1,5 +1,4 @@
 import fs from 'node:fs';
-import path from 'node:path';
 import { createClient } from '@supabase/supabase-js';
 
 const papers = JSON.parse(fs.readFileSync('imports/maths/prepared.json', 'utf8'));
@@ -30,7 +29,7 @@ for (const paper of papers) {
   for (const question of paper.questions) {
     let questionText = question.question;
     if (question.source_image) {
-      const objectPath = `tamil-simplification/${path.basename(question.source_image)}`;
+      const objectPath = question.source_image.replace('imports/maths/question-images/', '');
       await checked(db.storage.from(bucket).upload(objectPath, fs.readFileSync(question.source_image), { contentType: 'image/png', upsert: true }));
       questionText = db.storage.from(bucket).getPublicUrl(objectPath).data.publicUrl;
     }
@@ -38,7 +37,10 @@ for (const paper of papers) {
   }
   const existing = await checked(db.from('questions').select('id,' + fields.join(',')).eq('test_id', test.id).order('id'));
   if (existing.length > rows.length) throw new Error(`Unexpected existing count for ${paper.name}`);
-  for (const [index, row] of existing.entries()) for (const field of fields) if (row[field] !== rows[index][field]) throw new Error(`Existing data differs: ${paper.name} Q${index+1} ${field}`);
+  for (const [index, row] of existing.entries()) {
+    if (!row.explanation?.startsWith(`Source PDF: ${paper.pdfSource}; Question ${index+1}\n`)) throw new Error(`Existing source differs: ${paper.name} Q${index+1}`);
+    if (fields.some(field => row[field] !== rows[index][field])) await checked(db.from('questions').update(rows[index]).eq('id', row.id).eq('test_id', test.id));
+  }
   if (existing.length < rows.length) await checked(db.from('questions').insert(rows.slice(existing.length)));
   const saved = await checked(db.from('questions').select('id,' + fields.join(',')).eq('test_id', test.id).order('id'));
   if (saved.length !== rows.length) throw new Error(`Saved count mismatch: ${paper.name}`);

@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { ThemeProvider } from './contexts/ThemeContext';
+import PublicLayout from './components/Layout/PublicLayout';
 import DashboardLayout from './components/Layout/DashboardLayout';
 import ToastContainer from './components/common/Toast';
 const LoginPage = lazy(() => import('./pages/LoginPage'));
@@ -58,8 +59,10 @@ function AppRoutes() {
 
   if (!user) return (
     <Routes>
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/signup" element={<SignupPage />} />
+      <Route element={<PublicLayout />}>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
+      </Route>
       <Route path="/" element={<Navigate to="/login" replace />} />
       <Route path="*" element={<Navigate to="/login" replace />} />
     </Routes>
@@ -67,8 +70,10 @@ function AppRoutes() {
 
   return (
     <Routes>
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/signup" element={<SignupPage />} />
+      <Route element={<PublicLayout />}>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
+      </Route>
       <Route path="/" element={<Navigate to={homePath} replace />} />
       <Route path="/admin" element={<RoleGuard role="admin"><DashboardLayout /></RoleGuard>}>
         <Route index element={<AdminDashboard />} />
@@ -120,8 +125,10 @@ export default function App() {
         <AuthProvider>
           <Suspense fallback={<div role="status" className="min-h-dvh flex items-center justify-center bg-navy-950 text-navy-100">Loading...</div>}>
             <Routes>
-              <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-              <Route path="/delete-account" element={<DeleteAccountPage />} />
+              <Route element={<PublicLayout />}>
+                <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+                <Route path="/delete-account" element={<DeleteAccountPage />} />
+              </Route>
               <Route path="*" element={<AppRoutes />} />
             </Routes>
           </Suspense>

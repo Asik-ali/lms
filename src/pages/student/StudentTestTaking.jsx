@@ -416,7 +416,11 @@ export default function StudentTestTaking() {
               </div>
 
               <div className="p-5 sm:p-6">
-                {currentQuestion.question && currentQuestion.question.startsWith('http') ? (
+                {/^https?:\/\/.*\.(png|jpe?g|webp)(\?.*)?$/i.test(currentQuestion.question || '') ? (
+                  <a href={currentQuestion.question} target="_blank" rel="noopener noreferrer" className="block rounded-lg overflow-hidden bg-white">
+                    <img src={currentQuestion.question} alt={`Original question ${currentIdx + 1} with its answer options`} className="w-full h-auto" />
+                  </a>
+                ) : currentQuestion.question && currentQuestion.question.startsWith('http') ? (
                   <div className="space-y-4">
                     {!iframeFailed[currentQuestion.id] ? (
                       <div className="relative w-full rounded-lg overflow-hidden border border-navy-700 bg-surface" style={{ minHeight: 400 }}>

@@ -12,3 +12,13 @@ for index, page in enumerate(document):
     canvas.paste(image, (index*300, 20))
     draw.text((index*300,0), str(index+1), fill='black')
 canvas.save('imports/maths/profit-contact.png')
+paths = sorted(Path('imports/maths/question-images/english-profit-and-loss').glob('q*-1.png'))
+canvas = Image.new('RGB',(2000,2200),'#dddddd')
+draw = ImageDraw.Draw(canvas)
+for index,path in enumerate(paths):
+    image = Image.open(path)
+    image.thumbnail((390,410))
+    x,y = (index%5)*400,(index//5)*440
+    canvas.paste(image,(x,y+20))
+    draw.text((x,y),path.name,fill='black')
+canvas.save('imports/maths/profit-crops-review.png')

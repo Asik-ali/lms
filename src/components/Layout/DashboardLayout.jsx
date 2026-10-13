@@ -3,6 +3,7 @@ import { Outlet, Navigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import Sidebar from './Sidebar';
 import Topbar from './Topbar';
+import BackButton from '../common/BackButton';
 import ConnectionStatus from '../common/ConnectionStatus';
 import { useLocation } from 'react-router-dom';
 
@@ -66,6 +67,7 @@ export default function DashboardLayout() {
         <Topbar title={titles[currentPath] || 'Dashboard'} onMenuClick={() => setMobileMenuOpen(true)} />
         <ConnectionStatus />
         <main ref={mainRef} className="dashboard-content flex-1 min-h-0 min-w-0 overflow-y-auto p-4 sm:p-6 bg-navy-950">
+          <div className="mb-4"><BackButton /></div>
           <Outlet />
         </main>
       </div>

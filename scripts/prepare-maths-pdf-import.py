@@ -67,6 +67,22 @@ for md_file in sorted(md_root.glob('*.md')):
         if len(sequence) != 25:
             raise ValueError(f'Bad scanned key for {name}: {len(sequence)}')
         answers = {index + 1: letter for index, letter in enumerate(sequence)}
+        if language == 'English':
+            # Scanned paper: page fractions checked against the original page montage.
+            boundaries = [(0,.27),(0,.46),(0,.64),(0,.85),(1,.14),(1,.35),(1,.56),(1,.75),(2,.03),(2,.22),(2,.42),(2,.63),(2,.83),(3,.14),(3,.35),(3,.56),(3,.77),(4,.07),(4,.28),(4,.49),(4,.69),(5,.03),(5,.24),(5,.445),(5,.67)]
+            image_root = out/'question-images'/'english-profit-and-loss'
+            image_root.mkdir(parents=True, exist_ok=True)
+            for index, (start_page, fraction) in enumerate(boundaries):
+                end_page, end_fraction = boundaries[index+1] if index+1 < 25 else (5,.90)
+                paths = []
+                for page_number in range(start_page,end_page+1):
+                    page = document[page_number]
+                    top = fraction*page.rect.height if page_number == start_page else 15
+                    bottom = end_fraction*page.rect.height if page_number == end_page else page.rect.height-35
+                    target = image_root/f'q{index+1:02d}-{len(paths)+1}.png'
+                    page.get_pixmap(matrix=pdf.Matrix(1.5,1.5),clip=pdf.Rect(30,top,page.rect.width-25,bottom)).save(target)
+                    paths.append(target.as_posix())
+                question_images[index+1] = paths
         if language == 'Tamil':
             boundaries = [(0,60),(0,329),(0,595),(1,22),(1,268),(1,573),(2,22),(2,274),(2,510),(3,24),(3,354),(4,22),(4,354),(5,22),(5,346),(5,524),(6,22),(6,354),(7,22),(7,350),(7,703),(8,203),(8,414),(9,22),(9,272)]
             image_root = out/'question-images'/'tamil-simplification'
