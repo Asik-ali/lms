@@ -292,6 +292,54 @@
       "questions": 10,
       "answers": 10,
       "issues": []
+    },
+    {
+      "name": "சுருக்குதல்(25)",
+      "testId": 68,
+      "categoryId": 36,
+      "topic": "Simplification",
+      "language": "Tamil",
+      "status": "Draft",
+      "questions": 25,
+      "answers": 25,
+      "issues": [
+        "Scanned source: OCR formulas and option labels need review against the PDF.",
+        "Question 1: missing or unreadable option labels B, C, D",
+        "Question 2: missing or unreadable option labels A, B, C, D",
+        "Question 4: missing or unreadable option labels A",
+        "Question 5: missing or unreadable option labels A, B, C, D",
+        "Question 6: missing or unreadable option labels A, B, C, D",
+        "Question 7: missing or unreadable option labels A, B, C, D",
+        "Question 9: missing or unreadable option labels A, B, C, D",
+        "Question 11: missing or unreadable option labels A, B, C, D",
+        "Question 12: missing or unreadable option labels A, B, C, D",
+        "Question 13: missing or unreadable option labels B",
+        "Question 14: missing or unreadable option labels A",
+        "Question 16: missing or unreadable option labels A, B, C, D",
+        "Question 21: missing or unreadable option labels A, B, C, D",
+        "Question 22: missing or unreadable option labels A, B, C, D",
+        "Question 23: missing or unreadable option labels A, B, C, D",
+        "Question 25: missing or unreadable option labels A, B, C, D"
+      ]
+    },
+    {
+      "name": "நேரம் மற்றும் வேலை (25)",
+      "testId": 69,
+      "categoryId": 35,
+      "topic": "Time and Work",
+      "language": "Tamil",
+      "status": "Draft",
+      "questions": 25,
+      "answers": 18,
+      "issues": [
+        "Question 11: answer unavailable or unsupported in source",
+        "Question 20: answer unavailable or unsupported in source",
+        "Question 21: answer unavailable or unsupported in source",
+        "Question 22: answer unavailable or unsupported in source",
+        "Question 23: answer unavailable or unsupported in source",
+        "Question 24: answer unavailable or unsupported in source",
+        "Question 25: answer unavailable or unsupported in source"
+      ]
     }
   ]
 }

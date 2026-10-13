@@ -4,7 +4,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import {
   LayoutDashboard, Users, BookOpen, Video,
   Megaphone, Settings,
-  LogOut, ChevronDown, ChevronRight, Calendar, MessageSquare,
+  LogOut, ChevronDown, ChevronRight, MessageSquare,
   UserCircle, PenTool, Bell, X,
   BadgeCheck, ShoppingCart,
 } from 'lucide-react';
@@ -12,7 +12,6 @@ import logo from '../../assets/image.png';
 
 const adminNav = [
   { section: 'Dashboard', icon: LayoutDashboard, path: '/admin' },
-  { section: 'Calendar', icon: Calendar, path: '/admin/calendar' },
   {
     section: 'Student Management', icon: Users, submenu: [
       { label: 'All Students', path: '/admin/students' },
@@ -52,7 +51,6 @@ const studentNav = [
   { section: 'Live Classes', icon: Video, path: '/student/live-classes' },
   { section: 'Test Series', icon: PenTool, path: '/student/test-series' },
   { section: 'Free Test Series', icon: BadgeCheck, path: '/student/free-test-series' },
-  { section: 'Calendar', icon: Calendar, path: '/student/calendar' },
   { section: 'Announcements', icon: Megaphone, path: '/student/announcements' },
   { section: 'Messages', icon: MessageSquare, path: '/student/messages' },
 ];
