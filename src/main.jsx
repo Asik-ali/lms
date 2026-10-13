@@ -7,6 +7,13 @@ import { isNativePlatform, requestNativePushPermission, registerNativePush } fro
 import { supabase } from './supabase/client.js'
 import { showError } from './components/common/Toast.jsx'
 import { installInspectionShortcutExit } from './data/inspectionShortcuts.js'
+import { recoverChunkLoad } from './data/chunkRecovery.js'
+
+const onPreloadError = event => {
+  if (recoverChunkLoad(event.payload)) event.preventDefault()
+}
+window.addEventListener('vite:preloadError', onPreloadError)
+if (import.meta.hot) import.meta.hot.dispose(() => window.removeEventListener('vite:preloadError', onPreloadError))
 
 // Shortcut deterrent only; authorization is enforced by APIs and database policies.
 const removeInspectionShortcutExit = installInspectionShortcutExit(supabase.auth)

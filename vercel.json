@@ -1,12 +1,38 @@
 {
   "rewrites": [
-    { "source": "/api/vapid-public-key", "destination": "/api/send-push?operation=vapid-public-key" },
-    { "source": "/((?!api/).*)", "destination": "/index.html" }
+    {
+      "source": "/api/vapid-public-key",
+      "destination": "/api/send-push?operation=vapid-public-key"
+    },
+    {
+      "source": "/((?!api/|assets/|.*\\.[^/]+$).*)",
+      "destination": "/index.html"
+    }
   ],
   "crons": [
     {
       "path": "/api/backup",
       "schedule": "0 0 * * *"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/((?!api/|assets/|.*\\.[^/]+$).*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
+    },
+    {
+      "source": "/index.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
     }
   ]
 }
