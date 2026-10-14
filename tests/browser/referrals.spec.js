@@ -53,6 +53,29 @@ test('admin sees referrers and purchase qualification', async ({ page }) => {
   await expect(page.getByRole('button', { name: 'Copy referral link' })).toHaveCount(0);
 });
 
+test('referral loading shows a spinner and keeps existing details during refresh', async ({ page }) => {
+  await setup(page);
+  let release;
+  await page.route('**/api/order-status?operation=referrals*', async route => {
+    await new Promise(resolve => { release = resolve; });
+    await route.fulfill({ json: { code: 'AB12CD34EF56', rewardAmount: 100, availableCredit: 100, count: 0, referrals: [] } });
+  });
+  await page.goto('/student/referrals');
+  await expect(page.getByRole('status')).toContainText('Loading referrals...');
+  await expect(page.getByRole('status').locator('svg')).toHaveClass(/animate-spin/);
+  await expect.poll(() => typeof release).toBe('function');
+  release();
+  await expect(page.getByLabel('Your code')).toHaveValue('AB12CD34EF56');
+  release = undefined;
+  await page.getByRole('button', { name: 'Refresh', exact: true }).click();
+  await expect(page.getByRole('status')).toContainText('Updating referrals...');
+  await expect(page.getByLabel('Your code')).toHaveValue('AB12CD34EF56');
+  await expect(page.getByRole('button', { name: 'Loading...' })).toBeDisabled();
+  await expect.poll(() => typeof release).toBe('function');
+  release();
+  await expect(page.getByRole('status')).toHaveCount(0);
+});
+
 test('checkout applies store credit and requests server-side redemption', async ({ page }) => {
   await setup(page);
   await page.route('**/api/sales-plans*', route => route.fulfill({ json: [{ id: 1, name: 'Maths', price: 150, status: 'active', items: [{ item_type: 'course', item_id: 10 }] }] }));

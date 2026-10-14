@@ -12,7 +12,7 @@ export default async function handler(req, res) {
     if (!user) return res.status(401).json({ error: 'Not authorized' });
     const admin = user.role === 'admin';
     if (!admin && user.role !== 'student') return res.status(403).json({ error: 'Not authorized' });
-    if (!admin) {
+    if (!admin && req.query?.operation === 'referral-balance') {
       // Retry requested cancellations and restore only that order's used credit.
       const pending = await supabase.from('purchase_orders')
         .select('id, order_id, student_id, amount, status, credit_released, close_reason').eq('student_id', user.id)
@@ -26,15 +26,18 @@ export default async function handler(req, res) {
         return res.status(200).json({ availableCredit: Number(balance.data) });
       }
     }
-    let code = null;
-    if (!admin) {
-      const { error } = await supabase.from('referral_codes').upsert({
+    async function getCode() {
+      if (admin) return null;
+      const existing = await supabase.from('referral_codes').select('code').eq('student_id', user.id).maybeSingle();
+      if (existing.error) throw existing.error;
+      if (existing.data) return existing.data.code;
+      const inserted = await supabase.from('referral_codes').upsert({
         student_id: user.id, code: crypto.randomBytes(6).toString('hex').toUpperCase(),
       }, { onConflict: 'student_id', ignoreDuplicates: true });
-      if (error) throw error;
+      if (inserted.error) throw inserted.error;
       const result = await supabase.from('referral_codes').select('code').eq('student_id', user.id).single();
       if (result.error) throw result.error;
-      code = result.data.code;
+      return result.data.code;
     }
     const page = Math.max(0, Math.floor(Number(req.query?.page) || 0));
     let query = supabase.from('referrals').select(
@@ -42,16 +45,18 @@ export default async function handler(req, res) {
       { count: 'exact' },
     ).order('created_at', { ascending: false }).order('id').range(page * 25, page * 25 + 24);
     if (!admin) query = query.eq('referrer_id', user.id);
-    const result = await query;
+    // The referral screen never waits for external Cashfree requests. Checkout
+    // balance/history still reconcile payments through their existing endpoints.
+    const [result, settings, balance, code] = await Promise.all([
+      query,
+      supabase.from('referral_settings').select('reward_amount').eq('id', 1).single(),
+      admin ? Promise.resolve({ data: 0 }) : supabase.rpc('referral_credit_balance', { buyer_id: user.id }),
+      getCode(),
+    ]);
     if (result.error) throw result.error;
-    const settings = await supabase.from('referral_settings').select('reward_amount').eq('id', 1).single();
     if (settings.error) throw settings.error;
-    let availableCredit = 0;
-    if (!admin) {
-      const balance = await supabase.rpc('referral_credit_balance', { buyer_id: user.id });
-      if (balance.error) throw balance.error;
-      availableCredit = Number(balance.data);
-    }
+    if (balance.error) throw balance.error;
+    const availableCredit = Number(balance.data);
     return res.status(200).json({ code, referrals: result.data, count: result.count, page, rewardAmount: Number(settings.data.reward_amount), availableCredit });
   } catch (err) {
     return res.status(500).json({ error: err.message || 'Unable to load referrals.' });

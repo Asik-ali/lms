@@ -33,6 +33,28 @@ test('referral code normalizes without accepting malformed values', () => {
   for (const value of [123, {}, 'x', 'AB12CD34EF56<script>']) assert.throws(() => normalizeReferralCode(value), /Invalid/);
 });
 
+test('referral screen loads existing codes without payment-provider requests or code writes', async () => {
+  await withApi((url, options) => {
+    assert.ok(!url.includes('cashfree.com'), 'Referral loading must not wait for Cashfree');
+    if (url.includes('/profiles')) return Response.json({ id: buyer, role: 'student', status: 'Active' });
+    if (url.includes('/referral_codes')) {
+      assert.ok(!options.method || options.method === 'GET', 'Existing referral codes should not be rewritten');
+      return Response.json({ code: 'AB12CD34EF56' });
+    }
+    if (url.includes('/referral_settings')) return Response.json({ reward_amount: 100 });
+    if (url.includes('/rpc/referral_credit_balance')) return Response.json(49);
+    if (url.includes('/referrals')) return Response.json([], { headers: { 'content-range': '0-0/0' } });
+    throw new Error('Unexpected request: ' + url);
+  }, async () => {
+    const res = response();
+    await orderStatus({ method: 'GET', headers: { authorization: 'Bearer token' }, query: { operation: 'referrals' } }, res);
+    assert.equal(res.code, 200);
+    assert.equal(res.body.code, 'AB12CD34EF56');
+    assert.equal(res.body.availableCredit, 49);
+    assert.equal(res.body.rewardAmount, 100);
+  });
+});
+
 test('only active student referral codes resolve and database errors are preserved', async () => {
   const client = result => ({ from: () => ({ select: () => ({ eq: () => ({ maybeSingle: async () => result }) }) }) });
   assert.equal(await resolveReferrer(client({ data: { student_id: buyer, student: { role: 'student', status: 'Active' } } }), 'AB12CD34EF56'), buyer);

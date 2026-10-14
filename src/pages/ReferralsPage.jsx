@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { Copy, Users, RefreshCw } from 'lucide-react';
+import { Copy, Users, RefreshCw, Loader2 } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { supabase } from '../supabase/client';
 import { apiUrl } from '../data/api';
@@ -18,32 +18,34 @@ export default function ReferralsPage() {
   const reload = useCallback(() => setRevision(value => value + 1), []);
   useEffect(() => {
     let active = true;
+    const controller = new AbortController();
     setLoading(true); setError('');
     (async () => {
       try {
         const { data: { session } } = await supabase.auth.getSession();
-        const response = await fetch(apiUrl(`/api/order-status?operation=referrals&page=${page}`), { headers: { Authorization: `Bearer ${session?.access_token || ''}` } });
+        const response = await fetch(apiUrl(`/api/order-status?operation=referrals&page=${page}`), { signal: controller.signal, headers: { Authorization: `Bearer ${session?.access_token || ''}` } });
         const result = await response.json();
         if (!response.ok) throw new Error(result.error || 'Unable to load referrals.');
         if (active) setData(result);
       } catch (err) { if (active) setError(err.message); }
       finally { if (active) setLoading(false); }
     })();
-    return () => { active = false; };
+    return () => { active = false; controller.abort(); };
   }, [page, revision]);
   const link = data?.code ? `${(import.meta.env.VITE_SITE_URL || window.location.origin).replace(/\/$/, '')}/signup?ref=${data.code}` : '';
   async function copy(value) {
     try { await navigator.clipboard.writeText(value); showSuccess('Copied to clipboard.'); }
     catch { showError('Unable to copy. Select and copy the text below.'); }
   }
-  return <div className="space-y-6">
+  return <div className="space-y-6" aria-busy={loading}>
     <div className="flex flex-wrap items-center justify-between gap-3">
       <div><h1 className="text-2xl font-bold text-navy-100">{admin ? 'Student Referrals' : 'Refer & Earn'}</h1>
         <p className="text-sm text-navy-200 mt-2">{admin ? 'Track verified signups and first-purchase rewards.' : data ? `Earn ${money(data.rewardAmount)} store credit when a friend makes their first successful purchase.` : 'Earn store credit when a friend makes their first successful purchase.'}</p></div>
-      <button onClick={reload} disabled={loading} className="btn-secondary flex items-center gap-2"><RefreshCw size={16} /> Refresh</button>
+      <button onClick={reload} disabled={loading} className="btn-secondary flex items-center gap-2">{loading ? <Loader2 size={16} className="animate-spin" /> : <RefreshCw size={16} />} {loading ? 'Loading...' : 'Refresh'}</button>
     </div>
     {error && <p role="alert" className="card p-5">{error}</p>}
-    {loading ? <p role="status" className="text-navy-200">Loading referrals...</p> : data && <>
+    {loading && <div role="status" aria-live="polite" className={`flex items-center justify-center gap-3 text-navy-200 ${data ? 'py-3' : 'card p-12'}`}><Loader2 className="w-6 h-6 animate-spin" aria-hidden="true" />{data ? 'Updating referrals...' : 'Loading referrals...'}</div>}
+    {data && <>
       {!admin && <div className="card p-6 space-y-4">
         <h2 className="font-semibold text-navy-100">Invite your friends</h2>
         <p className="text-sm text-navy-200">Share your link or ask your friend to enter your code during signup. Rewards are credited once per friend, after payment confirmation.</p>
@@ -66,7 +68,7 @@ export default function ReferralsPage() {
       </table>{!data.referrals.length && <div className="p-8 text-center text-navy-200"><Users className="mx-auto mb-3" /><p>No referrals yet.</p></div>}</div>
       <div className="flex items-center justify-between gap-3 text-sm text-navy-200">
         <span>{data.count} verified {data.count === 1 ? 'signup' : 'signups'}</span>
-        <div className="flex gap-2"><button className="btn-secondary" disabled={!page} onClick={() => setPage(value => value - 1)}>Previous</button><button className="btn-secondary" disabled={(page + 1) * 25 >= data.count} onClick={() => setPage(value => value + 1)}>Next</button></div>
+        <div className="flex gap-2"><button className="btn-secondary" disabled={loading || !page} onClick={() => setPage(value => value - 1)}>Previous</button><button className="btn-secondary" disabled={loading || (page + 1) * 25 >= data.count} onClick={() => setPage(value => value + 1)}>Next</button></div>
       </div>
     </>}
   </div>;
