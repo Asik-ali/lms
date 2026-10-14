@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { supabase } from '../supabase/client';
 import { useAuth } from '../contexts/AuthContext';
 import { apiUrl } from '../data/api';
@@ -9,6 +9,8 @@ import logo from '../assets/image.png';
 export default function SignupPage() {
   const { login } = useAuth();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const [referralCode, setReferralCode] = useState(() => searchParams.get('ref') || '');
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -34,7 +36,7 @@ export default function SignupPage() {
       const res = await fetch(apiUrl('/api/send-signup-otp'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, password }),
+        body: JSON.stringify({ name, email, password, referralCode }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Unable to send verification code.');
@@ -122,6 +124,11 @@ export default function SignupPage() {
                   <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-navy-300" />
                   <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="At least 8 characters" className="input-field pl-10" />
                 </div>
+              </div>
+
+              <div>
+                <label htmlFor="referral-code" className="block text-sm font-medium text-navy-100 mb-1.5">Referral code (optional)</label>
+                <input id="referral-code" value={referralCode} onChange={e => setReferralCode(e.target.value.toUpperCase())} maxLength={12} className="input-field" placeholder="Enter your friend's code" />
               </div>
 
               <button type="submit" disabled={isSubmitting} className="w-full bg-gold-500 text-[#071A3D] dark:text-navy-900 py-2.5 rounded-lg font-semibold hover:bg-gold-300 transition-all duration-200 cursor-pointer disabled:opacity-60 shadow-lg shadow-gold-500/20">

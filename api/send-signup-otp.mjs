@@ -2,6 +2,7 @@ import crypto from 'crypto';
 import nodemailer from 'nodemailer';
 import { createClient } from '@supabase/supabase-js';
 import { setCors } from './_auth.mjs';
+import { resolveReferrer } from './_referrals.mjs';
 
 export default async function handler(req, res) {
   if (setCors(req, res)) return;
@@ -20,7 +21,7 @@ export default async function handler(req, res) {
   const supabase = createClient(supabaseUrl, serviceKey);
 
   try {
-    const { name, email, password } = req.body || {};
+    const { name, email, password, referralCode } = req.body || {};
 
     if (typeof name !== 'string' || !name.trim() || typeof email !== 'string' || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim()) || typeof password !== 'string' || !password) {
       return res.status(400).json({ error: 'Name, email, and password are required.' });
@@ -41,6 +42,10 @@ export default async function handler(req, res) {
       return res.status(409).json({ error: 'An account with this email already exists.' });
     }
 
+    let referrerId;
+    try { referrerId = await resolveReferrer(supabase, referralCode); }
+    catch (err) { return res.status(400).json({ error: err.message }); }
+
     const base = name.trim().toLowerCase().replace(/\s+/g, '.').replace(/[^a-z0-9.]/g, '');
     const suffix = crypto.randomBytes(3).toString('hex');
     const username = `${base}.${suffix}`;
@@ -50,7 +55,7 @@ export default async function handler(req, res) {
 
     const { error: insertErr } = await supabase
       .from('pending_signups')
-      .insert({ email: cleanEmail, name: name.trim(), password, username, otp, expires_at: expiresAt });
+      .insert({ email: cleanEmail, name: name.trim(), password, username, otp, expires_at: expiresAt, referrer_id: referrerId });
     if (insertErr) throw insertErr;
 
     const smtp = await loadSmtp(supabase);

@@ -54,6 +54,18 @@ export default function StudentBuyCourses() {
   const [history, setHistory] = useState({ orders: [], purchases: [] });
   const [showHistory, setShowHistory] = useState(false);
   const [invoiceOrder, setInvoiceOrder] = useState('');
+  const [availableCredit, setAvailableCredit] = useState(0);
+  const [useCredit, setUseCredit] = useState(false);
+  const loadCredit = useCallback(async () => {
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      const res = await fetch(apiUrl('/api/order-status?operation=referral-balance'), { headers: { Authorization: `Bearer ${session?.access_token || ''}` } });
+      if (!res.ok) throw new Error('Unable to load credit');
+      const data = await res.json();
+      setAvailableCredit(Number(data.availableCredit) || 0);
+    } catch { setAvailableCredit(0); }
+  }, []);
+  useEffect(() => { loadCredit(); }, [loadCredit]);
 
   async function handleInvoice(orderId) {
     if (invoiceOrder) return;
@@ -73,6 +85,8 @@ export default function StudentBuyCourses() {
   const cartIds = cart.owner === user?.id ? cart.ids : [];
   const cartPlans = cartSelection(plans, cartIds, user);
   const total = cartTotal(cartPlans);
+  const appliedCredit = useCredit ? Math.min(availableCredit, Math.max(0, total - 1)) : 0;
+  const payable = total - appliedCredit;
   const contentKeys = cartPlans.flatMap(plan => plan.items.map(item => `${item.item_type}:${item.item_id}`));
   const overlaps = new Set(contentKeys).size < contentKeys.length;
 
@@ -116,7 +130,8 @@ export default function StudentBuyCourses() {
       showError('Payment is not confirmed yet. Access remains locked. Check payment status again shortly.');
     }
     await loadHistory();
-  }, [refreshProfile, loadHistory]);
+    await loadCredit();
+  }, [refreshProfile, loadHistory, loadCredit]);
 
   useEffect(() => { loadHistory(); }, [loadHistory]);
 
@@ -151,7 +166,7 @@ export default function StudentBuyCourses() {
       const res = await fetch(apiUrl('/api/create-order'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
-        body: JSON.stringify({ planIds: cartPlans.map(plan => plan.id) }),
+        body: JSON.stringify({ planIds: cartPlans.map(plan => plan.id), ...(useCredit ? { useCredit: true } : {}) }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Failed to create order');
@@ -170,6 +185,7 @@ export default function StudentBuyCourses() {
       showError(err.message);
     } finally {
       setCheckingOut('');
+      await loadCredit();
     }
   }
 
@@ -200,10 +216,14 @@ export default function StudentBuyCourses() {
           {cartPlans.length !== cartIds.length && <p className="text-sm text-navy-200">Unavailable or already unlocked items are excluded from checkout.</p>}
           {overlaps && <p className="text-sm text-amber-700 dark:text-amber-300">Some selections include the same content. Each plan is charged at its listed price. Remove overlapping selections if you only need that content once.</p>}
           <div className="shop-cart-total border-t border-navy-700 pt-5">
-            <span className="text-xl font-bold text-navy-100">Total: {formatINR(total)}</span>
+            {availableCredit > 0 && <div className="text-sm text-navy-200 space-y-2">
+              <label className="flex gap-2 items-center"><input type="checkbox" checked={useCredit} disabled={Boolean(checkingOut)} onChange={event => setUseCredit(event.target.checked)} /> Use store credit ({formatINR(availableCredit)} available)</label>
+              {useCredit && <p>Credit applied: {formatINR(appliedCredit)}. At least ₹1 is payable through Cashfree.</p>}
+            </div>}
+            <span className="text-xl font-bold text-navy-100">Total: {formatINR(payable)}</span>
             <button onClick={handleCheckout} disabled={!cartPlans.length || Boolean(checkingOut)} className="btn-primary w-full flex items-center justify-center gap-2 min-h-12">
               {checkingOut ? <Loader2 className="w-4 h-4 animate-spin" /> : <CreditCard className="w-4 h-4" />}
-              {checkingOut ? 'Processing payment...' : `Pay ${formatINR(total)}`}
+              {checkingOut ? 'Processing payment...' : `Pay ${formatINR(payable)}`}
             </button>
             <button disabled={Boolean(checkingOut)} className="shop-clear" onClick={() => updateCart([])}>Clear cart</button>
           </div>

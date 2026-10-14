@@ -1,8 +1,10 @@
 import { getCashfreeOrder } from './_cashfree.mjs';
 import { fulfillPaidOrder, isVerifiedPaidOrder } from './_fulfillment.mjs';
 import { createServiceClient, getAuthedUser, setCors } from './_auth.mjs';
+import referralsHandler from './_referrals-handler.mjs';
 
 export default async function handler(req, res) {
+  if (['referrals', 'referral-balance'].includes(req.query?.operation)) return referralsHandler(req, res);
   if (setCors(req, res)) return;
 
   if (req.method !== 'GET') return res.status(405).json({ error: 'Method not allowed' });
@@ -18,7 +20,7 @@ export default async function handler(req, res) {
     if (orderId) {
       const { data: order, error } = await supabase
         .from('purchase_orders')
-        .select('id, order_id, plan_id, student_id, amount, status, created_at, cart_plans')
+        .select('id, order_id, plan_id, student_id, amount, status, created_at, cart_plans, credit_applied')
         .eq('order_id', orderId)
         .eq('student_id', profile.id)
         .maybeSingle();
@@ -37,6 +39,7 @@ export default async function handler(req, res) {
           number: `INV-${order.order_id}`, orderId: order.order_id, date: purchase.created_at,
           seller: 'EXAMSTICK', customer: { name: profile.name, email: profile.email },
           amount: Number(order.amount), currency: 'INR', status: 'PAID',
+          creditApplied: Number(order.credit_applied || 0),
           items: order.cart_plans || [{ name: 'Course / test purchase', price: Number(order.amount) }],
         });
       }
@@ -45,6 +48,11 @@ export default async function handler(req, res) {
         if (isVerifiedPaidOrder(remote, order)) {
           await fulfillPaidOrder(supabase, order.order_id);
           order.status = 'PAID';
+        } else if (['EXPIRED', 'TERMINATED'].includes(remote.order_status)) {
+          const { error: releaseError } = await supabase.from('purchase_orders')
+            .update({ status: 'CANCELLED', credit_released: true }).eq('id', order.id).neq('status', 'PAID');
+          if (releaseError) throw releaseError;
+          order.status = 'CANCELLED';
         }
       }
       return res.status(200).json(order);

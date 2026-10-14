@@ -34,13 +34,14 @@ export function getCashfreeHeaders(auth = false) {
 }
 
 // Create a Cashfree order and return its payment_session_id (for the Drop-in checkout SDK).
-export async function createCashfreeOrder({ orderId, amount, customer, planName, origin }) {
+export async function createCashfreeOrder({ orderId, amount, customer, planName, origin, expiresAt }) {
   const { headers } = getCashfreeHeaders(true);
   const baseUrl = origin || process.env.VITE_SITE_URL || '';
   const body = {
     order_id: orderId,
     order_amount: Number(amount),
     order_currency: 'INR',
+    ...(expiresAt ? { order_expiry_time: expiresAt } : {}),
     order_note: `Purchase - ${planName}`.slice(0, 200),
     customer_details: {
       customer_id: customer.id,
@@ -60,7 +61,9 @@ export async function createCashfreeOrder({ orderId, amount, customer, planName,
   });
   const data = await res.json().catch(() => ({}));
   if (!res.ok) {
-    throw new Error(data.message || data.error || 'Failed to create Cashfree order');
+    const error = new Error(data.message || data.error || 'Failed to create Cashfree order');
+    error.status = res.status;
+    throw error;
   }
   return data;
 }

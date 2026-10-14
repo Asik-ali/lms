@@ -10,6 +10,7 @@ const SignupPage = lazy(() => import('./pages/SignupPage'));
 const PrivacyPolicyPage = lazy(() => import('./pages/public/PrivacyPolicyPage'));
 const DeleteAccountPage = lazy(() => import('./pages/public/DeleteAccountPage'));
 const ProfilePage = lazy(() => import('./pages/ProfilePage'));
+const ReferralsPage = lazy(() => import('./pages/ReferralsPage'));
 
 const AdminDashboard = lazy(() => import('./pages/admin/Dashboard'));
 const StudentManagement = lazy(() => import('./pages/admin/StudentManagement'));
@@ -87,6 +88,7 @@ function AppRoutes() {
         <Route path="courses" element={<CourseManagement />} />
         <Route path="sales-plans" element={<SalesPlansPage />} />
         <Route path="purchases" element={<StudentPurchases />} />
+        <Route path="referrals" element={<ReferralsPage />} />
         <Route path="courses/create" element={<CourseManagement />} />
         <Route path="exams/questions" element={<QuestionBank />} />
         <Route path="live-classes" element={<AdminLiveClasses />} />
@@ -102,6 +104,7 @@ function AppRoutes() {
         <Route index element={<StudentDashboard />} />
         <Route path="courses" element={<StudentCourses />} />
         <Route path="buy-courses" element={<StudentBuyCourses />} />
+        <Route path="referrals" element={<ReferralsPage />} />
         <Route path="courses/:courseId" element={<StudentCourseDetail />} />
         <Route path="live-classes" element={<StudentLiveClasses />} />
         <Route path="test-series" element={<StudentTestSeries />} />

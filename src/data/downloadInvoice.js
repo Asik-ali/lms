@@ -69,6 +69,7 @@ export async function downloadInvoice(orderId) {
     cell(row, String(index + 1), false, 'text-align:center;white-space:nowrap;'); cell(row, item.name); cell(row, '1', false, 'text-align:center;white-space:nowrap;');
     cell(row, money(item.price), false, 'text-align:right;'); cell(row, money(item.price), false, 'text-align:right;');
   });
+  if (invoice.creditApplied > 0) add(`Store credit applied: ${money(invoice.creditApplied)}`, 'text-align:right;padding-top:14px;');
   const total = add('', 'display:flex;justify-content:flex-end;border-bottom:2px solid #222;padding:18px 0;');
   add('TOTAL PAID', 'font-weight:bold;margin-right:28px;padding-top:4px;', total);
   add(money(invoice.amount), 'font-size:20px;font-weight:bold;', total);

@@ -74,7 +74,18 @@ export default async function handler(req, res) {
       enrolled: new Date().toISOString().split('T')[0],
     }).select().single();
     if (profileErr) {
-      console.error('Profile insert warning:', profileErr);
+      await supabase.auth.admin.deleteUser(userId);
+      throw profileErr;
+    }
+
+    if (signup.referrer_id) {
+      const { error: referralErr } = await supabase.from('referrals').insert({
+        referrer_id: signup.referrer_id, referred_id: userId,
+      });
+      if (referralErr) {
+        await supabase.auth.admin.deleteUser(userId);
+        throw referralErr;
+      }
     }
 
     await supabase.from('pending_signups').update({ verified: true }).eq('id', signup.id);

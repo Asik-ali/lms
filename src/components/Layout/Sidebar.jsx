@@ -26,6 +26,7 @@ const adminNav = [
     ]
   },
   { section: 'Student Purchases', icon: ShoppingCart, path: '/admin/purchases' },
+  { section: 'Referrals', icon: Users, path: '/admin/referrals' },
   { section: 'Prices & Bundles', icon: ShoppingCart, path: '/admin/sales-plans' },
   { section: 'Test Series', icon: PenTool, path: '/admin/exams/questions' },
   { section: 'Live Classes', icon: Video, path: '/admin/live-classes' },
@@ -48,6 +49,7 @@ const adminNav = [
 const studentNav = [
   { section: 'Dashboard', icon: LayoutDashboard, path: '/student' },
   { section: 'Shop Courses & Tests', icon: ShoppingCart, path: '/student/buy-courses' },
+  { section: 'Refer & Earn', icon: Users, path: '/student/referrals' },
   { section: 'My Courses', icon: BookOpen, path: '/student/courses' },
   { section: 'Live Classes', icon: Video, path: '/student/live-classes' },
   { section: 'Test Series', icon: PenTool, path: '/student/test-series' },
