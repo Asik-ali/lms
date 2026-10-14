@@ -1,5 +1,6 @@
 import { createServiceClient } from './_auth.mjs';
 import { fulfillPaidOrder } from './_fulfillment.mjs';
+import { reconcileOrder } from './_order-lifecycle.mjs';
 import { readRawBody, verifyWebhookSignature } from './_webhook.mjs';
 
 export const config = { api: { bodyParser: false } };
@@ -34,7 +35,7 @@ export default async function handler(req, res) {
     // Look up the pending order
     const { data: order, error: orderErr } = await supabase
       .from('purchase_orders')
-      .select('id, order_id, plan_id, student_id, amount, status')
+      .select('id, order_id, plan_id, student_id, amount, status, credit_applied, credit_released, close_reason')
       .eq('order_id', orderId)
       .maybeSingle();
     if (orderErr) throw orderErr;
@@ -53,9 +54,9 @@ export default async function handler(req, res) {
       return res.status(200).json({ success: true, status: 'PAID' });
     }
 
-    if (orderStatus === 'FAILED' || orderStatus === 'CANCELLED') {
-      const { error } = await supabase.from('purchase_orders').update({ status: orderStatus }).eq('id', order.id).neq('status', 'PAID');
-      if (error) throw error;
+    if (['FAILED', 'CANCELLED', 'USER_DROPPED'].includes(orderStatus)) {
+      const updated = await reconcileOrder(supabase, order, { reason: orderStatus === 'FAILED' ? 'FAILED' : 'CANCELLED', inspectPayments: true });
+      return res.status(200).json({ success: true, status: updated.status });
     }
 
     return res.status(200).json({ success: true, status: orderStatus });

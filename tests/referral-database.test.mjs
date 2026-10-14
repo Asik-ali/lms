@@ -45,10 +45,14 @@ test('referral SQL awards once, reserves credit, preserves history, and blocks c
     assert.equal(first.amount, 50); assert.equal(first.credit_applied, 100);
     const concurrent = (await value(`SELECT create_purchase_cart_with_credit('another','${inviter}',ARRAY[1]::BIGINT[],true) AS cart`)).cart;
     assert.equal(concurrent.amount, 150); assert.equal(concurrent.credit_applied, 0);
-    await db.exec(`UPDATE purchase_orders SET status='FAILED' WHERE order_id='redeem'`);
+    await db.exec(`SELECT close_purchase_order('redeem','FAILED',false)`);
+    assert.equal((await value(`SELECT status FROM purchase_orders WHERE order_id='redeem'`)).status, 'CANCELLING');
     assert.equal(Number((await value(`SELECT referral_credit_balance('${inviter}') AS balance`)).balance), 0);
-    await db.exec(`UPDATE purchase_orders SET credit_released=true,status='CANCELLED' WHERE order_id='redeem'`);
+    await db.exec(`SELECT close_purchase_order('redeem','FAILED',true); SELECT close_purchase_order('redeem','FAILED',true)`);
     assert.equal(Number((await value(`SELECT referral_credit_balance('${inviter}') AS balance`)).balance), 100);
+    assert.equal((await value(`SELECT status FROM purchase_orders WHERE order_id='redeem'`)).status, 'FAILED');
+    await assert.rejects(db.query(`SELECT fulfill_paid_order('redeem')`), /returned credit/);
+    assert.equal((await value(`SELECT count(*)::INTEGER AS count FROM purchases WHERE order_id='redeem'`)).count, 0);
 
     await db.exec(`UPDATE referral_settings SET reward_amount=75 WHERE id=1;
       SELECT create_purchase_cart('later','${laterFriend}',ARRAY[1]::BIGINT[]); SELECT fulfill_paid_order('later')`);
@@ -57,6 +61,8 @@ test('referral SQL awards once, reserves credit, preserves history, and blocks c
     const capped = (await value(`SELECT create_purchase_cart_with_credit('capped','${inviter}',ARRAY[1]::BIGINT[],true) AS cart`)).cart;
     assert.equal(capped.amount, 1); assert.equal(capped.credit_applied, 49);
     await db.exec(`SELECT fulfill_paid_order('capped'); SELECT fulfill_paid_order('capped')`);
+    await db.exec(`SELECT close_purchase_order('capped','CANCELLED',true)`);
+    assert.equal((await value(`SELECT status FROM purchase_orders WHERE order_id='capped'`)).status, 'PAID');
     assert.equal(Number((await value(`SELECT referral_credit_balance('${inviter}') AS balance`)).balance), 126);
     await db.exec(`DELETE FROM profiles WHERE id='${friend}'`);
     assert.equal(Number((await value(`SELECT referral_credit_balance('${inviter}') AS balance`)).balance), 126);
@@ -68,5 +74,6 @@ test('referral SQL awards once, reserves credit, preserves history, and blocks c
     await assert.rejects(db.query(`UPDATE referrals SET reward_amount=999999`), /permission denied/);
     await assert.rejects(db.query(`SELECT referral_credit_balance('${inviter}')`), /permission denied/);
     await assert.rejects(db.query(`SELECT create_purchase_cart_with_credit('fake','${inviter}',ARRAY[1]::BIGINT[],true)`), /permission denied/);
+    await assert.rejects(db.query(`SELECT close_purchase_order('capped','CANCELLED',true)`), /permission denied/);
   } finally { await db.close(); }
 });

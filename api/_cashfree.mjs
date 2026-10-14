@@ -75,3 +75,26 @@ export async function getCashfreeOrder(orderId) {
   if (!response.ok) throw new Error(data.message || 'Unable to verify payment');
   return data;
 }
+
+export async function terminateCashfreeOrder(orderId) {
+  const { headers } = getCashfreeHeaders(true);
+  // Termination is supported by Cashfree's current Orders API. A requested
+  // termination is not final until the provider returns TERMINATED.
+  const response = await fetch(`${CASHFREE_API}/orders/${encodeURIComponent(orderId)}`, {
+    method: 'PATCH',
+    headers: { ...headers, 'x-api-version': '2025-01-01' },
+    body: JSON.stringify({ order_status: 'TERMINATED' }),
+  });
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) throw new Error(data.message || 'Unable to cancel payment order');
+  return data;
+}
+
+export async function getCashfreePayments(orderId) {
+  const { headers } = getCashfreeHeaders(true);
+  const response = await fetch(`${CASHFREE_API}/orders/${encodeURIComponent(orderId)}/payments`, { headers });
+  const data = await response.json();
+  if (!response.ok) throw new Error(data.message || 'Unable to check payment attempts');
+  if (!Array.isArray(data)) throw new Error('Invalid payment attempts response');
+  return data;
+}

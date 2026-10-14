@@ -68,3 +68,59 @@ test('checkout applies store credit and requests server-side redemption', async 
   await page.getByRole('button', { name: /Pay .*50\.00/ }).click();
   await expect.poll(() => request).toEqual({ planIds: [1], useCredit: true });
 });
+
+for (const status of ['FAILED', 'CANCELLED']) {
+  test(`${status.toLowerCase()} checkout returns its used credit and updates history`, async ({ page }) => {
+    await setup(page);
+    await page.addInitScript(status => {
+      window.Cashfree = () => ({ checkout: async () => status === 'FAILED' ? { error: { message: 'Payment failed' } } : {} });
+    }, status);
+    await page.route('**/rest/v1/sales_plans*', route => route.fulfill({ json: [{ id: 1, name: 'Maths', price: 150, status: 'active' }] }));
+    await page.route('**/rest/v1/sales_plan_items*', route => route.fulfill({ json: [{ plan_id: 1, item_type: 'course', item_id: 10 }] }));
+    await page.route('**/rest/v1/courses*', route => route.fulfill({ json: [{ id: 10, title: 'Maths', status: 'Published' }] }));
+    let created = false, returned = false, closeOperation;
+    const order = () => ({ id: 1, order_id: 'LMS-credit', status: returned ? status : 'PENDING', amount: 50, credit_applied: 100, credit_released: returned, created_at: '2026-10-14T10:00:00Z', cart_plans: [{ id: 1, name: 'Maths' }] });
+    await page.route('**/api/create-order', route => {
+      created = true;
+      return route.fulfill({ json: { order_id: 'LMS-credit', amount: 50, credit_applied: 100, payment_session_id: 'session' } });
+    });
+    await page.route('**/api/order-status*', route => {
+      const query = new URL(route.request().url()).searchParams;
+      if (query.get('operation') === 'referral-balance') return route.fulfill({ json: { availableCredit: created && !returned ? 0 : 100 } });
+      if (route.request().method() === 'POST') {
+        closeOperation = query.get('operation');
+        expect(route.request().postDataJSON()).toEqual({ orderId: 'LMS-credit' });
+        returned = true;
+        return route.fulfill({ json: order() });
+      }
+      return route.fulfill({ json: { orders: created ? [order()] : [], purchases: [] } });
+    });
+    await page.goto('/student/buy-courses');
+    await page.getByRole('button', { name: 'Add to cart', exact: true }).click();
+    await page.getByRole('checkbox', { name: /Use store credit/ }).check();
+    await page.getByRole('button', { name: /Pay .*50\.00/ }).click();
+    await expect.poll(() => closeOperation).toBe(status === 'FAILED' ? 'failed' : 'cancel');
+    await expect(page.getByRole('checkbox', { name: /Use store credit .*100\.00 available/ })).toBeVisible();
+    await page.getByRole('button', { name: 'My Purchases' }).click();
+    await expect(page.getByText(status === 'FAILED' ? 'Failed' : 'Cancelled', { exact: true })).toBeVisible();
+    await expect(page.getByRole('cell').filter({ hasText: 'store credit returned' })).toContainText('100.00');
+    await expect(page.getByRole('button', { name: 'Cancel order', exact: true })).toHaveCount(0);
+  });
+}
+
+test('pending history explains Check payment and lets the user cancel an old order', async ({ page }) => {
+  await setup(page);
+  let cancelled = false;
+  const order = () => ({ id: 1, order_id: 'LMS-old', status: cancelled ? 'CANCELLED' : 'PENDING', amount: 1, credit_applied: 99, credit_released: cancelled, created_at: '2026-10-13T10:00:00Z' });
+  await page.route('**/api/order-status*', route => {
+    if (route.request().method() === 'POST') { cancelled = true; return route.fulfill({ json: order() }); }
+    if (new URL(route.request().url()).searchParams.get('operation') === 'referral-balance') return route.fulfill({ json: { availableCredit: cancelled ? 99 : 0 } });
+    return route.fulfill({ json: { orders: [order()], purchases: [] } });
+  });
+  await page.goto('/student/buy-courses');
+  await page.getByRole('button', { name: 'My Purchases' }).click();
+  await expect(page.getByRole('button', { name: 'Check payment', exact: true })).toHaveAttribute('title', /does not charge you again/);
+  await page.getByRole('button', { name: 'Cancel order', exact: true }).click();
+  await expect(page.getByText('Cancelled', { exact: true })).toBeVisible();
+  await expect(page.getByRole('cell').filter({ hasText: 'store credit returned' })).toContainText('99.00');
+});

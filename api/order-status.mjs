@@ -1,5 +1,4 @@
-import { getCashfreeOrder } from './_cashfree.mjs';
-import { fulfillPaidOrder, isVerifiedPaidOrder } from './_fulfillment.mjs';
+import { reconcileOrder } from './_order-lifecycle.mjs';
 import { createServiceClient, getAuthedUser, setCors } from './_auth.mjs';
 import referralsHandler from './_referrals-handler.mjs';
 
@@ -7,20 +6,23 @@ export default async function handler(req, res) {
   if (['referrals', 'referral-balance'].includes(req.query?.operation)) return referralsHandler(req, res);
   if (setCors(req, res)) return;
 
-  if (req.method !== 'GET') return res.status(405).json({ error: 'Method not allowed' });
+  const closing = ['cancel', 'failed'].includes(req.query?.operation);
+  if (req.method !== (closing ? 'POST' : 'GET')) return res.status(405).json({ error: 'Method not allowed' });
+  res.setHeader('Cache-Control', 'no-store');
 
   try {
     const supabase = createServiceClient();
     const profile = await getAuthedUser(req, supabase);
     if (!profile) return res.status(401).json({ error: 'Not authorized' });
 
-    const { orderId } = req.query || {};
+    const orderId = closing ? req.body?.orderId : req.query?.orderId;
+    if (closing && (typeof orderId !== 'string' || !orderId.trim())) return res.status(400).json({ error: 'Order ID is required.' });
     if (req.query?.operation === 'invoice' && !orderId) return res.status(400).json({ error: 'Order ID is required.' });
 
     if (orderId) {
       const { data: order, error } = await supabase
         .from('purchase_orders')
-        .select('id, order_id, plan_id, student_id, amount, status, created_at, cart_plans, credit_applied')
+        .select('id, order_id, plan_id, student_id, amount, status, created_at, cart_plans, credit_applied, credit_released, close_reason')
         .eq('order_id', orderId)
         .eq('student_id', profile.id)
         .maybeSingle();
@@ -43,29 +45,25 @@ export default async function handler(req, res) {
           items: order.cart_plans || [{ name: 'Course / test purchase', price: Number(order.amount) }],
         });
       }
-      if (order.status !== 'PAID') {
-        const remote = await getCashfreeOrder(order.order_id);
-        if (isVerifiedPaidOrder(remote, order)) {
-          await fulfillPaidOrder(supabase, order.order_id);
-          order.status = 'PAID';
-        } else if (['EXPIRED', 'TERMINATED'].includes(remote.order_status)) {
-          const { error: releaseError } = await supabase.from('purchase_orders')
-            .update({ status: 'CANCELLED', credit_released: true }).eq('id', order.id).neq('status', 'PAID');
-          if (releaseError) throw releaseError;
-          order.status = 'CANCELLED';
-        }
-      }
-      return res.status(200).json(order);
+      const updated = await reconcileOrder(supabase, order, {
+        reason: closing ? (req.query.operation === 'failed' ? 'FAILED' : 'CANCELLED') : undefined,
+        inspectPayments: !closing,
+      });
+      return res.status(200).json(updated);
     }
 
     // Return the student's recent orders + completed purchases
     const { data: orders, error: oErr } = await supabase
       .from('purchase_orders')
-      .select('id, order_id, plan_id, amount, status, created_at, cart_plans')
+      .select('id, order_id, plan_id, student_id, amount, status, created_at, cart_plans, credit_applied, credit_released, close_reason')
       .eq('student_id', profile.id)
       .gte('created_at', '2026-09-30T18:30:00.000Z')
       .order('created_at', { ascending: false });
     if (oErr) throw oErr;
+    // Refresh stale history, including pre-existing failed/cancelled orders.
+    const unfinished = (orders || []).filter(order => order.status !== 'PAID' && !order.credit_released).slice(0, 10);
+    const refreshed = await Promise.allSettled(unfinished.map(order => reconcileOrder(supabase, order, { inspectPayments: true })));
+    const updates = new Map(refreshed.filter(result => result.status === 'fulfilled').map(result => [result.value.order_id, result.value]));
 
     const { data: purchases, error: pErr } = await supabase
       .from('purchases')
@@ -75,7 +73,7 @@ export default async function handler(req, res) {
       .order('created_at', { ascending: false });
     if (pErr) throw pErr;
 
-    return res.status(200).json({ orders: orders || [], purchases: purchases || [] });
+    return res.status(200).json({ orders: (orders || []).map(order => updates.get(order.order_id) || order), purchases: purchases || [] });
   } catch (err) {
     return res.status(500).json({ error: err.message || 'Failed to load order status' });
   }

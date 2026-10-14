@@ -1,7 +1,6 @@
 import crypto from 'node:crypto';
 import { createServiceClient, getAuthedUser, setCors } from './_auth.mjs';
-import { getCashfreeOrder } from './_cashfree.mjs';
-import { isVerifiedPaidOrder, fulfillPaidOrder } from './_fulfillment.mjs';
+import { reconcileOrder } from './_order-lifecycle.mjs';
 
 export default async function handler(req, res) {
   if (setCors(req, res)) return;
@@ -14,24 +13,13 @@ export default async function handler(req, res) {
     const admin = user.role === 'admin';
     if (!admin && user.role !== 'student') return res.status(403).json({ error: 'Not authorized' });
     if (!admin) {
-      // Reconcile unfinished credit checkouts. Payment-attempt failures alone do
-      // not release credit, since the same Cashfree order may still be retried.
+      // Retry requested cancellations and restore only that order's used credit.
       const pending = await supabase.from('purchase_orders')
-        .select('id, order_id, student_id, amount').eq('student_id', user.id)
+        .select('id, order_id, student_id, amount, status, credit_released, close_reason').eq('student_id', user.id)
         .gt('credit_applied', 0).eq('credit_released', false).neq('status', 'PAID')
         .order('created_at').limit(5);
       if (pending.error) throw pending.error;
-      for (const order of pending.data || []) {
-        let remote;
-        try { remote = await getCashfreeOrder(order.order_id); }
-        catch { continue; } // Unknown provider state must retain the reservation.
-        if (isVerifiedPaidOrder(remote, order)) await fulfillPaidOrder(supabase, order.order_id);
-        else if (['EXPIRED', 'TERMINATED'].includes(remote.order_status)) {
-          const released = await supabase.from('purchase_orders')
-            .update({ status: 'CANCELLED', credit_released: true }).eq('id', order.id).neq('status', 'PAID');
-          if (released.error) throw released.error;
-        }
-      }
+      await Promise.allSettled((pending.data || []).map(order => reconcileOrder(supabase, order, { inspectPayments: true })));
       if (req.query?.operation === 'referral-balance') {
         const balance = await supabase.rpc('referral_credit_balance', { buyer_id: user.id });
         if (balance.error) throw balance.error;

@@ -1,6 +1,7 @@
 import { supabase } from '../supabase/client';
 import { sortTests } from './testOrder';
 import { gradeAttempt } from './gradeAttempt';
+import { apiUrl } from './api';
 
 const DEFAULT_PAGE_SIZE = 50;
 
@@ -775,22 +776,11 @@ export async function decoratePlanItems(plans) {
 // Read the logged-in student's own orders and completed purchases.
 export async function getMyPurchaseHistory(studentId) {
   if (!studentId) return { orders: [], purchases: [] };
-
-  const { data: orders, error: oErr } = await supabase
-    .from('purchase_orders')
-    .select('id, order_id, plan_id, amount, status, created_at, cart_plans')
-    .eq('student_id', studentId)
-    .gte('created_at', '2026-09-30T18:30:00.000Z')
-    .order('created_at', { ascending: false });
-  if (oErr) throw oErr;
-
-  const { data: purchases, error: pErr } = await supabase
-    .from('purchases')
-    .select('id, order_id, plan_id, amount, created_at')
-    .eq('student_id', studentId)
-    .gte('created_at', '2026-09-30T18:30:00.000Z')
-    .order('created_at', { ascending: false });
-  if (pErr) throw pErr;
-
-  return { orders: orders || [], purchases: purchases || [] };
+  const { data: { session } } = await supabase.auth.getSession();
+  const response = await fetch(apiUrl('/api/order-status'), {
+    headers: { Authorization: `Bearer ${session?.access_token || ''}` },
+  });
+  const data = await response.json();
+  if (!response.ok) throw new Error(data.error || 'Unable to load payment history');
+  return { orders: data.orders || [], purchases: data.purchases || [] };
 }

@@ -31,7 +31,9 @@ test('student cards, persistent cart and one verified payment unlock purchased c
     return route.fulfill({ json: { order_id: 'LMS-cart', payment_session_id: 'test-session', mode: 'sandbox', amount: 250.24 } });
   });
   await page.route('**/api/order-status*', route => {
-    if (new URL(route.request().url()).searchParams.get('operation') === 'referral-balance') return route.fulfill({ json: { availableCredit: 0 } });
+    const query = new URL(route.request().url()).searchParams;
+    if (query.get('operation') === 'referral-balance') return route.fulfill({ json: { availableCredit: 0 } });
+    if (!query.has('orderId')) return route.fulfill({ json: { orders: [], purchases: [] } });
     profile.course = 'Maths'; profile.test_series_access = 'SSC';
     return route.fulfill({ json: { order_id: 'LMS-cart', status: 'PAID', cart_plans: plans } });
   });
@@ -54,7 +56,7 @@ test('student cards, persistent cart and one verified payment unlock purchased c
 test('unconfirmed payment retains the cart and locked access', async ({ page }) => {
   await setup(page);
   await page.route('**/api/create-order', route => route.fulfill({ json: { order_id: 'LMS-pending', payment_session_id: 'test-session' } }));
-  await page.route('**/api/order-status*', route => route.fulfill({ json: { status: 'PENDING' } }));
+  await page.route('**/api/order-status*', route => route.fulfill({ json: new URL(route.request().url()).searchParams.has('orderId') ? { status: 'PENDING' } : { orders: [], purchases: [], availableCredit: 0 } }));
   await page.goto('/student/buy-courses');
   await page.getByRole('button', { name: 'Add to cart', exact: true }).first().click();
   await page.getByRole('button', { name: /Pay .*99\.99/ }).click();

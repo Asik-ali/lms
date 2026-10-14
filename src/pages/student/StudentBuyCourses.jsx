@@ -38,6 +38,7 @@ const statusConfig = {
   PENDING: { label: 'Pending', cls: 'badge-warning' },
   FAILED: { label: 'Failed', cls: 'badge-danger' },
   CANCELLED: { label: 'Cancelled', cls: 'badge-danger' },
+  CANCELLING: { label: 'Cancelling', cls: 'badge-warning' },
 };
 
 function formatINR(amount) {
@@ -56,6 +57,7 @@ export default function StudentBuyCourses() {
   const [invoiceOrder, setInvoiceOrder] = useState('');
   const [availableCredit, setAvailableCredit] = useState(0);
   const [useCredit, setUseCredit] = useState(false);
+  const [updatingOrder, setUpdatingOrder] = useState('');
   const loadCredit = useCallback(async () => {
     try {
       const { data: { session } } = await supabase.auth.getSession();
@@ -110,10 +112,12 @@ export default function StudentBuyCourses() {
     }
   }, [user?.id]);
 
-  const verifyPayment = useCallback(async (orderId) => {
+  const verifyPayment = useCallback(async (orderId, operation) => {
     const { data: { session } } = await supabase.auth.getSession();
-    const response = await fetch(apiUrl(`/api/order-status?orderId=${encodeURIComponent(orderId)}`), {
-      headers: { Authorization: `Bearer ${session?.access_token || ''}` },
+    const response = await fetch(apiUrl(operation ? `/api/order-status?operation=${operation}` : `/api/order-status?orderId=${encodeURIComponent(orderId)}`), {
+      method: operation ? 'POST' : 'GET',
+      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session?.access_token || ''}` },
+      ...(operation ? { body: JSON.stringify({ orderId }) } : {}),
     });
     const order = await response.json();
     if (!response.ok) throw new Error(order.error || 'Unable to verify payment');
@@ -126,12 +130,24 @@ export default function StudentBuyCourses() {
         return { ...current, ids };
       });
       showSuccess('Payment successful. Your courses and tests are unlocked.');
+    } else if (['FAILED', 'CANCELLED'].includes(order.status)) {
+      showSuccess(`Payment ${order.status === 'FAILED' ? 'failed' : 'cancelled'}.${order.credit_released && Number(order.credit_applied) > 0 ? ` ${formatINR(order.credit_applied)} store credit returned.` : ''}`);
+    } else if (order.status === 'CANCELLING') {
+      showSuccess('Cancellation requested. Store credit will return once cancellation is confirmed.');
     } else {
       showError('Payment is not confirmed yet. Access remains locked. Check payment status again shortly.');
     }
     await loadHistory();
     await loadCredit();
   }, [refreshProfile, loadHistory, loadCredit]);
+
+  async function updateOrder(orderId, operation) {
+    if (updatingOrder) return;
+    setUpdatingOrder(orderId);
+    try { await verifyPayment(orderId, operation); }
+    catch (err) { showError(err.message); }
+    finally { setUpdatingOrder(''); }
+  }
 
   useEffect(() => { loadHistory(); }, [loadHistory]);
 
@@ -160,7 +176,11 @@ export default function StudentBuyCourses() {
   async function handleCheckout() {
     if (!cartPlans.length || checkingOut) return;
     setCheckingOut('cart');
+    let createdOrderId;
     try {
+      // Load the SDK before reserving credit so a script/network error cannot
+      // leave an order behind without opening checkout.
+      const Cashfree = await loadCashfreeSdk();
       const { data: { session } } = await supabase.auth.getSession();
       const token = session?.access_token || '';
       const res = await fetch(apiUrl('/api/create-order'), {
@@ -170,22 +190,25 @@ export default function StudentBuyCourses() {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Failed to create order');
-
-      const Cashfree = await loadCashfreeSdk();
+      createdOrderId = data.order_id;
       const cashfree = Cashfree({ mode: data.mode || CASHFREE_MODE });
       const result = await cashfree.checkout({
         paymentSessionId: data.payment_session_id,
         redirectTarget: '_modal',
       });
-      if (result?.error) throw new Error(result.error.message || 'Checkout failed');
-      if (result?.paymentDetails) {
-        await verifyPayment(data.order_id);
-      }
+      if (result?.error) await verifyPayment(data.order_id, 'failed');
+      else if (result?.paymentDetails) await verifyPayment(data.order_id);
+      else await verifyPayment(data.order_id, 'cancel');
     } catch (err) {
       showError(err.message);
+      if (createdOrderId) {
+        try { await verifyPayment(createdOrderId, 'cancel'); }
+        catch { showError('Unable to confirm cancellation. Use Check payment or Cancel order in My Purchases.'); }
+      }
     } finally {
       setCheckingOut('');
       await loadCredit();
+      await loadHistory();
     }
   }
 
@@ -256,8 +279,11 @@ export default function StudentBuyCourses() {
                       return (
                         <tr key={o.id} className="border-b border-navy-700">
                           <td className="table-cell text-xs"><span className="font-mono">{o.order_id}</span><p className="text-navy-200 mt-1">{(o.cart_plans || []).map(plan => plan.name).join(", ")}</p></td>
-                          <td className="table-cell">{formatINR(o.amount)}</td>
-                          <td className="table-cell"><span className={`badge ${cfg.cls}`}>{cfg.label}</span>{o.status !== 'PAID' && <button className="ml-2 text-xs underline" onClick={() => verifyPayment(o.order_id).catch(err => showError(err.message))}>Check payment</button>}</td>
+                          <td className="table-cell">{formatINR(o.amount)}{o.credit_released && Number(o.credit_applied) > 0 && <p className="text-xs text-emerald-700 dark:text-emerald-300 mt-1">{formatINR(o.credit_applied)} store credit returned</p>}</td>
+                          <td className="table-cell"><span className={`badge ${cfg.cls}`}>{cfg.label}</span>{o.status !== 'PAID' && !o.credit_released && <>
+                            <button disabled={Boolean(updatingOrder)} title="Refresh this order's status from Cashfree. This does not charge you again." className="ml-2 text-xs underline disabled:opacity-50" onClick={() => updateOrder(o.order_id)}>{updatingOrder === o.order_id ? 'Updating...' : 'Check payment'}</button>
+                            {o.status !== 'CANCELLING' && <button disabled={Boolean(updatingOrder)} className="ml-2 text-xs underline disabled:opacity-50" onClick={() => updateOrder(o.order_id, 'cancel')}>Cancel order</button>}
+                          </>}</td>
                           <td className="table-cell">{new Date(o.created_at).toLocaleString()}</td>
                         </tr>
                       );
