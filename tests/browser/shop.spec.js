@@ -31,6 +31,7 @@ test('student cards, persistent cart and one verified payment unlock purchased c
     return route.fulfill({ json: { order_id: 'LMS-cart', payment_session_id: 'test-session', mode: 'sandbox', amount: 250.24 } });
   });
   await page.route('**/api/order-status*', route => {
+    if (new URL(route.request().url()).searchParams.get('operation') === 'referral-balance') return route.fulfill({ json: { availableCredit: 0 } });
     profile.course = 'Maths'; profile.test_series_access = 'SSC';
     return route.fulfill({ json: { order_id: 'LMS-cart', status: 'PAID', cart_plans: plans } });
   });

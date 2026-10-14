@@ -10,6 +10,7 @@ import { useLocation } from 'react-router-dom';
 const titles = {
   '/admin': 'Dashboard',
   '/admin/purchases': 'Student Purchases',
+  '/admin/referrals': 'Student Referrals',
   '/admin/calendar': 'Calendar',
   '/admin/students': 'All Students',
   '/admin/students/add': 'Add Student',
@@ -24,6 +25,7 @@ const titles = {
   '/admin/settings/smtp': 'SMTP Settings',
   '/admin/settings/backup': 'Backup & Restore',
   '/student': 'Dashboard',
+  '/student/referrals': 'Refer & Earn',
   '/student/courses': 'My Courses',
   '/student/live-classes': 'Live Classes',
   '/student/test-series': 'Test Series',

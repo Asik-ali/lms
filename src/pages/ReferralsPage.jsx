@@ -31,7 +31,7 @@ export default function ReferralsPage() {
     })();
     return () => { active = false; };
   }, [page, revision]);
-  const link = data?.code ? `${import.meta.env.VITE_SITE_URL || window.location.origin}/signup?ref=${data.code}` : '';
+  const link = data?.code ? `${(import.meta.env.VITE_SITE_URL || window.location.origin).replace(/\/$/, '')}/signup?ref=${data.code}` : '';
   async function copy(value) {
     try { await navigator.clipboard.writeText(value); showSuccess('Copied to clipboard.'); }
     catch { showError('Unable to copy. Select and copy the text below.'); }
@@ -39,7 +39,7 @@ export default function ReferralsPage() {
   return <div className="space-y-6">
     <div className="flex flex-wrap items-center justify-between gap-3">
       <div><h1 className="text-2xl font-bold text-navy-100">{admin ? 'Student Referrals' : 'Refer & Earn'}</h1>
-        <p className="text-sm text-navy-200 mt-2">{admin ? 'Track verified signups and first-purchase rewards.' : `Earn ${money(data?.rewardAmount)} store credit when a friend makes their first successful purchase.`}</p></div>
+        <p className="text-sm text-navy-200 mt-2">{admin ? 'Track verified signups and first-purchase rewards.' : data ? `Earn ${money(data.rewardAmount)} store credit when a friend makes their first successful purchase.` : 'Earn store credit when a friend makes their first successful purchase.'}</p></div>
       <button onClick={reload} disabled={loading} className="btn-secondary flex items-center gap-2"><RefreshCw size={16} /> Refresh</button>
     </div>
     {error && <p role="alert" className="card p-5">{error}</p>}
