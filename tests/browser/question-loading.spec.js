@@ -27,7 +27,7 @@ test('question list fetches bounded pages, keeps numbering, and retries failed p
   });
   await page.goto('/admin/exams/questions');
   await page.getByRole('button', {name: /Series One/}).click();
-  await page.getByRole('button', {name: /Section One/}).click();
+  await page.getByRole('button', {name: /^Section One/}).click();
   await page.getByRole('button', {name: /Test One/}).click();
   await expect(page.getByText('Page 1 of 3')).toBeVisible();
   await expect(page.getByRole('row')).toHaveCount(26);

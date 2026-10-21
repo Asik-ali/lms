@@ -27,13 +27,15 @@ export function sortTests(tests) {
   });
 }
 
-// Keep Unit 5 subjects in syllabus order and full exams after topic sections.
+// Keep Unit 5 subjects and Unit 6 sectionals in syllabus order, with full exams last.
 export function sortTestCategories(categories) {
   const rank = category => {
     const name = String(category.name || '').normalize('NFC').replace(/[\u200B-\u200D\uFEFF]/g, '').trim();
     if (/\bfull\b|\u0bae\u0bc1\u0bb4\u0bc1/i.test(name)) return 3;
     if (name === '\u0baa\u0bca\u0bb0\u0bc1\u0bb3\u0bbe\u0ba4\u0bbe\u0bb0\u0bae\u0bcd') return 0;
     if (name === '\u0ba4\u0bae\u0bbf\u0bb4\u0bcd\u0ba8\u0bbe\u0b9f\u0bc1 \u0ba8\u0bbf\u0bb0\u0bcd\u0bb5\u0bbe\u0b95\u0bae\u0bcd') return 1;
+    if (name === "\u0ba4\u0bbf\u0bb0\u0bc1\u0b95\u0bcd\u0b95\u0bc1\u0bb1\u0bb3\u0bcd \u0bae\u0bb1\u0bcd\u0bb1\u0bc1\u0bae\u0bcd \u0ba4\u0bae\u0bbf\u0bb4\u0bb0\u0bcd \u0baa\u0ba3\u0bcd\u0baa\u0bbe\u0b9f\u0bc1") return 0;
+    if (name === "\u0baa\u0b95\u0bc1\u0ba4\u0bbf \u0ba4\u0bc7\u0bb0\u0bcd\u0bb5\u0bc1 2") return 1;
     return 2;
   };
   return [...categories].sort((a, b) => rank(a) - rank(b)

@@ -63,3 +63,9 @@ test('Unit 5 sections show economy, administration, then full test', () => {
   assert.deepEqual(sortTestCategories(rows).map(row => row.id), [2, 1, 0]);
   assert.equal(rows[0].id, 0);
 });
+
+test("Unit 6 shows Thirukkural, sectional 2, then full test", () => {
+  const names = ["\u0bae\u0bc1\u0bb4\u0bc1\u0ba4\u0bcd \u0ba4\u0bc7\u0bb0\u0bcd\u0bb5\u0bc1", "\u0baa\u0b95\u0bc1\u0ba4\u0bbf \u0ba4\u0bc7\u0bb0\u0bcd\u0bb5\u0bc1 2", "\u0ba4\u0bbf\u0bb0\u0bc1\u0b95\u0bcd\u0b95\u0bc1\u0bb1\u0bb3\u0bcd \u0bae\u0bb1\u0bcd\u0bb1\u0bc1\u0bae\u0bcd \u0ba4\u0bae\u0bbf\u0bb4\u0bb0\u0bcd \u0baa\u0ba3\u0bcd\u0baa\u0bbe\u0b9f\u0bc1"];
+  const rows = names.map((name, id) => ({ id, name, position: id }));
+  assert.deepEqual(sortTestCategories(rows).map(row => row.id), [2, 1, 0]);
+});
