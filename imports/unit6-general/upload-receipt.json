@@ -1,0 +1,36 @@
+{
+  "seriesId": 11,
+  "seriesName": "Unit 6 - History, Culture and Thirukkural",
+  "tests": [
+    {
+      "source": "UNIT-6(full test).txt",
+      "testId": 78,
+      "categoryId": 44,
+      "language": "Tamil",
+      "status": "Draft",
+      "questions": 200,
+      "answers": 200,
+      "reviewFlags": 4
+    },
+    {
+      "source": "unit 6 2.txt",
+      "testId": 79,
+      "categoryId": 45,
+      "language": "Tamil",
+      "status": "Draft",
+      "questions": 100,
+      "answers": 100,
+      "reviewFlags": 0
+    },
+    {
+      "source": "unit 6 thirukural.txt",
+      "testId": 80,
+      "categoryId": 46,
+      "language": "Tamil",
+      "status": "Draft",
+      "questions": 100,
+      "answers": 0,
+      "reviewFlags": 0
+    }
+  ]
+}

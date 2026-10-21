@@ -1,0 +1,56 @@
+{
+  "seriesId": 8,
+  "seriesName": "தமிழ் — அலகு வாரியான தேர்வுகள்",
+  "tests": [
+    {
+      "source": "unit 7 2.txt",
+      "testId": 70,
+      "categoryId": 37,
+      "language": "Tamil",
+      "status": "Draft",
+      "questions": 100,
+      "answers": 100,
+      "reviewFlags": 67
+    },
+    {
+      "source": "அலகு - 7 முழு தேர்வு.txt",
+      "testId": 71,
+      "categoryId": 37,
+      "language": "Tamil",
+      "status": "Draft",
+      "questions": 100,
+      "answers": 100,
+      "reviewFlags": 68
+    },
+    {
+      "source": "அலகு 5-முழு தேர்வு.txt",
+      "testId": 72,
+      "categoryId": 38,
+      "language": "Tamil",
+      "status": "Draft",
+      "questions": 100,
+      "answers": 100,
+      "reviewFlags": 82
+    },
+    {
+      "source": "அலகு 6(முழு தேர்வு).txt",
+      "testId": 73,
+      "categoryId": 39,
+      "language": "Tamil",
+      "status": "Draft",
+      "questions": 100,
+      "answers": 100,
+      "reviewFlags": 87
+    },
+    {
+      "source": "அலகு 7 (திருக்குறள், அறநூல்கள்).txt",
+      "testId": 74,
+      "categoryId": 40,
+      "language": "Tamil",
+      "status": "Draft",
+      "questions": 100,
+      "answers": 100,
+      "reviewFlags": 72
+    }
+  ]
+}

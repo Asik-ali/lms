@@ -67,7 +67,7 @@ export function AuthProvider({ children }) {
         username: meta.username || authUser.email?.split('@')[0],
         name: meta.name || authUser.email?.split('@')[0],
         email: authUser.email,
-        role: meta.role || 'student',
+        role: 'student',
       });
     }
     setLoading(false);
@@ -134,7 +134,7 @@ export function AuthProvider({ children }) {
         username: data.user.user_metadata?.username,
         name: data.user.user_metadata?.name,
         email: data.user.email,
-        role: data.user.user_metadata?.role || 'student',
+        role: 'student',
       });
     }
     return data?.session ? true : false;
@@ -145,7 +145,7 @@ export function AuthProvider({ children }) {
     const emails = cleanUsername.includes('@')
       ? [cleanUsername]
       : (cleanUsername.toLowerCase() === 'admin'
-        ? ['admin@lms.app']
+        ? [import.meta.env.VITE_ADMIN_EMAIL || 'asik14923@gmail.com']
         : [`${cleanUsername}@lms.app`]);
 
     let data = null;
@@ -169,7 +169,7 @@ export function AuthProvider({ children }) {
       username: data.user.user_metadata?.username || username,
       name: data.user.user_metadata?.name || username,
       email: data.user.email,
-      role: data.user.user_metadata?.role || 'student',
+      role: 'student',
     };
     setUser(u);
     return u;

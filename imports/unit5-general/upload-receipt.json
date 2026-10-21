@@ -1,0 +1,36 @@
+{
+  "seriesId": 10,
+  "seriesName": "Unit 5 - Economy and Tamil Nadu Administration",
+  "tests": [
+    {
+      "source": "unit 5 full.txt",
+      "testId": 75,
+      "categoryId": 41,
+      "language": "Tamil",
+      "status": "Draft",
+      "questions": 200,
+      "answers": 200,
+      "reviewFlags": 4
+    },
+    {
+      "source": "Unit 5 tn ans.txt",
+      "testId": 76,
+      "categoryId": 42,
+      "language": "Tamil",
+      "status": "Draft",
+      "questions": 100,
+      "answers": 100,
+      "reviewFlags": 0
+    },
+    {
+      "source": "unit 5 economy.txt",
+      "testId": 77,
+      "categoryId": 43,
+      "language": "Tamil",
+      "status": "Draft",
+      "questions": 100,
+      "answers": 100,
+      "reviewFlags": 0
+    }
+  ]
+}

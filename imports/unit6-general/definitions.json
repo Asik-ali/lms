@@ -1,0 +1,22 @@
+[
+  {
+    "source": "UNIT-6(full test).txt",
+    "name": "அலகு 6 — முழுத் தேர்வு",
+    "category": "முழுத் தேர்வு",
+    "groups": ["DBCBADCACC", "DCBDCCCACD", "ADACAABACC", "CDCBACCD BD", "CDDBBABAAB", "AAABBDDAAA", "CBBBDBDABB", "BBBDB CDBAA", "BADBBCBDAB", "BBCCBABBBA", "BDADBCBBBD", "CACBCADBBA", "DAAADBDADD", "BDBDCACAAA", "BABACBBBBA", "CACCCCCBCD", "BBBCBDCBAD", "CAABACABCA", "BBBAB DCDDB", "DADC BABCBA"]
+  },
+  {
+    "source": "unit 6 2.txt",
+    "name": "அலகு 6 — பகுதி தேர்வு 2",
+    "category": "பகுதி தேர்வு 2",
+    "groups": ["ABAADBCADC", "BAADDBABAB", "BBDCDCAABB", "DACDDCDCCB", "DDDDCD CDBA", "DDABACACBB", "DCBDBDCBDB", "CABABACBBA", "BCDABCDCDC", "CACBABACAB"]
+  },
+  {
+    "source": "unit 6 thirukural.txt",
+    "name": "அலகு 6 — திருக்குறள் மற்றும் தமிழர் பண்பாடு",
+    "category": "திருக்குறள் மற்றும் தமிழர் பண்பாடு",
+    "groups": [],
+    "expectedCount": 100,
+    "answerKeyStatus": "Pending: supplied Thirukkural image duplicates Sectional Test 2 key; first question confirms mismatch (all four statements true, option B; duplicate key gives A)."
+  }
+]

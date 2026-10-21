@@ -10,10 +10,18 @@ const definitions = [
 const papers = definitions.map(definition => {
   const answers = definition.groups.map(group => group.replace(/\s/g, ''));
   if (answers.some(group => group.length !== 10 || !/^[A-D]+$/.test(group))) throw new Error(`Invalid key groups: ${definition.source}: ${answers.map(g => g.length)}`);
-  const text = fs.readFileSync(`${root}/source/${definition.source}`, 'utf8').replace(/Α/g, 'A').replace(/Β/g, 'B').replace(/^99-/gm, '99. -');
+  const text = fs.readFileSync(`${root}/source/${definition.source}`, 'utf8').replace(/Α/g, 'A').replace(/Β/g, 'B').replace(/^99-/gm, '99. -').replace(/^MUDRA வங்கியில்/gm, '34.MUDRA வங்கியில்').replace(/^([A-D])\)\./gm, '$1)').replace(/^(?:\(ID\)|ID\)|\[D\)|DI\))/gm, 'D)').replace(/^A (?=சாமுவேல்சன்|1 மட்டும்|20\.12)/gm, 'A) ').replace(/^a (?=ஒவ்வ)/gm, 'A) ').replace(/^C (?=அனைத்து)/gm, 'C) ');
   const candidates = [...text.matchAll(/^[ \t]*(\d{1,3})[ \t]*[.)][ \t]*/gm)];
   const boundaries = [];
-  for (const candidate of candidates) if (Number(candidate[1]) === boundaries.length + 1) boundaries.push(candidate);
+  for (const candidate of candidates) {
+    if (Number(candidate[1]) !== boundaries.length + 1) continue;
+    const previous = boundaries.at(-1);
+    if (previous && boundaries.length < 10) {
+      const row = parseQuestion(text.slice(previous.index + previous[0].length, candidate.index), boundaries.length);
+      if (['a','b','c','d'].filter(label => row?.[`option_${label}`]).length < 3) continue;
+    }
+    boundaries.push(candidate);
+  }
   if (boundaries.length !== answers.length * 10) throw new Error(`Wrong count: ${definition.source}: ${boundaries.length}`);
   const sequence = answers.join('');
   const issues = [];
