@@ -30,7 +30,7 @@ export default function StudentFreeTestSeries() {
     setTestsList([]);
     try {
       const cats = await getCategoriesBySeries(s.id);
-      setCategories([...cats].sort((a, b) => (a.name || '').localeCompare(b.name || '', 'en', { numeric: true, sensitivity: 'base' })));
+      setCategories(cats);
     } catch (err) {
       console.error('Failed to load categories:', err);
       setCategories([]);

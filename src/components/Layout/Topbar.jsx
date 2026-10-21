@@ -22,8 +22,12 @@ export default function Topbar({ title, onMenuClick }) {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchData, setSearchData] = useState({ students: [], courses: [], series: [], announcements: [] });
+  const [searchOwner, setSearchOwner] = useState(null);
+  const [searchLoading, setSearchLoading] = useState(false);
+  const [searchError, setSearchError] = useState(false);
 
   const isAdmin = user?.role === 'admin' || user?.role === 'instructor';
+  const searchRequested = searchOpen && searchQuery.trim().length > 0;
 
   const visibleAnnouncements = announcements.filter(a => {
     const t = (a.target || '').toLowerCase();
@@ -37,26 +41,34 @@ export default function Topbar({ title, onMenuClick }) {
   }, []);
 
   useEffect(() => {
-    if (!isAdmin) return;
-    (async () => {
+    if (!isAdmin || !searchRequested || searchOwner === user?.id) return;
+    let active = true;
+    const timer = setTimeout(async () => {
+      setSearchLoading(true);
+      setSearchError(false);
       try {
         const [students, courses, series, announcements] = await Promise.all([
           getAllStudents(), getAllCourses(), getAllTestSeries(), getAllAnnouncements(),
         ]);
+        if (!active) return;
         setSearchData({
           students: students || [],
           courses: courses || [],
           series: series || [],
           announcements: announcements || [],
         });
+        setSearchOwner(user.id);
       } catch {
-        // search data unavailable
+        if (active) setSearchError(true);
+      } finally {
+        if (active) setSearchLoading(false);
       }
-    })();
-  }, [isAdmin]);
+    }, 250);
+    return () => { active = false; clearTimeout(timer); };
+  }, [isAdmin, searchRequested, searchOwner, user?.id]);
 
   const q = searchQuery.trim().toLowerCase();
-  const queryResults = q.length < 1 ? [] : [
+  const queryResults = q.length < 1 || searchOwner !== user?.id ? [] : [
     { label: 'Students', icon: Users, items: searchData.students.filter(s => (s.name || '').toLowerCase().includes(q) || (s.email || '').toLowerCase().includes(q)).slice(0, 5).map(s => ({ key: `s${s.id}`, title: s.name, subtitle: s.email, path: '/admin/students' })) },
     { label: 'Courses', icon: BookOpen, items: searchData.courses.filter(c => (c.title || '').toLowerCase().includes(q)).slice(0, 5).map(c => ({ key: `c${c.id}`, title: c.title, subtitle: c.status, path: '/admin/courses' })) },
     { label: 'Test Series', icon: PenTool, items: searchData.series.filter(s => (s.name || '').toLowerCase().includes(q)).slice(0, 5).map(s => ({ key: `t${s.id}`, title: s.name, subtitle: s.description || '', path: '/admin/exams/questions' })) },
@@ -137,7 +149,7 @@ export default function Topbar({ title, onMenuClick }) {
                     </div>
                     {queryResults.length === 0 ? (
                       <p className="px-4 py-6 text-sm text-navy-300 text-center">
-                        {q.length ? `No results for "${searchQuery}"` : 'Start typing to search'}
+                        {q.length && searchError ? 'Search unavailable. Clear your search and try again.' : q.length && (searchLoading || searchOwner !== user?.id) ? 'Loading search...' : q.length ? `No results for "${searchQuery}"` : 'Start typing to search'}
                       </p>
                     ) : (
                       <div className="max-h-80 overflow-y-auto">

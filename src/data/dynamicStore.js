@@ -1,5 +1,5 @@
 import { supabase } from '../supabase/client';
-import { sortTests } from './testOrder';
+import { sortTests, sortTestCategories } from './testOrder';
 import { gradeAttempt } from './gradeAttempt';
 import { apiUrl } from './api';
 
@@ -294,7 +294,7 @@ export async function deleteTestSeries(id) {
 export async function getCategoriesBySeries(seriesId) {
   const { data, error } = await supabase.from('test_categories').select('id, series_id, name, parent_id, position, created_at').eq('series_id', seriesId).order('position');
   if (error) throw error;
-  return data || [];
+  return sortTestCategories(data || []);
 }
 
 export async function addTestCategory({ series_id, name, parent_id, position }) {
@@ -333,6 +333,14 @@ export async function deleteTest(id) {
 }
 
 // Questions (linked to tests)
+export async function getQuestionPage(testId, page = 0, pageSize = 25) {
+  const { data, error, count } = await supabase.from('questions')
+    .select('id, question, option_a, option_b, option_c, option_d, correct_answer', { count: 'exact' })
+    .eq('test_id', testId).order('id').range(page * pageSize, (page + 1) * pageSize - 1);
+  if (error) throw error;
+  return { data: data || [], total: count ?? 0 };
+}
+
 export async function getQuestionsByTestId(testId) {
   const { data, error } = await supabase.from('questions').select('id, question, type, category, difficulty, test_id, option_a, option_b, option_c, option_d, correct_answer, explanation').eq('test_id', testId);
   if (error) throw error;

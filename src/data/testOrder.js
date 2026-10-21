@@ -26,3 +26,17 @@ export function sortTests(tests) {
       || left.languageOrder - right.languageOrder || Number(a.id) - Number(b.id);
   });
 }
+
+// Keep Unit 5 subjects in syllabus order and full exams after topic sections.
+export function sortTestCategories(categories) {
+  const rank = category => {
+    const name = String(category.name || '').normalize('NFC').replace(/[\u200B-\u200D\uFEFF]/g, '').trim();
+    if (/\bfull\b|\u0bae\u0bc1\u0bb4\u0bc1/i.test(name)) return 3;
+    if (name === '\u0baa\u0bca\u0bb0\u0bc1\u0bb3\u0bbe\u0ba4\u0bbe\u0bb0\u0bae\u0bcd') return 0;
+    if (name === '\u0ba4\u0bae\u0bbf\u0bb4\u0bcd\u0ba8\u0bbe\u0b9f\u0bc1 \u0ba8\u0bbf\u0bb0\u0bcd\u0bb5\u0bbe\u0b95\u0bae\u0bcd') return 1;
+    return 2;
+  };
+  return [...categories].sort((a, b) => rank(a) - rank(b)
+    || Number(a.position || 0) - Number(b.position || 0)
+    || collator.compare(a.name || '', b.name || ''));
+}

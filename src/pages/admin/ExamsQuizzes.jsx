@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Plus, X, ChevronRight, Trash2, FolderOpen, FileText, HelpCircle, Settings, Clock, Target, Globe, BarChart3, Edit2 } from 'lucide-react';
-import { getAllTestSeries, addTestSeries, updateTestSeries, setTestSeriesFree, deleteTestSeries, getCategoriesBySeries, addTestCategory, deleteTestCategory, getTestsByCategoryId, addTest, updateTest, deleteTest, getQuestionsByTestId, addQuestionToTest, deleteQuestion } from '../../data/dynamicStore';
+import { getAllTestSeries, addTestSeries, updateTestSeries, setTestSeriesFree, deleteTestSeries, getCategoriesBySeries, addTestCategory, deleteTestCategory, getTestsByCategoryId, addTest, updateTest, deleteTest, getQuestionPage, addQuestionToTest, deleteQuestion } from '../../data/dynamicStore';
 import { showError, showSuccess } from '../../components/common/Toast';
 
 const LEVELS = ['series', 'categories', 'tests', 'questions'];
@@ -11,6 +11,12 @@ export default function TestSeries() {
   const [categories, setCategories] = useState([]);
   const [testsList, setTestsList] = useState([]);
   const [questions, setQuestions] = useState([]);
+  const [questionPage, setQuestionPage] = useState(0);
+  const [questionTotal, setQuestionTotal] = useState(0);
+  const [questionsLoading, setQuestionsLoading] = useState(false);
+  const [questionsError, setQuestionsError] = useState('');
+  const [questionRevision, setQuestionRevision] = useState(0);
+  const questionPageSize = 25;
   const [currentSeries, setCurrentSeries] = useState(null);
   const [currentCategory, setCurrentCategory] = useState(null);
   const [currentTest, setCurrentTest] = useState(null);
@@ -35,7 +41,7 @@ export default function TestSeries() {
   // Navigation
   function goSeries(s) { setCurrentSeries(s); setCurrentCategory(null); setCurrentTest(null); setQuestions([]); loadCategories(s.id); setLevel('categories'); }
   function goCategory(c) { setCurrentCategory(c); setCurrentTest(null); setQuestions([]); loadTests(c.id); setLevel('tests'); }
-  function goTest(t) { setCurrentTest(t); loadQuestions(t.id); setLevel('questions'); }
+  function goTest(t) { setCurrentTest(t); setQuestions([]); setQuestionTotal(t.question_count || 0); setQuestionPage(0); setLevel('questions'); }
 
   function goBack() {
     const idx = LEVELS.indexOf(level);
@@ -48,7 +54,25 @@ export default function TestSeries() {
   // Load data
   async function loadCategories(seriesId) { try { setCategories(await getCategoriesBySeries(seriesId)); } catch (err) { console.error('Failed to load categories:', err); setCategories([]); } }
   async function loadTests(catId) { try { setTestsList(await getTestsByCategoryId(catId)); } catch (err) { console.error('Failed to load tests:', err); setTestsList([]); } }
-  async function loadQuestions(testId) { try { setQuestions(await getQuestionsByTestId(testId)); } catch (err) { console.error('Failed to load questions:', err); setQuestions([]); } }
+  async function loadQuestions() { setQuestionRevision(value => value + 1); }
+  useEffect(() => {
+    if (level !== 'questions' || !currentTest?.id) return;
+    let active = true;
+    setQuestionsLoading(true);
+    setQuestionsError('');
+    getQuestionPage(currentTest.id, questionPage, questionPageSize).then(({ data, total }) => {
+      if (!active) return;
+      setQuestionTotal(total);
+      const lastPage = Math.max(0, Math.ceil(total / questionPageSize) - 1);
+      if (questionPage > lastPage) { setQuestionPage(lastPage); return; }
+      setQuestions(data);
+    }).catch(err => {
+      if (!active) return;
+      console.error('Failed to load questions:', err);
+      setQuestionsError('Could not load questions. Please retry.');
+    }).finally(() => { if (active) setQuestionsLoading(false); });
+    return () => { active = false; };
+  }, [level, currentTest?.id, questionPage, questionRevision]);
 
   // CRUD Series
   async function handleAddSeries() {
@@ -339,7 +363,7 @@ export default function TestSeries() {
               <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {currentTest.duration} min</span>
               <span className="flex items-center gap-1"><Target className="w-3 h-3" /> {currentTest.total_marks} marks</span>
               <span className="flex items-center gap-1"><Globe className="w-3 h-3" /> {currentTest.language}</span>
-              <span>{questions.length} questions</span>
+              <span>{questionTotal} questions</span>
             </div>
             {currentTest.instructions && <p className="text-xs text-navy-200 mt-2">{currentTest.instructions}</p>}
           </div>
@@ -356,9 +380,9 @@ export default function TestSeries() {
                 </tr>
               </thead>
               <tbody>
-                {questions.map((q, i) => (
+                {!questionsLoading && !questionsError && questions.map((q, i) => (
                   <tr key={q.id} className="border-b border-navy-700 hover:bg-navy-700/60">
-                    <td className="table-cell text-navy-300">{i + 1}</td>
+                    <td className="table-cell text-navy-300">{questionPage * questionPageSize + i + 1}</td>
                     <td className="table-cell font-medium max-w-md"><span className="block line-clamp-2">{q.question}</span></td>
                     <td className="table-cell">
                       <div className="space-y-0.5 text-xs text-navy-100">
@@ -372,9 +396,14 @@ export default function TestSeries() {
                     <td className="table-cell"><button onClick={() => handleDeleteQuestion(q.id)} className="p-1 text-navy-300 hover:text-red-600 cursor-pointer"><Trash2 className="w-4 h-4" /></button></td>
                   </tr>
                 ))}
-                {questions.length === 0 && <tr><td colSpan={5} className="text-center py-8 text-navy-300">No questions yet</td></tr>}
+                {questionsLoading ? <tr><td colSpan={5} role="status" className="text-center py-8 text-navy-300">Loading questions...</td></tr> : questionsError ? <tr><td colSpan={5} role="alert" className="text-center py-8 text-navy-300">{questionsError} <button className="btn-secondary" onClick={loadQuestions}>Retry</button></td></tr> : questions.length === 0 && <tr><td colSpan={5} className="text-center py-8 text-navy-300">No questions yet</td></tr>}
               </tbody>
             </table>
+            <div className="flex items-center justify-between gap-3 border-t border-navy-700 p-4 text-sm">
+              <button className="btn-secondary" disabled={questionsLoading || questionPage === 0} onClick={() => setQuestionPage(page => page - 1)}>Previous</button>
+              <span>Page {questionPage + 1} of {Math.max(1, Math.ceil(questionTotal / questionPageSize))}</span>
+              <button className="btn-secondary" disabled={questionsLoading || (questionPage + 1) * questionPageSize >= questionTotal} onClick={() => setQuestionPage(page => page + 1)}>Next</button>
+            </div>
           </div>
         </div>
       )}

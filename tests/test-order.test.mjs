@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { sortTests } from '../src/data/testOrder.js';
+import { sortTests, sortTestCategories } from '../src/data/testOrder.js';
 
 test('requested Tamil grammar titles show letters, words, then full exam', () => {
   const names = ['தமிழ் - இலக்கணம் i)எழுத்து', 'தமிழ் -இலக்கணம் ii) சொல்', 'தமிழ் -இலக்கணம் (full)'];
@@ -55,4 +55,11 @@ test('Tamil screenshot titles keep parts I and II before the full exam despite i
     { id: 7, name: full.replace(' ', '\u200B ') },
     { id: 8, name: 'Unit topic' },
   ]).map(row => row.id), [8, 7]);
+});
+
+test('Unit 5 sections show economy, administration, then full test', () => {
+  const names = ['\u0bae\u0bc1\u0bb4\u0bc1\u0ba4\u0bcd \u0ba4\u0bc7\u0bb0\u0bcd\u0bb5\u0bc1', '\u0ba4\u0bae\u0bbf\u0bb4\u0bcd\u0ba8\u0bbe\u0b9f\u0bc1 \u0ba8\u0bbf\u0bb0\u0bcd\u0bb5\u0bbe\u0b95\u0bae\u0bcd', '\u0baa\u0bca\u0bb0\u0bc1\u0bb3\u0bbe\u0ba4\u0bbe\u0bb0\u0bae\u0bcd'];
+  const rows = names.map((name, id) => ({ id, name }));
+  assert.deepEqual(sortTestCategories(rows).map(row => row.id), [2, 1, 0]);
+  assert.equal(rows[0].id, 0);
 });

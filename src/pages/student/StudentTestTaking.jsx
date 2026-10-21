@@ -76,19 +76,17 @@ export default function StudentTestTaking() {
         return;
       }
 
-      const { data: testData, error: testError } = await supabase
-        .from('tests')
-        .select('*')
-        .eq('id', attemptData.test_id)
-        .single();
+      const [testResult, questionsResult, existingResponses] = await Promise.all([
+        supabase.from('tests').select('*').eq('id', attemptData.test_id).single(),
+        supabase.from('questions')
+          .select('id, question, option_a, option_b, option_c, option_d, explanation')
+          .eq('test_id', attemptData.test_id).order('id'),
+        getResponses(attemptId),
+      ]);
+      const { data: testData, error: testError } = testResult;
       if (testError || !testData) throw testError || new Error('Test not found');
-      const { data: questionsData, error: questionsError } = await supabase
-        .from('questions')
-        .select('*')
-        .eq('test_id', attemptData.test_id).order('id');
+      const { data: questionsData, error: questionsError } = questionsResult;
       if (questionsError) throw questionsError;
-
-      const existingResponses = await getResponses(attemptId);
 
       const responseMap = {};
       existingResponses.forEach(r => {

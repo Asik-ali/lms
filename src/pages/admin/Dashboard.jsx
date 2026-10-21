@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Users, BookOpen, FolderOpen } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { getAllStudents, getAllCourses, getAllEnrollments, getAllTestSeries, getAllNotifications, cleanupStaleStudentCourses } from '../../data/dynamicStore';
+import { getAllStudents, getAllCourses, getAllEnrollments, getAllTestSeries, getAllNotifications } from '../../data/dynamicStore';
 
 export default function AdminDashboard() {
   const [students, setStudents] = useState([]);
@@ -11,18 +11,17 @@ export default function AdminDashboard() {
   const [notifications, setNotifications] = useState([]);
 
   useEffect(() => {
-    (async () => {
-      try {
-        try { await cleanupStaleStudentCourses(); } catch (e) { console.error('Failed to clean student courses:', e); }
-        setStudents(await getAllStudents());
-        setCourses(await getAllCourses());
-        setEnrollments(await getAllEnrollments());
-        setTestSeries(await getAllTestSeries());
-        setNotifications(await getAllNotifications());
-      } catch (err) {
-        console.error('Failed to load dashboard data:', err);
-      }
-    })();
+    let active = true;
+    // Each section can render as soon as its own request finishes.
+    for (const [load, save] of [
+      [getAllStudents, setStudents], [getAllCourses, setCourses],
+      [getAllEnrollments, setEnrollments], [getAllTestSeries, setTestSeries],
+      [getAllNotifications, setNotifications],
+    ]) {
+      load().then(data => { if (active) save(data); })
+        .catch(err => console.error('Failed to load dashboard data:', err));
+    }
+    return () => { active = false; };
   }, []);
 
   const activeStudents = students.filter(s => s.status === 'Active').length;
