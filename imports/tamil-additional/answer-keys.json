@@ -1,0 +1,62 @@
+{
+  "5": [
+    "BBAACBCCAB",
+    "ACBDCCDBAA",
+    "BDBACBB D AC",
+    "AABABCCADA",
+    "DBBCBCABCC",
+    "BABDBCBDBC",
+    "CACCBBCDCD",
+    "CDBCBCCCCC",
+    "CDDBCDDBBC",
+    "BCCADB CDDA"
+  ],
+  "6": [
+    "CCDDCBDACC",
+    "AADBAACDAB",
+    "AACDBCD AAD",
+    "DDBBBAAABA",
+    "CCBBBC AACC",
+    "ACDBBCDCBC",
+    "CAACADCABC",
+    "DACDBBBBCB",
+    "DCDBBAADDA",
+    "BAACCBACCD"
+  ],
+  "7": [
+    "DDBDAAACBB",
+    "BADBACDCAA",
+    "BAB AAB DCCB",
+    "ACC DCCBBAB",
+    "BBBBCBCDBB",
+    "DCCDCBC DDB",
+    "BDD CBAACCC",
+    "DDCBABBCAC",
+    "BBB AADBCDB",
+    "CCABCCCDDC"
+  ],
+  "full7": [
+    "BADCDBBADC",
+    "BBDDCBCBAA",
+    "ACCCCADBCC",
+    "ADAABCAABB",
+    "ADAADADAAD",
+    "BAABCBABCA",
+    "CDDABCBBCC",
+    "ABBBAABDBA",
+    "BBACCDDBCB",
+    "ADDBADBDAC"
+  ],
+  "part7": [
+    "DABABBDAAA",
+    "ADBCBBCBDB",
+    "CDDCCCDBDB",
+    "CBCABDDBCC",
+    "CCBABACBBA",
+    "ACBDDDADBC",
+    "DABCACBCAC",
+    "BBBDAACCAB",
+    "BBBADBACBB",
+    "BACAAAD BBD"
+  ]
+}
