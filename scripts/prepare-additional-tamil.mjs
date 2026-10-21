@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import { parsePaper } from './prepare-tamil-import.mjs';
+import { repairPaperText } from './tamil-extraction.mjs';
 
 // Transcribed by question number from the five user-supplied handwritten keys.
 const keys = {
@@ -28,6 +29,7 @@ const papers = fs.readdirSync(`${root}/source`).filter(name => name.endsWith('.t
   return { source, name: key === 'part7' ? 'அலகு 7 (ii) — தமிழின் தொன்மை - நாமக்கல் கவிஞர்' : source.replace(/\.txt$/, ''), category: `அலகு ${unit}${key === 7 ? ' — திருக்குறள், அறநூல்கள்' : ''}`, language: 'Tamil', questions, issues, answerKeyStatus: 'User-provided; 100 answers matched by question number' };
 });
 if (papers.length !== 5) throw new Error('Expected five papers');
+repairPaperText(papers);
 fs.writeFileSync(`${root}/prepared.json`, JSON.stringify(papers, null, 2) + '\n');
 fs.writeFileSync(`${root}/answer-keys.json`, JSON.stringify(keys, null, 2) + '\n');
 for (const paper of papers) console.log(`${paper.name}: ${paper.questions.length} questions, 100 answers, ${paper.issues.length} text review flags`);

@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import { parseQuestion } from './prepare-tamil-import.mjs';
+import { repairPaperText } from './tamil-extraction.mjs';
 
 const root = 'imports/unit5-general';
 const definitions = [
@@ -33,6 +34,7 @@ const papers = definitions.map(definition => {
   });
   return {...definition, language: 'Tamil', questions, issues};
 });
+repairPaperText(papers);
 fs.writeFileSync(`${root}/prepared.json`, JSON.stringify(papers, null, 2) + '\n');
 fs.writeFileSync(`${root}/question-review.json`, JSON.stringify(papers.map(({name, issues}) => ({name, issues})), null, 2) + '\n');
 for (const paper of papers) console.log(paper.source, paper.questions.length, JSON.stringify(paper.issues));
