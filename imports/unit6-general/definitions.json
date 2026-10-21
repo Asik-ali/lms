@@ -15,8 +15,8 @@
     "source": "unit 6 thirukural.txt",
     "name": "அலகு 6 — திருக்குறள் மற்றும் தமிழர் பண்பாடு",
     "category": "திருக்குறள் மற்றும் தமிழர் பண்பாடு",
-    "groups": [],
+    "groups": ["BCCAABBAAB", "BDADABBAAB", "ADBDCCBABC", "CCBCBCDBAB", "CABBDCACBD", "DACCCBAABB", "BDCBDDBBDC", "BBADDADCDC", "CBBABBCADD", "DCCABBDDBA"],
     "expectedCount": 100,
-    "answerKeyStatus": "Pending: supplied Thirukkural image duplicates Sectional Test 2 key; first question confirms mismatch (all four statements true, option B; duplicate key gives A)."
+    "answerKeyStatus": "User-provided Unit 6 Sectional Test 1 key (1.jpeg); 100 answers transcribed by question number, including final handwritten corrections."
   }
 ]

@@ -29,8 +29,9 @@
       "language": "Tamil",
       "status": "Draft",
       "questions": 100,
-      "answers": 0,
-      "reviewFlags": 0
+      "answers": 100,
+      "reviewFlags": 0,
+      "answerKeyStatus": "User-provided Unit 6 Sectional Test 1 key (1.jpeg); 100 answers transcribed by question number, including final handwritten corrections."
     }
   ]
 }

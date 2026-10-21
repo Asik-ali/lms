@@ -49,4 +49,4 @@ for (const paper of papers) {
   fs.writeFileSync('imports/unit6-general/upload-receipt.json', JSON.stringify(receipt, null, 2) + '\n');
   console.log(`${paper.name}: verified ${saved.length} questions and answers (Tamil, Draft)`);
 }
-console.log('Verified three Tamil draft tests in separate sections, 400 questions and 300 matched answers; Thirukkural key pending.');
+console.log(`Verified three Tamil draft tests in separate sections, 400 questions and ${receipt.tests.reduce((sum, test) => sum + test.answers, 0)} matched answers.`);
