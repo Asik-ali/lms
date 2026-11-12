@@ -1,6 +1,6 @@
 import { randomUUID } from 'node:crypto';
 import { createServiceClient, getAuthedUser, setCors } from './_auth.mjs';
-import { createCashfreeOrder, CASHFREE_ORDER_PREFIX, CASHFREE_ORDER_TTL_MINUTES } from './_cashfree.mjs';
+import { createCashfreeOrder, CASHFREE_ORDER_PREFIX, PAYMENT_ORDER_CLEANUP_MINUTES } from './_cashfree.mjs';
 import { reconcileOrder } from './_order-lifecycle.mjs';
 
 function getOrigin(req) {
@@ -33,7 +33,7 @@ export default async function handler(req, res) {
     const orderId = `${CASHFREE_ORDER_PREFIX}-${Date.now()}-${randomUUID().slice(0, 8)}`;
     const useCredit = req.body?.useCredit === true;
     if (useCredit) {
-      const cutoff = new Date(Date.now() - CASHFREE_ORDER_TTL_MINUTES * 60 * 1000).toISOString();
+      const cutoff = new Date(Date.now() - PAYMENT_ORDER_CLEANUP_MINUTES * 60 * 1000).toISOString();
       const { data: staleOrders, error: staleError } = await supabase.from('purchase_orders')
         .select('id, order_id, plan_id, student_id, amount, status, created_at, cart_plans, credit_applied, credit_released, close_reason')
         .eq('student_id', profile.id).gt('credit_applied', 0).eq('credit_released', false)
@@ -52,9 +52,6 @@ export default async function handler(req, res) {
     try { cashfreeOrder = await createCashfreeOrder({
       orderId,
       amount: storedOrder.amount,
-      // Cashfree requires more than 15 minutes after it receives the request.
-      // The extra five-minute buffer prevents latency from making it invalid.
-      expiresAt: new Date(Date.now() + CASHFREE_ORDER_TTL_MINUTES * 60 * 1000).toISOString(),
       customer: profile,
       planName,
       origin: getOrigin(req),

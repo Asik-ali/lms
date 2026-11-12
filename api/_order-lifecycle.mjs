@@ -9,9 +9,19 @@ async function closeOrder(supabase, order, reason, providerClosed) {
   return data;
 }
 
+function isMissingCashfreeOrder(error) {
+  return error?.status === 404 || /order.*(not found|does not exist)|reference id.*does not exist/i.test(error?.message || '');
+}
+
 export async function reconcileOrder(supabase, order, { reason, inspectPayments = false } = {}) {
   if (order.status === 'PAID' || order.credit_released) return order;
-  let remote = await getCashfreeOrder(order.order_id);
+  let remote;
+  try {
+    remote = await getCashfreeOrder(order.order_id);
+  } catch (error) {
+    if (!isMissingCashfreeOrder(error)) throw error;
+    return closeOrder(supabase, order, order.close_reason || reason || 'CANCELLED', true);
+  }
   const paid = async () => {
     await fulfillPaidOrder(supabase, order.order_id);
     return { ...order, status: 'PAID' };
@@ -33,9 +43,13 @@ export async function reconcileOrder(supabase, order, { reason, inspectPayments 
   if (order.status === 'PAID' || order.credit_released) return order;
   if (remote.order_status !== 'TERMINATION_REQUESTED') {
     try { remote = await terminateCashfreeOrder(order.order_id); }
-    catch {
+    catch (error) {
       // Cashfree may refuse termination because payment succeeded concurrently.
-      remote = await getCashfreeOrder(order.order_id);
+      try { remote = await getCashfreeOrder(order.order_id); }
+      catch (lookupError) {
+        if (isMissingCashfreeOrder(lookupError)) return closeOrder(supabase, order, order.close_reason || reason || 'CANCELLED', true);
+        throw lookupError || error;
+      }
     }
   }
   if (isVerifiedPaidOrder(remote, order)) return paid();

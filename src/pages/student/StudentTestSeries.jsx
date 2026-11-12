@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { FolderOpen, FileText, ChevronRight, ExternalLink, Clock, Target, Globe } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { getAllTestSeries, getCategoriesBySeries, getTestsByCategoryId } from '../../data/dynamicStore';
 import { useAuth } from '../../contexts/AuthContext';
 import { supabase } from '../../supabase/client';
@@ -19,6 +19,8 @@ function matches(seriesName, accessList) {
 export default function StudentTestSeries() {
   const { user } = useAuth();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const requestedSeriesId = searchParams.get('seriesId');
   const [seriesList, setSeriesList] = useState([]);
   const [categories, setCategories] = useState([]);
   const [testsList, setTestsList] = useState([]);
@@ -43,6 +45,11 @@ export default function StudentTestSeries() {
   }, [user?.test_series_access]);
 
   useEffect(() => { loadSeries(); }, [loadSeries]);
+  useEffect(() => {
+    if (!requestedSeriesId || !seriesList.length || currentSeries) return;
+    const requested = seriesList.find(series => String(series.id) === requestedSeriesId);
+    if (requested) goSeries(requested);
+  }, [requestedSeriesId, seriesList, currentSeries]);
   useEffect(() => {
     const interval = setInterval(() => setNow(Date.now()), 30000);
     return () => clearInterval(interval);

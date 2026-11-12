@@ -6,9 +6,8 @@ const CASHFREE_API = CASHFREE_MODE === 'sandbox'
   : 'https://api.cashfree.com/pg';
 
 export const CASHFREE_ORDER_PREFIX = 'LMS';
-// Cashfree requires order_expiry_time to be at least 15 minutes in the future.
-// Keep a five-minute margin for request/network latency near that lower bound.
-export const CASHFREE_ORDER_TTL_MINUTES = 20;
+// Local retry window after which unattended orders are reconciled/cancelled.
+export const PAYMENT_ORDER_CLEANUP_MINUTES = 20;
 
 export function createServiceClient() {
   const supabaseUrl = process.env.VITE_SUPABASE_URL;
@@ -37,14 +36,13 @@ export function getCashfreeHeaders(auth = false) {
 }
 
 // Create a Cashfree order and return its payment_session_id (for the Drop-in checkout SDK).
-export async function createCashfreeOrder({ orderId, amount, customer, planName, origin, expiresAt }) {
+export async function createCashfreeOrder({ orderId, amount, customer, planName, origin }) {
   const { headers } = getCashfreeHeaders(true);
   const baseUrl = origin || process.env.VITE_SITE_URL || '';
   const body = {
     order_id: orderId,
     order_amount: Number(amount),
     order_currency: 'INR',
-    ...(expiresAt ? { order_expiry_time: expiresAt } : {}),
     order_note: `Purchase - ${planName}`.slice(0, 200),
     customer_details: {
       customer_id: customer.id,
@@ -75,7 +73,11 @@ export async function getCashfreeOrder(orderId) {
   const { headers } = getCashfreeHeaders(true);
   const response = await fetch(`${CASHFREE_API}/orders/${encodeURIComponent(orderId)}`, { headers });
   const data = await response.json();
-  if (!response.ok) throw new Error(data.message || 'Unable to verify payment');
+  if (!response.ok) {
+    const error = new Error(data.message || 'Unable to verify payment');
+    error.status = response.status;
+    throw error;
+  }
   return data;
 }
 

@@ -408,7 +408,11 @@ export default function StudentBuyCourses() {
 
                   {owned ? <>
                     <span className="badge badge-success mb-3">Access unlocked</span>
-                    <Link className="btn-primary text-center mt-auto" to={plan.items[0]?.item_type === 'course' ? `/student/courses/${plan.items[0].item_id}` : '/student/test-series'}>Open content <ArrowRight size={16} className="inline ml-2" /></Link>
+                    <div className="mt-auto grid gap-2">
+                      {plan.items.map(item => <Link key={`${item.item_type}-${item.item_id}`} className="btn-primary text-center" to={item.item_type === 'course' ? `/student/courses/${item.item_id}` : `/student/test-series?seriesId=${encodeURIComponent(item.item_id)}`}>
+                        {item.item_type === 'course' ? 'Open course' : 'View test series'} <ArrowRight size={16} className="inline ml-2" />
+                      </Link>)}
+                    </div>
                   </> : hasOwned ? <div className="mt-auto rounded-lg border border-amber-500/30 bg-amber-500/10 p-3 text-sm text-amber-200" role="status">
                     This plan includes content you already own. Remove the duplicate content from the plan or choose another plan.
                   </div> : <button
