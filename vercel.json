@@ -6,7 +6,7 @@
         {
           "type": "header",
           "key": "user-agent",
-          "value": "EXAMSTICK_APP"
+          "value": ".*EXAMSTICK_APP.*"
         }
       ],
       "dest": "/browser-block.html"
