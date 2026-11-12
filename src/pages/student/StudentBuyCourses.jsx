@@ -13,7 +13,6 @@ import { showSuccess, showError } from '../../components/common/Toast';
 const CASHFREE_SCRIPT = 'https://sdk.cashfree.com/js/v3/cashfree.js';
 const CASHFREE_MODE = import.meta.env.VITE_CASHFREE_MODE || 'production';
 const PaymentScreen = registerPlugin('PaymentScreen');
-const CashfreeNative = registerPlugin('CashfreeNative');
 
 let sdkPromise = null;
 function loadCashfreeSdk() {
@@ -220,9 +219,9 @@ export default function StudentBuyCourses() {
     setCheckingOut(method);
     try {
       const nativeCheckout = Capacitor.isNativePlatform();
-      // Load the web SDK before reserving credit. The Android app uses
-      // Cashfree's native SDK for both UPI app discovery and hosted checkout.
-      const Cashfree = nativeCheckout ? null : await loadCashfreeSdk();
+      // Use Cashfree's hosted web checkout on Android too. This is the
+      // established flow that hands UPI intent URLs to installed apps.
+      const Cashfree = await loadCashfreeSdk();
       const { data: { session } } = await supabase.auth.getSession();
       const token = session?.access_token || '';
       const res = await fetch(apiUrl('/api/create-order'), {
@@ -232,35 +231,16 @@ export default function StudentBuyCourses() {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Failed to create order');
+      let temporarilyUnsecured = false;
       if (nativeCheckout) {
-        let temporarilyUnsecured = false;
         try {
           await PaymentScreen.setSecure({ enabled: false });
           temporarilyUnsecured = true;
         } catch (error) {
           console.warn('Could not enable payment QR screenshots:', error);
         }
-        try {
-          const result = await CashfreeNative.startCheckout({
-            orderId: data.order_id,
-            paymentSessionId: data.payment_session_id,
-            mode: data.mode || CASHFREE_MODE,
-            method,
-          });
-          // A native failure callback can arrive before Cashfree has finished
-          // updating the order. Verify without closing it so a valid payment
-          // can never be cancelled by the app.
-          if (result?.status === 'failed') {
-            throw new Error(result.message || 'Cashfree could not open the selected UPI app. Please try another payment method.');
-          }
-          await verifyPayment(data.order_id);
-        } finally {
-          if (temporarilyUnsecured) {
-            try { await PaymentScreen.setSecure({ enabled: true }); }
-            catch (error) { console.error('Could not restore screenshot protection:', error); }
-          }
-        }
-      } else {
+      }
+      try {
         const cashfree = Cashfree({ mode: data.mode || CASHFREE_MODE });
         await cashfree.checkout({
           paymentSessionId: data.payment_session_id,
@@ -271,6 +251,11 @@ export default function StudentBuyCourses() {
         // actual order status and the student can cancel explicitly from
         // My Purchases if needed.
         await verifyPayment(data.order_id);
+      } finally {
+        if (temporarilyUnsecured) {
+          try { await PaymentScreen.setSecure({ enabled: true }); }
+          catch (error) { console.error('Could not restore screenshot protection:', error); }
+        }
       }
     } catch (err) {
       showError(err.message);
@@ -316,19 +301,10 @@ export default function StudentBuyCourses() {
               {useCredit && <p>Credit applied: {formatINR(appliedCredit)}. At least ₹1 is payable through Cashfree.</p>}
             </div>}
             <span className="text-xl font-bold text-navy-100">Total: {formatINR(payable)}</span>
-            {Capacitor.isNativePlatform() ? <>
-              <button onClick={() => handleCheckout('upi')} disabled={!cartPlans.length || Boolean(checkingOut)} className="btn-primary w-full flex items-center justify-center gap-2 min-h-12">
-                {checkingOut ? <Loader2 className="w-4 h-4 animate-spin" /> : <CreditCard className="w-4 h-4" />}
-                {checkingOut ? 'Opening secure checkout...' : `Pay ${formatINR(payable)} with UPI apps`}
-              </button>
-              <button onClick={() => handleCheckout('all')} disabled={!cartPlans.length || Boolean(checkingOut)} className="btn-secondary w-full flex items-center justify-center gap-2 min-h-11">
-                {checkingOut ? <Loader2 className="w-4 h-4 animate-spin" /> : <Layers className="w-4 h-4" />}
-                Other methods (cards, netbanking, QR)
-              </button>
-            </> : <button onClick={() => handleCheckout('all')} disabled={!cartPlans.length || Boolean(checkingOut)} className="btn-primary w-full flex items-center justify-center gap-2 min-h-12">
+            <button onClick={() => handleCheckout('all')} disabled={!cartPlans.length || Boolean(checkingOut)} className="btn-primary w-full flex items-center justify-center gap-2 min-h-12">
               {checkingOut ? <Loader2 className="w-4 h-4 animate-spin" /> : <CreditCard className="w-4 h-4" />}
-              {checkingOut ? 'Processing payment...' : `Pay ${formatINR(payable)}`}
-            </button>}
+              {checkingOut ? 'Opening secure checkout...' : Capacitor.isNativePlatform() ? `Pay ${formatINR(payable)} with UPI, card or QR` : `Pay ${formatINR(payable)}`}
+            </button>
             <button disabled={Boolean(checkingOut)} className="shop-clear" onClick={() => updateCart([])}>Clear cart</button>
           </div>
           <p className="shop-checkout-note"><ShieldCheck size={15} /> Access unlocks after payment confirmation.</p>
