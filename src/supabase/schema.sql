@@ -727,9 +727,11 @@ ALTER TABLE public.purchase_orders ADD COLUMN IF NOT EXISTS cart_plans JSONB;
 ALTER TABLE public.purchase_orders ADD COLUMN IF NOT EXISTS access_items JSONB;
 
 -- Save the price and selected content together; failed item validation rolls back everything.
+ALTER TABLE public.sales_plans ADD COLUMN IF NOT EXISTS preview_pdf_url TEXT NOT NULL DEFAULT '';
+
 CREATE OR REPLACE FUNCTION public.save_sales_plan(target_plan_id BIGINT, plan_body JSONB)
 RETURNS JSONB LANGUAGE plpgsql SECURITY DEFINER SET search_path = public AS $$
-DECLARE saved sales_plans%ROWTYPE; item JSONB; item_id_value BIGINT; item_type_value TEXT;
+DECLARE saved sales_plans%ROWTYPE; item JSONB; item_id_value BIGINT; item_type_value TEXT; preview_url TEXT;
 BEGIN
   IF coalesce(trim(plan_body->>'name'), '') = '' THEN RAISE EXCEPTION 'Plan name is required'; END IF;
   IF coalesce(plan_body->>'price', '') = '' OR (plan_body->>'price')::NUMERIC <= 0
@@ -737,6 +739,8 @@ BEGIN
      OR (plan_body->>'price')::NUMERIC <> round((plan_body->>'price')::NUMERIC, 2)
   THEN RAISE EXCEPTION 'Enter a positive price with at most two decimal places'; END IF;
   IF coalesce(plan_body->>'status', 'active') NOT IN ('active', 'inactive') THEN RAISE EXCEPTION 'Invalid status'; END IF;
+  preview_url := trim(coalesce(plan_body->>'preview_pdf_url', ''));
+  IF preview_url <> '' AND preview_url !~ '^https://' THEN RAISE EXCEPTION 'Schedule preview must use an HTTPS link'; END IF;
   IF jsonb_typeof(plan_body->'items') IS DISTINCT FROM 'array' THEN RAISE EXCEPTION 'Select courses or test series'; END IF;
   IF jsonb_array_length(plan_body->'items') = 0 THEN RAISE EXCEPTION 'Select at least one course or test series'; END IF;
   FOR item IN SELECT value FROM jsonb_array_elements(plan_body->'items') LOOP
@@ -748,12 +752,12 @@ BEGIN
     ELSE RAISE EXCEPTION 'Invalid item type'; END IF;
   END LOOP;
   IF target_plan_id IS NULL THEN
-    INSERT INTO sales_plans(name, description, price, status)
+    INSERT INTO sales_plans(name, description, price, status, preview_pdf_url)
     VALUES(trim(plan_body->>'name'), coalesce(plan_body->>'description',''), (plan_body->>'price')::NUMERIC,
-      coalesce(plan_body->>'status','active')) RETURNING * INTO saved;
+      coalesce(plan_body->>'status','active'), preview_url) RETURNING * INTO saved;
   ELSE
     UPDATE sales_plans SET name = trim(plan_body->>'name'), description = coalesce(plan_body->>'description',''),
-      price = (plan_body->>'price')::NUMERIC, status = coalesce(plan_body->>'status','active')
+      price = (plan_body->>'price')::NUMERIC, status = coalesce(plan_body->>'status','active'), preview_pdf_url = preview_url
     WHERE id = target_plan_id RETURNING * INTO saved;
     IF NOT FOUND THEN RAISE EXCEPTION 'Plan not found'; END IF;
     DELETE FROM sales_plan_items WHERE plan_id = saved.id;

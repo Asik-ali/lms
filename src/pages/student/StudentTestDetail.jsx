@@ -54,9 +54,11 @@ export default function StudentTestDetail() {
   }, [testId, loadData]);
 
   const marksPerQ = questionCount > 0 ? Math.floor((test?.total_marks || 0) / questionCount) : 0;
+  const scheduleLocked = Boolean(test?.available_at && new Date(test.available_at).getTime() > Date.now());
 
   async function handleStartTest() {
     if (!user) return showError('Please login to start the test');
+    if (scheduleLocked) return showError(`This test opens ${new Date(test.available_at).toLocaleString()}.`);
     setStarting(true);
     try {
       const attempt = await startTestAttempt(testId, user.id);
@@ -248,15 +250,16 @@ export default function StudentTestDetail() {
           <p className="text-xs text-navy-300 mt-1">
             {attempts.length > 0 ? `You have attempted ${attempts.length} time${attempts.length > 1 ? 's' : ''} before` : 'This will be your first attempt'}
           </p>
+          {scheduleLocked && <p className="mt-2 text-sm text-amber-600 dark:text-amber-300">Available {new Date(test.available_at).toLocaleString()}</p>}
         </div>
         <button
           type="button"
           onClick={handleStartTest}
-          disabled={starting}
+          disabled={starting || scheduleLocked}
           className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 disabled:bg-green-400 text-navy-100 font-semibold px-8 py-3 rounded-xl transition-colors cursor-pointer disabled:cursor-not-allowed shadow-lg shadow-green-600/20"
         >
           <Play className="w-5 h-5" />
-          {starting ? 'Starting...' : 'Start Test'}
+          {starting ? 'Starting...' : scheduleLocked ? 'Not available yet' : 'Start Test'}
         </button>
       </div>
     </div>

@@ -106,7 +106,7 @@ function AppRoutes() {
         <Route path="buy-courses" element={<StudentBuyCourses />} />
         <Route path="referrals" element={<ReferralsPage />} />
         <Route path="courses/:courseId" element={<StudentCourseDetail />} />
-        <Route path="live-classes" element={<StudentLiveClasses />} />
+        <Route path="live-classes" element={<Navigate to="/student" replace />} />
         <Route path="test-series" element={<StudentTestSeries />} />
         <Route path="free-test-series" element={<StudentFreeTestSeries />} />
         <Route path="test/:testId" element={<StudentTestDetail />} />

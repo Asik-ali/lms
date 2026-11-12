@@ -126,8 +126,9 @@ const backupTables = [
 ];
 
 function BackupTab() {
-  const [schedule, setSchedule] = useState(() => localStorage.getItem('backupSchedule') || 'daily');
   const [lastBackup, setLastBackup] = useState(() => localStorage.getItem('lastBackup') || 'No backup created yet');
+  const [backupHistory, setBackupHistory] = useState([]);
+  const [historyError, setHistoryError] = useState('');
   const [backupFile, setBackupFile] = useState(null);
   const [isWorking, setIsWorking] = useState(false);
   const [isSending, setIsSending] = useState(false);
@@ -147,10 +148,23 @@ function BackupTab() {
     })();
   }, []);
 
-  const saveSchedule = () => {
-    localStorage.setItem('backupSchedule', schedule);
-    showSuccess('Backup schedule saved.');
-  };
+  async function loadBackupHistory() {
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      const res = await fetch(apiUrl('/api/backup?operation=history'), {
+        headers: { Authorization: `Bearer ${session?.access_token || ''}` },
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Unable to load backup history.');
+      setBackupHistory(data.backups || []);
+      setHistoryError('');
+      if (data.backups?.[0]?.created_at) setLastBackup(new Date(data.backups[0].created_at).toLocaleString());
+    } catch (error) {
+      setHistoryError(error.message || 'Unable to load backup history.');
+    }
+  }
+
+  useEffect(() => { loadBackupHistory(); }, []);
 
   const createBackup = async () => {
     setIsWorking(true);
@@ -196,6 +210,7 @@ function BackupTab() {
         localStorage.setItem('lastBackup', label);
         setLastBackup(label);
         showSuccess('Backup emailed to ' + adminEmail);
+        await loadBackupHistory();
       } else {
         showError(data.error || 'Failed to send backup email.');
       }
@@ -290,31 +305,41 @@ function BackupTab() {
         <div className="card-header"><h3 className="text-lg font-semibold">Automatic Backup</h3></div>
         <div className="p-6 space-y-4">
           <p className="text-sm text-navy-100">
-            A scheduled job runs every day at <strong>12:00 AM</strong>. It collects all LMS data and emails the backup file
-            (as JSON attachment) to the admin email(s). Requires a Vercel Cron enabled project.
+            Vercel runs the automatic backup every day at <strong>5:30 AM India time</strong>. It emails the backup JSON to the admin email addresses. Check the history below to confirm whether each backup succeeded.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-xl">
             <div>
               <label className="block text-sm font-medium text-navy-100 mb-1">Admin Email (backup recipient)</label>
               <input type="email" value={adminEmail} onChange={e => setAdminEmail(e.target.value)} className="input-field" placeholder="admin@example.com" />
             </div>
-            <div>
-              <label className="block text-sm font-medium text-navy-100 mb-1">Backup Notification Schedule</label>
-              <select value={schedule} onChange={e => setSchedule(e.target.value)} className="input-field">
-                <option value="daily">Daily (12:00 AM)</option>
-                <option value="weekly">Weekly</option>
-                <option value="monthly">Monthly</option>
-              </select>
-            </div>
+            <p className="self-end text-xs text-navy-300">Schedule is managed by the Vercel cron configuration.</p>
           </div>
           <div className="flex flex-wrap items-center gap-3">
             <button onClick={sendBackupEmail} disabled={isSending} className="flex items-center gap-2 btn-primary disabled:opacity-60">
               {isSending ? <Loader className="w-4 h-4 animate-spin" /> : <MailCheck className="w-4 h-4" />}
               {isSending ? 'Sending...' : 'Run Backup & Send Email Now'}
             </button>
-            <button onClick={saveSchedule} className="flex items-center gap-2 btn-secondary"><Save className="w-4 h-4" />Save</button>
             <span className="text-sm text-navy-300">Last backup: {lastBackup}</span>
           </div>
+        </div>
+      </div>
+
+      <div className="card">
+        <div className="card-header flex items-center justify-between gap-3"><h3 className="text-lg font-semibold">Backup History</h3><button onClick={loadBackupHistory} className="btn-secondary text-sm">Refresh</button></div>
+        <div className="p-6 space-y-3">
+          {historyError && <p role="alert" className="text-sm text-red-600 dark:text-red-300">{historyError}</p>}
+          {!backupHistory.length && !historyError && <p className="text-sm text-navy-300">No backup runs have been recorded yet.</p>}
+          {backupHistory.map(run => {
+            const counts = run.record_counts || {};
+            const failedTables = Object.entries(counts).filter(([, count]) => Number(count) < 0);
+            return <div key={run.id} className="rounded-lg border border-navy-700 p-4 text-sm">
+              <div className="flex flex-wrap items-center justify-between gap-2"><span className="font-medium text-navy-100">{run.type === 'cron' ? 'Automatic' : 'Manual'} backup</span><span className={run.status === 'success' ? 'text-emerald-600 dark:text-emerald-300' : 'text-red-600 dark:text-red-300'}>{run.status === 'success' ? 'Succeeded' : 'Failed'}</span></div>
+              <p className="mt-1 text-navy-300">{new Date(run.created_at).toLocaleString()}</p>
+              <p className="mt-1 text-navy-200">{Object.keys(counts).length} tables recorded · emailed to {(run.emailed_to || []).join(', ') || 'nobody'}</p>
+              {failedTables.length > 0 && <p className="mt-1 text-amber-600 dark:text-amber-300">Tables with export errors: {failedTables.map(([table]) => table).join(', ')}</p>}
+              {run.error && <p className="mt-1 text-red-600 dark:text-red-300">{run.error}</p>}
+            </div>;
+          })}
         </div>
       </div>
 

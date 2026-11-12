@@ -65,7 +65,7 @@ export default function LoginPage() {
         </div>
 
         <div className="bg-surface rounded-2xl border border-navy-700 border-t-2 border-t-gold-500 p-5 sm:p-8 shadow-xl shadow-black/5 dark:shadow-black/20">
-          <form onSubmit={handleLogin} className="space-y-5">
+          <form onSubmit={handleLogin} name="examstick-login" autoComplete="on" className="space-y-5">
             {error && (
               <div className="flex items-center gap-2 p-3 bg-brand-red/10 border border-brand-red/40 rounded-lg text-sm text-red-700 dark:text-red-300">
                 <AlertCircle className="w-4 h-4 flex-shrink-0" />
@@ -77,7 +77,7 @@ export default function LoginPage() {
               <label className="block text-sm font-medium text-navy-100 mb-1.5">Username or email</label>
               <div className="relative">
                 <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-navy-300" />
-                <input type="text" value={username} onChange={e => setUsername(e.target.value)} placeholder="Enter username or email" className="input-field pl-10" autoFocus />
+                <input name="username" type="text" autoComplete="username" value={username} onChange={e => setUsername(e.target.value)} placeholder="Enter username or email" className="input-field pl-10" autoFocus />
               </div>
             </div>
 
@@ -85,7 +85,7 @@ export default function LoginPage() {
               <label className="block text-sm font-medium text-navy-100 mb-1.5">Password</label>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-navy-300" />
-                <input type={showPw ? 'text' : 'password'} value={password} onChange={e => setPassword(e.target.value)} placeholder="Enter password" className="input-field pl-10 pr-10" />
+                <input name="password" type={showPw ? 'text' : 'password'} autoComplete="current-password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Enter password" className="input-field pl-10 pr-10" />
                 <button type="button" onClick={() => setShowPw(!showPw)} className="absolute right-3 top-1/2 -translate-y-1/2 text-navy-300 hover:text-navy-100">
                   {showPw ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>

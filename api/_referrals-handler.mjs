@@ -4,7 +4,8 @@ import { reconcileOrder } from './_order-lifecycle.mjs';
 
 export default async function handler(req, res) {
   if (setCors(req, res)) return;
-  if (req.method !== 'GET') return res.status(405).json({ error: 'Method not allowed' });
+  const saveSetting = req.method === 'POST' && req.query?.operation === 'referral-settings';
+  if (req.method !== 'GET' && !saveSetting) return res.status(405).json({ error: 'Method not allowed' });
   res.setHeader('Cache-Control', 'no-store');
   try {
     const supabase = createServiceClient();
@@ -12,6 +13,16 @@ export default async function handler(req, res) {
     if (!user) return res.status(401).json({ error: 'Not authorized' });
     const admin = user.role === 'admin';
     if (!admin && user.role !== 'student') return res.status(403).json({ error: 'Not authorized' });
+    if (saveSetting) {
+      if (!admin) return res.status(403).json({ error: 'Only administrators can change the referral reward.' });
+      const rewardAmount = Number(req.body?.rewardAmount);
+      if (!Number.isFinite(rewardAmount) || rewardAmount < 0 || rewardAmount > 1000000) {
+        return res.status(400).json({ error: 'Enter a reward from ₹0 to ₹10,00,000.' });
+      }
+      const { data, error } = await supabase.from('referral_settings').update({ reward_amount: rewardAmount }).eq('id', 1).select('reward_amount').single();
+      if (error) throw error;
+      return res.status(200).json({ rewardAmount: Number(data.reward_amount) });
+    }
     if (!admin && req.query?.operation === 'referral-balance') {
       // Retry requested cancellations and restore only that order's used credit.
       const pending = await supabase.from('purchase_orders')

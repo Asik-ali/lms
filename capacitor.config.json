@@ -7,6 +7,7 @@
     "url": "https://asiklms.vercel.app"
   },
   "android": {
-    "allowMixedContent": true
+    "allowMixedContent": true,
+    "appendUserAgent": "EXAMSTICK_APP"
   }
 }

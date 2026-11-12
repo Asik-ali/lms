@@ -3,7 +3,7 @@ import { createServiceClient, getAuthedUser, setCors } from './_auth.mjs';
 import referralsHandler from './_referrals-handler.mjs';
 
 export default async function handler(req, res) {
-  if (['referrals', 'referral-balance'].includes(req.query?.operation)) return referralsHandler(req, res);
+  if (['referrals', 'referral-balance', 'referral-settings'].includes(req.query?.operation)) return referralsHandler(req, res);
   if (setCors(req, res)) return;
 
   const closing = ['cancel', 'failed'].includes(req.query?.operation);

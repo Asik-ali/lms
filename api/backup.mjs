@@ -142,6 +142,14 @@ export default async function handler(req, res) {
     }
 
     if (req.method === 'GET') {
+      if (req.query?.operation === 'history') {
+        if (!await requireAdmin(req, res, supabase)) return;
+        const { data, error } = await supabase.from('backup_log')
+          .select('id, type, created_at, emailed_to, record_counts, status, error')
+          .order('created_at', { ascending: false }).limit(20);
+        if (error) throw error;
+        return res.status(200).json({ backups: data || [] });
+      }
       const cronSecret = process.env.CRON_SECRET;
       if (!cronSecret || getBearerToken(req) !== cronSecret) {
         if (!await requireAdmin(req, res, supabase)) return;

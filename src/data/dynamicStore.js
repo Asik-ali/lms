@@ -310,19 +310,19 @@ export async function deleteTestCategory(id) {
 
 // Tests
 export async function getTestsByCategoryId(categoryId) {
-  const { data, error } = await supabase.from('tests').select('id, category_id, name, description, duration, total_marks, question_count, difficulty, language, instructions, syllabus, status, created_at').eq('category_id', categoryId).order('created_at');
+  const { data, error } = await supabase.from('tests').select('id, category_id, name, description, duration, total_marks, question_count, difficulty, language, instructions, syllabus, status, available_at, created_at').eq('category_id', categoryId).order('created_at');
   if (error) throw error;
   return sortTests(data || []);
 }
 
-export async function addTest({ category_id, name, description, duration, total_marks, difficulty, language, instructions, syllabus }) {
-  const { data, error } = await supabase.from('tests').insert({ category_id, name, description: description || '', duration: duration || 90, total_marks: total_marks || 270, difficulty: difficulty || 'Moderate', language: language || 'English', instructions: instructions || '', syllabus: syllabus || '' }).select('id, category_id, name, description, duration, total_marks, question_count, difficulty, language, instructions, syllabus, status, created_at').single();
+export async function addTest({ category_id, name, description, duration, total_marks, difficulty, language, instructions, syllabus, available_at }) {
+  const { data, error } = await supabase.from('tests').insert({ category_id, name, description: description || '', duration: duration || 90, total_marks: total_marks || 270, difficulty: difficulty || 'Moderate', language: language || 'English', instructions: instructions || '', syllabus: syllabus || '', available_at: available_at || null }).select('id, category_id, name, description, duration, total_marks, question_count, difficulty, language, instructions, syllabus, status, available_at, created_at').single();
   if (error) throw error;
   return data;
 }
 
 export async function updateTest(id, row) {
-  const { data, error } = await supabase.from('tests').update(row).eq('id', id).select('id, category_id, name, description, duration, total_marks, question_count, difficulty, language, instructions, syllabus, status, created_at').single();
+  const { data, error } = await supabase.from('tests').update(row).eq('id', id).select('id, category_id, name, description, duration, total_marks, question_count, difficulty, language, instructions, syllabus, status, available_at, created_at').single();
   if (error) throw error;
   return data;
 }

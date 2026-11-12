@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { Copy, Users, RefreshCw, Loader2 } from 'lucide-react';
+import { Copy, Users, RefreshCw, Loader2, Save } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { supabase } from '../supabase/client';
 import { apiUrl } from '../data/api';
@@ -15,6 +15,8 @@ export default function ReferralsPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [revision, setRevision] = useState(0);
+  const [rewardAmount, setRewardAmount] = useState('');
+  const [savingReward, setSavingReward] = useState(false);
   const reload = useCallback(() => setRevision(value => value + 1), []);
   useEffect(() => {
     let active = true;
@@ -32,10 +34,29 @@ export default function ReferralsPage() {
     })();
     return () => { active = false; controller.abort(); };
   }, [page, revision]);
+  useEffect(() => { if (admin && data) setRewardAmount(String(data.rewardAmount)); }, [admin, data?.rewardAmount]);
   const link = data?.code ? `${(import.meta.env.VITE_SITE_URL || window.location.origin).replace(/\/$/, '')}/signup?ref=${data.code}` : '';
   async function copy(value) {
     try { await navigator.clipboard.writeText(value); showSuccess('Copied to clipboard.'); }
     catch { showError('Unable to copy. Select and copy the text below.'); }
+  }
+  async function saveReward() {
+    const amount = Number(rewardAmount);
+    if (!Number.isFinite(amount) || amount < 0) return showError('Enter a valid non-negative reward amount.');
+    setSavingReward(true);
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      const response = await fetch(apiUrl('/api/order-status?operation=referral-settings'), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session?.access_token || ''}` },
+        body: JSON.stringify({ rewardAmount: amount }),
+      });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error || 'Unable to save reward.');
+      setData(current => current ? { ...current, rewardAmount: result.rewardAmount } : current);
+      showSuccess('Referral reward updated.');
+    } catch (err) { showError(err.message || 'Unable to save reward.'); }
+    finally { setSavingReward(false); }
   }
   return <div className="space-y-6" aria-busy={loading}>
     <div className="flex flex-wrap items-center justify-between gap-3">
@@ -46,6 +67,12 @@ export default function ReferralsPage() {
     {error && <p role="alert" className="card p-5">{error}</p>}
     {loading && <div role="status" aria-live="polite" className={`flex items-center justify-center gap-3 text-navy-200 ${data ? 'py-3' : 'card p-12'}`}><Loader2 className="w-6 h-6 animate-spin" aria-hidden="true" />{data ? 'Updating referrals...' : 'Loading referrals...'}</div>}
     {data && <>
+      {admin && <div className="card p-5 flex flex-wrap items-end gap-3">
+        <label className="block min-w-48 flex-1 text-sm text-navy-200">Reward for a referred student's first paid purchase (INR)
+          <input type="number" min="0" max="1000000" step="0.01" value={rewardAmount} onChange={event => setRewardAmount(event.target.value)} className="input-field mt-2" />
+        </label>
+        <button onClick={saveReward} disabled={savingReward} className="btn-primary inline-flex items-center gap-2"><Save size={16} />{savingReward ? 'Saving...' : 'Save reward'}</button>
+      </div>}
       {!admin && <div className="card p-6 space-y-4">
         <h2 className="font-semibold text-navy-100">Invite your friends</h2>
         <p className="text-sm text-navy-200">Share your link or ask your friend to enter your code during signup. Rewards are credited once per friend, after payment confirmation.</p>

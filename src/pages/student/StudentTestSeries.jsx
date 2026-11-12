@@ -177,11 +177,12 @@ export default function StudentTestSeries() {
             <p className="text-sm font-medium text-navy-200 mb-3">Tests</p>
             <div className="space-y-3">
               {testsList.map(t => (
-                <button key={t.id} onClick={() => goTest(t)} className="card p-5 text-left hover:border-navy-300 hover:shadow-md transition-all cursor-pointer w-full">
+                <button key={t.id} disabled={Boolean(t.available_at && new Date(t.available_at).getTime() > Date.now())} onClick={() => goTest(t)} className="card p-5 text-left hover:border-navy-300 hover:shadow-md transition-all cursor-pointer w-full disabled:cursor-not-allowed disabled:opacity-70">
                   <div className="flex items-center gap-4">
                     <div className="w-10 h-10 rounded-lg bg-navy-50 dark:bg-navy-500/15 flex items-center justify-center"><FileText className="w-5 h-5 text-navy-600 dark:text-navy-300" /></div>
                     <div className="flex-1 min-w-0">
                       <p className="font-semibold text-navy-100">{t.name}</p>
+                      {t.available_at && new Date(t.available_at).getTime() > Date.now() && <p className="mt-1 text-xs text-amber-600 dark:text-amber-300">Available {new Date(t.available_at).toLocaleString()}</p>}
                       <div className="flex flex-wrap items-center gap-3 mt-1 text-xs text-navy-200">
                         <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {t.duration} min</span>
                         <span className="flex items-center gap-1"><Target className="w-3 h-3" /> {t.total_marks} marks</span>

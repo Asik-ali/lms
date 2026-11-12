@@ -1,6 +1,17 @@
 {
   "rewrites": [
     {
+      "source": "/((?!api/|browser-block\\.html$).*)",
+      "has": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "^(?!.*EXAMSTICK_APP).*$"
+        }
+      ],
+      "destination": "/browser-block.html"
+    },
+    {
       "source": "/api/vapid-public-key",
       "destination": "/api/send-push?operation=vapid-public-key"
     },
