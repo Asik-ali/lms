@@ -88,7 +88,12 @@ export default async function handler(req, res) {
         .select('order_id, status, credit_released')
         .in('order_id', [...orderIds]);
       if (openError) throw openError;
-      const activeOrder = (stillOpen || []).find(order => order.status !== 'PAID' && !order.credit_released);
+      // Failed and manually cancelled attempts are historical records, not
+      // active payment reservations. Only a genuinely open checkout blocks a
+      // fresh order for the same course/test.
+      const activeOrder = (stillOpen || []).find(order =>
+        !['PAID', 'FAILED', 'CANCELLED', 'EXPIRED'].includes(order.status) && !order.credit_released,
+      );
       if (activeOrder) {
         return res.status(409).json({
           error: `Payment for this content is still being processed (order ${activeOrder.order_id}). Check its status before trying again.`,
