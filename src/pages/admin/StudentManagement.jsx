@@ -550,6 +550,7 @@ export default function StudentManagement() {
   const navigate = useNavigate();
   const [search, setSearch] = useState('');
   const [filterStatus, setFilterStatus] = useState('All');
+  const [filterCourse, setFilterCourse] = useState('All');
   const [students, setStudents] = useState([]);
   const [selectedStudent, setSelectedStudent] = useState(null);
   const [credentialStudent, setCredentialStudent] = useState(null);
@@ -619,10 +620,13 @@ export default function StudentManagement() {
   const filtered = students.filter(s => {
     const matchSearch = (s.name || '').toLowerCase().includes(search.toLowerCase()) || (s.email || '').toLowerCase().includes(search.toLowerCase());
     const matchStatus = filterStatus === 'All' || s.status === filterStatus;
-    return matchSearch && matchStatus;
+    const courses = (s.course || '').split(',').map(course => course.trim()).filter(Boolean);
+    const matchCourse = filterCourse === 'All' || courses.includes(filterCourse);
+    return matchSearch && matchStatus && matchCourse;
   });
 
   const statuses = ['All', ...new Set(students.map(s => s.status).filter(Boolean))];
+  const courseOptions = [...new Set(students.flatMap(s => (s.course || '').split(',').map(course => course.trim()).filter(Boolean)))].sort((a, b) => a.localeCompare(b));
 
   return (
     <div className="space-y-6">
@@ -663,6 +667,10 @@ export default function StudentManagement() {
         </div>
         <select value={filterStatus} onChange={e => setFilterStatus(e.target.value)} className="appearance-none pl-4 pr-10 py-2 border border-navy-700 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-navy-500 outline-none bg-navy-800 text-navy-100 w-full sm:w-auto">
           {statuses.map(s => <option key={s} value={s}>{s}</option>)}
+        </select>
+        <select aria-label="Filter students by course" value={filterCourse} onChange={e => setFilterCourse(e.target.value)} className="appearance-none pl-4 pr-10 py-2 border border-navy-700 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-navy-500 outline-none bg-navy-800 text-navy-100 w-full sm:w-auto">
+          <option value="All">All courses</option>
+          {courseOptions.map(course => <option key={course} value={course}>{course}</option>)}
         </select>
       </div>
 

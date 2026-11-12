@@ -82,6 +82,22 @@ async function sendBackupEmail(supabase, recipient, backup) {
   });
 }
 
+async function sendBackupToGoogleSheets(backup) {
+  const endpoint = process.env.GOOGLE_SHEETS_BACKUP_URL;
+  const secret = process.env.GOOGLE_SHEETS_BACKUP_SECRET;
+  if (!endpoint || !secret) return { configured: false, success: false, error: 'Google Sheets backup is not configured.' };
+  const response = await fetch(endpoint, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ secret, backup }),
+  });
+  const result = await response.json().catch(() => ({}));
+  if (!response.ok || result.success !== true) {
+    throw new Error(result.error || `Google Sheets returned HTTP ${response.status}`);
+  }
+  return { configured: true, success: true, backupId: result.backupId };
+}
+
 async function recordCounts(backup) {
   const counts = {};
   for (const [table, rows] of Object.entries(backup.tables)) {
@@ -138,7 +154,11 @@ export default async function handler(req, res) {
       }
       const backup = await fetchBackup(supabase);
       await sendBackupEmail(supabase, recipient, backup);
+      let sheetsResult;
+      try { sheetsResult = await sendBackupToGoogleSheets(backup); }
+      catch (error) { sheetsResult = { configured: true, success: false, error: error.message }; }
       const exportFailures = getExportFailures(backup);
+      if (!sheetsResult.success) exportFailures.push(`Google Sheets: ${sheetsResult.error}`);
       await logBackup(supabase, {
         type: 'manual',
         emailedTo: [recipient],
@@ -146,7 +166,7 @@ export default async function handler(req, res) {
         status: exportFailures.length ? 'failed' : 'success',
         error: exportFailures.length ? `Backup was emailed with export errors: ${exportFailures.join('; ')}` : null,
       });
-      return res.status(200).json({ success: true, complete: !exportFailures.length, exportFailures, createdAt: backup.createdAt });
+      return res.status(200).json({ success: true, complete: !exportFailures.length, exportFailures, googleSheets: sheetsResult, createdAt: backup.createdAt });
     }
 
     if (req.method === 'GET') {
@@ -172,6 +192,9 @@ export default async function handler(req, res) {
       const admins = (adminProfiles || []).map(p => p.email).filter(Boolean);
 
       let emailed = [];
+      const sheetsPromise = sendBackupToGoogleSheets(backup)
+        .then(result => result)
+        .catch(error => ({ configured: true, success: false, error: error.message }));
       if (admins.length) {
         for (const email of admins) {
           try {
@@ -185,6 +208,8 @@ export default async function handler(req, res) {
 
       const counts = await recordCounts(backup);
       const exportFailures = getExportFailures(backup);
+      const sheetsResult = await sheetsPromise;
+      if (!sheetsResult.success) exportFailures.push(`Google Sheets: ${sheetsResult.error}`);
       await logBackup(supabase, {
         type: 'cron',
         emailedTo: emailed,
@@ -200,6 +225,7 @@ export default async function handler(req, res) {
         emailed,
         counts,
         exportFailures,
+        googleSheets: sheetsResult,
       });
     }
 

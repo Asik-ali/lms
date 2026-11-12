@@ -1,6 +1,5 @@
 import crypto from 'node:crypto';
 import { createServiceClient, getAuthedUser, setCors } from './_auth.mjs';
-import { reconcileOrder } from './_order-lifecycle.mjs';
 
 export default async function handler(req, res) {
   if (setCors(req, res)) return;
@@ -24,18 +23,11 @@ export default async function handler(req, res) {
       return res.status(200).json({ rewardAmount: Number(data.reward_amount) });
     }
     if (!admin && req.query?.operation === 'referral-balance') {
-      // Retry requested cancellations and restore only that order's used credit.
-      const pending = await supabase.from('purchase_orders')
-        .select('id, order_id, student_id, amount, status, credit_released, close_reason').eq('student_id', user.id)
-        .gt('credit_applied', 0).eq('credit_released', false).neq('status', 'PAID')
-        .order('created_at').limit(5);
-      if (pending.error) throw pending.error;
-      await Promise.allSettled((pending.data || []).map(order => reconcileOrder(supabase, order, { inspectPayments: true })));
-      if (req.query?.operation === 'referral-balance') {
-        const balance = await supabase.rpc('referral_credit_balance', { buyer_id: user.id });
-        if (balance.error) throw balance.error;
-        return res.status(200).json({ availableCredit: Number(balance.data) });
-      }
+      // Keep this frequently used balance lookup database-only. Expired orders
+      // are reconciled in order history and before credit-backed checkout.
+      const balance = await supabase.rpc('referral_credit_balance', { buyer_id: user.id });
+      if (balance.error) throw balance.error;
+      return res.status(200).json({ availableCredit: Number(balance.data) });
     }
     async function getCode() {
       if (admin) return null;

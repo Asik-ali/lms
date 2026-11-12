@@ -1,6 +1,7 @@
 import { randomUUID } from 'node:crypto';
 import { createServiceClient, getAuthedUser, setCors } from './_auth.mjs';
 import { createCashfreeOrder, CASHFREE_ORDER_PREFIX } from './_cashfree.mjs';
+import { reconcileOrder } from './_order-lifecycle.mjs';
 
 function getOrigin(req) {
   const host = req.headers?.['x-forwarded-host'] || req.headers?.host || '';
@@ -31,6 +32,15 @@ export default async function handler(req, res) {
     const planIds = [...new Set(requested.map(Number))];
     const orderId = `${CASHFREE_ORDER_PREFIX}-${Date.now()}-${randomUUID().slice(0, 8)}`;
     const useCredit = req.body?.useCredit === true;
+    if (useCredit) {
+      const cutoff = new Date(Date.now() - 15 * 60 * 1000).toISOString();
+      const { data: staleOrders, error: staleError } = await supabase.from('purchase_orders')
+        .select('id, order_id, plan_id, student_id, amount, status, created_at, cart_plans, credit_applied, credit_released, close_reason')
+        .eq('student_id', profile.id).gt('credit_applied', 0).eq('credit_released', false)
+        .neq('status', 'PAID').lte('created_at', cutoff).order('created_at').limit(10);
+      if (staleError) throw staleError;
+      await Promise.allSettled((staleOrders || []).map(order => reconcileOrder(supabase, order, { inspectPayments: true })));
+    }
     const { data: storedOrder, error: orderErr } = await supabase.rpc(useCredit ? 'create_purchase_cart_with_credit' : 'create_purchase_cart', {
       cashfree_order_id: orderId, buyer_id: profile.id, selected_plan_ids: planIds,
       ...(useCredit ? { use_credit: true } : {}),

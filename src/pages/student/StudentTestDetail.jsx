@@ -28,6 +28,7 @@ export default function StudentTestDetail() {
   const [attempts, setAttempts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [starting, setStarting] = useState(false);
+  const [now, setNow] = useState(() => Date.now());
 
   const loadData = useCallback(async () => {
     setLoading(true);
@@ -52,9 +53,13 @@ export default function StudentTestDetail() {
   useEffect(() => {
     if (testId) loadData();
   }, [testId, loadData]);
+  useEffect(() => {
+    const interval = setInterval(() => setNow(Date.now()), 30000);
+    return () => clearInterval(interval);
+  }, []);
 
   const marksPerQ = questionCount > 0 ? Math.floor((test?.total_marks || 0) / questionCount) : 0;
-  const scheduleLocked = Boolean(test?.available_at && new Date(test.available_at).getTime() > Date.now());
+  const scheduleLocked = Boolean(test?.available_at && new Date(test.available_at).getTime() > now);
 
   async function handleStartTest() {
     if (!user) return showError('Please login to start the test');

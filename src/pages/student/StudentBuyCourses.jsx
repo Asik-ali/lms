@@ -71,6 +71,7 @@ export default function StudentBuyCourses() {
   const [useCredit, setUseCredit] = useState(false);
   const [updatingOrder, setUpdatingOrder] = useState('');
   const [pdfPreview, setPdfPreview] = useState(null);
+  useEffect(() => { loadCashfreeSdk().catch(() => {}); }, []);
   const loadCredit = useCallback(async () => {
     try {
       const { data: { session } } = await supabase.auth.getSession();

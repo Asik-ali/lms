@@ -61,7 +61,9 @@ export default async function handler(req, res) {
       .order('created_at', { ascending: false });
     if (oErr) throw oErr;
     // Refresh stale history, including pre-existing failed/cancelled orders.
-    const unfinished = (orders || []).filter(order => order.status !== 'PAID' && !order.credit_released).slice(0, 10);
+    const cutoff = Date.now() - 15 * 60 * 1000;
+    const unfinished = (orders || []).filter(order => order.status !== 'PAID' && !order.credit_released &&
+      (['CANCELLING', 'FAILED', 'CANCELLED'].includes(order.status) || new Date(order.created_at).getTime() <= cutoff)).slice(0, 10);
     const refreshed = await Promise.allSettled(unfinished.map(order => reconcileOrder(supabase, order, { inspectPayments: true })));
     const updates = new Map(refreshed.filter(result => result.status === 'fulfilled').map(result => [result.value.order_id, result.value]));
 

@@ -28,13 +28,15 @@ export default function ReferralsPage() {
         const response = await fetch(apiUrl(`/api/order-status?operation=referrals&page=${page}`), { signal: controller.signal, headers: { Authorization: `Bearer ${session?.access_token || ''}` } });
         const result = await response.json();
         if (!response.ok) throw new Error(result.error || 'Unable to load referrals.');
-        if (active) setData(result);
+        if (active) {
+          setData(result);
+          if (admin) setRewardAmount(String(result.rewardAmount));
+        }
       } catch (err) { if (active) setError(err.message); }
       finally { if (active) setLoading(false); }
     })();
     return () => { active = false; controller.abort(); };
-  }, [page, revision]);
-  useEffect(() => { if (admin && data) setRewardAmount(String(data.rewardAmount)); }, [admin, data?.rewardAmount]);
+  }, [page, revision, admin]);
   const link = data?.code ? `${(import.meta.env.VITE_SITE_URL || window.location.origin).replace(/\/$/, '')}/signup?ref=${data.code}` : '';
   async function copy(value) {
     try { await navigator.clipboard.writeText(value); showSuccess('Copied to clipboard.'); }

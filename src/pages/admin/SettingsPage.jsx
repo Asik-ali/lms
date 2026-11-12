@@ -79,7 +79,11 @@ function SMTPTab() {
     <div className="card animate-grow-in">
       <div className="card-header"><h3 className="text-lg font-semibold">SMTP Configuration</h3></div>
       <div className="p-6 space-y-4 max-w-xl">
-        {/* <p className="text-sm text-navy-200">Configure your Gmail SMTP to send email notifications. Use an <a href="https://support.google.com/accounts/answer/185833" target="_blank" rel="noreferrer" className="text-navy-600 underline">App Password</a> if you have 2FA enabled.</p> */}
+        <div className="rounded-lg border border-navy-700 bg-navy-900/40 p-4 text-sm text-navy-200 space-y-2">
+          <p>For Gmail, use <strong>smtp.gmail.com</strong> and port <strong>587</strong>. Enter the sending Gmail address as the username. If Google requires an app password, create one after enabling 2-Step Verification in that Google account, then enter it below.</p>
+          <p>After saving, click <strong>Test Connection</strong> to send a test email to that address.</p>
+          <a href="https://support.google.com/accounts/answer/185833" target="_blank" rel="noreferrer" className="inline-block text-gold-400 underline">Google: create or manage an App Password</a>
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label className="block text-sm font-medium text-navy-100 mb-1">SMTP Host</label>
@@ -310,10 +314,10 @@ function BackupTab() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-xl">
             <div>
-              <label className="block text-sm font-medium text-navy-100 mb-1">Admin Email (backup recipient)</label>
+              <label className="block text-sm font-medium text-navy-100 mb-1">Email for manual backup</label>
               <input type="email" value={adminEmail} onChange={e => setAdminEmail(e.target.value)} className="input-field" placeholder="admin@example.com" />
             </div>
-            <p className="self-end text-xs text-navy-300">Schedule is managed by the Vercel cron configuration.</p>
+            <p className="self-end text-xs text-navy-300">Automatic backups email every admin account. This address is used only when you run a backup manually.</p>
           </div>
           <div className="flex flex-wrap items-center gap-3">
             <button onClick={sendBackupEmail} disabled={isSending} className="flex items-center gap-2 btn-primary disabled:opacity-60">

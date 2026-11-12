@@ -38,7 +38,17 @@ export function sortTestCategories(categories) {
     if (name === "\u0baa\u0b95\u0bc1\u0ba4\u0bbf \u0ba4\u0bc7\u0bb0\u0bcd\u0bb5\u0bc1 2") return 1;
     return 2;
   };
-  return [...categories].sort((a, b) => rank(a) - rank(b)
-    || Number(a.position || 0) - Number(b.position || 0)
-    || collator.compare(a.name || '', b.name || ''));
+  const leadingNumber = category => {
+    const match = String(category.name || '').match(/\d+/);
+    return match ? Number(match[0]) : null;
+  };
+  return [...categories].sort((a, b) => {
+    const leftNumber = leadingNumber(a), rightNumber = leadingNumber(b);
+    if (leftNumber !== null && rightNumber !== null && leftNumber !== rightNumber) return leftNumber - rightNumber;
+    if (leftNumber !== null && rightNumber === null) return -1;
+    if (leftNumber === null && rightNumber !== null) return 1;
+    return rank(a) - rank(b)
+      || Number(a.position || 0) - Number(b.position || 0)
+      || collator.compare(a.name || '', b.name || '');
+  });
 }
