@@ -26,5 +26,5 @@
 .shop-checkout-note svg { flex-shrink: 0; margin-top: 2px; }
 .student-shop .shop-added:disabled { background: #e8f3ed; border-color: #b4dbc4; color: #226242; opacity: 1; }
 .dark .student-shop .shop-added:disabled { background: #133728; border-color: #2b6248; color: #a0dbba; }
-@media (max-width: 1100px) { .shop-layout { grid-template-columns: minmax(0, 1fr); } .shop-checkout { position: static; } }
+@media (max-width: 1100px) { .shop-layout { grid-template-columns: minmax(0, 1fr); } .shop-checkout { position: static; order: 2; } .shop-catalog { order: 1; } }
 @media (max-width: 480px) { .shop-hero { border-radius: 16px; padding: 24px 20px; } .shop-product { max-width: none; } .shop-products { gap: 16px; } }

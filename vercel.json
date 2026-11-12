@@ -13,6 +13,10 @@
     {
       "path": "/api/backup",
       "schedule": "0 0 * * *"
+    },
+    {
+      "path": "/api/expire-orders",
+      "schedule": "*/5 * * * *"
     }
   ],
   "headers": [

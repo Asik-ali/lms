@@ -42,7 +42,9 @@ export default async function handler(req, res) {
     try { cashfreeOrder = await createCashfreeOrder({
       orderId,
       amount: storedOrder.amount,
-      ...(useCredit ? { expiresAt: new Date(Date.now() + 30 * 60 * 1000).toISOString() } : {}),
+      // Give the customer up to 15 minutes to complete or retry checkout.
+      // Cashfree expires the order automatically after this deadline.
+      expiresAt: new Date(Date.now() + 15 * 60 * 1000).toISOString(),
       customer: profile,
       planName,
       origin: getOrigin(req),
