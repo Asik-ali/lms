@@ -39,3 +39,4 @@ test-results/
 # Android release signing material
 *.keystore
 *.jks
+android/upload-key-credentials.txt
