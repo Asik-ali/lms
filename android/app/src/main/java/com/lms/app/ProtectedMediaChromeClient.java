@@ -3,7 +3,6 @@ package com.lms.app;
 import android.os.Message;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.webkit.WebView;
 import androidx.activity.OnBackPressedCallback;
 import com.getcapacitor.Bridge;
@@ -18,7 +17,6 @@ final class ProtectedMediaChromeClient extends BridgeWebChromeClient {
     private int systemUi;
 
     static void install(MainActivity activity, Bridge bridge) {
-        activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
         bridge.getWebView().getSettings().setSupportMultipleWindows(true);
         bridge.getWebView().setWebChromeClient(new ProtectedMediaChromeClient(activity, bridge));
     }

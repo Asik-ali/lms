@@ -18,17 +18,32 @@ public class MainActivity extends BridgeActivity {
     private View connectionScreen;
     private String retryUrl;
     private boolean pageFailed;
+    private boolean secureContent = true;
 
     @Override
     protected void onCreate(android.os.Bundle savedInstanceState) {
-        getWindow().addFlags(android.view.WindowManager.LayoutParams.FLAG_SECURE);
+        registerPlugin(PaymentScreenPlugin.class);
         super.onCreate(savedInstanceState);
+        applyScreenSecurity();
     }
 
     @Override
     public void onResume() {
-        getWindow().addFlags(android.view.WindowManager.LayoutParams.FLAG_SECURE);
         super.onResume();
+        applyScreenSecurity();
+    }
+
+    public void setSecureContent(boolean secure) {
+        secureContent = secure;
+        runOnUiThread(this::applyScreenSecurity);
+    }
+
+    private void applyScreenSecurity() {
+        if (secureContent) {
+            getWindow().addFlags(android.view.WindowManager.LayoutParams.FLAG_SECURE);
+        } else {
+            getWindow().clearFlags(android.view.WindowManager.LayoutParams.FLAG_SECURE);
+        }
     }
 
     @Override

@@ -1,6 +1,7 @@
 import './StudentShop.css';
 import { ownsPlan, cartSelection, cartTotal } from '../../data/shopCart';
 import { useState, useEffect, useCallback } from 'react';
+import { Capacitor, registerPlugin } from '@capacitor/core';
 import { useSearchParams, Link } from 'react-router-dom';
 import { ShoppingCart, BookOpen, PenTool, CheckCircle, CreditCard, History, Loader2, Download, ShieldCheck, Layers, ArrowRight, Trash2, FileText, X } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
@@ -11,6 +12,7 @@ import { showSuccess, showError } from '../../components/common/Toast';
 
 const CASHFREE_SCRIPT = 'https://sdk.cashfree.com/js/v3/cashfree.js';
 const CASHFREE_MODE = import.meta.env.VITE_CASHFREE_MODE || 'production';
+const PaymentScreen = registerPlugin('PaymentScreen');
 
 let sdkPromise = null;
 function loadCashfreeSdk() {
@@ -206,10 +208,27 @@ export default function StudentBuyCourses() {
       if (!res.ok) throw new Error(data.error || 'Failed to create order');
       createdOrderId = data.order_id;
       const cashfree = Cashfree({ mode: data.mode || CASHFREE_MODE });
-      const result = await cashfree.checkout({
-        paymentSessionId: data.payment_session_id,
-        redirectTarget: '_modal',
-      });
+      let temporarilyUnsecured = false;
+      if (Capacitor.isNativePlatform()) {
+        try {
+          await PaymentScreen.setSecure({ enabled: false });
+          temporarilyUnsecured = true;
+        } catch (error) {
+          console.warn('Could not enable payment QR screenshots:', error);
+        }
+      }
+      let result;
+      try {
+        result = await cashfree.checkout({
+          paymentSessionId: data.payment_session_id,
+          redirectTarget: '_modal',
+        });
+      } finally {
+        if (temporarilyUnsecured) {
+          try { await PaymentScreen.setSecure({ enabled: true }); }
+          catch (error) { console.error('Could not restore screenshot protection:', error); }
+        }
+      }
       if (result?.error) await verifyPayment(data.order_id, 'failed');
       else if (result?.paymentDetails) await verifyPayment(data.order_id);
       else await verifyPayment(data.order_id, 'cancel');
