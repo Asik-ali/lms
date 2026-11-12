@@ -4,7 +4,7 @@ import { getAllTestSeries, addTestSeries, updateTestSeries, setTestSeriesFree, d
 import { showError, showSuccess } from '../../components/common/Toast';
 
 const LEVELS = ['series', 'categories', 'tests', 'questions'];
-const emptyTestForm = { name: '', description: '', duration: 90, total_marks: 270, difficulty: 'Moderate', language: 'English', instructions: '', syllabus: '', available_at: '' };
+const emptyTestForm = { name: '', description: '', duration: 90, total_marks: 270, difficulty: 'Moderate', language: 'English', instructions: '', syllabus: '', available_at: '', status: 'Draft' };
 const toLocalDateTime = value => {
   if (!value) return '';
   const date = new Date(value);
@@ -161,7 +161,7 @@ export default function TestSeries() {
     showSuccess('Test deleted.');
   }
   function openEditTest(t) {
-    setFormTest({ name: t.name, description: t.description || '', duration: t.duration, total_marks: t.total_marks, difficulty: t.difficulty, language: t.language, instructions: t.instructions || '', syllabus: t.syllabus || '', available_at: toLocalDateTime(t.available_at) });
+    setFormTest({ name: t.name, description: t.description || '', duration: t.duration, total_marks: t.total_marks, difficulty: t.difficulty, language: t.language, instructions: t.instructions || '', syllabus: t.syllabus || '', available_at: toLocalDateTime(t.available_at), status: t.status || 'Draft' });
     setCurrentTest(t);
     setShowEditTest(true);
   }
@@ -529,6 +529,13 @@ export default function TestSeries() {
           <div className="space-y-4">
             <div><label className="label">Test Name *</label><input value={formTest.name} onChange={e => setFormTest({ ...formTest, name: e.target.value })} className="input-field w-full" /></div>
             <div><label className="label">Description</label><input value={formTest.description} onChange={e => setFormTest({ ...formTest, description: e.target.value })} className="input-field w-full" placeholder="Optional" /></div>
+            <div>
+              <label className="label">Student visibility</label>
+              <select value={formTest.status} onChange={e => setFormTest({ ...formTest, status: e.target.value })} className="input-field w-full">
+                <option value="Draft">Draft — hidden from students</option>
+                <option value="Published">Published — students can take it</option>
+              </select>
+            </div>
             <div><label className="label">Available to students (optional)</label><input type="datetime-local" value={formTest.available_at} onChange={e => setFormTest({ ...formTest, available_at: e.target.value })} className="input-field w-full" /><p className="mt-1 text-xs text-navy-300">Leave empty to make this test available immediately. The selected time uses your device timezone.</p></div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div><label className="label">Duration (min)</label><input type="number" value={formTest.duration} onChange={e => setFormTest({ ...formTest, duration: Number(e.target.value) })} className="input-field w-full" /></div>
