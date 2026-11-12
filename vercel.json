@@ -12,6 +12,10 @@
       "destination": "/browser-block.html"
     },
     {
+      "source": "/api/save-subscription",
+      "destination": "/api/send-push?operation=save-subscription"
+    },
+    {
       "source": "/api/vapid-public-key",
       "destination": "/api/send-push?operation=vapid-public-key"
     },

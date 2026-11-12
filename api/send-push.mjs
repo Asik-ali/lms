@@ -1,12 +1,12 @@
 import webpush from 'web-push';
 import vapidPublicKeyHandler from './_vapid-public-key.mjs';
-import { createServiceClient, requireAdmin, setCors } from './_auth.mjs';
+import { createServiceClient, getBearerToken, requireAdmin, setCors } from './_auth.mjs';
 
 let firebaseMessaging = null;
 let fcmInitError = null;
 
 // Builds a Firebase credential from the available env config. The most reliable
-// form is a full service-account JSON (FCM_SERVICE_ACCOUNT) — JSON.parse
+// form is a full service-account JSON (FCM_SERVICE_ACCOUNT) â€” JSON.parse
 // correctly decodes the \n escapes in the PEM private key, which copy/paste or
 // PowerShell corruption can break when storing the raw key.
 function buildCredential() {
@@ -56,6 +56,9 @@ async function getFcmApp() {
 export default async function handler(req, res) {
   if (req.query?.operation === 'vapid-public-key') {
     return vapidPublicKeyHandler(req, res);
+  }
+  if (req.query?.operation === 'save-subscription') {
+    return saveSubscription(req, res);
   }
   if (setCors(req, res)) return;
 
@@ -198,5 +201,39 @@ export default async function handler(req, res) {
     });
   } catch (err) {
     return res.status(500).json({ error: err.message || 'Failed to send push notifications' });
+  }
+}
+
+async function saveSubscription(req, res) {
+  if (setCors(req, res)) return;
+  if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
+  try {
+    const supabase = createServiceClient();
+    const { userId, subscription, tokenType = 'web' } = req.body || {};
+    const token_type = tokenType === 'fcm' ? 'fcm' : 'web';
+    if (!userId || !subscription) return res.status(400).json({ error: 'Missing userId or subscription' });
+
+    const token = getBearerToken(req);
+    let authorized = false;
+    if (token) {
+      const { data: user, error } = await supabase.auth.getUser(token);
+      if (!error && user?.user) {
+        if (user.user.id === userId) authorized = true;
+        else {
+          const { data: profile } = await supabase.from('profiles').select('role').eq('id', user.user.id).maybeSingle();
+          if (profile?.role === 'admin') authorized = true;
+        }
+      }
+    }
+    if (!authorized) return res.status(401).json({ error: 'Not authorized' });
+
+    const { error } = await supabase.from('push_subscriptions').upsert(
+      { user_id: userId, subscription, token_type },
+      { onConflict: 'user_id,token_type' }
+    );
+    if (error) throw error;
+    return res.status(200).json({ success: true });
+  } catch (error) {
+    return res.status(500).json({ error: error.message || 'Failed to save subscription' });
   }
 }
