@@ -88,8 +88,10 @@ public class MainActivity extends BridgeActivity {
                 String scheme = url.getScheme();
                 if (!request.isForMainFrame()) {
                     // Embedded players may navigate within their own frame.
-                    return !("https".equals(scheme) || "http".equals(scheme) || "about".equals(scheme) || "blob".equals(scheme));
+                    if ("https".equals(scheme) || "http".equals(scheme) || "about".equals(scheme) || "blob".equals(scheme)) return false;
+                    return openExternalPaymentApp(url);
                 }
+                if (!"https".equals(scheme) && !"http".equals(scheme)) return openExternalPaymentApp(url);
                 android.net.Uri app = android.net.Uri.parse(bridge.getAppUrl());
                 return !(app.getScheme().equals(scheme)
                     && app.getHost().equals(url.getHost()) && app.getPort() == url.getPort());
@@ -155,5 +157,17 @@ public class MainActivity extends BridgeActivity {
         connectionScreen.findViewById(R.id.connection_retry).setEnabled(true);
         bridge.getWebView().setVisibility(View.INVISIBLE);
         connectionScreen.setVisibility(View.VISIBLE);
+    }
+
+    private boolean openExternalPaymentApp(android.net.Uri url) {
+        try {
+            android.content.Intent intent = "intent".equalsIgnoreCase(url.getScheme())
+                ? android.content.Intent.parseUri(url.toString(), android.content.Intent.URI_INTENT_SCHEME)
+                : new android.content.Intent(android.content.Intent.ACTION_VIEW, url);
+            startActivity(intent);
+        } catch (Exception error) {
+            android.util.Log.w("EXAMSTICK", "No app available for payment URL: " + url, error);
+        }
+        return true;
     }
 }
