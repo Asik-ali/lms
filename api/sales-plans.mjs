@@ -3,7 +3,7 @@ import { createServiceClient, requireAdmin, setCors } from './_auth.mjs';
 async function getPlanWithItems(supabase, id) {
   const { data: plan, error } = await supabase
     .from('sales_plans')
-    .select('id, name, description, price, status, created_at')
+    .select('id, name, description, price, status, preview_pdf_url, created_at')
     .eq('id', id)
     .maybeSingle();
   if (error) throw error;
@@ -34,7 +34,7 @@ export default async function handler(req, res) {
       }
       const { data: plans, error } = await supabase
         .from('sales_plans')
-        .select('id, name, description, price, status, created_at, items:sales_plan_items(id, item_type, item_id)')
+        .select('id, name, description, price, status, preview_pdf_url, created_at, items:sales_plan_items(id, item_type, item_id)')
         .order('created_at', { ascending: false });
       if (error) throw error;
       return res.status(200).json(plans || []);

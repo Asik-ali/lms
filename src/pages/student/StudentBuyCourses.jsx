@@ -2,7 +2,7 @@ import './StudentShop.css';
 import { ownsPlan, cartSelection, cartTotal } from '../../data/shopCart';
 import { useState, useEffect, useCallback } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
-import { ShoppingCart, BookOpen, PenTool, CheckCircle, CreditCard, History, Loader2, Download, ShieldCheck, Layers, ArrowRight, Trash2 } from 'lucide-react';
+import { ShoppingCart, BookOpen, PenTool, CheckCircle, CreditCard, History, Loader2, Download, ShieldCheck, Layers, ArrowRight, Trash2, FileText, X } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { supabase } from '../../supabase/client';
 import { getSalesPlans, decoratePlanItems, getMyPurchaseHistory } from '../../data/dynamicStore';
@@ -45,6 +45,18 @@ function formatINR(amount) {
   return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 2 }).format(amount || 0);
 }
 
+function getSchedulePreviewUrl(value) {
+  try {
+    const url = new URL(value);
+    if (url.protocol !== 'https:') return '';
+    if (url.hostname === 'drive.google.com') {
+      const fileId = url.pathname.match(/\/d\/([^/]+)/)?.[1] || url.searchParams.get('id');
+      if (fileId) return `https://drive.google.com/file/d/${encodeURIComponent(fileId)}/preview`;
+    }
+    return `https://docs.google.com/gview?embedded=1&url=${encodeURIComponent(url.href)}`;
+  } catch { return ''; }
+}
+
 export default function StudentBuyCourses() {
   const { user, refreshProfile } = useAuth();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -58,6 +70,7 @@ export default function StudentBuyCourses() {
   const [availableCredit, setAvailableCredit] = useState(0);
   const [useCredit, setUseCredit] = useState(false);
   const [updatingOrder, setUpdatingOrder] = useState('');
+  const [pdfPreview, setPdfPreview] = useState(null);
   const loadCredit = useCallback(async () => {
     try {
       const { data: { session } } = await supabase.auth.getSession();
@@ -345,6 +358,10 @@ export default function StudentBuyCourses() {
                   <h2 className="text-lg font-bold text-navy-100 mb-1">{plan.name}</h2>
                   {plan.description && <p className="text-sm text-navy-200 mb-4">{plan.description}</p>}
 
+                  {plan.preview_pdf_url && <button type="button" onClick={() => setPdfPreview({ title: plan.name, url: getSchedulePreviewUrl(plan.preview_pdf_url) })} className="mb-4 inline-flex min-h-11 w-fit items-center gap-2 rounded-lg border border-navy-700 px-3 py-2 text-sm font-medium text-navy-100 hover:bg-navy-700/60">
+                    <FileText className="h-4 w-4" /> Preview test schedule PDF
+                  </button>}
+
                   <div className="flex items-baseline gap-1 mb-4">
 
                     <span className="text-3xl font-bold text-navy-100">
@@ -387,6 +404,12 @@ export default function StudentBuyCourses() {
       )}
       </div>
 
+      {pdfPreview?.url && <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 p-3 sm:p-6" onClick={() => setPdfPreview(null)}>
+        <section role="dialog" aria-modal="true" aria-label={`${pdfPreview.title} schedule PDF`} className="flex h-[92dvh] w-full max-w-5xl flex-col overflow-hidden rounded-xl bg-surface shadow-2xl" onClick={event => event.stopPropagation()}>
+          <div className="flex items-center justify-between gap-3 border-b border-navy-700 p-4"><div><h2 className="font-semibold text-navy-100">{pdfPreview.title}</h2><p className="text-xs text-navy-300">Test schedule preview</p></div><button type="button" aria-label="Close PDF preview" onClick={() => setPdfPreview(null)} className="rounded-lg p-2 text-navy-300 hover:bg-navy-700"><X size={20} /></button></div>
+          <iframe src={pdfPreview.url} title={`${pdfPreview.title} test schedule PDF`} className="min-h-0 flex-1 border-0 bg-white" referrerPolicy="strict-origin-when-cross-origin" allow="autoplay" />
+        </section>
+      </div>}
     </div>
   );
 }

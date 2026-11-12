@@ -90,6 +90,12 @@ async function recordCounts(backup) {
   return counts;
 }
 
+function getExportFailures(backup) {
+  return Object.entries(backup.tables)
+    .filter(([, rows]) => !Array.isArray(rows))
+    .map(([table, rows]) => `${table}: ${rows?.__error || 'unknown export error'}`);
+}
+
 async function logBackup(supabase, { type, emailedTo, counts, status, error }) {
   const { error: insertError } = await supabase.from('backup_log').insert({
     type,
@@ -132,13 +138,15 @@ export default async function handler(req, res) {
       }
       const backup = await fetchBackup(supabase);
       await sendBackupEmail(supabase, recipient, backup);
+      const exportFailures = getExportFailures(backup);
       await logBackup(supabase, {
         type: 'manual',
         emailedTo: [recipient],
         counts: await recordCounts(backup),
-        status: 'success',
+        status: exportFailures.length ? 'failed' : 'success',
+        error: exportFailures.length ? `Backup was emailed with export errors: ${exportFailures.join('; ')}` : null,
       });
-      return res.status(200).json({ success: true, createdAt: backup.createdAt });
+      return res.status(200).json({ success: true, complete: !exportFailures.length, exportFailures, createdAt: backup.createdAt });
     }
 
     if (req.method === 'GET') {
@@ -176,12 +184,13 @@ export default async function handler(req, res) {
       }
 
       const counts = await recordCounts(backup);
+      const exportFailures = getExportFailures(backup);
       await logBackup(supabase, {
         type: 'cron',
         emailedTo: emailed,
         counts,
-        status: emailed.length ? 'success' : 'failed',
-        error: emailed.length ? null : 'No admins could be emailed',
+        status: emailed.length && !exportFailures.length ? 'success' : 'failed',
+        error: [!emailed.length && 'No admins could be emailed', ...exportFailures].filter(Boolean).join('; ') || null,
       });
 
       return res.status(200).json({
@@ -190,6 +199,7 @@ export default async function handler(req, res) {
         createdAt: backup.createdAt,
         emailed,
         counts,
+        exportFailures,
       });
     }
 

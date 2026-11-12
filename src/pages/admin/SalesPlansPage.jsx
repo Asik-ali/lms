@@ -4,7 +4,7 @@ import { supabase } from '../../supabase/client';
 import { apiUrl } from '../../data/api';
 import { showSuccess, showError } from '../../components/common/Toast';
 
-const emptyForm = { id: null, name: '', description: '', price: '', status: 'active', items: [] };
+const emptyForm = { id: null, name: '', description: '', price: '', status: 'active', preview_pdf_url: '', items: [] };
 
 const statusBadge = (status) =>
   status === 'active' ? 'badge-success' : 'badge-danger';
@@ -28,7 +28,7 @@ export default function SalesPlansPage() {
   const loadPlans = useCallback(async () => {
     // RLS already authorizes the admin; avoid a serverless hop and repeated auth checks for reads.
     const { data, error } = await supabase.from('sales_plans')
-      .select('id, name, description, price, status, created_at, items:sales_plan_items(id, item_type, item_id)')
+      .select('id, name, description, price, status, preview_pdf_url, created_at, items:sales_plan_items(id, item_type, item_id)')
       .order('created_at', { ascending: false });
     if (error) throw error;
     return data || [];
@@ -79,6 +79,7 @@ export default function SalesPlansPage() {
       description: p.description || '',
       price: p.price != null ? String(p.price) : '',
       status: p.status || 'active',
+      preview_pdf_url: p.preview_pdf_url || '',
       items: (p.items || []).map(it => ({ item_type: it.item_type, item_id: Number(it.item_id) })),
     });
     setShowForm(true);
@@ -110,6 +111,7 @@ export default function SalesPlansPage() {
           description: form.description.trim(),
           price: Number(form.price),
           status: form.status,
+          preview_pdf_url: form.preview_pdf_url.trim(),
           items: form.items,
         }),
       });
@@ -223,6 +225,12 @@ export default function SalesPlansPage() {
           </div>
 
           <div>
+            <label className="block text-sm font-medium text-navy-100 mb-1">Test schedule PDF preview (optional)</label>
+            <input type="url" value={form.preview_pdf_url} onChange={e => setForm(f => ({ ...f, preview_pdf_url: e.target.value }))} className="input-field w-full" placeholder="https://drive.google.com/file/d/... or a public PDF link" />
+            <p className="mt-1 text-xs text-navy-300">Students can preview this PDF before buying. For Google Drive, set General access to Anyone with the link: Viewer.</p>
+          </div>
+
+          <div>
             <label className="block text-sm font-medium text-navy-100 mb-1">Status</label>
             <select value={form.status} onChange={e => setForm(f => ({ ...f, status: e.target.value }))} className="input-field w-full">
               <option value="active">Active</option>
@@ -306,6 +314,7 @@ export default function SalesPlansPage() {
                   <span className={`badge ${statusBadge(p.status)}`}>{p.status}</span>
                 </div>
                 {p.description && <p className="text-sm text-navy-200 mb-3 line-clamp-2">{p.description}</p>}
+                {p.preview_pdf_url && <p className="mb-3 text-xs text-navy-300">Schedule PDF preview attached</p>}
                 <div className="flex items-baseline gap-1 mb-4">
                   <IndianRupee className="w-4 h-4 text-navy-200" />
                   <span className="text-2xl font-bold text-navy-100">{Number(p.price).toLocaleString('en-IN')}</span>

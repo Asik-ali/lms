@@ -28,7 +28,6 @@ const StudentBuyCourses = lazy(() => import('./pages/student/StudentBuyCourses')
 const StudentDashboard = lazy(() => import('./pages/student/StudentDashboard'));
 const StudentCourses = lazy(() => import('./pages/student/StudentCourses'));
 const StudentCourseDetail = lazy(() => import('./pages/student/StudentCourseDetail'));
-const StudentLiveClasses = lazy(() => import('./pages/student/StudentLiveClasses'));
 const StudentMessages = lazy(() => import('./pages/student/StudentMessages'));
 const StudentCalendar = lazy(() => import('./pages/student/StudentCalendar'));
 const StudentTestSeries = lazy(() => import('./pages/student/StudentTestSeries'));

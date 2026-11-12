@@ -209,7 +209,8 @@ function BackupTab() {
         const label = new Date().toLocaleString();
         localStorage.setItem('lastBackup', label);
         setLastBackup(label);
-        showSuccess('Backup emailed to ' + adminEmail);
+        if (data.complete === false) showError(`Backup email sent, but some tables failed: ${(data.exportFailures || []).map(item => item.split(':')[0]).join(', ')}`);
+        else showSuccess('Backup emailed to ' + adminEmail);
         await loadBackupHistory();
       } else {
         showError(data.error || 'Failed to send backup email.');
@@ -328,14 +329,14 @@ function BackupTab() {
         <div className="card-header flex items-center justify-between gap-3"><h3 className="text-lg font-semibold">Backup History</h3><button onClick={loadBackupHistory} className="btn-secondary text-sm">Refresh</button></div>
         <div className="p-6 space-y-3">
           {historyError && <p role="alert" className="text-sm text-red-600 dark:text-red-300">{historyError}</p>}
-          {!backupHistory.length && !historyError && <p className="text-sm text-navy-300">No backup runs have been recorded yet.</p>}
+          {!backupHistory.length && !historyError && <p className="text-sm text-navy-300">No backup runs have been recorded yet. Check that Vercel has CRON_SECRET, SMTP is configured, and this version is deployed to production.</p>}
           {backupHistory.map(run => {
             const counts = run.record_counts || {};
             const failedTables = Object.entries(counts).filter(([, count]) => Number(count) < 0);
             return <div key={run.id} className="rounded-lg border border-navy-700 p-4 text-sm">
               <div className="flex flex-wrap items-center justify-between gap-2"><span className="font-medium text-navy-100">{run.type === 'cron' ? 'Automatic' : 'Manual'} backup</span><span className={run.status === 'success' ? 'text-emerald-600 dark:text-emerald-300' : 'text-red-600 dark:text-red-300'}>{run.status === 'success' ? 'Succeeded' : 'Failed'}</span></div>
               <p className="mt-1 text-navy-300">{new Date(run.created_at).toLocaleString()}</p>
-              <p className="mt-1 text-navy-200">{Object.keys(counts).length} tables recorded · emailed to {(run.emailed_to || []).join(', ') || 'nobody'}</p>
+              <p className="mt-1 text-navy-200">{Object.keys(counts).length} tables recorded | emailed to {(run.emailed_to || []).join(', ') || 'nobody'}</p>
               {failedTables.length > 0 && <p className="mt-1 text-amber-600 dark:text-amber-300">Tables with export errors: {failedTables.map(([table]) => table).join(', ')}</p>}
               {run.error && <p className="mt-1 text-red-600 dark:text-red-300">{run.error}</p>}
             </div>;

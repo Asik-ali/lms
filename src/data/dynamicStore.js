@@ -721,7 +721,7 @@ export async function deleteCalendarEvent(id) {
 export async function getSalesPlans() {
   const { data: plans, error } = await supabase
     .from('sales_plans')
-    .select('id, name, description, price, status, created_at')
+    .select('id, name, description, price, status, preview_pdf_url, created_at')
     .eq('status', 'active')
     .order('created_at', { ascending: true });
   if (error) throw error;

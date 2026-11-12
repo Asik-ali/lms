@@ -488,6 +488,7 @@ CREATE TABLE IF NOT EXISTS tests (
   instructions TEXT DEFAULT '',
   syllabus TEXT DEFAULT '',
   status TEXT DEFAULT 'Published',
+  available_at TIMESTAMPTZ,
   created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
@@ -687,6 +688,7 @@ RETURNS BOOLEAN LANGUAGE sql STABLE SECURITY DEFINER SET search_path = public AS
     JOIN test_series s ON s.id = c.series_id
     JOIN profiles p ON p.id = auth.uid()
     WHERE t.id = target_test_id AND t.status = 'Published'
+      AND (t.available_at IS NULL OR t.available_at <= now())
       AND lower(coalesce(p.status, '')) <> 'suspended'
       AND (s.is_free OR EXISTS (
         SELECT 1 FROM unnest(string_to_array(coalesce(p.test_series_access, ''), ',')) AS entry

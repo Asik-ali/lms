@@ -15,11 +15,13 @@ The migration also prevents signup metadata from self-assigning administrator pr
 
 ## Course shop and cart
 
-Apply `src/supabase/migrations/add_cart_checkout.sql` after `secure_cashfree_fulfillment.sql` before deploying the cart update. The new RPCs are service-role-only; cart prices and order content come from the database.
+Apply `src/supabase/migrations/add_cart_checkout.sql` after `secure_cashfree_fulfillment.sql`, then `src/supabase/migrations/add_sales_plan_preview_pdf.sql`, before deploying the cart and schedule-preview update. The new RPCs are service-role-only; cart prices and order content come from the database.
 
 Admins open **Prices & Bundles**. Choose an individual course/test series, enter its price, and save an active plan to display its card. For a bundle, use **All-in-one bundle**, **All courses**, **All test series**, or **Choose custom bundle**, then set one total price. All-in-one includes the current catalog at save time. Edit it to include future additions. Saving price and included items is atomic.
 
 New students land on **Shop Courses & Tests** after signup verification. The cart persists on the device per student, supports removal, and charges all selected plans in one Cashfree checkout. Fully unlocked plans show **Open content** and are excluded from checkout. Overlapping bundles may contain the same content; it is granted only once, while each selected plan retains its listed price. The payment provider displays the authoritative checkout amount if an admin changes a price before checkout.
+
+Admins can add an optional test-schedule PDF link to a purchase plan. The storefront shows a **Preview test schedule PDF** button before checkout. Google Drive previews must be shared as **Anyone with the link: Viewer**. Apply `harden_api_access.sql` first, then `src/supabase/migrations/add_test_availability.sql`, to let admins set the exact availability date and time for each test; a blank date means the test is available immediately.
 
 Each new order snapshots selected plans and included content. Editing a bundle after an order is created does not change that order's access grant. Existing single-plan orders remain supported. Apply database migrations in the documented order; do not re-run older fulfillment migrations after the cart migration.
 
