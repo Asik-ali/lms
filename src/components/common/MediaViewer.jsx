@@ -47,6 +47,7 @@ export default function MediaViewer({ url, title, type, fileId, onClose }) {
   const { user } = useAuth();
   const [covered, setCovered] = useState(document.hidden);
   const watermark = user?.email || user?.name || 'EXAMSTICK';
+  const videoOnly = type === 'video';
   useEffect(() => {
     const onVisibility = () => {
       setCovered(document.hidden);
@@ -77,15 +78,16 @@ export default function MediaViewer({ url, title, type, fileId, onClose }) {
   } catch { /* Missing or invalid content should show the fallback. */ }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4" onClick={onClose}>
-      <div role="dialog" aria-modal="true" aria-label={title} className="relative w-full max-w-4xl max-h-[calc(100dvh-2rem)] overflow-y-auto bg-surface rounded-xl" onClick={e => e.stopPropagation()} onContextMenu={event => event.preventDefault()} onCopy={event => event.preventDefault()} onDragStart={event => event.preventDefault()}>
-        <div className="flex items-center justify-between p-4 border-b border-navy-700">
+    <div className={`fixed inset-0 z-50 flex items-center justify-center bg-black ${videoOnly ? 'p-0' : 'bg-black/70 p-4'}`} onClick={onClose}>
+      <div role="dialog" aria-modal="true" aria-label={title} className={`relative w-full overflow-hidden bg-black ${videoOnly ? 'h-full max-w-none rounded-none' : 'max-w-4xl max-h-[calc(100dvh-2rem)] overflow-y-auto bg-surface rounded-xl'}`} onClick={e => e.stopPropagation()} onContextMenu={event => event.preventDefault()} onCopy={event => event.preventDefault()} onDragStart={event => event.preventDefault()}>
+        {!videoOnly && <div className="flex items-center justify-between p-4 border-b border-navy-700">
           <h3 className="text-lg font-semibold text-navy-100 truncate pr-4">{title}</h3>
           <button aria-label="Close media viewer" onClick={onClose} className="p-1 text-navy-300 hover:text-navy-100 rounded-lg hover:bg-navy-700 shrink-0">
             <X className="w-5 h-5" />
           </button>
-        </div>
-        <div className="p-4">
+        </div>}
+        {videoOnly && <button aria-label="Close video" onClick={onClose} className="absolute right-3 top-3 z-30 rounded-full bg-black/60 p-2 text-white/80 hover:text-white"><X className="h-5 w-5" /></button>}
+        <div className={videoOnly ? 'flex h-full w-full items-center justify-center' : 'p-4'}>
           {safeUrl && type === 'video' && ytEmbed ? (
             <ProtectedYouTubePlayer embedUrl={ytEmbed} title={title} watermark={watermark} autoplay />
           ) : safeUrl && type === 'video' && drivePreview ? (
@@ -102,7 +104,7 @@ export default function MediaViewer({ url, title, type, fileId, onClose }) {
               <div aria-hidden="true" className="absolute top-0 right-0 w-20 h-16 bg-black z-10" />
             </div>
           ) : safeUrl && type === 'video' && directVideo && !isDrive ? (
-            <PrivateVideoPlayer url={url} title={title} watermark={watermark} />
+            <PrivateVideoPlayer url={url} title={title} />
           ) : (safeUrl || fileId) && type === 'pdf' ? (
             <Suspense fallback={<PdfLoading message="Preparing PDF viewer..." />}>
               <ProtectedPdfViewer url={safeUrl} fileId={fileId} title={title} watermark={watermark} />
@@ -114,7 +116,7 @@ export default function MediaViewer({ url, title, type, fileId, onClose }) {
               </p>
             </div>
           )}
-          <p aria-hidden="true" className="pointer-events-none select-none text-right text-xs text-navy-300 mt-2">{user?.email || user?.name || 'EXAMSTICK'}</p>
+          {!videoOnly && <p aria-hidden="true" className="pointer-events-none select-none text-right text-xs text-navy-300 mt-2">{user?.email || user?.name || 'EXAMSTICK'}</p>}
         </div>
         {covered && <div className="absolute inset-0 bg-black z-20" aria-hidden="true" />}
       </div>
