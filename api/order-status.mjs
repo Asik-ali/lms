@@ -1,11 +1,38 @@
 import { reconcileOrder } from './_order-lifecycle.mjs';
-import { createServiceClient, getAuthedUser, setCors } from './_auth.mjs';
+import { createServiceClient, getAuthedUser, requireAdmin, setCors } from './_auth.mjs';
 import referralsHandler from './_referrals-handler.mjs';
-import { PAYMENT_ORDER_CLEANUP_MINUTES } from './_cashfree.mjs';
+import { PAYMENT_ORDER_CLEANUP_MINUTES, terminateCashfreeOrder } from './_cashfree.mjs';
 
 export default async function handler(req, res) {
   if (['referrals', 'referral-balance', 'referral-settings'].includes(req.query?.operation)) return referralsHandler(req, res);
   if (setCors(req, res)) return;
+
+  const adminCancellation = req.query?.operation === 'admin-cancel';
+  if (adminCancellation) {
+    if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
+    try {
+      const supabase = createServiceClient();
+      if (!await requireAdmin(req, res, supabase)) return;
+      const orderId = String(req.body?.orderId || '').trim();
+      if (!orderId) return res.status(400).json({ error: 'Order ID is required.' });
+      const { data: order, error: lookupError } = await supabase
+        .from('purchase_orders').select('id, order_id, status').eq('order_id', orderId).maybeSingle();
+      if (lookupError) throw lookupError;
+      if (!order) return res.status(404).json({ error: 'Order not found.' });
+      if (order.status === 'PAID') return res.status(409).json({ error: 'A paid order cannot be cancelled.' });
+      try { await terminateCashfreeOrder(order.order_id); } catch { /* Retried during later reconciliation. */ }
+      const { data: updated, error: updateError } = await supabase
+        .from('purchase_orders')
+        .update({ status: 'CANCELLED', close_reason: 'CANCELLED' })
+        .eq('id', order.id).neq('status', 'PAID')
+        .select('id, order_id, status').maybeSingle();
+      if (updateError) throw updateError;
+      if (!updated) return res.status(409).json({ error: 'The order was paid and cannot be cancelled.' });
+      return res.status(200).json({ success: true, order: updated });
+    } catch (err) {
+      return res.status(500).json({ error: err.message || 'Unable to cancel order.' });
+    }
+  }
 
   const closing = ['cancel', 'failed'].includes(req.query?.operation);
   if (req.method !== (closing ? 'POST' : 'GET')) return res.status(405).json({ error: 'Method not allowed' });

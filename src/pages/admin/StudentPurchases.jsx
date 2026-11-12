@@ -92,7 +92,7 @@ export default function StudentPurchases() {
     setCancelling(order.id);
     try {
       const { data: { session } } = await supabase.auth.getSession();
-      const response = await fetch(apiUrl('/api/admin-cancel-order'), {
+      const response = await fetch(apiUrl('/api/order-status?operation=admin-cancel'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session?.access_token || ''}` },
         body: JSON.stringify({ orderId: order.order_id }),
