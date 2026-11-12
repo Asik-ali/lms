@@ -5,7 +5,7 @@
       "dest": "/r.html?code=$1"
     },
     {
-      "src": "^/((?!api/|browser-block\\.html$|r\\.html$).*)$",
+      "src": "^/((?!api/|browser-block\\.html$|r\\.html$|\\.well-known/assetlinks\\.json$).*)$",
       "missing": [
         {
           "type": "header",

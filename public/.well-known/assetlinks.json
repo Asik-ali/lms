@@ -1,0 +1,14 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.lms.portal",
+      "sha256_cert_fingerprints": [
+        "5B:B0:C9:9F:24:65:BD:E8:35:53:B6:73:80:C3:94:41:8D:78:A9:93:19:F4:FD:C0:EE:8D:DB:C4:7E:35:C0:3C",
+        "73:D7:3E:29:24:73:87:FF:7E:64:9D:2E:36:EE:C4:FA:6B:BC:5A:19:60:0C:AA:4E:3C:54:23:3F:69:66:1A:88",
+        "14:E4:4A:0E:D2:4D:3C:49:60:6C:0F:E0:FB:AA:B4:50:DA:18:39:05:D3:63:6B:0B:73:6B:F1:F3:DB:31:0B:D8"
+      ]
+    }
+  }
+]
