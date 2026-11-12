@@ -50,6 +50,7 @@ export default async function handler(req, res) {
         reason: closing ? (req.query.operation === 'failed' ? 'FAILED' : 'CANCELLED')
           : (Date.now() - new Date(order.created_at).getTime() >= PAYMENT_ORDER_CLEANUP_MINUTES * 60 * 1000 ? 'CANCELLED' : undefined),
         inspectPayments: !closing,
+        allowImmediateRetry: req.query?.operation === 'cancel',
       });
       return res.status(200).json(updated);
     }

@@ -163,7 +163,7 @@ export default function StudentBuyCourses() {
       });
       showSuccess('Payment successful. Your courses and tests are unlocked.');
     } else if (['FAILED', 'CANCELLED'].includes(order.status)) {
-      showSuccess(`Payment ${order.status === 'FAILED' ? 'failed' : 'cancelled'}.${order.credit_released && Number(order.credit_applied) > 0 ? ` ${formatINR(order.credit_applied)} store credit returned.` : ''}`);
+      showSuccess(`Payment ${order.status === 'FAILED' ? 'failed' : 'cancelled'}. You can make a new purchase now.${order.credit_released && Number(order.credit_applied) > 0 ? ` ${formatINR(order.credit_applied)} store credit returned.` : ''}`);
     } else if (order.status === 'CANCELLING') {
       const creditNote = Number(order.credit_applied) > 0
         ? ` ${formatINR(order.credit_applied)} reserved store credit will return after confirmation.`

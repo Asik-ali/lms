@@ -9,6 +9,21 @@ async function closeOrder(supabase, order, reason, providerClosed) {
   return data;
 }
 
+// A student can abandon an unpaid checkout and start again immediately. Cashfree
+// termination still runs first, but the LMS must not keep the abandoned order
+// blocking a new purchase while Cashfree finishes its asynchronous state update.
+async function cancelForRetry(supabase, order) {
+  const { data, error } = await supabase
+    .from('purchase_orders')
+    .update({ status: 'CANCELLED', close_reason: 'CANCELLED' })
+    .eq('id', order.id)
+    .neq('status', 'PAID')
+    .select()
+    .maybeSingle();
+  if (error) throw error;
+  return data || order;
+}
+
 function isMissingCashfreeOrder(error) {
   return error?.status === 404 || /order.*(not found|does not exist)|reference id.*does not exist/i.test(error?.message || '');
 }
@@ -25,7 +40,7 @@ async function waitForTermination(orderId) {
   return null;
 }
 
-export async function reconcileOrder(supabase, order, { reason, inspectPayments = false } = {}) {
+export async function reconcileOrder(supabase, order, { reason, inspectPayments = false, allowImmediateRetry = false } = {}) {
   if (order.status === 'PAID' || order.credit_released) return order;
   let remote;
   try {
@@ -39,6 +54,23 @@ export async function reconcileOrder(supabase, order, { reason, inspectPayments 
     return { ...order, status: 'PAID' };
   };
   if (isVerifiedPaidOrder(remote, order)) return paid();
+  if (allowImmediateRetry && reason === 'CANCELLED') {
+    // Request termination so the provider stops the old UPI/card/QR flow.
+    // The order is then locally cancelled right away, allowing a fresh order.
+    if (remote.order_status !== 'TERMINATION_REQUESTED') {
+      try { await terminateCashfreeOrder(order.order_id); }
+      catch (error) {
+        // A concurrent successful payment still wins. If Cashfree is
+        // temporarily unavailable, retain the student's explicit cancellation
+        // locally so it does not prevent a new checkout.
+        try {
+          const latest = await getCashfreeOrder(order.order_id);
+          if (isVerifiedPaidOrder(latest, order)) return paid();
+        } catch { /* The next reconciliation can retry provider termination. */ }
+      }
+    }
+    return cancelForRetry(supabase, order);
+  }
   reason = order.close_reason || reason || (['FAILED', 'CANCELLED'].includes(order.status) ? order.status : null);
   if (['EXPIRED', 'TERMINATED'].includes(remote.order_status)) return closeOrder(supabase, order, reason || 'CANCELLED', true);
 
