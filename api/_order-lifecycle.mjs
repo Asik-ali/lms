@@ -54,6 +54,16 @@ export async function reconcileOrder(supabase, order, { reason, inspectPayments 
     return { ...order, status: 'PAID' };
   };
   if (isVerifiedPaidOrder(remote, order)) return paid();
+  // A cancellation explicitly confirmed by the student or an admin must stay
+  // Cancelled in the LMS. Background order-history refreshes can still ask
+  // Cashfree to terminate the old session, but must not rewrite the visible
+  // status back to CANCELLING and block the student's retry.
+  if (order.status === 'CANCELLED' && order.close_reason === 'CANCELLED') {
+    if (remote.order_status === 'ACTIVE') {
+      try { await terminateCashfreeOrder(order.order_id); } catch { /* Retry on a later refresh. */ }
+    }
+    return order;
+  }
   if (allowImmediateRetry && reason === 'CANCELLED') {
     // Request termination so the provider stops the old UPI/card/QR flow.
     // The order is then locally cancelled right away, allowing a fresh order.
