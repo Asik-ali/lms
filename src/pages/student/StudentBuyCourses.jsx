@@ -232,9 +232,14 @@ export default function StudentBuyCourses() {
           catch (error) { console.error('Could not restore screenshot protection:', error); }
         }
       }
-      if (result?.error) await verifyPayment(data.order_id, 'failed');
-      else if (result?.paymentDetails) await verifyPayment(data.order_id);
-      else await verifyPayment(data.order_id, 'cancel');
+      if (result?.paymentDetails) {
+        // Verify with Cashfree; the client callback alone never confirms payment.
+        await verifyPayment(data.order_id);
+      } else {
+        // Closing/exiting checkout without a confirmed payment requests cancellation.
+        // Cashfree may keep it in CANCELLING while a bank attempt is still in flight.
+        await verifyPayment(data.order_id, 'cancel');
+      }
     } catch (err) {
       showError(err.message);
       if (createdOrderId) {
