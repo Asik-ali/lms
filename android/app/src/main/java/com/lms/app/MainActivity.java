@@ -24,7 +24,6 @@ public class MainActivity extends BridgeActivity {
     protected void onCreate(android.os.Bundle savedInstanceState) {
         android.net.Uri referralUri = getIntent() == null ? null : getIntent().getData();
         registerPlugin(PaymentScreenPlugin.class);
-        registerPlugin(CashfreeNativePlugin.class);
         super.onCreate(savedInstanceState);
         applyScreenSecurity();
         routeReferralUri(referralUri);
@@ -159,7 +158,7 @@ public class MainActivity extends BridgeActivity {
         connectionScreen.setVisibility(View.VISIBLE);
     }
 
-    private boolean openExternalPaymentApp(android.net.Uri url) {
+    boolean openExternalPaymentApp(android.net.Uri url) {
         try {
             android.content.Intent intent = "intent".equalsIgnoreCase(url.getScheme())
                 ? android.content.Intent.parseUri(url.toString(), android.content.Intent.URI_INTENT_SCHEME)

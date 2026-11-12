@@ -4,6 +4,7 @@ import android.os.Message;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import androidx.activity.OnBackPressedCallback;
 import com.getcapacitor.Bridge;
 import com.getcapacitor.BridgeWebChromeClient;
@@ -33,8 +34,26 @@ final class ProtectedMediaChromeClient extends BridgeWebChromeClient {
 
     @Override
     public boolean onCreateWindow(WebView view, boolean dialog, boolean userGesture, Message result) {
-        // Provider popups must never expose a file in another browser or app.
-        return false;
+        // Cashfree uses window.open for UPI intent handoff. Blocking every
+        // popup makes the UPI app chooser appear but prevents GPay/PhonePe
+        // from receiving the selected payment URL. Keep the popup invisible
+        // and only hand non-web URLs to Android's installed payment app.
+        WebView popup = new WebView(activity);
+        popup.getSettings().setJavaScriptEnabled(true);
+        popup.getSettings().setDomStorageEnabled(true);
+        popup.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView popupView, String url) {
+                android.net.Uri target = android.net.Uri.parse(url);
+                String scheme = target.getScheme();
+                if ("https".equalsIgnoreCase(scheme) || "http".equalsIgnoreCase(scheme)) return false;
+                return activity.openExternalPaymentApp(target);
+            }
+        });
+        WebView.WebViewTransport transport = (WebView.WebViewTransport) result.obj;
+        transport.setWebView(popup);
+        result.sendToTarget();
+        return true;
     }
 
     @Override

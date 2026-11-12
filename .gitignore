@@ -33,6 +33,7 @@ playwright-report/
 test-results/
 .local-data/
 .gradle-home/
+.gradle-upi/
 .gradle/
 
 # Android release signing material
