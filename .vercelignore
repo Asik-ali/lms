@@ -1,0 +1,21 @@
+# Local dependencies and generated outputs are installed/built by Vercel.
+node_modules/
+dist/
+
+# Android/Gradle artifacts are not part of the Vite/Vercel deployment.
+android/.gradle/
+android/app/build/
+.gradle/
+.gradle-home/
+.gradle-user/
+
+# Local tooling data and test artifacts.
+.git/
+.vercel/
+.checks.local/
+.local-data/
+test-results/
+playwright-report/
+play-store-assets/
+imports/
+*.apk
