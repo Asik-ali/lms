@@ -37,9 +37,8 @@ export default function ReferralsPage() {
     })();
     return () => { active = false; controller.abort(); };
   }, [page, revision, admin]);
-  const playStoreFallback = 'https://play.google.com/store/apps/details?id=com.lms.portal';
   const link = data?.code
-    ? `intent://asiklms.vercel.app/signup?ref=${encodeURIComponent(data.code)}#Intent;scheme=https;package=com.lms.portal;S.browser_fallback_url=${encodeURIComponent(playStoreFallback)};end`
+    ? `${(import.meta.env.VITE_SITE_URL || 'https://asiklms.vercel.app').replace(/\/$/, '')}/r/${encodeURIComponent(data.code)}`
     : '';
   async function copy(value) {
     try { await navigator.clipboard.writeText(value); showSuccess('Copied to clipboard.'); }

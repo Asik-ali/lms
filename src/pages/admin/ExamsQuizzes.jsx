@@ -17,6 +17,7 @@ export default function TestSeries() {
   const [seriesList, setSeriesList] = useState([]);
   const [categories, setCategories] = useState([]);
   const [testsList, setTestsList] = useState([]);
+  const [testsError, setTestsError] = useState('');
   const [questions, setQuestions] = useState([]);
   const [questionPage, setQuestionPage] = useState(0);
   const [questionTotal, setQuestionTotal] = useState(0);
@@ -47,7 +48,7 @@ export default function TestSeries() {
 
   // Navigation
   function goSeries(s) { setCurrentSeries(s); setCurrentCategory(null); setCurrentTest(null); setQuestions([]); loadCategories(s.id); setLevel('categories'); }
-  function goCategory(c) { setCurrentCategory(c); setCurrentTest(null); setQuestions([]); loadTests(c.id); setLevel('tests'); }
+  function goCategory(c) { setCurrentCategory(c); setCurrentTest(null); setQuestions([]); setTestsError(''); loadTests(c.id); setLevel('tests'); }
   function goTest(t) { setCurrentTest(t); setQuestions([]); setQuestionTotal(t.question_count || 0); setQuestionPage(0); setLevel('questions'); }
 
   function goBack() {
@@ -60,7 +61,7 @@ export default function TestSeries() {
 
   // Load data
   async function loadCategories(seriesId) { try { setCategories(await getCategoriesBySeries(seriesId)); } catch (err) { console.error('Failed to load categories:', err); setCategories([]); } }
-  async function loadTests(catId) { try { setTestsList(await getTestsByCategoryId(catId)); } catch (err) { console.error('Failed to load tests:', err); setTestsList([]); } }
+  async function loadTests(catId) { try { setTestsError(''); setTestsList(await getTestsByCategoryId(catId)); } catch (err) { console.error('Failed to load tests:', err); setTestsList([]); setTestsError(err.message || 'Unable to load tests.'); } }
   async function loadQuestions() { setQuestionRevision(value => value + 1); }
   useEffect(() => {
     if (level !== 'questions' || !currentTest?.id) return;
@@ -353,7 +354,8 @@ export default function TestSeries() {
                   </div>
                 </div>
               ))}
-              {testsList.length === 0 && subCategories.length === 0 && (
+              {testsError && <div role="alert" className="text-center py-6 text-red-600 dark:text-red-300">Could not load tests: {testsError}</div>}
+              {!testsError && testsList.length === 0 && subCategories.length === 0 && (
                 <div className="text-center py-12 text-navy-300"><HelpCircle className="w-12 h-12 mx-auto mb-3 text-navy-300" /><p>No tests yet. Add your first test.</p></div>
               )}
             </div>

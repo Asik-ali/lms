@@ -39,8 +39,10 @@ public class MainActivity extends BridgeActivity {
     private void routeReferralUri(android.net.Uri uri) {
         if (uri == null || !"https".equals(uri.getScheme())
             || !"asiklms.vercel.app".equals(uri.getHost())
-            || uri.getPath() == null || !uri.getPath().startsWith("/signup")) return;
-        String destination = uri.toString();
+            || uri.getPath() == null || !uri.getPath().startsWith("/r/")) return;
+        String code = uri.getLastPathSegment();
+        if (code == null || !code.matches("[A-Za-z0-9_-]{1,32}")) return;
+        String destination = "https://asiklms.vercel.app/signup?ref=" + android.net.Uri.encode(code);
         bridge.getWebView().post(() -> bridge.getWebView().loadUrl(destination));
     }
 

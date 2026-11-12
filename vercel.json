@@ -1,7 +1,11 @@
 {
   "routes": [
     {
-      "src": "^/((?!api/|browser-block\\.html$).*)$",
+      "src": "^/r/([A-Za-z0-9_-]{1,32})/?$",
+      "dest": "/r.html?code=$1"
+    },
+    {
+      "src": "^/((?!api/|browser-block\\.html$|r\\.html$).*)$",
       "missing": [
         {
           "type": "header",

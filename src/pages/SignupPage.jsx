@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { supabase } from '../supabase/client';
 import { useAuth } from '../contexts/AuthContext';
@@ -7,10 +7,11 @@ import { User, Mail, Lock, ShieldCheck, ChevronLeft, AlertCircle } from 'lucide-
 import logo from '../assets/image.png';
 
 export default function SignupPage() {
-  const { login } = useAuth();
+  const { login, user, logout } = useAuth();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const [referralCode, setReferralCode] = useState(() => searchParams.get('ref') || '');
+  const referralLogoutStarted = useRef(false);
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -19,6 +20,15 @@ export default function SignupPage() {
   const [step, setStep] = useState('form');
   const [error, setError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    if (!referralCode || !user || referralLogoutStarted.current) return;
+    referralLogoutStarted.current = true;
+    logout().catch(error => {
+      referralLogoutStarted.current = false;
+      setError(error.message || 'Please sign out before creating a referred account.');
+    });
+  }, [referralCode, user, logout]);
 
   const handleSendOtp = async (e) => {
     e.preventDefault();

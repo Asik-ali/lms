@@ -310,9 +310,20 @@ export async function deleteTestCategory(id) {
 
 // Tests
 export async function getTestsByCategoryId(categoryId) {
-  const { data, error } = await supabase.from('tests').select('id, category_id, name, description, duration, total_marks, question_count, difficulty, language, instructions, syllabus, status, available_at, created_at').eq('category_id', categoryId).order('created_at');
-  if (error) throw error;
-  return sortTests(data || []);
+  const tests = supabase.from('tests');
+  const current = await tests.select('id, category_id, name, description, duration, total_marks, question_count, difficulty, language, instructions, syllabus, status, available_at, created_at')
+    .eq('category_id', categoryId).order('created_at');
+  if (!current.error) return sortTests(current.data || []);
+
+  // Older Supabase projects may not have run add_test_availability.sql yet.
+  // Keep existing tests visible while treating their availability as immediate.
+  const missingAvailability = current.error.code === '42703' || current.error.code === 'PGRST204'
+    || /available_at.*(does not exist|schema cache|column)/i.test(current.error.message || '');
+  if (!missingAvailability) throw current.error;
+  const legacy = await tests.select('id, category_id, name, description, duration, total_marks, question_count, difficulty, language, instructions, syllabus, status, created_at')
+    .eq('category_id', categoryId).order('created_at');
+  if (legacy.error) throw legacy.error;
+  return sortTests((legacy.data || []).map(test => ({ ...test, available_at: null })));
 }
 
 export async function addTest({ category_id, name, description, duration, total_marks, difficulty, language, instructions, syllabus, available_at }) {
