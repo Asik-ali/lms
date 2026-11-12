@@ -399,11 +399,20 @@ export async function getAllTestSeriesByCategories(categories) {
 
 // Test Taking Flow
 export async function startTestAttempt(testId, studentId) {
-  const { data: existing } = await supabase.from('test_attempts').select('id, status').eq('test_id', testId).eq('student_id', studentId).eq('status', 'in_progress').maybeSingle();
+  const { data: existing, error: existingError } = await supabase.from('test_attempts').select('id, status').eq('test_id', testId).eq('student_id', studentId).eq('status', 'in_progress').maybeSingle();
+  if (existingError) throw existingError;
   if (existing) return existing;
 
   const { data, error } = await supabase.from('test_attempts').insert({ test_id: testId, student_id: studentId, status: 'in_progress' }).select('id, test_id, student_id, score, total_marks, correct_count, wrong_count, skipped_count, time_taken, rank, percentile, started_at, submitted_at, status').single();
-  if (error) throw error;
+  if (error) {
+    // A second tap or two open app sessions can race between the lookup and insert.
+    // Reuse the active attempt if the other request created it first.
+    if (error.code === '23505') {
+      const { data: racedAttempt, error: racedError } = await supabase.from('test_attempts').select('id, status').eq('test_id', testId).eq('student_id', studentId).eq('status', 'in_progress').maybeSingle();
+      if (!racedError && racedAttempt) return racedAttempt;
+    }
+    throw error;
+  }
   return data;
 }
 

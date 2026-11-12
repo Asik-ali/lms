@@ -54,7 +54,9 @@ export default async function handler(req, res) {
     }).select().single();
 
     if (profileErr) {
-      console.error('Profile insert warning:', profileErr);
+      // Avoid leaving an Auth account behind when its LMS profile could not be created.
+      await supabase.auth.admin.deleteUser(userId);
+      throw profileErr;
     }
 
     return res.status(200).json({

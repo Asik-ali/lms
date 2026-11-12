@@ -71,9 +71,11 @@ export default function StudentTestDetail() {
       navigate(`/student/test/take/${attempt.id}`);
     } catch (err) {
       console.error('Failed to start test:', err);
-      showError('Failed to start test. Please try again.');
+      const detail = String(err?.message || '').trim();
+      showError(detail ? `Could not start test: ${detail}` : 'Could not start test. Check your connection and try again.');
+    } finally {
+      setStarting(false);
     }
-    setStarting(false);
   }
 
   if (loading) {

@@ -27,9 +27,15 @@ function AddStudentForm({ onBack, onStudentAdded }) {
     setSubmitError('');
     setIsSubmitting(true);
     try {
+      const { data: { session }, error: sessionError } = await supabase.auth.getSession();
+      if (sessionError) throw sessionError;
+      if (!session?.access_token) throw new Error('Your admin session has expired. Please sign in again.');
       const res = await fetch(apiUrl('/api/create-student'), {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${session.access_token}`,
+        },
         body: JSON.stringify({
           name: form.name,
           email: form.email.trim().toLowerCase(),
