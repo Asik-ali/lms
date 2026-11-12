@@ -13,6 +13,7 @@ import { showSuccess, showError } from '../../components/common/Toast';
 const CASHFREE_SCRIPT = 'https://sdk.cashfree.com/js/v3/cashfree.js';
 const CASHFREE_MODE = import.meta.env.VITE_CASHFREE_MODE || 'production';
 const PaymentScreen = registerPlugin('PaymentScreen');
+const CashfreeNative = registerPlugin('CashfreeNative');
 
 let sdkPromise = null;
 function loadCashfreeSdk() {
@@ -192,14 +193,15 @@ export default function StudentBuyCourses() {
     })();
   }, []);
 
-  async function handleCheckout() {
+  async function handleCheckout(method = 'all') {
     if (!cartPlans.length || checkingOut) return;
-    setCheckingOut('cart');
+    setCheckingOut(method);
     let createdOrderId;
     try {
-      // Load the SDK before reserving credit so a script/network error cannot
-      // leave an order behind without opening checkout.
-      const Cashfree = await loadCashfreeSdk();
+      const nativeCheckout = Capacitor.isNativePlatform();
+      // Load the web SDK before reserving credit. The Android app uses
+      // Cashfree's native SDK for both UPI app discovery and hosted checkout.
+      const Cashfree = nativeCheckout ? null : await loadCashfreeSdk();
       const { data: { session } } = await supabase.auth.getSession();
       const token = session?.access_token || '';
       const res = await fetch(apiUrl('/api/create-order'), {
@@ -210,35 +212,42 @@ export default function StudentBuyCourses() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Failed to create order');
       createdOrderId = data.order_id;
-      const cashfree = Cashfree({ mode: data.mode || CASHFREE_MODE });
-      let temporarilyUnsecured = false;
-      if (Capacitor.isNativePlatform()) {
+      if (nativeCheckout) {
+        let temporarilyUnsecured = false;
         try {
           await PaymentScreen.setSecure({ enabled: false });
           temporarilyUnsecured = true;
         } catch (error) {
           console.warn('Could not enable payment QR screenshots:', error);
         }
-      }
-      let result;
-      try {
-        result = await cashfree.checkout({
+        try {
+          const result = await CashfreeNative.startCheckout({
+            orderId: data.order_id,
+            paymentSessionId: data.payment_session_id,
+            mode: data.mode || CASHFREE_MODE,
+            method,
+          });
+          if (result?.status === 'verified') await verifyPayment(data.order_id);
+          else await verifyPayment(data.order_id, 'cancel');
+        } finally {
+          if (temporarilyUnsecured) {
+            try { await PaymentScreen.setSecure({ enabled: true }); }
+            catch (error) { console.error('Could not restore screenshot protection:', error); }
+          }
+        }
+      } else {
+        const cashfree = Cashfree({ mode: data.mode || CASHFREE_MODE });
+        const result = await cashfree.checkout({
           paymentSessionId: data.payment_session_id,
           redirectTarget: '_modal',
         });
-      } finally {
-        if (temporarilyUnsecured) {
-          try { await PaymentScreen.setSecure({ enabled: true }); }
-          catch (error) { console.error('Could not restore screenshot protection:', error); }
+        if (result?.paymentDetails) {
+          // Verify with Cashfree; the client callback alone never confirms payment.
+          await verifyPayment(data.order_id);
+        } else {
+          // Closing/exiting checkout without a confirmed payment requests cancellation.
+          await verifyPayment(data.order_id, 'cancel');
         }
-      }
-      if (result?.paymentDetails) {
-        // Verify with Cashfree; the client callback alone never confirms payment.
-        await verifyPayment(data.order_id);
-      } else {
-        // Closing/exiting checkout without a confirmed payment requests cancellation.
-        // Cashfree may keep it in CANCELLING while a bank attempt is still in flight.
-        await verifyPayment(data.order_id, 'cancel');
       }
     } catch (err) {
       showError(err.message);
@@ -285,10 +294,19 @@ export default function StudentBuyCourses() {
               {useCredit && <p>Credit applied: {formatINR(appliedCredit)}. At least ₹1 is payable through Cashfree.</p>}
             </div>}
             <span className="text-xl font-bold text-navy-100">Total: {formatINR(payable)}</span>
-            <button onClick={handleCheckout} disabled={!cartPlans.length || Boolean(checkingOut)} className="btn-primary w-full flex items-center justify-center gap-2 min-h-12">
+            {Capacitor.isNativePlatform() ? <>
+              <button onClick={() => handleCheckout('upi')} disabled={!cartPlans.length || Boolean(checkingOut)} className="btn-primary w-full flex items-center justify-center gap-2 min-h-12">
+                {checkingOut ? <Loader2 className="w-4 h-4 animate-spin" /> : <CreditCard className="w-4 h-4" />}
+                {checkingOut ? 'Opening secure checkout...' : `Pay ${formatINR(payable)} with UPI apps`}
+              </button>
+              <button onClick={() => handleCheckout('all')} disabled={!cartPlans.length || Boolean(checkingOut)} className="btn-secondary w-full flex items-center justify-center gap-2 min-h-11">
+                {checkingOut ? <Loader2 className="w-4 h-4 animate-spin" /> : <Layers className="w-4 h-4" />}
+                Other methods (cards, netbanking, QR)
+              </button>
+            </> : <button onClick={() => handleCheckout('all')} disabled={!cartPlans.length || Boolean(checkingOut)} className="btn-primary w-full flex items-center justify-center gap-2 min-h-12">
               {checkingOut ? <Loader2 className="w-4 h-4 animate-spin" /> : <CreditCard className="w-4 h-4" />}
               {checkingOut ? 'Processing payment...' : `Pay ${formatINR(payable)}`}
-            </button>
+            </button>}
             <button disabled={Boolean(checkingOut)} className="shop-clear" onClick={() => updateCart([])}>Clear cart</button>
           </div>
           <p className="shop-checkout-note"><ShieldCheck size={15} /> Access unlocks after payment confirmation.</p>

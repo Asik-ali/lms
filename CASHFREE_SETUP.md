@@ -32,3 +32,11 @@ Each new order snapshots selected plans and included content. Editing a bundle a
 ## Permanent plan deletion
 
 Apply `src/supabase/migrations/allow_permanent_plan_delete.sql` after the cart migration. Delete now permanently removes active or inactive plans. The database transaction saves snapshots for legacy orders, clears their plan references, retains payment records, and deletes the plan and its included-item rows. Existing access is preserved. New checkouts cannot use the deleted plan; already created orders can still finish payment.
+
+## Android checkout
+
+The Android app uses Cashfree's native Android SDK for UPI Intent checkout so installed UPI apps are discoverable on Android 11 and later, and for the standard hosted checkout methods. Students see separate **Pay with UPI apps** and **Other methods (cards, netbanking, QR)** actions in the app. Keep the UPI payment method enabled for the Cashfree account. The app uses the server-created payment_session_id; Cashfree credentials remain server-only. The Android manifest's <queries> declarations are required for Cashfree to detect UPI apps.
+
+## Android checkout
+
+The Android app uses Cashfree's native Android SDK for UPI Intent checkout so installed UPI apps are discoverable on Android 11 and later, and for the standard hosted checkout methods. Students see separate **Pay with UPI apps** and **Other methods (cards, netbanking, QR)** actions in the app. Keep the UPI payment method enabled for the Cashfree account. The app uses the server-created `payment_session_id`; Cashfree credentials remain server-only. The Android manifest's `<queries>` declarations are required for Cashfree to detect UPI apps.
