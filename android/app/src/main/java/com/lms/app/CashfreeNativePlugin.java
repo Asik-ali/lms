@@ -16,6 +16,8 @@ import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
 import com.getcapacitor.annotation.CapacitorPlugin;
 
+import java.util.Arrays;
+
 @CapacitorPlugin(name = "CashfreeNative")
 public class CashfreeNativePlugin extends Plugin implements CFCheckoutResponseCallback {
     private PluginCall pendingCall;
@@ -55,7 +57,20 @@ public class CashfreeNativePlugin extends Plugin implements CFCheckoutResponseCa
                     .setPrimaryTextColor("#071A3D")
                     .setBackgroundColor("#FFFFFF")
                     .build();
-                CFUPIIntentCheckout upiApps = new CFUPIIntentCheckout.CFUPIIntentBuilder().build();
+                // Cashfree requires an ordered list of UPI apps for an intent
+                // checkout. An empty builder displays app choices but cannot
+                // reliably hand off to the selected app.
+                CFUPIIntentCheckout upiApps = new CFUPIIntentCheckout.CFUPIIntentBuilder()
+                    .setOrder(Arrays.asList(
+                        CFUPIIntentCheckout.CFUPIApps.GOOGLE_PAY,
+                        CFUPIIntentCheckout.CFUPIApps.PHONEPE,
+                        CFUPIIntentCheckout.CFUPIApps.PAYTM,
+                        CFUPIIntentCheckout.CFUPIApps.BHIM,
+                        CFUPIIntentCheckout.CFUPIApps.CRED,
+                        CFUPIIntentCheckout.CFUPIApps.AMAZON_PAY,
+                        CFUPIIntentCheckout.CFUPIApps.WHATSAPP
+                    ))
+                    .build();
                 payment = new CFUPIIntentCheckoutPayment.CFUPIIntentPaymentBuilder()
                     .setSession(session)
                     .setCfUPIIntentCheckout(upiApps)
