@@ -209,7 +209,6 @@ export default function StudentBuyCourses() {
   async function handleCheckout(method = 'all') {
     if (!cartPlans.length || checkingOut) return;
     setCheckingOut(method);
-    let createdOrderId;
     try {
       const nativeCheckout = Capacitor.isNativePlatform();
       // Load the web SDK before reserving credit. The Android app uses
@@ -224,7 +223,6 @@ export default function StudentBuyCourses() {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Failed to create order');
-      createdOrderId = data.order_id;
       if (nativeCheckout) {
         let temporarilyUnsecured = false;
         try {
@@ -234,14 +232,16 @@ export default function StudentBuyCourses() {
           console.warn('Could not enable payment QR screenshots:', error);
         }
         try {
-          const result = await CashfreeNative.startCheckout({
+          await CashfreeNative.startCheckout({
             orderId: data.order_id,
             paymentSessionId: data.payment_session_id,
             mode: data.mode || CASHFREE_MODE,
             method,
           });
-          if (result?.status === 'verified') await verifyPayment(data.order_id);
-          else await verifyPayment(data.order_id, 'cancel');
+          // A native failure callback can arrive before Cashfree has finished
+          // updating the order. Verify without closing it so a valid payment
+          // can never be cancelled by the app.
+          await verifyPayment(data.order_id);
         } finally {
           if (temporarilyUnsecured) {
             try { await PaymentScreen.setSecure({ enabled: true }); }
@@ -250,24 +250,18 @@ export default function StudentBuyCourses() {
         }
       } else {
         const cashfree = Cashfree({ mode: data.mode || CASHFREE_MODE });
-        const result = await cashfree.checkout({
+        await cashfree.checkout({
           paymentSessionId: data.payment_session_id,
           redirectTarget: '_modal',
         });
-        if (result?.paymentDetails) {
-          // Verify with Cashfree; the client callback alone never confirms payment.
-          await verifyPayment(data.order_id);
-        } else {
-          // Closing/exiting checkout without a confirmed payment requests cancellation.
-          await verifyPayment(data.order_id, 'cancel');
-        }
+        // Cashfree's modal can return an empty result when it opens or closes.
+        // That is not evidence of cancellation. The server checks Cashfree's
+        // actual order status and the student can cancel explicitly from
+        // My Purchases if needed.
+        await verifyPayment(data.order_id);
       }
     } catch (err) {
       showError(err.message);
-      if (createdOrderId) {
-        try { await verifyPayment(createdOrderId, 'cancel'); }
-        catch { showError('Unable to confirm cancellation. Use Check payment or Cancel order in My Purchases.'); }
-      }
     } finally {
       setCheckingOut('');
       await loadCredit();
