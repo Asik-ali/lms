@@ -13,6 +13,18 @@ function isMissingCashfreeOrder(error) {
   return error?.status === 404 || /order.*(not found|does not exist)|reference id.*does not exist/i.test(error?.message || '');
 }
 
+async function waitForTermination(orderId) {
+  // Cashfree can acknowledge a termination request before the order status is
+  // updated. Check briefly so an explicit user cancellation usually returns a
+  // final CANCELLED status and the student can retry right away.
+  for (let attempt = 0; attempt < 4; attempt += 1) {
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    const remote = await getCashfreeOrder(orderId);
+    if (['EXPIRED', 'TERMINATED'].includes(remote.order_status) || remote.order_status === 'PAID') return remote;
+  }
+  return null;
+}
+
 export async function reconcileOrder(supabase, order, { reason, inspectPayments = false } = {}) {
   if (order.status === 'PAID' || order.credit_released) return order;
   let remote;
@@ -54,6 +66,17 @@ export async function reconcileOrder(supabase, order, { reason, inspectPayments 
   }
   if (isVerifiedPaidOrder(remote, order)) return paid();
   if (['EXPIRED', 'TERMINATED'].includes(remote.order_status)) return closeOrder(supabase, order, order.close_reason || reason || 'CANCELLED', true);
+  if (remote.order_status === 'TERMINATION_REQUESTED') {
+    try {
+      const settled = await waitForTermination(order.order_id);
+      if (settled && isVerifiedPaidOrder(settled, order)) return paid();
+      if (settled && ['EXPIRED', 'TERMINATED'].includes(settled.order_status)) {
+        return closeOrder(supabase, order, order.close_reason || reason || 'CANCELLED', true);
+      }
+    } catch (error) {
+      // Leave the durable cancellation request in place for the next refresh.
+    }
+  }
   // Cashfree can defer termination while a bank transaction is pending. Keep
   // the request durable and retry on refresh; never refund the reservation early.
   return order;
