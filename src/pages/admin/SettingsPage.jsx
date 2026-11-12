@@ -213,7 +213,7 @@ function BackupTab() {
         const label = new Date().toLocaleString();
         localStorage.setItem('lastBackup', label);
         setLastBackup(label);
-        if (data.complete === false) showError(`Backup email sent, but some tables failed: ${(data.exportFailures || []).map(item => item.split(':')[0]).join(', ')}`);
+        if (data.complete === false) showError(`Backup email sent, but the backup is incomplete: ${(data.exportFailures || []).map(item => item.split(':')[0]).join(', ')}`);
         else showSuccess('Backup emailed to ' + adminEmail);
         await loadBackupHistory();
       } else {

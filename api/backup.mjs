@@ -4,11 +4,11 @@ import { createServiceClient, requireAdmin, setCors, getBearerToken } from './_a
 const backupTables = [
   'profiles', 'sales_plans', 'sales_plan_items', 'purchase_orders', 'purchases',
   'courses', 'course_pdfs', 'course_lessons',
-  'assignments', 'assignment_submissions', 'quizzes', 'questions', 'attendance',
-  'announcements', 'enrollments', 'notifications', 'live_classes',
+  'assignments', 'assignment_submissions', 'quizzes', 'questions', 'attendance', 'audit_logs',
+  'announcements', 'enrollments', 'notifications', 'live_classes', 'push_subscriptions', 'pending_signups',
   'smtp_settings', 'tickets', 'ticket_replies', 'calendar_events',
   'test_series', 'test_categories', 'tests', 'test_attempts', 'test_responses',
-  'question_reports',
+  'question_reports', 'backup_log', 'referral_settings', 'referral_codes', 'referrals',
 ];
 
 async function fetchBackup(supabase) {
@@ -18,7 +18,8 @@ async function fetchBackup(supabase) {
       const rows = [];
       const pageSize = 500;
       for (let offset = 0; ; offset += pageSize) {
-        const { data, error } = await supabase.from(table).select('*').order('id').range(offset, offset + pageSize - 1);
+        const orderColumn = table === 'referral_codes' ? 'student_id' : 'id';
+        const { data, error } = await supabase.from(table).select('*').order(orderColumn).range(offset, offset + pageSize - 1);
         if (error) throw error;
         rows.push(...(data || []));
         if (!data || data.length < pageSize) break;
