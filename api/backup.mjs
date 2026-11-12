@@ -154,20 +154,32 @@ export default async function handler(req, res) {
         return res.status(400).json({ error: 'Missing recipient email' });
       }
       const backup = await fetchBackup(supabase);
-      await sendBackupEmail(supabase, recipient, backup);
-      let sheetsResult;
-      try { sheetsResult = await sendBackupToGoogleSheets(backup); }
-      catch (error) { sheetsResult = { configured: true, success: false, error: error.message }; }
+      const [emailResult, sheetsResult] = await Promise.all([
+        sendBackupEmail(supabase, recipient, backup)
+          .then(() => ({ success: true }))
+          .catch(error => ({ success: false, error: error.message || 'Backup email failed.' })),
+        sendBackupToGoogleSheets(backup)
+          .catch(error => ({ configured: true, success: false, error: error.message || 'Google Sheets backup failed.' })),
+      ]);
       const exportFailures = getExportFailures(backup);
+      if (!emailResult.success) exportFailures.push(`Email: ${emailResult.error}`);
       if (!sheetsResult.success) exportFailures.push(`Google Sheets: ${sheetsResult.error}`);
       await logBackup(supabase, {
         type: 'manual',
-        emailedTo: [recipient],
+        emailedTo: emailResult.success ? [recipient] : [],
         counts: await recordCounts(backup),
         status: exportFailures.length ? 'failed' : 'success',
-        error: exportFailures.length ? `Backup was emailed with export errors: ${exportFailures.join('; ')}` : null,
+        error: exportFailures.length ? exportFailures.join('; ') : null,
       });
-      return res.status(200).json({ success: true, complete: !exportFailures.length, exportFailures, googleSheets: sheetsResult, createdAt: backup.createdAt });
+      return res.status(200).json({
+        success: true,
+        complete: !exportFailures.length,
+        exportFailures,
+        emailSent: emailResult.success,
+        emailError: emailResult.success ? null : emailResult.error,
+        googleSheets: sheetsResult,
+        createdAt: backup.createdAt,
+      });
     }
 
     if (req.method === 'GET') {

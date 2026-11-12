@@ -213,8 +213,13 @@ function BackupTab() {
         const label = new Date().toLocaleString();
         localStorage.setItem('lastBackup', label);
         setLastBackup(label);
-        if (data.complete === false) showError(`Backup email sent, but the backup is incomplete: ${(data.exportFailures || []).map(item => item.split(':')[0]).join(', ')}`);
-        else showSuccess('Backup emailed to ' + adminEmail);
+        if (data.complete === false) {
+          const results = [
+            data.googleSheets?.success ? 'Google Sheets saved' : `Google Sheets failed: ${data.googleSheets?.error || 'not configured'}`,
+            data.emailSent ? `email sent to ${adminEmail}` : `email failed: ${data.emailError || 'unknown error'}`,
+          ];
+          showError(`Backup finished with issues. ${results.join('; ')}.`);
+        } else showSuccess(`Backup emailed to ${adminEmail} and saved to Google Sheets.`);
         await loadBackupHistory();
       } else {
         showError(data.error || 'Failed to send backup email.');
