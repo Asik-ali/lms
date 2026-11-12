@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { FolderOpen, FileText, ChevronRight, ExternalLink, Clock, Target, Globe } from 'lucide-react';
+import { FolderOpen, FileText, ChevronRight, Clock, Target, Globe, CalendarDays, LockKeyhole } from 'lucide-react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { getAllTestSeries, getCategoriesBySeries, getTestsByCategoryId } from '../../data/dynamicStore';
 import { useAuth } from '../../contexts/AuthContext';
@@ -13,7 +13,7 @@ function normalizeAccess(value) {
 
 function matches(seriesName, accessList) {
   const name = (seriesName || '').trim().toLowerCase();
-  return accessList.some(a => a === name || a.includes(name) || name.includes(a));
+  return accessList.includes(name);
 }
 
 export default function StudentTestSeries() {
@@ -24,25 +24,38 @@ export default function StudentTestSeries() {
   const [seriesList, setSeriesList] = useState([]);
   const [categories, setCategories] = useState([]);
   const [testsList, setTestsList] = useState([]);
+  const [scheduleTests, setScheduleTests] = useState([]);
   const [now, setNow] = useState(() => Date.now());
   const [currentSeries, setCurrentSeries] = useState(null);
   const [currentCategory, setCurrentCategory] = useState(null);
   const [level, setLevel] = useState('series');
 
   const loadSeries = useCallback(async () => {
+    if (!user?.id) {
+      setSeriesList([]);
+      return;
+    }
     try {
-      const all = await getAllTestSeries();
-      const access = normalizeAccess(user?.test_series_access || '');
-      if (access.length > 0) {
-        setSeriesList(all.filter(s => matches(s.name, access)));
-      } else {
-        setSeriesList([]);
+      const [all, { data: purchases, error: purchaseError }] = await Promise.all([
+        getAllTestSeries(),
+        supabase.from('purchases').select('plan_id').eq('student_id', user.id).eq('granted', true),
+      ]);
+      if (purchaseError) throw purchaseError;
+      const planIds = [...new Set((purchases || []).map(p => p.plan_id).filter(Boolean))];
+      let ownedSeriesIds = new Set();
+      if (planIds.length) {
+        const { data: items, error: itemsError } = await supabase.from('sales_plan_items')
+          .select('item_id').in('plan_id', planIds).eq('item_type', 'test_series');
+        if (itemsError) throw itemsError;
+        ownedSeriesIds = new Set((items || []).map(item => String(item.item_id)));
       }
+      const access = normalizeAccess(user?.test_series_access || '');
+      setSeriesList(all.filter(s => s.is_free || ownedSeriesIds.has(String(s.id)) || matches(s.name, access)));
     } catch (err) {
       console.error('Failed to load test series:', err);
       setSeriesList([]);
     }
-  }, [user?.test_series_access]);
+  }, [user?.id, user?.test_series_access]);
 
   useEffect(() => { loadSeries(); }, [loadSeries]);
   useEffect(() => {
@@ -62,9 +75,16 @@ export default function StudentTestSeries() {
     try {
       const cats = await getCategoriesBySeries(s.id);
       setCategories(cats);
+      const scheduledTests = (await Promise.all(cats.map(async category => {
+        const tests = await getTestsByCategoryId(category.id);
+        return tests.filter(test => test.status !== 'Archived' && test.available_at)
+          .map(test => ({ ...test, category_name: category.name }));
+      }))).flat().sort((a, b) => new Date(a.available_at) - new Date(b.available_at));
+      setScheduleTests(scheduledTests);
     } catch (err) {
       console.error('Failed to load categories:', err);
       setCategories([]);
+      setScheduleTests([]);
     }
     setLevel('categories');
   }
@@ -142,6 +162,40 @@ export default function StudentTestSeries() {
       )}
 
       {level === 'categories' && (
+        <div className="space-y-6">
+        {scheduleTests.length > 0 && (
+          <section className="card overflow-hidden">
+            <div className="flex items-center gap-3 border-b border-navy-700/20 p-4 sm:p-5">
+              <CalendarDays className="h-5 w-5 text-emerald-600 dark:text-emerald-300" />
+              <div>
+                <h2 className="font-semibold text-navy-100">Test Schedule</h2>
+                <p className="text-xs text-navy-300">Each scheduled test opens on its date.</p>
+              </div>
+            </div>
+            <div className="divide-y divide-navy-700/15">
+              {scheduleTests.map(test => {
+                const locked = new Date(test.available_at).getTime() > now;
+                const published = String(test.status || '').toLowerCase() === 'published';
+                const disabled = locked || !published;
+                return (
+                  <div key={test.id} className="flex flex-col gap-3 p-4 sm:flex-row sm:items-center">
+                    <div className="min-w-0 flex-1">
+                      <p className="font-medium text-navy-100">{test.name}</p>
+                      <p className="mt-0.5 text-xs text-navy-300">{test.category_name}</p>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-navy-200 sm:min-w-44">
+                      <CalendarDays className="h-4 w-4 shrink-0" />
+                      <span>{new Date(test.available_at).toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+                    </div>
+                    <button type="button" disabled={disabled} onClick={() => goTest(test)} className="inline-flex items-center justify-center gap-2 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-700 disabled:cursor-not-allowed disabled:opacity-50 sm:min-w-32">
+                      {locked ? <><LockKeyhole className="h-4 w-4" /> Opens on date</> : !published ? 'Not published' : 'Open test'}
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+        )}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {topLevelCategories.map(c => {
             const hasSub = categories.some(cat => cat.parent_id === c.id);
@@ -165,6 +219,7 @@ export default function StudentTestSeries() {
               <p>No categories available yet.</p>
             </div>
           )}
+        </div>
         </div>
       )}
 

@@ -474,7 +474,6 @@ CREATE POLICY "Everyone can read test_categories" ON test_categories FOR SELECT 
 CREATE POLICY "Admins can manage test_categories" ON test_categories FOR ALL USING (public.is_admin());
 
 -- Tests (individual tests with full metadata)
-DROP TABLE IF EXISTS tests CASCADE;
 CREATE TABLE IF NOT EXISTS tests (
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   category_id BIGINT NOT NULL REFERENCES test_categories(id) ON DELETE CASCADE,
@@ -687,12 +686,20 @@ RETURNS BOOLEAN LANGUAGE sql STABLE SECURITY DEFINER SET search_path = public AS
     SELECT 1 FROM tests t JOIN test_categories c ON c.id = t.category_id
     JOIN test_series s ON s.id = c.series_id
     JOIN profiles p ON p.id = auth.uid()
-    WHERE t.id = target_test_id AND t.status = 'Published'
+    WHERE t.id = target_test_id AND lower(trim(coalesce(t.status, ''))) = 'published'
       AND (t.available_at IS NULL OR t.available_at <= now())
       AND lower(coalesce(p.status, '')) <> 'suspended'
       AND (s.is_free OR EXISTS (
         SELECT 1 FROM unnest(string_to_array(coalesce(p.test_series_access, ''), ',')) AS entry
         WHERE lower(trim(entry)) = lower(trim(s.name))
+      ) OR EXISTS (
+        SELECT 1
+        FROM purchases purchase
+        JOIN sales_plan_items item ON item.plan_id = purchase.plan_id
+        WHERE purchase.student_id = p.id
+          AND purchase.granted IS TRUE
+          AND item.item_type = 'test_series'
+          AND item.item_id = s.id
       ))
   );
 $$;

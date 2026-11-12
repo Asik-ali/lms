@@ -84,7 +84,10 @@ async function sendBackupEmail(supabase, recipient, backup) {
 }
 
 async function sendBackupToGoogleSheets(backup) {
-  const endpoint = process.env.GOOGLE_SHEETS_BACKUP_URL;
+  // This is the deployed Apps Script URL supplied for this project. Keeping
+  // the env override lets admins rotate to a new deployment without a code change.
+  const endpoint = process.env.GOOGLE_SHEETS_BACKUP_URL
+    || 'https://script.google.com/macros/s/AKfycbwBfzZVzDVohL-9aKN3j3_rwJuoSqLpi6D0teVu9niqsSqEhldGxqxaLXemRu4V-nwv/exec';
   const secret = process.env.GOOGLE_SHEETS_BACKUP_SECRET;
   if (!endpoint || !secret) return { configured: false, success: false, error: 'Google Sheets backup is not configured.' };
   const response = await fetch(endpoint, {

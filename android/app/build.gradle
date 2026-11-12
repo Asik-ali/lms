@@ -16,17 +16,27 @@ android {
             ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
         }
     }
-    signingConfigs {
-        release {
-            storeFile file('../lms-release.keystore')
-            storePassword 'lms123456'
-            keyAlias 'lms'
-            keyPassword 'lms123456'
+    def releaseStorePath = System.getenv('LMS_RELEASE_STORE_FILE')
+    def releaseStorePassword = System.getenv('LMS_RELEASE_STORE_PASSWORD')
+    def releaseKeyAlias = System.getenv('LMS_RELEASE_KEY_ALIAS')
+    def releaseKeyPassword = System.getenv('LMS_RELEASE_KEY_PASSWORD')
+    def hasReleaseSigning = releaseStorePath && releaseStorePassword && releaseKeyAlias && releaseKeyPassword
+
+    if (hasReleaseSigning) {
+        signingConfigs {
+            release {
+                storeFile file(releaseStorePath)
+                storePassword releaseStorePassword
+                keyAlias releaseKeyAlias
+                keyPassword releaseKeyPassword
+            }
         }
+    } else {
+        logger.warn('Release signing is not configured. Set LMS_RELEASE_STORE_FILE, LMS_RELEASE_STORE_PASSWORD, LMS_RELEASE_KEY_ALIAS, and LMS_RELEASE_KEY_PASSWORD to create a Play-uploadable bundle.')
     }
     buildTypes {
         release {
-            signingConfig signingConfigs.release
+            if (hasReleaseSigning) signingConfig signingConfigs.release
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'

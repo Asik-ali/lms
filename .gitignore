@@ -33,3 +33,7 @@ playwright-report/
 test-results/
 .local-data/
 .gradle-home/
+
+# Android release signing material
+*.keystore
+*.jks
