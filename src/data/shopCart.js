@@ -15,7 +15,7 @@ export function hasOwnedItem(plan, user) {
 
 export function cartSelection(plans, ids, user) {
   const selected = new Set(ids.map(String));
-  return plans.filter(plan => selected.has(String(plan.id)) && !hasOwnedItem(plan, user) && Number(plan.price) > 0 && plan.items?.length);
+  return plans.filter(plan => selected.has(String(plan.id)) && !ownsPlan(plan, user) && Number(plan.price) > 0 && plan.items?.length);
 }
 
 export function cartTotal(plans) {

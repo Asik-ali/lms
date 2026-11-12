@@ -87,7 +87,7 @@ export default function MediaViewer({ url, title, type, fileId, onClose }) {
         </div>
         <div className="p-4">
           {safeUrl && type === 'video' && ytEmbed ? (
-            <ProtectedYouTubePlayer embedUrl={ytEmbed} title={title} watermark={watermark} />
+            <ProtectedYouTubePlayer embedUrl={ytEmbed} title={title} watermark={watermark} autoplay />
           ) : safeUrl && type === 'video' && drivePreview ? (
             <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
               <iframe

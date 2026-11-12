@@ -22,9 +22,26 @@ public class MainActivity extends BridgeActivity {
 
     @Override
     protected void onCreate(android.os.Bundle savedInstanceState) {
+        android.net.Uri referralUri = getIntent() == null ? null : getIntent().getData();
         registerPlugin(PaymentScreenPlugin.class);
         super.onCreate(savedInstanceState);
         applyScreenSecurity();
+        routeReferralUri(referralUri);
+    }
+
+    @Override
+    protected void onNewIntent(android.content.Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+        routeReferralUri(intent == null ? null : intent.getData());
+    }
+
+    private void routeReferralUri(android.net.Uri uri) {
+        if (uri == null || !"https".equals(uri.getScheme())
+            || !"asiklms.vercel.app".equals(uri.getHost())
+            || uri.getPath() == null || !uri.getPath().startsWith("/signup")) return;
+        String destination = uri.toString();
+        bridge.getWebView().post(() -> bridge.getWebView().loadUrl(destination));
     }
 
     @Override

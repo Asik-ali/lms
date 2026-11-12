@@ -413,15 +413,17 @@ export default function StudentBuyCourses() {
                         {item.item_type === 'course' ? 'Open course' : 'View test series'} <ArrowRight size={16} className="inline ml-2" />
                       </Link>)}
                     </div>
-                  </> : hasOwned ? <div className="mt-auto rounded-lg border border-amber-500/30 bg-amber-500/10 p-3 text-sm text-amber-200" role="status">
-                    This plan includes content you already own. Remove the duplicate content from the plan or choose another plan.
-                  </div> : <button
+                  </> : <>
+                    {hasOwned && <div className="mb-3 rounded-lg border border-amber-500/30 bg-amber-500/10 p-3 text-sm text-amber-200" role="status">
+                      You already own some of this bundle. You can still buy it to unlock the remaining content.
+                    </div>}
+                    <button
                     onClick={() => addToCart(plan)}
                     disabled={Boolean(checkingOut) || inCart || plan.price <= 0 || !plan.items.length}
                     className={`btn-primary w-full flex items-center justify-center gap-2 mt-auto cursor-pointer min-h-12 ${inCart ? "shop-added" : ""}`}
                   >
                     {inCart ? <CheckCircle className="w-4 h-4" /> : <ShoppingCart className="w-4 h-4" />} {inCart ? 'Added to cart' : 'Add to cart'}
-                  </button>}
+                  </button></>}
 
                 </div></article>
               ); })}

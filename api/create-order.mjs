@@ -58,8 +58,8 @@ export default async function handler(req, res) {
     }); } catch (err) {
       // A confirmed validation rejection never created a payable provider order.
       // Keep reservations on timeouts/unknown results to avoid double spending.
-      if (useCredit && err.status === 400) {
-        const { error } = await supabase.from('purchase_orders').update({ status: 'FAILED', credit_released: true })
+      if (err.status === 400) {
+        const { error } = await supabase.from('purchase_orders').update({ status: 'FAILED', close_reason: 'FAILED', credit_released: true })
           .eq('id', storedOrder.id).neq('status', 'PAID');
         if (error) throw error;
       }

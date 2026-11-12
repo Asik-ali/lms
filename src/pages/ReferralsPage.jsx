@@ -37,7 +37,10 @@ export default function ReferralsPage() {
     })();
     return () => { active = false; controller.abort(); };
   }, [page, revision, admin]);
-  const link = data?.code ? `${(import.meta.env.VITE_SITE_URL || window.location.origin).replace(/\/$/, '')}/signup?ref=${data.code}` : '';
+  const playStoreFallback = 'https://play.google.com/store/apps/details?id=com.lms.portal';
+  const link = data?.code
+    ? `intent://asiklms.vercel.app/signup?ref=${encodeURIComponent(data.code)}#Intent;scheme=https;package=com.lms.portal;S.browser_fallback_url=${encodeURIComponent(playStoreFallback)};end`
+    : '';
   async function copy(value) {
     try { await navigator.clipboard.writeText(value); showSuccess('Copied to clipboard.'); }
     catch { showError('Unable to copy. Select and copy the text below.'); }
@@ -77,7 +80,7 @@ export default function ReferralsPage() {
       </div>}
       {!admin && <div className="card p-6 space-y-4">
         <h2 className="font-semibold text-navy-100">Invite your friends</h2>
-        <p className="text-sm text-navy-200">Share your link or ask your friend to enter your code during signup. Rewards are credited once per friend, after payment confirmation.</p>
+        <p className="text-sm text-navy-200">This app link opens signup in EXAMSTICK or opens Google Play if the app is not installed. After installing, tap the same link again to keep your referral code. Rewards are credited once per friend, after payment confirmation.</p>
         <label className="block text-sm text-navy-200">Your code<input readOnly value={data.code || ''} className="input-field mt-2" /></label>
         <button onClick={() => copy(data.code)} className="btn-secondary flex items-center gap-2"><Copy size={16} /> Copy code</button>
         <label className="block text-sm text-navy-200">Referral link<input readOnly value={link} className="input-field mt-2" /></label>
