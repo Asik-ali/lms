@@ -20,15 +20,28 @@ function loadCashfreeSdk() {
   if (window.Cashfree) return Promise.resolve(window.Cashfree);
   if (sdkPromise) return sdkPromise;
   sdkPromise = new Promise((resolve, reject) => {
-    const script = document.createElement('script');
-    script.src = CASHFREE_SCRIPT;
-    script.async = true;
-    script.onload = () => {
+    let script = [...document.scripts].find(item => item.src === CASHFREE_SCRIPT);
+    const onLoad = () => {
+      cleanup();
       if (window.Cashfree) resolve(window.Cashfree);
       else reject(new Error('Cashfree SDK failed to load'));
     };
-    script.onerror = () => reject(new Error('Failed to load Cashfree SDK'));
-    document.head.appendChild(script);
+    const onError = () => {
+      cleanup();
+      reject(new Error('Failed to load Cashfree SDK'));
+    };
+    const cleanup = () => {
+      script?.removeEventListener('load', onLoad);
+      script?.removeEventListener('error', onError);
+    };
+    if (!script) {
+      script = document.createElement('script');
+      script.src = CASHFREE_SCRIPT;
+      script.async = true;
+    }
+    script.addEventListener('load', onLoad, { once: true });
+    script.addEventListener('error', onError, { once: true });
+    if (!script.isConnected) document.head.appendChild(script);
   });
   return sdkPromise.catch(error => {
     sdkPromise = null;

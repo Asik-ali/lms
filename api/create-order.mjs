@@ -1,6 +1,6 @@
 import { randomUUID } from 'node:crypto';
 import { createServiceClient, getAuthedUser, setCors } from './_auth.mjs';
-import { createCashfreeOrder, CASHFREE_ORDER_PREFIX, PAYMENT_ORDER_CLEANUP_MINUTES } from './_cashfree.mjs';
+import { createCashfreeOrder, CASHFREE_ORDER_PREFIX, PAYMENT_ORDER_CLEANUP_MINUTES, getCashfreeMode } from './_cashfree.mjs';
 import { reconcileOrder } from './_order-lifecycle.mjs';
 
 function getOrigin(req) {
@@ -136,7 +136,7 @@ export default async function handler(req, res) {
       amount: storedOrder.amount,
       credit_applied: storedOrder.credit_applied || 0,
       plan_name: planName,
-      mode: (process.env.CASHFREE_MODE || 'production').toLowerCase(),
+      mode: getCashfreeMode(),
     });
   } catch (err) {
     return res.status(500).json({ error: err.message || 'Failed to create order' });

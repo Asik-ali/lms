@@ -1,9 +1,14 @@
 import { createClient } from '@supabase/supabase-js';
 
-const CASHFREE_MODE = (process.env.CASHFREE_MODE || 'production').toLowerCase();
-const CASHFREE_API = CASHFREE_MODE === 'sandbox'
-  ? 'https://sandbox.cashfree.com/pg'
-  : 'https://api.cashfree.com/pg';
+export function getCashfreeMode() {
+  return (process.env.CASHFREE_MODE || 'production').toLowerCase();
+}
+
+function getCashfreeApi() {
+  return getCashfreeMode() === 'sandbox'
+    ? 'https://sandbox.cashfree.com/pg'
+    : 'https://api.cashfree.com/pg';
+}
 
 export const CASHFREE_ORDER_PREFIX = 'LMS';
 // Local retry window after which unattended orders are reconciled/cancelled.
@@ -17,7 +22,7 @@ export function createServiceClient() {
 }
 
 export function getCashfreeHeaders(auth = false) {
-  const isSandbox = CASHFREE_MODE === 'sandbox';
+  const isSandbox = getCashfreeMode() === 'sandbox';
   const clientId = isSandbox ? process.env.CASHFREE_SANDBOX_CLIENT_ID : process.env.CASHFREE_CLIENT_ID;
   const clientSecret = isSandbox ? process.env.CASHFREE_SANDBOX_CLIENT_SECRET : process.env.CASHFREE_CLIENT_SECRET;
   if (!clientId || !clientSecret) {
@@ -55,7 +60,7 @@ export async function createCashfreeOrder({ orderId, amount, customer, planName,
       notify_url: `${baseUrl}/api/cashfree-webhook`,
     },
   };
-  const res = await fetch(`${CASHFREE_API}/orders`, {
+  const res = await fetch(`${getCashfreeApi()}/orders`, {
     method: 'POST',
     headers,
     body: JSON.stringify(body),
@@ -71,7 +76,7 @@ export async function createCashfreeOrder({ orderId, amount, customer, planName,
 
 export async function getCashfreeOrder(orderId) {
   const { headers } = getCashfreeHeaders(true);
-  const response = await fetch(`${CASHFREE_API}/orders/${encodeURIComponent(orderId)}`, { headers });
+  const response = await fetch(`${getCashfreeApi()}/orders/${encodeURIComponent(orderId)}`, { headers });
   const data = await response.json();
   if (!response.ok) {
     const error = new Error(data.message || 'Unable to verify payment');
@@ -85,7 +90,7 @@ export async function terminateCashfreeOrder(orderId) {
   const { headers } = getCashfreeHeaders(true);
   // Termination is supported by Cashfree's current Orders API. A requested
   // termination is not final until the provider returns TERMINATED.
-  const response = await fetch(`${CASHFREE_API}/orders/${encodeURIComponent(orderId)}`, {
+  const response = await fetch(`${getCashfreeApi()}/orders/${encodeURIComponent(orderId)}`, {
     method: 'PATCH',
     headers: { ...headers, 'x-api-version': '2025-01-01' },
     body: JSON.stringify({ order_status: 'TERMINATED' }),
@@ -97,7 +102,7 @@ export async function terminateCashfreeOrder(orderId) {
 
 export async function getCashfreePayments(orderId) {
   const { headers } = getCashfreeHeaders(true);
-  const response = await fetch(`${CASHFREE_API}/orders/${encodeURIComponent(orderId)}/payments`, { headers });
+  const response = await fetch(`${getCashfreeApi()}/orders/${encodeURIComponent(orderId)}/payments`, { headers });
   const data = await response.json();
   if (!response.ok) throw new Error(data.message || 'Unable to check payment attempts');
   if (!Array.isArray(data)) throw new Error('Invalid payment attempts response');
