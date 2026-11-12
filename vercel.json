@@ -7,6 +7,11 @@
           "type": "header",
           "key": "user-agent",
           "value": ".*EXAMSTICK_APP.*"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": ".*; wv.*"
         }
       ],
       "dest": "/browser-block.html"
