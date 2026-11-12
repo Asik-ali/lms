@@ -40,3 +40,4 @@ test-results/
 *.keystore
 *.jks
 android/upload-key-credentials.txt
+android/upload_certificate.pem
