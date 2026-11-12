@@ -6,6 +6,9 @@ const CASHFREE_API = CASHFREE_MODE === 'sandbox'
   : 'https://api.cashfree.com/pg';
 
 export const CASHFREE_ORDER_PREFIX = 'LMS';
+// Cashfree requires order_expiry_time to be at least 15 minutes in the future.
+// Keep a five-minute margin for request/network latency near that lower bound.
+export const CASHFREE_ORDER_TTL_MINUTES = 20;
 
 export function createServiceClient() {
   const supabaseUrl = process.env.VITE_SUPABASE_URL;

@@ -1,6 +1,7 @@
 import { reconcileOrder } from './_order-lifecycle.mjs';
 import { createServiceClient, getAuthedUser, setCors } from './_auth.mjs';
 import referralsHandler from './_referrals-handler.mjs';
+import { CASHFREE_ORDER_TTL_MINUTES } from './_cashfree.mjs';
 
 export default async function handler(req, res) {
   if (['referrals', 'referral-balance', 'referral-settings'].includes(req.query?.operation)) return referralsHandler(req, res);
@@ -61,7 +62,7 @@ export default async function handler(req, res) {
       .order('created_at', { ascending: false });
     if (oErr) throw oErr;
     // Refresh stale history, including pre-existing failed/cancelled orders.
-    const cutoff = Date.now() - 15 * 60 * 1000;
+    const cutoff = Date.now() - CASHFREE_ORDER_TTL_MINUTES * 60 * 1000;
     const unfinished = (orders || []).filter(order => order.status !== 'PAID' && !order.credit_released &&
       (['CANCELLING', 'FAILED', 'CANCELLED'].includes(order.status) || new Date(order.created_at).getTime() <= cutoff)).slice(0, 10);
     const refreshed = await Promise.allSettled(unfinished.map(order => reconcileOrder(supabase, order, { inspectPayments: true })));

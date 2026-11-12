@@ -6,9 +6,16 @@ export function ownsPlan(plan, user) {
     (item.item_type === 'course' ? courses : series).has(String(item.label || '').trim().toLowerCase()));
 }
 
+export function hasOwnedItem(plan, user) {
+  const courses = new Set(String(user?.course || '').split(',').map(name => name.trim().toLowerCase()).filter(Boolean));
+  const series = new Set(String(user?.test_series_access || '').split(',').map(name => name.trim().toLowerCase()).filter(Boolean));
+  return (plan.items || []).some(item =>
+    (item.item_type === 'course' ? courses : series).has(String(item.label || '').trim().toLowerCase()));
+}
+
 export function cartSelection(plans, ids, user) {
   const selected = new Set(ids.map(String));
-  return plans.filter(plan => selected.has(String(plan.id)) && !ownsPlan(plan, user) && Number(plan.price) > 0 && plan.items?.length);
+  return plans.filter(plan => selected.has(String(plan.id)) && !hasOwnedItem(plan, user) && Number(plan.price) > 0 && plan.items?.length);
 }
 
 export function cartTotal(plans) {

@@ -774,13 +774,16 @@ GRANT EXECUTE ON FUNCTION public.save_sales_plan(BIGINT, JSONB) TO service_role;
 
 CREATE OR REPLACE FUNCTION public.create_purchase_cart(cashfree_order_id TEXT, buyer_id UUID, selected_plan_ids BIGINT[])
 RETURNS JSONB LANGUAGE plpgsql SECURITY DEFINER SET search_path = public AS $$
-DECLARE total NUMERIC; plan_count INTEGER; names TEXT; snapshot JSONB; items_snapshot JSONB; saved purchase_orders%ROWTYPE;
+DECLARE
+  total NUMERIC; plan_count INTEGER; names TEXT; snapshot JSONB; items_snapshot JSONB;
+  saved purchase_orders%ROWTYPE; buyer profiles%ROWTYPE;
 BEGIN
   IF cardinality(selected_plan_ids) IS NULL OR cardinality(selected_plan_ids) NOT BETWEEN 1 AND 50
     OR cardinality(selected_plan_ids) <> (SELECT count(DISTINCT id) FROM unnest(selected_plan_ids) id)
   THEN RAISE EXCEPTION 'Select unique plans for checkout'; END IF;
-  IF NOT EXISTS(SELECT 1 FROM profiles WHERE id = buyer_id AND role = 'student'
-    AND lower(coalesce(status,'')) <> 'suspended') THEN RAISE EXCEPTION 'Student not authorized'; END IF;
+  SELECT * INTO buyer FROM profiles WHERE id = buyer_id FOR UPDATE;
+  IF NOT FOUND OR buyer.role <> 'student' OR lower(coalesce(buyer.status,'')) = 'suspended'
+  THEN RAISE EXCEPTION 'Student not authorized'; END IF;
   -- Locks serialize checkout snapshots with admin edits.
   PERFORM id FROM sales_plans WHERE id = ANY(selected_plan_ids) ORDER BY id FOR SHARE;
   SELECT count(*), sum(price), string_agg(name, ', ' ORDER BY id),
@@ -798,6 +801,23 @@ BEGIN
     WHERE (i.item_type = 'course' AND NOT EXISTS(SELECT 1 FROM courses WHERE id = i.item_id))
        OR (i.item_type = 'test_series' AND NOT EXISTS(SELECT 1 FROM test_series WHERE id = i.item_id))
        OR i.item_type NOT IN ('course','test_series')) THEN RAISE EXCEPTION 'Selected content is unavailable'; END IF;
+  IF EXISTS (
+    SELECT 1 FROM jsonb_to_recordset(items_snapshot) AS i(item_type TEXT, item_id BIGINT)
+    WHERE (i.item_type = 'course' AND EXISTS (
+      SELECT 1 FROM courses c JOIN unnest(string_to_array(coalesce(buyer.course,''), ',')) AS access_name(value)
+        ON lower(trim(access_name.value)) = lower(trim(c.title)) WHERE c.id = i.item_id
+    )) OR (i.item_type = 'test_series' AND EXISTS (
+      SELECT 1 FROM test_series t JOIN unnest(string_to_array(coalesce(buyer.test_series_access,''), ',')) AS access_name(value)
+        ON lower(trim(access_name.value)) = lower(trim(t.name)) WHERE t.id = i.item_id
+    ))
+  ) THEN RAISE EXCEPTION 'You already own content in this plan. Choose a plan without duplicate content.'; END IF;
+  IF EXISTS (
+    SELECT 1 FROM purchase_orders po
+    CROSS JOIN LATERAL jsonb_to_recordset(coalesce(po.access_items, '[]'::JSONB)) AS existing(item_type TEXT, item_id BIGINT)
+    JOIN jsonb_to_recordset(items_snapshot) AS requested_item(item_type TEXT, item_id BIGINT)
+      ON existing.item_type = requested_item.item_type AND existing.item_id = requested_item.item_id
+    WHERE po.student_id = buyer_id AND po.status NOT IN ('PAID','FAILED','CANCELLED','EXPIRED')
+  ) THEN RAISE EXCEPTION 'A payment is already in progress for content in this plan. Check its order status first.'; END IF;
   INSERT INTO purchase_orders(order_id, plan_id, student_id, amount, status, cart_plans, access_items)
     VALUES(cashfree_order_id, CASE WHEN plan_count = 1 THEN selected_plan_ids[1] ELSE NULL END,
       buyer_id, total, 'PENDING', snapshot, items_snapshot) RETURNING * INTO saved;

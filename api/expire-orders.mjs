@@ -1,7 +1,8 @@
 import { createServiceClient } from './_auth.mjs';
+import { CASHFREE_ORDER_TTL_MINUTES } from './_cashfree.mjs';
 import { reconcileOrder } from './_order-lifecycle.mjs';
 
-// Vercel Cron: reconcile orders after their 15-minute Cashfree expiry.
+// Vercel Cron: reconcile orders after their 20-minute Cashfree expiry.
 export default async function handler(req, res) {
   if (req.method !== 'GET') return res.status(405).json({ error: 'Method not allowed' });
   const expected = process.env.CRON_SECRET;
@@ -11,7 +12,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const cutoff = new Date(Date.now() - 15 * 60 * 1000).toISOString();
+    const cutoff = new Date(Date.now() - CASHFREE_ORDER_TTL_MINUTES * 60 * 1000).toISOString();
     const supabase = createServiceClient();
     const { data: orders, error } = await supabase
       .from('purchase_orders')

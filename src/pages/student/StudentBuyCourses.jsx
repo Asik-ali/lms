@@ -1,5 +1,5 @@
 import './StudentShop.css';
-import { ownsPlan, cartSelection, cartTotal } from '../../data/shopCart';
+import { ownsPlan, hasOwnedItem, cartSelection, cartTotal } from '../../data/shopCart';
 import { useState, useEffect, useCallback } from 'react';
 import { Capacitor, registerPlugin } from '@capacitor/core';
 import { useSearchParams, Link } from 'react-router-dom';
@@ -371,6 +371,7 @@ export default function StudentBuyCourses() {
             <div className="shop-products">
               {plans.map(plan => {
                 const owned = ownsPlan(plan, user);
+                const hasOwned = hasOwnedItem(plan, user);
                 const inCart = cartIds.some(id => String(id) === String(plan.id));
                 return (
                 <article key={plan.id} className={`card shop-product flex flex-col ${inCart ? "shop-product-selected" : ""}`}><div className="shop-product-cover"><div className="shop-product-icon">{plan.items.length > 1 ? <Layers size={30} /> : plan.items[0]?.item_type === "course" ? <BookOpen size={30} /> : <PenTool size={30} />}</div><span className="shop-product-type">{plan.items.length > 1 ? "BUNDLE" : plan.items[0]?.item_type === "course" ? "COURSE" : "TEST SERIES"}</span></div><div className="p-5 sm:p-6 flex flex-col flex-1">
@@ -408,7 +409,9 @@ export default function StudentBuyCourses() {
                   {owned ? <>
                     <span className="badge badge-success mb-3">Access unlocked</span>
                     <Link className="btn-primary text-center mt-auto" to={plan.items[0]?.item_type === 'course' ? `/student/courses/${plan.items[0].item_id}` : '/student/test-series'}>Open content <ArrowRight size={16} className="inline ml-2" /></Link>
-                  </> : <button
+                  </> : hasOwned ? <div className="mt-auto rounded-lg border border-amber-500/30 bg-amber-500/10 p-3 text-sm text-amber-200" role="status">
+                    This plan includes content you already own. Remove the duplicate content from the plan or choose another plan.
+                  </div> : <button
                     onClick={() => addToCart(plan)}
                     disabled={Boolean(checkingOut) || inCart || plan.price <= 0 || !plan.items.length}
                     className={`btn-primary w-full flex items-center justify-center gap-2 mt-auto cursor-pointer min-h-12 ${inCart ? "shop-added" : ""}`}
