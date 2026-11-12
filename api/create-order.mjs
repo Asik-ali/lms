@@ -30,6 +30,10 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Select between 1 and 50 valid plans.' });
     }
     const planIds = [...new Set(requested.map(Number))];
+    const customerPhone = String(req.body?.customerPhone || '').replace(/\D/g, '');
+    if (!/^[6-9]\d{9}$/.test(customerPhone)) {
+      return res.status(400).json({ error: 'Enter a valid 10-digit Indian mobile number for Cashfree checkout.' });
+    }
 
     // Reconcile any older checkout that reserved the same content before
     // allowing another payment attempt. Never create a second payable order
@@ -107,7 +111,7 @@ export default async function handler(req, res) {
     try { cashfreeOrder = await createCashfreeOrder({
       orderId,
       amount: storedOrder.amount,
-      customer: profile,
+      customer: { ...profile, phone: customerPhone },
       planName,
       origin: getOrigin(req),
     }); } catch (err) {

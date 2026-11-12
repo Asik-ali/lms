@@ -85,6 +85,9 @@ export default function StudentBuyCourses() {
   const [invoiceOrder, setInvoiceOrder] = useState('');
   const [availableCredit, setAvailableCredit] = useState(0);
   const [useCredit, setUseCredit] = useState(false);
+  const [paymentPhone, setPaymentPhone] = useState(() => {
+    try { return localStorage.getItem(`lms-payment-phone-${user?.id}`) || ''; } catch { return ''; }
+  });
   const [updatingOrder, setUpdatingOrder] = useState('');
   const [pdfPreview, setPdfPreview] = useState(null);
   useEffect(() => { loadCashfreeSdk().catch(() => {}); }, []);
@@ -208,6 +211,12 @@ export default function StudentBuyCourses() {
 
   async function handleCheckout(method = 'all') {
     if (!cartPlans.length || checkingOut) return;
+    const customerPhone = paymentPhone.replace(/\D/g, '');
+    if (!/^[6-9]\d{9}$/.test(customerPhone)) {
+      showError('Enter a valid 10-digit Indian mobile number to continue to Cashfree.');
+      return;
+    }
+    try { localStorage.setItem(`lms-payment-phone-${user?.id}`, customerPhone); } catch { /* Optional persistence. */ }
     setCheckingOut(method);
     try {
       const nativeCheckout = Capacitor.isNativePlatform();
@@ -219,7 +228,7 @@ export default function StudentBuyCourses() {
       const res = await fetch(apiUrl('/api/create-order'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
-        body: JSON.stringify({ planIds: cartPlans.map(plan => plan.id), ...(useCredit ? { useCredit: true } : {}) }),
+        body: JSON.stringify({ planIds: cartPlans.map(plan => plan.id), customerPhone, ...(useCredit ? { useCredit: true } : {}) }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Failed to create order');
@@ -232,7 +241,7 @@ export default function StudentBuyCourses() {
           console.warn('Could not enable payment QR screenshots:', error);
         }
         try {
-          await CashfreeNative.startCheckout({
+          const result = await CashfreeNative.startCheckout({
             orderId: data.order_id,
             paymentSessionId: data.payment_session_id,
             mode: data.mode || CASHFREE_MODE,
@@ -241,6 +250,9 @@ export default function StudentBuyCourses() {
           // A native failure callback can arrive before Cashfree has finished
           // updating the order. Verify without closing it so a valid payment
           // can never be cancelled by the app.
+          if (result?.status === 'failed') {
+            throw new Error(result.message || 'Cashfree could not open the selected UPI app. Please try another payment method.');
+          }
           await verifyPayment(data.order_id);
         } finally {
           if (temporarilyUnsecured) {
@@ -296,6 +308,9 @@ export default function StudentBuyCourses() {
           {cartPlans.length !== cartIds.length && <p className="text-sm text-navy-200">Unavailable or already unlocked items are excluded from checkout.</p>}
           {overlaps && <p className="text-sm text-amber-700 dark:text-amber-300">Some selections include the same content. Each plan is charged at its listed price. Remove overlapping selections if you only need that content once.</p>}
           <div className="shop-cart-total border-t border-navy-700 pt-5">
+            <label className="block text-sm text-navy-200 mb-4">Mobile number for Cashfree
+              <input type="tel" inputMode="numeric" autoComplete="tel" maxLength={10} placeholder="10-digit mobile number" value={paymentPhone} disabled={Boolean(checkingOut)} onChange={event => setPaymentPhone(event.target.value.replace(/\D/g, '').slice(0, 10))} className="input-field mt-1" />
+            </label>
             {availableCredit > 0 && <div className="text-sm text-navy-200 space-y-2">
               <label className="flex gap-2 items-center"><input type="checkbox" checked={useCredit} disabled={Boolean(checkingOut)} onChange={event => setUseCredit(event.target.checked)} /> Use store credit ({formatINR(availableCredit)} available)</label>
               {useCredit && <p>Credit applied: {formatINR(appliedCredit)}. At least ₹1 is payable through Cashfree.</p>}
