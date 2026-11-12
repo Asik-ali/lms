@@ -149,7 +149,10 @@ export default function StudentBuyCourses() {
     } else if (['FAILED', 'CANCELLED'].includes(order.status)) {
       showSuccess(`Payment ${order.status === 'FAILED' ? 'failed' : 'cancelled'}.${order.credit_released && Number(order.credit_applied) > 0 ? ` ${formatINR(order.credit_applied)} store credit returned.` : ''}`);
     } else if (order.status === 'CANCELLING') {
-      showSuccess('Cancellation requested. Store credit will return once cancellation is confirmed.');
+      const creditNote = Number(order.credit_applied) > 0
+        ? ` ${formatINR(order.credit_applied)} reserved store credit will return after confirmation.`
+        : '';
+      showSuccess(`Cancellation requested. Waiting for Cashfree to confirm.${creditNote}`);
     } else {
       showError('Payment is not confirmed yet. Access remains locked. Check payment status again shortly.');
     }
