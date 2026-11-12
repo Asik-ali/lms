@@ -315,7 +315,9 @@ export default function StudentBuyCourses() {
                           <td className="table-cell">{formatINR(o.amount)}{o.credit_released && Number(o.credit_applied) > 0 && <p className="text-xs text-emerald-700 dark:text-emerald-300 mt-1">{formatINR(o.credit_applied)} store credit returned</p>}</td>
                           <td className="table-cell"><span className={`badge ${cfg.cls}`}>{cfg.label}</span>{o.status !== 'PAID' && !o.credit_released && <>
                             <button disabled={Boolean(updatingOrder)} title="Refresh this order's status from Cashfree. This does not charge you again." className="ml-2 text-xs underline disabled:opacity-50" onClick={() => updateOrder(o.order_id)}>{updatingOrder === o.order_id ? 'Updating...' : 'Check payment'}</button>
-                            {o.status !== 'CANCELLING' && <button disabled={Boolean(updatingOrder)} className="ml-2 text-xs underline disabled:opacity-50" onClick={() => updateOrder(o.order_id, 'cancel')}>Cancel order</button>}
+                            <button disabled={Boolean(updatingOrder)} className="ml-2 text-xs underline disabled:opacity-50" onClick={() => updateOrder(o.order_id, 'cancel')}>
+                              {o.status === 'CANCELLING' ? 'Retry cancellation' : 'Cancel order'}
+                            </button>
                           </>}</td>
                           <td className="table-cell">{new Date(o.created_at).toLocaleString()}</td>
                         </tr>
