@@ -382,7 +382,7 @@ export default function StudentTestTaking() {
 
       <div className="flex-1 flex overflow-hidden max-w-[1600px] mx-auto w-full">
         <div className="flex-1 min-w-0 overflow-y-auto">
-          <div className="p-4 sm:p-6 lg:p-8 space-y-6">
+          <div className="p-4 pb-24 sm:p-6 sm:pb-24 lg:p-8 lg:pb-8 space-y-6">
             <div className="bg-surface rounded-xl shadow-sm border border-navy-700 overflow-hidden">
               <div className="px-5 py-3 border-b border-navy-700 bg-navy-800/60 flex items-center justify-between">
                 <div className="flex items-center gap-3">

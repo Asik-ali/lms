@@ -30,17 +30,72 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Select between 1 and 50 valid plans.' });
     }
     const planIds = [...new Set(requested.map(Number))];
+
+    // Reconcile any older checkout that reserved the same content before
+    // allowing another payment attempt. Never create a second payable order
+    // while Cashfree still reports an active/pending transaction.
+    const { data: requestedItems, error: itemsError } = await supabase
+      .from('sales_plan_items')
+      .select('item_type, item_id')
+      .in('plan_id', planIds);
+    if (itemsError) throw itemsError;
+    const requestedContent = new Set((requestedItems || []).map(item => `${item.item_type}:${item.item_id}`));
+
+    const { data: existingOrders, error: existingError } = await supabase
+      .from('purchase_orders')
+      .select('id, order_id, plan_id, student_id, amount, status, created_at, cart_plans, access_items, credit_applied, credit_released, close_reason')
+      .eq('student_id', profile.id)
+      .neq('status', 'PAID')
+      .eq('credit_released', false)
+      .order('created_at', { ascending: false })
+      .limit(50);
+    if (existingError) throw existingError;
+
+    const legacyPlanIds = [...new Set((existingOrders || [])
+      .filter(order => !Array.isArray(order.access_items) && order.plan_id)
+      .map(order => order.plan_id))];
+    const itemsByPlan = new Map();
+    if (legacyPlanIds.length) {
+      const { data: legacyItems, error: legacyItemsError } = await supabase
+        .from('sales_plan_items')
+        .select('plan_id, item_type, item_id')
+        .in('plan_id', legacyPlanIds);
+      if (legacyItemsError) throw legacyItemsError;
+      for (const item of legacyItems || []) {
+        if (!itemsByPlan.has(item.plan_id)) itemsByPlan.set(item.plan_id, []);
+        itemsByPlan.get(item.plan_id).push(item);
+      }
+    }
+
+    const overlappingOrders = (existingOrders || []).filter(order => {
+      const content = Array.isArray(order.access_items)
+        ? order.access_items
+        : itemsByPlan.get(order.plan_id) || [];
+      return content.some(item => requestedContent.has(`${item.item_type}:${item.item_id}`));
+    });
+    for (const order of overlappingOrders) {
+      await reconcileOrder(supabase, order, { reason: 'CANCELLED', inspectPayments: true });
+    }
+
+    if (overlappingOrders.length) {
+      const orderIds = new Set(overlappingOrders.map(order => order.order_id));
+      const { data: stillOpen, error: openError } = await supabase
+        .from('purchase_orders')
+        .select('order_id, status, credit_released')
+        .in('order_id', [...orderIds]);
+      if (openError) throw openError;
+      const activeOrder = (stillOpen || []).find(order => order.status !== 'PAID' && !order.credit_released);
+      if (activeOrder) {
+        return res.status(409).json({
+          error: `Payment for this content is still being processed (order ${activeOrder.order_id}). Check its status before trying again.`,
+          orderId: activeOrder.order_id,
+          status: activeOrder.status,
+        });
+      }
+    }
+
     const orderId = `${CASHFREE_ORDER_PREFIX}-${Date.now()}-${randomUUID().slice(0, 8)}`;
     const useCredit = req.body?.useCredit === true;
-    if (useCredit) {
-      const cutoff = new Date(Date.now() - PAYMENT_ORDER_CLEANUP_MINUTES * 60 * 1000).toISOString();
-      const { data: staleOrders, error: staleError } = await supabase.from('purchase_orders')
-        .select('id, order_id, plan_id, student_id, amount, status, created_at, cart_plans, credit_applied, credit_released, close_reason')
-        .eq('student_id', profile.id).gt('credit_applied', 0).eq('credit_released', false)
-        .neq('status', 'PAID').lte('created_at', cutoff).order('created_at').limit(10);
-      if (staleError) throw staleError;
-      await Promise.allSettled((staleOrders || []).map(order => reconcileOrder(supabase, order, { inspectPayments: true })));
-    }
     const { data: storedOrder, error: orderErr } = await supabase.rpc(useCredit ? 'create_purchase_cart_with_credit' : 'create_purchase_cart', {
       cashfree_order_id: orderId, buyer_id: profile.id, selected_plan_ids: planIds,
       ...(useCredit ? { use_credit: true } : {}),

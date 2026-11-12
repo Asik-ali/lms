@@ -60,7 +60,8 @@ BEGIN
     WHERE NOT EXISTS (
       SELECT 1 FROM purchase_orders po
       CROSS JOIN LATERAL jsonb_to_recordset(coalesce(po.access_items, '[]'::JSONB)) AS existing(item_type TEXT, item_id BIGINT)
-      WHERE po.student_id = buyer_id AND po.status NOT IN ('PAID','FAILED','CANCELLED','EXPIRED')
+      WHERE po.student_id = buyer_id AND po.credit_released IS NOT TRUE
+        AND po.status NOT IN ('PAID','FAILED','CANCELLED','EXPIRED')
         AND existing.item_type = requested_item.item_type AND existing.item_id = requested_item.item_id
     )
   ) THEN RAISE EXCEPTION 'A payment is already in progress for all content in this plan. Check its order status first.'; END IF;

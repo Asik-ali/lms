@@ -130,7 +130,7 @@ export default function Topbar({ title, onMenuClick }) {
           </button>
 
           {isAdmin && (
-            <div className="relative hidden md:block">
+            <div className="relative hidden lg:block">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-navy-300 pointer-events-none" />
               <input
                 type="text"

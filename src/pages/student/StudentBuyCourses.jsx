@@ -444,7 +444,7 @@ export default function StudentBuyCourses() {
       </div>
 
       {pdfPreview?.url && <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 p-3 sm:p-6" onClick={() => setPdfPreview(null)}>
-        <section role="dialog" aria-modal="true" aria-label={`${pdfPreview.title} schedule PDF`} className="flex h-[92dvh] w-full max-w-5xl flex-col overflow-hidden rounded-xl bg-surface shadow-2xl" onClick={event => event.stopPropagation()}>
+        <section role="dialog" aria-modal="true" aria-label={`${pdfPreview.title} schedule PDF`} className="flex h-[calc(100dvh-1.5rem)] w-full max-w-5xl flex-col overflow-hidden rounded-xl bg-surface shadow-2xl sm:h-[92dvh]" onClick={event => event.stopPropagation()}>
           <div className="flex items-center justify-between gap-3 border-b border-navy-700 p-4"><div><h2 className="font-semibold text-navy-100">{pdfPreview.title}</h2><p className="text-xs text-navy-300">Test schedule preview</p></div><button type="button" aria-label="Close PDF preview" onClick={() => setPdfPreview(null)} className="rounded-lg p-2 text-navy-300 hover:bg-navy-700"><X size={20} /></button></div>
           <iframe src={pdfPreview.url} title={`${pdfPreview.title} test schedule PDF`} className="min-h-0 flex-1 border-0 bg-white" referrerPolicy="strict-origin-when-cross-origin" allow="autoplay" />
         </section>

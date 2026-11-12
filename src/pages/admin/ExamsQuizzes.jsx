@@ -566,7 +566,7 @@ export default function TestSeries() {
 function Modal({ title, onClose, children }) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
-      <div className="bg-surface rounded-xl shadow-xl w-full max-w-md p-6 max-h-[85vh] overflow-y-auto">
+      <div className="bg-surface rounded-xl shadow-xl w-full max-w-md p-4 sm:p-6 max-h-[calc(100dvh-2rem)] overflow-y-auto">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-semibold text-navy-100">{title}</h2>
           <button onClick={onClose} className="p-1 text-navy-300 hover:text-navy-100 cursor-pointer"><X className="w-5 h-5" /></button>
