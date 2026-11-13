@@ -1,6 +1,9 @@
 import { supabase } from '../supabase/client';
 import { apiUrl } from './api';
 import logoUrl from '../assets/invoice-logo-transparent.png';
+import { Capacitor, registerPlugin } from '@capacitor/core';
+
+const InvoiceDownload = registerPlugin('InvoiceDownload');
 
 export async function downloadInvoice(orderId) {
   const { data: { session } } = await supabase.auth.getSession();
@@ -77,9 +80,10 @@ export async function downloadInvoice(orderId) {
   add('Thank you for learning with EXAMSTICK.', 'font-size:11px;color:#444;margin-top:6px;');
   document.body.appendChild(sheet);
   try {
-    await logo.decode();
-    logo.style.height = `${110 * logo.naturalHeight / logo.naturalWidth}px`;
-    await document.fonts.ready;
+    // A missing image decoder/font API must not stop invoice generation.
+    if (typeof logo.decode === 'function') await logo.decode().catch(() => {});
+    if (logo.naturalWidth && logo.naturalHeight) logo.style.height = `${110 * logo.naturalHeight / logo.naturalWidth}px`;
+    if (document.fonts?.ready) await document.fonts.ready;
     const canvas = await html2canvas(sheet, { scale: 1.5, backgroundColor: '#ffffff', logging: false });
     const pdf = new jsPDF({ unit: 'mm', format: 'a4' });
     const pageWidth = 190;
@@ -92,7 +96,14 @@ export async function downloadInvoice(orderId) {
       slice.getContext('2d').drawImage(canvas, 0, offset, canvas.width, slice.height, 0, 0, slice.width, slice.height);
       pdf.addImage(slice.toDataURL('image/png'), 'PNG', 10, 10, pageWidth, slice.height * pageWidth / slice.width);
     }
-    pdf.save(`${invoice.number.replace(/[^a-zA-Z0-9_-]/g, '-')}.pdf`);
+    const filename = `${invoice.number.replace(/[^a-zA-Z0-9_-]/g, '-')}.pdf`;
+    if (Capacitor.isNativePlatform() && Capacitor.isPluginAvailable('InvoiceDownload')) {
+      const dataUri = pdf.output('datauristring');
+      const base64 = dataUri.slice(dataUri.indexOf(',') + 1);
+      await InvoiceDownload.savePdf({ base64, filename });
+    } else {
+      pdf.save(filename);
+    }
   } finally {
     sheet.remove();
   }

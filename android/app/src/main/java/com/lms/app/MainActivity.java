@@ -24,6 +24,7 @@ public class MainActivity extends BridgeActivity {
     protected void onCreate(android.os.Bundle savedInstanceState) {
         android.net.Uri referralUri = getIntent() == null ? null : getIntent().getData();
         registerPlugin(PaymentScreenPlugin.class);
+        registerPlugin(InvoiceDownloadPlugin.class);
         super.onCreate(savedInstanceState);
         applyScreenSecurity();
         routeReferralUri(referralUri);
