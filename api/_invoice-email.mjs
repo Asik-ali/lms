@@ -1,7 +1,8 @@
 function escapePdf(value) { return String(value || '').replace(/[\\()]/g, '\\$&').replace(/[^\x20-\x7E]/g, '?'); }
 
 export function invoicePdf({ number, orderId, student, items, amount, date }) {
-  const commands = ['0.03 0.10 0.24 rg', '0 752 595 90 re f', '1 1 1 rg'];
+  // Marketplace-style design: retail-blue header, neutral cards and a green total.
+  const commands = ['0.98 0.98 0.98 rg', '0 0 595 842 re f', '0.07 0.32 0.68 rg', '0 752 595 90 re f', '0.02 0.17 0.42 rg', '0 752 13 90 re f', '1 1 1 rg'];
   const text = (value, x, y, size = 10, bold = false, color = '0.12 0.12 0.12') => {
     commands.push(color, 'BT', `/${bold ? 'F2' : 'F1'} ${size} Tf`, `1 0 0 1 ${x} ${y} Tm`, `(${escapePdf(value)}) Tj`, 'ET');
   };
@@ -9,12 +10,12 @@ export function invoicePdf({ number, orderId, student, items, amount, date }) {
   text('LEARN • PRACTICE • SUCCEED', 50, 788, 8, false, '0.78 0.86 1 rg');
   text('PAYMENT INVOICE', 395, 805, 15, true, '1 1 1 rg');
   text('Original for recipient', 407, 788, 8, false, '0.78 0.86 1 rg');
-  commands.push('0.94 0.96 0.99 rg', '45 660 505 66 re f', '0.78 G', '45 660 505 66 re S');
-  text('INVOICE DETAILS', 60, 706, 10, true); text(`Invoice no: ${number}`, 60, 686, 10); text(`Order ID: ${orderId}`, 60, 670, 9);
-  text('PAYMENT DETAILS', 325, 706, 10, true); text(`Invoice date: ${date}`, 325, 686, 10); text('Status: PAID', 325, 670, 10, true, '0.05 0.42 0.23 rg');
-  commands.push('0.98 0.98 0.98 rg', '45 574 505 62 re f', '0.78 G', '45 574 505 62 re S');
-  text('BILL TO', 60, 616, 10, true); text(student || 'Student', 60, 596, 11, true); text('Digital learning access', 60, 580, 9, false, '0.35 0.35 0.35 rg');
-  commands.push('0.03 0.10 0.24 rg', '45 536 505 26 re f');
+  commands.push('1 1 1 rg', '45 660 505 66 re f', '0.82 G', '45 660 505 66 re S', '0.93 0.96 1 rg', '45 660 6 66 re f');
+  text('INVOICE DETAILS', 60, 706, 10, true, '0.07 0.32 0.68 rg'); text(`Invoice no: ${number}`, 60, 686, 10); text(`Order ID: ${orderId}`, 60, 670, 9);
+  text('PAYMENT DETAILS', 325, 706, 10, true, '0.07 0.32 0.68 rg'); text(`Invoice date: ${date}`, 325, 686, 10); text('Status: PAID', 325, 670, 10, true, '0.05 0.48 0.27 rg');
+  commands.push('1 1 1 rg', '45 574 505 62 re f', '0.82 G', '45 574 505 62 re S', '1 0.78 0.12 rg', '45 574 6 62 re f');
+  text('BILL TO', 60, 616, 10, true, '0.07 0.32 0.68 rg'); text(student || 'Student', 60, 596, 11, true); text('Digital learning access', 60, 580, 9, false, '0.35 0.35 0.35 rg');
+  commands.push('0.07 0.32 0.68 rg', '45 536 505 26 re f');
   text('DESCRIPTION', 60, 545, 9, true, '1 1 1 rg'); text('QTY', 415, 545, 9, true, '1 1 1 rg'); text('AMOUNT', 485, 545, 9, true, '1 1 1 rg');
   let y = 516;
   const entries = (items?.length ? items : ['Course / test purchase']).slice(0, 12);
@@ -23,8 +24,8 @@ export function invoicePdf({ number, orderId, student, items, amount, date }) {
     text(cleaned, 60, y, 10); text('1', 424, y, 10); text(index === 0 ? amount : 'Included', 530, y, 10, false, '0.12 0.12 0.12 rg');
     commands.push('0.86 G', `45 ${y - 9} m 550 ${y - 9} l S`); y -= 25;
   });
-  commands.push('0.94 0.96 0.99 rg', `330 ${y - 42} 220 34 re f`);
-  text('TOTAL PAID', 345, y - 21, 11, true); text(amount, 535, y - 21, 13, true);
+  commands.push('0.91 0.97 0.93 rg', `330 ${y - 42} 220 34 re f`, '0.15 0.60 0.31 RG', `330 ${y - 42} 220 34 re S`);
+  text('TOTAL PAID', 345, y - 21, 11, true, '0.05 0.42 0.23 rg'); text(amount, 535, y - 21, 13, true, '0.05 0.42 0.23 rg');
   text('Digital products • No physical shipment', 50, 95, 9, false, '0.35 0.35 0.35 rg');
   text('This is a computer-generated invoice. No signature is required.', 50, 78, 8, false, '0.35 0.35 0.35 rg');
   text('Thank you for learning with EXAMSTICK.', 50, 58, 10, true, '0.03 0.10 0.24 rg');
