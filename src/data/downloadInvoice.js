@@ -4,7 +4,7 @@ import { Capacitor, registerPlugin } from '@capacitor/core';
 
 const InvoiceDownload = registerPlugin('InvoiceDownload');
 
-export async function downloadInvoice(orderId) {
+export async function createInvoicePdf(orderId) {
   const { data: { session } } = await supabase.auth.getSession();
   const response = await fetch(apiUrl(`/api/order-status?operation=invoice&orderId=${encodeURIComponent(orderId)}`), {
     headers: { Authorization: `Bearer ${session?.access_token || ''}` },
@@ -43,6 +43,13 @@ export async function downloadInvoice(orderId) {
   y += 18; line('Digital products • No physical shipment', 9); line('Thank you for learning with EXAMSTICK.', 9);
 
   const filename = `${invoice.number.replace(/[^a-zA-Z0-9_-]/g, '-')}.pdf`;
+  return { pdf, filename };
+}
+
+// Kept separate from generation because Android WebView only permits its
+// native share sheet from a direct user click, not after an async fetch/PDF
+// generation chain has completed.
+export async function saveInvoicePdf({ pdf, filename }) {
   if (Capacitor.isNativePlatform() && Capacitor.isPluginAvailable('InvoiceDownload')) {
     const dataUri = pdf.output('datauristring');
     await InvoiceDownload.savePdf({ base64: dataUri.slice(dataUri.indexOf(',') + 1), filename });
@@ -57,4 +64,9 @@ export async function downloadInvoice(orderId) {
   const link = document.createElement('a');
   link.href = URL.createObjectURL(blob); link.download = filename; link.click();
   setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+}
+
+export async function downloadInvoice(orderId) {
+  const invoice = await createInvoicePdf(orderId);
+  await saveInvoicePdf(invoice);
 }

@@ -82,6 +82,7 @@ export default function StudentBuyCourses() {
   const [history, setHistory] = useState({ orders: [], purchases: [] });
   const [showHistory, setShowHistory] = useState(false);
   const [invoiceOrder, setInvoiceOrder] = useState('');
+  const [preparedInvoice, setPreparedInvoice] = useState(null);
   const [availableCredit, setAvailableCredit] = useState(0);
   const [useCredit, setUseCredit] = useState(false);
   const [paymentPhone, setPaymentPhone] = useState(() => {
@@ -105,8 +106,16 @@ export default function StudentBuyCourses() {
     if (invoiceOrder) return;
     setInvoiceOrder(orderId);
     try {
-      const { downloadInvoice } = await import('../../data/downloadInvoice');
-      await downloadInvoice(orderId);
+      const { createInvoicePdf, saveInvoicePdf } = await import('../../data/downloadInvoice');
+      if (preparedInvoice?.orderId === orderId) {
+        await saveInvoicePdf(preparedInvoice);
+        setPreparedInvoice(null);
+        showSuccess('Invoice saved. Check Files or Downloads.');
+      } else {
+        const prepared = await createInvoicePdf(orderId);
+        setPreparedInvoice({ ...prepared, orderId });
+        showSuccess('Invoice is ready. Tap Save invoice to download it.');
+      }
     } catch (error) { showError(error.message); }
     finally { setInvoiceOrder(''); }
   }
@@ -372,7 +381,7 @@ export default function StudentBuyCourses() {
                       <span className="badge badge-success flex items-center gap-1"><CheckCircle className="w-3 h-3" /> {formatINR(p.amount)}</span>
                       <button className="btn-secondary inline-flex items-center gap-2 min-h-11" disabled={Boolean(invoiceOrder)} onClick={() => handleInvoice(p.order_id)}>
                         {invoiceOrder === p.order_id ? <Loader2 size={16} className="animate-spin" /> : <Download size={16} />}
-                        {invoiceOrder === p.order_id ? 'Generating...' : 'Download invoice'}
+                        {invoiceOrder === p.order_id ? 'Generating...' : preparedInvoice?.orderId === p.order_id ? 'Save invoice' : 'Download invoice'}
                       </button>
                     </div>
                   </div>
