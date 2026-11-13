@@ -102,7 +102,23 @@ export async function downloadInvoice(orderId) {
       const base64 = dataUri.slice(dataUri.indexOf(',') + 1);
       await InvoiceDownload.savePdf({ base64, filename });
     } else {
-      pdf.save(filename);
+      // Older Play Store builds do not have the native Downloads plugin. On
+      // their Android WebView, the system share sheet reliably lets students
+      // save the generated PDF to Files/Drive rather than silently ignoring
+      // jsPDF's browser-only download helper.
+      const blob = pdf.output('blob');
+      const file = new File([blob], filename, { type: 'application/pdf' });
+      if (navigator.canShare?.({ files: [file] })) {
+        await navigator.share({ files: [file], title: 'EXAMSTICK invoice' });
+      } else {
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = filename;
+        link.style.display = 'none';
+        document.body.appendChild(link);
+        link.click();
+        setTimeout(() => { URL.revokeObjectURL(link.href); link.remove(); }, 1000);
+      }
     }
   } finally {
     sheet.remove();
