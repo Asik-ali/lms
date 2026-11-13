@@ -85,7 +85,7 @@ export default function ReferralsPage() {
         <label className="block text-sm text-navy-200">Referral link<input readOnly value={link} className="input-field mt-2" /></label>
         <button onClick={() => copy(link)} className="btn-primary flex items-center gap-2"><Copy size={16} /> Copy referral link</button>
         <p className="text-navy-100 font-semibold">Available store credit: {money(data.availableCredit)}</p>
-        <p className="text-sm text-navy-200">Apply credit in your cart. Checkout requires at least ₹1 payable. Credit reserved by an unfinished checkout is unavailable until that order is confirmed or expires.</p>
+        {/* <p className="text-sm text-navy-200">Apply credit in your cart. Checkout requires at least ₹1 payable. Credit reserved by an unfinished checkout is unavailable until that order is confirmed or expires.</p> */}
       </div>}
       <div className="card overflow-x-auto"><table className="w-full text-sm text-navy-100" aria-label="Referrals">
         <thead><tr>{admin && <th className="table-cell text-left">Referrer</th>}<th className="table-cell text-left">Friend</th><th className="table-cell text-left">Joined</th><th className="table-cell text-left">Status</th><th className="table-cell text-left">Credit earned</th></tr></thead>
