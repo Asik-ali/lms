@@ -2,6 +2,7 @@ import { reconcileOrder } from './_order-lifecycle.mjs';
 import { createServiceClient, getAuthedUser, requireAdmin, setCors } from './_auth.mjs';
 import referralsHandler from './_referrals-handler.mjs';
 import { PAYMENT_ORDER_CLEANUP_MINUTES, terminateCashfreeOrder } from './_cashfree.mjs';
+import nodemailer from 'nodemailer';
 
 export default async function handler(req, res) {
   if (['referrals', 'referral-balance', 'referral-settings'].includes(req.query?.operation)) return referralsHandler(req, res);
@@ -35,7 +36,8 @@ export default async function handler(req, res) {
   }
 
   const closing = ['cancel', 'failed'].includes(req.query?.operation);
-  if (req.method !== (closing ? 'POST' : 'GET')) return res.status(405).json({ error: 'Method not allowed' });
+  const emailInvoice = req.query?.operation === 'email-invoice';
+  if (req.method !== (closing || emailInvoice ? 'POST' : 'GET')) return res.status(405).json({ error: 'Method not allowed' });
   res.setHeader('Cache-Control', 'no-store');
 
   try {
@@ -43,7 +45,7 @@ export default async function handler(req, res) {
     const profile = await getAuthedUser(req, supabase);
     if (!profile) return res.status(401).json({ error: 'Not authorized' });
 
-    const orderId = closing ? req.body?.orderId : req.query?.orderId;
+    const orderId = closing || emailInvoice ? req.body?.orderId : req.query?.orderId;
     if (closing && (typeof orderId !== 'string' || !orderId.trim())) return res.status(400).json({ error: 'Order ID is required.' });
     if (req.query?.operation === 'invoice' && !orderId) return res.status(400).json({ error: 'Order ID is required.' });
 
@@ -72,6 +74,28 @@ export default async function handler(req, res) {
           creditApplied: Number(order.credit_applied || 0),
           items: order.cart_plans || [{ name: 'Course / test purchase', price: Number(order.amount) }],
         });
+      }
+      if (emailInvoice) {
+        if (order.status !== 'PAID') return res.status(409).json({ error: 'Invoices are available only after payment confirmation.' });
+        if (!profile.email) return res.status(400).json({ error: 'Your account has no email address.' });
+        const { data: purchase, error: purchaseError } = await supabase.from('purchases')
+          .select('order_id, amount, granted, created_at').eq('order_id', orderId)
+          .eq('student_id', profile.id).maybeSingle();
+        if (purchaseError) throw purchaseError;
+        if (!purchase?.granted || Number(purchase.amount) !== Number(order.amount)) {
+          return res.status(409).json({ error: 'Your purchase is still being finalized. Please try again shortly.' });
+        }
+        const { data: smtp } = await supabase.from('smtp_settings').select('*').limit(1).maybeSingle();
+        if (!smtp?.username || !smtp?.password) return res.status(400).json({ error: 'Invoice email is not configured yet. Please contact support.' });
+        const amount = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(Number(order.amount));
+        const itemLines = (order.cart_plans || [{ name: 'Course / test purchase' }]).map((item, index) => `${index + 1}. ${item.name}`).join('\n');
+        const transport = nodemailer.createTransport({ host: smtp.host, port: Number(smtp.port), secure: Number(smtp.port) === 465, auth: { user: smtp.username, pass: smtp.password } });
+        await transport.sendMail({
+          from: `"${smtp.sender_name || 'EXAMSTICK'}" <${smtp.username}>`, to: profile.email,
+          subject: `Invoice ${order.order_id} — EXAMSTICK`,
+          text: `Hello ${profile.name || 'Student'},\n\nYour payment invoice\nInvoice number: INV-${order.order_id}\nOrder ID: ${order.order_id}\nDate: ${new Date(purchase.created_at).toLocaleDateString('en-IN')}\nStatus: PAID\n\nItems:\n${itemLines}\n\nTotal paid: ${amount}\n\nThank you for learning with EXAMSTICK.`,
+        });
+        return res.status(200).json({ success: true, email: profile.email });
       }
       const updated = await reconcileOrder(supabase, order, {
         reason: closing ? (req.query.operation === 'failed' ? 'FAILED' : 'CANCELLED')

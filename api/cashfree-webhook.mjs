@@ -2,6 +2,7 @@ import { createServiceClient } from './_auth.mjs';
 import { fulfillPaidOrder } from './_fulfillment.mjs';
 import { reconcileOrder } from './_order-lifecycle.mjs';
 import { readRawBody, verifyWebhookSignature } from './_webhook.mjs';
+import nodemailer from 'nodemailer';
 
 export const config = { api: { bodyParser: false } };
 
@@ -51,6 +52,28 @@ export default async function handler(req, res) {
 
     if (orderStatus === 'PAID') {
       await fulfillPaidOrder(supabase, orderId);
+      // Send once from Cashfree's first successful-payment webhook. Retries
+      // return through the already-paid branch above and do not duplicate it.
+      try {
+        const [{ data: profile }, { data: completedOrder }, { data: smtp }] = await Promise.all([
+          supabase.from('profiles').select('name, email').eq('id', order.student_id).maybeSingle(),
+          supabase.from('purchase_orders').select('order_id, amount, cart_plans, created_at').eq('order_id', orderId).maybeSingle(),
+          supabase.from('smtp_settings').select('*').limit(1).maybeSingle(),
+        ]);
+        if (profile?.email && smtp?.username && smtp?.password && completedOrder) {
+          const amount = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(Number(completedOrder.amount));
+          const items = (completedOrder.cart_plans || [{ name: 'Course / test purchase' }]).map((item, index) => `${index + 1}. ${item.name}`).join('\n');
+          const transport = nodemailer.createTransport({ host: smtp.host, port: Number(smtp.port), secure: Number(smtp.port) === 465, auth: { user: smtp.username, pass: smtp.password } });
+          await transport.sendMail({
+            from: `"${smtp.sender_name || 'EXAMSTICK'}" <${smtp.username}>`, to: profile.email,
+            subject: `Payment receipt — EXAMSTICK order ${orderId}`,
+            text: `Hello ${profile.name || 'Student'},\n\nYour payment was successful.\nInvoice number: INV-${orderId}\nOrder ID: ${orderId}\nStatus: PAID\n\nItems:\n${items}\n\nTotal paid: ${amount}\n\nThank you for learning with EXAMSTICK.`,
+          });
+        }
+      } catch (emailError) {
+        // A receipt email failure must never prevent paid access or webhook acknowledgement.
+        console.error('Invoice email failed:', emailError.message);
+      }
       return res.status(200).json({ success: true, status: 'PAID' });
     }
 

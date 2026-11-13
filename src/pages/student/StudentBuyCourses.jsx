@@ -3,7 +3,7 @@ import { ownsPlan, hasOwnedItem, cartSelection, cartTotal } from '../../data/sho
 import { useState, useEffect, useCallback } from 'react';
 import { Capacitor, registerPlugin } from '@capacitor/core';
 import { useSearchParams, Link } from 'react-router-dom';
-import { ShoppingCart, BookOpen, PenTool, CheckCircle, CreditCard, History, Loader2, Download, ShieldCheck, Layers, ArrowRight, Trash2, FileText, X } from 'lucide-react';
+import { ShoppingCart, BookOpen, PenTool, CheckCircle, CreditCard, History, Loader2, Download, Mail, ShieldCheck, Layers, ArrowRight, Trash2, FileText, X } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { supabase } from '../../supabase/client';
 import { getSalesPlans, decoratePlanItems, getMyPurchaseHistory } from '../../data/dynamicStore';
@@ -83,6 +83,7 @@ export default function StudentBuyCourses() {
   const [showHistory, setShowHistory] = useState(false);
   const [invoiceOrder, setInvoiceOrder] = useState('');
   const [preparedInvoice, setPreparedInvoice] = useState(null);
+  const [emailingInvoice, setEmailingInvoice] = useState('');
   const [availableCredit, setAvailableCredit] = useState(0);
   const [useCredit, setUseCredit] = useState(false);
   const [paymentPhone, setPaymentPhone] = useState(() => {
@@ -118,6 +119,21 @@ export default function StudentBuyCourses() {
       }
     } catch (error) { showError(error.message); }
     finally { setInvoiceOrder(''); }
+  }
+
+  async function emailInvoice(orderId) {
+    if (emailingInvoice) return;
+    setEmailingInvoice(orderId);
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      const response = await fetch(apiUrl('/api/order-status?operation=email-invoice'), {
+        method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session?.access_token || ''}` }, body: JSON.stringify({ orderId }),
+      });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || 'Unable to email invoice');
+      showSuccess(`Invoice sent to ${data.email}.`);
+    } catch (error) { showError(error.message); }
+    finally { setEmailingInvoice(''); }
   }
   const [cart, setCart] = useState(() => {
     try {
@@ -382,6 +398,10 @@ export default function StudentBuyCourses() {
                       <button className="btn-secondary inline-flex items-center gap-2 min-h-11" disabled={Boolean(invoiceOrder)} onClick={() => handleInvoice(p.order_id)}>
                         {invoiceOrder === p.order_id ? <Loader2 size={16} className="animate-spin" /> : <Download size={16} />}
                         {invoiceOrder === p.order_id ? 'Generating...' : preparedInvoice?.orderId === p.order_id ? 'Save invoice' : 'Download invoice'}
+                      </button>
+                      <button className="btn-secondary inline-flex items-center gap-2 min-h-11" disabled={Boolean(emailingInvoice)} onClick={() => emailInvoice(p.order_id)}>
+                        {emailingInvoice === p.order_id ? <Loader2 size={16} className="animate-spin" /> : <Mail size={16} />}
+                        {emailingInvoice === p.order_id ? 'Sending...' : 'Email invoice'}
                       </button>
                     </div>
                   </div>
