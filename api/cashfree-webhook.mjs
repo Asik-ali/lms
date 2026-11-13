@@ -3,6 +3,7 @@ import { fulfillPaidOrder } from './_fulfillment.mjs';
 import { reconcileOrder } from './_order-lifecycle.mjs';
 import { readRawBody, verifyWebhookSignature } from './_webhook.mjs';
 import nodemailer from 'nodemailer';
+import { invoicePdf } from './_invoice-email.mjs';
 
 export const config = { api: { bodyParser: false } };
 
@@ -68,6 +69,7 @@ export default async function handler(req, res) {
             from: `"${smtp.sender_name || 'EXAMSTICK'}" <${smtp.username}>`, to: profile.email,
             subject: `Payment receipt — EXAMSTICK order ${orderId}`,
             text: `Hello ${profile.name || 'Student'},\n\nYour payment was successful.\nInvoice number: INV-${orderId}\nOrder ID: ${orderId}\nStatus: PAID\n\nItems:\n${items}\n\nTotal paid: ${amount}\n\nThank you for learning with EXAMSTICK.`,
+            attachments: [{ filename: `INV-${orderId}.pdf`, content: invoicePdf({ number: `INV-${orderId}`, orderId, student: profile.name, items: (completedOrder.cart_plans || []).map(item => item.name), amount, date: new Date(completedOrder.created_at).toLocaleDateString('en-IN') }), contentType: 'application/pdf' }],
           });
         }
       } catch (emailError) {

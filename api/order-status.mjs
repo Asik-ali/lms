@@ -3,12 +3,46 @@ import { createServiceClient, getAuthedUser, requireAdmin, setCors } from './_au
 import referralsHandler from './_referrals-handler.mjs';
 import { PAYMENT_ORDER_CLEANUP_MINUTES, terminateCashfreeOrder } from './_cashfree.mjs';
 import nodemailer from 'nodemailer';
+import { invoicePdf } from './_invoice-email.mjs';
 
 export default async function handler(req, res) {
   if (['referrals', 'referral-balance', 'referral-settings'].includes(req.query?.operation)) return referralsHandler(req, res);
   if (setCors(req, res)) return;
 
   const adminCancellation = req.query?.operation === 'admin-cancel';
+  const adminInvoiceEmail = req.query?.operation === 'admin-email-invoice';
+  if (adminInvoiceEmail) {
+    if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
+    try {
+      const supabase = createServiceClient();
+      if (!await requireAdmin(req, res, supabase)) return;
+      const orderId = String(req.body?.orderId || '').trim();
+      if (!orderId) return res.status(400).json({ error: 'Order ID is required.' });
+      const { data: order, error: orderError } = await supabase
+        .from('purchase_orders').select('order_id, student_id, amount, status, cart_plans, created_at').eq('order_id', orderId).maybeSingle();
+      if (orderError) throw orderError;
+      if (!order) return res.status(404).json({ error: 'Order not found.' });
+      if (order.status !== 'PAID') return res.status(409).json({ error: 'Invoice emails are available only for paid orders.' });
+      const [{ data: student }, { data: smtp }] = await Promise.all([
+        supabase.from('profiles').select('name, email').eq('id', order.student_id).maybeSingle(),
+        supabase.from('smtp_settings').select('*').limit(1).maybeSingle(),
+      ]);
+      if (!student?.email) return res.status(400).json({ error: 'This student has no email address.' });
+      if (!smtp?.username || !smtp?.password) return res.status(400).json({ error: 'SMTP is not configured.' });
+      const amount = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(Number(order.amount));
+      const items = (order.cart_plans || [{ name: 'Course / test purchase' }]).map((item, index) => `${index + 1}. ${item.name}`).join('\n');
+      const transport = nodemailer.createTransport({ host: smtp.host, port: Number(smtp.port), secure: Number(smtp.port) === 465, auth: { user: smtp.username, pass: smtp.password } });
+      await transport.sendMail({
+        from: `"${smtp.sender_name || 'EXAMSTICK'}" <${smtp.username}>`, to: student.email,
+        subject: `Invoice ${order.order_id} — EXAMSTICK`,
+        text: `Hello ${student.name || 'Student'},\n\nInvoice number: INV-${order.order_id}\nOrder ID: ${order.order_id}\nStatus: PAID\n\nItems:\n${items}\n\nTotal paid: ${amount}\n\nThank you for learning with EXAMSTICK.`,
+        attachments: [{ filename: `INV-${order.order_id}.pdf`, content: invoicePdf({ number: `INV-${order.order_id}`, orderId: order.order_id, student: student.name, items: (order.cart_plans || []).map(item => item.name), amount, date: new Date(order.created_at).toLocaleDateString('en-IN') }), contentType: 'application/pdf' }],
+      });
+      return res.status(200).json({ success: true, email: student.email });
+    } catch (err) {
+      return res.status(500).json({ error: err.message || 'Unable to send invoice email.' });
+    }
+  }
   if (adminCancellation) {
     if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
     try {
@@ -94,6 +128,7 @@ export default async function handler(req, res) {
           from: `"${smtp.sender_name || 'EXAMSTICK'}" <${smtp.username}>`, to: profile.email,
           subject: `Invoice ${order.order_id} — EXAMSTICK`,
           text: `Hello ${profile.name || 'Student'},\n\nYour payment invoice\nInvoice number: INV-${order.order_id}\nOrder ID: ${order.order_id}\nDate: ${new Date(purchase.created_at).toLocaleDateString('en-IN')}\nStatus: PAID\n\nItems:\n${itemLines}\n\nTotal paid: ${amount}\n\nThank you for learning with EXAMSTICK.`,
+          attachments: [{ filename: `INV-${order.order_id}.pdf`, content: invoicePdf({ number: `INV-${order.order_id}`, orderId: order.order_id, student: profile.name, items: (order.cart_plans || []).map(item => item.name), amount, date: new Date(purchase.created_at).toLocaleDateString('en-IN') }), contentType: 'application/pdf' }],
         });
         return res.status(200).json({ success: true, email: profile.email });
       }
