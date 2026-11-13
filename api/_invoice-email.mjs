@@ -6,8 +6,9 @@ export function invoicePdf({ number, orderId, student, items, amount, date }) {
   const text = (value, x, y, size = 10, bold = false, color = '0.12 0.12 0.12') => {
     commands.push(color, 'BT', `/${bold ? 'F2' : 'F1'} ${size} Tf`, `1 0 0 1 ${x} ${y} Tm`, `(${escapePdf(value)}) Tj`, 'ET');
   };
-  text('EXAMSTICK', 48, 808, 22, true, '1 1 1 rg');
-  text('LEARN • PRACTICE • SUCCEED', 50, 788, 8, false, '0.78 0.86 1 rg');
+  // Gold brand wordmark on navy gives the invoice a recognisable logo-like header.
+  text('EXAMSTICK', 48, 808, 22, true, '1 0.76 0.12 rg');
+  text('LEARN - PRACTICE - SUCCEED', 50, 788, 8, false, '0.78 0.86 1 rg');
   text('PAYMENT INVOICE', 395, 805, 15, true, '1 1 1 rg');
   text('Original for recipient', 407, 788, 8, false, '0.78 0.86 1 rg');
   commands.push('1 1 1 rg', '45 660 505 66 re f', '0.82 G', '45 660 505 66 re S', '0.93 0.96 1 rg', '45 660 6 66 re f');
@@ -24,9 +25,9 @@ export function invoicePdf({ number, orderId, student, items, amount, date }) {
     text(cleaned, 60, y, 10); text('1', 424, y, 10); text(index === 0 ? amount : 'Included', 530, y, 10, false, '0.12 0.12 0.12 rg');
     commands.push('0.86 G', `45 ${y - 9} m 550 ${y - 9} l S`); y -= 25;
   });
-  commands.push('0.91 0.97 0.93 rg', `330 ${y - 42} 220 34 re f`, '0.15 0.60 0.31 RG', `330 ${y - 42} 220 34 re S`);
-  text('TOTAL PAID', 345, y - 21, 11, true, '0.05 0.42 0.23 rg'); text(amount, 535, y - 21, 13, true, '0.05 0.42 0.23 rg');
-  text('Digital products • No physical shipment', 50, 95, 9, false, '0.35 0.35 0.35 rg');
+  commands.push('0.91 0.97 0.93 rg', `270 ${y - 42} 280 34 re f`, '0.15 0.60 0.31 RG', `270 ${y - 42} 280 34 re S`);
+  text('TOTAL PAID', 288, y - 21, 11, true, '0.05 0.42 0.23 rg'); text(amount, 535, y - 21, 13, true, '0.05 0.42 0.23 rg');
+  text('Digital products - No physical shipment', 50, 95, 9, false, '0.35 0.35 0.35 rg');
   text('This is a computer-generated invoice. No signature is required.', 50, 78, 8, false, '0.35 0.35 0.35 rg');
   text('Thank you for learning with EXAMSTICK.', 50, 58, 10, true, '0.03 0.10 0.24 rg');
   const stream = commands.join('\n');
