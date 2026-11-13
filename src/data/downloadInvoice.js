@@ -1,6 +1,5 @@
 import { supabase } from '../supabase/client';
 import { apiUrl } from './api';
-import logoUrl from '../assets/invoice-logo-transparent.png';
 import { Capacitor, registerPlugin } from '@capacitor/core';
 
 const InvoiceDownload = registerPlugin('InvoiceDownload');
@@ -12,115 +11,50 @@ export async function downloadInvoice(orderId) {
   });
   const invoice = await response.json();
   if (!response.ok) throw new Error(invoice.error || 'Unable to generate invoice');
-  const [{ default: html2canvas }, { jsPDF }] = await Promise.all([import('html2canvas'), import('jspdf')]);
-  const sheet = document.createElement('div');
-  // Plain DOM text preserves Unicode titles and prevents markup injection.
-  sheet.style.cssText = 'position:absolute;left:-10000px;top:0;width:760px;padding:36px;background:#fff;color:#202020;font:12px Arial,sans-serif;line-height:1.5;box-sizing:border-box;';
-  const add = (text, css = '', parent = sheet) => {
-    const element = document.createElement('div');
-    element.textContent = text;
-    element.style.cssText = css;
-    parent.appendChild(element);
-    return element;
-  };
-  const header = add('', 'display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #222;padding-bottom:16px;');
-  const logo = document.createElement('img');
-  logo.src = logoUrl;
-  logo.alt = invoice.seller;
-  // Use intrinsic dimensions: html2canvas does not reliably reproduce object-fit.
-  logo.style.cssText = 'display:block;width:110px;height:auto;max-width:110px;flex-shrink:0;';
-  header.appendChild(logo);
-  const heading = add('', 'text-align:right;', header);
-  add('INVOICE', 'font-size:24px;font-weight:bold;letter-spacing:1px;', heading);
-  add('Original for recipient', 'font-size:10px;color:#666;', heading);
-  const date = new Intl.DateTimeFormat('en-IN', { dateStyle: 'medium', timeZone: 'Asia/Kolkata' }).format(new Date(invoice.date));
-  const metadata = add('', 'display:flex;gap:24px;padding:18px 0;border-bottom:1px solid #ccc;');
-  const reference = add('', 'flex:1;overflow-wrap:anywhere;', metadata);
-  add('Invoice details', 'font-weight:bold;margin-bottom:6px;', reference);
-  add(`Invoice no: ${invoice.number}`, '', reference);
-  add(`Invoice date: ${date}`, '', reference);
-  const payment = add('', 'flex:1;overflow-wrap:anywhere;', metadata);
-  add('Order details', 'font-weight:bold;margin-bottom:6px;', payment);
-  add(`Order ID: ${invoice.orderId}`, '', payment);
-  add('Payment status: PAID', 'font-weight:bold;color:#167044;', payment);
-  const parties = add('', 'display:flex;gap:24px;padding:20px 0;');
-  const seller = add('', 'flex:1;', parties);
-  add('Sold by', 'font-weight:bold;margin-bottom:6px;', seller);
-  add(invoice.seller, 'font-weight:bold;', seller);
-  add('Online courses and test series', 'color:#666;', seller);
-  const buyer = add('', 'flex:1;overflow-wrap:anywhere;', parties);
-  add('Bill to', 'font-weight:bold;margin-bottom:6px;', buyer);
-  add(invoice.customer.name || 'Student', 'font-weight:bold;', buyer);
-  add(invoice.customer.email || '', '', buyer);
-  add('Digital delivery to student account', 'color:#666;margin-top:4px;', buyer);
+
+  // Direct text PDF avoids the slow html-to-image conversion in Android WebView.
+  const { jsPDF } = await import('jspdf');
+  const pdf = new jsPDF({ unit: 'mm', format: 'a4' });
   const money = value => new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(value);
-  const table = document.createElement('table');
-  table.style.cssText = 'width:100%;border-collapse:collapse;table-layout:fixed;margin:8px 0 0;';
-  sheet.appendChild(table);
-  const cell = (row, text, heading = false, css = '') => {
-    const element = document.createElement(heading ? 'th' : 'td');
-    element.textContent = text;
-    element.style.cssText = `padding:12px 10px;border:1px solid #bbb;vertical-align:top;text-align:left;overflow-wrap:anywhere;${css}`;
-    row.appendChild(element);
+  const date = new Intl.DateTimeFormat('en-IN', { dateStyle: 'medium', timeZone: 'Asia/Kolkata' }).format(new Date(invoice.date));
+  let y = 18;
+  const line = (text, size = 10, bold = false, x = 15) => {
+    pdf.setFont('helvetica', bold ? 'bold' : 'normal'); pdf.setFontSize(size);
+    const lines = pdf.splitTextToSize(String(text), 180 - (x - 15));
+    pdf.text(lines, x, y); y += lines.length * (size * 0.46) + 3;
   };
-  const columnHeaders = document.createElement('tr');
-  table.appendChild(columnHeaders);
-  ['S.No', 'Description', 'Qty', 'Unit price', 'Amount'].forEach((text, index) => cell(columnHeaders, text, true,
-    `background:#f3f3f3;${index === 0 ? 'width:42px;white-space:nowrap;text-align:center;' : index === 1 ? 'width:250px;' : index === 2 ? 'width:44px;white-space:nowrap;text-align:center;' : 'text-align:right;white-space:nowrap;'}`));
-  invoice.items.forEach((item, index) => {
-    const row = document.createElement('tr'); table.appendChild(row);
-    cell(row, String(index + 1), false, 'text-align:center;white-space:nowrap;'); cell(row, item.name); cell(row, '1', false, 'text-align:center;white-space:nowrap;');
-    cell(row, money(item.price), false, 'text-align:right;'); cell(row, money(item.price), false, 'text-align:right;');
-  });
-  if (invoice.creditApplied > 0) add(`Store credit applied: ${money(invoice.creditApplied)}`, 'text-align:right;padding-top:14px;');
-  const total = add('', 'display:flex;justify-content:flex-end;border-bottom:2px solid #222;padding:18px 0;');
-  add('TOTAL PAID', 'font-weight:bold;margin-right:28px;padding-top:4px;', total);
-  add(money(invoice.amount), 'font-size:20px;font-weight:bold;', total);
-  add('Digital products • No physical shipment', 'font-size:10px;color:#666;margin-top:20px;');
-  add('Thank you for learning with EXAMSTICK.', 'font-size:11px;color:#444;margin-top:6px;');
-  document.body.appendChild(sheet);
-  try {
-    // A missing image decoder/font API must not stop invoice generation.
-    if (typeof logo.decode === 'function') await logo.decode().catch(() => {});
-    if (logo.naturalWidth && logo.naturalHeight) logo.style.height = `${110 * logo.naturalHeight / logo.naturalWidth}px`;
-    if (document.fonts?.ready) await document.fonts.ready;
-    const canvas = await html2canvas(sheet, { scale: 1.5, backgroundColor: '#ffffff', logging: false });
-    const pdf = new jsPDF({ unit: 'mm', format: 'a4' });
-    const pageWidth = 190;
-    const sliceHeight = Math.floor(canvas.width * 277 / pageWidth);
-    for (let offset = 0; offset < canvas.height; offset += sliceHeight) {
-      if (offset) pdf.addPage();
-      const slice = document.createElement('canvas');
-      slice.width = canvas.width;
-      slice.height = Math.min(sliceHeight, canvas.height - offset);
-      slice.getContext('2d').drawImage(canvas, 0, offset, canvas.width, slice.height, 0, 0, slice.width, slice.height);
-      pdf.addImage(slice.toDataURL('image/png'), 'PNG', 10, 10, pageWidth, slice.height * pageWidth / slice.width);
-    }
-    const filename = `${invoice.number.replace(/[^a-zA-Z0-9_-]/g, '-')}.pdf`;
-    if (Capacitor.isNativePlatform() && Capacitor.isPluginAvailable('InvoiceDownload')) {
-      const dataUri = pdf.output('datauristring');
-      const base64 = dataUri.slice(dataUri.indexOf(',') + 1);
-      await InvoiceDownload.savePdf({ base64, filename });
-    } else {
-      // Older Play Store builds do not have the native Downloads plugin. On
-      // their Android WebView, the system share sheet reliably lets students
-      // save the generated PDF to Files/Drive rather than silently ignoring
-      // jsPDF's browser-only download helper.
-      const blob = pdf.output('blob');
-      const file = new File([blob], filename, { type: 'application/pdf' });
-      if (navigator.canShare?.({ files: [file] })) {
-        await navigator.share({ files: [file], title: 'EXAMSTICK invoice' });
-      } else {
-        const link = document.createElement('a');
-        link.href = URL.createObjectURL(blob);
-        link.download = filename;
-        link.style.display = 'none';
-        document.body.appendChild(link);
-        link.click();
-        setTimeout(() => { URL.revokeObjectURL(link.href); link.remove(); }, 1000);
-      }
-    }
-  } finally {
-    sheet.remove();
+  const newPageIfNeeded = (height = 12) => { if (y + height > 280) { pdf.addPage(); y = 18; } };
+
+  pdf.setFillColor(7, 26, 61); pdf.rect(0, 0, 210, 34, 'F');
+  pdf.setTextColor(255, 255, 255); y = 16; line(invoice.seller || 'EXAMSTICK', 18, true); line('TAX INVOICE', 11, true);
+  pdf.setTextColor(32, 32, 32); y = 45;
+  line(`Invoice no: ${invoice.number}`, 10, true); line(`Invoice date: ${date}`); line(`Order ID: ${invoice.orderId}`); line('Payment status: PAID', 10, true); y += 4;
+  line('Bill to', 11, true); line(invoice.customer?.name || 'Student'); line(invoice.customer?.email || ''); y += 4;
+  pdf.setFillColor(243, 243, 243); pdf.rect(15, y - 5, 180, 8, 'F');
+  pdf.setFont('helvetica', 'bold'); pdf.setFontSize(9); pdf.text('Description', 17, y); pdf.text('Amount', 190, y, { align: 'right' }); y += 9;
+  for (const item of invoice.items || []) {
+    newPageIfNeeded(18); pdf.setFont('helvetica', 'normal'); pdf.setFontSize(10);
+    const description = pdf.splitTextToSize(item.name || 'Course / test purchase', 125);
+    pdf.text(description, 17, y); pdf.text(money(item.price), 190, y, { align: 'right' });
+    y += Math.max(description.length * 5, 8); pdf.setDrawColor(210); pdf.line(15, y - 3, 195, y - 3); y += 3;
   }
+  if (invoice.creditApplied > 0) { newPageIfNeeded(); line(`Store credit applied: ${money(invoice.creditApplied)}`, 10, false, 105); }
+  newPageIfNeeded(15); pdf.setFont('helvetica', 'bold'); pdf.setFontSize(13); pdf.text(`TOTAL PAID: ${money(invoice.amount)}`, 195, y + 5, { align: 'right' });
+  y += 18; line('Digital products • No physical shipment', 9); line('Thank you for learning with EXAMSTICK.', 9);
+
+  const filename = `${invoice.number.replace(/[^a-zA-Z0-9_-]/g, '-')}.pdf`;
+  if (Capacitor.isNativePlatform() && Capacitor.isPluginAvailable('InvoiceDownload')) {
+    const dataUri = pdf.output('datauristring');
+    await InvoiceDownload.savePdf({ base64: dataUri.slice(dataUri.indexOf(',') + 1), filename });
+    return;
+  }
+  const blob = pdf.output('blob');
+  const file = new File([blob], filename, { type: 'application/pdf' });
+  if (navigator.canShare?.({ files: [file] })) {
+    await navigator.share({ files: [file], title: 'EXAMSTICK invoice' });
+    return;
+  }
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob); link.download = filename; link.click();
+  setTimeout(() => URL.revokeObjectURL(link.href), 1000);
 }
