@@ -40,5 +40,7 @@ test-results/
 *.keystore
 *.jks
 android/keystore.properties
+android/play-upload-*.properties
+android/play_upload_*_certificate.pem
 android/upload-key-credentials.txt
 android/upload_certificate.pem
