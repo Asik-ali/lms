@@ -1,5 +1,5 @@
 -- First add these two secrets in Supabase Dashboard > Vault > Secrets:
---   vercel_expire_orders_url = https://asiklms.vercel.app/api/expire-orders
+--   vercel_expire_orders_url = https://examsticks.vercel.app/api/expire-orders
 --   vercel_cron_secret = the same private value as Vercel Production CRON_SECRET
 -- Then run this complete script in Supabase SQL Editor. No secret is embedded here.
 BEGIN;

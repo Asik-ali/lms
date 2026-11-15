@@ -40,7 +40,7 @@ public class MainActivity extends BridgeActivity {
     private void routeReferralUri(android.net.Uri uri) {
         if (uri == null || !"https".equals(uri.getScheme())) return;
         String host = uri.getHost();
-        if (!"examsticks.vercel.app".equalsIgnoreCase(host) && !"asiklms.vercel.app".equalsIgnoreCase(host)) return;
+        if (!"examsticks.vercel.app".equalsIgnoreCase(host)) return;
         if (uri.getPath() == null || !uri.getPath().startsWith("/r/")) return;
         String code = uri.getLastPathSegment();
         if (code == null || !code.matches("[A-Za-z0-9_-]{1,32}")) return;
@@ -95,8 +95,7 @@ public class MainActivity extends BridgeActivity {
                 if (!"https".equals(scheme) && !"http".equals(scheme)) return openExternalPaymentApp(url);
                 android.net.Uri app = android.net.Uri.parse(bridge.getAppUrl());
                 boolean isAppDomain = app.getHost().equalsIgnoreCase(url.getHost())
-                    || "examsticks.vercel.app".equalsIgnoreCase(url.getHost())
-                    || "asiklms.vercel.app".equalsIgnoreCase(url.getHost());
+                    || "examsticks.vercel.app".equalsIgnoreCase(url.getHost());
                 return !(app.getScheme().equalsIgnoreCase(scheme) && isAppDomain && app.getPort() == url.getPort());
             }
 
