@@ -39,5 +39,6 @@ test-results/
 # Android release signing material
 *.keystore
 *.jks
+android/keystore.properties
 android/upload-key-credentials.txt
 android/upload_certificate.pem

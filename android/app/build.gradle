@@ -7,8 +7,8 @@ android {
         applicationId "com.lms.portal"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 11
-        versionName "1.10"
+        versionCode 12
+        versionName "1.11"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
              // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
@@ -16,23 +16,29 @@ android {
             ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
         }
     }
-    def releaseStorePath = System.getenv('LMS_RELEASE_STORE_FILE')
-    def releaseStorePassword = System.getenv('LMS_RELEASE_STORE_PASSWORD')
-    def releaseKeyAlias = System.getenv('LMS_RELEASE_KEY_ALIAS')
-    def releaseKeyPassword = System.getenv('LMS_RELEASE_KEY_PASSWORD')
+    def keystorePropsFile = rootProject.file('keystore.properties')
+    def keystoreProps = new Properties()
+    if (keystorePropsFile.exists()) {
+        keystorePropsFile.withInputStream { keystoreProps.load(it) }
+    }
+
+    def releaseStorePath = System.getenv('LMS_RELEASE_STORE_FILE') ?: keystoreProps.getProperty('storeFile')
+    def releaseStorePassword = System.getenv('LMS_RELEASE_STORE_PASSWORD') ?: keystoreProps.getProperty('storePassword')
+    def releaseKeyAlias = System.getenv('LMS_RELEASE_KEY_ALIAS') ?: keystoreProps.getProperty('keyAlias')
+    def releaseKeyPassword = System.getenv('LMS_RELEASE_KEY_PASSWORD') ?: keystoreProps.getProperty('keyPassword')
     def hasReleaseSigning = releaseStorePath && releaseStorePassword && releaseKeyAlias && releaseKeyPassword
 
     if (hasReleaseSigning) {
         signingConfigs {
             release {
-                storeFile file(releaseStorePath)
+                storeFile rootProject.file(releaseStorePath)
                 storePassword releaseStorePassword
                 keyAlias releaseKeyAlias
                 keyPassword releaseKeyPassword
             }
         }
     } else {
-        logger.warn('Release signing is not configured. Set LMS_RELEASE_STORE_FILE, LMS_RELEASE_STORE_PASSWORD, LMS_RELEASE_KEY_ALIAS, and LMS_RELEASE_KEY_PASSWORD to create a Play-uploadable bundle.')
+        logger.warn('Release signing is not configured. Create android/keystore.properties (copy keystore.properties.sample) or set LMS_RELEASE_STORE_FILE, LMS_RELEASE_STORE_PASSWORD, LMS_RELEASE_KEY_ALIAS, and LMS_RELEASE_KEY_PASSWORD to create a Play-uploadable bundle.')
     }
     buildTypes {
         release {
