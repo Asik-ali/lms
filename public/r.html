@@ -26,7 +26,7 @@
       if (!/^[A-Za-z0-9_-]{1,32}$/.test(code)) {
         document.querySelector('main').innerHTML = '<p>This referral link is invalid.</p>';
       } else {
-        const intent = `intent://asiklms.vercel.app/r/${code}#Intent;scheme=https;package=com.lms.portal;end`;
+        const intent = `intent://examsticks.vercel.app/r/${code}#Intent;scheme=https;package=com.lms.portal;end`;
         document.getElementById('open-app').href = intent;
         if (/Android/i.test(navigator.userAgent)) {
           // Do not send users to Play Store just because Android blocked a

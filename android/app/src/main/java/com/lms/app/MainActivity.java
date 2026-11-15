@@ -38,12 +38,13 @@ public class MainActivity extends BridgeActivity {
     }
 
     private void routeReferralUri(android.net.Uri uri) {
-        if (uri == null || !"https".equals(uri.getScheme())
-            || !"asiklms.vercel.app".equals(uri.getHost())
-            || uri.getPath() == null || !uri.getPath().startsWith("/r/")) return;
+        if (uri == null || !"https".equals(uri.getScheme())) return;
+        String host = uri.getHost();
+        if (!"examsticks.vercel.app".equalsIgnoreCase(host) && !"asiklms.vercel.app".equalsIgnoreCase(host)) return;
+        if (uri.getPath() == null || !uri.getPath().startsWith("/r/")) return;
         String code = uri.getLastPathSegment();
         if (code == null || !code.matches("[A-Za-z0-9_-]{1,32}")) return;
-        String destination = "https://asiklms.vercel.app/signup?ref=" + android.net.Uri.encode(code);
+        String destination = "https://examsticks.vercel.app/signup?ref=" + android.net.Uri.encode(code);
         bridge.getWebView().post(() -> bridge.getWebView().loadUrl(destination));
     }
 
@@ -93,8 +94,10 @@ public class MainActivity extends BridgeActivity {
                 }
                 if (!"https".equals(scheme) && !"http".equals(scheme)) return openExternalPaymentApp(url);
                 android.net.Uri app = android.net.Uri.parse(bridge.getAppUrl());
-                return !(app.getScheme().equals(scheme)
-                    && app.getHost().equals(url.getHost()) && app.getPort() == url.getPort());
+                boolean isAppDomain = app.getHost().equalsIgnoreCase(url.getHost())
+                    || "examsticks.vercel.app".equalsIgnoreCase(url.getHost())
+                    || "asiklms.vercel.app".equalsIgnoreCase(url.getHost());
+                return !(app.getScheme().equalsIgnoreCase(scheme) && isAppDomain && app.getPort() == url.getPort());
             }
 
             @Override

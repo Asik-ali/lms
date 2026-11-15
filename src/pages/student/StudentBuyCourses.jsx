@@ -89,6 +89,13 @@ export default function StudentBuyCourses() {
   const [updatingOrder, setUpdatingOrder] = useState('');
   const [pdfPreview, setPdfPreview] = useState(null);
   useEffect(() => { loadCashfreeSdk().catch(() => {}); }, []);
+  useEffect(() => {
+    return () => {
+      if (Capacitor.isNativePlatform()) {
+        PaymentScreen.setSecure({ enabled: true }).catch(() => {});
+      }
+    };
+  }, []);
   const loadCredit = useCallback(async () => {
     try {
       const { data: { session } } = await supabase.auth.getSession();

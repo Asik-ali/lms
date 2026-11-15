@@ -13,7 +13,7 @@ const ALLOWED_ORIGINS = [
 // native app calls.
 export function setCors(req, res) {
   const origin = req.headers?.origin || '';
-  const allowed = origin && (ALLOWED_ORIGINS.includes(origin) || /^https:\/\/asiklms\.vercel\.app$/.test(origin));
+  const allowed = origin && (ALLOWED_ORIGINS.includes(origin) || /^https:\/\/(examsticks|asiklms)\.vercel\.app$/.test(origin));
   res.setHeader('Access-Control-Allow-Origin', allowed ? origin : process.env.VITE_SITE_URL || '*');
   res.setHeader('Vary', 'Origin');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');

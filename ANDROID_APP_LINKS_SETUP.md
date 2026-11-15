@@ -1,6 +1,6 @@
 # Android referral links
 
-Referral URLs use `https://asiklms.vercel.app/r/{code}`. The Android manifest
+Referral URLs use `https://examsticks.vercel.app/r/{code}`. The Android manifest
 declares this route as a verified App Link, and Vercel allows Google's domain
 verification request to reach `/.well-known/assetlinks.json`.
 
