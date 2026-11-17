@@ -7,7 +7,6 @@ import com.getcapacitor.PluginMethod;
 import com.getcapacitor.JSObject;
 import com.cashfree.pg.api.CFPaymentGatewayService;
 import com.cashfree.pg.core.api.CFSession;
-import com.cashfree.pg.core.api.callback.CFCheckoutResponseCallback;
 import com.cashfree.pg.core.api.exception.CFException;
 import com.cashfree.pg.core.api.utils.CFErrorResponse;
 import com.cashfree.pg.ui.api.upi.intent.CFIntentTheme;
@@ -15,7 +14,7 @@ import com.cashfree.pg.ui.api.upi.intent.CFUPIIntentCheckout;
 import com.cashfree.pg.ui.api.upi.intent.CFUPIIntentCheckoutPayment;
 
 @CapacitorPlugin(name = "PaymentScreen")
-public class PaymentScreenPlugin extends Plugin implements CFCheckoutResponseCallback {
+public class PaymentScreenPlugin extends Plugin {
     private PluginCall checkoutCall;
 
     @PluginMethod
@@ -78,22 +77,24 @@ public class PaymentScreenPlugin extends Plugin implements CFCheckoutResponseCal
             checkoutCall = call;
             call.setKeepAlive(true);
             CFPaymentGatewayService service = CFPaymentGatewayService.getInstance();
-            service.setCheckoutCallback(this);
-            service.doPayment(getActivity(), payment);
+            MainActivity activity = (MainActivity) getActivity();
+            activity.registerPaymentScreenPlugin(this);
+            service.doPayment(activity, payment);
         } catch (CFException error) {
+            if (getActivity() instanceof MainActivity) {
+                ((MainActivity) getActivity()).clearPaymentScreenPlugin(this);
+            }
             checkoutCall = null;
             call.setKeepAlive(false);
             call.reject("Unable to start Cashfree UPI checkout.", error);
         }
     }
 
-    @Override
-    public void onPaymentVerify(String orderId) {
+    public void onCashfreePaymentVerify(String orderId) {
         finishCheckout(orderId, "verify", null);
     }
 
-    @Override
-    public void onPaymentFailure(CFErrorResponse error, String orderId) {
+    public void onCashfreePaymentFailure(CFErrorResponse error, String orderId) {
         String message = error == null ? "Cashfree UPI checkout did not complete." : error.getMessage();
         finishCheckout(orderId, "failure", message);
     }
