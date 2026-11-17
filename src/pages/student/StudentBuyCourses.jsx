@@ -236,30 +236,15 @@ export default function StudentBuyCourses() {
         }
       }
       try {
-        let checkoutFailureMessage = '';
-        if (nativeCheckout && method === 'upi') {
-          const checkoutResult = await PaymentScreen.startUpiCheckout({
-            orderId: data.order_id,
-            paymentSessionId: data.payment_session_id,
-            mode: data.mode || CASHFREE_MODE,
-          });
-          if (checkoutResult.outcome !== 'verify') checkoutFailureMessage = checkoutResult.message || '';
-        } else {
-          const Cashfree = await loadCashfreeSdk();
-          const cashfree = Cashfree({ mode: data.mode || CASHFREE_MODE });
-          await cashfree.checkout({
-            paymentSessionId: data.payment_session_id,
-            redirectTarget: '_modal',
-          });
-        }
+        const Cashfree = await loadCashfreeSdk();
+        const cashfree = Cashfree({ mode: data.mode || CASHFREE_MODE });
+        await cashfree.checkout({
+          paymentSessionId: data.payment_session_id,
+          redirectTarget: '_modal',
+        });
         // Cashfree's modal can return an empty result when it opens or closes.
-        // The native UPI callback is also not authoritative. The server checks
-        // Cashfree's actual order status before granting access.
-        if (nativeCheckout && method === 'upi') {
-          await verifyPaymentWithRetry(data.order_id, checkoutFailureMessage);
-        } else {
-          await verifyPayment(data.order_id);
-        }
+        // The server checks Cashfree's actual order status before granting access.
+        await verifyPayment(data.order_id);
       } finally {
         if (temporarilyUnsecured) {
           try { await PaymentScreen.setSecure({ enabled: true }); }
@@ -310,19 +295,10 @@ export default function StudentBuyCourses() {
               {useCredit && <p>Credit applied: {formatINR(appliedCredit)}. At least ₹1 is payable through Cashfree.</p>}
             </div>}
             <span className="text-xl font-bold text-navy-100">Total: {formatINR(payable)}</span>
-            {Capacitor.getPlatform() === 'android' ? <>
-              <button onClick={() => handleCheckout('upi')} disabled={!cartPlans.length || Boolean(checkingOut)} className="btn-primary w-full flex items-center justify-center gap-2 min-h-12">
-                {checkingOut === 'upi' ? <Loader2 className="w-4 h-4 animate-spin" /> : <CreditCard className="w-4 h-4" />}
-                {checkingOut === 'upi' ? 'Opening UPI apps...' : `Pay ${formatINR(payable)} with UPI apps`}
-              </button>
-              <button onClick={() => handleCheckout('all')} disabled={!cartPlans.length || Boolean(checkingOut)} className="btn-secondary w-full flex items-center justify-center gap-2 min-h-12">
-                {checkingOut === 'all' ? <Loader2 className="w-4 h-4 animate-spin" /> : <CreditCard className="w-4 h-4" />}
-                {checkingOut === 'all' ? 'Opening secure checkout...' : 'Other methods (cards, netbanking, QR)'}
-              </button>
-            </> : <button onClick={() => handleCheckout('all')} disabled={!cartPlans.length || Boolean(checkingOut)} className="btn-primary w-full flex items-center justify-center gap-2 min-h-12">
+            <button onClick={() => handleCheckout('all')} disabled={!cartPlans.length || Boolean(checkingOut)} className="btn-primary w-full flex items-center justify-center gap-2 min-h-12">
               {checkingOut ? <Loader2 className="w-4 h-4 animate-spin" /> : <CreditCard className="w-4 h-4" />}
               {checkingOut ? 'Opening secure checkout...' : `Pay ${formatINR(payable)}`}
-            </button>}
+            </button>
             <button disabled={Boolean(checkingOut)} className="shop-clear" onClick={() => updateCart([])}>Clear cart</button>
           </div>
           <p className="shop-checkout-note"><ShieldCheck size={15} /> Access unlocks after payment confirmation.</p>

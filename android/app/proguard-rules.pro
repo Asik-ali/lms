@@ -1,8 +1,6 @@
 # Capacitor
 -keep class com.getcapacitor.** { *; }
 -keep class com.capacitorjs.** { *; }
--keep class com.cashfree.pg.** { *; }
--dontwarn com.cashfree.pg.**
 -keepattributes *Annotation*
 -keepattributes JavascriptInterface
 

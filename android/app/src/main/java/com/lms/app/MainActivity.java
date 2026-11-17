@@ -13,17 +13,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import com.getcapacitor.BridgeActivity;
 import com.getcapacitor.BridgeWebViewClient;
-import com.cashfree.pg.api.CFPaymentGatewayService;
-import com.cashfree.pg.core.api.callback.CFCheckoutResponseCallback;
-import com.cashfree.pg.core.api.exception.CFException;
-import com.cashfree.pg.core.api.utils.CFErrorResponse;
 
-public class MainActivity extends BridgeActivity implements CFCheckoutResponseCallback {
+public class MainActivity extends BridgeActivity {
     private View connectionScreen;
     private String retryUrl;
     private boolean pageFailed;
     private boolean secureContent = true;
-    private PaymentScreenPlugin paymentScreenPlugin;
 
     @Override
     protected void onCreate(android.os.Bundle savedInstanceState) {
@@ -31,44 +26,8 @@ public class MainActivity extends BridgeActivity implements CFCheckoutResponseCa
         registerPlugin(PaymentScreenPlugin.class);
         registerPlugin(InvoiceDownloadPlugin.class);
         super.onCreate(savedInstanceState);
-        try {
-            CFPaymentGatewayService.getInstance().setCheckoutCallback(this);
-        } catch (CFException error) {
-            android.util.Log.e("EXAMSTICK", "Unable to register Cashfree checkout callback", error);
-        }
         applyScreenSecurity();
         routeReferralUri(referralUri);
-    }
-
-    public void registerPaymentScreenPlugin(PaymentScreenPlugin plugin) throws CFException {
-        CFPaymentGatewayService.getInstance().setCheckoutCallback(this);
-        paymentScreenPlugin = plugin;
-    }
-
-    public void clearPaymentScreenPlugin(PaymentScreenPlugin plugin) {
-        if (paymentScreenPlugin == plugin) paymentScreenPlugin = null;
-    }
-
-    @Override
-    public void onPaymentVerify(String orderId) {
-        PaymentScreenPlugin plugin = paymentScreenPlugin;
-        paymentScreenPlugin = null;
-        if (plugin != null) {
-            plugin.onCashfreePaymentVerify(orderId);
-        } else {
-            android.util.Log.w("EXAMSTICK", "Cashfree verified an order without an active checkout call: " + orderId);
-        }
-    }
-
-    @Override
-    public void onPaymentFailure(CFErrorResponse error, String orderId) {
-        PaymentScreenPlugin plugin = paymentScreenPlugin;
-        paymentScreenPlugin = null;
-        if (plugin != null) {
-            plugin.onCashfreePaymentFailure(error, orderId);
-        } else {
-            android.util.Log.w("EXAMSTICK", "Cashfree reported a checkout failure without an active checkout call: " + orderId);
-        }
     }
 
     @Override
