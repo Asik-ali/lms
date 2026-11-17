@@ -35,22 +35,25 @@ export default async function handler(req, res) {
     // Reconcile any older checkout that reserved the same content before
     // allowing another payment attempt. Never create a second payable order
     // while Cashfree still reports an active/pending transaction.
-    const { data: requestedItems, error: itemsError } = await supabase
-      .from('sales_plan_items')
-      .select('item_type, item_id')
-      .in('plan_id', planIds);
+    const [requestedItemsResult, existingOrdersResult] = await Promise.all([
+      supabase
+        .from('sales_plan_items')
+        .select('item_type, item_id')
+        .in('plan_id', planIds),
+      supabase
+        .from('purchase_orders')
+        .select('id, order_id, plan_id, student_id, amount, status, created_at, cart_plans, access_items, credit_applied, credit_released, close_reason')
+        .eq('student_id', profile.id)
+        .neq('status', 'PAID')
+        .eq('credit_released', false)
+        .order('created_at', { ascending: false })
+        .limit(50),
+    ]);
+    const { data: requestedItems, error: itemsError } = requestedItemsResult;
     if (itemsError) throw itemsError;
-    const requestedContent = new Set((requestedItems || []).map(item => `${item.item_type}:${item.item_id}`));
-
-    const { data: existingOrders, error: existingError } = await supabase
-      .from('purchase_orders')
-      .select('id, order_id, plan_id, student_id, amount, status, created_at, cart_plans, access_items, credit_applied, credit_released, close_reason')
-      .eq('student_id', profile.id)
-      .neq('status', 'PAID')
-      .eq('credit_released', false)
-      .order('created_at', { ascending: false })
-      .limit(50);
+    const { data: existingOrders, error: existingError } = existingOrdersResult;
     if (existingError) throw existingError;
+    const requestedContent = new Set((requestedItems || []).map(item => `${item.item_type}:${item.item_id}`));
 
     const legacyPlanIds = [...new Set((existingOrders || [])
       .filter(order => !Array.isArray(order.access_items) && order.plan_id)
