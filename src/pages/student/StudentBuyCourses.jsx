@@ -174,19 +174,6 @@ export default function StudentBuyCourses() {
     return order;
   }, [refreshProfile, loadHistory, loadCredit]);
 
-  async function verifyPaymentWithRetry(orderId, pendingMessage = '') {
-    const retryDelays = [1500, 2500, 4000, 6000, 8000];
-    let order;
-    for (let attempt = 0; attempt <= retryDelays.length; attempt++) {
-      order = await verifyPayment(orderId, undefined, attempt === retryDelays.length, pendingMessage);
-      if (order.status === 'PAID' || ['FAILED', 'CANCELLED'].includes(order.status)) return order;
-      if (attempt < retryDelays.length) {
-        await new Promise(resolve => window.setTimeout(resolve, retryDelays[attempt]));
-      }
-    }
-    return order;
-  }
-
   async function updateOrder(orderId, operation) {
     if (updatingOrder) return;
     setUpdatingOrder(orderId);
@@ -230,12 +217,6 @@ export default function StudentBuyCourses() {
     setCheckingOut(method);
     try {
       const nativeCheckout = Capacitor.getPlatform() === 'android';
-      if (nativeCheckout && method === 'upi') {
-        const { available } = await PaymentScreen.hasUpiApps();
-        if (!available) {
-          throw new Error('No supported UPI app is installed. Install Google Pay or another supported UPI app from a trusted app store, then retry.');
-        }
-      }
       const { data: { session } } = await supabase.auth.getSession();
       const token = session?.access_token || '';
       const res = await fetch(apiUrl('/api/create-order'), {

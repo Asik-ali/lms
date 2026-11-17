@@ -1,8 +1,13 @@
+
+name: LLMsRelay Claude OpenAI Mode
+version: 1.0.0
+schema: v1
+
 models:
-  - name: Claude Opus 5.5 (LLMsRelay)
-    provider: anthropic
+  - name: Claude Opus 5.5 via LLMsRelay
+    provider: openai
     model: claude-opus-5-5
-    apiBase: https://api.llmsrelay.com/v1/
+    apiBase: https://api.llmsrelay.com/v1
     apiKey: ${{ secrets.LLMSRELAY_API_KEY }}
     roles:
       - chat
