@@ -230,6 +230,12 @@ export default function StudentBuyCourses() {
     setCheckingOut(method);
     try {
       const nativeCheckout = Capacitor.getPlatform() === 'android';
+      if (nativeCheckout && method === 'upi') {
+        const { available } = await PaymentScreen.hasUpiApps();
+        if (!available) {
+          throw new Error('No supported UPI app is installed. Install Google Pay or another supported UPI app from a trusted app store, then retry.');
+        }
+      }
       const { data: { session } } = await supabase.auth.getSession();
       const token = session?.access_token || '';
       const res = await fetch(apiUrl('/api/create-order'), {
@@ -256,7 +262,7 @@ export default function StudentBuyCourses() {
             paymentSessionId: data.payment_session_id,
             mode: data.mode || CASHFREE_MODE,
           });
-          if (checkoutResult.outcome === 'failure') checkoutFailureMessage = checkoutResult.message || '';
+          if (checkoutResult.outcome !== 'verify') checkoutFailureMessage = checkoutResult.message || '';
         } else {
           const Cashfree = await loadCashfreeSdk();
           const cashfree = Cashfree({ mode: data.mode || CASHFREE_MODE });

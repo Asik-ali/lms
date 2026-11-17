@@ -13,10 +13,32 @@ import com.cashfree.pg.ui.api.upi.intent.CFIntentTheme;
 import com.cashfree.pg.ui.api.upi.intent.CFUPIIntentCheckout;
 import com.cashfree.pg.ui.api.upi.intent.CFUPIIntentCheckoutPayment;
 import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+import android.os.Handler;
+import android.os.Looper;
 
 @CapacitorPlugin(name = "PaymentScreen")
 public class PaymentScreenPlugin extends Plugin {
+    private static final long CHECKOUT_TIMEOUT_MS = 120000;
+    private static final List<String> UPI_APP_PACKAGES = Arrays.asList(
+        "com.google.android.apps.nbu.paisa.user",
+        "com.phonepe.app",
+        "net.one97.paytm",
+        "in.org.npci.upiapp",
+        "com.dreamplug.androidapp");
+    private final Handler mainHandler = new Handler(Looper.getMainLooper());
     private PluginCall checkoutCall;
+    private final Runnable checkoutTimeout = () -> finishCheckout(
+        null, "timeout",
+        "Android did not return from UPI checkout. Install EXAMSTICK from Google Play or another trusted app store, or choose Other methods. Check My Purchases before retrying.");
+
+    @PluginMethod
+    public void hasUpiApps(PluginCall call) {
+        JSObject result = new JSObject();
+        result.put("available", !getInstalledUpiApps().isEmpty());
+        call.resolve(result);
+    }
 
     @PluginMethod
     public void setSecure(PluginCall call) {
@@ -55,6 +77,11 @@ public class PaymentScreenPlugin extends Plugin {
             call.reject("The Android activity is unavailable.");
             return;
         }
+        List<String> installedUpiApps = getInstalledUpiApps();
+        if (installedUpiApps.isEmpty()) {
+            call.reject("No supported UPI app is installed. Install Google Pay, PhonePe, Paytm, BHIM, or CRED from a trusted app store, then retry.");
+            return;
+        }
 
         try {
             CFSession session = new CFSession.CFSessionBuilder()
@@ -69,12 +96,7 @@ public class PaymentScreenPlugin extends Plugin {
                 .setBackgroundColor("#FFFFFF")
                 .build();
             CFUPIIntentCheckout upiCheckout = new CFUPIIntentCheckout.CFUPIIntentBuilder()
-                .setOrderUsingPackageName(Arrays.asList(
-                    "com.google.android.apps.nbu.paisa.user",
-                    "com.phonepe.app",
-                    "net.one97.paytm",
-                    "in.org.npci.upiapp",
-                    "com.dreamplug.androidapp"))
+                .setOrderUsingPackageName(installedUpiApps)
                 .build();
             CFUPIIntentCheckoutPayment payment = new CFUPIIntentCheckoutPayment.CFUPIIntentPaymentBuilder()
                 .setSession(session)
@@ -87,8 +109,10 @@ public class PaymentScreenPlugin extends Plugin {
             CFPaymentGatewayService service = CFPaymentGatewayService.getInstance();
             MainActivity activity = (MainActivity) getActivity();
             activity.registerPaymentScreenPlugin(this);
+            mainHandler.postDelayed(checkoutTimeout, CHECKOUT_TIMEOUT_MS);
             service.doPayment(activity, payment);
         } catch (CFException error) {
+            mainHandler.removeCallbacks(checkoutTimeout);
             if (getActivity() instanceof MainActivity) {
                 ((MainActivity) getActivity()).clearPaymentScreenPlugin(this);
             }
@@ -96,6 +120,20 @@ public class PaymentScreenPlugin extends Plugin {
             call.setKeepAlive(false);
             call.reject("Unable to start Cashfree UPI checkout.", error);
         }
+    }
+
+    private List<String> getInstalledUpiApps() {
+        List<String> installed = new ArrayList<>();
+        if (getActivity() == null) return installed;
+        android.content.pm.PackageManager packageManager = getActivity().getPackageManager();
+        for (String packageName : UPI_APP_PACKAGES) {
+            try {
+                if (packageManager.getApplicationInfo(packageName, 0).enabled) installed.add(packageName);
+            } catch (android.content.pm.PackageManager.NameNotFoundException ignored) {
+                // This package is not installed.
+            }
+        }
+        return installed;
     }
 
     public void onCashfreePaymentVerify(String orderId) {
@@ -112,6 +150,10 @@ public class PaymentScreenPlugin extends Plugin {
         checkoutCall = null;
         if (call == null) return;
 
+        mainHandler.removeCallbacks(checkoutTimeout);
+        if (getActivity() instanceof MainActivity) {
+            ((MainActivity) getActivity()).clearPaymentScreenPlugin(this);
+        }
         call.setKeepAlive(false);
         JSObject result = new JSObject();
         result.put("orderId", orderId);
