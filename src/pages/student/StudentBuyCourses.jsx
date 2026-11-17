@@ -215,10 +215,7 @@ export default function StudentBuyCourses() {
     try { localStorage.setItem(`lms-payment-phone-${user?.id}`, customerPhone); } catch { /* Optional persistence. */ }
     setCheckingOut(method);
     try {
-      const nativeCheckout = Capacitor.isNativePlatform();
-      // Use Cashfree's hosted web checkout on Android too. This is the
-      // established flow that hands UPI intent URLs to installed apps.
-      const Cashfree = await loadCashfreeSdk();
+      const nativeCheckout = Capacitor.getPlatform() === 'android';
       const { data: { session } } = await supabase.auth.getSession();
       const token = session?.access_token || '';
       const res = await fetch(apiUrl('/api/create-order'), {
@@ -238,15 +235,23 @@ export default function StudentBuyCourses() {
         }
       }
       try {
-        const cashfree = Cashfree({ mode: data.mode || CASHFREE_MODE });
-        await cashfree.checkout({
-          paymentSessionId: data.payment_session_id,
-          redirectTarget: '_modal',
-        });
+        if (nativeCheckout && method === 'upi') {
+          await PaymentScreen.startUpiCheckout({
+            orderId: data.order_id,
+            paymentSessionId: data.payment_session_id,
+            mode: data.mode || CASHFREE_MODE,
+          });
+        } else {
+          const Cashfree = await loadCashfreeSdk();
+          const cashfree = Cashfree({ mode: data.mode || CASHFREE_MODE });
+          await cashfree.checkout({
+            paymentSessionId: data.payment_session_id,
+            redirectTarget: '_modal',
+          });
+        }
         // Cashfree's modal can return an empty result when it opens or closes.
-        // That is not evidence of cancellation. The server checks Cashfree's
-        // actual order status and the student can cancel explicitly from
-        // My Purchases if needed.
+        // The native UPI callback is also not authoritative. The server checks
+        // Cashfree's actual order status before granting access.
         await verifyPayment(data.order_id);
       } finally {
         if (temporarilyUnsecured) {
@@ -298,10 +303,19 @@ export default function StudentBuyCourses() {
               {useCredit && <p>Credit applied: {formatINR(appliedCredit)}. At least ₹1 is payable through Cashfree.</p>}
             </div>}
             <span className="text-xl font-bold text-navy-100">Total: {formatINR(payable)}</span>
-            <button onClick={() => handleCheckout('all')} disabled={!cartPlans.length || Boolean(checkingOut)} className="btn-primary w-full flex items-center justify-center gap-2 min-h-12">
+            {Capacitor.getPlatform() === 'android' ? <>
+              <button onClick={() => handleCheckout('upi')} disabled={!cartPlans.length || Boolean(checkingOut)} className="btn-primary w-full flex items-center justify-center gap-2 min-h-12">
+                {checkingOut === 'upi' ? <Loader2 className="w-4 h-4 animate-spin" /> : <CreditCard className="w-4 h-4" />}
+                {checkingOut === 'upi' ? 'Opening UPI apps...' : `Pay ${formatINR(payable)} with UPI apps`}
+              </button>
+              <button onClick={() => handleCheckout('all')} disabled={!cartPlans.length || Boolean(checkingOut)} className="btn-secondary w-full flex items-center justify-center gap-2 min-h-12">
+                {checkingOut === 'all' ? <Loader2 className="w-4 h-4 animate-spin" /> : <CreditCard className="w-4 h-4" />}
+                {checkingOut === 'all' ? 'Opening secure checkout...' : 'Other methods (cards, netbanking, QR)'}
+              </button>
+            </> : <button onClick={() => handleCheckout('all')} disabled={!cartPlans.length || Boolean(checkingOut)} className="btn-primary w-full flex items-center justify-center gap-2 min-h-12">
               {checkingOut ? <Loader2 className="w-4 h-4 animate-spin" /> : <CreditCard className="w-4 h-4" />}
-              {checkingOut ? 'Opening secure checkout...' : Capacitor.isNativePlatform() ? `Pay ${formatINR(payable)} with UPI, card or QR` : `Pay ${formatINR(payable)}`}
-            </button>
+              {checkingOut ? 'Opening secure checkout...' : `Pay ${formatINR(payable)}`}
+            </button>}
             <button disabled={Boolean(checkingOut)} className="shop-clear" onClick={() => updateCart([])}>Clear cart</button>
           </div>
           <p className="shop-checkout-note"><ShieldCheck size={15} /> Access unlocks after payment confirmation.</p>

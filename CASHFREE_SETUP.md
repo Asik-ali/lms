@@ -35,4 +35,6 @@ Apply `src/supabase/migrations/allow_permanent_plan_delete.sql` after the cart m
 
 ## Android checkout
 
-The Android app uses Cashfree's native Android SDK for UPI Intent checkout so installed UPI apps are discoverable on Android 11 and later, and for the standard hosted checkout methods. Students see separate **Pay with UPI apps** and **Other methods (cards, netbanking, QR)** actions in the app. Keep the UPI payment method enabled for the Cashfree account. The app uses the server-created `payment_session_id`; Cashfree credentials remain server-only. The Android manifest's `<queries>` declarations are required for Cashfree to detect UPI apps.
+On Android, **Pay with UPI apps** launches Cashfree's native UPI Intent checkout; **Other methods (cards, netbanking, QR)** uses the hosted checkout. Both use a server-created `payment_session_id`, and the server still verifies payment before granting access. Cashfree credentials remain server-only.
+
+Keep UPI enabled for the Cashfree merchant account and test on a real Android device with UPI apps installed. The manifest's `<queries>` declarations let Cashfree detect installed apps on Android 11 and later. After changing the native checkout, build and publish a new Android app release; deploying only the website does not update the installed app.
