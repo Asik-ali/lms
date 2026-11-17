@@ -141,7 +141,7 @@ export default function StudentBuyCourses() {
     }
   }, [user?.id]);
 
-  const verifyPayment = useCallback(async (orderId, operation) => {
+  const verifyPayment = useCallback(async (orderId, operation, notify = true, pendingMessage = '') => {
     const { data: { session } } = await supabase.auth.getSession();
     const response = await fetch(apiUrl(operation ? `/api/order-status?operation=${operation}` : `/api/order-status?orderId=${encodeURIComponent(orderId)}`), {
       method: operation ? 'POST' : 'GET',
@@ -158,20 +158,34 @@ export default function StudentBuyCourses() {
         try { localStorage.setItem(`lms-cart-${current.owner}`, JSON.stringify(ids)); } catch { /* Optional persistence. */ }
         return { ...current, ids };
       });
-      showSuccess('Payment successful. Your courses and tests are unlocked.');
+      if (notify) showSuccess('Payment successful. Your courses and tests are unlocked.');
     } else if (['FAILED', 'CANCELLED'].includes(order.status)) {
-      showSuccess(`Payment ${order.status === 'FAILED' ? 'failed' : 'cancelled'}. You can make a new purchase now.${order.credit_released && Number(order.credit_applied) > 0 ? ` ${formatINR(order.credit_applied)} store credit returned.` : ''}`);
+      if (notify) showSuccess(`Payment ${order.status === 'FAILED' ? 'failed' : 'cancelled'}. You can make a new purchase now.${order.credit_released && Number(order.credit_applied) > 0 ? ` ${formatINR(order.credit_applied)} store credit returned.` : ''}`);
     } else if (order.status === 'CANCELLING') {
       const creditNote = Number(order.credit_applied) > 0
         ? ` ${formatINR(order.credit_applied)} reserved store credit will return after confirmation.`
         : '';
-      showSuccess(`Cancellation requested. Waiting for Cashfree to confirm.${creditNote}`);
-    } else {
-      showError('Payment is not confirmed yet. Access remains locked. Check payment status again shortly.');
+      if (notify) showSuccess(`Cancellation requested. Waiting for Cashfree to confirm.${creditNote}`);
+    } else if (notify) {
+      showError(pendingMessage || 'Payment is not confirmed yet. Access remains locked. Check payment status again shortly.');
     }
     await loadHistory();
     await loadCredit();
+    return order;
   }, [refreshProfile, loadHistory, loadCredit]);
+
+  async function verifyPaymentWithRetry(orderId, pendingMessage = '') {
+    const retryDelays = [1500, 2500, 4000, 6000, 8000];
+    let order;
+    for (let attempt = 0; attempt <= retryDelays.length; attempt++) {
+      order = await verifyPayment(orderId, undefined, attempt === retryDelays.length, pendingMessage);
+      if (order.status === 'PAID' || ['FAILED', 'CANCELLED'].includes(order.status)) return order;
+      if (attempt < retryDelays.length) {
+        await new Promise(resolve => window.setTimeout(resolve, retryDelays[attempt]));
+      }
+    }
+    return order;
+  }
 
   async function updateOrder(orderId, operation) {
     if (updatingOrder) return;
@@ -235,12 +249,14 @@ export default function StudentBuyCourses() {
         }
       }
       try {
+        let checkoutFailureMessage = '';
         if (nativeCheckout && method === 'upi') {
-          await PaymentScreen.startUpiCheckout({
+          const checkoutResult = await PaymentScreen.startUpiCheckout({
             orderId: data.order_id,
             paymentSessionId: data.payment_session_id,
             mode: data.mode || CASHFREE_MODE,
           });
+          if (checkoutResult.outcome === 'failure') checkoutFailureMessage = checkoutResult.message || '';
         } else {
           const Cashfree = await loadCashfreeSdk();
           const cashfree = Cashfree({ mode: data.mode || CASHFREE_MODE });
@@ -252,7 +268,11 @@ export default function StudentBuyCourses() {
         // Cashfree's modal can return an empty result when it opens or closes.
         // The native UPI callback is also not authoritative. The server checks
         // Cashfree's actual order status before granting access.
-        await verifyPayment(data.order_id);
+        if (nativeCheckout && method === 'upi') {
+          await verifyPaymentWithRetry(data.order_id, checkoutFailureMessage);
+        } else {
+          await verifyPayment(data.order_id);
+        }
       } finally {
         if (temporarilyUnsecured) {
           try { await PaymentScreen.setSecure({ enabled: true }); }

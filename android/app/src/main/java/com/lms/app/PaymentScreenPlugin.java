@@ -12,6 +12,7 @@ import com.cashfree.pg.core.api.utils.CFErrorResponse;
 import com.cashfree.pg.ui.api.upi.intent.CFIntentTheme;
 import com.cashfree.pg.ui.api.upi.intent.CFUPIIntentCheckout;
 import com.cashfree.pg.ui.api.upi.intent.CFUPIIntentCheckoutPayment;
+import java.util.Arrays;
 
 @CapacitorPlugin(name = "PaymentScreen")
 public class PaymentScreenPlugin extends Plugin {
@@ -67,7 +68,14 @@ public class PaymentScreenPlugin extends Plugin {
                 .setPrimaryTextColor("#1B1B1B")
                 .setBackgroundColor("#FFFFFF")
                 .build();
-            CFUPIIntentCheckout upiCheckout = new CFUPIIntentCheckout.CFUPIIntentBuilder().build();
+            CFUPIIntentCheckout upiCheckout = new CFUPIIntentCheckout.CFUPIIntentBuilder()
+                .setOrderUsingPackageName(Arrays.asList(
+                    "com.google.android.apps.nbu.paisa.user",
+                    "com.phonepe.app",
+                    "net.one97.paytm",
+                    "in.org.npci.upiapp",
+                    "com.dreamplug.androidapp"))
+                .build();
             CFUPIIntentCheckoutPayment payment = new CFUPIIntentCheckoutPayment.CFUPIIntentPaymentBuilder()
                 .setSession(session)
                 .setCfUPIIntentCheckout(upiCheckout)
