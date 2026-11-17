@@ -1,5 +1,23 @@
 import { createClient } from '@supabase/supabase-js';
 
+export function normalizePublicOrigin(value) {
+  if (!value) return '';
+  let origin = String(value).trim().replace(/\/+$/, '');
+  if (!/^[a-z]+:\/\//i.test(origin)) {
+    origin = /^\//.test(origin) ? `https:${origin}` : `https://${origin}`;
+  }
+  return origin;
+}
+
+export function resolvePublicOrigin(req) {
+  const configured = normalizePublicOrigin(process.env.VITE_SITE_URL);
+  if (configured) return configured;
+  const host = req?.headers?.['x-forwarded-host'] || req?.headers?.host || '';
+  const forwardedProto = (req?.headers?.['x-forwarded-proto'] || '').split(',')[0].trim();
+  const proto = forwardedProto || (host.includes('localhost') ? 'http' : 'https');
+  return host ? normalizePublicOrigin(`${proto}://${host}`) : '';
+}
+
 export function getCashfreeMode() {
   return (process.env.CASHFREE_MODE || 'production').toLowerCase();
 }
@@ -43,7 +61,10 @@ export function getCashfreeHeaders(auth = false) {
 // Create a Cashfree order and return its payment_session_id (for the Drop-in checkout SDK).
 export async function createCashfreeOrder({ orderId, amount, customer, planName, origin }) {
   const { headers } = getCashfreeHeaders(true);
-  const baseUrl = origin || process.env.VITE_SITE_URL || '';
+  const baseUrl = normalizePublicOrigin(origin || process.env.VITE_SITE_URL || '');
+  if (!baseUrl) {
+    throw new Error('Cashfree checkout requires VITE_SITE_URL to be set to the deployed HTTPS site.');
+  }
   const body = {
     order_id: orderId,
     order_amount: Number(amount),

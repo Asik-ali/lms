@@ -1,13 +1,10 @@
 import { randomUUID } from 'node:crypto';
 import { createServiceClient, getAuthedUser, setCors } from './_auth.mjs';
-import { createCashfreeOrder, CASHFREE_ORDER_PREFIX, PAYMENT_ORDER_CLEANUP_MINUTES, getCashfreeMode } from './_cashfree.mjs';
+import { createCashfreeOrder, CASHFREE_ORDER_PREFIX, PAYMENT_ORDER_CLEANUP_MINUTES, getCashfreeMode, resolvePublicOrigin } from './_cashfree.mjs';
 import { reconcileOrder } from './_order-lifecycle.mjs';
 
 function getOrigin(req) {
-  const host = req.headers?.['x-forwarded-host'] || req.headers?.host || '';
-  const proto = (req.headers?.['x-forwarded-proto'] || '').split(',')[0].trim() || 'https';
-  if (!host) return process.env.VITE_SITE_URL || '';
-  return `${proto}://${host}`;
+  return resolvePublicOrigin(req);
 }
 
 export default async function handler(req, res) {

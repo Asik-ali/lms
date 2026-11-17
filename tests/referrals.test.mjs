@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { normalizeReferralCode, resolveReferrer } from '../api/_referrals.mjs';
+import { resolvePublicOrigin } from '../api/_cashfree.mjs';
 import orderStatus from '../api/order-status.mjs';
 import createOrder from '../api/create-order.mjs';
 import verifySignup from '../api/verify-signup.mjs';
@@ -62,6 +63,16 @@ test('only active student referral codes resolve and database errors are preserv
     await assert.rejects(resolveReferrer(client({ data }), 'AB12CD34EF56'), /unavailable/);
   }
   await assert.rejects(resolveReferrer(client({ error: new Error('db unavailable') }), 'AB12CD34EF56'), /db unavailable/);
+});
+
+test('credit checkout uses the configured production site URL instead of arbitrary request hosts', async () => {
+  const previousSite = process.env.VITE_SITE_URL;
+  process.env.VITE_SITE_URL = 'https://examsticks.example.com/';
+  try {
+    assert.equal(resolvePublicOrigin({ headers: { host: 'examsticks.vercel.app', 'x-forwarded-proto': 'https' } }), 'https://examsticks.example.com');
+  } finally {
+    if (previousSite === undefined) delete process.env.VITE_SITE_URL; else process.env.VITE_SITE_URL = previousSite;
+  }
 });
 
 test('credit checkout uses the authenticated balance RPC and sends only the discounted amount to Cashfree', async () => {
