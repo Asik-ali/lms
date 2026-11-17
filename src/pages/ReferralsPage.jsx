@@ -38,7 +38,7 @@ export default function ReferralsPage() {
     return () => { active = false; controller.abort(); };
   }, [page, revision, admin]);
   const link = data?.code
-    ? `${(import.meta.env.VITE_SITE_URL || 'https://examsticks.vercel.app').replace(/\/$/, '')}/r/${encodeURIComponent(data.code)}`
+    ? `https://examsticks.vercel.app/r/${encodeURIComponent(data.code)}`
     : '';
   async function copy(value) {
     try { await navigator.clipboard.writeText(value); showSuccess('Copied to clipboard.'); }
