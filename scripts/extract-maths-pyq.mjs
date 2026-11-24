@@ -8,6 +8,7 @@ let inputs = fs.readdirSync(dir).filter(f=>f.endsWith('.pdf')).map(file=>({file,
 const downloads=String.raw`C:\Users\asik1\Downloads`;
 for(const file of fs.readdirSync(downloads).filter(f=>f.startsWith('SI ') && f.endsWith('pyq.pdf'))) inputs.push({file,folder:downloads});
 if(process.argv.includes('--additional'))inputs=fs.readdirSync(downloads).filter(file=>/^(?:CI |AP GP|Age problem)/.test(file)&&file.endsWith('.pdf')).map(file=>({file,folder:downloads}));
+if(process.argv.includes('--remaining'))inputs=inputs.filter(({file})=>['Ratio and Proportion.pdf','(SI) pyq.pdf'].includes(file));
 for (const {file,folder} of inputs) {
  const doc=await getDocument({data:new Uint8Array(fs.readFileSync(path.join(folder,file))),useSystemFonts:true}).promise;
  const pages=[];

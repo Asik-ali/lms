@@ -7,7 +7,7 @@ This batch creates a separate `Maths PYQ` series with ten topic tests. Paired PD
 | Simplification | 74 | English / Tamil |
 | LCM and HCF | 180 | English / Tamil |
 | Percentage | 111 | English / Tamil |
-| Ratio and Proportion | 101 | Tamil; English source pending |
+| Ratio and Proportion | 101 | English / Tamil |
 | Average | 26 | English / Tamil; Q1-26 requested by user |
 | Profit and Loss | 52 | English / Tamil |
 | Simple Interest | 130 | English / Tamil |
@@ -36,4 +36,4 @@ node --env-file=.env scripts/upload-maths-pyq.mjs
 node --env-file=.env scripts/verify-maths-pyq.mjs
 ```
 
-`review.html` shows question crops and source answers. `review-flags.json` records the known gaps. The uploader resumes safely, only changes its own draft questions, checks existing source metadata and verifies every saved question by readback. Image object paths include content hashes. The upload receipts record actual database IDs and uploaded image URLs.
+`review.html` shows question crops and source answers. `review-flags.json` records the known gaps. The uploader resumes safely, only changes its own draft questions, checks existing source metadata and verifies every saved question by readback. Image object paths include content hashes. The upload receipts record actual database IDs and uploaded image URLs. Later source additions are documented in `../maths-pyq-remaining/README.md`; English Ratio and Simple Interest question displays now use the separately supplied question PDFs.

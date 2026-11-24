@@ -1,0 +1,23 @@
+{
+  "seriesId": 12,
+  "tests": [
+    {
+      "topic": "Ratio and Proportion",
+      "testId": 84,
+      "questions": 101,
+      "questionIdsPreserved": true,
+      "answersPreserved": true,
+      "language": "English / Tamil",
+      "status": "Draft"
+    },
+    {
+      "topic": "Simple Interest",
+      "testId": 87,
+      "questions": 130,
+      "questionIdsPreserved": true,
+      "answersPreserved": true,
+      "language": "English / Tamil",
+      "status": "Draft"
+    }
+  ]
+}

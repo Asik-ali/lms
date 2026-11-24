@@ -5873,1428 +5873,1626 @@
   {
     "topic": "Ratio and Proportion",
     "name": "Ratio and Proportion PYQ",
-    "language": "Tamil",
+    "language": "English / Tamil",
     "questions": [
       {
         "number": 1,
-        "english_image": "imports/maths-pyq/images/paper-11/q001.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q001.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q001.webp",
         "has_e": false,
         "correct_answer": "D",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "D"
+          "Tamil": "D",
+          "English": "D"
         },
         "notes": []
       },
       {
         "number": 2,
-        "english_image": "imports/maths-pyq/images/paper-11/q002.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q002.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q002.webp",
         "has_e": false,
         "correct_answer": "D",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "D"
+          "Tamil": "D",
+          "English": "D"
         },
         "notes": []
       },
       {
         "number": 3,
-        "english_image": "imports/maths-pyq/images/paper-11/q003.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q003.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q003.webp",
         "has_e": false,
         "correct_answer": "C",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "C"
+          "Tamil": "C",
+          "English": "C"
         },
         "notes": []
       },
       {
         "number": 4,
-        "english_image": "imports/maths-pyq/images/paper-11/q004.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q004.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q004.webp",
         "has_e": false,
         "correct_answer": "D",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "D"
+          "Tamil": "D",
+          "English": "D"
         },
         "notes": []
       },
       {
         "number": 5,
-        "english_image": "imports/maths-pyq/images/paper-11/q005.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q005.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q005.webp",
         "has_e": false,
         "correct_answer": "C",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "C"
+          "Tamil": "C",
+          "English": "C"
         },
         "notes": []
       },
       {
         "number": 6,
-        "english_image": "imports/maths-pyq/images/paper-11/q006.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q006.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q006.webp",
         "has_e": false,
         "correct_answer": "D",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "D"
+          "Tamil": "D",
+          "English": "D"
         },
         "notes": []
       },
       {
         "number": 7,
-        "english_image": "imports/maths-pyq/images/paper-11/q007.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q007.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q007.webp",
         "has_e": false,
         "correct_answer": "D",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "D"
+          "Tamil": "D",
+          "English": "D"
         },
         "notes": []
       },
       {
         "number": 8,
-        "english_image": "imports/maths-pyq/images/paper-11/q008.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q008.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q008.webp",
         "has_e": false,
         "correct_answer": "A",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "A"
+          "Tamil": "A",
+          "English": "A"
         },
         "notes": []
       },
       {
         "number": 9,
-        "english_image": "imports/maths-pyq/images/paper-11/q009.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q009.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q009.webp",
         "has_e": false,
         "correct_answer": "A",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "A"
+          "Tamil": "A",
+          "English": "A"
         },
         "notes": []
       },
       {
         "number": 10,
-        "english_image": "imports/maths-pyq/images/paper-11/q010.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q010.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q010.webp",
         "has_e": false,
         "correct_answer": "A",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "A"
+          "Tamil": "A",
+          "English": "A"
         },
         "notes": []
       },
       {
         "number": 11,
-        "english_image": "imports/maths-pyq/images/paper-11/q011.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q011.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q011.webp",
         "has_e": false,
         "correct_answer": "D",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "D"
+          "Tamil": "D",
+          "English": "D"
         },
         "notes": []
       },
       {
         "number": 12,
-        "english_image": "imports/maths-pyq/images/paper-11/q012.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q012.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q012.webp",
         "has_e": false,
         "correct_answer": "C",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "C"
+          "Tamil": "C",
+          "English": "C"
         },
         "notes": []
       },
       {
         "number": 13,
-        "english_image": "imports/maths-pyq/images/paper-11/q013.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q013.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q013.webp",
         "has_e": false,
         "correct_answer": "A",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "A"
+          "Tamil": "A",
+          "English": "A"
         },
         "notes": []
       },
       {
         "number": 14,
-        "english_image": "imports/maths-pyq/images/paper-11/q014.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q014.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q014.webp",
         "has_e": false,
         "correct_answer": "A",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "A"
+          "Tamil": "A",
+          "English": "A"
         },
         "notes": []
       },
       {
         "number": 15,
-        "english_image": "imports/maths-pyq/images/paper-11/q015.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q015.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q015.webp",
         "has_e": false,
         "correct_answer": "C",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "C"
+          "Tamil": "C",
+          "English": "C"
         },
         "notes": []
       },
       {
         "number": 16,
-        "english_image": "imports/maths-pyq/images/paper-11/q016.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q016.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q016.webp",
         "has_e": false,
         "correct_answer": "B",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "B"
+          "Tamil": "B",
+          "English": "B"
         },
         "notes": []
       },
       {
         "number": 17,
-        "english_image": "imports/maths-pyq/images/paper-11/q017.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q017.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q017.webp",
         "has_e": false,
         "correct_answer": "B",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "B"
+          "Tamil": "B",
+          "English": "B"
         },
         "notes": []
       },
       {
         "number": 18,
-        "english_image": "imports/maths-pyq/images/paper-11/q018.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q018.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q018.webp",
         "has_e": false,
         "correct_answer": "C",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "C"
+          "Tamil": "C",
+          "English": "C"
         },
         "notes": []
       },
       {
         "number": 19,
-        "english_image": "imports/maths-pyq/images/paper-11/q019.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q019.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q019.webp",
         "has_e": false,
         "correct_answer": "D",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "D"
+          "Tamil": "D",
+          "English": "D"
         },
         "notes": []
       },
       {
         "number": 20,
-        "english_image": "imports/maths-pyq/images/paper-11/q020.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q020.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q020.webp",
         "has_e": false,
         "correct_answer": "B",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "B"
+          "Tamil": "B",
+          "English": "B"
         },
         "notes": []
       },
       {
         "number": 21,
-        "english_image": "imports/maths-pyq/images/paper-11/q021.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q021.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q021.webp",
         "has_e": false,
         "correct_answer": "C",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "C"
+          "Tamil": "C",
+          "English": "C"
         },
         "notes": []
       },
       {
         "number": 22,
-        "english_image": "imports/maths-pyq/images/paper-11/q022.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q022.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q022.webp",
         "has_e": false,
         "correct_answer": "B",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "B"
+          "Tamil": "B",
+          "English": "B"
         },
         "notes": []
       },
       {
         "number": 23,
-        "english_image": "imports/maths-pyq/images/paper-11/q023.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q023.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q023.webp",
         "has_e": false,
         "correct_answer": "A",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "A"
+          "Tamil": "A",
+          "English": "A"
         },
         "notes": []
       },
       {
         "number": 24,
-        "english_image": "imports/maths-pyq/images/paper-11/q024.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q024.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q024.webp",
         "has_e": false,
         "correct_answer": "C",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "C"
+          "Tamil": "C",
+          "English": "C"
         },
         "notes": []
       },
       {
         "number": 25,
-        "english_image": "imports/maths-pyq/images/paper-11/q025.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q025.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q025.webp",
         "has_e": false,
         "correct_answer": "A",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "A"
+          "Tamil": "A",
+          "English": "A"
         },
         "notes": []
       },
       {
         "number": 26,
-        "english_image": "imports/maths-pyq/images/paper-11/q026.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q026.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q026.webp",
         "has_e": false,
         "correct_answer": "B",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "B"
+          "Tamil": "B",
+          "English": "B"
         },
         "notes": []
       },
       {
         "number": 27,
-        "english_image": "imports/maths-pyq/images/paper-11/q027.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q027.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q027.webp",
         "has_e": false,
         "correct_answer": "C",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "C"
+          "Tamil": "C",
+          "English": "C"
         },
         "notes": []
       },
       {
         "number": 28,
-        "english_image": "imports/maths-pyq/images/paper-11/q028.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q028.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q028.webp",
         "has_e": false,
         "correct_answer": "B",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "B"
+          "Tamil": "B",
+          "English": "B"
         },
         "notes": []
       },
       {
         "number": 29,
-        "english_image": "imports/maths-pyq/images/paper-11/q029.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q029.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q029.webp",
         "has_e": false,
         "correct_answer": "B",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "B"
+          "Tamil": "B",
+          "English": "B"
         },
         "notes": []
       },
       {
         "number": 30,
-        "english_image": "imports/maths-pyq/images/paper-11/q030.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q030.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q030.webp",
         "has_e": false,
         "correct_answer": "C",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "C"
+          "Tamil": "C",
+          "English": "C"
         },
         "notes": []
       },
       {
         "number": 31,
-        "english_image": "imports/maths-pyq/images/paper-11/q031.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q031.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q031.webp",
         "has_e": false,
         "correct_answer": "C",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "C"
+          "Tamil": "C",
+          "English": "C"
         },
         "notes": []
       },
       {
         "number": 32,
-        "english_image": "imports/maths-pyq/images/paper-11/q032.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q032.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q032.webp",
         "has_e": false,
         "correct_answer": "B",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "B"
+          "Tamil": "B",
+          "English": "B"
         },
         "notes": []
       },
       {
         "number": 33,
-        "english_image": "imports/maths-pyq/images/paper-11/q033.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q033.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q033.webp",
         "has_e": false,
         "correct_answer": "D",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "D"
+          "Tamil": "D",
+          "English": "D"
         },
         "notes": []
       },
       {
         "number": 34,
-        "english_image": "imports/maths-pyq/images/paper-11/q034.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q034.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q034.webp",
         "has_e": false,
         "correct_answer": "D",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "D"
+          "Tamil": "D",
+          "English": "D"
         },
         "notes": []
       },
       {
         "number": 35,
-        "english_image": "imports/maths-pyq/images/paper-11/q035.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q035.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q035.webp",
         "has_e": false,
         "correct_answer": "B",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "B"
+          "Tamil": "B",
+          "English": "B"
         },
         "notes": []
       },
       {
         "number": 36,
-        "english_image": "imports/maths-pyq/images/paper-11/q036.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q036.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q036.webp",
         "has_e": false,
         "correct_answer": "A",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "A"
+          "Tamil": "A",
+          "English": "A"
         },
         "notes": []
       },
       {
         "number": 37,
-        "english_image": "imports/maths-pyq/images/paper-11/q037.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q037.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q037.webp",
         "has_e": false,
         "correct_answer": "B",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "B"
+          "Tamil": "B",
+          "English": "B"
         },
         "notes": []
       },
       {
         "number": 38,
-        "english_image": "imports/maths-pyq/images/paper-11/q038.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q038.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q038.webp",
         "has_e": false,
         "correct_answer": "A",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "A"
+          "Tamil": "A",
+          "English": "A"
         },
         "notes": []
       },
       {
         "number": 39,
-        "english_image": "imports/maths-pyq/images/paper-11/q039.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q039.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q039.webp",
         "has_e": false,
         "correct_answer": "D",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "D"
+          "Tamil": "D",
+          "English": "D"
         },
         "notes": []
       },
       {
         "number": 40,
-        "english_image": "imports/maths-pyq/images/paper-11/q040.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q040.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q040.webp",
         "has_e": false,
         "correct_answer": "A",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "A"
+          "Tamil": "A",
+          "English": "A"
         },
         "notes": []
       },
       {
         "number": 41,
-        "english_image": "imports/maths-pyq/images/paper-11/q041.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q041.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q041.webp",
         "has_e": false,
         "correct_answer": "D",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "D"
+          "Tamil": "D",
+          "English": "D"
         },
         "notes": []
       },
       {
         "number": 42,
-        "english_image": "imports/maths-pyq/images/paper-11/q042.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q042.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q042.webp",
         "has_e": false,
         "correct_answer": "D",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "D"
+          "Tamil": "D",
+          "English": "D"
         },
         "notes": []
       },
       {
         "number": 43,
-        "english_image": "imports/maths-pyq/images/paper-11/q043.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q043.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q043.webp",
         "has_e": false,
         "correct_answer": "D",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "D"
+          "Tamil": "D",
+          "English": "D"
         },
         "notes": []
       },
       {
         "number": 44,
-        "english_image": "imports/maths-pyq/images/paper-11/q044.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q044.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q044.webp",
         "has_e": false,
         "correct_answer": "C",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "C"
+          "Tamil": "C",
+          "English": "C"
         },
         "notes": []
       },
       {
         "number": 45,
-        "english_image": "imports/maths-pyq/images/paper-11/q045.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q045.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q045.webp",
         "has_e": false,
         "correct_answer": "B",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "B"
+          "Tamil": "B",
+          "English": "B"
         },
         "notes": []
       },
       {
         "number": 46,
-        "english_image": "imports/maths-pyq/images/paper-11/q046.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q046.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q046.webp",
         "has_e": false,
         "correct_answer": "A",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "A"
+          "Tamil": "A",
+          "English": "A"
         },
         "notes": []
       },
       {
         "number": 47,
-        "english_image": "imports/maths-pyq/images/paper-11/q047.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q047.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q047.webp",
         "has_e": false,
         "correct_answer": "A",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "A"
+          "Tamil": "A",
+          "English": "A"
         },
         "notes": []
       },
       {
         "number": 48,
-        "english_image": "imports/maths-pyq/images/paper-11/q048.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q048.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q048.webp",
         "has_e": false,
         "correct_answer": "B",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "B"
+          "Tamil": "B",
+          "English": "B"
         },
         "notes": []
       },
       {
         "number": 49,
-        "english_image": "imports/maths-pyq/images/paper-11/q049.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q049.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q049.webp",
         "has_e": false,
         "correct_answer": "D",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "D"
+          "Tamil": "D",
+          "English": "D"
         },
         "notes": []
       },
       {
         "number": 50,
-        "english_image": "imports/maths-pyq/images/paper-11/q050.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q050.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q050.webp",
         "has_e": false,
         "correct_answer": "C",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "C"
+          "Tamil": "C",
+          "English": "C"
         },
         "notes": []
       },
       {
         "number": 51,
-        "english_image": "imports/maths-pyq/images/paper-11/q051.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q051.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q051.webp",
         "has_e": false,
         "correct_answer": "B",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "B"
+          "Tamil": "B",
+          "English": "B"
         },
         "notes": []
       },
       {
         "number": 52,
-        "english_image": "imports/maths-pyq/images/paper-11/q052.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q052.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q052.webp",
         "has_e": false,
         "correct_answer": "B",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "B"
+          "Tamil": "B",
+          "English": "B"
         },
         "notes": []
       },
       {
         "number": 53,
-        "english_image": "imports/maths-pyq/images/paper-11/q053.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q053.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q053.webp",
         "has_e": false,
         "correct_answer": "C",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "C"
+          "Tamil": "C",
+          "English": "C"
         },
         "notes": []
       },
       {
         "number": 54,
-        "english_image": "imports/maths-pyq/images/paper-11/q054.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q054.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q054.webp",
         "has_e": false,
         "correct_answer": "B",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "B"
+          "Tamil": "B",
+          "English": "B"
         },
         "notes": []
       },
       {
         "number": 55,
-        "english_image": "imports/maths-pyq/images/paper-11/q055.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q055.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q055.webp",
         "has_e": false,
         "correct_answer": "D",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "D"
+          "Tamil": "D",
+          "English": "D"
         },
         "notes": []
       },
       {
         "number": 56,
-        "english_image": "imports/maths-pyq/images/paper-11/q056.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q056.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q056.webp",
         "has_e": false,
         "correct_answer": "D",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "D"
+          "Tamil": "D",
+          "English": "D"
         },
         "notes": []
       },
       {
         "number": 57,
-        "english_image": "imports/maths-pyq/images/paper-11/q057.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q057.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q057.webp",
         "has_e": false,
         "correct_answer": "D",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "D"
+          "Tamil": "D",
+          "English": "D"
         },
         "notes": []
       },
       {
         "number": 58,
-        "english_image": "imports/maths-pyq/images/paper-11/q058.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q058.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q058.webp",
         "has_e": false,
         "correct_answer": "D",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "D"
+          "Tamil": "D",
+          "English": "D"
         },
         "notes": []
       },
       {
         "number": 59,
-        "english_image": "imports/maths-pyq/images/paper-11/q059.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q059.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q059.webp",
         "has_e": false,
         "correct_answer": "D",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "D"
+          "Tamil": "D",
+          "English": "D"
         },
         "notes": []
       },
       {
         "number": 60,
-        "english_image": "imports/maths-pyq/images/paper-11/q060.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q060.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q060.webp",
         "has_e": false,
         "correct_answer": "C",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "C"
+          "Tamil": "C",
+          "English": "C"
         },
         "notes": []
       },
       {
         "number": 61,
-        "english_image": "imports/maths-pyq/images/paper-11/q061.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q061.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q061.webp",
         "has_e": false,
         "correct_answer": "C",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "C"
+          "Tamil": "C",
+          "English": "C"
         },
         "notes": []
       },
       {
         "number": 62,
-        "english_image": "imports/maths-pyq/images/paper-11/q062.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q062.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q062.webp",
         "has_e": false,
         "correct_answer": "B",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "B"
+          "Tamil": "B",
+          "English": "B"
         },
         "notes": []
       },
       {
         "number": 63,
-        "english_image": "imports/maths-pyq/images/paper-11/q063.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q063.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q063.webp",
         "has_e": false,
         "correct_answer": "C",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "C"
+          "Tamil": "C",
+          "English": "C"
         },
         "notes": []
       },
       {
         "number": 64,
-        "english_image": "imports/maths-pyq/images/paper-11/q064.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q064.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q064.webp",
         "has_e": false,
         "correct_answer": "C",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "C"
+          "Tamil": "C",
+          "English": "C"
         },
         "notes": []
       },
       {
         "number": 65,
-        "english_image": "imports/maths-pyq/images/paper-11/q065.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q065.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q065.webp",
         "has_e": false,
         "correct_answer": "B",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "B"
+          "Tamil": "B",
+          "English": "B"
         },
         "notes": []
       },
       {
         "number": 66,
-        "english_image": "imports/maths-pyq/images/paper-11/q066.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q066.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q066.webp",
         "has_e": false,
         "correct_answer": "D",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "D"
+          "Tamil": "D",
+          "English": "D"
         },
         "notes": []
       },
       {
         "number": 67,
-        "english_image": "imports/maths-pyq/images/paper-11/q067.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q067.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q067.webp",
         "has_e": false,
         "correct_answer": "C",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "C"
+          "Tamil": "C",
+          "English": "C"
         },
         "notes": []
       },
       {
         "number": 68,
-        "english_image": "imports/maths-pyq/images/paper-11/q068.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q068.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q068.webp",
         "has_e": false,
         "correct_answer": "D",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "D"
+          "Tamil": "D",
+          "English": "D"
         },
         "notes": []
       },
       {
         "number": 69,
-        "english_image": "imports/maths-pyq/images/paper-11/q069.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q069.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q069.webp",
         "has_e": false,
         "correct_answer": "D",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "D"
+          "Tamil": "D",
+          "English": "D"
         },
         "notes": []
       },
       {
         "number": 70,
-        "english_image": "imports/maths-pyq/images/paper-11/q070.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q070.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q070.webp",
         "has_e": false,
         "correct_answer": "A",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "A"
+          "Tamil": "A",
+          "English": "A"
         },
         "notes": []
       },
       {
         "number": 71,
-        "english_image": "imports/maths-pyq/images/paper-11/q071.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q071.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q071.webp",
         "has_e": false,
         "correct_answer": "C",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "C"
+          "Tamil": "C",
+          "English": "C"
         },
         "notes": []
       },
       {
         "number": 72,
-        "english_image": "imports/maths-pyq/images/paper-11/q072.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q072.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q072.webp",
         "has_e": false,
         "correct_answer": "B",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "B"
+          "Tamil": "B",
+          "English": "B"
         },
         "notes": []
       },
       {
         "number": 73,
-        "english_image": "imports/maths-pyq/images/paper-11/q073.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q073.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q073.webp",
         "has_e": false,
         "correct_answer": "A",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "A"
+          "Tamil": "A",
+          "English": "A"
         },
         "notes": []
       },
       {
         "number": 74,
-        "english_image": "imports/maths-pyq/images/paper-11/q074.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q074.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q074.webp",
         "has_e": false,
         "correct_answer": "D",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "D"
+          "Tamil": "D",
+          "English": "D"
         },
         "notes": []
       },
       {
         "number": 75,
-        "english_image": "imports/maths-pyq/images/paper-11/q075.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q075.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q075.webp",
         "has_e": false,
         "correct_answer": "C",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "C"
+          "Tamil": "C",
+          "English": "C"
         },
         "notes": []
       },
       {
         "number": 76,
-        "english_image": "imports/maths-pyq/images/paper-11/q076.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q076.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q076.webp",
         "has_e": false,
         "correct_answer": "A",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "A"
+          "Tamil": "A",
+          "English": "A"
         },
         "notes": []
       },
       {
         "number": 77,
-        "english_image": "imports/maths-pyq/images/paper-11/q077.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q077.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q077.webp",
         "has_e": false,
         "correct_answer": "C",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "C"
+          "Tamil": "C",
+          "English": "C"
         },
         "notes": []
       },
       {
         "number": 78,
-        "english_image": "imports/maths-pyq/images/paper-11/q078.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q078.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q078.webp",
         "has_e": false,
         "correct_answer": "B",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "B"
+          "Tamil": "B",
+          "English": "B"
         },
         "notes": []
       },
       {
         "number": 79,
-        "english_image": "imports/maths-pyq/images/paper-11/q079.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q079.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q079.webp",
         "has_e": false,
         "correct_answer": "D",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "D"
+          "Tamil": "D",
+          "English": "D"
         },
         "notes": []
       },
       {
         "number": 80,
-        "english_image": "imports/maths-pyq/images/paper-11/q080.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q080.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q080.webp",
         "has_e": false,
         "correct_answer": "D",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "D"
+          "Tamil": "D",
+          "English": "D"
         },
         "notes": []
       },
       {
         "number": 81,
-        "english_image": "imports/maths-pyq/images/paper-11/q081.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q081.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q081.webp",
         "has_e": false,
         "correct_answer": "D",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "D"
+          "Tamil": "D",
+          "English": "D"
         },
         "notes": []
       },
       {
         "number": 82,
-        "english_image": "imports/maths-pyq/images/paper-11/q082.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q082.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q082.webp",
         "has_e": false,
         "correct_answer": "D",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "D"
+          "Tamil": "D",
+          "English": "D"
         },
         "notes": []
       },
       {
         "number": 83,
-        "english_image": "imports/maths-pyq/images/paper-11/q083.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q083.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q083.webp",
         "has_e": false,
         "correct_answer": "B",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "B"
+          "Tamil": "B",
+          "English": "B"
         },
         "notes": []
       },
       {
         "number": 84,
-        "english_image": "imports/maths-pyq/images/paper-11/q084.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q084.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q084.webp",
         "has_e": false,
         "correct_answer": "A",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "A"
+          "Tamil": "A",
+          "English": "A"
         },
         "notes": []
       },
       {
         "number": 85,
-        "english_image": "imports/maths-pyq/images/paper-11/q085.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q085.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q085.webp",
         "has_e": false,
         "correct_answer": "D",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "D"
+          "Tamil": "D",
+          "English": "D"
         },
         "notes": []
       },
       {
         "number": 86,
-        "english_image": "imports/maths-pyq/images/paper-11/q086.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q086.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q086.webp",
         "has_e": false,
         "correct_answer": "B",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "B"
+          "Tamil": "B",
+          "English": "B"
         },
         "notes": []
       },
       {
         "number": 87,
-        "english_image": "imports/maths-pyq/images/paper-11/q087.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q087.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q087.webp",
         "has_e": false,
         "correct_answer": "B",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "B"
+          "Tamil": "B",
+          "English": "B"
         },
         "notes": []
       },
       {
         "number": 88,
-        "english_image": "imports/maths-pyq/images/paper-11/q088.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q088.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q088.webp",
         "has_e": false,
         "correct_answer": "B",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "B"
+          "Tamil": "B",
+          "English": "B"
         },
         "notes": []
       },
       {
         "number": 89,
-        "english_image": "imports/maths-pyq/images/paper-11/q089.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q089.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q089.webp",
         "has_e": false,
         "correct_answer": "C",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "C"
+          "Tamil": "C",
+          "English": "C"
         },
         "notes": []
       },
       {
         "number": 90,
-        "english_image": "imports/maths-pyq/images/paper-11/q090.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q090.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q090.webp",
         "has_e": false,
         "correct_answer": "A",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "A"
+          "Tamil": "A",
+          "English": "A"
         },
         "notes": []
       },
       {
         "number": 91,
-        "english_image": "imports/maths-pyq/images/paper-11/q091.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q091.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q091.webp",
         "has_e": false,
         "correct_answer": "B",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "B"
+          "Tamil": "B",
+          "English": "B"
         },
         "notes": []
       },
       {
         "number": 92,
-        "english_image": "imports/maths-pyq/images/paper-11/q092.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q092.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q092.webp",
         "has_e": false,
         "correct_answer": "B",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "B"
+          "Tamil": "B",
+          "English": "B"
         },
         "notes": []
       },
       {
         "number": 93,
-        "english_image": "imports/maths-pyq/images/paper-11/q093.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q093.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q093.webp",
         "has_e": false,
         "correct_answer": "C",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "C"
+          "Tamil": "C",
+          "English": "C"
         },
         "notes": []
       },
       {
         "number": 94,
-        "english_image": "imports/maths-pyq/images/paper-11/q094.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q094.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q094.webp",
         "has_e": false,
         "correct_answer": "B",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "B"
+          "Tamil": "B",
+          "English": "B"
         },
         "notes": []
       },
       {
         "number": 95,
-        "english_image": "imports/maths-pyq/images/paper-11/q095.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q095.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q095.webp",
         "has_e": false,
         "correct_answer": "B",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "B"
+          "Tamil": "B",
+          "English": "B"
         },
         "notes": []
       },
       {
         "number": 96,
-        "english_image": "imports/maths-pyq/images/paper-11/q096.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q096.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q096.webp",
         "has_e": false,
         "correct_answer": "D",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "D"
+          "Tamil": "D",
+          "English": "D"
         },
         "notes": []
       },
       {
         "number": 97,
-        "english_image": "imports/maths-pyq/images/paper-11/q097.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q097.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q097.webp",
         "has_e": false,
         "correct_answer": "C",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "C"
+          "Tamil": "C",
+          "English": "C"
         },
         "notes": []
       },
       {
         "number": 98,
-        "english_image": "imports/maths-pyq/images/paper-11/q098.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q098.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q098.webp",
         "has_e": false,
         "correct_answer": "D",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "D"
+          "Tamil": "D",
+          "English": "D"
         },
         "notes": []
       },
       {
         "number": 99,
-        "english_image": "imports/maths-pyq/images/paper-11/q099.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q099.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q099.webp",
         "has_e": false,
         "correct_answer": "A",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "A"
+          "Tamil": "A",
+          "English": "A"
         },
         "notes": []
       },
       {
         "number": 100,
-        "english_image": "imports/maths-pyq/images/paper-11/q100.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q100.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q100.webp",
         "has_e": false,
         "correct_answer": "C",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "C"
+          "Tamil": "C",
+          "English": "C"
         },
         "notes": []
       },
       {
         "number": 101,
-        "english_image": "imports/maths-pyq/images/paper-11/q101.webp",
-        "tamil_image": null,
+        "english_image": "imports/maths-pyq-remaining/images/paper-02/q101.webp",
+        "tamil_image": "imports/maths-pyq/images/paper-11/q101.webp",
         "has_e": false,
         "correct_answer": "A",
         "sources": [
-          "Ratio and proportion (தமிழ்).pdf"
+          "Ratio and proportion (தமிழ்).pdf",
+          "Ratio and Proportion.pdf"
         ],
         "source_answers": {
-          "Tamil": "A"
+          "Tamil": "A",
+          "English": "A"
         },
         "notes": []
       }
     ],
-    "issues": [
-      {
-        "issue": "English PDF not supplied. Tamil source preserved without invented translations."
-      }
-    ]
+    "issues": []
   },
   {
     "topic": "Average",
@@ -8415,13 +8613,14 @@
     "questions": [
       {
         "number": 1,
-        "english_image": "imports/maths-pyq/images/paper-01/q001.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q001.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q001.webp",
         "has_e": true,
         "correct_answer": "B",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "B",
@@ -8433,13 +8632,14 @@
       },
       {
         "number": 2,
-        "english_image": "imports/maths-pyq/images/paper-01/q002.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q002.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q002.webp",
         "has_e": true,
         "correct_answer": "B",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "B",
@@ -8451,13 +8651,14 @@
       },
       {
         "number": 3,
-        "english_image": "imports/maths-pyq/images/paper-01/q003.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q003.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q003.webp",
         "has_e": true,
         "correct_answer": "C",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "C",
@@ -8469,13 +8670,14 @@
       },
       {
         "number": 4,
-        "english_image": "imports/maths-pyq/images/paper-01/q004.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q004.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q004.webp",
         "has_e": true,
         "correct_answer": "C",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "C",
@@ -8487,13 +8689,14 @@
       },
       {
         "number": 5,
-        "english_image": "imports/maths-pyq/images/paper-01/q005.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q005.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q005.webp",
         "has_e": true,
         "correct_answer": "B",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "B",
@@ -8505,13 +8708,14 @@
       },
       {
         "number": 6,
-        "english_image": "imports/maths-pyq/images/paper-01/q006.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q006.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q006.webp",
         "has_e": true,
         "correct_answer": "D",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "D",
@@ -8523,13 +8727,14 @@
       },
       {
         "number": 7,
-        "english_image": "imports/maths-pyq/images/paper-01/q007.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q007.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q007.webp",
         "has_e": true,
         "correct_answer": "C",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "C",
@@ -8541,13 +8746,14 @@
       },
       {
         "number": 8,
-        "english_image": "imports/maths-pyq/images/paper-01/q008.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q008.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q008.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -8559,13 +8765,14 @@
       },
       {
         "number": 9,
-        "english_image": "imports/maths-pyq/images/paper-01/q009.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q009.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q009.webp",
         "has_e": true,
         "correct_answer": "C",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "C",
@@ -8577,13 +8784,14 @@
       },
       {
         "number": 10,
-        "english_image": "imports/maths-pyq/images/paper-01/q010.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q010.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q010.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -8595,13 +8803,14 @@
       },
       {
         "number": 11,
-        "english_image": "imports/maths-pyq/images/paper-01/q011.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q011.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q011.webp",
         "has_e": true,
         "correct_answer": "D",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "D",
@@ -8613,13 +8822,14 @@
       },
       {
         "number": 12,
-        "english_image": "imports/maths-pyq/images/paper-01/q012.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q012.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q012.webp",
         "has_e": true,
         "correct_answer": "B",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "B",
@@ -8631,13 +8841,14 @@
       },
       {
         "number": 13,
-        "english_image": "imports/maths-pyq/images/paper-01/q013.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q013.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q013.webp",
         "has_e": true,
         "correct_answer": "B",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "B",
@@ -8649,13 +8860,14 @@
       },
       {
         "number": 14,
-        "english_image": "imports/maths-pyq/images/paper-01/q014.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q014.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q014.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -8667,13 +8879,14 @@
       },
       {
         "number": 15,
-        "english_image": "imports/maths-pyq/images/paper-01/q015.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q015.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q015.webp",
         "has_e": true,
         "correct_answer": "D",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "D",
@@ -8685,13 +8898,14 @@
       },
       {
         "number": 16,
-        "english_image": "imports/maths-pyq/images/paper-01/q016.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q016.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q016.webp",
         "has_e": true,
         "correct_answer": "D",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "D",
@@ -8703,13 +8917,14 @@
       },
       {
         "number": 17,
-        "english_image": "imports/maths-pyq/images/paper-01/q017.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q017.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q017.webp",
         "has_e": true,
         "correct_answer": "C",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "C",
@@ -8721,13 +8936,14 @@
       },
       {
         "number": 18,
-        "english_image": "imports/maths-pyq/images/paper-01/q018.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q018.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q018.webp",
         "has_e": true,
         "correct_answer": "B",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "B",
@@ -8739,13 +8955,14 @@
       },
       {
         "number": 19,
-        "english_image": "imports/maths-pyq/images/paper-01/q019.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q019.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q019.webp",
         "has_e": true,
         "correct_answer": "C",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "C",
@@ -8757,13 +8974,14 @@
       },
       {
         "number": 20,
-        "english_image": "imports/maths-pyq/images/paper-01/q020.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q020.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q020.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -8775,13 +8993,14 @@
       },
       {
         "number": 21,
-        "english_image": "imports/maths-pyq/images/paper-01/q021.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q021.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q021.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -8793,13 +9012,14 @@
       },
       {
         "number": 22,
-        "english_image": "imports/maths-pyq/images/paper-01/q022.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q022.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q022.webp",
         "has_e": true,
         "correct_answer": "B",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "B",
@@ -8811,13 +9031,14 @@
       },
       {
         "number": 23,
-        "english_image": "imports/maths-pyq/images/paper-01/q023.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q023.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q023.webp",
         "has_e": true,
         "correct_answer": "D",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "D",
@@ -8829,13 +9050,14 @@
       },
       {
         "number": 24,
-        "english_image": "imports/maths-pyq/images/paper-01/q024.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q024.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q024.webp",
         "has_e": true,
         "correct_answer": "D",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "D",
@@ -8847,13 +9069,14 @@
       },
       {
         "number": 25,
-        "english_image": "imports/maths-pyq/images/paper-01/q025.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q025.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q025.webp",
         "has_e": true,
         "correct_answer": "B",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "B",
@@ -8865,13 +9088,14 @@
       },
       {
         "number": 26,
-        "english_image": "imports/maths-pyq/images/paper-01/q026.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q026.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q026.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -8883,13 +9107,14 @@
       },
       {
         "number": 27,
-        "english_image": "imports/maths-pyq/images/paper-01/q027.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q027.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q027.webp",
         "has_e": true,
         "correct_answer": "C",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "C",
@@ -8901,13 +9126,14 @@
       },
       {
         "number": 28,
-        "english_image": "imports/maths-pyq/images/paper-01/q028.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q028.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q028.webp",
         "has_e": true,
         "correct_answer": "B",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "B",
@@ -8919,13 +9145,14 @@
       },
       {
         "number": 29,
-        "english_image": "imports/maths-pyq/images/paper-01/q029.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q029.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q029.webp",
         "has_e": true,
         "correct_answer": "C",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "C",
@@ -8937,13 +9164,14 @@
       },
       {
         "number": 30,
-        "english_image": "imports/maths-pyq/images/paper-01/q030.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q030.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q030.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -8955,13 +9183,14 @@
       },
       {
         "number": 31,
-        "english_image": "imports/maths-pyq/images/paper-01/q031.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q031.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q031.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -8973,13 +9202,14 @@
       },
       {
         "number": 32,
-        "english_image": "imports/maths-pyq/images/paper-01/q032.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q032.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q032.webp",
         "has_e": true,
         "correct_answer": "B",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "B",
@@ -8991,13 +9221,14 @@
       },
       {
         "number": 33,
-        "english_image": "imports/maths-pyq/images/paper-01/q033.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q033.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q033.webp",
         "has_e": true,
         "correct_answer": "B",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "B",
@@ -9009,13 +9240,14 @@
       },
       {
         "number": 34,
-        "english_image": "imports/maths-pyq/images/paper-01/q034.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q034.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q034.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -9027,13 +9259,14 @@
       },
       {
         "number": 35,
-        "english_image": "imports/maths-pyq/images/paper-01/q035.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q035.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q035.webp",
         "has_e": true,
         "correct_answer": "B",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "B",
@@ -9045,13 +9278,14 @@
       },
       {
         "number": 36,
-        "english_image": "imports/maths-pyq/images/paper-01/q036.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q036.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q036.webp",
         "has_e": true,
         "correct_answer": "B",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "B",
@@ -9063,13 +9297,14 @@
       },
       {
         "number": 37,
-        "english_image": "imports/maths-pyq/images/paper-01/q037.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q037.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q037.webp",
         "has_e": true,
         "correct_answer": "C",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "C",
@@ -9081,13 +9316,14 @@
       },
       {
         "number": 38,
-        "english_image": "imports/maths-pyq/images/paper-01/q038.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q038.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q038.webp",
         "has_e": true,
         "correct_answer": "C",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "C",
@@ -9099,13 +9335,14 @@
       },
       {
         "number": 39,
-        "english_image": "imports/maths-pyq/images/paper-01/q039.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q039.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q039.webp",
         "has_e": true,
         "correct_answer": "D",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "D",
@@ -9117,13 +9354,14 @@
       },
       {
         "number": 40,
-        "english_image": "imports/maths-pyq/images/paper-01/q040.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q040.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q040.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -9135,13 +9373,14 @@
       },
       {
         "number": 41,
-        "english_image": "imports/maths-pyq/images/paper-01/q041.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q041.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q041.webp",
         "has_e": true,
         "correct_answer": "C",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "C",
@@ -9153,13 +9392,14 @@
       },
       {
         "number": 42,
-        "english_image": "imports/maths-pyq/images/paper-01/q042.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q042.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q042.webp",
         "has_e": true,
         "correct_answer": "C",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "C",
@@ -9171,13 +9411,14 @@
       },
       {
         "number": 43,
-        "english_image": "imports/maths-pyq/images/paper-01/q043.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q043.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q043.webp",
         "has_e": true,
         "correct_answer": "C",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "C",
@@ -9189,13 +9430,14 @@
       },
       {
         "number": 44,
-        "english_image": "imports/maths-pyq/images/paper-01/q044.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q044.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q044.webp",
         "has_e": true,
         "correct_answer": "D",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "D",
@@ -9207,13 +9449,14 @@
       },
       {
         "number": 45,
-        "english_image": "imports/maths-pyq/images/paper-01/q045.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q045.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q045.webp",
         "has_e": true,
         "correct_answer": "D",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "D",
@@ -9225,13 +9468,14 @@
       },
       {
         "number": 46,
-        "english_image": "imports/maths-pyq/images/paper-01/q046.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q046.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q046.webp",
         "has_e": true,
         "correct_answer": "C",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "C",
@@ -9243,13 +9487,14 @@
       },
       {
         "number": 47,
-        "english_image": "imports/maths-pyq/images/paper-01/q047.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q047.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q047.webp",
         "has_e": true,
         "correct_answer": "D",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "D",
@@ -9261,13 +9506,14 @@
       },
       {
         "number": 48,
-        "english_image": "imports/maths-pyq/images/paper-01/q048.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q048.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q048.webp",
         "has_e": true,
         "correct_answer": "C",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "C",
@@ -9279,13 +9525,14 @@
       },
       {
         "number": 49,
-        "english_image": "imports/maths-pyq/images/paper-01/q049.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q049.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q049.webp",
         "has_e": true,
         "correct_answer": "D",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "D",
@@ -9297,13 +9544,14 @@
       },
       {
         "number": 50,
-        "english_image": "imports/maths-pyq/images/paper-01/q050.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q050.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q050.webp",
         "has_e": true,
         "correct_answer": "C",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "C",
@@ -9315,13 +9563,14 @@
       },
       {
         "number": 51,
-        "english_image": "imports/maths-pyq/images/paper-01/q051.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q051.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q051.webp",
         "has_e": true,
         "correct_answer": "D",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "D",
@@ -9333,13 +9582,14 @@
       },
       {
         "number": 52,
-        "english_image": "imports/maths-pyq/images/paper-01/q052.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q052.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q052.webp",
         "has_e": true,
         "correct_answer": "D",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "D",
@@ -9351,13 +9601,14 @@
       },
       {
         "number": 53,
-        "english_image": "imports/maths-pyq/images/paper-01/q053.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q053.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q053.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -9369,13 +9620,14 @@
       },
       {
         "number": 54,
-        "english_image": "imports/maths-pyq/images/paper-01/q054.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q054.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q054.webp",
         "has_e": true,
         "correct_answer": "B",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "B",
@@ -9387,13 +9639,14 @@
       },
       {
         "number": 55,
-        "english_image": "imports/maths-pyq/images/paper-01/q055.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q055.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q055.webp",
         "has_e": true,
         "correct_answer": "B",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "B",
@@ -9405,13 +9658,14 @@
       },
       {
         "number": 56,
-        "english_image": "imports/maths-pyq/images/paper-01/q056.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q056.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q056.webp",
         "has_e": true,
         "correct_answer": "B",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "B",
@@ -9423,13 +9677,14 @@
       },
       {
         "number": 57,
-        "english_image": "imports/maths-pyq/images/paper-01/q057.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q057.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q057.webp",
         "has_e": true,
         "correct_answer": "D",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "D",
@@ -9441,13 +9696,14 @@
       },
       {
         "number": 58,
-        "english_image": "imports/maths-pyq/images/paper-01/q058.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q058.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q058.webp",
         "has_e": true,
         "correct_answer": "D",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "D",
@@ -9459,13 +9715,14 @@
       },
       {
         "number": 59,
-        "english_image": "imports/maths-pyq/images/paper-01/q059.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q059.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q059.webp",
         "has_e": true,
         "correct_answer": "B",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "B",
@@ -9477,13 +9734,14 @@
       },
       {
         "number": 60,
-        "english_image": "imports/maths-pyq/images/paper-01/q060.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q060.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q060.webp",
         "has_e": true,
         "correct_answer": "C",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "C",
@@ -9495,13 +9753,14 @@
       },
       {
         "number": 61,
-        "english_image": "imports/maths-pyq/images/paper-01/q061.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q061.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q061.webp",
         "has_e": true,
         "correct_answer": "C",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "C",
@@ -9513,13 +9772,14 @@
       },
       {
         "number": 62,
-        "english_image": "imports/maths-pyq/images/paper-01/q062.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q062.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q062.webp",
         "has_e": true,
         "correct_answer": "C",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "C",
@@ -9531,13 +9791,14 @@
       },
       {
         "number": 63,
-        "english_image": "imports/maths-pyq/images/paper-01/q063.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q063.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q063.webp",
         "has_e": true,
         "correct_answer": "B",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "B",
@@ -9549,13 +9810,14 @@
       },
       {
         "number": 64,
-        "english_image": "imports/maths-pyq/images/paper-01/q064.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q064.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q064.webp",
         "has_e": true,
         "correct_answer": "B",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "B",
@@ -9567,13 +9829,14 @@
       },
       {
         "number": 65,
-        "english_image": "imports/maths-pyq/images/paper-01/q065.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q065.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q065.webp",
         "has_e": true,
         "correct_answer": "C",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "C",
@@ -9585,13 +9848,14 @@
       },
       {
         "number": 66,
-        "english_image": "imports/maths-pyq/images/paper-01/q066.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q066.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q066.webp",
         "has_e": true,
         "correct_answer": "C",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "C",
@@ -9603,13 +9867,14 @@
       },
       {
         "number": 67,
-        "english_image": "imports/maths-pyq/images/paper-01/q067.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q067.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q067.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -9621,13 +9886,14 @@
       },
       {
         "number": 68,
-        "english_image": "imports/maths-pyq/images/paper-01/q068.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q068.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q068.webp",
         "has_e": true,
         "correct_answer": "B",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "B",
@@ -9639,13 +9905,14 @@
       },
       {
         "number": 69,
-        "english_image": "imports/maths-pyq/images/paper-01/q069.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q069.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q069.webp",
         "has_e": true,
         "correct_answer": "D",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "D",
@@ -9657,13 +9924,14 @@
       },
       {
         "number": 70,
-        "english_image": "imports/maths-pyq/images/paper-01/q070.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q070.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q070.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -9675,13 +9943,14 @@
       },
       {
         "number": 71,
-        "english_image": "imports/maths-pyq/images/paper-01/q071.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q071.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q071.webp",
         "has_e": true,
         "correct_answer": "B",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "B",
@@ -9693,13 +9962,14 @@
       },
       {
         "number": 72,
-        "english_image": "imports/maths-pyq/images/paper-01/q072.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q072.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q072.webp",
         "has_e": true,
         "correct_answer": "C",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "C",
@@ -9711,13 +9981,14 @@
       },
       {
         "number": 73,
-        "english_image": "imports/maths-pyq/images/paper-01/q073.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q073.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q073.webp",
         "has_e": true,
         "correct_answer": "D",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "D",
@@ -9729,13 +10000,14 @@
       },
       {
         "number": 74,
-        "english_image": "imports/maths-pyq/images/paper-01/q074.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q074.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q074.webp",
         "has_e": true,
         "correct_answer": "B",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "B",
@@ -9747,13 +10019,14 @@
       },
       {
         "number": 75,
-        "english_image": "imports/maths-pyq/images/paper-01/q075.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q075.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q075.webp",
         "has_e": true,
         "correct_answer": "C",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "C",
@@ -9765,13 +10038,14 @@
       },
       {
         "number": 76,
-        "english_image": "imports/maths-pyq/images/paper-01/q076.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q076.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q076.webp",
         "has_e": true,
         "correct_answer": "D",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "D",
@@ -9783,13 +10057,14 @@
       },
       {
         "number": 77,
-        "english_image": "imports/maths-pyq/images/paper-01/q077.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q077.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q077.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -9801,13 +10076,14 @@
       },
       {
         "number": 78,
-        "english_image": "imports/maths-pyq/images/paper-01/q078.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q078.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q078.webp",
         "has_e": true,
         "correct_answer": "C",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "C",
@@ -9819,13 +10095,14 @@
       },
       {
         "number": 79,
-        "english_image": "imports/maths-pyq/images/paper-01/q079.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q079.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q079.webp",
         "has_e": true,
         "correct_answer": "C",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "C",
@@ -9837,13 +10114,14 @@
       },
       {
         "number": 80,
-        "english_image": "imports/maths-pyq/images/paper-01/q080.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q080.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q080.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -9855,13 +10133,14 @@
       },
       {
         "number": 81,
-        "english_image": "imports/maths-pyq/images/paper-01/q081.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q081.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q081.webp",
         "has_e": true,
         "correct_answer": "B",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "B",
@@ -9873,13 +10152,14 @@
       },
       {
         "number": 82,
-        "english_image": "imports/maths-pyq/images/paper-01/q082.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q082.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q082.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -9891,13 +10171,14 @@
       },
       {
         "number": 83,
-        "english_image": "imports/maths-pyq/images/paper-01/q083.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q083.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q083.webp",
         "has_e": true,
         "correct_answer": "D",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "D",
@@ -9909,13 +10190,14 @@
       },
       {
         "number": 84,
-        "english_image": "imports/maths-pyq/images/paper-01/q084.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q084.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q084.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -9927,13 +10209,14 @@
       },
       {
         "number": 85,
-        "english_image": "imports/maths-pyq/images/paper-01/q085.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q085.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q085.webp",
         "has_e": true,
         "correct_answer": "B",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "B",
@@ -9945,13 +10228,14 @@
       },
       {
         "number": 86,
-        "english_image": "imports/maths-pyq/images/paper-01/q086.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q086.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q086.webp",
         "has_e": true,
         "correct_answer": "C",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "C",
@@ -9963,13 +10247,14 @@
       },
       {
         "number": 87,
-        "english_image": "imports/maths-pyq/images/paper-01/q087.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q087.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q087.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -9981,13 +10266,14 @@
       },
       {
         "number": 88,
-        "english_image": "imports/maths-pyq/images/paper-01/q088.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q088.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q088.webp",
         "has_e": true,
         "correct_answer": "D",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "D",
@@ -9999,13 +10285,14 @@
       },
       {
         "number": 89,
-        "english_image": "imports/maths-pyq/images/paper-01/q089.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q089.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q089.webp",
         "has_e": true,
         "correct_answer": "B",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "B",
@@ -10017,13 +10304,14 @@
       },
       {
         "number": 90,
-        "english_image": "imports/maths-pyq/images/paper-01/q090.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q090.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q090.webp",
         "has_e": true,
         "correct_answer": "C",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "C",
@@ -10035,13 +10323,14 @@
       },
       {
         "number": 91,
-        "english_image": "imports/maths-pyq/images/paper-01/q091.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q091.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q091.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -10053,13 +10342,14 @@
       },
       {
         "number": 92,
-        "english_image": "imports/maths-pyq/images/paper-01/q092.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q092.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q092.webp",
         "has_e": true,
         "correct_answer": "B",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "B",
@@ -10071,13 +10361,14 @@
       },
       {
         "number": 93,
-        "english_image": "imports/maths-pyq/images/paper-01/q093.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q093.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q093.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -10089,13 +10380,14 @@
       },
       {
         "number": 94,
-        "english_image": "imports/maths-pyq/images/paper-01/q094.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q094.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q094.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -10107,13 +10399,14 @@
       },
       {
         "number": 95,
-        "english_image": "imports/maths-pyq/images/paper-01/q095.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q095.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q095.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -10125,13 +10418,14 @@
       },
       {
         "number": 96,
-        "english_image": "imports/maths-pyq/images/paper-01/q096.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q096.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q096.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -10143,13 +10437,14 @@
       },
       {
         "number": 97,
-        "english_image": "imports/maths-pyq/images/paper-01/q097.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q097.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q097.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -10161,13 +10456,14 @@
       },
       {
         "number": 98,
-        "english_image": "imports/maths-pyq/images/paper-01/q098.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q098.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q098.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -10179,13 +10475,14 @@
       },
       {
         "number": 99,
-        "english_image": "imports/maths-pyq/images/paper-01/q099.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q099.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q099.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -10197,13 +10494,14 @@
       },
       {
         "number": 100,
-        "english_image": "imports/maths-pyq/images/paper-01/q100.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q100.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q100.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -10215,13 +10513,14 @@
       },
       {
         "number": 101,
-        "english_image": "imports/maths-pyq/images/paper-01/q101.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q101.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q101.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -10233,13 +10532,14 @@
       },
       {
         "number": 102,
-        "english_image": "imports/maths-pyq/images/paper-01/q102.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q102.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q102.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -10251,13 +10551,14 @@
       },
       {
         "number": 103,
-        "english_image": "imports/maths-pyq/images/paper-01/q103.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q103.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q103.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -10269,13 +10570,14 @@
       },
       {
         "number": 104,
-        "english_image": "imports/maths-pyq/images/paper-01/q104.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q104.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q104.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -10287,13 +10589,14 @@
       },
       {
         "number": 105,
-        "english_image": "imports/maths-pyq/images/paper-01/q105.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q105.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q105.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -10305,13 +10608,14 @@
       },
       {
         "number": 106,
-        "english_image": "imports/maths-pyq/images/paper-01/q106.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q106.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q106.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -10323,13 +10627,14 @@
       },
       {
         "number": 107,
-        "english_image": "imports/maths-pyq/images/paper-01/q107.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q107.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q107.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -10341,13 +10646,14 @@
       },
       {
         "number": 108,
-        "english_image": "imports/maths-pyq/images/paper-01/q108.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q108.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q108.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -10359,13 +10665,14 @@
       },
       {
         "number": 109,
-        "english_image": "imports/maths-pyq/images/paper-01/q109.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q109.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q109.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -10377,13 +10684,14 @@
       },
       {
         "number": 110,
-        "english_image": "imports/maths-pyq/images/paper-01/q110.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q110.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q110.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -10395,13 +10703,14 @@
       },
       {
         "number": 111,
-        "english_image": "imports/maths-pyq/images/paper-01/q111.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q111.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q111.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -10413,13 +10722,14 @@
       },
       {
         "number": 112,
-        "english_image": "imports/maths-pyq/images/paper-01/q112.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q112.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q112.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -10431,13 +10741,14 @@
       },
       {
         "number": 113,
-        "english_image": "imports/maths-pyq/images/paper-01/q113.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q113.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q113.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -10449,13 +10760,14 @@
       },
       {
         "number": 114,
-        "english_image": "imports/maths-pyq/images/paper-01/q114.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q114.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q114.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -10467,13 +10779,14 @@
       },
       {
         "number": 115,
-        "english_image": "imports/maths-pyq/images/paper-01/q115.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q115.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q115.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -10485,13 +10798,14 @@
       },
       {
         "number": 116,
-        "english_image": "imports/maths-pyq/images/paper-01/q116.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q116.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q116.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -10503,13 +10817,14 @@
       },
       {
         "number": 117,
-        "english_image": "imports/maths-pyq/images/paper-01/q117.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q117.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q117.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -10521,13 +10836,14 @@
       },
       {
         "number": 118,
-        "english_image": "imports/maths-pyq/images/paper-01/q118.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q118.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q118.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -10539,13 +10855,14 @@
       },
       {
         "number": 119,
-        "english_image": "imports/maths-pyq/images/paper-01/q119.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q119.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q119.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -10557,13 +10874,14 @@
       },
       {
         "number": 120,
-        "english_image": "imports/maths-pyq/images/paper-01/q120.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q120.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q120.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -10575,13 +10893,14 @@
       },
       {
         "number": 121,
-        "english_image": "imports/maths-pyq/images/paper-01/q121.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q121.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q121.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -10593,13 +10912,14 @@
       },
       {
         "number": 122,
-        "english_image": "imports/maths-pyq/images/paper-01/q122.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q122.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q122.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -10611,13 +10931,14 @@
       },
       {
         "number": 123,
-        "english_image": "imports/maths-pyq/images/paper-01/q123.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q123.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q123.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -10629,13 +10950,14 @@
       },
       {
         "number": 124,
-        "english_image": "imports/maths-pyq/images/paper-01/q124.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q124.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q124.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -10647,13 +10969,14 @@
       },
       {
         "number": 125,
-        "english_image": "imports/maths-pyq/images/paper-01/q125.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q125.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q125.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -10665,13 +10988,14 @@
       },
       {
         "number": 126,
-        "english_image": "imports/maths-pyq/images/paper-01/q126.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q126.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q126.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -10683,13 +11007,14 @@
       },
       {
         "number": 127,
-        "english_image": "imports/maths-pyq/images/paper-01/q127.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q127.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q127.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -10701,13 +11026,14 @@
       },
       {
         "number": 128,
-        "english_image": "imports/maths-pyq/images/paper-01/q128.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q128.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q128.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -10719,13 +11045,14 @@
       },
       {
         "number": 129,
-        "english_image": "imports/maths-pyq/images/paper-01/q129.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q129.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q129.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",
@@ -10737,13 +11064,14 @@
       },
       {
         "number": 130,
-        "english_image": "imports/maths-pyq/images/paper-01/q130.webp",
+        "english_image": "imports/maths-pyq-remaining/images/paper-01/q130.webp",
         "tamil_image": "imports/maths-pyq/images/paper-12/q130.webp",
         "has_e": true,
         "correct_answer": "A",
         "sources": [
           "(SI pyq answers).pdf",
-          "SI  (தமிழ்) pyq.pdf"
+          "SI  (தமிழ்) pyq.pdf",
+          "(SI) pyq.pdf"
         ],
         "source_answers": {
           "English": "A",

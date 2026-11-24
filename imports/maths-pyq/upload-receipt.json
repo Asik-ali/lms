@@ -41,15 +41,11 @@
       "topic": "Ratio and Proportion",
       "testId": 84,
       "categoryId": 50,
-      "language": "Tamil",
+      "language": "English / Tamil",
       "status": "Draft",
       "questions": 101,
       "answers": 101,
-      "issues": [
-        {
-          "issue": "English PDF not supplied. Tamil source preserved without invented translations."
-        }
-      ]
+      "issues": []
     },
     {
       "topic": "Average",

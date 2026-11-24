@@ -48,3 +48,4 @@ android/upload_certificate.pem
 # PDF import review screenshots (question assets and manifests are retained)
 imports/maths-pyq/source/*.png
 imports/maths-pyq-additional/source/*.png
+imports/maths-pyq-remaining/source/*.png

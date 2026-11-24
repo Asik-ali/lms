@@ -20,6 +20,21 @@ for topic in topics:
  if topic=='Average':issues.append({'issue':'User requested Average questions 1-26 only; question 27 is intentionally excluded.'})
  if topic=='Ratio and Proportion':issues.append({'issue':'English PDF not supplied. Tamil source preserved without invented translations.'})
  result.append({'topic':topic,'name':f'{topic} PYQ','language':'English / Tamil' if combined or en and ta else base['language'],'questions':qs,'issues':issues})
+# Apply later-supplied English sources without duplicating existing question IDs.
+remaining=Path('imports/maths-pyq-remaining/papers.json')
+if root.as_posix()=='imports/maths-pyq' and remaining.exists():
+ for source in json.loads(remaining.read_text(encoding='utf8')):
+  paper=next(p for p in result if p['topic']==source['topic'])
+  if len(paper['questions'])!=len(source['questions']):raise ValueError('Remaining source count mismatch')
+  for q,new in zip(paper['questions'],source['questions']):
+   if new['correct_answer'] and q['correct_answer']!=new['correct_answer']:raise ValueError(f"Conflicting key: {paper['topic']} Q{q['number']}")
+   q['tamil_image']=q['tamil_image'] or q['english_image']
+   q['english_image']=new['source_image']
+   q['has_e']=q['has_e'] or new['has_e']
+   q['sources']=list(dict.fromkeys(q['sources']+[source['source']]))
+   if new['correct_answer']:q['source_answers']['English']=new['correct_answer']
+  paper['language']='English / Tamil'
+  paper['issues']=[i for i in paper['issues'] if 'English PDF not supplied' not in i['issue']]
 root.joinpath('prepared.json').write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf8')
 root.joinpath('review-flags.json').write_text(json.dumps([{'topic':p['topic'],'issues':p['issues']} for p in result if p['issues']],ensure_ascii=False,indent=2),encoding='utf8')
 review=['<!doctype html><meta charset="utf-8"><title>Maths PYQ import review</title><style>body{font:16px system-ui;max-width:1100px;margin:30px auto;background:#edf2f7}article,details{background:white;padding:20px;margin:15px 0}img{max-width:100%}summary{cursor:pointer}h3{color:#223d65}</style><h1>Maths PYQ - source review</h1>']

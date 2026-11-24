@@ -15,7 +15,7 @@ for f in sources:
  topic=next((v for k,v in [('CI ','Compound Interest'),('AP GP','AP and GP'),('Age problem','Age Problems'),('2D','2D Mensuration'),('3D','3D Mensuration'),('Average','Average'),('LCM','LCM and HCF'),('Percentage','Percentage'),('Profit','Profit and Loss'),('Ratio','Ratio and Proportion'),('Time','Time and Work'),('simplification','Simplification')] if k.lower() in name.lower()),'Simplification')
  if name.startswith('(SI') or name.startswith('SI '):topic='Simple Interest'
  expected={'Compound Interest':85,'AP and GP':48,'Age Problems':8,'Simple Interest':130,'2D Mensuration':38,'3D Mensuration':97,'Average':27,'LCM and HCF':180,'Percentage':111,'Profit and Loss':52,'Ratio and Proportion':101,'Time and Work':131,'Simplification':74}[topic]
- columns=topic=='LCM and HCF' and not tamil
+ columns=topic in ['LCM and HCF','Ratio and Proportion'] and not tamil
  marks=[]
  if topic=='Age Problems':
   boxes=[(1,102,213),(1,221,331),(1,339,438),(1,446,545),(1,553,675),(1,683,782),(2,14,133),(2,142,251)]
@@ -32,8 +32,8 @@ for f in sources:
    else:
     m=re.match(r'^(?:Question\s+|Q\s*)?(\d{1,3})[.:](?!\d)',it['text'])
     if not m:continue
-    if topic=='Simple Interest' and not tamil and not it['text'].startswith('Question '):continue
-    if columns and not (20<it['x']<45 or 290<it['x']<315):continue
+    if topic=='Simple Interest' and 'answers' in name and not it['text'].startswith('Question '):continue
+    if columns and not (20<it['x']<55 or 290<it['x']<315):continue
     if not columns and it['x']>95:continue
     candidates.append((int(m[1]),it))
   candidates.sort(key=lambda c:(c[1]['x']>200 if columns else False,c[1]['y']))
@@ -71,6 +71,7 @@ for f in sources:
    left=25 if not columns or col==0 else p['width']/2-10
    right=p['width']-25 if not columns or col==1 else p['width']/2-10
    top=m['y']-m['h']-5 if block==startblock else (20 if tamil and topic=='Simplification' else 38)
+   if topic=='Ratio and Proportion' and columns and pn==1 and col==1 and block!=startblock:top=120
    bottom=following['y']-following['h']-1 if following and block==endblock else p['height']-42
    if not following:
     headers=[it for it in p['items'] if it['y']>(m['y']+25 if block==startblock else 38) and ((block==startblock and (it['text'].startswith('ExamStick') or it['text'].startswith('EXAMSTICK'))) or it['text']=='ANSWER' or re.search(r'answer\s*key',it['text'],re.I))]

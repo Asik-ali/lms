@@ -1,0 +1,4334 @@
+[
+  {
+    "source": "(SI) pyq.pdf",
+    "topic": "Simple Interest",
+    "language": "English",
+    "questions": [
+      {
+        "number": 1,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              146.5,
+              587,
+              203.5
+            ]
+          }
+        ],
+        "source_text": "Q1. Find the number of years for the principal Rs. 2,500, rate of interest 2.5% and simple interest Rs. 187.50?\n(A) 2 (B) 3 (C) 4\n(D) 5 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q001.webp"
+      },
+      {
+        "number": 2,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              202.0,
+              587,
+              259
+            ]
+          }
+        ],
+        "source_text": "Q2. A principal becomes Rs. 17,000 at the rate of 12% in 3 years. Find the principal amount.\n(A) Rs. 14,000 (B) Rs. 12,500 (C) Rs. 15,200\n(D) Rs. 13,500 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q002.webp"
+      },
+      {
+        "number": 3,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              257.5,
+              587,
+              328
+            ]
+          }
+        ],
+        "source_text": "Q3. Ram deposited Rs. 200 at the beginning of every month in a Recurring Deposit (R.D.) and received Rs. 19,656 at the end\nof 6 years. Find the rate of Simple Interest paid by the bank.\n(A) 8% (B) 10% (C) 12%\n(D) 9% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q003.webp"
+      },
+      {
+        "number": 4,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              326.5,
+              587,
+              383.5
+            ]
+          }
+        ],
+        "source_text": "Q4. What sum of money will earn Rs. 500 as simple interest in 1 year at 5% per annum?\n(A) 50,000 (B) 30,000 (C) 10,000\n(D) 5,000 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q004.webp"
+      },
+      {
+        "number": 5,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              382.0,
+              587,
+              452.5
+            ]
+          }
+        ],
+        "source_text": "Q5. A person decides to create a fund to be invested at 10% per annum to provide for a prize of Rs. 500 every year. The initial\ninvestment is:\n(A) Rs. 4,000 (B) Rs. 5,000 (C) Rs. 6,000\n(D) Rs. 5,500 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q005.webp"
+      },
+      {
+        "number": 6,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              451.0,
+              587,
+              521.5
+            ]
+          }
+        ],
+        "source_text": "Q6. A sum of Rs. 46,000 was lent out at Simple Interest and at the end of 1 year and 9 months, the total amount was Rs.\n52,440. Find the rate of interest per year.\n(A) 5% (B) 6% (C) 7%\n(D) 8% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q006.webp"
+      },
+      {
+        "number": 7,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              520.0,
+              587,
+              577
+            ]
+          }
+        ],
+        "source_text": "Q7. Find the principal on amount Rs. 11,800 at 6% per annum for 3 years being simple interest annually.\n(A) Rs. 8,000 (B) Rs. 9,000 (C) Rs. 10,000\n(D) Rs. 9,500 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q007.webp"
+      },
+      {
+        "number": 8,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              575.5,
+              587,
+              646
+            ]
+          }
+        ],
+        "source_text": "Q8. A sum of Rs. 48,000 was lent out at simple interest and at the end of 2 years and 3 months the total amount was Rs.\n55,560. Find the rate of interest per year.\n(A) 7% (B) 8% (C) 9%\n(D) 10% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q008.webp"
+      },
+      {
+        "number": 9,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              644.5,
+              587,
+              715
+            ]
+          }
+        ],
+        "source_text": "Q9. Sathish Kumar bought an amount of Rs. 52,000 from a person on simple interest. After 4 years he paid the total amount\nRs. 79,040 to the person. Calculate the rate of simple interest.\n(A) 11% (B) 12% (C) 13%\n(D) 14% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q009.webp"
+      },
+      {
+        "number": 10,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              49.0,
+              587,
+              106
+            ]
+          }
+        ],
+        "source_text": "Q10. Find the principal that will yield a simple interest of Rs. 300 in 3 years at 2% rate of interest per annum.\n(A) Rs. 5,000 (B) Rs. 3,000 (C) Rs. 2,000\n(D) Rs. 1,000 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q010.webp"
+      },
+      {
+        "number": 11,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              104.5,
+              587,
+              161.5
+            ]
+          }
+        ],
+        "source_text": "Q11. At what rate of simple interest a certain sum will double in 15 years?\n(A) 6 1/3 % (B) 5 1/3 % (C) 5 2/3 %\n(D) 6 2/3 % (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q011.webp"
+      },
+      {
+        "number": 12,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              160.0,
+              587,
+              230.5
+            ]
+          }
+        ],
+        "source_text": "Q12. At simple interest, a sum becomes 3 times in 20 years. Find the time in which the sum will double at the same rate of\ninterest.\n(A) 8 year (B) 10 year (C) 12 year\n(D) 14 year (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q012.webp"
+      },
+      {
+        "number": 13,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              229.0,
+              587,
+              299.5
+            ]
+          }
+        ],
+        "source_text": "Q13. Vijay invested Rs. 10,000 at the rate of 5% simple interest per annum. He received Rs. 11,000 after some years. Find\nthe number of years.\n(A) 3 years (B) 2 years (C) 4 years\n(D) 1 year (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q013.webp"
+      },
+      {
+        "number": 14,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              298.0,
+              587,
+              355
+            ]
+          }
+        ],
+        "source_text": "Q14. Find the simple interest on Rs. 5x^2 y^2 for 4xy years at 7y% per annum.\n(A) (7/5) x^3 y^4 (B) (7/4) x^2 y^3 (C) (4/5) x^3 y^2\n(D) (4/7) x^2 y^4 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q014.webp"
+      },
+      {
+        "number": 15,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              353.5,
+              587,
+              424
+            ]
+          }
+        ],
+        "source_text": "Q15. Value of a machine depreciates 10% p.a. If the present value is Rs. 16,000, after how many years will it be worth half the\npresent value?\n(A) 2 years (B) 3 years (C) 4 years\n(D) 5 years (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q015.webp"
+      },
+      {
+        "number": 16,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              422.5,
+              587,
+              493
+            ]
+          }
+        ],
+        "source_text": "Q16. A farmer borrowed Rs. 20,000 from a money lender at 4.5% per annum in simple interest. The amount paid by him to\nclear the loan after a period of 5 years is:\n(A) Rs. 4,500 (B) Rs. 15,500 (C) Rs. 17,000\n(D) Rs. 24,500 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q016.webp"
+      },
+      {
+        "number": 17,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              491.5,
+              587,
+              562
+            ]
+          }
+        ],
+        "source_text": "Q17. The difference between the simple interest received from two different sources on Rs. 1,500 for 3 years is Rs. 13.50.\nThe difference between their rate of interest is:\n(A) 0.1% (B) 0.2% (C) 0.3%\n(D) 0.4% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q017.webp"
+      },
+      {
+        "number": 18,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              560.5,
+              587,
+              617.5
+            ]
+          }
+        ],
+        "source_text": "Q18. If Manohar pays an interest of Rs. 750 for 2 years on a sum of Rs. 4,500, find the rate of interest.\n(A) 8% (B) 8 1/3 % (C) 8 2/3 %\n(D) 8 3/4 % (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q018.webp"
+      },
+      {
+        "number": 19,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              616.0,
+              587,
+              686.5
+            ]
+          }
+        ],
+        "source_text": "Q19. Ram deposited Rs. 15,000 as fixed deposit. If the bank gives 4% as simple interest, after 73 days how much total\namount will he get?\n(A) Rs. 16,000 (B) Rs. 15,000 (C) Rs. 15,120\n(D) Rs. 15,100 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q019.webp"
+      },
+      {
+        "number": 20,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              49.0,
+              587,
+              106
+            ]
+          }
+        ],
+        "source_text": "Q20. Find Simple Interest on Rs. 68,000 at 16 2/3% per annum for 9 months.\n(A) Rs. 8,500 (B) Rs. 7,500 (C) Rs. 6,500\n(D) Rs. 8,000 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q020.webp"
+      },
+      {
+        "number": 21,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              104.5,
+              587,
+              161.5
+            ]
+          }
+        ],
+        "source_text": "Q21. A sum at simple interest of 13 1/2% per annum amounts to Rs. 3,080 in 4 yr. Find the Principal.\n(A) Rs. 2,000 (B) Rs. 1,850 (C) Rs. 1,650\n(D) Rs. 1,550 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q021.webp"
+      },
+      {
+        "number": 22,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              160.0,
+              587,
+              217
+            ]
+          }
+        ],
+        "source_text": "Q22. Selvan saves Rs. 5,000 every 3 months. How many years will it take for him to save Rs. 1,50,000?\n(A) 90 years (B) 7 1/2 years (C) 9 years\n(D) 30 years (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q022.webp"
+      },
+      {
+        "number": 23,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              215.5,
+              587,
+              286
+            ]
+          }
+        ],
+        "source_text": "Q23. Sathish Kumar borrowed Rs. 52,000 from a money lender at a particular rate of simple interest. After 4 years, he paid\nRs. 79,040 to settle his debt. At what rate of interest did he borrow the money?\n(A) 10% (B) 11% (C) 12%\n(D) 13% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q023.webp"
+      },
+      {
+        "number": 24,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              284.5,
+              587,
+              355
+            ]
+          }
+        ],
+        "source_text": "Q24. Raman has paid Rs. 800 as simple interest on a certain sum of amount for 4 years at the rate of 8% per annum. Then\nthe sum of amount is:\n(A) Rs. 2,000 (B) Rs. 2,100 (C) Rs. 2,400\n(D) Rs. 2,500 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q024.webp"
+      },
+      {
+        "number": 25,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              353.5,
+              587,
+              424
+            ]
+          }
+        ],
+        "source_text": "Q25. Calculate the number of years on which the amount Rs. 16,500 is matured to Rs. 22,935 at the rate of simple interest\n13% per annum.\n(A) 2 (B) 3 (C) 4\n(D) 5 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q025.webp"
+      },
+      {
+        "number": 26,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              422.5,
+              587,
+              479.5
+            ]
+          }
+        ],
+        "source_text": "Q26. An amount at the rate of simple interest 12% per annum matured to Rs. 17,000 in 3 years. Find out the principal amount.\n(A) Rs. 12,500 (B) Rs. 13,000 (C) Rs. 14,500\n(D) Rs. 13,300 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q026.webp"
+      },
+      {
+        "number": 27,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              478.0,
+              587,
+              535
+            ]
+          }
+        ],
+        "source_text": "Q27. Sheela has paid simple interest on a certain sum for 4 years at 9.5% per annum as Rs. 21,280. Find the sum.\n(A) Rs. 50,600 (B) Rs. 65,000 (C) Rs. 56,000\n(D) Rs. 66,000 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q027.webp"
+      },
+      {
+        "number": 28,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              533.5,
+              587,
+              590.5
+            ]
+          }
+        ],
+        "source_text": "Q28. A sum of money, put at simple interest, triples itself in 15 years. Find the rate of interest.\n(A) 12 2/3 % (B) 13 1/3 % (C) 16 2/3 %\n(D) 20% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q028.webp"
+      },
+      {
+        "number": 29,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              589.0,
+              587,
+              646
+            ]
+          }
+        ],
+        "source_text": "Q29. Find the simple interest of Rs. 500 for 6 years at 5% per annum.\n(A) Rs. 120 (B) Rs. 140 (C) Rs. 150\n(D) Rs. 250 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q029.webp"
+      },
+      {
+        "number": 30,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              644.5,
+              587,
+              701.5
+            ]
+          }
+        ],
+        "source_text": "Q30. In what time period will Rs. 10,000 earn an interest of Rs. 2,000 at 10% per annum?\n(A) 2 years (B) 5 years (C) 6 years\n(D) 3 years (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q030.webp"
+      },
+      {
+        "number": 31,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              49.0,
+              587,
+              119.5
+            ]
+          }
+        ],
+        "source_text": "Q31. In what time will Rs. 8,000 at 3% per annum, produce the same interest as Rs. 6,000 does in 5 years at 4% simple\ninterest?\n(A) 5 years (B) 5 1/2 years (C) 3 years\n(D) 3 1/2 years (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q031.webp"
+      },
+      {
+        "number": 32,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              118.0,
+              587,
+              175
+            ]
+          }
+        ],
+        "source_text": "Q32. If a certain sum of amount becomes doubled in 10 years, then its rate of interest is:\n(A) 5% (B) 10% (C) 15%\n(D) 20% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q032.webp"
+      },
+      {
+        "number": 33,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              173.5,
+              587,
+              230.5
+            ]
+          }
+        ],
+        "source_text": "Q33. How much time will it take for an amount of Rs. 450 to yield Rs. 81 as interest at 4.5% per annum of simple interest?\n(A) 3.5 years (B) 4 years (C) 4.5 years\n(D) 5 years (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q033.webp"
+      },
+      {
+        "number": 34,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              229.0,
+              587,
+              286
+            ]
+          }
+        ],
+        "source_text": "Q34. In an ordinary year find the simple interest on Rs. 900 for 73 days at 8% p.a.\n(A) Rs. 14.40 (B) Rs. 15.50 (C) Rs. 15.40\n(D) Rs. 14.50 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q034.webp"
+      },
+      {
+        "number": 35,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              284.5,
+              587,
+              341.5
+            ]
+          }
+        ],
+        "source_text": "Q35. If a principal of Rs. 100 is getting doubled in 4 years at S.I., then calculate the rate of interest.\n(A) 28% (B) 25% (C) 17%\n(D) 21% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q035.webp"
+      },
+      {
+        "number": 36,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              340.0,
+              587,
+              397
+            ]
+          }
+        ],
+        "source_text": "Q36. In how many years will a principal become triple at 8% per annum?\n(A) 20 years (B) 25 years (C) 30 years\n(D) 32 years (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q036.webp"
+      },
+      {
+        "number": 37,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              395.5,
+              587,
+              452.5
+            ]
+          }
+        ],
+        "source_text": "Q37. Find the rate of interest at which a principal becomes Rs. 8,800 in 6 years and Rs. 7,920 in 4 years.\n(A) 4% (B) 6% (C) 8%\n(D) 10% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q037.webp"
+      },
+      {
+        "number": 38,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              451.0,
+              587,
+              521.5
+            ]
+          }
+        ],
+        "source_text": "Q38. Lokesh invested Rs. 10,000 in a bank that pays an interest of 10% per annum. He withdrew the amount after 2 years\nand 3 months. Find the interest he receives.\n(A) Rs. 1,750 (B) Rs. 2,000 (C) Rs. 2,250\n(D) Rs. 2,500 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q038.webp"
+      },
+      {
+        "number": 39,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              520.0,
+              587,
+              577
+            ]
+          }
+        ],
+        "source_text": "Q39. In how many years will a sum of Rs. 5,000 amount to Rs. 5,800 at the rate of 8% per annum?\n(A) 2 years (B) 2 1/2 years (C) 3 years\n(D) 1 year (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q039.webp"
+      },
+      {
+        "number": 40,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              575.5,
+              587,
+              632.5
+            ]
+          }
+        ],
+        "source_text": "Q40. Find the Simple Interest on Rs. 35,000 at 9% per annum for 2 years.\n(A) Rs. 6,300 (B) Rs. 6,000 (C) Rs. 7,400\n(D) Rs. 6,800 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q040.webp"
+      },
+      {
+        "number": 41,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              631.0,
+              587,
+              688
+            ]
+          }
+        ],
+        "source_text": "Q41. In Simple Interest, if a sum of money doubles in n years then in which year will it become m times?\n(A) m (B) mn (C) (m-1) x n\n(D) mn - 1 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q041.webp"
+      },
+      {
+        "number": 42,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              49.0,
+              587,
+              106
+            ]
+          }
+        ],
+        "source_text": "Q42. In how many years will Rs. 2,000 become Rs. 3,600 at 10% p.a. simple interest?\n(A) 2 years (B) 16 years (C) 8 years\n(D) 10 years (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q042.webp"
+      },
+      {
+        "number": 43,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              104.5,
+              587,
+              175
+            ]
+          }
+        ],
+        "source_text": "Q43. If Meena gives an interest of Rs. 45 for one year at 9% per annum and she has borrowed the amount of Rs. 4x, then find\nx.\n(A) 500 (B) 250 (C) 125\n(D) 75 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q043.webp"
+      },
+      {
+        "number": 44,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              173.5,
+              587,
+              230.5
+            ]
+          }
+        ],
+        "source_text": "Q44. A sum of simple interest at 13 1/2% per annum amounts to Rs. 2,502.50 after 4 years. Find the sum.\n(A) 1526 (B) 1256 (C) 2156\n(D) 1625 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q044.webp"
+      },
+      {
+        "number": 45,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              229.0,
+              587,
+              299.5
+            ]
+          }
+        ],
+        "source_text": "Q45. A sum of Rs. 36,000 was lent out at S.I. and at the end of 2 years and 3 months, the total amount was Rs. 42,480. Find\nthe rate of interest per year.\n(A) 5% (B) 6% (C) 7%\n(D) 8% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q045.webp"
+      },
+      {
+        "number": 46,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              298.0,
+              587,
+              355
+            ]
+          }
+        ],
+        "source_text": "Q46. A principal becomes Rs. 10,050 at the rate of 10% in 5 years. Find the principal.\n(A) Rs. 7,000 (B) Rs. 6,500 (C) Rs. 6,700\n(D) Rs. 6,900 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q046.webp"
+      },
+      {
+        "number": 47,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              353.5,
+              587,
+              410.5
+            ]
+          }
+        ],
+        "source_text": "Q47. Kumaravel has paid simple interest on a certain sum for 2 years at 10% per annum as Rs. 750. Find the principal.\n(A) Rs. 3,350 (B) Rs. 3,450 (C) Rs. 3,550\n(D) Rs. 3,750 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q047.webp"
+      },
+      {
+        "number": 48,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              409.0,
+              587,
+              466
+            ]
+          }
+        ],
+        "source_text": "Q48. In what time will Rs. 5,600 amount to Rs. 6,720 on S.I. at 6% per annum?\n(A) 3 1/4 years (B) 3 1/2 years (C) 3 1/3 years\n(D) 3 1/5 years (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q048.webp"
+      },
+      {
+        "number": 49,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              464.5,
+              587,
+              521.5
+            ]
+          }
+        ],
+        "source_text": "Q49. 219 Days = ________ year.\n(A) 73/4 (B) 73/122 (C) 5/3\n(D) 3/5 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q049.webp"
+      },
+      {
+        "number": 50,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              520.0,
+              587,
+              577
+            ]
+          }
+        ],
+        "source_text": "Q50. A sum of money triples itself at 8% per annum over a certain time. Find the number of years.\n(A) 5 years (B) 15 years (C) 25 years\n(D) 35 years (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q050.webp"
+      },
+      {
+        "number": 51,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              575.5,
+              587,
+              632.5
+            ]
+          }
+        ],
+        "source_text": "Q51. Find the simple interest and the amount due on Rs. 6,750 for 219 days at 10% per annum.\n(A) Rs. 415 (B) Rs. 395 (C) Rs. 425\n(D) Rs. 405 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q051.webp"
+      },
+      {
+        "number": 52,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              631.0,
+              587,
+              688
+            ]
+          }
+        ],
+        "source_text": "Q52. At what rate of Simple Interest will Rs. 350 amount to Rs. 455 in 6 years?\n(A) 15% (B) 25% (C) 10%\n(D) 5% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q052.webp"
+      },
+      {
+        "number": 53,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 6,
+            "rect": [
+              25,
+              49.0,
+              587,
+              106
+            ]
+          }
+        ],
+        "source_text": "Q53. Which among the following rate of interest yields an interest of Rs. 200 for the principal of Rs. 2,000 for one year?\n(A) 10% (B) 20% (C) 5%\n(D) 15% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q053.webp"
+      },
+      {
+        "number": 54,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 6,
+            "rect": [
+              25,
+              104.5,
+              587,
+              175
+            ]
+          }
+        ],
+        "source_text": "Q54. In Simple Interest, a sum of money amounts to Rs. 6,200 in 2 years and Rs. 6,800 in 3 years. Find the principal and rate\nof interest.\n(A) Rs. 4,000, i = 15% (B) Rs. 5,000, i = 12% (C) Rs. 6,000, i = 10%\n(D) Rs. 3,000, i = 20% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q054.webp"
+      },
+      {
+        "number": 55,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 6,
+            "rect": [
+              25,
+              173.5,
+              587,
+              244
+            ]
+          }
+        ],
+        "source_text": "Q55. In a certain time, a sum becomes 4 times at the rate of 5% per annum. At what rate of simple interest, the same sum\nbecomes 8 times in the same duration?\n(A) 11 3/5 % (B) 11 2/3 % (C) 12 3/5 %\n(D) 12 2/3 % (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q055.webp"
+      },
+      {
+        "number": 56,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 6,
+            "rect": [
+              25,
+              242.5,
+              587,
+              299.5
+            ]
+          }
+        ],
+        "source_text": "Q56. Calculate the Simple Interest at 8% rate of interest, 1 year and 6 months period, for the amount Rs. 7,500.\n(A) Rs. 600 (B) Rs. 900 (C) Rs. 1,800\n(D) Rs. 8,400 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q056.webp"
+      },
+      {
+        "number": 57,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 6,
+            "rect": [
+              25,
+              298.0,
+              587,
+              355
+            ]
+          }
+        ],
+        "source_text": "Q57. A certain amount of money when invested on a simple interest basis doubles in 8 years. What is the % rate of interest?\n(A) 10% (B) 11.5% (C) 12%\n(D) 12.5% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q057.webp"
+      },
+      {
+        "number": 58,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 6,
+            "rect": [
+              25,
+              353.5,
+              587,
+              410.5
+            ]
+          }
+        ],
+        "source_text": "Q58. What principal will yield Rs. 60 as simple interest at 6% p.a. in 5 years?\n(A) Rs. 800 (B) Rs. 600 (C) Rs. 400\n(D) Rs. 200 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q058.webp"
+      },
+      {
+        "number": 59,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 6,
+            "rect": [
+              25,
+              409.0,
+              587,
+              466
+            ]
+          }
+        ],
+        "source_text": "Q59. In how many years will a particular amount become three times of its principal at 8% rate of interest?\n(A) 20 years (B) 25 years (C) 30 years\n(D) 35 years (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q059.webp"
+      },
+      {
+        "number": 60,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 6,
+            "rect": [
+              25,
+              464.5,
+              587,
+              521.5
+            ]
+          }
+        ],
+        "source_text": "Q60. A certain sum of money amounts to Rs. 8,880 in 6 years and Rs. 7,920 in 4 years respectively. Find the principal.\n(A) Rs. 5,000 (B) Rs. 5,500 (C) Rs. 6,000\n(D) Rs. 6,500 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q060.webp"
+      },
+      {
+        "number": 61,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 6,
+            "rect": [
+              25,
+              520.0,
+              587,
+              577
+            ]
+          }
+        ],
+        "source_text": "Q61. A sum of Rs. 6,000 amounts to Rs. 7,200 in 4 years under simple interest. What is the percentage rate of interest?\n(A) 4% (B) 4.5% (C) 5%\n(D) 5.5% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q061.webp"
+      },
+      {
+        "number": 62,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 6,
+            "rect": [
+              25,
+              575.5,
+              587,
+              632.5
+            ]
+          }
+        ],
+        "source_text": "Q62. If a person pays an interest of Rs. 750 for 2 years on a sum of Rs. 4,500. Find the rate of interest.\n(A) 6% (B) 7 1/2 % (C) 8 1/3 %\n(D) 9 1/4 % (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q062.webp"
+      },
+      {
+        "number": 63,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 6,
+            "rect": [
+              25,
+              631.0,
+              587,
+              701.5
+            ]
+          }
+        ],
+        "source_text": "Q63. A bank pays Rs. 240 as interest for 2 years for a sum of Rs. 3,000 deposited as savings. Find the rate of interest given\nby the bank.\n(A) 3% (B) 4% (C) 5%\n(D) 6% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q063.webp"
+      },
+      {
+        "number": 64,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 7,
+            "rect": [
+              25,
+              49.0,
+              587,
+              106
+            ]
+          }
+        ],
+        "source_text": "Q64. Find the simple interest for Rs. 20,000 for 4 years at 10% p.a.\n(A) Rs. 7,000 (B) Rs. 8,000 (C) Rs. 9,000\n(D) Rs. 4,000 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q064.webp"
+      },
+      {
+        "number": 65,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 7,
+            "rect": [
+              25,
+              104.5,
+              587,
+              161.5
+            ]
+          }
+        ],
+        "source_text": "Q65. Arun has paid Simple Interest on a certain sum for 3 years at 15% per annum as Rs. 450. Find the sum.\n(A) 800 (B) 900 (C) 1,000\n(D) 2,000 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q065.webp"
+      },
+      {
+        "number": 66,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 7,
+            "rect": [
+              25,
+              160.0,
+              587,
+              217
+            ]
+          }
+        ],
+        "source_text": "Q66. If Meena gives an interest of Rs. 45 for one year at 9% rate. What is the sum she has borrowed?\n(A) 1000 (B) 1500 (C) 500\n(D) 1200 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q066.webp"
+      },
+      {
+        "number": 67,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 7,
+            "rect": [
+              25,
+              215.5,
+              587,
+              286
+            ]
+          }
+        ],
+        "source_text": "Q67. A certain sum of money amounts to Rs. 8,880 in 6 years and Rs. 7,920 in 4 years respectively, then the principal amount\nis:\n(A) Rs. 6,000 (B) Rs. 6,100 (C) Rs. 5,100\n(D) Rs. 5,000 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q067.webp"
+      },
+      {
+        "number": 68,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 7,
+            "rect": [
+              25,
+              284.5,
+              587,
+              341.5
+            ]
+          }
+        ],
+        "source_text": "Q68. If Re. 1 becomes Rs. 9 in 60 years at a simple interest, then the rate % per annum is:\n(A) 15% (B) 13 1/3 % (C) 12%\n(D) 18% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q068.webp"
+      },
+      {
+        "number": 69,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 7,
+            "rect": [
+              25,
+              340.0,
+              587,
+              410.5
+            ]
+          }
+        ],
+        "source_text": "Q69. Anita takes a loan of Rs. 5,000 at 15% per year as rate of interest. Find the interest she has to pay at the end of two\nyears.\n(A) 1,000 (B) 1,300 (C) 1,800\n(D) 1,500 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q069.webp"
+      },
+      {
+        "number": 70,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 7,
+            "rect": [
+              25,
+              409.0,
+              587,
+              479.5
+            ]
+          }
+        ],
+        "source_text": "Q70. A lent Rs. 15,000 to B at the rate of interest of 14% per annum. After 6 years, B returned Rs. 25,000 and a watch. The\ncost of watch is:\n(A) Rs. 2,600 (B) Rs. 1,980 (C) Rs. 1,850\n(D) Rs. 1,760 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q070.webp"
+      },
+      {
+        "number": 71,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 7,
+            "rect": [
+              25,
+              478.0,
+              587,
+              548.5
+            ]
+          }
+        ],
+        "source_text": "Q71. A sum of Rs. 800 amounts to Rs. 920 in 3 years at simple interest. If the rate of interest is increased by 3%, what would\nbe the amount?\n(A) 990 (B) 992 (C) 1092\n(D) 892 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q071.webp"
+      },
+      {
+        "number": 72,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 7,
+            "rect": [
+              25,
+              547.0,
+              587,
+              604
+            ]
+          }
+        ],
+        "source_text": "Q72. If a sum becomes double in 10 years. What is the annual rate of simple interest?\n(A) 5% (B) 8% (C) 10%\n(D) 20% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q072.webp"
+      },
+      {
+        "number": 73,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 7,
+            "rect": [
+              25,
+              602.5,
+              587,
+              673
+            ]
+          }
+        ],
+        "source_text": "Q73. Which among the following is the simple interest for the principal of Rs. 1,000 for one year at the rate of 10% interest per\nannum?\n(A) Rs. 700 (B) Rs. 500 (C) Rs. 150\n(D) Rs. 100 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q073.webp"
+      },
+      {
+        "number": 74,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 7,
+            "rect": [
+              25,
+              671.5,
+              587,
+              728.5
+            ]
+          }
+        ],
+        "source_text": "Q74. If the simple interest at the rate of x% per annum, for x years, is Rs. x, then the principal amount is:\n(A) Rs. x (B) Rs. (100/x) (C) Rs. 100x\n(D) Rs. 100/x^2 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q074.webp"
+      },
+      {
+        "number": 75,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 8,
+            "rect": [
+              25,
+              49.0,
+              587,
+              106
+            ]
+          }
+        ],
+        "source_text": "Q75. Calculate the rate of interest when we get Rs. 1,680 as a simple interest for the principal amount Rs. 7,000 in 16 months.\n(A) 3/14 % (B) 1.5% (C) 18%\n(D) 32% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q075.webp"
+      },
+      {
+        "number": 76,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 8,
+            "rect": [
+              25,
+              104.5,
+              587,
+              161.5
+            ]
+          }
+        ],
+        "source_text": "Q76. If a principal becomes Rs. 17,000, with simple interest at the rate of 12% per annum, in 3 years, then the principal is:\n(A) Rs. 11,000 (B) Rs. 11,500 (C) Rs. 12,000\n(D) Rs. 12,500 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q076.webp"
+      },
+      {
+        "number": 77,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 8,
+            "rect": [
+              25,
+              160.0,
+              587,
+              217
+            ]
+          }
+        ],
+        "source_text": "Q77. Which rate of interest yields an interest of Rs. 200 for the principal amount of Rs. 2,000 in one year?\n(A) 10% (B) 20% (C) 5%\n(D) 15% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q077.webp"
+      },
+      {
+        "number": 78,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 8,
+            "rect": [
+              25,
+              215.5,
+              587,
+              286
+            ]
+          }
+        ],
+        "source_text": "Q78. In how much time will the simple interest on Rs. 3,000 at the rate of 8% per annum be the same as simple interest on\nRs. 4,000 at 12% per annum for 4 years?\n(A) 6 years (B) 7 years (C) 8 years\n(D) 9 years (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q078.webp"
+      },
+      {
+        "number": 79,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 8,
+            "rect": [
+              25,
+              284.5,
+              587,
+              355
+            ]
+          }
+        ],
+        "source_text": "Q79. Arvind borrowed a sum of Rs. 8,000 from Akash at 7% per annum. Find the amount to be paid at the end of 2 years at\nsimple interest.\n(A) Rs. 1,120 (B) Rs. 1,210 (C) Rs. 9,120\n(D) Rs. 9,210 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q079.webp"
+      },
+      {
+        "number": 80,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 8,
+            "rect": [
+              25,
+              353.5,
+              587,
+              424
+            ]
+          }
+        ],
+        "source_text": "Q80. Basha borrowed Rs. 8,500 from a bank at a particular rate of simple interest. After 3 years he paid Rs. 11,050 to settle\nhis debt. At what rate of interest he borrowed the money?\n(A) 10% (B) 5% (C) 20%\n(D) 15% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q080.webp"
+      },
+      {
+        "number": 81,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 8,
+            "rect": [
+              25,
+              422.5,
+              587,
+              479.5
+            ]
+          }
+        ],
+        "source_text": "Q81. The simple Interest at x% for x years will be Rs. x on a sum of:\n(A) Rs. x (B) Rs. (100/x) (C) Rs. 100x\n(D) Rs. (100/x^2) (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q081.webp"
+      },
+      {
+        "number": 82,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 8,
+            "rect": [
+              25,
+              478.0,
+              587,
+              535
+            ]
+          }
+        ],
+        "source_text": "Q82. A certain sum of money amounts to Rs. 10,080 in 5 years at 8%. Find the principal.\n(A) Rs. 7,000 (B) Rs. 7,200 (C) Rs. 7,100\n(D) Rs. 7,300 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q082.webp"
+      },
+      {
+        "number": 83,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 8,
+            "rect": [
+              25,
+              533.5,
+              587,
+              590.5
+            ]
+          }
+        ],
+        "source_text": "Q83. Calculate the simple interest on Rs. 7,200 at 12 3/4% per annum for 9 months.\n(A) Rs. 962.4 (B) Rs. 800.3 (C) Rs. 784.2\n(D) Rs. 688.5 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q083.webp"
+      },
+      {
+        "number": 84,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 8,
+            "rect": [
+              25,
+              589.0,
+              587,
+              646
+            ]
+          }
+        ],
+        "source_text": "Q84. The interest for a principal of Rs. 4,500 which gives an amount of Rs. 5,000 at end of certain period is:\n(A) Rs. 500 (B) Rs. 200 (C) 20%\n(D) 15% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q084.webp"
+      },
+      {
+        "number": 85,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 8,
+            "rect": [
+              25,
+              644.5,
+              587,
+              715
+            ]
+          }
+        ],
+        "source_text": "Q85. Anita took a loan of Rs. 9,000 from a money lender who charged interest at the rate of 15% per annum. After 3 years,\nAnita paid him Rs. 12,500 and a wrist watch to clear the debt. What is the price of the watch?\n(A) Rs. 600 (B) Rs. 550 (C) Rs. 500\n(D) Rs. 450 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q085.webp"
+      },
+      {
+        "number": 86,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 9,
+            "rect": [
+              25,
+              49.0,
+              587,
+              106
+            ]
+          }
+        ],
+        "source_text": "Q86. Find the simple interest for 2 years on Rs. 4,000 at the rate of interest 5% per annum.\n(A) Rs. 300 (B) Rs. 500 (C) Rs. 400\n(D) Rs. 200 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q086.webp"
+      },
+      {
+        "number": 87,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 9,
+            "rect": [
+              25,
+              104.5,
+              587,
+              161.5
+            ]
+          }
+        ],
+        "source_text": "Q87. In what time will Rs. 13,000 amount to Rs. 15,080 at 8% simple interest per annum?\n(A) 2 years (B) 3 years (C) 4 years\n(D) 5 years (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q087.webp"
+      },
+      {
+        "number": 88,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 9,
+            "rect": [
+              25,
+              160.0,
+              587,
+              230.5
+            ]
+          }
+        ],
+        "source_text": "Q88. A certain sum of money amount to Rs. 8,880 in 6 years and Rs. 7,920 in 4 years respectively. Find the principal and rate\npercent.\n(A) Rs. 8,500, 12% (B) Rs. 7,000, 6% (C) Rs. 7,500, 8%\n(D) Rs. 6,000, 8% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q088.webp"
+      },
+      {
+        "number": 89,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 9,
+            "rect": [
+              25,
+              229.0,
+              587,
+              286
+            ]
+          }
+        ],
+        "source_text": "Q89. The simple interest for the principal of Rs. 1,000 for one year is Rs. 100. Find the rate of interest.\n(A) 5% (B) 10% (C) 15%\n(D) 20% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q089.webp"
+      },
+      {
+        "number": 90,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 9,
+            "rect": [
+              25,
+              284.5,
+              587,
+              355
+            ]
+          }
+        ],
+        "source_text": "Q90. Riya bought Rs. 15,000 from a bank to buy a car at 10% simple interest. If she paid Rs. 9,000 as interest while clearing\nthe loan, find the time for which the loan was given.\n(A) 3 years (B) 4 years (C) 6 years\n(D) 5 years (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q090.webp"
+      },
+      {
+        "number": 91,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 9,
+            "rect": [
+              25,
+              353.5,
+              587,
+              410.5
+            ]
+          }
+        ],
+        "source_text": "Q91. Find the simple interest on Rs. 12,000 for 3 years at 10% per annum.\n(A) Rs. 3,600 (B) Rs. 3,000 (C) Rs. 4,000\n(D) Rs. 3,200 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q091.webp"
+      },
+      {
+        "number": 92,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 9,
+            "rect": [
+              25,
+              409.0,
+              587,
+              466
+            ]
+          }
+        ],
+        "source_text": "Q92. In how many years will a sum of Rs. 2,500 amount to Rs. 3,250 at 6% simple interest per annum?\n(A) 4 years (B) 5 years (C) 6 years\n(D) 3 years (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q092.webp"
+      },
+      {
+        "number": 93,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 9,
+            "rect": [
+              25,
+              464.5,
+              587,
+              521.5
+            ]
+          }
+        ],
+        "source_text": "Q93. What principal will earn a simple interest of Rs. 900 in 3 years at 10% per annum?\n(A) Rs. 3,000 (B) Rs. 2,500 (C) Rs. 3,500\n(D) Rs. 4,000 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q093.webp"
+      },
+      {
+        "number": 94,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 9,
+            "rect": [
+              25,
+              520.0,
+              587,
+              577
+            ]
+          }
+        ],
+        "source_text": "Q94. Find the rate of interest if Rs. 4,000 yields Rs. 800 as simple interest in 2 years.\n(A) 10% (B) 8% (C) 12%\n(D) 5% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q094.webp"
+      },
+      {
+        "number": 95,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 9,
+            "rect": [
+              25,
+              575.5,
+              587,
+              632.5
+            ]
+          }
+        ],
+        "source_text": "Q95. A sum of money doubles itself in 8 years at simple interest. Find the rate of interest per annum.\n(A) 12.5% (B) 10% (C) 15%\n(D) 8% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q095.webp"
+      },
+      {
+        "number": 96,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 9,
+            "rect": [
+              25,
+              631.0,
+              587,
+              688
+            ]
+          }
+        ],
+        "source_text": "Q96. Find the time in which Rs. 5,000 will amount to Rs. 6,500 at 10% simple interest per annum.\n(A) 3 years (B) 2 years (C) 4 years\n(D) 5 years (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q096.webp"
+      },
+      {
+        "number": 97,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 10,
+            "rect": [
+              25,
+              49.0,
+              587,
+              106
+            ]
+          }
+        ],
+        "source_text": "Q97. If the simple interest on Rs. 6,000 for 4 years is Rs. 1,440, find the rate of interest per annum.\n(A) 6% (B) 5% (C) 8%\n(D) 7% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q097.webp"
+      },
+      {
+        "number": 98,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 10,
+            "rect": [
+              25,
+              104.5,
+              587,
+              161.5
+            ]
+          }
+        ],
+        "source_text": "Q98. Find the simple interest on Rs. 8,000 for 2 years and 6 months at 5% per annum.\n(A) Rs. 1,000 (B) Rs. 800 (C) Rs. 1,200\n(D) Rs. 900 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q098.webp"
+      },
+      {
+        "number": 99,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 10,
+            "rect": [
+              25,
+              160.0,
+              587,
+              217
+            ]
+          }
+        ],
+        "source_text": "Q99. A sum of Rs. 10,000 amounts to Rs. 13,000 in 3 years at simple interest. Find the rate percent per annum.\n(A) 10% (B) 8% (C) 12%\n(D) 15% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q099.webp"
+      },
+      {
+        "number": 100,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 10,
+            "rect": [
+              25,
+              215.5,
+              587,
+              272.5
+            ]
+          }
+        ],
+        "source_text": "Q100. What principal will yield Rs. 1,200 as simple interest in 4 years at 6% p.a.?\n(A) Rs. 5,000 (B) Rs. 6,000 (C) Rs. 4,000\n(D) Rs. 4,500 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q100.webp"
+      },
+      {
+        "number": 101,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 10,
+            "rect": [
+              25,
+              271.0,
+              587,
+              328
+            ]
+          }
+        ],
+        "source_text": "Q101. Find the simple interest on Rs. 15,000 at 8% per annum for 3 years.\n(A) Rs. 3,600 (B) Rs. 3,200 (C) Rs. 4,000\n(D) Rs. 3,500 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q101.webp"
+      },
+      {
+        "number": 102,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 10,
+            "rect": [
+              25,
+              326.5,
+              587,
+              383.5
+            ]
+          }
+        ],
+        "source_text": "Q102. In how many years will Rs. 6,200 amount to Rs. 7,440 at 8% simple interest per annum?\n(A) 2.5 years (B) 2 years (C) 3 years\n(D) 3.5 years (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q102.webp"
+      },
+      {
+        "number": 103,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 10,
+            "rect": [
+              25,
+              382.0,
+              587,
+              439
+            ]
+          }
+        ],
+        "source_text": "Q103. Find the principal if the simple interest for 3 years at 5% per annum is Rs. 600.\n(A) Rs. 4,000 (B) Rs. 3,500 (C) Rs. 4,500\n(D) Rs. 5,000 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q103.webp"
+      },
+      {
+        "number": 104,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 10,
+            "rect": [
+              25,
+              437.5,
+              587,
+              494.5
+            ]
+          }
+        ],
+        "source_text": "Q104. A sum of money triples itself in 20 years at simple interest. Find the rate of interest per annum.\n(A) 10% (B) 8% (C) 12%\n(D) 15% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q104.webp"
+      },
+      {
+        "number": 105,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 10,
+            "rect": [
+              25,
+              493.0,
+              587,
+              550
+            ]
+          }
+        ],
+        "source_text": "Q105. At what rate percent per annum will Rs. 3,000 yield Rs. 1,080 as simple interest in 4 years?\n(A) 9% (B) 8% (C) 10%\n(D) 7% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q105.webp"
+      },
+      {
+        "number": 106,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 10,
+            "rect": [
+              25,
+              548.5,
+              587,
+              605.5
+            ]
+          }
+        ],
+        "source_text": "Q106. Find the simple interest on Rs. 18,000 for 2 years at 12% per annum.\n(A) Rs. 4,320 (B) Rs. 4,000 (C) Rs. 4,500\n(D) Rs. 3,960 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q106.webp"
+      },
+      {
+        "number": 107,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 10,
+            "rect": [
+              25,
+              604.0,
+              587,
+              661
+            ]
+          }
+        ],
+        "source_text": "Q107. In what time will Rs. 7,500 amount to Rs. 9,000 at 5% simple interest per annum?\n(A) 4 years (B) 3 years (C) 5 years\n(D) 2 years (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q107.webp"
+      },
+      {
+        "number": 108,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 10,
+            "rect": [
+              25,
+              659.5,
+              587,
+              716.5
+            ]
+          }
+        ],
+        "source_text": "Q108. If the simple interest on Rs. 9,000 for 3 years is Rs. 2,700, find the rate of interest per annum.\n(A) 10% (B) 9% (C) 8%\n(D) 12% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q108.webp"
+      },
+      {
+        "number": 109,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 11,
+            "rect": [
+              25,
+              49.0,
+              587,
+              106
+            ]
+          }
+        ],
+        "source_text": "Q109. Find the principal that yields Rs. 1,500 as simple interest in 5 years at 6% p.a.\n(A) Rs. 5,000 (B) Rs. 6,000 (C) Rs. 4,500\n(D) Rs. 5,500 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q109.webp"
+      },
+      {
+        "number": 110,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 11,
+            "rect": [
+              25,
+              104.5,
+              587,
+              161.5
+            ]
+          }
+        ],
+        "source_text": "Q110. A sum of money doubles itself in 10 years at simple interest. What is the rate of interest per annum?\n(A) 10% (B) 8% (C) 12%\n(D) 5% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q110.webp"
+      },
+      {
+        "number": 111,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 11,
+            "rect": [
+              25,
+              160.0,
+              587,
+              217
+            ]
+          }
+        ],
+        "source_text": "Q111. Calculate the simple interest on Rs. 14,000 at 7% per annum for 2 years.\n(A) Rs. 1,960 (B) Rs. 1,800 (C) Rs. 2,100\n(D) Rs. 1,900 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q111.webp"
+      },
+      {
+        "number": 112,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 11,
+            "rect": [
+              25,
+              215.5,
+              587,
+              272.5
+            ]
+          }
+        ],
+        "source_text": "Q112. In how many years will Rs. 4,500 amount to Rs. 5,850 at 10% simple interest per annum?\n(A) 3 years (B) 2.5 years (C) 4 years\n(D) 3.5 years (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q112.webp"
+      },
+      {
+        "number": 113,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 11,
+            "rect": [
+              25,
+              271.0,
+              587,
+              328
+            ]
+          }
+        ],
+        "source_text": "Q113. Find the rate of interest if Rs. 8,000 earns Rs. 1,920 as simple interest in 3 years.\n(A) 8% (B) 7% (C) 9%\n(D) 10% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q113.webp"
+      },
+      {
+        "number": 114,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 11,
+            "rect": [
+              25,
+              326.5,
+              587,
+              383.5
+            ]
+          }
+        ],
+        "source_text": "Q114. What principal will yield Rs. 2,100 as simple interest in 3 years at 7% per annum?\n(A) Rs. 10,000 (B) Rs. 9,000 (C) Rs. 11,000\n(D) Rs. 8,500 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q114.webp"
+      },
+      {
+        "number": 115,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 11,
+            "rect": [
+              25,
+              382.0,
+              587,
+              439
+            ]
+          }
+        ],
+        "source_text": "Q115. A sum of money quadruples (becomes 4 times) itself in 15 years at simple interest. Find the rate of interest per annum.\n(A) 20% (B) 15% (C) 25%\n(D) 18% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q115.webp"
+      },
+      {
+        "number": 116,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 11,
+            "rect": [
+              25,
+              437.5,
+              587,
+              494.5
+            ]
+          }
+        ],
+        "source_text": "Q116. Find the simple interest on Rs. 25,000 at 6% per annum for 4 years.\n(A) Rs. 6,000 (B) Rs. 5,000 (C) Rs. 7,000\n(D) Rs. 5,500 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q116.webp"
+      },
+      {
+        "number": 117,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 11,
+            "rect": [
+              25,
+              493.0,
+              587,
+              550
+            ]
+          }
+        ],
+        "source_text": "Q117. In what time will Rs. 11,000 amount to Rs. 14,300 at 10% simple interest per annum?\n(A) 3 years (B) 2 years (C) 4 years\n(D) 2.5 years (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q117.webp"
+      },
+      {
+        "number": 118,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 11,
+            "rect": [
+              25,
+              548.5,
+              587,
+              605.5
+            ]
+          }
+        ],
+        "source_text": "Q118. If the simple interest on Rs. 16,000 for 2 years is Rs. 2,560, find the rate of interest per annum.\n(A) 8% (B) 7% (C) 9%\n(D) 10% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q118.webp"
+      },
+      {
+        "number": 119,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 11,
+            "rect": [
+              25,
+              604.0,
+              587,
+              661
+            ]
+          }
+        ],
+        "source_text": "Q119. Find the principal if the simple interest for 4 years at 8% per annum is Rs. 3,200.\n(A) Rs. 10,000 (B) Rs. 9,000 (C) Rs. 12,000\n(D) Rs. 8,000 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q119.webp"
+      },
+      {
+        "number": 120,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 11,
+            "rect": [
+              25,
+              659.5,
+              587,
+              716.5
+            ]
+          }
+        ],
+        "source_text": "Q120. A sum of money becomes 3 times itself in 16 years at simple interest. Find the rate of interest per annum.\n(A) 12.5% (B) 10% (C) 15%\n(D) 11.5% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q120.webp"
+      },
+      {
+        "number": 121,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 12,
+            "rect": [
+              25,
+              49.0,
+              587,
+              106
+            ]
+          }
+        ],
+        "source_text": "Q121. Calculate the simple interest on Rs. 22,000 at 5% per annum for 3 years.\n(A) Rs. 3,300 (B) Rs. 3,000 (C) Rs. 3,500\n(D) Rs. 3,100 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q121.webp"
+      },
+      {
+        "number": 122,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 12,
+            "rect": [
+              25,
+              104.5,
+              587,
+              161.5
+            ]
+          }
+        ],
+        "source_text": "Q122. In how many years will Rs. 9,500 amount to Rs. 12,350 at 6% simple interest per annum?\n(A) 5 years (B) 4 years (C) 6 years\n(D) 3 years (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q122.webp"
+      },
+      {
+        "number": 123,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 12,
+            "rect": [
+              25,
+              160.0,
+              587,
+              217
+            ]
+          }
+        ],
+        "source_text": "Q123. Find the rate of interest if Rs. 12,500 yields Rs. 3,750 as simple interest in 3 years.\n(A) 10% (B) 8% (C) 12%\n(D) 9% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q123.webp"
+      },
+      {
+        "number": 124,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 12,
+            "rect": [
+              25,
+              215.5,
+              587,
+              272.5
+            ]
+          }
+        ],
+        "source_text": "Q124. What principal will yield Rs. 2,800 as simple interest in 4 years at 7% per annum?\n(A) Rs. 10,000 (B) Rs. 9,500 (C) Rs. 10,500\n(D) Rs. 11,000 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q124.webp"
+      },
+      {
+        "number": 125,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 12,
+            "rect": [
+              25,
+              271.0,
+              587,
+              328
+            ]
+          }
+        ],
+        "source_text": "Q125. A sum of money doubles itself in 12.5 years at simple interest. What is the rate of interest per annum?\n(A) 8% (B) 10% (C) 7.5%\n(D) 6% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q125.webp"
+      },
+      {
+        "number": 126,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 12,
+            "rect": [
+              25,
+              326.5,
+              587,
+              383.5
+            ]
+          }
+        ],
+        "source_text": "Q126. Find the simple interest on Rs. 30,000 at 9% per annum for 2 years.\n(A) Rs. 5,400 (B) Rs. 5,000 (C) Rs. 5,800\n(D) Rs. 4,800 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q126.webp"
+      },
+      {
+        "number": 127,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 12,
+            "rect": [
+              25,
+              382.0,
+              587,
+              439
+            ]
+          }
+        ],
+        "source_text": "Q127. In what time will Rs. 14,000 amount to Rs. 18,200 at 6% simple interest per annum?\n(A) 5 years (B) 4 years (C) 6 years\n(D) 4.5 years (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q127.webp"
+      },
+      {
+        "number": 128,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 12,
+            "rect": [
+              25,
+              437.5,
+              587,
+              494.5
+            ]
+          }
+        ],
+        "source_text": "Q128. If the simple interest on Rs. 20,000 for 3 years is Rs. 4,800, find the rate of interest per annum.\n(A) 8% (B) 7% (C) 9%\n(D) 10% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q128.webp"
+      },
+      {
+        "number": 129,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 12,
+            "rect": [
+              25,
+              493.0,
+              587,
+              550
+            ]
+          }
+        ],
+        "source_text": "Q129. Find the principal if the simple interest for 5 years at 9% per annum is Rs. 4,500.\n(A) Rs. 10,000 (B) Rs. 9,000 (C) Rs. 11,000\n(D) Rs. 8,000 (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q129.webp"
+      },
+      {
+        "number": 130,
+        "correct_answer": null,
+        "segments": [
+          {
+            "page": 12,
+            "rect": [
+              25,
+              548.5,
+              587,
+              605.5
+            ]
+          }
+        ],
+        "source_text": "Q130. A sum of money becomes 5 times itself in 20 years at simple interest. Find the rate of interest per annum.\n(A) 20% (B) 18% (C) 25%\n(D) 15% (E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-remaining/images/paper-01/q130.webp"
+      }
+    ],
+    "answers": {},
+    "issues": []
+  },
+  {
+    "source": "Ratio and Proportion.pdf",
+    "topic": "Ratio and Proportion",
+    "language": "English",
+    "questions": [
+      {
+        "number": 1,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              121.51741,
+              287.638,
+              212.83841
+            ]
+          }
+        ],
+        "source_text": "1. Find the ratio of 3 km to 300 m.\n(A) 3 : 10\n(B) 10 : 3\n(C) 1 : 10\n(D) 10 : 1",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q001.webp"
+      },
+      {
+        "number": 2,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              208.83841,
+              287.638,
+              300.15841000000006
+            ]
+          }
+        ],
+        "source_text": "2. The ratio of Rs. 1 to 20 paise is:\n(A) 1 : 5\n(B) 1 : 2\n(C) 2 : 1\n(D) 5 : 1",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q002.webp"
+      },
+      {
+        "number": 3,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              296.15841000000006,
+              287.638,
+              387.4794100000001
+            ]
+          }
+        ],
+        "source_text": "3. The ratio of 1 m to 50 cm is:\n(A) 1 : 50\n(B) 50 : 1\n(C) 2 : 1\n(D) 1 : 2",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q003.webp"
+      },
+      {
+        "number": 4,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              383.4794100000001,
+              287.638,
+              474.8004100000001
+            ]
+          }
+        ],
+        "source_text": "4. Find the ratio: 666 gm to 6 kg.\n(A) 111 : 1\n(B) 111 : 10\n(C) 111 : 100\n(D) 111 : 1000",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q004.webp"
+      },
+      {
+        "number": 5,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              470.8004100000001,
+              287.638,
+              562.1204100000002
+            ]
+          }
+        ],
+        "source_text": "5. The ratio of 20 miles to 25 km is:\n(A) 4 : 5\n(B) 6 : 5\n(C) 32 : 25\n(D) 33 : 50",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q005.webp"
+      },
+      {
+        "number": 6,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              558.1204100000002,
+              287.638,
+              673.3514100000002
+            ]
+          }
+        ],
+        "source_text": "6. The length and breadth of a window are 1 m and\n70 cm respectively. The ratio of the length to the\nbreadth is:\n(A) 1 : 7\n(B) 7 : 1\n(C) 7 : 10\n(D) 10 : 7",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q006.webp"
+      },
+      {
+        "number": 7,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              669.3514100000002,
+              287.638,
+              760.6724100000002
+            ]
+          }
+        ],
+        "source_text": "7. The reciprocal ratio of 9 : 121 is:\n(A) 3 : 11\n(B) 6 : 22\n(C) 11 : 3\n(D) 121 : 9",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q007.webp"
+      },
+      {
+        "number": 8,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              756.6724100000002,
+              287.638,
+              799.89001
+            ]
+          },
+          {
+            "page": 1,
+            "rect": [
+              287.638,
+              120,
+              570.276,
+              174.7154100000003
+            ]
+          }
+        ],
+        "source_text": "8. What will be the duplicate ratio of 2 : 7?\n(A) 4 : 49\n(B) 49 : 4\n(C) 4 : 14\n(D) 8 : 343",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q008.webp"
+      },
+      {
+        "number": 9,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              287.638,
+              170.7154100000003,
+              570.276,
+              269.9964100000005
+            ]
+          }
+        ],
+        "source_text": "9. Which is the largest ratio among 5 : 7, 1 : 2, 3 : 5,\nand 7 : 10?\n(A) 5 : 7\n(B) 1 : 2\n(C) 3 : 5\n(D) 7 : 10",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q009.webp"
+      },
+      {
+        "number": 10,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              287.638,
+              265.9964100000005,
+              570.276,
+              365.2774100000006
+            ]
+          }
+        ],
+        "source_text": "10. Find the largest ratio among 4 : 5, 8 : 15, 3 : 10, and\n1 : 2.\n(A) 4 : 5\n(B) 8 : 15\n(C) 3 : 10\n(D) 1 : 2",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q010.webp"
+      },
+      {
+        "number": 11,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              287.638,
+              361.2774100000006,
+              570.276,
+              460.5584099999999
+            ]
+          }
+        ],
+        "source_text": "11. Which of the following is NOT an equivalent ratio of\n16\n?\n24\n6\n(A)\n9\n12\n(B)\n18\n10\n(C)\n15\n20\n(D)\n28",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q011.webp"
+      },
+      {
+        "number": 12,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              287.638,
+              456.5584099999999,
+              570.276,
+              555.83841
+            ]
+          }
+        ],
+        "source_text": "1 3\n12. In a recipe, every 1 cups of rice requires 2 cups of\n2 4\nwater. Express this in the ratio of rice to water.\n(A) 1 : 2\n(B) 3 : 11\n(C) 6 : 11\n(D) 3 : 8",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q012.webp"
+      },
+      {
+        "number": 13,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              287.638,
+              551.83841,
+              570.276,
+              639.16441
+            ]
+          }
+        ],
+        "source_text": "13. If 5 : 6 = x : 12, then the value of x is:\n(A) 10\n(B) 6\n(C) 12\n(D) 5",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q013.webp"
+      },
+      {
+        "number": 14,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              287.638,
+              635.16441,
+              570.276,
+              734.44541
+            ]
+          }
+        ],
+        "source_text": "14. If 7 : 5 is in proportion to x : 25, then the value of x\nis:\n(A) 35\n(B) 25\n(C) 175\n(D) 125",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q014.webp"
+      },
+      {
+        "number": 15,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              287.638,
+              730.44541,
+              570.276,
+              799.89001
+            ]
+          },
+          {
+            "page": 2,
+            "rect": [
+              25,
+              38,
+              287.638,
+              84.77340999999986
+            ]
+          }
+        ],
+        "source_text": "15. Find the value of x from the equal ratios 11 : x :: 6 :\n66.\n(A) 6\n(B) 11\n2\n(C) 11\n2\n(D) 6",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q015.webp"
+      },
+      {
+        "number": 16,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              80.77340999999986,
+              287.638,
+              171.21340999999967
+            ]
+          }
+        ],
+        "source_text": "16. If y : 36 = 2 : x = 8 : 12, find x and y respectively.\n(A) 24 , 3\n(B) 3 , 24\n(C) 3 , 54\n(D) 54 , 3",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q016.webp"
+      },
+      {
+        "number": 17,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              167.21340999999967,
+              287.638,
+              257.6544099999995
+            ]
+          }
+        ],
+        "source_text": "17. Find x if x : 26 :: 5 : 65.\n(A) 1\n(B) 2\n(C) 3\n(D) 4",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q017.webp"
+      },
+      {
+        "number": 18,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              253.65440999999947,
+              287.638,
+              356.04940999999945
+            ]
+          }
+        ],
+        "source_text": "18. If 21 : x = y : 25 = 9 : 15, find the values of x and y\nrespectively.\n(A) 25 , 15\n(B) 35 , 10\n(C) 35 , 15\n(D) 15 , 9",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q018.webp"
+      },
+      {
+        "number": 19,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              352.04940999999945,
+              287.638,
+              454.4454099999994
+            ]
+          }
+        ],
+        "source_text": "19. For 6 : x :: y : 15, which of the following answers\nCANNOT be the values of x and y respectively?\n(A) 9 , 10\n(B) 3 , 30\n(C) 2 , 45\n(D) 10 , 10",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q019.webp"
+      },
+      {
+        "number": 20,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              450.4454099999994,
+              287.638,
+              540.8854099999995
+            ]
+          }
+        ],
+        "source_text": "20. Find the missing value: 42 : 56 :: 110 :?\n(A) 180\n(B) 132\n(C) 136\n(D) 140",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q020.webp"
+      },
+      {
+        "number": 21,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              536.8854099999995,
+              287.638,
+              627.32641
+            ]
+          }
+        ],
+        "source_text": "4 3 5\n21. Find x if x : = : .\n9 11 33\n3\n(A)\n7\n11\n(B)\n15\n4\n(C)\n5\n3\n(D)\n17",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q021.webp"
+      },
+      {
+        "number": 22,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              623.32641,
+              287.638,
+              713.7664100000001
+            ]
+          }
+        ],
+        "source_text": "1\n22. If 1000 : 10 = x : , find x .\n1000\n(A) 10\n1\n(B)\n10\n(C) 1000\n1\n(D)\n1000",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q022.webp"
+      },
+      {
+        "number": 23,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              709.7664100000001,
+              287.638,
+              799.89001
+            ]
+          }
+        ],
+        "source_text": "23. Find the value of x in 3 : 27 :: 4 : x .\n(A) 36\n(B) 64\n(C) 16\n(D) 8",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q023.webp"
+      },
+      {
+        "number": 24,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              287.638,
+              45.40041000000003,
+              570.276,
+              134.5074100000001
+            ]
+          }
+        ],
+        "source_text": "24. If x : 24 :: 3 : 8, then the value of x is:\n(A) 1\n(B) 8\n(C) 9\n(D) 3",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q024.webp"
+      },
+      {
+        "number": 25,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              287.638,
+              130.5074100000001,
+              570.276,
+              219.61541000000017
+            ]
+          }
+        ],
+        "source_text": "25. If 3 × x = 4 × y , then x : y is:\n(A) 4 : 3\n(B) 3 : 4\n(C) 9 : 12\n(D) 12 : 16",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q025.webp"
+      },
+      {
+        "number": 26,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              287.638,
+              215.61541000000017,
+              570.276,
+              304.72241000000025
+            ]
+          }
+        ],
+        "source_text": "26. If 0 . 75 : x :: 5 : 8, then x is:\n(A) 12\n(B) 1 . 2\n(C) 0 . 12\n(D) 120",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q026.webp"
+      },
+      {
+        "number": 27,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              287.638,
+              300.72241000000025,
+              570.276,
+              389.8304099999999
+            ]
+          }
+        ],
+        "source_text": "27. If ( x + 1) : 8 = 3 . 75 : 7, then the value of x is:\n2\n(A) 1\n7\n2\n(B) 2\n7\n2\n(C) 3\n7\n2\n(D) 4\n7",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q027.webp"
+      },
+      {
+        "number": 28,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              287.638,
+              385.8304099999999,
+              570.276,
+              474.9374099999999
+            ]
+          }
+        ],
+        "source_text": "28. If 2 x + 3 y : 3 x + 5 y = 18 : 29, then x : y is:\n(A) 4 : 3\n(B) 3 : 4\n(C) 2 : 3\n(D) 3 : 5",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q028.webp"
+      },
+      {
+        "number": 29,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              287.638,
+              470.9374099999999,
+              570.276,
+              560.0454100000001
+            ]
+          }
+        ],
+        "source_text": "29. If x : y = 2 : 3, find the value of (3 x + 2 y ) : (2 x + 5 y ).\n(A) 5 : 2\n(B) 12 : 19\n(C) 10 : 13\n(D) 3 : 2",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q029.webp"
+      },
+      {
+        "number": 30,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              287.638,
+              556.0454100000001,
+              570.276,
+              645.15241
+            ]
+          }
+        ],
+        "source_text": "30. If 2 x : y = 8 : 5, find (3 x + 3 y ) : (4 x − 2 y ).\n(A) 6 : 2\n(B) 2 : 6\n(C) 9 : 2\n(D) 2 : 9",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q030.webp"
+      },
+      {
+        "number": 31,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              287.638,
+              641.15241,
+              570.276,
+              730.26041
+            ]
+          }
+        ],
+        "source_text": "31. If a : b = 2 : 5, then the value of (5 a − b ) : ( a + b ) is:\n(A) 1 : 1\n(B) 5 : 2\n(C) 5 : 7\n(D) 7 : 5",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q031.webp"
+      },
+      {
+        "number": 32,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              287.638,
+              726.26041,
+              570.276,
+              799.89001
+            ]
+          },
+          {
+            "page": 3,
+            "rect": [
+              25,
+              38,
+              287.638,
+              69.53440999999994
+            ]
+          }
+        ],
+        "source_text": "4 4\n32. If a : b = b : c , then a : b is equal to:\n2\n(A) ac : b\n2 2\n(B) a : c\n2 2\n(C) c : a\n2\n(D) b : ac",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q032.webp"
+      },
+      {
+        "number": 33,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              65.53440999999994,
+              287.638,
+              157.93640999999985
+            ]
+          }
+        ],
+        "source_text": "33. If x : y = 1 : 3, then (7 x + 3 y ) : (2 x + y ) =?\n(A) 4 : 5\n(B) 5 : 16\n(C) 5 : 4\n(D) 16 : 5",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q033.webp"
+      },
+      {
+        "number": 34,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              153.93640999999985,
+              287.638,
+              246.3384099999999
+            ]
+          }
+        ],
+        "source_text": "x y\n34. If = , then ( x + 5) : ( y + 8) is equal to:\n5 8\n(A) 3 : 5\n(B) 13 : 8\n(C) 8 : 5\n(D) 5 : 8",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q034.webp"
+      },
+      {
+        "number": 35,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              242.3384099999999,
+              287.638,
+              334.7404099999998
+            ]
+          }
+        ],
+        "source_text": "2\n35. If A = 75% of B , then A : B is:\n3\n(A) 1 : 1\n(B) 9 : 8\n(C) 8 : 9\n(D) 10 : 11",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q035.webp"
+      },
+      {
+        "number": 36,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              330.7404099999998,
+              287.638,
+              435.0984099999998
+            ]
+          }
+        ],
+        "source_text": "36. If ( a + b ) : ( b + c ) : ( c + a ) = 6 : 7 : 8 and a + b + c = 14,\nthen the value of c is:\n(A) 6\n(B) 8\n(C) 14\n(D) 7",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q036.webp"
+      },
+      {
+        "number": 37,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              431.0984099999998,
+              287.638,
+              523.50041
+            ]
+          }
+        ],
+        "source_text": "a 3 b 4\n37. If = and = , then a : b : c is:\nb 5 c 7\n(A) 12 : 20 : 21\n(B) 12 : 20 : 35\n(C) 15 : 28 : 35\n(D) 28 : 20 : 12",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q037.webp"
+      },
+      {
+        "number": 38,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              519.50041,
+              287.638,
+              611.90241
+            ]
+          }
+        ],
+        "source_text": "38. If A : B = 5 : 9 and B : C = 4 : 7, then A : B : C is:\n(A) 20 : 36 : 63\n(B) 63 : 36 : 20\n(C) 63 : 20 : 36\n(D) 36 : 63 : 20",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q038.webp"
+      },
+      {
+        "number": 39,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              607.90241,
+              287.638,
+              700.3044100000001
+            ]
+          }
+        ],
+        "source_text": "39. If A : B = 4 : 6 and B : C = 18 : 5, then A : B : C is:\n(A) 16 : 22 : 30\n(B) 12 : 20 : 5\n(C) 14 : 20 : 15\n(D) 12 : 18 : 5",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q039.webp"
+      },
+      {
+        "number": 40,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              696.3044100000001,
+              287.638,
+              799.89001
+            ]
+          }
+        ],
+        "source_text": "40. If A : B = 8 : 12 and B : C = 24 : 15, then find the\nratio of A : B : C .\n(A) 16 : 24 : 15\n(B) 8 : 24 : 15\n(C) 12 : 24 : 15\n(D) 16 : 12 : 15",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q040.webp"
+      },
+      {
+        "number": 41,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              287.638,
+              45.40041000000014,
+              570.276,
+              146.2004100000002
+            ]
+          }
+        ],
+        "source_text": "41. If A : B = 2 : 3, B : C = 2 : 4, and C : D = 2 : 5,\nthen A : D is equal to:\n(A) 1 : 5\n(B) 2 : 5\n(C) 3 : 5\n(D) 2 : 15",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q041.webp"
+      },
+      {
+        "number": 42,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              287.638,
+              142.2004100000002,
+              570.276,
+              242.9994100000003
+            ]
+          }
+        ],
+        "source_text": "42. If A : B = 8 : 15, B : C = 5 : 8, and C : D = 4 : 5,\nthen what is A : D ?\n(A) 8 : 5\n(B) 4 : 8\n(C) 8 : 15\n(D) 4 : 15",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q042.webp"
+      },
+      {
+        "number": 43,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              287.638,
+              238.9994100000003,
+              570.276,
+              339.79941000000036
+            ]
+          }
+        ],
+        "source_text": "43. If A : B = 2 : 3 and B : C = 4 : 5, then the ratio of\nC : A is:\n(A) 5 : 4\n(B) 5 : 20\n(C) 8 : 15\n(D) 15 : 8",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q043.webp"
+      },
+      {
+        "number": 44,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              287.638,
+              335.79941000000036,
+              570.276,
+              436.5994100000004
+            ]
+          }
+        ],
+        "source_text": "44. If A : B = 2 : 5 and B : C = 15 : 7, find the ratio of\nA : B : C .\n(A) 2 : 5 : 7\n(B) 3 : 15 : 7\n(C) 6 : 15 : 7\n(D) 6 : 15 : 14",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q044.webp"
+      },
+      {
+        "number": 45,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              287.638,
+              432.5994100000004,
+              570.276,
+              533.3994100000004
+            ]
+          }
+        ],
+        "source_text": "45. If A : B = 6 : 12 and B : C = 9 : 27, find the ratio of\nA : B : C .\n(A) 2 : 6 : 1\n(B) 1 : 2 : 6\n(C) 1 : 6 : 2\n(D) 2 : 1 : 6",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q045.webp"
+      },
+      {
+        "number": 46,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              287.638,
+              529.3994100000004,
+              570.276,
+              618.2434100000005
+            ]
+          }
+        ],
+        "source_text": "46. If 3 A = 5 B = 6 C , then find A : B : C .\n(A) 10 : 6 : 5\n(B) 6 : 5 : 10\n(C) 5 : 6 : 10\n(D) 5 : 10 : 6",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q046.webp"
+      },
+      {
+        "number": 47,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              287.638,
+              614.2434100000005,
+              570.276,
+              703.0884100000005
+            ]
+          }
+        ],
+        "source_text": "47. If x : y = 3 : 4, then (4 x + 5 y ) : (5 x − 2 y ) =?\n(A) 32 : 7\n(B) 36 : 5\n(C) 34 : 7\n(D) 35 : 8",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q047.webp"
+      },
+      {
+        "number": 48,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              287.638,
+              699.0884100000005,
+              570.276,
+              799.89001
+            ]
+          }
+        ],
+        "source_text": "48. If A : B = 7 : 13 and B : C = 65 : 25, find the ratio\nof A : B : C .\n(A) 7 : 13 : 25\n(B) 7 : 13 : 5\n(C) 7 : 65 : 25\n(D) 7 : 5 : 25",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q048.webp"
+      },
+      {
+        "number": 49,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              45.400409999999916,
+              287.638,
+              173.80741000000006
+            ]
+          }
+        ],
+        "source_text": "1\n49. P, Q, and R have a total of 210 marbles. P has of\n4\n3\nthe total number of marbles with Q and R . Q has\n4\nof the total number of marbles with P and R . The\nnumber of marbles with R is:\n(A) 64\n(B) 68\n(C) 72\n(D) 78",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q049.webp"
+      },
+      {
+        "number": 50,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              169.80741000000006,
+              287.638,
+              286.26041000000015
+            ]
+          }
+        ],
+        "source_text": "50. Two numbers are in the ratio 2 : 5. If 4 is added\nto each, they would be in the ratio 4 : 9. Then the\nnumbers are:\n(A) 16 and 40\n(B) 18 and 45\n(C) 20 and 50\n(D) 22 and 55",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q050.webp"
+      },
+      {
+        "number": 51,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              282.26041000000015,
+              287.638,
+              374.8024100000001
+            ]
+          }
+        ],
+        "source_text": "3 . 5 5\n51. The ratio of 4 : 2 is same as:\n(A) 2 : 1\n(B) 4 : 1\n(C) 7 : 5\n(D) 7 : 10",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q051.webp"
+      },
+      {
+        "number": 52,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              370.8024100000001,
+              287.638,
+              487.25441000000006
+            ]
+          }
+        ],
+        "source_text": "52. 94 is divided into two parts in such a way that the\nfifth part of the first and the eighth part of the second\nare in the ratio 3 : 4. Then the first part is:\n(A) 28\n(B) 30\n(C) 36\n(D) 40",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q052.webp"
+      },
+      {
+        "number": 53,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              483.25441000000006,
+              287.638,
+              587.7524100000002
+            ]
+          }
+        ],
+        "source_text": "53. If two numbers are in the ratio 3 : 4 and their product\nis 432, then the largest number is:\n(A) 15\n(B) 20\n(C) 24\n(D) 30",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q053.webp"
+      },
+      {
+        "number": 54,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              583.7524100000002,
+              287.638,
+              700.2044100000002
+            ]
+          }
+        ],
+        "source_text": "54. The scale of a map is given as 1 : 30 , 000 , 000. Two\ncities are 4 cm apart on the map. Find the actual\ndistance between them.\n(A) 120 km\n(B) 1 , 200 km\n(C) 12 , 000 km\n(D) 520 km",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q054.webp"
+      },
+      {
+        "number": 55,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              696.2044100000002,
+              287.638,
+              799.89001
+            ]
+          }
+        ],
+        "source_text": "55. Out of 50 students in a class, 30 are boys. Then the\nratio of number of boys to number of girls is:\n(A) 2 : 3\n(B) 2 : 5\n(C) 5 : 3\n(D) 3 : 2",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q055.webp"
+      },
+      {
+        "number": 56,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              287.638,
+              45.40041000000014,
+              570.276,
+              148.1284100000001
+            ]
+          }
+        ],
+        "source_text": "56. If Rs. 1 , 600 is divided among A and B in the ratio\n3 : 5, then B ’s share is:\n(A) Rs. 200\n(B) Rs. 480\n(C) Rs. 800\n(D) Rs. 1 , 000",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q056.webp"
+      },
+      {
+        "number": 57,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              287.638,
+              144.1284100000001,
+              570.276,
+              258.8114100000001
+            ]
+          }
+        ],
+        "source_text": "57. Madhavi and Anbu bought two tables for Rs. 750 and\nRs. 900 respectively. What is the ratio of the prices\nof tables bought by Anbu and Madhavi?\n(A) 3 : 4\n(B) 4 : 3\n(C) 5 : 6\n(D) 6 : 5",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q057.webp"
+      },
+      {
+        "number": 58,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              287.638,
+              254.81141000000008,
+              570.276,
+              369.4954100000001
+            ]
+          }
+        ],
+        "source_text": "58. If the ratio of Green : Yellow : Black balls in a bag\nis 4 : 3 : 5, then how many balls in total are there in\nthe bag, if you have 40 black balls in it?\n(A) 72\n(B) 84\n(C) 96\n(D) 108",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q058.webp"
+      },
+      {
+        "number": 59,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              287.638,
+              365.4954100000001,
+              570.276,
+              480.17841000000004
+            ]
+          }
+        ],
+        "source_text": "59. The ratio of boys and girls in a club is 3 : 2. Which\none of the following could be the actual number of\nmembers?\n(A) 16\n(B) 18\n(C) 24\n(D) 25",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q059.webp"
+      },
+      {
+        "number": 60,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              287.638,
+              476.17841000000004,
+              570.276,
+              578.9064100000002
+            ]
+          }
+        ],
+        "source_text": "60. Ages of two persons are in the ratio 1 : 3, product of\ntheir ages is 48. What is the difference of their ages?\n(A) 2\n(B) 12\n(C) 8\n(D) 4",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q060.webp"
+      },
+      {
+        "number": 61,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              287.638,
+              574.9064100000002,
+              570.276,
+              689.5904100000001
+            ]
+          }
+        ],
+        "source_text": "61. The ratio of the income and expenditure of a family\nis 7 : 6. If the income is Rs. 21 , 000, then the savings\nis:\n(A) Rs. 6 , 000\n(B) Rs. 5 , 000\n(C) Rs. 3 , 000\n(D) Rs. 4 , 000",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q061.webp"
+      },
+      {
+        "number": 62,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              287.638,
+              685.5904100000001,
+              570.276,
+              799.89001
+            ]
+          }
+        ],
+        "source_text": "62. A number 42 is divided into 2 parts in the ratio 3 : 4.\nFind the number which is the sum of the squares of\nthe two parts.\n(A) 1000\n(B) 900\n(C) 600\n(D) 500",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q062.webp"
+      },
+      {
+        "number": 63,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              45.400409999999916,
+              287.638,
+              160.0834099999999
+            ]
+          }
+        ],
+        "source_text": "63. A line is to be divided into 4 sections in the ratio of\n1 : 2 : 3 : 6. If the line is 960 mm long, find the length\nof each part.\n(A) 100 mm : 140 mm : 240 mm : 480 mm\n(B) 100 mm : 160 mm : 260 mm : 440 mm\n(C) 80 mm : 160 mm : 240 mm : 480 mm\n(D) 80 mm : 200 mm : 240 mm : 440 mm",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q063.webp"
+      },
+      {
+        "number": 64,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              156.0834099999999,
+              287.638,
+              270.7664099999999
+            ]
+          }
+        ],
+        "source_text": "64. The ratio of copper and zinc in an alloy is 5 : 3. If\nthe weight of copper in the alloy is 30 . 5 grams, then\nthe weight of zinc in the alloy is:\n(A) 15 . 8 g\n(B) 16 . 5 g\n(C) 18 . 3 g\n(D) 50 . 8 g",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q064.webp"
+      },
+      {
+        "number": 65,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              266.7664099999999,
+              287.638,
+              369.4954099999999
+            ]
+          }
+        ],
+        "source_text": "65. A gets double of what B gets and B gets double of\nwhat C gets. Find the ratio of B : C?\n(A) 1 : 2\n(B) 2 : 1\n(C) 1 : 1\n(D) 4 : 1",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q065.webp"
+      },
+      {
+        "number": 66,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              365.4954099999999,
+              287.638,
+              480.1784099999998
+            ]
+          }
+        ],
+        "source_text": "66. Kumaran has Rs. 600 and wants to divide it between\nVimala and Yazhini in the ratio 2 : 3. Who will get\nmore and how much?\n(A) Vimala gets Rs. 240 more than Yazhini\n(B) Yazhini gets Rs. 240 more than Vimala\n(C) Vimala gets Rs. 120 more than Yazhini\n(D) Yazhini gets Rs. 120 more than Vimala",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q066.webp"
+      },
+      {
+        "number": 67,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              476.1784099999998,
+              287.638,
+              590.8614099999999
+            ]
+          }
+        ],
+        "source_text": "67. The monthly salary of A, B and C are in the ratio\n2 : 3 : 5. If C’s monthly salary is Rs. 1 , 200 more\nthan that of A, then find B’s annual salary.\n(A) Rs. 24 , 400\n(B) Rs. 24 , 000\n(C) Rs. 14 , 400\n(D) Rs. 14 , 000",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q067.webp"
+      },
+      {
+        "number": 68,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              586.8614099999999,
+              287.638,
+              701.5454099999998
+            ]
+          }
+        ],
+        "source_text": "68. Ramya earned per month Rs. 28 , 296. She utilized\nher salary in the ratio 4 : 1 : 3 for education, savings\nand other expenses respectively. Find her savings.\n(A) Rs. 2 , 829 . 60\n(B) Rs. 3 , 247\n(C) Rs. 3 , 427\n(D) Rs. 3 , 537",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q068.webp"
+      },
+      {
+        "number": 69,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              697.5454099999998,
+              287.638,
+              799.89001
+            ]
+          }
+        ],
+        "source_text": "69. If Rs. 782 be divided into three parts proportional to\n1 2 3\n, , and , then the first part is:\n2 3 4\n(A) 205\n(B) 105\n(C) 200\n(D) 204",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q069.webp"
+      },
+      {
+        "number": 70,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              287.638,
+              45.40041000000003,
+              570.276,
+              160.08341000000001
+            ]
+          }
+        ],
+        "source_text": "70. Ramu and Somu bought two tables for Rs. 750 and\nRs. 900 respectively. What is the ratio of the prices\nof tables bought by Somu and Ramu?\n(A) 6 : 5\n(B) 5 : 6\n(C) 2 : 3\n(D) 3 : 2",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q070.webp"
+      },
+      {
+        "number": 71,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              287.638,
+              156.08341000000001,
+              570.276,
+              270.76641
+            ]
+          }
+        ],
+        "source_text": "71. A sum of money is to be distributed among A, B, C,\nD in the proportion of 5 : 2 : 4 : 3. If C gets Rs. 1 , 000\nmore than D, what is B’s share?\n(A) Rs. 1 , 000\n(B) Rs. 3 , 000\n(C) Rs. 2 , 000\n(D) Rs. 4 , 000",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q071.webp"
+      },
+      {
+        "number": 72,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              287.638,
+              266.76641,
+              570.276,
+              381.4504100000001
+            ]
+          }
+        ],
+        "source_text": "72. If Rs. 510 be divided among A, B, C in such a way\n2 1\nthat A gets of what B gets and B gets of what\n3 4\nC gets, then their shares are respectively:\n(A) 40 : 110 : 360\n(B) 60 : 90 : 360\n(C) 90 : 360 : 90\n(D) 50 : 120 : 360",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q072.webp"
+      },
+      {
+        "number": 73,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              287.638,
+              377.4504100000001,
+              570.276,
+              480.17841000000004
+            ]
+          }
+        ],
+        "source_text": "73. If the ratio of three numbers is 10 : 15 : 24 and their\nsum is 196, find the smallest number.\n(A) 40\n(B) 24\n(C) 36\n(D) 49",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q073.webp"
+      },
+      {
+        "number": 74,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              287.638,
+              476.17841000000004,
+              570.276,
+              578.9064100000002
+            ]
+          }
+        ],
+        "source_text": "74. The ratio of 10th and 14th term of an A.P. is 8 : 11,\nthen the ratio of 6th term to 16th term is:\n(A) 3 : 8\n(B) 5 : 7\n(C) 3 : 7\n(D) 2 : 5",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q074.webp"
+      },
+      {
+        "number": 75,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              287.638,
+              574.9064100000002,
+              570.276,
+              689.5904100000001
+            ]
+          }
+        ],
+        "source_text": "75. A and B invest in a business in the ratio 3 : 2. If\n5% of the total profit goes to charity and A’s share\nis Rs. 855, then the total profit is:\n(A) Rs. 1 , 425\n(B) Rs. 1 , 576\n(C) Rs. 1 , 500\n(D) Rs. 1 , 537 . 50",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q075.webp"
+      },
+      {
+        "number": 76,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              287.638,
+              685.5904100000001,
+              570.276,
+              799.89001
+            ]
+          }
+        ],
+        "source_text": "76. Two numbers are in the ratio 5 : 7. If the sum of\nthese numbers is 108, then the larger of these two\nnumbers is:\n(A) 63\n(B) 49\n(C) 35\n(D) 42",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q076.webp"
+      },
+      {
+        "number": 77,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 6,
+            "rect": [
+              25,
+              45.400409999999916,
+              287.638,
+              160.6604099999999
+            ]
+          }
+        ],
+        "source_text": "77. Raghul checked the ratio of his height to his shadow\nlength as 4 : 1. He then measured the shadow of a\ntree as 15 feet. What was the height of the tree?\n(A) 15 feet\n(B) 30 feet\n(C) 60 feet\n(D) 75 feet",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q077.webp"
+      },
+      {
+        "number": 78,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 6,
+            "rect": [
+              25,
+              156.6604099999999,
+              287.638,
+              259.9644099999999
+            ]
+          }
+        ],
+        "source_text": "78. The ratio of the area of a circle to the area of its\nsemicircle is:\n(A) 1 : 2\n(B) 2 : 1\n(C) 4 : 1\n(D) 1 : 4",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q078.webp"
+      },
+      {
+        "number": 79,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 6,
+            "rect": [
+              25,
+              255.96440999999987,
+              287.638,
+              371.22440999999986
+            ]
+          }
+        ],
+        "source_text": "79. In what proportion must a grocer mix wheat at\nRs. 2 . 04 per kg and Rs. 2 . 88 per kg so as to make\na mixture of worth Rs. 2 . 52 per kg?\n(A) 2 : 3\n(B) 3 : 2\n(C) 5 : 3\n(D) 3 : 4",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q079.webp"
+      },
+      {
+        "number": 80,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 6,
+            "rect": [
+              25,
+              367.22440999999986,
+              287.638,
+              506.3954099999997
+            ]
+          }
+        ],
+        "source_text": "80. There are two mixtures of milk and water. In I mix-\nture ratio of milk and water is 5 : 3. In II mixture\nratio of milk and water is 5 : 4. In what ratio must\nthese two mixtures be mixed to get milk and water\nin the ratio 4 : 3?\n(A) 4 : 3\n(B) 3 : 4\n(C) 3 : 1\n(D) 1 : 3",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q080.webp"
+      },
+      {
+        "number": 81,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 6,
+            "rect": [
+              25,
+              502.3954099999997,
+              287.638,
+              605.7004099999997
+            ]
+          }
+        ],
+        "source_text": "81. Three numbers are in the ratio 4 : 5 : 6 and their\naverage is 25. Then the largest number is:\n(A) 45\n(B) 40\n(C) 35\n(D) 30",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q081.webp"
+      },
+      {
+        "number": 82,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 6,
+            "rect": [
+              25,
+              601.7004099999997,
+              287.638,
+              705.0044099999998
+            ]
+          }
+        ],
+        "source_text": "82. Two numbers are in the ratio 3 : 5. If the sum of the\nnumbers is 144, then what is the larger number?\n(A) 48\n(B) 54\n(C) 72\n(D) 90",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q082.webp"
+      },
+      {
+        "number": 83,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 6,
+            "rect": [
+              25,
+              701.0044099999998,
+              287.638,
+              799.89001
+            ]
+          },
+          {
+            "page": 6,
+            "rect": [
+              287.638,
+              38,
+              570.276,
+              68.19140999999975
+            ]
+          }
+        ],
+        "source_text": "83. In a village of 121 , 000 people, the ratio of men to\nwomen is 6 : 5. Find the number of men in the vil-\nlage.\n(A) 55 , 000\n(B) 66 , 000\n(C) 77 , 000\n(D) 81 , 000",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q083.webp"
+      },
+      {
+        "number": 84,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 6,
+            "rect": [
+              287.638,
+              64.19140999999975,
+              570.276,
+              186.05541
+            ]
+          }
+        ],
+        "source_text": "84. The monthly income of A and B are in the ratio 3 : 4\nand their monthly expenditures are in the ratio 5 : 7.\nIf each saves Rs. 5 , 000 per month, find the monthly\nincome of A and B.\n(A) 30 , 000 and 40 , 000\n(B) 40 , 000 and 30 , 000\n(C) 40 , 000 and 50 , 000\n(D) 50 , 000 and 70 , 000",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q084.webp"
+      },
+      {
+        "number": 85,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 6,
+            "rect": [
+              287.638,
+              182.05541,
+              570.276,
+              315.8754100000003
+            ]
+          }
+        ],
+        "source_text": "85. In three vessels of 10 L capacity, mixture of milk and\nwater is filled. The ratios of milk and water are 2 : 1,\n3 : 1, and 3 : 2 in the respective vessels. If all three\nvessels are emptied into a single large vessel, find the\nratio of milk and water in the resultant mixture.\n(A) 121 : 41\n(B) 117 : 22\n(C) 127 : 41\n(D) 121 : 59",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q085.webp"
+      },
+      {
+        "number": 86,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 6,
+            "rect": [
+              287.638,
+              311.8754100000003,
+              570.276,
+              421.78541000000024
+            ]
+          }
+        ],
+        "source_text": "86. The ratio of expenditure and savings in a family is\n5 : 3. If the expenditure is Rs. 3 , 500, what is the\nsavings?\n(A) Rs. 1 , 400\n(B) Rs. 2 , 100\n(C) Rs. 2 , 800\n(D) Rs. 3 , 000",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q086.webp"
+      },
+      {
+        "number": 87,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 6,
+            "rect": [
+              287.638,
+              417.78541000000024,
+              570.276,
+              503.78441000000026
+            ]
+          }
+        ],
+        "source_text": "87. Find the mean proportional between 9 and 25.\n(A) 12\n(B) 15\n(C) 18\n(D) 22 . 5",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q087.webp"
+      },
+      {
+        "number": 88,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 6,
+            "rect": [
+              287.638,
+              499.78441000000026,
+              570.276,
+              585.7834100000002
+            ]
+          }
+        ],
+        "source_text": "88. What is the third proportional to 12 and 18?\n(A) 24\n(B) 27\n(C) 30\n(D) 36",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q088.webp"
+      },
+      {
+        "number": 89,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 6,
+            "rect": [
+              287.638,
+              581.7834100000002,
+              570.276,
+              667.7824100000003
+            ]
+          }
+        ],
+        "source_text": "89. Find the fourth proportional to 4, 9, and 12.\n(A) 18\n(B) 24\n(C) 27\n(D) 36",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q089.webp"
+      },
+      {
+        "number": 90,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 6,
+            "rect": [
+              287.638,
+              663.7824100000003,
+              570.276,
+              749.7814100000003
+            ]
+          }
+        ],
+        "source_text": "90. If x : y = 4 : 5, find the value of (5 x − 3 y ) : (6 x + 3 y ).\n(A) 5 : 39\n(B) 1 : 7\n(C) 5 : 24\n(D) 1 : 8",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q090.webp"
+      },
+      {
+        "number": 91,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 6,
+            "rect": [
+              287.638,
+              745.7814100000003,
+              570.276,
+              799.89001
+            ]
+          },
+          {
+            "page": 7,
+            "rect": [
+              25,
+              38,
+              287.638,
+              100.69640999999986
+            ]
+          }
+        ],
+        "source_text": "91. A sum of Rs. 1 , 200 is divided among A, B, and C in\nthe ratio 2 : 3 : 5. Find the share of B.\n(A) Rs. 240\n(B) Rs. 360\n(C) Rs. 600\n(D) Rs. 400",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q091.webp"
+      },
+      {
+        "number": 92,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 7,
+            "rect": [
+              25,
+              96.69640999999986,
+              287.638,
+              211.43040999999977
+            ]
+          }
+        ],
+        "source_text": "92. Two numbers are in the ratio 7 : 11. If 7 is added\nto each number, the ratio becomes 2 : 3. Find the\nsmaller number.\n(A) 35\n(B) 49\n(C) 28\n(D) 77",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q092.webp"
+      },
+      {
+        "number": 93,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 7,
+            "rect": [
+              25,
+              207.43040999999977,
+              287.638,
+              310.2084099999997
+            ]
+          }
+        ],
+        "source_text": "93. The ratio of the perimeter of a square to its side\nlength is:\n(A) 1 : 4\n(B) 2 : 1\n(C) 4 : 1\n(D) 1 : 2",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q093.webp"
+      },
+      {
+        "number": 94,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 7,
+            "rect": [
+              25,
+              306.2084099999997,
+              287.638,
+              397.03140999999965
+            ]
+          }
+        ],
+        "source_text": "94. If A : B = 3 : 4 and B : C = 8 : 9, find A : C .\n(A) 1 : 2\n(B) 2 : 3\n(C) 3 : 2\n(D) 4 : 3",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q094.webp"
+      },
+      {
+        "number": 95,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 7,
+            "rect": [
+              25,
+              393.03140999999965,
+              287.638,
+              507.7644099999996
+            ]
+          }
+        ],
+        "source_text": "95. A bag contains 50p, 25p, and 10p coins in the ra-\ntio 5 : 9 : 4, amounting to Rs. 206. Find the total\nnumber of coins.\n(A) 360\n(B) 720\n(C) 640\n(D) 800",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q095.webp"
+      },
+      {
+        "number": 96,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 7,
+            "rect": [
+              25,
+              503.7644099999996,
+              287.638,
+              606.5424099999997
+            ]
+          }
+        ],
+        "source_text": "96. The ratio of two numbers is 3 : 4 and their H.C.F. is\n4. Find their L.C.M.\n(A) 12\n(B) 16\n(C) 24\n(D) 48",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q096.webp"
+      },
+      {
+        "number": 97,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 7,
+            "rect": [
+              25,
+              602.5424099999997,
+              287.638,
+              705.3204099999997
+            ]
+          }
+        ],
+        "source_text": "97. The ratio of H.C.F. and L.C.M. of the numbers 18\nand 30 is:\n(A) 3 : 5\n(B) 15 : 1\n(C) 1 : 15\n(D) 5 : 3",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q097.webp"
+      },
+      {
+        "number": 98,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 7,
+            "rect": [
+              25,
+              701.3204099999997,
+              287.638,
+              799.89001
+            ]
+          },
+          {
+            "page": 7,
+            "rect": [
+              287.638,
+              38,
+              570.276,
+              69.32540999999965
+            ]
+          }
+        ],
+        "source_text": "98. Find the ratio of the volumes of a cylinder, a cone,\nand a sphere if each has the same diameter and same\nheight.\n(A) 1 : 2 : 3\n(B) 2 : 1 : 3\n(C) 1 : 3 : 2\n(D) 3 : 1 : 2",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q098.webp"
+      },
+      {
+        "number": 99,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 7,
+            "rect": [
+              287.638,
+              65.32540999999965,
+              570.276,
+              192.86241
+            ]
+          }
+        ],
+        "source_text": "1\n99. A fraction becomes when 1 is subtracted from both\n2\nnumerator and denominator. If the ratio of numera-\ntor to denominator was 2 : 3 initially, find the original\nfraction.\n2\n(A)\n3\n4\n(B)\n6\n3\n(C)\n5\n6\n(D)\n9",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q099.webp"
+      },
+      {
+        "number": 100,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 7,
+            "rect": [
+              287.638,
+              188.86241,
+              570.276,
+              280.53340999999995
+            ]
+          }
+        ],
+        "source_text": "ma + nc\n100. If a : b = c : d , then is equal to:\nmb + nd\nm\n(A)\nn\nn\n(B)\nm\na\n(C)\nb\nc\n(D)\nd",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q100.webp"
+      },
+      {
+        "number": 101,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 7,
+            "rect": [
+              287.638,
+              276.53340999999995,
+              570.276,
+              405.10701000000006
+            ]
+          }
+        ],
+        "source_text": "101. The seats for Mathematics, Physics, and Biology in\na school are in the ratio 5 : 7 : 8. There is a proposal\nto increase these seats by 40%, 50%, and 75% respec-\ntively. What will be the ratio of increased seats?\n(A) 2 : 3 : 4\n(B) 6 : 7 : 8\n(C) 6 : 8 : 9\n(D) 3 : 4 : 5",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-remaining/images/paper-02/q101.webp"
+      }
+    ],
+    "answers": {
+      "2": "D",
+      "99": "A",
+      "4": "D",
+      "3": "C",
+      "6": "D",
+      "28": "B",
+      "9": "A",
+      "8": "A",
+      "95": "B",
+      "12": "C",
+      "16": "B",
+      "24": "C",
+      "5": "C",
+      "1": "D",
+      "15": "C",
+      "21": "C",
+      "41": "D",
+      "61": "C",
+      "81": "D",
+      "22": "B",
+      "42": "D",
+      "62": "B",
+      "82": "D",
+      "23": "A",
+      "43": "D",
+      "63": "C",
+      "83": "B",
+      "44": "C",
+      "64": "C",
+      "84": "A",
+      "25": "A",
+      "45": "B",
+      "65": "B",
+      "85": "D",
+      "26": "B",
+      "46": "A",
+      "66": "D",
+      "86": "B",
+      "7": "D",
+      "27": "C",
+      "47": "A",
+      "67": "C",
+      "87": "B",
+      "48": "B",
+      "68": "D",
+      "88": "B",
+      "29": "B",
+      "49": "D",
+      "69": "D",
+      "89": "C",
+      "10": "A",
+      "30": "C",
+      "50": "C",
+      "70": "A",
+      "90": "A",
+      "11": "D",
+      "31": "C",
+      "51": "B",
+      "71": "C",
+      "91": "B",
+      "32": "B",
+      "52": "B",
+      "72": "B",
+      "92": "B",
+      "13": "A",
+      "33": "D",
+      "53": "C",
+      "73": "A",
+      "93": "C",
+      "14": "A",
+      "34": "D",
+      "54": "B",
+      "74": "D",
+      "94": "B",
+      "35": "B",
+      "55": "D",
+      "75": "C",
+      "36": "A",
+      "56": "D",
+      "76": "A",
+      "96": "D",
+      "17": "B",
+      "37": "B",
+      "57": "D",
+      "77": "C",
+      "97": "C",
+      "18": "C",
+      "38": "A",
+      "58": "D",
+      "78": "B",
+      "98": "D",
+      "19": "D",
+      "39": "D",
+      "59": "D",
+      "79": "D",
+      "20": "B",
+      "40": "A",
+      "60": "C",
+      "80": "D",
+      "100": "C",
+      "101": "A"
+    },
+    "issues": []
+  }
+]

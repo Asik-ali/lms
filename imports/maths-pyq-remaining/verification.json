@@ -1,0 +1,108 @@
+{
+  "seriesId": 12,
+  "topics": 13,
+  "questions": 1081,
+  "unassigned": [
+    {
+      "test": "Percentage PYQ",
+      "number": 80
+    },
+    {
+      "test": "3D Mensuration PYQ",
+      "number": 55
+    }
+  ],
+  "tests": [
+    {
+      "testId": 91,
+      "name": "Compound Interest PYQ",
+      "questions": 85,
+      "language": "English / Tamil",
+      "status": "Draft"
+    },
+    {
+      "testId": 92,
+      "name": "AP and GP PYQ",
+      "questions": 48,
+      "language": "English / Tamil",
+      "status": "Draft"
+    },
+    {
+      "testId": 93,
+      "name": "Age Problems PYQ",
+      "questions": 8,
+      "language": "English / Tamil",
+      "status": "Draft"
+    },
+    {
+      "testId": 82,
+      "name": "LCM and HCF PYQ",
+      "questions": 180,
+      "language": "English / Tamil",
+      "status": "Draft"
+    },
+    {
+      "testId": 83,
+      "name": "Percentage PYQ",
+      "questions": 111,
+      "language": "English / Tamil",
+      "status": "Draft"
+    },
+    {
+      "testId": 85,
+      "name": "Average PYQ",
+      "questions": 26,
+      "language": "English / Tamil",
+      "status": "Draft"
+    },
+    {
+      "testId": 86,
+      "name": "Profit and Loss PYQ",
+      "questions": 52,
+      "language": "English / Tamil",
+      "status": "Draft"
+    },
+    {
+      "testId": 88,
+      "name": "Time and Work PYQ",
+      "questions": 131,
+      "language": "English / Tamil",
+      "status": "Draft"
+    },
+    {
+      "testId": 89,
+      "name": "2D Mensuration PYQ",
+      "questions": 38,
+      "language": "English / Tamil",
+      "status": "Draft"
+    },
+    {
+      "testId": 90,
+      "name": "3D Mensuration PYQ",
+      "questions": 97,
+      "language": "English / Tamil",
+      "status": "Draft"
+    },
+    {
+      "testId": 84,
+      "name": "Ratio and Proportion PYQ",
+      "questions": 101,
+      "language": "English / Tamil",
+      "status": "Draft"
+    },
+    {
+      "testId": 87,
+      "name": "Simple Interest PYQ",
+      "questions": 130,
+      "language": "English / Tamil",
+      "status": "Draft"
+    },
+    {
+      "testId": 81,
+      "name": "Simplification PYQ",
+      "questions": 74,
+      "language": "English / Tamil",
+      "status": "Draft"
+    }
+  ]
+}
