@@ -1,14 +1,15 @@
 from pathlib import Path
-import json,html
-root=Path('imports/maths-pyq'); papers=json.loads(root.joinpath('papers.json').read_text(encoding='utf8'))
+import json,html,os
+root=Path(os.environ.get('MATHS_IMPORT_ROOT','imports/maths-pyq')); papers=json.loads(root.joinpath('papers.json').read_text(encoding='utf8'))
 topics=['Simplification','LCM and HCF','Percentage','Ratio and Proportion','Average','Profit and Loss','Simple Interest','Time and Work','2D Mensuration','3D Mensuration']
+if os.environ.get('MATHS_IMPORT_ROOT'):topics=['Compound Interest','AP and GP','Age Problems']
 result=[]
 for topic in topics:
- group=[p for p in papers if p['topic']==topic]; en=next((p for p in group if p['language']=='English'),None); ta=next((p for p in group if p['language']=='Tamil'),None); combined=next((p for p in group if p['language']=='English / Tamil'),None);base=en or combined or ta;qs=[];issues=[]
+ group=[p for p in papers if p['topic']==topic]; en=next((p for p in group if p['language']=='English'),None); ta=next((p for p in group if p['language']=='Tamil'),None); combined=next((p for p in group if p['language']=='English / Tamil'),None);base=en or combined or ta;qs=[];issues=list(base.get('issues',[]))
  for i,q in enumerate(base['questions'][:26] if topic=='Average' else base['questions']):
   variant=ta['questions'][i] if en and ta else None
   a=q['correct_answer'];b=variant['correct_answer'] if variant else None
-  flags=[]
+  flags=[issue['issue'] for issue in base.get('issues',[]) if issue.get('number')==i+1]
   if a and b and a!=b:
    flags.append(f'Conflicting source keys: English {a}; Tamil {b}. Answer left unassigned for review.');a=None
   elif not a:a=b
@@ -27,7 +28,7 @@ for p in result:
  for q in p['questions']:
   review.append(f'<article><h3>Q{q["number"]}</h3>')
   for key in ['english_image','tamil_image']:
-   if q[key]:review.append(f'<img loading="lazy" src="{q[key].replace("imports/maths-pyq/", "")}" alt="Original source question">')
+   if q[key]:review.append(f'<img loading="lazy" src="{q[key].replace(root.as_posix()+"/", "")}" alt="Original source question">')
   review.append(f'<p>Source answer: {q["correct_answer"] or "Unassigned - conflicting keys"}. {html.escape("; ".join(q["notes"]))}</p></article>')
  review.append('</details>')
 root.joinpath('review.html').write_text('\n'.join(review),encoding='utf8')

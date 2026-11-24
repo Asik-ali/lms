@@ -1,0 +1,2266 @@
+[
+  {
+    "topic": "Compound Interest",
+    "name": "Compound Interest PYQ",
+    "language": "English / Tamil",
+    "questions": [
+      {
+        "number": 1,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q001.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q001.webp",
+        "has_e": true,
+        "correct_answer": "D",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "D",
+          "Tamil": "D"
+        },
+        "notes": []
+      },
+      {
+        "number": 2,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q002.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q002.webp",
+        "has_e": true,
+        "correct_answer": "D",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "D",
+          "Tamil": "D"
+        },
+        "notes": []
+      },
+      {
+        "number": 3,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q003.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q003.webp",
+        "has_e": true,
+        "correct_answer": "C",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "C",
+          "Tamil": "C"
+        },
+        "notes": []
+      },
+      {
+        "number": 4,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q004.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q004.webp",
+        "has_e": true,
+        "correct_answer": "C",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "C",
+          "Tamil": "C"
+        },
+        "notes": []
+      },
+      {
+        "number": 5,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q005.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q005.webp",
+        "has_e": true,
+        "correct_answer": "C",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "C",
+          "Tamil": "C"
+        },
+        "notes": []
+      },
+      {
+        "number": 6,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q006.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q006.webp",
+        "has_e": true,
+        "correct_answer": "B",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "B",
+          "Tamil": "B"
+        },
+        "notes": []
+      },
+      {
+        "number": 7,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q007.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q007.webp",
+        "has_e": true,
+        "correct_answer": "C",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "C",
+          "Tamil": "C"
+        },
+        "notes": []
+      },
+      {
+        "number": 8,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q008.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q008.webp",
+        "has_e": true,
+        "correct_answer": "C",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "C",
+          "Tamil": "C"
+        },
+        "notes": []
+      },
+      {
+        "number": 9,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q009.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q009.webp",
+        "has_e": true,
+        "correct_answer": "D",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "D",
+          "Tamil": "D"
+        },
+        "notes": []
+      },
+      {
+        "number": 10,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q010.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q010.webp",
+        "has_e": true,
+        "correct_answer": "B",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "B",
+          "Tamil": "B"
+        },
+        "notes": []
+      },
+      {
+        "number": 11,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q011.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q011.webp",
+        "has_e": true,
+        "correct_answer": "B",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "B",
+          "Tamil": "B"
+        },
+        "notes": []
+      },
+      {
+        "number": 12,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q012.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q012.webp",
+        "has_e": true,
+        "correct_answer": "C",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "C",
+          "Tamil": "C"
+        },
+        "notes": []
+      },
+      {
+        "number": 13,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q013.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q013.webp",
+        "has_e": true,
+        "correct_answer": "D",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "D",
+          "Tamil": "D"
+        },
+        "notes": []
+      },
+      {
+        "number": 14,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q014.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q014.webp",
+        "has_e": true,
+        "correct_answer": "C",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "C",
+          "Tamil": "C"
+        },
+        "notes": []
+      },
+      {
+        "number": 15,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q015.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q015.webp",
+        "has_e": true,
+        "correct_answer": "C",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "C",
+          "Tamil": "C"
+        },
+        "notes": []
+      },
+      {
+        "number": 16,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q016.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q016.webp",
+        "has_e": true,
+        "correct_answer": "B",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "B",
+          "Tamil": "B"
+        },
+        "notes": []
+      },
+      {
+        "number": 17,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q017.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q017.webp",
+        "has_e": true,
+        "correct_answer": "D",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "D",
+          "Tamil": "D"
+        },
+        "notes": []
+      },
+      {
+        "number": 18,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q018.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q018.webp",
+        "has_e": true,
+        "correct_answer": "B",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "B",
+          "Tamil": "B"
+        },
+        "notes": []
+      },
+      {
+        "number": 19,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q019.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q019.webp",
+        "has_e": true,
+        "correct_answer": "A",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "A",
+          "Tamil": "A"
+        },
+        "notes": []
+      },
+      {
+        "number": 20,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q020.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q020.webp",
+        "has_e": true,
+        "correct_answer": "A",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "A",
+          "Tamil": "A"
+        },
+        "notes": []
+      },
+      {
+        "number": 21,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q021.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q021.webp",
+        "has_e": true,
+        "correct_answer": "B",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "B",
+          "Tamil": "B"
+        },
+        "notes": []
+      },
+      {
+        "number": 22,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q022.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q022.webp",
+        "has_e": true,
+        "correct_answer": "B",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "B",
+          "Tamil": "B"
+        },
+        "notes": []
+      },
+      {
+        "number": 23,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q023.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q023.webp",
+        "has_e": true,
+        "correct_answer": "A",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "A",
+          "Tamil": "A"
+        },
+        "notes": []
+      },
+      {
+        "number": 24,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q024.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q024.webp",
+        "has_e": true,
+        "correct_answer": "B",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "B",
+          "Tamil": "B"
+        },
+        "notes": []
+      },
+      {
+        "number": 25,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q025.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q025.webp",
+        "has_e": true,
+        "correct_answer": "B",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "B",
+          "Tamil": "B"
+        },
+        "notes": []
+      },
+      {
+        "number": 26,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q026.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q026.webp",
+        "has_e": true,
+        "correct_answer": "B",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "B",
+          "Tamil": "B"
+        },
+        "notes": []
+      },
+      {
+        "number": 27,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q027.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q027.webp",
+        "has_e": true,
+        "correct_answer": "B",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "B",
+          "Tamil": "B"
+        },
+        "notes": []
+      },
+      {
+        "number": 28,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q028.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q028.webp",
+        "has_e": true,
+        "correct_answer": "D",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "D",
+          "Tamil": "D"
+        },
+        "notes": []
+      },
+      {
+        "number": 29,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q029.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q029.webp",
+        "has_e": true,
+        "correct_answer": "C",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "C",
+          "Tamil": "C"
+        },
+        "notes": []
+      },
+      {
+        "number": 30,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q030.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q030.webp",
+        "has_e": true,
+        "correct_answer": "A",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "A",
+          "Tamil": "A"
+        },
+        "notes": []
+      },
+      {
+        "number": 31,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q031.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q031.webp",
+        "has_e": true,
+        "correct_answer": "B",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "B",
+          "Tamil": "B"
+        },
+        "notes": []
+      },
+      {
+        "number": 32,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q032.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q032.webp",
+        "has_e": true,
+        "correct_answer": "C",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "C",
+          "Tamil": "C"
+        },
+        "notes": []
+      },
+      {
+        "number": 33,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q033.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q033.webp",
+        "has_e": true,
+        "correct_answer": "C",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "C",
+          "Tamil": "C"
+        },
+        "notes": []
+      },
+      {
+        "number": 34,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q034.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q034.webp",
+        "has_e": true,
+        "correct_answer": "A",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "A",
+          "Tamil": "A"
+        },
+        "notes": []
+      },
+      {
+        "number": 35,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q035.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q035.webp",
+        "has_e": true,
+        "correct_answer": "C",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "C",
+          "Tamil": "C"
+        },
+        "notes": []
+      },
+      {
+        "number": 36,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q036.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q036.webp",
+        "has_e": true,
+        "correct_answer": "D",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "D",
+          "Tamil": "D"
+        },
+        "notes": []
+      },
+      {
+        "number": 37,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q037.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q037.webp",
+        "has_e": true,
+        "correct_answer": "B",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "B",
+          "Tamil": "B"
+        },
+        "notes": []
+      },
+      {
+        "number": 38,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q038.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q038.webp",
+        "has_e": true,
+        "correct_answer": "D",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "D",
+          "Tamil": "D"
+        },
+        "notes": []
+      },
+      {
+        "number": 39,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q039.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q039.webp",
+        "has_e": true,
+        "correct_answer": "A",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "A",
+          "Tamil": "A"
+        },
+        "notes": []
+      },
+      {
+        "number": 40,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q040.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q040.webp",
+        "has_e": true,
+        "correct_answer": "D",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "D",
+          "Tamil": "D"
+        },
+        "notes": []
+      },
+      {
+        "number": 41,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q041.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q041.webp",
+        "has_e": true,
+        "correct_answer": "C",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "C",
+          "Tamil": "C"
+        },
+        "notes": []
+      },
+      {
+        "number": 42,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q042.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q042.webp",
+        "has_e": true,
+        "correct_answer": "D",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "D",
+          "Tamil": "D"
+        },
+        "notes": []
+      },
+      {
+        "number": 43,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q043.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q043.webp",
+        "has_e": true,
+        "correct_answer": "A",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "A",
+          "Tamil": "A"
+        },
+        "notes": []
+      },
+      {
+        "number": 44,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q044.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q044.webp",
+        "has_e": true,
+        "correct_answer": "C",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "C",
+          "Tamil": "C"
+        },
+        "notes": []
+      },
+      {
+        "number": 45,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q045.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q045.webp",
+        "has_e": true,
+        "correct_answer": "B",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "B",
+          "Tamil": "B"
+        },
+        "notes": []
+      },
+      {
+        "number": 46,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q046.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q046.webp",
+        "has_e": true,
+        "correct_answer": "B",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "B",
+          "Tamil": "B"
+        },
+        "notes": []
+      },
+      {
+        "number": 47,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q047.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q047.webp",
+        "has_e": true,
+        "correct_answer": "C",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "C",
+          "Tamil": "C"
+        },
+        "notes": []
+      },
+      {
+        "number": 48,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q048.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q048.webp",
+        "has_e": true,
+        "correct_answer": "A",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "A",
+          "Tamil": "A"
+        },
+        "notes": []
+      },
+      {
+        "number": 49,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q049.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q049.webp",
+        "has_e": true,
+        "correct_answer": "B",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "B",
+          "Tamil": "B"
+        },
+        "notes": []
+      },
+      {
+        "number": 50,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q050.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q050.webp",
+        "has_e": true,
+        "correct_answer": "D",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "D",
+          "Tamil": "D"
+        },
+        "notes": []
+      },
+      {
+        "number": 51,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q051.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q051.webp",
+        "has_e": true,
+        "correct_answer": "C",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "C",
+          "Tamil": "C"
+        },
+        "notes": []
+      },
+      {
+        "number": 52,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q052.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q052.webp",
+        "has_e": true,
+        "correct_answer": "B",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "B",
+          "Tamil": "B"
+        },
+        "notes": []
+      },
+      {
+        "number": 53,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q053.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q053.webp",
+        "has_e": true,
+        "correct_answer": "A",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "A",
+          "Tamil": "A"
+        },
+        "notes": []
+      },
+      {
+        "number": 54,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q054.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q054.webp",
+        "has_e": true,
+        "correct_answer": "D",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "D",
+          "Tamil": "D"
+        },
+        "notes": []
+      },
+      {
+        "number": 55,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q055.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q055.webp",
+        "has_e": true,
+        "correct_answer": "B",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "B",
+          "Tamil": "B"
+        },
+        "notes": []
+      },
+      {
+        "number": 56,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q056.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q056.webp",
+        "has_e": true,
+        "correct_answer": "A",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "A",
+          "Tamil": "A"
+        },
+        "notes": []
+      },
+      {
+        "number": 57,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q057.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q057.webp",
+        "has_e": true,
+        "correct_answer": "D",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "D",
+          "Tamil": "D"
+        },
+        "notes": []
+      },
+      {
+        "number": 58,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q058.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q058.webp",
+        "has_e": true,
+        "correct_answer": "A",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "A",
+          "Tamil": "A"
+        },
+        "notes": []
+      },
+      {
+        "number": 59,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q059.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q059.webp",
+        "has_e": true,
+        "correct_answer": "B",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "B",
+          "Tamil": "B"
+        },
+        "notes": []
+      },
+      {
+        "number": 60,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q060.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q060.webp",
+        "has_e": true,
+        "correct_answer": "B",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "B",
+          "Tamil": "B"
+        },
+        "notes": []
+      },
+      {
+        "number": 61,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q061.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q061.webp",
+        "has_e": true,
+        "correct_answer": "C",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "C",
+          "Tamil": "C"
+        },
+        "notes": []
+      },
+      {
+        "number": 62,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q062.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q062.webp",
+        "has_e": true,
+        "correct_answer": "D",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "D",
+          "Tamil": "D"
+        },
+        "notes": []
+      },
+      {
+        "number": 63,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q063.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q063.webp",
+        "has_e": true,
+        "correct_answer": "D",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "D",
+          "Tamil": "D"
+        },
+        "notes": []
+      },
+      {
+        "number": 64,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q064.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q064.webp",
+        "has_e": true,
+        "correct_answer": "D",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "D",
+          "Tamil": "D"
+        },
+        "notes": []
+      },
+      {
+        "number": 65,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q065.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q065.webp",
+        "has_e": true,
+        "correct_answer": "C",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "C",
+          "Tamil": "C"
+        },
+        "notes": []
+      },
+      {
+        "number": 66,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q066.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q066.webp",
+        "has_e": true,
+        "correct_answer": "C",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "C",
+          "Tamil": "C"
+        },
+        "notes": []
+      },
+      {
+        "number": 67,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q067.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q067.webp",
+        "has_e": true,
+        "correct_answer": "D",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "D",
+          "Tamil": "D"
+        },
+        "notes": []
+      },
+      {
+        "number": 68,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q068.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q068.webp",
+        "has_e": true,
+        "correct_answer": "C",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "C",
+          "Tamil": "C"
+        },
+        "notes": []
+      },
+      {
+        "number": 69,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q069.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q069.webp",
+        "has_e": true,
+        "correct_answer": "B",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "B",
+          "Tamil": "B"
+        },
+        "notes": []
+      },
+      {
+        "number": 70,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q070.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q070.webp",
+        "has_e": true,
+        "correct_answer": "D",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "D",
+          "Tamil": "D"
+        },
+        "notes": []
+      },
+      {
+        "number": 71,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q071.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q071.webp",
+        "has_e": true,
+        "correct_answer": "D",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "D",
+          "Tamil": "D"
+        },
+        "notes": []
+      },
+      {
+        "number": 72,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q072.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q072.webp",
+        "has_e": true,
+        "correct_answer": "C",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "C",
+          "Tamil": "C"
+        },
+        "notes": []
+      },
+      {
+        "number": 73,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q073.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q073.webp",
+        "has_e": true,
+        "correct_answer": "B",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "B",
+          "Tamil": "B"
+        },
+        "notes": []
+      },
+      {
+        "number": 74,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q074.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q074.webp",
+        "has_e": true,
+        "correct_answer": "D",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "D",
+          "Tamil": "D"
+        },
+        "notes": []
+      },
+      {
+        "number": 75,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q075.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q075.webp",
+        "has_e": true,
+        "correct_answer": "B",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "B",
+          "Tamil": "B"
+        },
+        "notes": []
+      },
+      {
+        "number": 76,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q076.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q076.webp",
+        "has_e": true,
+        "correct_answer": "C",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "C",
+          "Tamil": "C"
+        },
+        "notes": []
+      },
+      {
+        "number": 77,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q077.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q077.webp",
+        "has_e": true,
+        "correct_answer": "C",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "C",
+          "Tamil": "C"
+        },
+        "notes": []
+      },
+      {
+        "number": 78,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q078.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q078.webp",
+        "has_e": true,
+        "correct_answer": "B",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "B",
+          "Tamil": "B"
+        },
+        "notes": []
+      },
+      {
+        "number": 79,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q079.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q079.webp",
+        "has_e": true,
+        "correct_answer": "B",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "B",
+          "Tamil": "B"
+        },
+        "notes": []
+      },
+      {
+        "number": 80,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q080.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q080.webp",
+        "has_e": true,
+        "correct_answer": "A",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "A",
+          "Tamil": "A"
+        },
+        "notes": []
+      },
+      {
+        "number": 81,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q081.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q081.webp",
+        "has_e": true,
+        "correct_answer": "C",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "C",
+          "Tamil": "C"
+        },
+        "notes": []
+      },
+      {
+        "number": 82,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q082.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q082.webp",
+        "has_e": true,
+        "correct_answer": "A",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "A",
+          "Tamil": "A"
+        },
+        "notes": []
+      },
+      {
+        "number": 83,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q083.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q083.webp",
+        "has_e": true,
+        "correct_answer": "B",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "B",
+          "Tamil": "B"
+        },
+        "notes": []
+      },
+      {
+        "number": 84,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q084.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q084.webp",
+        "has_e": true,
+        "correct_answer": "B",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "B",
+          "Tamil": "B"
+        },
+        "notes": []
+      },
+      {
+        "number": 85,
+        "english_image": "imports/maths-pyq-additional/images/paper-05/q085.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-04/q085.webp",
+        "has_e": true,
+        "correct_answer": "A",
+        "sources": [
+          "CI pyq.pdf",
+          "CI pyq(தமிழ்).pdf"
+        ],
+        "source_answers": {
+          "English": "A",
+          "Tamil": "A"
+        },
+        "notes": []
+      }
+    ],
+    "issues": []
+  },
+  {
+    "topic": "AP and GP",
+    "name": "AP and GP PYQ",
+    "language": "English / Tamil",
+    "questions": [
+      {
+        "number": 1,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q001.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q001.webp",
+        "has_e": true,
+        "correct_answer": "A",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "A",
+          "Tamil": "A"
+        },
+        "notes": []
+      },
+      {
+        "number": 2,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q002.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q002.webp",
+        "has_e": true,
+        "correct_answer": "D",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "D",
+          "Tamil": "D"
+        },
+        "notes": []
+      },
+      {
+        "number": 3,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q003.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q003.webp",
+        "has_e": true,
+        "correct_answer": "C",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "C",
+          "Tamil": "C"
+        },
+        "notes": []
+      },
+      {
+        "number": 4,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q004.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q004.webp",
+        "has_e": true,
+        "correct_answer": "A",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "A",
+          "Tamil": "A"
+        },
+        "notes": []
+      },
+      {
+        "number": 5,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q005.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q005.webp",
+        "has_e": true,
+        "correct_answer": "A",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "A",
+          "Tamil": "A"
+        },
+        "notes": []
+      },
+      {
+        "number": 6,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q006.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q006.webp",
+        "has_e": true,
+        "correct_answer": "C",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "C",
+          "Tamil": "C"
+        },
+        "notes": []
+      },
+      {
+        "number": 7,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q007.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q007.webp",
+        "has_e": true,
+        "correct_answer": "D",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "D",
+          "Tamil": "D"
+        },
+        "notes": []
+      },
+      {
+        "number": 8,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q008.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q008.webp",
+        "has_e": true,
+        "correct_answer": "C",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "C",
+          "Tamil": "C"
+        },
+        "notes": []
+      },
+      {
+        "number": 9,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q009.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q009.webp",
+        "has_e": true,
+        "correct_answer": "C",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "C",
+          "Tamil": "C"
+        },
+        "notes": []
+      },
+      {
+        "number": 10,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q010.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q010.webp",
+        "has_e": true,
+        "correct_answer": "C",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "C",
+          "Tamil": "C"
+        },
+        "notes": []
+      },
+      {
+        "number": 11,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q011.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q011.webp",
+        "has_e": true,
+        "correct_answer": "B",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "B",
+          "Tamil": "B"
+        },
+        "notes": []
+      },
+      {
+        "number": 12,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q012.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q012.webp",
+        "has_e": true,
+        "correct_answer": "D",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "D",
+          "Tamil": "D"
+        },
+        "notes": []
+      },
+      {
+        "number": 13,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q013.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q013.webp",
+        "has_e": true,
+        "correct_answer": "D",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "D",
+          "Tamil": "D"
+        },
+        "notes": []
+      },
+      {
+        "number": 14,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q014.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q014.webp",
+        "has_e": true,
+        "correct_answer": "A",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "A",
+          "Tamil": "A"
+        },
+        "notes": []
+      },
+      {
+        "number": 15,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q015.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q015.webp",
+        "has_e": true,
+        "correct_answer": "D",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "D",
+          "Tamil": "D"
+        },
+        "notes": []
+      },
+      {
+        "number": 16,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q016.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q016.webp",
+        "has_e": true,
+        "correct_answer": "B",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "B",
+          "Tamil": "B"
+        },
+        "notes": []
+      },
+      {
+        "number": 17,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q017.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q017.webp",
+        "has_e": true,
+        "correct_answer": "B",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "B",
+          "Tamil": "B"
+        },
+        "notes": []
+      },
+      {
+        "number": 18,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q018.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q018.webp",
+        "has_e": true,
+        "correct_answer": "C",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "C",
+          "Tamil": "C"
+        },
+        "notes": []
+      },
+      {
+        "number": 19,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q019.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q019.webp",
+        "has_e": true,
+        "correct_answer": "C",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "C",
+          "Tamil": "C"
+        },
+        "notes": []
+      },
+      {
+        "number": 20,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q020.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q020.webp",
+        "has_e": true,
+        "correct_answer": "B",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "B",
+          "Tamil": "B"
+        },
+        "notes": []
+      },
+      {
+        "number": 21,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q021.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q021.webp",
+        "has_e": true,
+        "correct_answer": "C",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "C",
+          "Tamil": "C"
+        },
+        "notes": []
+      },
+      {
+        "number": 22,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q022.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q022.webp",
+        "has_e": true,
+        "correct_answer": "A",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "A",
+          "Tamil": "A"
+        },
+        "notes": []
+      },
+      {
+        "number": 23,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q023.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q023.webp",
+        "has_e": true,
+        "correct_answer": "D",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "D",
+          "Tamil": "D"
+        },
+        "notes": []
+      },
+      {
+        "number": 24,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q024.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q024.webp",
+        "has_e": true,
+        "correct_answer": "A",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "A",
+          "Tamil": "A"
+        },
+        "notes": []
+      },
+      {
+        "number": 25,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q025.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q025.webp",
+        "has_e": true,
+        "correct_answer": "A",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "A",
+          "Tamil": "A"
+        },
+        "notes": []
+      },
+      {
+        "number": 26,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q026.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q026.webp",
+        "has_e": true,
+        "correct_answer": "A",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "A",
+          "Tamil": "A"
+        },
+        "notes": []
+      },
+      {
+        "number": 27,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q027.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q027.webp",
+        "has_e": true,
+        "correct_answer": "B",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "B",
+          "Tamil": "B"
+        },
+        "notes": []
+      },
+      {
+        "number": 28,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q028.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q028.webp",
+        "has_e": true,
+        "correct_answer": "A",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "A",
+          "Tamil": "A"
+        },
+        "notes": []
+      },
+      {
+        "number": 29,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q029.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q029.webp",
+        "has_e": true,
+        "correct_answer": "A",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "A",
+          "Tamil": "A"
+        },
+        "notes": []
+      },
+      {
+        "number": 30,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q030.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q030.webp",
+        "has_e": true,
+        "correct_answer": "D",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "D",
+          "Tamil": "D"
+        },
+        "notes": []
+      },
+      {
+        "number": 31,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q031.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q031.webp",
+        "has_e": true,
+        "correct_answer": "D",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "D",
+          "Tamil": "D"
+        },
+        "notes": []
+      },
+      {
+        "number": 32,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q032.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q032.webp",
+        "has_e": true,
+        "correct_answer": "B",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "B",
+          "Tamil": "B"
+        },
+        "notes": []
+      },
+      {
+        "number": 33,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q033.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q033.webp",
+        "has_e": true,
+        "correct_answer": "D",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "D",
+          "Tamil": "D"
+        },
+        "notes": []
+      },
+      {
+        "number": 34,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q034.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q034.webp",
+        "has_e": true,
+        "correct_answer": "A",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "A",
+          "Tamil": "A"
+        },
+        "notes": []
+      },
+      {
+        "number": 35,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q035.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q035.webp",
+        "has_e": true,
+        "correct_answer": "B",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "B",
+          "Tamil": "B"
+        },
+        "notes": []
+      },
+      {
+        "number": 36,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q036.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q036.webp",
+        "has_e": true,
+        "correct_answer": "B",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "B",
+          "Tamil": "B"
+        },
+        "notes": []
+      },
+      {
+        "number": 37,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q037.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q037.webp",
+        "has_e": true,
+        "correct_answer": "C",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "C",
+          "Tamil": "C"
+        },
+        "notes": []
+      },
+      {
+        "number": 38,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q038.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q038.webp",
+        "has_e": true,
+        "correct_answer": "A",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "A",
+          "Tamil": "A"
+        },
+        "notes": []
+      },
+      {
+        "number": 39,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q039.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q039.webp",
+        "has_e": true,
+        "correct_answer": "A",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "A",
+          "Tamil": "A"
+        },
+        "notes": []
+      },
+      {
+        "number": 40,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q040.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q040.webp",
+        "has_e": true,
+        "correct_answer": "C",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "C",
+          "Tamil": "C"
+        },
+        "notes": []
+      },
+      {
+        "number": 41,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q041.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q041.webp",
+        "has_e": true,
+        "correct_answer": "D",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "D",
+          "Tamil": "D"
+        },
+        "notes": []
+      },
+      {
+        "number": 42,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q042.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q042.webp",
+        "has_e": true,
+        "correct_answer": "A",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "A",
+          "Tamil": "A"
+        },
+        "notes": []
+      },
+      {
+        "number": 43,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q043.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q043.webp",
+        "has_e": true,
+        "correct_answer": "A",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "A",
+          "Tamil": "A"
+        },
+        "notes": []
+      },
+      {
+        "number": 44,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q044.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q044.webp",
+        "has_e": true,
+        "correct_answer": "C",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "C",
+          "Tamil": "C"
+        },
+        "notes": []
+      },
+      {
+        "number": 45,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q045.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q045.webp",
+        "has_e": true,
+        "correct_answer": "A",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "A",
+          "Tamil": "A"
+        },
+        "notes": []
+      },
+      {
+        "number": 46,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q046.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q046.webp",
+        "has_e": true,
+        "correct_answer": "D",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "D",
+          "Tamil": "D"
+        },
+        "notes": []
+      },
+      {
+        "number": 47,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q047.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q047.webp",
+        "has_e": true,
+        "correct_answer": "D",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "D",
+          "Tamil": "D"
+        },
+        "notes": []
+      },
+      {
+        "number": 48,
+        "english_image": "imports/maths-pyq-additional/images/paper-01/q048.webp",
+        "tamil_image": "imports/maths-pyq-additional/images/paper-02/q048.webp",
+        "has_e": true,
+        "correct_answer": "B",
+        "sources": [
+          "AP GP pyq.pdf",
+          "AP GP(தமிழ் ).pdf"
+        ],
+        "source_answers": {
+          "English": "B",
+          "Tamil": "B"
+        },
+        "notes": []
+      }
+    ],
+    "issues": []
+  },
+  {
+    "topic": "Age Problems",
+    "name": "Age Problems PYQ",
+    "language": "English / Tamil",
+    "questions": [
+      {
+        "number": 1,
+        "english_image": "imports/maths-pyq-additional/images/paper-03/q001.webp",
+        "tamil_image": null,
+        "has_e": true,
+        "correct_answer": "D",
+        "sources": [
+          "Age problem Bilingual pyq.pdf"
+        ],
+        "source_answers": {
+          "English / Tamil": "D"
+        },
+        "notes": []
+      },
+      {
+        "number": 2,
+        "english_image": "imports/maths-pyq-additional/images/paper-03/q002.webp",
+        "tamil_image": null,
+        "has_e": true,
+        "correct_answer": "A",
+        "sources": [
+          "Age problem Bilingual pyq.pdf"
+        ],
+        "source_answers": {
+          "English / Tamil": "A"
+        },
+        "notes": []
+      },
+      {
+        "number": 3,
+        "english_image": "imports/maths-pyq-additional/images/paper-03/q003.webp",
+        "tamil_image": null,
+        "has_e": true,
+        "correct_answer": "A",
+        "sources": [
+          "Age problem Bilingual pyq.pdf"
+        ],
+        "source_answers": {
+          "English / Tamil": "A"
+        },
+        "notes": []
+      },
+      {
+        "number": 4,
+        "english_image": "imports/maths-pyq-additional/images/paper-03/q004.webp",
+        "tamil_image": null,
+        "has_e": true,
+        "correct_answer": "C",
+        "sources": [
+          "Age problem Bilingual pyq.pdf"
+        ],
+        "source_answers": {
+          "English / Tamil": "C"
+        },
+        "notes": []
+      },
+      {
+        "number": 5,
+        "english_image": "imports/maths-pyq-additional/images/paper-03/q005.webp",
+        "tamil_image": null,
+        "has_e": true,
+        "correct_answer": "D",
+        "sources": [
+          "Age problem Bilingual pyq.pdf"
+        ],
+        "source_answers": {
+          "English / Tamil": "D"
+        },
+        "notes": []
+      },
+      {
+        "number": 6,
+        "english_image": "imports/maths-pyq-additional/images/paper-03/q006.webp",
+        "tamil_image": null,
+        "has_e": true,
+        "correct_answer": "A",
+        "sources": [
+          "Age problem Bilingual pyq.pdf"
+        ],
+        "source_answers": {
+          "English / Tamil": "A"
+        },
+        "notes": []
+      },
+      {
+        "number": 7,
+        "english_image": "imports/maths-pyq-additional/images/paper-03/q007.webp",
+        "tamil_image": null,
+        "has_e": true,
+        "correct_answer": "B",
+        "sources": [
+          "Age problem Bilingual pyq.pdf"
+        ],
+        "source_answers": {
+          "English / Tamil": "B"
+        },
+        "notes": []
+      },
+      {
+        "number": 8,
+        "english_image": "imports/maths-pyq-additional/images/paper-03/q008.webp",
+        "tamil_image": null,
+        "has_e": true,
+        "correct_answer": "C",
+        "sources": [
+          "Age problem Bilingual pyq.pdf"
+        ],
+        "source_answers": {
+          "English / Tamil": "C"
+        },
+        "notes": []
+      }
+    ],
+    "issues": []
+  }
+]

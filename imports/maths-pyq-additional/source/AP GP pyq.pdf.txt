@@ -1,0 +1,184 @@
+--- PAGE 1 ---
+AP, GP & SP — 48 Practice Questions ExamStick
+ExamStick
+Quantitative Aptitude: AP, GP & Special Series (48 Questions)
+Complete Question Bank with Mathematical Notation & Final Answer Key
+1. Find the sum of 0 . 40 + 0 . 43 + 0 . 46 + · · · + 1
+(A) 14.7 (B) 15.7 (C) 16.7 (D) 17.7
+1 2 3
+th
+2. In the series  , , , . . . , what will be the 6 term?
+2 3 4
+9 7 4 6
+(A) (B) (C) (D)
+17 13 9 7
+2
+5 n + 3 n
+th
+3. In an Arithmetic Progression, the sum of the first n terms is  . Find the 10 term.
+2
+(A) 39 (B) 59 (C) 49 (D) 69
+th
+4. Find the 19 term of an Arithmetic Progression (A.P.): − 11 , − 15 , − 19 , . . .
+(A) − 83 (B) 61 (C) − 116 (D) 80
+5. Find the next two terms of the sequence: 4 , 5 , 12 , 17 , 28 , 37 , ,
+(A) 52 , 65 (B) 50 , 66 (C) 36 , 67 (D) 40 , 77
+3 3 3
+6. How many terms of the series 1 + 2 + 3 + . . . should be taken to get the sum 1296?
+(A) 6 (B) 7 (C) 8 (D) 9
+7. Find the missing term of the sequence: 7 , 26 , 63 , 124 , 215 , 342 ,
+(A) 391 (B) 421 (C) 471 (D) 511
+8. If 18 , a, b, − 3 are in Arithmetic Progression, then what is the value of ( a + b )?
+(A) 7 (B) 11 (C) 15 (D) 21
+9. In an auditorium, there are 20 seats in the front row and 30 rows were allotted. Each successive
+row contains two additional seats than its front row. How many seats are in the last row?
+(A) 600 (B) 60 (C) 78 (D) 18
+th
+10. Find the 8 term of the Geometric Progression (G.P.): 9 , 3 , 1 , . . .
+1 1 1 1
+(A) (B) (C) (D)
+27 81 243 729
+11. Find x so that x + 6, x + 12, and x + 15 are consecutive terms of a Geometric Progression.
+1
+--- PAGE 2 ---
+AP, GP & SP — 48 Practice Questions ExamStick
+(A) − 78 (B) − 18 (C) − 12 (D) − 6
+12. Which term of the series 16 , 11 , 6 , 1 , . . . is − 54?
+(A) 16 (B) 19 (C) 14 (D) 15
+th
+13. Find the sum of the first 28 terms of an Arithmetic Progression (A.P.) whose n term is 4 n − 3.
+(A) 1045 (B) 1054 (C) 1450 (D) 1540
+st 1 1
+14. Find the 21 term of an A.P.: 2 , 3 , 5 , 6 , . . .
+2 2
+1 1
+(A) 32 (B) 30 (C) 28 (D) 31
+2 2
+15. How many terms of the arithmetic series 24 + 21 + 18 + 15 + . . . must be taken continuously so that
+their sum is − 351?
+(A) 25 (B) 24 (C) 23 (D) 26
+16. A geometric series consists of an even number of terms. The sum of all terms is 3 times the sum of
+the odd terms. Find the common ratio.
+(A) 3 (B) 2 (C) 4 (D) 5
+2 2 2 2
+17. Find the value of 15 + 16 + 17 + · · · + 28 .
+(A) 6600 (B) 6699 (C) 77000 (D) 77114
+th th
+18. If 9 times the 9 term is equal to 15 times the 15 term in an Arithmetic Progression, then find
+th
+the 24 term.
+(A) 1 (B) − 1 (C) 0 (D) Cannot be found
+th
+19. Find the 12 term from the last term of the A.P.: − 2 , − 4 , − 6 , . . . , − 100.
+(A) 78 (B) − 73 (C) − 78 (D) 87
+20. Find the sum of 3 , 7 , 11 , . . . to 40 terms.
+(A) 2340 (B) 3240 (C) 3640 (D) 3140
+21. Find the sum of 2 + 4 + 6 + · · · + 80.
+(A) 820 (B) 1620 (C) 1640 (D) 1660
+3 3 3 3
+22. If 1 + 2 + 3 + · · · + k = 55, then find the value of 1 + 2 + 3 + · · · + k .
+(A) 3025 (B) 3125 (C) 166375 (D) 171875
+th th
+23. The 16 term and 26 term of an A.P. are 65 and 105 respectively. Find the sum of the first 36
+terms.
+2
+--- PAGE 3 ---
+AP, GP & SP — 48 Practice Questions ExamStick
+(A) 2000 (B) 2500 (C) 2600 (D) 2700
+3 3 3 3
+24. If 1 + 2 + 3 + · · · + k = 44100, then find 1 + 2 + 3 + · · · + k .
+(A) 210 (B) 220 (C) 225 (D) 230
+th th th
+25. If 6 times the 6 term of an A.P. is equal to 7 times the 7 term, then the 13 term of the A.P. is:
+(A) 0 (B) 6 (C) 7 (D) 13
+26. Find the common ratio for the geometric sequence 0 . 15 , 0 . 015 , 0 . 0015 , . . .
+(A) 0.1 (B) 0.01 (C) 0.001 (D) 1
+3 1 1 1
+27. What will be the next term of the sequence , , , , . . . ?
+16 8 12 18
+1 1 2 1
+(A) (B) (C) (D)
+24 27 3 81
+th
+28. If t n is the n term of an A.P., then t 2 n − t n is equal to:
+(A) nd (B) ( n + 1) d (C) ( n − 1) d (D) nd + 1
+3 3 3 3
+29. If 1 + 2 + 3 + · · · + K = 325, then find 1 + 2 + 3 + · · · + K .
+(A) 105625 (B) 52065 (C) 67714 (D) 12730
+30. If 1 + 2 + 3 + · · · + n = 666, then find n .
+(A) − 37 (B) − 36 (C) 37 (D) 36
+31. Find the sum of the series 1 + 3 + 5 + . . . to 25 terms.
+(A) 325 (B) 450 (C) 575 (D) 625
+32. How many terms of the series 5 + 9 + 13 + . . . must be taken so that their sum is 189?
+(A) 8 (B) 9 (C) 10 (D) 11
+33. Find the number of terms in the progression 2 , 4 , 8 , 16 , . . . , 1024.
+(A) 9 (B) 11 (C) 12 (D) 10
+3 3 3 3
+34. If 1 + 2 + 3 + · · · + n = k , then 1 + 2 + 3 + · · · + n is equal to:
+2 3 k ( k + 1) 3
+(A) k (B) k (D) ( k + 1)
+(C)
+2
+35. How many terms of the series 1 + 4 + 16 + . . . make the sum 1365?
+(A) 5 (B) 6 (C) 4 (D) 3
+36. Find the sum of the first 40 terms in the series 1 , 3 , 5 , . . .
+3
+--- PAGE 4 ---
+AP, GP & SP — 48 Practice Questions ExamStick
+(A) 1640 (B) 1600 (C) 800 (D) 400
+37. Find the sum of 1 + 3 + 5 + . . . to 40 terms.
+(A) 800 (B) 4000 (C) 1600 (D) 8000
+38. Find the sum of infinite terms of the geometric series +16 − 48 + 144 − 432 + . . .
+(A) 4 (B) − 8 (C) − 3 (D) − 4
+2 2 2 2
+39. Find the sum of the series 12 + 13 + 14 + · · · + 35 .
+(A) 14404 (B) 14104 (C) 14204 (D) 14304
+1 2 3 4 1 2 3 4
+40. If X = ( − 1) + ( − 1) + ( − 1) + ( − 1) + . . . to 25 terms, and Y = ( − 1) − ( − 1) + ( − 1) − ( − 1) +
+2 2
+. . . to 25 terms, then X + Y is:
+(A) − 625 (B) +624 (C) 626 (D) − 626
+th th
+41. What is the 8 term of a G.P. whose 6 term is 972 and the common ratio is 3?
+(A) 2916 (B) 3888 (C) 5832 (D) 8748
+3 3 3 3
+42. If 1 + 2 + 3 + · · · + K = 4356, find the value of K .
+(A) 11 (B) 22 (C) 33 (D) 44
+2 6 18
+43. Find the common ratio of the Geometric Progression (G.P.):  , , , . . .
+5 25 125
+3 4 1 2
+(A) (B) (C) (D)
+5 5 5 5
+3 3 3
+44. Find the value of (1 + 2 + · · · + 15 ) − (1 + 2 + · · · + 15).
+(A) 14400 (B) 14200 (C) 14280 (D) 14520
+3 3 3
+45. Find the value of k if 1 + 2 + · · · + k = 44100.
+(A) 20 (B) 21 (C) 22 (D) 23
+th th th th
+46. The ratio of the 10 and 14 term of an A.P. is 8 : 11. Then the ratio of the 6 term to the 16
+term is:
+(A) 3 : 8 (B) 5 : 7 (C) 3 : 7 (D) 2 : 5
+2 2 2 2
+47. Find the sum of 15 + 16 + 17 + · · · + 28 .
+(A) 9966 (B) 9696 (C) 6969 (D) 6699
+3 1 1 1
+48. What will be the next term of the sequence , , , , . . . ?
+16 8 12 18
+4
+--- PAGE 5 ---
+AP, GP & SP — 48 Practice Questions ExamStick
+1 1 2 1
+(A) (B) (C) (D)
+24 27 3 81
+ANSWER KEY (Q1 – Q48)
+1. A 9. C 17. B 25. A 33. D 41. D
+2. D 10. C 18. C 26. A 34. A 42. A
+3. C 11. B 19. C 27. B 35. B 43. A
+4. A 12. D 20. B 28. A 36. B 44. C
+5. A 13. D 21. C 29. A 37. C 45. A
+6. C 14. A 22. A 30. D 38. A 46. D
+7. D 15. D 23. D 31. D 39. A 47. D
+8. C 16. B 24. A 32. B 40. C 48. B
+5

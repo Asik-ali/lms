@@ -1,0 +1,36 @@
+{
+  "seriesId": 12,
+  "seriesName": "Maths PYQ",
+  "tests": [
+    {
+      "topic": "Compound Interest",
+      "testId": 91,
+      "categoryId": 57,
+      "language": "English / Tamil",
+      "status": "Draft",
+      "questions": 85,
+      "answers": 85,
+      "issues": []
+    },
+    {
+      "topic": "AP and GP",
+      "testId": 92,
+      "categoryId": 58,
+      "language": "English / Tamil",
+      "status": "Draft",
+      "questions": 48,
+      "answers": 48,
+      "issues": []
+    },
+    {
+      "topic": "Age Problems",
+      "testId": 93,
+      "categoryId": 59,
+      "language": "English / Tamil",
+      "status": "Draft",
+      "questions": 8,
+      "answers": 8,
+      "issues": []
+    }
+  ]
+}

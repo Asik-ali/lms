@@ -1,0 +1,5294 @@
+[
+  {
+    "source": "AP GP pyq.pdf",
+    "topic": "AP and GP",
+    "language": "English",
+    "questions": [
+      {
+        "number": 1,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              162.28489999999996,
+              570.276,
+              213.69799999999998
+            ]
+          }
+        ],
+        "source_text": "1. Find the sum of 0 . 40 + 0 . 43 + 0 . 46 + · · · + 1\n(A) 14.7 (B) 15.7 (C) 16.7 (D) 17.7",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q001.webp"
+      },
+      {
+        "number": 2,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              219.6339,
+              570.276,
+              281.98199999999997
+            ]
+          }
+        ],
+        "source_text": "1 2 3\nth\n2. In the series  , , , . . . , what will be the 6 term?\n2 3 4\n9 7 4 6\n(A) (B) (C) (D)\n17 13 9 7",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q002.webp"
+      },
+      {
+        "number": 3,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              284.5028999999999,
+              570.276,
+              335.91700000000003
+            ]
+          }
+        ],
+        "source_text": "2\n5 n + 3 n\nth\n3. In an Arithmetic Progression, the sum of the first n terms is  . Find the 10 term.\n2\n(A) 39 (B) 59 (C) 49 (D) 69",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q003.webp"
+      },
+      {
+        "number": 4,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              339.99490000000003,
+              570.276,
+              391.4080000000001
+            ]
+          }
+        ],
+        "source_text": "th\n4. Find the 19 term of an Arithmetic Progression (A.P.): − 11 , − 15 , − 19 , . . .\n(A) − 83 (B) 61 (C) − 116 (D) 80",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q004.webp"
+      },
+      {
+        "number": 5,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              395.48690000000005,
+              570.276,
+              446.9
+            ]
+          }
+        ],
+        "source_text": "5. Find the next two terms of the sequence: 4 , 5 , 12 , 17 , 28 , 37 , ,\n(A) 52 , 65 (B) 50 , 66 (C) 36 , 67 (D) 40 , 77",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q005.webp"
+      },
+      {
+        "number": 6,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              450.97889999999995,
+              570.276,
+              502.392
+            ]
+          }
+        ],
+        "source_text": "3 3 3\n6. How many terms of the series 1 + 2 + 3 + . . . should be taken to get the sum 1296?\n(A) 6 (B) 7 (C) 8 (D) 9",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q006.webp"
+      },
+      {
+        "number": 7,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              506.4709,
+              570.276,
+              557.884
+            ]
+          }
+        ],
+        "source_text": "7. Find the missing term of the sequence: 7 , 26 , 63 , 124 , 215 , 342 ,\n(A) 391 (B) 421 (C) 471 (D) 511",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q007.webp"
+      },
+      {
+        "number": 8,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              561.9629000000001,
+              570.276,
+              613.376
+            ]
+          }
+        ],
+        "source_text": "8. If 18 , a, b, − 3 are in Arithmetic Progression, then what is the value of ( a + b )?\n(A) 7 (B) 11 (C) 15 (D) 21",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q008.webp"
+      },
+      {
+        "number": 9,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              617.4549000000001,
+              570.276,
+              682.417
+            ]
+          }
+        ],
+        "source_text": "9. In an auditorium, there are 20 seats in the front row and 30 rows were allotted. Each successive\nrow contains two additional seats than its front row. How many seats are in the last row?\n(A) 600 (B) 60 (C) 78 (D) 18",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q009.webp"
+      },
+      {
+        "number": 10,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              686.4959,
+              570.276,
+              748.8439999999999
+            ]
+          }
+        ],
+        "source_text": "th\n10. Find the 8 term of the Geometric Progression (G.P.): 9 , 3 , 1 , . . .\n1 1 1 1\n(A) (B) (C) (D)\n27 81 243 729",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q010.webp"
+      },
+      {
+        "number": 11,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              747.4429,
+              570.276,
+              773.352
+            ]
+          },
+          {
+            "page": 2,
+            "rect": [
+              25,
+              38,
+              570.276,
+              74.95899999999995
+            ]
+          }
+        ],
+        "source_text": "11. Find x so that x + 6, x + 12, and x + 15 are consecutive terms of a Geometric Progression.\n(A) − 78 (B) − 18 (C) − 12 (D) − 6",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q011.webp"
+      },
+      {
+        "number": 12,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              79.03790000000001,
+              570.276,
+              130.45100000000002
+            ]
+          }
+        ],
+        "source_text": "12. Which term of the series 16 , 11 , 6 , 1 , . . . is − 54?\n(A) 16 (B) 19 (C) 14 (D) 15",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q012.webp"
+      },
+      {
+        "number": 13,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              134.52989999999997,
+              570.276,
+              185.94299999999998
+            ]
+          }
+        ],
+        "source_text": "th\n13. Find the sum of the first 28 terms of an Arithmetic Progression (A.P.) whose n term is 4 n − 3.\n(A) 1045 (B) 1054 (C) 1450 (D) 1540",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q013.webp"
+      },
+      {
+        "number": 14,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              190.02189999999993,
+              570.276,
+              245.197
+            ]
+          }
+        ],
+        "source_text": "st 1 1\n14. Find the 21 term of an A.P.: 2 , 3 , 5 , 6 , . . .\n2 2\n1 1\n(A) 32 (B) 30 (C) 28 (D) 31\n2 2",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q014.webp"
+      },
+      {
+        "number": 15,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              245.51290000000003,
+              570.276,
+              310.476
+            ]
+          }
+        ],
+        "source_text": "15. How many terms of the arithmetic series 24 + 21 + 18 + 15 + . . . must be taken continuously so that\ntheir sum is − 351?\n(A) 25 (B) 24 (C) 23 (D) 26",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q015.webp"
+      },
+      {
+        "number": 16,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              314.5549,
+              570.276,
+              379.517
+            ]
+          }
+        ],
+        "source_text": "16. A geometric series consists of an even number of terms. The sum of all terms is 3 times the sum of\nthe odd terms. Find the common ratio.\n(A) 3 (B) 2 (C) 4 (D) 5",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q016.webp"
+      },
+      {
+        "number": 17,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              383.5959,
+              570.276,
+              435.009
+            ]
+          }
+        ],
+        "source_text": "2 2 2 2\n17. Find the value of 15 + 16 + 17 + · · · + 28 .\n(A) 6600 (B) 6699 (C) 77000 (D) 77114",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q017.webp"
+      },
+      {
+        "number": 18,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              439.0879,
+              570.276,
+              504.05
+            ]
+          }
+        ],
+        "source_text": "th th\n18. If 9 times the 9 term is equal to 15 times the 15 term in an Arithmetic Progression, then find\nth\nthe 24 term.\n(A) 1 (B) − 1 (C) 0 (D) Cannot be found",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q018.webp"
+      },
+      {
+        "number": 19,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              508.12890000000004,
+              570.276,
+              559.542
+            ]
+          }
+        ],
+        "source_text": "th\n19. Find the 12 term from the last term of the A.P.: − 2 , − 4 , − 6 , . . . , − 100.\n(A) 78 (B) − 73 (C) − 78 (D) 87",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q019.webp"
+      },
+      {
+        "number": 20,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              563.6209,
+              570.276,
+              615.034
+            ]
+          }
+        ],
+        "source_text": "20. Find the sum of 3 , 7 , 11 , . . . to 40 terms.\n(A) 2340 (B) 3240 (C) 3640 (D) 3140",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q020.webp"
+      },
+      {
+        "number": 21,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              619.1129000000001,
+              570.276,
+              670.5260000000001
+            ]
+          }
+        ],
+        "source_text": "21. Find the sum of 2 + 4 + 6 + · · · + 80.\n(A) 820 (B) 1620 (C) 1640 (D) 1660",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q021.webp"
+      },
+      {
+        "number": 22,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              674.6049,
+              570.276,
+              726.018
+            ]
+          }
+        ],
+        "source_text": "3 3 3 3\n22. If 1 + 2 + 3 + · · · + k = 55, then find the value of 1 + 2 + 3 + · · · + k .\n(A) 3025 (B) 3125 (C) 166375 (D) 171875",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q022.webp"
+      },
+      {
+        "number": 23,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              730.0969,
+              570.276,
+              769.5550000000001
+            ]
+          },
+          {
+            "page": 3,
+            "rect": [
+              25,
+              38,
+              570.276,
+              74.95899999999995
+            ]
+          }
+        ],
+        "source_text": "th th\n23. The 16 term and 26 term of an A.P. are 65 and 105 respectively. Find the sum of the first 36\nterms.\n(A) 2000 (B) 2500 (C) 2600 (D) 2700",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q023.webp"
+      },
+      {
+        "number": 24,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              79.03790000000001,
+              570.276,
+              130.45100000000002
+            ]
+          }
+        ],
+        "source_text": "3 3 3 3\n24. If 1 + 2 + 3 + · · · + k = 44100, then find 1 + 2 + 3 + · · · + k .\n(A) 210 (B) 220 (C) 225 (D) 230",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q024.webp"
+      },
+      {
+        "number": 25,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              134.52989999999997,
+              570.276,
+              185.94299999999998
+            ]
+          }
+        ],
+        "source_text": "th th th\n25. If 6 times the 6 term of an A.P. is equal to 7 times the 7 term, then the 13 term of the A.P. is:\n(A) 0 (B) 6 (C) 7 (D) 13",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q025.webp"
+      },
+      {
+        "number": 26,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              190.02189999999993,
+              570.276,
+              241.43499999999995
+            ]
+          }
+        ],
+        "source_text": "26. Find the common ratio for the geometric sequence 0 . 15 , 0 . 015 , 0 . 0015 , . . .\n(A) 0.1 (B) 0.01 (C) 0.001 (D) 1",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q026.webp"
+      },
+      {
+        "number": 27,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              247.37089999999998,
+              570.276,
+              309.71899999999994
+            ]
+          }
+        ],
+        "source_text": "3 1 1 1\n27. What will be the next term of the sequence , , , , . . . ?\n16 8 12 18\n1 1 2 1\n(A) (B) (C) (D)\n24 27 3 81",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q027.webp"
+      },
+      {
+        "number": 28,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              308.31789999999995,
+              570.276,
+              359.731
+            ]
+          }
+        ],
+        "source_text": "th\n28. If t n is the n term of an A.P., then t 2 n − t n is equal to:\n(A) nd (B) ( n + 1) d (C) ( n − 1) d (D) nd + 1",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q028.webp"
+      },
+      {
+        "number": 29,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              363.80989999999997,
+              570.276,
+              415.223
+            ]
+          }
+        ],
+        "source_text": "3 3 3 3\n29. If 1 + 2 + 3 + · · · + K = 325, then find 1 + 2 + 3 + · · · + K .\n(A) 105625 (B) 52065 (C) 67714 (D) 12730",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q029.webp"
+      },
+      {
+        "number": 30,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              419.3019,
+              570.276,
+              470.71500000000003
+            ]
+          }
+        ],
+        "source_text": "30. If 1 + 2 + 3 + · · · + n = 666, then find n .\n(A) − 37 (B) − 36 (C) 37 (D) 36",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q030.webp"
+      },
+      {
+        "number": 31,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              474.7939,
+              570.276,
+              526.2070000000001
+            ]
+          }
+        ],
+        "source_text": "31. Find the sum of the series 1 + 3 + 5 + . . . to 25 terms.\n(A) 325 (B) 450 (C) 575 (D) 625",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q031.webp"
+      },
+      {
+        "number": 32,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              530.2859000000001,
+              570.276,
+              581.6990000000001
+            ]
+          }
+        ],
+        "source_text": "32. How many terms of the series 5 + 9 + 13 + . . . must be taken so that their sum is 189?\n(A) 8 (B) 9 (C) 10 (D) 11",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q032.webp"
+      },
+      {
+        "number": 33,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              585.7769000000001,
+              570.276,
+              637.191
+            ]
+          }
+        ],
+        "source_text": "33. Find the number of terms in the progression 2 , 4 , 8 , 16 , . . . , 1024.\n(A) 9 (B) 11 (C) 12 (D) 10",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q033.webp"
+      },
+      {
+        "number": 34,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              641.2689000000001,
+              570.276,
+              704.769
+            ]
+          }
+        ],
+        "source_text": "3 3 3 3\n34. If 1 + 2 + 3 + · · · + n = k , then 1 + 2 + 3 + · · · + n is equal to:\n2 3 k ( k + 1) 3\n(A) k (B) k (D) ( k + 1)\n(C)\n2",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q034.webp"
+      },
+      {
+        "number": 35,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              703.7349,
+              570.276,
+              755.149
+            ]
+          }
+        ],
+        "source_text": "35. How many terms of the series 1 + 4 + 16 + . . . make the sum 1365?\n(A) 5 (B) 6 (C) 4 (D) 3",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q035.webp"
+      },
+      {
+        "number": 36,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              759.2269,
+              570.276,
+              785.136
+            ]
+          },
+          {
+            "page": 4,
+            "rect": [
+              25,
+              38,
+              570.276,
+              74.95899999999995
+            ]
+          }
+        ],
+        "source_text": "36. Find the sum of the first 40 terms in the series 1 , 3 , 5 , . . .\n(A) 1640 (B) 1600 (C) 800 (D) 400",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q036.webp"
+      },
+      {
+        "number": 37,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              79.03790000000001,
+              570.276,
+              130.45100000000002
+            ]
+          }
+        ],
+        "source_text": "37. Find the sum of 1 + 3 + 5 + . . . to 40 terms.\n(A) 800 (B) 4000 (C) 1600 (D) 8000",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q037.webp"
+      },
+      {
+        "number": 38,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              134.52989999999997,
+              570.276,
+              185.94299999999998
+            ]
+          }
+        ],
+        "source_text": "38. Find the sum of infinite terms of the geometric series +16 − 48 + 144 − 432 + . . .\n(A) 4 (B) − 8 (C) − 3 (D) − 4",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q038.webp"
+      },
+      {
+        "number": 39,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              190.02189999999993,
+              570.276,
+              241.43499999999995
+            ]
+          }
+        ],
+        "source_text": "2 2 2 2\n39. Find the sum of the series 12 + 13 + 14 + · · · + 35 .\n(A) 14404 (B) 14104 (C) 14204 (D) 14304",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q039.webp"
+      },
+      {
+        "number": 40,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              245.5138999999999,
+              570.276,
+              310.4759999999999
+            ]
+          }
+        ],
+        "source_text": "1 2 3 4 1 2 3 4\n40. If X = ( − 1) + ( − 1) + ( − 1) + ( − 1) + . . . to 25 terms, and Y = ( − 1) − ( − 1) + ( − 1) − ( − 1) +\n2 2\n. . . to 25 terms, then X + Y is:\n(A) − 625 (B) +624 (C) 626 (D) − 626",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q040.webp"
+      },
+      {
+        "number": 41,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              314.55489999999986,
+              570.276,
+              365.9679999999999
+            ]
+          }
+        ],
+        "source_text": "th th\n41. What is the 8 term of a G.P. whose 6 term is 972 and the common ratio is 3?\n(A) 2916 (B) 3888 (C) 5832 (D) 8748",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q041.webp"
+      },
+      {
+        "number": 42,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              370.0468999999999,
+              570.276,
+              421.4599999999999
+            ]
+          }
+        ],
+        "source_text": "3 3 3 3\n42. If 1 + 2 + 3 + · · · + K = 4356, find the value of K .\n(A) 11 (B) 22 (C) 33 (D) 44",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q042.webp"
+      },
+      {
+        "number": 43,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              427.3958999999999,
+              570.276,
+              489.74399999999997
+            ]
+          }
+        ],
+        "source_text": "2 6 18\n43. Find the common ratio of the Geometric Progression (G.P.):  , , , . . .\n5 25 125\n3 4 1 2\n(A) (B) (C) (D)\n5 5 5 5",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q043.webp"
+      },
+      {
+        "number": 44,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              488.34289999999993,
+              570.276,
+              539.756
+            ]
+          }
+        ],
+        "source_text": "3 3 3\n44. Find the value of (1 + 2 + · · · + 15 ) − (1 + 2 + · · · + 15).\n(A) 14400 (B) 14200 (C) 14280 (D) 14520",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q044.webp"
+      },
+      {
+        "number": 45,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              543.8349,
+              570.276,
+              595.248
+            ]
+          }
+        ],
+        "source_text": "3 3 3\n45. Find the value of k if 1 + 2 + · · · + k = 44100.\n(A) 20 (B) 21 (C) 22 (D) 23",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q045.webp"
+      },
+      {
+        "number": 46,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              599.3269,
+              570.276,
+              664.289
+            ]
+          }
+        ],
+        "source_text": "th th th th\n46. The ratio of the 10 and 14 term of an A.P. is 8 : 11. Then the ratio of the 6 term to the 16\nterm is:\n(A) 3 : 8 (B) 5 : 7 (C) 3 : 7 (D) 2 : 5",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q046.webp"
+      },
+      {
+        "number": 47,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              668.3679000000001,
+              570.276,
+              719.781
+            ]
+          }
+        ],
+        "source_text": "2 2 2 2\n47. Find the sum of 15 + 16 + 17 + · · · + 28 .\n(A) 9966 (B) 9696 (C) 6969 (D) 6699",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q047.webp"
+      },
+      {
+        "number": 48,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              725.7169,
+              570.276,
+              759.1089999999999
+            ]
+          },
+          {
+            "page": 5,
+            "rect": [
+              25,
+              38,
+              570.276,
+              85.894
+            ]
+          }
+        ],
+        "source_text": "3 1 1 1\n48. What will be the next term of the sequence , , , , . . . ?\n16 8 12 18\n1 1 2 1\n(A) (B) (C) (D)\n24 27 3 81",
+        "has_e": false,
+        "source_image": "imports/maths-pyq-additional/images/paper-01/q048.webp"
+      }
+    ],
+    "answers": {
+      "4": "A",
+      "8": "C",
+      "3": "C",
+      "35": "B",
+      "11": "B",
+      "22": "A",
+      "33": "D",
+      "2": "D",
+      "20": "B",
+      "21": "C",
+      "7": "D",
+      "28": "A",
+      "1": "A",
+      "9": "C",
+      "17": "B",
+      "25": "A",
+      "41": "D",
+      "10": "C",
+      "18": "C",
+      "26": "A",
+      "34": "A",
+      "42": "A",
+      "19": "C",
+      "27": "B",
+      "43": "A",
+      "12": "D",
+      "36": "B",
+      "44": "C",
+      "5": "A",
+      "13": "D",
+      "29": "A",
+      "37": "C",
+      "45": "A",
+      "6": "C",
+      "14": "A",
+      "30": "D",
+      "38": "A",
+      "46": "D",
+      "15": "D",
+      "23": "D",
+      "31": "D",
+      "39": "A",
+      "47": "D",
+      "16": "B",
+      "24": "A",
+      "32": "B",
+      "40": "C",
+      "48": "B"
+    },
+    "issues": []
+  },
+  {
+    "source": "AP GP(தமிழ் ).pdf",
+    "topic": "AP and GP",
+    "language": "Tamil",
+    "questions": [
+      {
+        "number": 1,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              92.25249602281247,
+              569.95996,
+              137.49999468750002
+            ]
+          }
+        ],
+        "source_text": "1. 0.40 + 0.43 + 0.46 + ... + 1 - ன் கூடுத ல் கா ண் க .\n(A) 14.7 (B) 15.7 (C) 16.7 (D) 17.7 (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q001.webp"
+      },
+      {
+        "number": 2,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              148.94780616050775,
+              569.95996,
+              205.74999184374997
+            ]
+          }
+        ],
+        "source_text": "1 2 3\n2. , , , ... எ ன் ற ெதா ட ர\u0000 ன் 6- வது உறு ப் பு எ ன் ன ?\n2 3 4\n9 7 4 6 (E) எதுவு ம\u0000 ல் \u0000ல\n(A) (B) (C) (D)\n17 13 9 7",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q002.webp"
+      },
+      {
+        "number": 3,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              216.7290533362891,
+              569.95996,
+              265.74998934375003
+            ]
+          }
+        ],
+        "source_text": "2\n5n + 3n\n3. ஒரு கூ ட் டு க் ெதா ட ர் வ ர\u0000 ைச ய\u0000 ல் முத ல் n உறு ப் புக ள\u0000 ன் கூடுத ல் எ ன\u0000 ல் , அத ன் 10- வது உறு ப் ைப க் கா ண் க .\n2\n(A) 39 (B) 59 (C) 49 (D) 69 (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q003.webp"
+      },
+      {
+        "number": 4,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              275.2524883978125,
+              569.95996,
+              319.74998709375006
+            ]
+          }
+        ],
+        "source_text": "4. -11, -15, -19.... எ ன் ற கூ ட் டு க் ெதா ட ர் வ ர\u0000 ைச ய\u0000 ன் (A.P.) 19- வது உறு ப் ைப க் கா ண் க .\n(A) -83 (B) 61 (C) -116 (D) 80 (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q004.webp"
+      },
+      {
+        "number": 5,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              328.5024861790625,
+              569.95996,
+              373.74998484375
+            ]
+          }
+        ],
+        "source_text": "5. 4, 5, 12, 17, 28, 37, ... எ ன் ற ெதா ட ர\u0000 ன் அடு த் த இர ண் டு உறு ப் புக \u0000ள க் கா ண் க .\n(A) 52, 65 (B) 50, 66 (C) 36, 67 (D) 40, 77 (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q005.webp"
+      },
+      {
+        "number": 6,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              385.0806088216406,
+              569.95996,
+              429.9999825
+            ]
+          }
+        ],
+        "source_text": "3 3 3\n6. 1 + 2 + 3 + ... எ ன் ற ெதா ட ர\u0000 ன் கூடுத ல் 1296 ெப ற எ த் த \u0000ன உறு ப் புக \u0000ள எடு த் து க் ெகா ள் ள ேவ ண் டு ம் ?\n(A) 6 (B) 7 (C) 8 (D) 9 (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q006.webp"
+      },
+      {
+        "number": 7,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              438.75248158531247,
+              569.95996,
+              483.99998024999996
+            ]
+          }
+        ],
+        "source_text": "7. 7, 26, 63, 124, 215, 342, ... எ ன் ற ெதா ட ர\u0000 ல் வ\u0000 டுப ட் ட உறு ப் ைப க் கா ண் க .\n(A) 391 (B) 421 (C) 471 (D) 511 (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q007.webp"
+      },
+      {
+        "number": 8,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              492.7524793353125,
+              569.95996,
+              537.24997803125
+            ]
+          }
+        ],
+        "source_text": "8. 18, a, b, -3 எ ன் பன கூ ட் டு க் ெதா ட ர் வ ர\u0000 ைச ய\u0000 ல் இரு ந் தா ல் , (a + b)- ன் ம த\u0000 ப் பு எ ன் ன ?\n(A) 7 (B) 11 (C) 15 (D) 21 (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q008.webp"
+      },
+      {
+        "number": 9,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              546.7524770853124,
+              569.95996,
+              619.7499745937499
+            ]
+          }
+        ],
+        "source_text": "9. ஒரு த\u0000 ைர யர ங் க\u0000 ன் மு ன் வ ர\u0000 ைச ய\u0000 ல் 20 இரு க் ைக க ள் உ ள் ளன . ெமா த் த ம் 30 வ ர\u0000 ைச க ள் உ ள் ளன . ஒ வ் ெவா ரு\nஅடு த் தடு த் த வ ர\u0000 ைச ய\u0000 லு ம் அத ற் கு மு ந் ைத ய வ ர\u0000 ைச ைய வ\u0000 ட 2 இரு க் ைக க ள் கூடுத லா க உ ள் ளன . க ைட ச\u0000 வ ர\u0000 ைச ய\u0000 ல்\nஎ த் த \u0000ன இரு க் ைக க ள் இரு க் கு ம் ?\n(A) 600 (B) 60 (C) 78 (D) 18 (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q009.webp"
+      },
+      {
+        "number": 10,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              629.2524736478125,
+              569.95996,
+              681.999972
+            ]
+          }
+        ],
+        "source_text": "10. 9, 3, 1, ... எ ன் ற ெப ரு க் கு த் ெதா ட ர் வ ர\u0000 ைச ய\u0000 ன் (G.P.) 8- வது உறு ப் ைப க் கா ண் க .\n1 1 1 1 (E) எதுவு ம\u0000 ல் \u0000ல\n(A) (B) (C) (D)\n27 81 243 729",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q010.webp"
+      },
+      {
+        "number": 11,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              45.75249796031267,
+              569.95996,
+              105.24999603125013
+            ]
+          }
+        ],
+        "source_text": "11. x + 6, x + 12, ம ற் று ம் x + 15 எ ன் பன ஒரு ெப ரு க் கு த் ெதா ட ர் வ ர\u0000 ைச ய\u0000 ன் அடு த் தடு த் த உறு ப் புக ள் எ ன\u0000 ல் x- ன்\nம த\u0000 ப் ைப க் கா ண் க .\n(A) -78 (B) -18 (C) -12 (D) -6 (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q011.webp"
+      },
+      {
+        "number": 12,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              114.00249511656261,
+              569.95996,
+              159.24999378125017
+            ]
+          }
+        ],
+        "source_text": "12. 16, 11, 6, 1, ... எ ன் ற ெதா ட ர\u0000 ன் எ த் த \u0000ன யா வது உறு ப் பு -54 ஆகு ம் ?\n(A) 16 (B) 19 (C) 14 (D) 15 (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q012.webp"
+      },
+      {
+        "number": 13,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              168.00249286656253,
+              569.95996,
+              227.49999093750023
+            ]
+          }
+        ],
+        "source_text": "13. n- வது உறு ப் பு 4n - 3 என க் ெகா ண் ட ஒரு கூ ட் டு க் ெதா ட ர் வ ர\u0000 ைச ய\u0000 ன் (A.P.) முத ல் 28 உறு ப் புக ள\u0000 ன் கூடுத ல்\nகா ண் க .\n(A) 1045 (B) 1054 (C) 1450 (D) 1540 (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q013.webp"
+      },
+      {
+        "number": 14,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              238.94780241050785,
+              569.95996,
+              295.7499880937502
+            ]
+          }
+        ],
+        "source_text": "1 1\n14. 2, 3 , 5, 6 , ... எ ன் ற கூ ட் டு க் ெதா ட ர\u0000 ன் 21- வது உறு ப் ைப க் கா ண் க .\n2 2\n(A) 32 1 (C) 28 1 (E) எதுவு ம\u0000 ல் \u0000ல\n(B) 30 (D) 31\n2 2",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q014.webp"
+      },
+      {
+        "number": 15,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              303.0024872415627,
+              569.95996,
+              361.74998534375015
+            ]
+          }
+        ],
+        "source_text": "15. 24 + 21 + 18 + 15 + ... எ ன் ற கூ ட் டு க் ெதா ட ர\u0000 ன் கூடுத ல் -351 ெப ற எ த் த \u0000ன உறு ப் புக \u0000ள த் ெதா ட ர் ச் ச\u0000 யா க\nஎடு த் து க் ெகா ள் ள ேவ ண் டு ம் ?\n(A) 25 (B) 24 (C) 23 (D) 26 (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q015.webp"
+      },
+      {
+        "number": 16,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              371.2524843978126,
+              569.95996,
+              429.9999825000001
+            ]
+          }
+        ],
+        "source_text": "16. ஒரு ெப ரு க் கு த் ெதா ட ர\u0000 ல் இர ட் ைட எ ண் ண\u0000 க் ைக ய\u0000 லா ன உறு ப் புக ள் உ ள் ளன . அ \u0000ன த் து உறு ப் புக ள\u0000 ன் கூடுத ல் ,\nஒ ற் ைற ப் ப ைட இட ங் க ள\u0000 ல் உ ள் ள உறு ப் புக ள\u0000 ன் கூடுத \u0000ல ப் ேபா ல் 3 மட ங் கு எ ன\u0000 ல் , ெபா து வ\u0000 க\u0000 த ம் எ ன் ன ?\n(A) 3 (B) 2 (C) 4 (D) 5 (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q016.webp"
+      },
+      {
+        "number": 17,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              442.0806064466408,
+              569.95996,
+              486.2499801562502
+            ]
+          }
+        ],
+        "source_text": "2 2 2 2\n17. 15 + 16 + 17 + ... + 28 - ன் ம த\u0000 ப் ைப க் கா ண் க .\n(A) 6600 (B) 6699 (C) 77000 (D) 77114 (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q017.webp"
+      },
+      {
+        "number": 18,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              495.7524792103127,
+              569.95996,
+              554.4999773125002
+            ]
+          }
+        ],
+        "source_text": "18. ஒரு கூ ட் டு க் ெதா ட ர் வ ர\u0000 ைச ய\u0000 ல் 9- வது உறு ப் ப\u0000 ன் 9 மட ங் கு ம் , 15- வது உறு ப் ப\u0000 ன் 15 மட ங் கு ம் சம ம் எ ன\u0000 ல் , 24- வது\nஉறு ப் ைப க் கா ண் க .\n(A) 1 (B) -1 (C) 0 (D) கா ண முடி யா து (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q018.webp"
+      },
+      {
+        "number": 19,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              564.0024763665626,
+              569.95996,
+              608.4999750625001
+            ]
+          }
+        ],
+        "source_text": "19. -2, -4, -6, ..., -100 எ ன் ற கூ ட் டு க் ெதா ட ர் வ ர\u0000 ைச ய\u0000 ன் க ைட ச\u0000 உறு ப் ப\u0000 லி ரு ந் து 12- வது உறு ப் ைப க் கா ண் க .\n(A) 78 (B) -73 (C) -78 (D) 87 (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q019.webp"
+      },
+      {
+        "number": 20,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              617.2524741478126,
+              569.95996,
+              662.4999728125
+            ]
+          }
+        ],
+        "source_text": "20. 3, 7, 11, ... எ ன் ற ெதா ட ர\u0000 ன் முத ல் 40 உறு ப் புக ள\u0000 ன் கூடுத ல் கா ண் க .\n(A) 2340 (B) 3240 (C) 3640 (D) 3140 (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q020.webp"
+      },
+      {
+        "number": 21,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              45.75249796031244,
+              569.95996,
+              90.99999662499988
+            ]
+          }
+        ],
+        "source_text": "21. 2 + 4 + 6 + ... + 80 - ன் கூடுத ல் கா ண் க .\n(A) 820 (B) 1620 (C) 1640 (D) 1660 (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q021.webp"
+      },
+      {
+        "number": 22,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              102.33062060289058,
+              569.95996,
+              147.24999428125
+            ]
+          }
+        ],
+        "source_text": "3 3 3 3\n22. 1 + 2 + 3 + ... + k = 55 எ ன\u0000 ல் , 1 + 2 + 3 + ... + k - ன் ம த\u0000 ப் ைப க் கா ண் க .\n(A) 3025 (B) 3125 (C) 166375 (D) 171875 (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q022.webp"
+      },
+      {
+        "number": 23,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              156.00249336656248,
+              569.95996,
+              215.49999143749994
+            ]
+          }
+        ],
+        "source_text": "23. ஒரு கூ ட் டு க் ெதா ட ர் வ ர\u0000 ைச ய\u0000 ன் 16- வது ம ற் று ம் 26- வது உறு ப் புக ள் மு ைற ேய 65 ம ற் று ம் 105 எ ன\u0000 ல் , முத ல் 36\nஉறு ப் புக ள\u0000 ன் கூடுத ல் கா ண் க .\n(A) 2000 (B) 2500 (C) 2600 (D) 2700 (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q023.webp"
+      },
+      {
+        "number": 24,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              226.83061541539064,
+              569.95996,
+              271.74998909374983
+            ]
+          }
+        ],
+        "source_text": "3 3 3 3\n24. 1 + 2 + 3 + ... + k = 44100 எ ன\u0000 ல் , 1 + 2 + 3 + ... + k - ன் ம த\u0000 ப் ைப க் கா ண் க .\n(A) 210 (B) 220 (C) 225 (D) 230 (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q024.webp"
+      },
+      {
+        "number": 25,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              280.5024881790623,
+              569.95996,
+              339.99998625
+            ]
+          }
+        ],
+        "source_text": "25. ஒரு கூ ட் டு க் ெதா ட ர் வ ர\u0000 ைச ய\u0000 ன் 6- வது உறு ப் ப\u0000 ன் 6 மட ங் கு , அத ன் 7- வது உறு ப் ப\u0000 ன் 7 மட ங் க\u0000 ற் கு சம ம் எ ன\u0000 ல் , 13-\nவது உறு ப் பு எ ன் ன ?\n(A) 0 (B) 6 (C) 7 (D) 13 (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q025.webp"
+      },
+      {
+        "number": 26,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              348.7524853353125,
+              569.95996,
+              393.9999839999999
+            ]
+          }
+        ],
+        "source_text": "26. 0.15, 0.015, 0.0015, ... எ ன் ற ெப ரு க் கு த் ெதா ட ர\u0000 ன் ெபா து வ\u0000 க\u0000 த த் ைத க் கா ண் க .\n(A) 0.1 (B) 0.01 (C) 0.001 (D) 1 (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q026.webp"
+      },
+      {
+        "number": 27,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              405.44783297300637,
+              569.95996,
+              462.2499811562501
+            ]
+          }
+        ],
+        "source_text": "3 1 1 1\n27. , , , , ... எ ன் ற ெதா ட ர\u0000 ன் அடு த் த உறு ப் பு எ ன் ன ?\n16 8 12 18\n1 1 2 1 (E) எதுவு ம\u0000 ல் \u0000ல\n(A) (B) (C) (D)\n24 27 3 81",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q027.webp"
+      },
+      {
+        "number": 28,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              469.5024803040624,
+              569.95996,
+              515.4999789375
+            ]
+          }
+        ],
+        "source_text": "28. t n எ ன் பது ஒரு கூ ட் டு க் ெதா ட ர் வ ர\u0000 ைச ய\u0000 ன் n- வது உறு ப் பு எ ன\u0000 ல் , t 2n - t n எத ற் கு ச் சம ம் ?\n(A) nd (B) (n + 1)d (C) (n - 1)d (D) nd + 1 (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q028.webp"
+      },
+      {
+        "number": 29,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              527.5806028841407,
+              569.95996,
+              571.7499765937499
+            ]
+          }
+        ],
+        "source_text": "3 3 3 3\n29. 1 + 2 + 3 + ... + K = 325 எ ன\u0000 ல் , 1 + 2 + 3 + ... + K - ன் ம த\u0000 ப் ைப க் கா ண் க .\n(A) 105625 (B) 52065 (C) 67714 (D) 12730 (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q029.webp"
+      },
+      {
+        "number": 30,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              581.2524756478124,
+              569.95996,
+              625.7499743437501
+            ]
+          }
+        ],
+        "source_text": "30. 1 + 2 + 3 + ... + n = 666 எ ன\u0000 ல் n- ன் ம த\u0000 ப் ைப க் கா ண் க .\n(A) -37 (B) -36 (C) 37 (D) 36 (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q030.webp"
+      },
+      {
+        "number": 31,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              45.75249796031221,
+              569.95996,
+              90.99999662499965
+            ]
+          }
+        ],
+        "source_text": "31. 1 + 3 + 5 + ... எ ன் ற ெதா ட ர\u0000 ன் 25 உறு ப் புக ள் வ ைர கூடுத ல் கா ண் க .\n(A) 325 (B) 450 (C) 575 (D) 625 (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q031.webp"
+      },
+      {
+        "number": 32,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              99.75249571031236,
+              569.95996,
+              144.24999440624958
+            ]
+          }
+        ],
+        "source_text": "32. 5 + 9 + 13 + ... எ ன் ற ெதா ட ர\u0000 ன் கூடுத ல் 189 ெப ற எ த் த \u0000ன உறு ப் புக \u0000ள எடு த் து க் ெகா ள் ள ேவ ண் டு ம் ?\n(A) 8 (B) 9 (C) 10 (D) 11 (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q032.webp"
+      },
+      {
+        "number": 33,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              153.75249346031205,
+              569.95996,
+              198.24999215624973
+            ]
+          }
+        ],
+        "source_text": "33. 2, 4, 8, 16, ..., 1024 எ ன் ற ெதா ட ர\u0000 லு ள் ள உறு ப் புக ள\u0000 ன் எ ண் ண\u0000 க் ைக ைய க் கா ண் க .\n(A) 9 (B) 11 (C) 12 (D) 10 (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q033.webp"
+      },
+      {
+        "number": 34,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              209.5806161341402,
+              569.95996,
+              262.74998946874973
+            ]
+          }
+        ],
+        "source_text": "3 3 3 3\n34. 1 + 2 + 3 + ... + n = k எ ன\u0000 ல் , 1 + 2 + 3 + ... + n எத ற் கு ச் சம ம் ?\n2 3 k(k + 1) 3 (E) எதுவு ம\u0000 ல் \u0000ல\n(A) k (B) k (C) (D) (k + 1)\n2",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q034.webp"
+      },
+      {
+        "number": 35,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              270.002488616562,
+              569.95996,
+              314.4999873124997
+            ]
+          }
+        ],
+        "source_text": "35. 1 + 4 + 16 + ... எ ன் ற ெதா ட ர\u0000 ன் கூடுத ல் 1365 ெப ற எ த் த \u0000ன உறு ப் புக ள் ேத ைவ ?\n(A) 5 (B) 6 (C) 4 (D) 3 (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q035.webp"
+      },
+      {
+        "number": 36,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              324.00248636656215,
+              569.95996,
+              368.49998506249983
+            ]
+          }
+        ],
+        "source_text": "36. 1, 3, 5, ... எ ன் ற ெதா ட ர\u0000 ன் முத ல் 40 உறு ப் புக ள\u0000 ன் கூடுத ல் கா ண் க .\n(A) 1640 (B) 1600 (C) 800 (D) 400 (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q036.webp"
+      },
+      {
+        "number": 37,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              377.2524841478121,
+              569.95996,
+              422.4999828124995
+            ]
+          }
+        ],
+        "source_text": "37. 1 + 3 + 5 + ... எ ன் ற ெதா ட ர\u0000 ன் 40 உறு ப் புக ள் வ ைர கூடுத ல் கா ண் க .\n(A) 800 (B) 4000 (C) 1600 (D) 8000 (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q037.webp"
+      },
+      {
+        "number": 38,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              431.25248189781223,
+              569.95996,
+              475.7499805937499
+            ]
+          }
+        ],
+        "source_text": "38. 16 - 48 + 144 - 432 + ... எ ன் ற முடிவுறா ெப ரு க் கு த் ெதா ட ர\u0000 ன் கூடுத ல் கா ண் க .\n(A) 4 (B) -8 (C) -3 (D) -4 (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q038.webp"
+      },
+      {
+        "number": 39,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              487.83060454039014,
+              569.95996,
+              531.9999782499998
+            ]
+          }
+        ],
+        "source_text": "2 2 2 2\n39. 12 + 13 + 14 + ... + 35 - ன் கூடுத ல் கா ண் க .\n(A) 14404 (B) 14104 (C) 14204 (D) 14304 (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q039.webp"
+      },
+      {
+        "number": 40,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              544.0806021966405,
+              569.95996,
+              605.4999751874997
+            ]
+          }
+        ],
+        "source_text": "1 2 3 4 1 2 3 4\n40. X = (-1) + (-1) + (-1) + (-1) + ... (25 உறு ப் புக ள் வ ைர ) ம ற் று ம் Y = (-1) - (-1) + (-1) - (-1) + ... (25\n2 2\nஉறு ப் புக ள் வ ைர ) எ ன\u0000 ல் , X + Y - ன் ம த\u0000 ப் பு எ ன் ன ?\n(A) -625 (B) +624 (C) 626 (D) -626 (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q040.webp"
+      },
+      {
+        "number": 41,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              45.75249796031312,
+              569.95996,
+              105.24999603125059
+            ]
+          }
+        ],
+        "source_text": "41. 6- வது உறு ப் பு 972 ம ற் று ம் ெபா து வ\u0000 க\u0000 த ம் 3 என க் ெகா ண் ட ஒரு ெப ரு க் கு த் ெதா ட ர் வ ர\u0000 ைச ய\u0000 ன் 8- வது உறு ப் பு\nஎ ன் ன ?\n(A) 2916 (B) 3888 (C) 5832 (D) 8748 (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q041.webp"
+      },
+      {
+        "number": 42,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              116.58062000914106,
+              569.95996,
+              161.49999368750048
+            ]
+          }
+        ],
+        "source_text": "3 3 3 3\n42. 1 + 2 + 3 + ... + K = 4356 எ ன\u0000 ல் , K- ன் ம த\u0000 ப் ைப க் கா ண் க .\n(A) 11 (B) 22 (C) 33 (D) 44 (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q042.webp"
+      },
+      {
+        "number": 43,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              173.69784262925623,
+              569.95996,
+              229.7499908437502
+            ]
+          }
+        ],
+        "source_text": "2 6 18\n43. , , , ... எ ன் ற ெப ரு க் கு த் ெதா ட ர\u0000 ன் (G.P.) ெபா து வ\u0000 க\u0000 த த் ைத க் கா ண் க .\n5 25 125\n3 4 1 2 (E) எதுவு ம\u0000 ல் \u0000ல\n(A) (B) (C) (D)\n5 5 5 5",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q043.webp"
+      },
+      {
+        "number": 44,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              239.58061488414114,
+              569.95996,
+              284.49998856250056
+            ]
+          }
+        ],
+        "source_text": "3 3 3\n44. (1 + 2 + ... + 15 ) - (1 + 2 + ... + 15) - ன் ம த\u0000 ப் ைப க் கா ண் க .\n(A) 14400 (B) 14200 (C) 14280 (D) 14520 (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q044.webp"
+      },
+      {
+        "number": 45,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              295.83061254039103,
+              569.95996,
+              340.74998621875045
+            ]
+          }
+        ],
+        "source_text": "3 3 3\n45. 1 + 2 + ... + k = 44100 எ ன\u0000 ல் , k- ன் ம த\u0000 ப் ைப க் கா ண் க .\n(A) 20 (B) 21 (C) 22 (D) 23 (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q045.webp"
+      },
+      {
+        "number": 46,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              349.5024853040627,
+              569.95996,
+              408.9999833750006
+            ]
+          }
+        ],
+        "source_text": "46. ஒரு கூ ட் டு க் ெதா ட ர் வ ர\u0000 ைச ய\u0000 ன் 10- வது ம ற் று ம் 14- வது உறு ப் புக ள\u0000 ன் வ\u0000 க\u0000 த ம் 8:11 எ ன\u0000 ல் , அத ன் 6- வது ம ற் று ம்\n16- வது உறு ப் புக ள\u0000 ன் வ\u0000 க\u0000 த ம் எ ன் ன ?\n(A) 3:8 (B) 5:7 (C) 3:7 (D) 2:5 (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q046.webp"
+      },
+      {
+        "number": 47,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              420.3306073528911,
+              569.95996,
+              465.2499810312505
+            ]
+          }
+        ],
+        "source_text": "2 2 2 2\n47. 15 + 16 + 17 + ... + 28 - ன் கூடுத ல் கா ண் க .\n(A) 9966 (B) 9696 (C) 6969 (D) 6699 (E) எதுவு ம\u0000 ல் \u0000ல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q047.webp"
+      },
+      {
+        "number": 48,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              476.6978300042565,
+              569.95996,
+              533.4999781875002
+            ]
+          }
+        ],
+        "source_text": "3 1 1 1\n48. , , , , ... எ ன் ற ெதா ட ர\u0000 ன் அடு த் த உறு ப் பு எ ன் ன ?\n16 8 12 18\n1 1 2 1 (E) எதுவு ம\u0000 ல் \u0000ல\n(A) (B) (C) (D)\n24 27 3 81",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-02/q048.webp"
+      }
+    ],
+    "answers": {
+      "8": "C",
+      "9": "C",
+      "10": "C",
+      "11": "B",
+      "12": "D",
+      "3": "C",
+      "5": "A",
+      "6": "C",
+      "4": "A",
+      "22": "A",
+      "33": "D",
+      "44": "C",
+      "2": "D",
+      "20": "B",
+      "21": "C",
+      "23": "D",
+      "7": "D",
+      "1": "A",
+      "17": "B",
+      "25": "A",
+      "41": "D",
+      "18": "C",
+      "26": "A",
+      "34": "A",
+      "42": "A",
+      "19": "C",
+      "27": "B",
+      "35": "B",
+      "43": "A",
+      "28": "A",
+      "36": "B",
+      "13": "D",
+      "29": "A",
+      "37": "C",
+      "45": "A",
+      "14": "A",
+      "30": "D",
+      "38": "A",
+      "46": "D",
+      "15": "D",
+      "31": "D",
+      "39": "A",
+      "47": "D",
+      "16": "B",
+      "24": "A",
+      "32": "B",
+      "40": "C",
+      "48": "B"
+    },
+    "issues": []
+  },
+  {
+    "source": "Age problem Bilingual pyq.pdf",
+    "topic": "Age Problems",
+    "language": "English / Tamil",
+    "questions": [
+      {
+        "number": 1,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              43,
+              102,
+              552,
+              213
+            ]
+          }
+        ],
+        "source_text": "Original bilingual age question 1; retained as image.",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-03/q001.webp"
+      },
+      {
+        "number": 2,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              43,
+              221,
+              552,
+              331
+            ]
+          }
+        ],
+        "source_text": "Original bilingual age question 2; retained as image.",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-03/q002.webp"
+      },
+      {
+        "number": 3,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              43,
+              339,
+              552,
+              438
+            ]
+          }
+        ],
+        "source_text": "Original bilingual age question 3; retained as image.",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-03/q003.webp"
+      },
+      {
+        "number": 4,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              43,
+              446,
+              552,
+              545
+            ]
+          }
+        ],
+        "source_text": "Original bilingual age question 4; retained as image.",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-03/q004.webp"
+      },
+      {
+        "number": 5,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              43,
+              553,
+              552,
+              675
+            ]
+          }
+        ],
+        "source_text": "Original bilingual age question 5; retained as image.",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-03/q005.webp"
+      },
+      {
+        "number": 6,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              43,
+              683,
+              552,
+              782
+            ]
+          }
+        ],
+        "source_text": "Original bilingual age question 6; retained as image.",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-03/q006.webp"
+      },
+      {
+        "number": 7,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              43,
+              14,
+              552,
+              133
+            ]
+          }
+        ],
+        "source_text": "Original bilingual age question 7; retained as image.",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-03/q007.webp"
+      },
+      {
+        "number": 8,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              43,
+              142,
+              552,
+              251
+            ]
+          }
+        ],
+        "source_text": "Original bilingual age question 8; retained as image.",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-03/q008.webp"
+      }
+    ],
+    "answers": {
+      "1": "D",
+      "2": "A",
+      "3": "A",
+      "4": "C",
+      "5": "D",
+      "6": "A",
+      "7": "B",
+      "8": "C"
+    },
+    "issues": []
+  },
+  {
+    "source": "CI pyq(தமிழ்).pdf",
+    "topic": "Compound Interest",
+    "language": "Tamil",
+    "questions": [
+      {
+        "number": 1,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              81.16600075075002,
+              570,
+              127.8460012045
+            ]
+          }
+        ],
+        "source_text": "Q 1. ஆ\u0017\u0003\u0011\u0018 10% வ\u0002\u0006 \u001bத\u001dத \u001e 2 ஆ\u0017\u0003களி\u001e \u0001\u0002\u0003 வ\u0002\u0006 \"ைறய\b\u001e ெபற(ப\u0002ட ெமா\u001dத\u001d ெதாைக ₹ 6,050 எனி\u001e,\nஅசைல\u0011 கா\u0017க.\n( A ) ₹ 3,025 ( B ) ₹ 3,500 ( C ) ₹ 4,000 ( D ) ₹ 5,000 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q001.webp"
+      },
+      {
+        "number": 2,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              124.3660013695,
+              570,
+              171.04600182324998
+            ]
+          }
+        ],
+        "source_text": "Q 2. ஒ3 க ராம\u001dத 5 ம\u0011க\u0012 ெதாைக ஆ\u0017\u0003ேதா78 5% அத கரி\u0011க ற9. அத5 த:ேபாைதய ம\u0011க\u0012 ெதாைக 50,500 எனி\u001e,\n2 ஆ\u0017\u0003க;\u0011\u0018( ப\bற\u0018 அத5 ம\u0011க\u0012 ெதாைக எ5னவாக இ3\u0011\u00188?\n( A ) 65,678 ( B ) 65,677 ( C ) 55,677 ( D ) 55,676 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q002.webp"
+      },
+      {
+        "number": 3,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              167.56600198824998,
+              570,
+              214.24600244199996
+            ]
+          }
+        ],
+        "source_text": "Q 3. ₹ 5,000 அஸ@\u0011\u0018, ஆ\u0017\u0003\u0011\u0018 4% வ\u0002\u0006 \u001bத\u001dத \u001e 1 ½ ஆ\u0017\u0003க;\u0011\u0018 அைர ஆ\u0017\u0003\u0011\u0018 ஒ3\"ைற கண\u0011க ட(ப\u00038\n\u0001\u0002\u0003 வ\u0002\u0006ைய\u0011 கா\u0017க.\n( A ) ₹ 306.02 ( B ) ₹ 306.03 ( C ) ₹ 306.04 ( D ) ₹ 306.05 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q003.webp"
+      },
+      {
+        "number": 4,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              210.76600260699996,
+              570,
+              246.50200290400005
+            ]
+          }
+        ],
+        "source_text": "Q 4. ஆ\u0017\u0003\u0011\u0018 4% \u0001\u0002\u0003 வ\u0002\u0006 \u001bத\u001dத \u001e 2 ஆ\u0017\u0003களி\u001e ₹ 169 ஆக மா78 அசைல\u0011 கா\u0017க.\n( A ) ₹ 150.50 ( B ) ₹ 154.75 ( C ) ₹ 156.25 ( D ) ₹ 158 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q004.webp"
+      },
+      {
+        "number": 5,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              243.02200306900005,
+              570,
+              278.758003366
+            ]
+          }
+        ],
+        "source_text": "Q 5. ₹ 625 ஆன9 2 ஆ\u0017\u0003களி\u001e ₹ 900 ஆக மா7க ற9 எனி\u001e, \u0001\u0002\u0003 வ\u0002\u0006 \u001bத8 எDவளE?\n( A ) 10% ( B ) 15% ( C ) 20% ( D ) 25% ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q005.webp"
+      },
+      {
+        "number": 6,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              275.278003531,
+              570,
+              321.9580039847501
+            ]
+          }
+        ],
+        "source_text": "Q 6. ₹ 5,000 அஸ@\u0011\u0018, ஆ\u0017\u0003\u0011\u0018 12% வ\u0002\u0006 \u001bத\u001dத \u001e 2 ஆ\u0017\u0003க;\u0011\u0018 ஆ\u0017\u0003\u0011\u0018 ஒ3\"ைற கண\u0011க ட(ப\u00038 \u0001\u0002\u0003 வ\u0002\u0006\nஎDவளE?\n( A ) ₹ 1,227 ( B ) ₹ 1,272 ( C ) ₹ 2,172 ( D ) ₹ 2,721 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q006.webp"
+      },
+      {
+        "number": 7,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              318.47800414975006,
+              570,
+              354.21400444675004
+            ]
+          }
+        ],
+        "source_text": "Q 7. ₹ 2,000 ஆன9 ஆ\u0017\u0003\u0011\u0018 10% \u0001\u0002\u0003 வ\u0002\u0006 \u001bத\u001dத \u001e எ\u001dதைன ஆ\u0017\u0003களி\u001e ₹ 2,420 ஆக மா78?\n( A ) 4 ஆ\u001e\u001fக! ( B ) 3 ஆ\u001e\u001fக! ( C ) 2 ஆ\u001e\u001fக! ( D ) 1 ஆ\u001e\u001f ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q007.webp"
+      },
+      {
+        "number": 8,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              350.73400461175004,
+              570,
+              397.4140050655001
+            ]
+          }
+        ],
+        "source_text": "Q 8. ஆ\u0017\u0003\u0011\u0018 4% \u0001\u0002\u0003 வ\u0002\u0006 \u001bத\u001dத \u001e 2 ஆ\u0017\u0003களி\u001e ஒ3 \u0018றG(ப\b\u0002ட ெதாைக ₹ 2,028 ஆக மா7க ற9 எனி\u001e, அசைல\u0011\nகா\u0017க.\n( A ) ₹ 1,578 ( B ) ₹ 1,785 ( C ) ₹ 1,875 ( D ) ₹ 1,800 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q008.webp"
+      },
+      {
+        "number": 9,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              393.9340052305001,
+              570,
+              451.55800584100007
+            ]
+          }
+        ],
+        "source_text": "Q 9. ஒ3 பா\u0011Hரியா வளIJசGய\b\u001e \"த\u001e மணி ேநர\u001dத \u001e 5% அத கரி\u001d98, இர\u0017டா8 மணி ேநர\u001dத \u001e 8% \u0018ைறL98,\nM5றா8 மணி ேநர\u001dத \u001e 10% அத கரி\u001d98 காண(ப\u0003க ற9. அத5 ஆர8ப எ\u0017ணி\u0011ைக 10,000 ஆக இ3(ப\b5, 3 மணி\nேநர \"\u0006வ\b\u001e பா\u0011Hரியாவ\b5 எ\u0017ணி\u0011ைகைய\u0011 கா\u0017க.\n( A ) 10,700 ( B ) 10,800 ( C ) 10,376 ( D ) 10,626 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q009.webp"
+      },
+      {
+        "number": 10,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              448.07800600600007,
+              570,
+              483.81400630300004
+            ]
+          }
+        ],
+        "source_text": "Q 10. ஒ3 அச\u001e ஆ\u0017\u0003\u0011\u0018 4% \u0001\u0002\u0003 வ\u0002\u0006 \u001bத\u001dத \u001e 2 ஆ\u0017\u0003களி\u001e ₹ 2,028 ஆக மா7க ற9 எனி\u001e, அசைல\u0011 கா\u0017க.\n( A ) ₹ 1,600 ( B ) ₹ 1,875 ( C ) ₹ 1,900 ( D ) ₹ 2,000 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q010.webp"
+      },
+      {
+        "number": 11,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              480.33400646800004,
+              570,
+              527.01400692175
+            ]
+          }
+        ],
+        "source_text": "Q 11. ₹ 3,200 அஸ@\u0011\u0018 ஆ\u0017\u0003\u0011\u0018 2.5% வ\u0002\u0006 \u001bத\u001dத \u001e 2 ஆ\u0017\u0003க;\u0011\u0018 ஆ\u0017\u0003\u0011\u0018 ஒ3\"ைற கண\u0011க ட(ப\u00038 \u0001\u0002\u0003\nவ\u0002\u0006ைய\u0011 கா\u0017க.\n( A ) ₹ 148 ( B ) ₹ 162 ( C ) ₹ 157 ( D ) ₹ 165 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q011.webp"
+      },
+      {
+        "number": 12,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              523.5340070867501,
+              570,
+              570.2140075405001
+            ]
+          }
+        ],
+        "source_text": "Q 12. \u0001\u0002\u0003 வ\u0002\u0006 \"ைறய\b\u001e ஒ3 \u0018றG(ப\b\u0002ட ெதாைகயான9 2 ஆ\u0017\u0003களி\u001e ₹ 4,500 ஆகE8, 4 ஆ\u0017\u0003களி\u001e ₹ 6,750 ஆகE8\nமா7க ற9 எனி\u001e, அசைல\u0011 கா\u0017க.\n( A ) ₹ 4,000 ( B ) ₹ 2,500 ( C ) ₹ 3,000 ( D ) ₹ 3,050 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q012.webp"
+      },
+      {
+        "number": 13,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              566.7340077055002,
+              570,
+              613.4140081592501
+            ]
+          }
+        ],
+        "source_text": "Q 13. வ\u0002\u0006யான9 காலா\u0017\u0003\u0011\u0018 ஒ3\"ைற கண\u0011க ட(ப\u0002டா\u001e, ெமா\u001dத\u001d ெதாைகைய\u0011 கண\u0011க ட( பய5ப\u00038 N\u001dத ர8\nஎ9?\n( A ) A = P (1 + r /100) ⁿ ( B ) A = P (1 + r /100)² ⁿ ( C ) A = P (1 + r /100)³ ⁿ ( D ) A = P (1 + r /400)⁴ ⁿ ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q013.webp"
+      },
+      {
+        "number": 14,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              609.9340083242502,
+              570,
+              656.6140087780001
+            ]
+          }
+        ],
+        "source_text": "Q 14. ₹ 5,000 அஸ@\u0011\u0018 ஆ\u0017\u0003\u0011\u0018 12% வ\u0002\u0006 \u001bத\u001dத \u001e 2 ஆ\u0017\u0003க;\u0011\u0018 ஆ\u0017\u0003\u0011\u0018 ஒ3\"ைற கண\u0011க ட(ப\u00038 \u0001\u0002\u0003 வ\u0002\u0006\nஎDவளE?\n( A ) ₹ 1,072 ( B ) ₹ 1,172 ( C ) ₹ 1,272 ( D ) ₹ 1,372 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q014.webp"
+      },
+      {
+        "number": 15,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              653.1340089430001,
+              570,
+              688.8700092400001
+            ]
+          }
+        ],
+        "source_text": "Q 15. ₹ 15,625 அஸ@\u0011\u0018 ஆ\u0017\u0003\u0011\u0018 8% வ\u0002\u0006 \u001bத\u001dத \u001e 3 ஆ\u0017\u0003க;\u0011\u0018\u0011 க ைட\u0011\u00188 \u0001\u0002\u0003 வ\u0002\u0006ைய\u0011 கா\u0017க.\n( A ) ₹ 4,063 ( B ) ₹ 4,508 ( C ) ₹ 4,058 ( D ) ₹ 4,085 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q015.webp"
+      },
+      {
+        "number": 16,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              685.3900094050001,
+              570,
+              732.0700098587502
+            ]
+          }
+        ],
+        "source_text": "Q 16. ₹ 4,400 ஆன9 ஆ\u0017\u0003\u0011\u0018 10% வ\u0002\u0006 \u001bத\u001dத \u001e அைர ஆ\u0017\u0003\u0011\u0018 ஒ3\"ைற கண\u0011க ட(ப\u00038 \u0001\u0002\u0003 வ\u0002\u0006 \"ைறய\b\u001e ₹\n4,851 ஆக மாற எ\u0003\u001d9\u0011ெகா\u0012;8 கால8 எDவளE?\n( A ) 6 மாத+க! ( B ) 1 ஆ\u001e\u001f ( C ) 1 ½ ஆ\u001e\u001fக! ( D ) 2 ஆ\u001e\u001fக! ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q016.webp"
+      },
+      {
+        "number": 17,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              728.5900100237502,
+              570,
+              775.2700104775001
+            ]
+          }
+        ],
+        "source_text": "Q 17. ஒ3 க ராம\u001dத 5 ம\u0011க\u0012 ெதாைக ஆ\u0017\u0003ேதா78 7% எ5ற \u001bத\u001dத \u001e அத கரி\u0011க ற9. த:ேபாைதய ம\u0011க\u0012 ெதாைக\n90,000 எனி\u001e, இர\u0017\u0003 ஆ\u0017\u0003க;\u0011\u0018( ப\bற\u0018 ம\u0011க\u0012 ெதாைக எDவளE?\n( A ) 96,300 ( B ) 1,03,000 ( C ) 1,00,000 ( D ) 1,03,041 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q017.webp"
+      },
+      {
+        "number": 18,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              28.750003596249996,
+              570,
+              75.4300040500001
+            ]
+          }
+        ],
+        "source_text": "Q 18. ஒ3 இயLத ர\u001dத 5 வ\bைல ₹ 18,000. அத5 மத (O ஆ\u0017\u0003ேதா78 16 ⅔ % ேதPமான8 அைடக ற9 எனி\u001e, இர\u0017\u0003\nஆ\u0017\u0003க;\u0011\u0018( ப\bற\u0018 அத5 மத (O எ5னவாக இ3\u0011\u00188?\n( A ) ₹ 12,000 ( B ) ₹ 12,500 ( C ) ₹ 15,000 ( D ) ₹ 16,500 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q018.webp"
+      },
+      {
+        "number": 19,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              71.95000421500009,
+              570,
+              118.63000466875008
+            ]
+          }
+        ],
+        "source_text": "Q 19. ஒ3 இயLத ர\u001dத 5 மத (O ஆ\u0017\u0003ேதா78 5% ேதPமான8 அைடக ற9. ஒ3வI அLத இயLத ர\u001dைத ₹ 30,000-\u0011\u0018\nவா \u0018க றாI எனி\u001e, M57 ஆ\u0017\u0003க;\u0011\u0018( ப\bற\u0018 அத5 மத (ைப\u0011 கா\u0017க.\n( A ) ₹ 25,721 ( B ) ₹ 25,722 ( C ) ₹ 27,521 ( D ) ₹ 22,752 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q019.webp"
+      },
+      {
+        "number": 20,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              115.15000483375007,
+              570,
+              150.88600513075005
+            ]
+          }
+        ],
+        "source_text": "Q 20. ₹ 20,000 அஸ@\u0011\u0018 ஆ\u0017\u0003\u0011\u0018 15% வ\u0002\u0006 \u001bத\u001dத \u001e 2 ⅓ ஆ\u0017\u0003க;\u0011\u0018\u0011 க ைட\u0011\u00188 \u0001\u0002\u0003 வ\u0002\u0006ைய\u0011 கா\u0017க.\n( A ) ₹ 7,772.50 ( B ) ₹ 6,772.50 ( C ) ₹ 7,772 ( D ) ₹ 2,777.50 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q020.webp"
+      },
+      {
+        "number": 21,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              147.40600529575005,
+              570,
+              194.08600574950003
+            ]
+          }
+        ],
+        "source_text": "Q 21. ₹ 31,250 அஸ@\u0011\u0018 ஆ\u0017\u0003\u0011\u0018 16% வ\u0002\u0006 \u001bத\u001dத \u001e 9 மாத க;\u0011\u0018 காலா\u0017\u0003\u0011\u0018 ஒ3\"ைற கண\u0011க ட(ப\u00038 \u0001\u0002\u0003\nவ\u0002\u0006ைய\u0011 கா\u0017க.\n( A ) ₹ 3,500 ( B ) ₹ 3,902 ( C ) ₹ 4,000 ( D ) ₹ 4,200 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q021.webp"
+      },
+      {
+        "number": 22,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              190.60600591450003,
+              570,
+              237.28600636825013
+            ]
+          }
+        ],
+        "source_text": "Q 22. வ\u0002\u0006யான9 அைர ஆ\u0017\u0003\u0011\u0018 ஒ3\"ைற கண\u0011க ட(ப\u0002டா\u001e, ₹ 5,000 அஸ@\u0011\u0018 ஆ\u0017\u0003\u0011\u0018 20% வ\u0002\u0006 \u001bத\u001dத \u001e 1 ½\nஆ\u0017\u0003க;\u0011\u0018\u0011 க ைட\u0011\u00188 \u0001\u0002\u0003 வ\u0002\u0006ைய\u0011 கா\u0017க.\n( A ) ₹ 6,655 ( B ) ₹ 1,655 ( C ) ₹ 2,655 ( D ) ₹ 1,665 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q022.webp"
+      },
+      {
+        "number": 23,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              233.80600653325013,
+              570,
+              280.4860069870001
+            ]
+          }
+        ],
+        "source_text": "Q 23. \u0001\u0002\u0003 வ\u0002\u0006 \"ைறய\b\u001e \"தR\u0003 ெசPய(ப\u0002ட ஒ3 \u0018றG(ப\b\u0002ட ெதாைக 2 ஆ\u0017\u0003களி\u001e ₹ 4,624 ஆகE8, 3 ஆ\u0017\u0003களி\u001e ₹\n4,913 ஆகE8 மா7க ற9 எனி\u001e, அச\u001e ெதாைக எDவளE?\n( A ) ₹ 4,096 ( B ) ₹ 4,260 ( C ) ₹ 4,335 ( D ) ₹ 4,360 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q023.webp"
+      },
+      {
+        "number": 24,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              277.0060071520001,
+              570,
+              323.6860076057501
+            ]
+          }
+        ],
+        "source_text": "Q 24. ஒ3 நகர\u001dத 5 ம\u0011க\u0012 ெதாைக ஆ\u0017\u0003ேதா78 6% எ5ற Sரான \u001bத\u001dத \u001e அத கரி\u0011க ற9. அத5 த:ேபாைதய ம\u0011க\u0012\nெதாைக 2,38,765 எனி\u001e, 2 ஆ\u0017\u0003க;\u0011\u0018( ப\bற\u0018 ம\u0011க\u0012 ெதாைக எDவளE?\n( A ) 2,48,276 ( B ) 2,68,276 ( C ) 3,48,176 ( D ) 3,68,276 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q024.webp"
+      },
+      {
+        "number": 25,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              320.2060077707501,
+              570,
+              366.8860082245001
+            ]
+          }
+        ],
+        "source_text": "Q 25. தனி வ\u0002\u0006 \"ைறய\b\u001e ஒ3 ெதாைக 4 ஆ\u0017\u0003களி\u001e 50% அத கரி\u0011க ற9. அேத வ\u0002\u0006 \u001bத\u001dத \u001e ₹ 10,000-\u0011\u0018 3\nஆ\u0017\u0003களி\u001e க ைட\u0011\u00188 \u0001\u0002\u0003 வ\u0002\u0006 எDவளE?\n( A ) ₹ 3,842 ( B ) ₹ 4,238 ( C ) ₹ 2,438 ( D ) ₹ 3,482 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q025.webp"
+      },
+      {
+        "number": 26,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              363.4060083895001,
+              570,
+              410.08600884325006
+            ]
+          }
+        ],
+        "source_text": "Q 26. ஒ3 மர\u001dத 5 த:ேபாைதய உயர8 847 ெச.U. அத5 உயர8 ஆ\u0017\u0003\u0011\u0018 10% அத கரி\u0011க ற9 எனி\u001e, 2 ஆ\u0017\u0003க;\u0011\u0018\n\"5O அத5 உயர8 எ5னவாக இ3Lத 3\u0011\u00188?\n( A ) 770 ெச.- ( B ) 700 ெச.- ( C ) 630 ெச.- ( D ) 560 ெச.- ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q026.webp"
+      },
+      {
+        "number": 27,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              406.60600900825006,
+              570,
+              453.28600946200004
+            ]
+          }
+        ],
+        "source_text": "Q 27. ஆ\u0017\u0003\u0011\u0018 ஒ3\"ைற கண\u0011க ட(ப\u00038 \u0001\u0002\u0003 வ\u0002\u0006 \"ைறய\b\u001e, ஆ\u0017\u0003\u0011\u0018 12% வ\u0002\u0006 \u001bத\u001dத \u001e 3 ஆ\u0017\u0003க;\u0011\u0018\u0011\nக ைட\u0011\u00188 \u0001\u0002\u0003 வ\u0002\u0006 ₹ 432 எனி\u001e, அசைல\u0011 கா\u0017க.\n( A ) ₹ 1,066 ( B ) ₹ 1,067 ( C ) ₹ 1,069 ( D ) ₹ 1,070 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q027.webp"
+      },
+      {
+        "number": 28,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              449.80600962700004,
+              570,
+              496.48601008075
+            ]
+          }
+        ],
+        "source_text": "Q 28. அச\u001e ₹ 30,000, \"த\u001e ஆ\u0017\u0006:\u0018 வ\u0002\u0006 \u001bத8 r = 7%, இர\u0017டா8 ஆ\u0017\u0006:\u0018 r = 8% என\u0011 \u0001\u0002\u0003 வ\u0002\u0006 \"ைறய\b\u001e\nகண\u0011க ட(ப\u0002டா\u001e, ெமா\u001dத\u0011 \u0001\u0002\u0003 வ\u0002\u0006 எDவளE?\n( A ) ₹ 5,668 ( B ) ₹ 3,668 ( C ) ₹ 6,668 ( D ) ₹ 4,668 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q028.webp"
+      },
+      {
+        "number": 29,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              493.00601024575,
+              570,
+              539.6860106995002
+            ]
+          }
+        ],
+        "source_text": "Q 29. ₹ 16,000 அஸ@\u0011\u0018 ஆ\u0017\u0003\u0011\u0018 20% வ\u0002\u0006 \u001bத\u001dத \u001e 9 மாத க;\u0011\u0018 காலா\u0017\u0003\u0011\u0018 ஒ3\"ைற கண\u0011க ட(ப\u00038 \u0001\u0002\u0003\nவ\u0002\u0006 எDவளE?\n( A ) ₹ 2,599 ( B ) ₹ 2,572 ( C ) ₹ 2,522 ( D ) ₹ 2,502 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q029.webp"
+      },
+      {
+        "number": 30,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              536.2060108645003,
+              570,
+              582.8860113182502
+            ]
+          }
+        ],
+        "source_text": "Q 30. ₹ 15,000 அஸ@\u0011\u0018 1, 2 ம:78 3-ஆ8 ஆ\u0017\u0003க;\u0011\u0018 \"ைறேய 15%, 20% ம:78 25% வ\u0002\u0006 \u001bத8 எனி\u001e, 3\nஆ\u0017\u0003க;\u0011கான \u0001\u0002\u0003 வ\u0002\u0006 எDவளE?\n( A ) ₹ 10,875 ( B ) ₹ 10,785 ( C ) ₹ 10,885 ( D ) ₹ 10,775 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q030.webp"
+      },
+      {
+        "number": 31,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              579.4060114832503,
+              570,
+              615.1420117802502
+            ]
+          }
+        ],
+        "source_text": "Q 31. ஆ\u0017\u0003\u0011\u0018 4% \u0001\u0002\u0003 வ\u0002\u0006 \u001bத\u001dத \u001e 2 ஆ\u0017\u0003களி\u001e ஒ3 ெதாைக ₹ 1,352 ஆக மா7க ற9 எனி\u001e, அசைல\u0011 கா\u0017க.\n( A ) ₹ 1,200 ( B ) ₹ 1,250 ( C ) ₹ 1,260 ( D ) ₹ 1,300 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q031.webp"
+      },
+      {
+        "number": 32,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              611.6620119452502,
+              570,
+              658.3420123990002
+            ]
+          }
+        ],
+        "source_text": "Q 32. 2 ஆ\u0017\u0003க;\u0011\u0018 \"5O ஒ3 ேமா\u0002டாI ைச\u0011க ளி5 மத (O ₹ 80,000. அ9 ஆ\u0017\u0003\u0011\u0018 4% \u001bத8 ேதPமான8 அைடக ற9\nஎனி\u001e, அத5 த:ேபாைதய மத (ைப\u0011 கா\u0017க.\n( A ) ₹ 72,000 ( B ) ₹ 72,738 ( C ) ₹ 73,728 ( D ) ₹ 72,728 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q032.webp"
+      },
+      {
+        "number": 33,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              654.8620125640002,
+              570,
+              701.5420130177502
+            ]
+          }
+        ],
+        "source_text": "Q 33. ஒ3 ெதாைல\u0011கா\u0002சGய\b5 ேதPமான \u001bத8 ஆ\u0017\u0003ேதா78 10%. அ9 3 ஆ\u0017\u0003க;\u0011\u0018 \"5O வா க(ப\u0002ட9. அத5\nத:ேபாைதய மத (O ₹ 83,835 எனி\u001e, அத5 வா க ய வ\bைல எ5ன?\n( A ) ₹ 1,00,000 ( B ) ₹ 1,12,500 ( C ) ₹ 1,15,000 ( D ) ₹ 1,17,500 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q033.webp"
+      },
+      {
+        "number": 34,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              698.0620131827502,
+              570,
+              744.7420136365001
+            ]
+          }
+        ],
+        "source_text": "Q 34. ₹ 640 ஆன9 2 ஆ\u0017\u0003களி\u001e ₹ 774.40 ஆக மா7க ற9 எனி\u001e, ஆ\u0017\u0003\u0011\u0018 ஒ3\"ைற கண\u0011க ட(ப\u00038 \u0001\u0002\u0003 வ\u0002\u0006 \u001bத8\nஎDவளE?\n( A ) 10% ( B ) 12% ( C ) 12.5% ( D ) 14% ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q034.webp"
+      },
+      {
+        "number": 35,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              741.2620138015002,
+              570,
+              787.9420142552501
+            ]
+          }
+        ],
+        "source_text": "Q 35. 2 ஆ\u0017\u0003க;\u0011\u0018 \"5O ஒ3 ேமா\u0002டாI ைச\u0011க ளி5 மத (O ₹ 1,00,000. அ9 ஆ\u0017\u0003ேதா78 5% ேதPமான8 அைடக ற9\nஎனி\u001e, அத5 த:ேபாைதய மத (O எ5ன?\n( A ) ₹ 80,000 ( B ) ₹ 80,250 ( C ) ₹ 90,250 ( D ) ₹ 95,000 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q035.webp"
+      },
+      {
+        "number": 36,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              28.74999969250024,
+              570,
+              75.43000014625022
+            ]
+          }
+        ],
+        "source_text": "Q 36. மேகW ₹ 5,000-ஐ ஆ\u0017\u0003\u0011\u0018 12% வ\u0002\u0006 \u001bத\u001dத \u001e ஒ3 ஆ\u0017\u0006:\u0018 \"தR\u0003 ெசPதாI. அைர ஆ\u0017\u0003\u0011\u0018 ஒ3\"ைற வ\u0002\u0006\nகண\u0011க ட(ப\u0002டா\u001e, ஆ\u0017\u00065 \"\u0006வ\b\u001e அவ3\u0011\u0018\u0011 க ைட\u0011\u00188 ெமா\u001dத\u001d ெதாைக எDவளE?\n( A ) ₹ 5,698 ( B ) ₹ 5,718 ( C ) ₹ 5,608 ( D ) ₹ 5,618 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q036.webp"
+      },
+      {
+        "number": 37,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              71.95000031125022,
+              570,
+              118.6300007650002
+            ]
+          }
+        ],
+        "source_text": "Q 37. ₹ 4,400 ஆன9 ஆ\u0017\u0003\u0011\u0018 10% வ\u0002\u0006 \u001bத\u001dத \u001e அைர ஆ\u0017\u0003\u0011\u0018 ஒ3\"ைற கண\u0011க ட(ப\u00038 \u0001\u0002\u0003 வ\u0002\u0006 \"ைறய\b\u001e ₹\n4,851 ஆக மாற எ\u0003\u001d9\u0011ெகா\u0012;8 கால8 எDவளE?\n( A ) 6 மாத+க! ( B ) 1 ஆ\u001e\u001f ( C ) 1 ½ ஆ\u001e\u001fக! ( D ) 2 ஆ\u001e\u001fக! ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q037.webp"
+      },
+      {
+        "number": 38,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              115.1500009300002,
+              570,
+              150.8860012270004
+            ]
+          }
+        ],
+        "source_text": "Q 38. ₹ 10,000 ஆன9 3 ஆ\u0017\u0003களி\u001e ₹ 13,310 ஆக மா7க ற9 எனி\u001e, ஆ\u0017\u0003\u0011\u0018 \u0001\u0002\u0003 வ\u0002\u0006 \u001bத8 எDவளE?\n( A ) 9% ( B ) 7% ( C ) 8 ½ % ( D ) 10% ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q038.webp"
+      },
+      {
+        "number": 39,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              147.4060013920004,
+              570,
+              194.0860018457504
+            ]
+          }
+        ],
+        "source_text": "Q 39. ஒ3 ஆPவக\u001dத \u001e ேசாதைனய\b\u001e பா\u0011Hரியா\u0011களி5 எ\u0017ணி\u0011ைக மணி ேநர\u001dத :\u0018 2.5% \u001bத\u001dத \u001e அத கரி\u0011க ற9.\nஆர8ப\u001dத \u001e எ\u0017ணி\u0011ைக 5,05,600 ஆக இ3Lதா\u001e, 2 மணி ேநர \"\u0006வ\b\u001e பா\u0011Hரியா\u0011களி5 எ\u0017ணி\u0011ைகைய\u0011 கா\u0017க.\n( A ) 5,31,196 ( B ) 5,39,611 ( C ) 5,11,396 ( D ) 5,39,116 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q039.webp"
+      },
+      {
+        "number": 40,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              190.6060020107504,
+              570,
+              237.28600246450037
+            ]
+          }
+        ],
+        "source_text": "Q 40. ₹ 4,000 அஸ@\u0011\u0018 ஆ\u0017\u0003\u0011\u0018 10% வ\u0002\u0006 \u001bத\u001dத \u001e 2 ½ ஆ\u0017\u0003க;\u0011\u0018 ஆ\u0017\u0003\u0011\u0018 ஒ3\"ைற கண\u0011க ட(ப\u00038 \u0001\u0002\u0003\nவ\u0002\u0006ைய\u0011 கா\u0017க.\n( A ) ₹ 1,024 ( B ) ₹ 1,032 ( C ) ₹ 1,050 ( D ) ₹ 1,082 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q040.webp"
+      },
+      {
+        "number": 41,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              233.80600262950037,
+              570,
+              280.48600308325035
+            ]
+          }
+        ],
+        "source_text": "Q 41. ஆ\u0017\u0003\u0011\u0018 10% வ\u0002\u0006 \u001bத\u001dத \u001e 3 ஆ\u0017\u0003களி\u001e ஆ\u0017\u0003\u0011\u0018 ஒ3\"ைற கண\u0011க ட(ப\u00038 \u0001\u0002\u0003 வ\u0002\u0006 \"ைறய\b\u001e ₹ 2,662\nஆக மா78 அசைல\u0011 கா\u0017க.\n( A ) ₹ 1,500 ( B ) ₹ 1,800 ( C ) ₹ 2,000 ( D ) ₹ 2,500 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q041.webp"
+      },
+      {
+        "number": 42,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              277.00600324825035,
+              570,
+              312.7420035452503
+            ]
+          }
+        ],
+        "source_text": "Q 42. ₹ 3,000 ஆன9 ஆ\u0017\u0003\u0011\u0018 10% \u0001\u0002\u0003 வ\u0002\u0006 \u001bத\u001dத \u001e எ\u001dதைன ஆ\u0017\u0003களி\u001e ₹ 3,993 ஆக மா78?\n( A ) 4 ஆ\u001e\u001fக! ( B ) 1 ஆ\u001e\u001f ( C ) 2 ஆ\u001e\u001fக! ( D ) 3 ஆ\u001e\u001fக! ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q042.webp"
+      },
+      {
+        "number": 43,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              309.2620037102503,
+              570,
+              355.9420041640003
+            ]
+          }
+        ],
+        "source_text": "Q 43. ஒ3 \u0018றG(ப\b\u0002ட ெதாைக\u0011\u0018 16 ⅔ % வ\u0002\u0006 \u001bத\u001dத \u001e 3 ஆ\u0017\u0003க;\u0011\u0018\u0011 க ைட\u0011\u00188 \u0001\u0002\u0003 வ\u0002\u0006 ₹ 1,270 எனி\u001e, அேத\nெதாைக\u0011\u0018 அேத வ\u0002\u0006 \u001bத\u001dத \u001e அேத கால\u001dத :\u0018 க ைட\u0011\u00188 தனி வ\u0002\u0006ைய\u0011 கா\u0017க.\n( A ) ₹ 1,080 ( B ) ₹ 1,000 ( C ) ₹ 1,090 ( D ) ₹ 1,070 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q043.webp"
+      },
+      {
+        "number": 44,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              352.4620043290003,
+              570,
+              399.1420047827503
+            ]
+          }
+        ],
+        "source_text": "Q 44. ஒ3 ேமா\u0002டாI ைச\u0011க ளி5 மத (O ஆ\u0017\u0003ேதா78 15% ேதPமான8 அைடக ற9. த:ெபாY9 ₹ 45,000-\u0011\u0018 வா க(ப\u0002ட\nஅLத ேமா\u0002டாI ைச\u0011க ளி5 மத (O 3 ஆ\u0017\u0003க;\u0011\u0018( ப\bற\u0018 எ5னவாக இ3\u0011\u00188?\n( A ) ₹ 32,513 ( B ) ₹ 37,635 ( C ) ₹ 27,636 ( D ) ₹ 38,250 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q044.webp"
+      },
+      {
+        "number": 45,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              395.6620049477503,
+              570,
+              442.3420054015003
+            ]
+          }
+        ],
+        "source_text": "Q 45. 2 ஆ\u0017\u0003க;\u0011\u0018 \"5O ஒ3 ேமா\u0002டாI ைச\u0011க ளி5 மத (O ₹ 70,000. அ9 ஆ\u0017\u0003ேதா78 4% \u001bத8 ேதPமான8\nஅைடக ற9 எனி\u001e, அத5 த:ேபாைதய மத (ைப\u0011 கா\u0017க.\n( A ) ₹ 64,000 ( B ) ₹ 64,512 ( C ) ₹ 65,512 ( D ) ₹ 64,412 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q045.webp"
+      },
+      {
+        "number": 46,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              438.8620055665003,
+              570,
+              485.54200602025026
+            ]
+          }
+        ],
+        "source_text": "Q 46. 1997-ஆ8 ஆ\u0017\u0006\u001e ஒ3 நகர\u001dத 5 ம\u0011க\u0012 ெதாைக 24,000 ஆக இ3Lத9. அ9 ஆ\u0017\u0003ேதா78 5% \u001bத\u001dத \u001e\nஅத கரி\u001dத9 எனி\u001e, 2000-ஆ8 ஆ\u0017\u00065 \"\u0006வ\b\u001e ம\u0011க\u0012 ெதாைக எDவளE?\n( A ) 27,873 ( B ) 27,783 ( C ) 28,773 ( D ) 28,737 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q046.webp"
+      },
+      {
+        "number": 47,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              482.06200618525025,
+              570,
+              528.7420066390005
+            ]
+          }
+        ],
+        "source_text": "Q 47. ஒ3 \u0018றG(ப\b\u0002ட ெதாைகயான9 \u0001\u0002\u0003 வ\u0002\u0006 \"ைறய\b\u001e 45 ஆ\u0017\u0003களி\u001e 8 மட காக மா7க ற9 எனி\u001e, அ\u001dெதாைக\nஇர\u0002\u0006(பாக மாற எ\u0003\u001d9\u0011ெகா\u0012;8 ஆ\u0017\u0003க\u0012 எDவளE?\n( A ) 11 ¼ ஆ\u001e\u001fக! ( B ) 10 ஆ\u001e\u001fக! ( C ) 15 ஆ\u001e\u001fக! ( D ) 25 ஆ\u001e\u001fக! ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q047.webp"
+      },
+      {
+        "number": 48,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              525.2620068040003,
+              570,
+              560.9980071010004
+            ]
+          }
+        ],
+        "source_text": "Q 48. ₹ 5,625 ஆன9 2 ஆ\u0017\u0003களி\u001e \u0001\u0002\u0003 வ\u0002\u0006 \"ைறய\b\u001e ₹ 6,084 ஆக மா7க ற9 எனி\u001e, ஆ\u0017\u0003 வ\u0002\u0006 \u001bத8 எDவளE?\n( A ) 4% ( B ) 6% ( C ) 8% ( D ) 10% ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q048.webp"
+      },
+      {
+        "number": 49,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              557.5180072660003,
+              570,
+              604.1980077197504
+            ]
+          }
+        ],
+        "source_text": "Q 49. ₹ 1,000 அஸ@\u0011\u0018 ஆ\u0017\u0003\u0011\u0018 10% வ\u0002\u0006 \u001bத\u001dத \u001e 18 மாத க;\u0011\u0018 அைர ஆ\u0017\u0003\u0011\u0018 ஒ3\"ைற கண\u0011க ட(ப\u00038\n\u0001\u0002\u0003 வ\u0002\u0006ைய\u0011 கா\u0017க.\n( A ) ₹ 1,157.63 ( B ) ₹ 157.63 ( C ) ₹ 167.73 ( D ) ₹ 157.36 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q049.webp"
+      },
+      {
+        "number": 50,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              600.7180078847503,
+              570,
+              647.3980083385004
+            ]
+          }
+        ],
+        "source_text": "Q 50. ₹ 3,000 அஸ@\u0011\u0018 3 ஆ\u0017\u0003க;\u0011\u0018 ஆ\u0017\u0003\u0011\u0018 10% \u001bத\u001dத \u001e ஆ\u0017\u0003\u0011\u0018 ஒ3\"ைற கண\u0011க ட(ப\u00038 \u0001\u0002\u0003 வ\u0002\u0006\nஎDவளE?\n( A ) ₹ 900 ( B ) ₹ 933 ( C ) ₹ 963 ( D ) ₹ 993 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q050.webp"
+      },
+      {
+        "number": 51,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              643.9180085035002,
+              570,
+              690.5980089572504
+            ]
+          }
+        ],
+        "source_text": "Q 51. ₹ 15,625 அஸ@\u0011\u0018 ஆ\u0017\u0003\u0011\u0018 16% வ\u0002\u0006 \u001bத\u001dத \u001e 9 மாத க;\u0011\u0018 காலா\u0017\u0003\u0011\u0018 ஒ3\"ைற கண\u0011க ட(ப\u00038 \u0001\u0002\u0003\nவ\u0002\u0006ைய\u0011 கா\u0017க.\n( A ) ₹ 1,851 ( B ) ₹ 1,941 ( C ) ₹ 1,951 ( D ) ₹ 1,961 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q051.webp"
+      },
+      {
+        "number": 52,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              687.1180091222502,
+              570,
+              733.7980095760004
+            ]
+          }
+        ],
+        "source_text": "Q 52. ைவ(O\u001d ெதாைக ₹ 5,000-\u0011\u0018 ஆ\u0017\u0003\u0011\u0018 12% வ\u0002\u0006 \u001bத\u001dத \u001e அைர ஆ\u0017\u0003\u0011\u0018 ஒ3\"ைற \u0001\u0002\u0003 வ\u0002\u0006\nகண\u0011க ட(ப\u0002டா\u001e, ஒ3 ஆ\u0017\u0006:\u0018( ப\bற\u0018 க ைட\u0011\u00188 ெமா\u001dத\u001d ெதாைக எDவளE?\n( A ) ₹ 5,648 ( B ) ₹ 5,618 ( C ) ₹ 5,678 ( D ) ₹ 5,668 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q052.webp"
+      },
+      {
+        "number": 53,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              730.3180097410007,
+              570,
+              776.9980101947503
+            ]
+          }
+        ],
+        "source_text": "Q 53. ₹ 12,000 கடZ\u0011\u0018 1 ½ ஆ\u0017\u0003க;\u0011\u0018 ஆ\u0017\u0003\u0011\u0018 10% வ\u0002\u0006 \u001bத\u001dத \u001e அைர ஆ\u0017\u0003\u0011\u0018 ஒ3\"ைற கண\u0011க ட(ப\u0002டா\u001e\nத 38பJ ெச@\u001dத ேவ\u0017\u0006ய ெமா\u001dத\u001d ெதாைக எDவளE?\n( A ) ₹ 13,891.50 ( B ) ₹ 12,888.50 ( C ) ₹ 13,210.50 ( D ) ₹ 12,955.50 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q053.webp"
+      },
+      {
+        "number": 54,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              28.750003288750293,
+              570,
+              75.4300037425005
+            ]
+          }
+        ],
+        "source_text": "Q 54. ரா\u0018\u001e ₹ 8,000-ஐ 18 மாத க;\u0011\u0018 ஆ\u0017\u0003\u0011\u0018 10% வ\u0002\u0006 \u001bத\u001dத \u001e அைர ஆ\u0017\u0003\u0011\u0018 ஒ3\"ைற கண\u0011க ட(ப\u00038 \u0001\u0002\u0003\nவ\u0002\u0006 \"ைறய\b\u001e \"தR\u0003 ெசPதா\u001e அவ3\u0011\u0018\u0011 க ைட\u0011\u00188 \u0001\u0002\u0003 வ\u0002\u0006 எDவளE?\n( A ) ₹ 1,061 ( B ) ₹ 1,160 ( C ) ₹ 1,260 ( D ) ₹ 1,261 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q054.webp"
+      },
+      {
+        "number": 55,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              71.95000390750027,
+              570,
+              118.63000436125049
+            ]
+          }
+        ],
+        "source_text": "Q 55. ஒ3 நகர\u001dத 5 ம\u0011க\u0012 ெதாைக ஆ\u0017\u0003ேதா78 6% \u001bத8 அத கரி\u0011க ற9. 2018-இ\u001e அ9 2,38,765 ஆக இ3Lத9 எனி\u001e,\n2020-ஆ8 ஆ\u0017\u0006\u001e ம\u0011க\u0012 ெதாைக எDவளE?\n( A ) 2,68,376 ( B ) 2,68,276 ( C ) 2,68,266 ( D ) 2,68,366 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q055.webp"
+      },
+      {
+        "number": 56,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              115.15000452625026,
+              570,
+              161.83000498000047
+            ]
+          }
+        ],
+        "source_text": "Q 56. ஆ\u0017\u0003\u0011\u0018 10% வ\u0002\u0006 \u001bத\u001dத \u001e 3 ஆ\u0017\u0003களி\u001e ஆ\u0017\u0003\u0011\u0018 ஒ3\"ைற கண\u0011க ட(ப\u00038 \u0001\u0002\u0003 வ\u0002\u0006 \"ைறய\b\u001e ₹ 2,662\nஆக மா78 அசைல\u0011 கா\u0017க.\n( A ) ₹ 2,000 ( B ) ₹ 1,800 ( C ) ₹ 1,500 ( D ) ₹ 2,500 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q056.webp"
+      },
+      {
+        "number": 57,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              158.35000514500024,
+              570,
+              205.03000559875045
+            ]
+          }
+        ],
+        "source_text": "Q 57. ஒ3 க ராம\u001dத 5 ம\u0011க\u0012 ெதாைக ஆ\u0017\u0003ேதா78 10% அத கரி\u0011க ற9. த:ேபாைதய ம\u0011க\u0012 ெதாைக 6,000 எனி\u001e, 3\nஆ\u0017\u0003க;\u0011\u0018( ப\bற\u0018 அ\u0011க ராம\u001dத 5 ம\u0011க\u0012 ெதாைக எ5னவாக இ3\u0011\u00188?\n( A ) 7,966 ( B ) 7,956 ( C ) 7,936 ( D ) 7,986 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q057.webp"
+      },
+      {
+        "number": 58,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              201.55000576375022,
+              570,
+              248.23000621750043
+            ]
+          }
+        ],
+        "source_text": "Q 58. ஒ3 \u0018றG(ப\b\u0002ட ெதாைக ஆ\u0017\u0003\u0011\u0018 10% \u0001\u0002\u0003 வ\u0002\u0006 \u001bத\u001dத \u001e 3 ஆ\u0017\u0003களி\u001e ₹ 2,662 ஆக மா7க ற9 எனி\u001e, அச\u001e\nெதாைக எDவளE?\n( A ) ₹ 2,000 ( B ) ₹ 1,800 ( C ) ₹ 1,500 ( D ) ₹ 2,500 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q058.webp"
+      },
+      {
+        "number": 59,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              244.7500063825002,
+              570,
+              280.4860066795004
+            ]
+          }
+        ],
+        "source_text": "Q 59. ₹ 1,000 அஸ@\u0011\u0018 ஆ\u0017\u0003\u0011\u0018 10% வ\u0002\u0006 \u001bத\u001dத \u001e 2 ஆ\u0017\u0003க;\u0011\u0018\u0011 க ைட\u0011\u00188 \u0001\u0002\u0003 வ\u0002\u0006ைய\u0011 கா\u0017க.\n( A ) ₹ 190 ( B ) ₹ 210 ( C ) ₹ 1,210 ( D ) ₹ 200 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q059.webp"
+      },
+      {
+        "number": 60,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              277.0060068445002,
+              570,
+              323.6860072982504
+            ]
+          }
+        ],
+        "source_text": "Q 60. ஒ3 நகர\u001dத 5 ம\u0011க\u0012 ெதாைக ஆ\u0017\u0003ேதா78 6% \u001bத8 அத கரி\u0011க ற9. 2018-இ\u001e அ9 2,38,765 ஆக இ3Lத9 எனி\u001e,\n2020-ஆ8 ஆ\u0017\u0006\u001e ம\u0011க\u0012 ெதாைகைய\u0011 கா\u0017க.\n( A ) 2,86,276 ( B ) 2,68,276 ( C ) 2,48,274 ( D ) 2,68,876 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q060.webp"
+      },
+      {
+        "number": 61,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              320.20600746325016,
+              570,
+              366.88600791700037
+            ]
+          }
+        ],
+        "source_text": "Q 61. ₹ 15,625 அஸ@\u0011\u0018 ஆ\u0017\u0003\u0011\u0018 8% வ\u0002\u0006 \u001bத\u001dத \u001e 3 ஆ\u0017\u0003க;\u0011\u0018 ஆ\u0017\u0003\u0011\u0018 ஒ3\"ைற கண\u0011க ட(ப\u00038 \u0001\u0002\u0003\nவ\u0002\u0006ைய\u0011 கா\u0017க.\n( A ) ₹ 4,000 ( B ) ₹ 4,028 ( C ) ₹ 4,058 ( D ) ₹ 4,050 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q061.webp"
+      },
+      {
+        "number": 62,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              363.4060080820006,
+              570,
+              410.08600853575035
+            ]
+          }
+        ],
+        "source_text": "Q 62. ₹ 4,000 அஸ@\u0011\u0018 ஆ\u0017\u0003\u0011\u0018 5% வ\u0002\u0006 \u001bத\u001dத \u001e 2 ஆ\u0017\u0003க;\u0011\u0018 ஆ\u0017\u0003\u0011\u0018 ஒ3\"ைற கண\u0011க ட(ப\u00038 \u0001\u0002\u0003\nவ\u0002\u0006ைய\u0011 கா\u0017க.\n( A ) ₹ 400 ( B ) ₹ 441 ( C ) ₹ 440 ( D ) ₹ 410 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q062.webp"
+      },
+      {
+        "number": 63,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              406.6060087007506,
+              570,
+              442.3420089977503
+            ]
+          }
+        ],
+        "source_text": "Q 63. ₹ 1,600 ஆன9 ஆ\u0017\u0003\u0011\u0018 5% \u0001\u0002\u0003 வ\u0002\u0006 \u001bத\u001dத \u001e எ\u001dதைன ஆ\u0017\u0003களி\u001e ₹ 1,852.20 ஆக மா78?\n( A ) 2 ஆ\u001e\u001fக! ( B ) 5 ஆ\u001e\u001fக! ( C ) 4 ஆ\u001e\u001fக! ( D ) 3 ஆ\u001e\u001fக! ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q063.webp"
+      },
+      {
+        "number": 64,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              438.86200916275055,
+              570,
+              485.5420096165003
+            ]
+          }
+        ],
+        "source_text": "Q 64. ₹ 15,625 அஸ@\u0011\u0018 ஆ\u0017\u0003\u0011\u0018 16% வ\u0002\u0006 \u001bத\u001dத \u001e 6 மாத க;\u0011\u0018 காலா\u0017\u0003\u0011\u0018 ஒ3\"ைற கண\u0011க ட(ப\u00038 \u0001\u0002\u0003\nவ\u0002\u0006ைய\u0011 கா\u0017க.\n( A ) ₹ 1,300 ( B ) ₹ 1,325 ( C ) ₹ 1,250 ( D ) ₹ 1,275 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q064.webp"
+      },
+      {
+        "number": 65,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              482.06200978150054,
+              570,
+              528.7420102352503
+            ]
+          }
+        ],
+        "source_text": "Q 65. ₹ 8,000 ஆன9 3 ஆ\u0017\u0003களி\u001e ஆ\u0017\u0003\u0011\u0018 ஒ3\"ைற கண\u0011க ட(ப\u00038 \u0001\u0002\u0003 வ\u0002\u0006 \"ைறய\b\u001e ₹ 9,261 ஆக மாறGனா\u001e,\nவ\u0002\u0006 \u001bத8 எDவளE?\n( A ) 3% ( B ) 4% ( C ) 5% ( D ) 2% ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q065.webp"
+      },
+      {
+        "number": 66,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              525.2620104002506,
+              570,
+              571.9420108540003
+            ]
+          }
+        ],
+        "source_text": "Q 66. ஒ3 நகர\u001dத 5 ம\u0011க\u0012 ெதாைக ஆ\u0017\u0003\u0011\u0018 10% \u001bத8 அத கரி\u0011க ற9. 2016-இ\u001e அ9 4,35,000 ஆக இ3Lத9 எனி\u001e,\n2018-இ\u001e ம\u0011க\u0012 ெதாைகைய\u0011 கா\u0017க.\n( A ) 3,52,350 ( B ) 3,59,504 ( C ) 5,26,350 ( D ) 5,37,037 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q066.webp"
+      },
+      {
+        "number": 67,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              568.4620110190006,
+              570,
+              615.1420114727503
+            ]
+          }
+        ],
+        "source_text": "Q 67. ₹ 4,000 அஸ@\u0011\u0018 ஆ\u0017\u0003\u0011\u0018 5% வ\u0002\u0006 \u001bத\u001dத \u001e 2 ஆ\u0017\u0003க;\u0011\u0018 ஆ\u0017\u0003\u0011\u0018 ஒ3\"ைற கண\u0011க ட(ப\u00038 \u0001\u0002\u0003 வ\u0002\u0006\nஎDவளE?\n( A ) ₹ 400 ( B ) ₹ 480 ( C ) ₹ 430 ( D ) ₹ 410 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q067.webp"
+      },
+      {
+        "number": 68,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              611.6620116377505,
+              570,
+              647.3980119347502
+            ]
+          }
+        ],
+        "source_text": "Q 68. ₹ 1,600 ஆன9 ஆ\u0017\u0003\u0011\u0018 5% \u0001\u0002\u0003 வ\u0002\u0006 \u001bத\u001dத \u001e எ\u001dதைன ஆ\u0017\u0003களி\u001e ₹ 1,852.20 ஆக மா78?\n( A ) 1 ஆ\u001e\u001f ( B ) 2 ஆ\u001e\u001fக! ( C ) 3 ஆ\u001e\u001fக! ( D ) 4 ஆ\u001e\u001fக! ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q068.webp"
+      },
+      {
+        "number": 69,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              643.9180120997505,
+              570,
+              690.5980125535002
+            ]
+          }
+        ],
+        "source_text": "Q 69. அச\u001e P = ₹ 4,000, r = 5% p . a ., n = 2 ஆ\u0017\u0003க\u0012, வ\u0002\u0006யான9 ஆ\u0017\u0003\u0011\u0018 ஒ3\"ைற கண\u0011க ட(ப\u0002டா\u001e, \u0001\u0002\u0003 வ\u0002\u0006ைய\u0011\nகா\u0017க.\n( A ) ₹ 320 ( B ) ₹ 410 ( C ) ₹ 280 ( D ) ₹ 450 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q069.webp"
+      },
+      {
+        "number": 70,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              687.1180127185005,
+              570,
+              733.7980131722506
+            ]
+          }
+        ],
+        "source_text": "Q 70. 2 ஆ\u0017\u0003க;\u0011\u0018 \"5O ஒ3 ேமா\u0002டாI ைச\u0011க ளி5 மத (O ₹ 60,000. அ9 ஆ\u0017\u0003\u0011\u0018 5% \u001bத8 ேதPமான8 அைடக ற9\nஎனி\u001e, அத5 த:ேபாைதய மத (ைப\u0011 கா\u0017க.\n( A ) ₹ 54,000 ( B ) ₹ 54,050 ( C ) ₹ 54,500 ( D ) ₹ 54,150 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q070.webp"
+      },
+      {
+        "number": 71,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              730.3180133372505,
+              570,
+              776.9980137910006
+            ]
+          }
+        ],
+        "source_text": "Q 71. ₹ 50,000-\u0011\u0018 வா க(ப\u0002ட ஒ3 இயLத ர\u001dத 5 மத (O ஆ\u0017\u0003ேதா78 8% \u0018ைறக ற9 எனி\u001e, 2 ஆ\u0017\u0003க;\u0011\u0018( ப\bற\u0018\nஅDவ\bயLத ர\u001dத 5 மத (ைப\u0011 கா\u0017க.\n( A ) ₹ 40,000 ( B ) ₹ 43,220 ( C ) ₹ 42,000 ( D ) ₹ 42,320 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q071.webp"
+      },
+      {
+        "number": 72,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              28.749999385000308,
+              570,
+              75.42999983875006
+            ]
+          }
+        ],
+        "source_text": "Q 72. 2 ஆ\u0017\u0003க;\u0011\u0018 \"5O ஒ3 ேமா\u0002டாI ைச\u0011க ளி5 மத (O ₹ 70,000. அ9 ஆ\u0017\u0003\u0011\u0018 4% \u001bத8 ேதPமான8 அைடக ற9\nஎனி\u001e, அத5 த:ேபாைதய மத (ைப\u0011 கா\u0017க.\n( A ) 65,312 ( B ) 64,312 ( C ) 64,512 ( D ) 65,412 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q072.webp"
+      },
+      {
+        "number": 73,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              71.95000000375029,
+              570,
+              118.63000045750005
+            ]
+          }
+        ],
+        "source_text": "Q 73. ஒ3 இயLத ர\u001dத 5 வ\bைல ₹ 18,000. அத5 மத (O ஆ\u0017\u0003ேதா78 16 ⅔ % ேதPமான8 அைடக ற9 எனி\u001e, 2\nஆ\u0017\u0003க;\u0011\u0018( ப\bற\u0018 அத5 மத (O எ5னவாக இ3\u0011\u00188?\n( A ) ₹ 12,000 ( B ) ₹ 12,500 ( C ) ₹ 15,000 ( D ) ₹ 16,500 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q073.webp"
+      },
+      {
+        "number": 74,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              115.15000062250027,
+              570,
+              161.83000107625003
+            ]
+          }
+        ],
+        "source_text": "Q 74. ஒ3 இயLத ர\u001dத 5 மத (O ஆ\u0017\u0003ேதா78 10% ேதPமான8 அைடக ற9. அத5 த:ேபாைதய மத (O ₹ 1,62,000 எனி\u001e,\nஇர\u0017\u0003 ஆ\u0017\u0003க;\u0011\u0018( ப\bற\u0018 அDவ\bயLத ர\u001dத 5 மத (O எ5ன?\n( A ) ₹ 1,29,600 ( B ) ₹ 1,30,600 ( C ) ₹ 1,31,600 ( D ) ₹ 1,31,220 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q074.webp"
+      },
+      {
+        "number": 75,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              158.35000124125025,
+              570,
+              205.030001695
+            ]
+          }
+        ],
+        "source_text": "Q 75. ₹ 9,600 அஸ@\u0011\u0018 ஆ\u0017\u0003\u0011\u0018 12% வ\u0002\u0006 \u001bத\u001dத \u001e 2 ஆ\u0017\u0003க\u0012 4 மாத க;\u0011\u0018 ஆ\u0017\u0003\u0011\u0018 ஒ3\"ைற\nகண\u0011க ட(ப\u00038 \u0001\u0002\u0003 வ\u0002\u0006ைய\u0011 கா\u0017க.\n( A ) ₹ 12,253 ( B ) ₹ 12,524 ( C ) ₹ 12,853 ( D ) ₹ 12,653 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q075.webp"
+      },
+      {
+        "number": 76,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              201.55000186000024,
+              570,
+              248.23000231375
+            ]
+          }
+        ],
+        "source_text": "Q 76. 2 ஆ\u0017\u0003க;\u0011\u0018 \"5O ஒ3 ேமா\u0002டாI ைச\u0011க ளி5 மத (O ₹ 70,000. அ9 4% \u001bத8 ேதPமான8 அைடLதா\u001e,\nத:ேபாைதய மத (ைப\u0011 கா\u0017க.\n( A ) ₹ 67,000 ( B ) ₹ 50,000 ( C ) ₹ 64,512 ( D ) ₹ 66,000 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q076.webp"
+      },
+      {
+        "number": 77,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              244.75000247875022,
+              570,
+              291.4300029325
+            ]
+          }
+        ],
+        "source_text": "Q 77. \u0001\u0002\u0003 வ\u0002\u0006 \"ைறய\b\u001e \"தR\u0003 ெசPய(ப\u0002ட ஒ3 \u0018றG(ப\b\u0002ட ெதாைக 3 ஆ\u0017\u0003களி\u001e ₹ 800 ஆகE8, 4 ஆ\u0017\u0003களி\u001e ₹\n840 ஆகE8 மா7க ற9 எனி\u001e, ஆ\u0017\u0003 வ\u0002\u0006 \u001bத\u001dைத\u0011 கா\u0017க.\n( A ) 2 ½ % ( B ) 4% ( C ) 5% ( D ) 6 ⅔ % ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q077.webp"
+      },
+      {
+        "number": 78,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              287.9500030975002,
+              570,
+              334.63000355124996
+            ]
+          }
+        ],
+        "source_text": "Q 78. ஒ3 இயLத ர\u001dத 5 மத (O ஆ\u0017\u0003ேதா78 10% ேதPமான8 அைடக ற9. ஒ3வI அைத ₹ 30,000-\u0011\u0018 வா க னா\u001e, 3\nஆ\u0017\u0003க;\u0011\u0018( ப\bற\u0018 அத5 மத (ைப\u0011 கா\u0017க.\n( A ) ₹ 39,830 ( B ) ₹ 21,870 ( C ) ₹ 39,930 ( D ) ₹ 21,970 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q078.webp"
+      },
+      {
+        "number": 79,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              331.1500037162502,
+              570,
+              377.83000416999994
+            ]
+          }
+        ],
+        "source_text": "Q 79. ஒ3 இயLத ர\u001dத 5 மத (O ஆ\u0017\u0003ேதா78 10% ேதPமான8 அைடக ற9. ஒ3வI அைத ₹ 50,000-\u0011\u0018 வா க னா\u001e, 3\nஆ\u0017\u0003க;\u0011\u0018( ப\bற\u0018 அத5 மத (ைப\u0011 கா\u0017க.\n( A ) ₹ 35,650 ( B ) ₹ 36,450 ( C ) ₹ 35,450 ( D ) ₹ 37,450 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q079.webp"
+      },
+      {
+        "number": 80,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              374.35000433500016,
+              570,
+              421.0300047887504
+            ]
+          }
+        ],
+        "source_text": "Q 80. ₹ 8,000 அஸ@\u0011\u0018 ஆ\u0017\u0003\u0011\u0018 10% வ\u0002\u0006 \u001bத\u001dத \u001e 2 ஆ\u0017\u0003க;\u0011\u0018\u0011 க ைட\u0011\u00188 தனி வ\u0002\u0006\u0011\u00188 \u0001\u0002\u0003 வ\u0002\u0006\u0011\u00188\nஇைடேயயான வ\b\u001dத யாச\u001dைத\u0011 கா\u0017க.\n( A ) ₹ 80 ( B ) ₹ 100 ( C ) ₹ 120 ( D ) ₹ 160 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q080.webp"
+      },
+      {
+        "number": 81,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              417.55000495375015,
+              570,
+              464.23000540750036
+            ]
+          }
+        ],
+        "source_text": "Q 81. ஆ\u0017\u0003\u0011\u0018 5% வ\u0002\u0006 \u001bத\u001dத \u001e 2 ஆ\u0017\u0003க;\u0011\u0018 ஒ3 ெதாைக\u0011\u0018 க ைட\u0011\u00188 \u0001\u0002\u0003 வ\u0002\u0006\u0011\u00188 தனி வ\u0002\u0006\u0011\u00188\nஇைடேயயான வ\b\u001dத யாச8 ₹ 25 எனி\u001e, அசைல\u0011 கா\u0017க.\n( A ) ₹ 8,000 ( B ) ₹ 9,000 ( C ) ₹ 10,000 ( D ) ₹ 12,000 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q081.webp"
+      },
+      {
+        "number": 82,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              460.75000557250013,
+              570,
+              507.43000602625034
+            ]
+          }
+        ],
+        "source_text": "Q 82. ₹ 5,000 அஸ@\u0011\u0018 ஆ\u0017\u0003\u0011\u0018 8% வ\u0002\u0006 \u001bத\u001dத \u001e 2 ஆ\u0017\u0003க;\u0011\u0018\u0011 க ைட\u0011\u00188 தனி வ\u0002\u0006\u0011\u00188 \u0001\u0002\u0003 வ\u0002\u0006\u0011\u00188\nஇைடேயயான வ\b\u001dத யாச\u001dைத\u0011 கா\u0017க.\n( A ) ₹ 32 ( B ) ₹ 35 ( C ) ₹ 40 ( D ) ₹ 48 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q082.webp"
+      },
+      {
+        "number": 83,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              503.9500061912501,
+              570,
+              550.6300066450003
+            ]
+          }
+        ],
+        "source_text": "Q 83. ஒ3 \u0018றG(ப\b\u0002ட ெதாைக\u0011\u0018 ஆ\u0017\u0003\u0011\u0018 8% வ\u0002\u0006 \u001bத\u001dத \u001e 2 ஆ\u0017\u0003க;\u0011\u0018\u0011 க ைட\u0011\u00188 \u0001\u0002\u0003 வ\u0002\u0006\u0011\u00188 தனி\nவ\u0002\u0006\u0011\u00188 இைடேயயான வ\b\u001dத யாச8 ₹ 64 எனி\u001e, அசைல\u0011 கா\u0017க.\n( A ) ₹ 8,000 ( B ) ₹ 10,000 ( C ) ₹ 12,000 ( D ) ₹ 15,000 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q083.webp"
+      },
+      {
+        "number": 84,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              547.1500068100001,
+              570,
+              593.8300072637503
+            ]
+          }
+        ],
+        "source_text": "Q 84. ₹ 12,000 அஸ@\u0011\u0018 ஆ\u0017\u0003\u0011\u0018 10% வ\u0002\u0006 \u001bத\u001dத \u001e 3 ஆ\u0017\u0003க;\u0011\u0018\u0011 க ைட\u0011\u00188 \u0001\u0002\u0003 வ\u0002\u0006\u0011\u00188 தனி வ\u0002\u0006\u0011\u00188\nஇைடேயயான வ\b\u001dத யாச\u001dைத\u0011 கா\u0017க.\n( A ) ₹ 360 ( B ) ₹ 372 ( C ) ₹ 380 ( D ) ₹ 390 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q084.webp"
+      },
+      {
+        "number": 85,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              590.3500074287501,
+              570,
+              637.0300078825003
+            ]
+          }
+        ],
+        "source_text": "Q 85. ₹ 25,000 அஸ@\u0011\u0018 ஆ\u0017\u0003\u0011\u0018 12% வ\u0002\u0006 \u001bத\u001dத \u001e 2 ஆ\u0017\u0003க;\u0011\u0018\u0011 க ைட\u0011\u00188 தனி வ\u0002\u0006\u0011\u00188 \u0001\u0002\u0003 வ\u0002\u0006\u0011\u00188\nஇைடேயயான வ\b\u001dத யாச8 எDவளE?\n( A ) ₹ 360 ( B ) ₹ 300 ( C ) ₹ 320 ( D ) ₹ 350 ( E ) வ ைட ெதரியவ \u0015ைல",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-04/q085.webp"
+      }
+    ],
+    "answers": {
+      "80": "A",
+      "32": "C",
+      "35": "C",
+      "40": "D",
+      "48": "A",
+      "1": "D",
+      "2": "D",
+      "3": "C",
+      "4": "C",
+      "5": "C",
+      "6": "B",
+      "7": "C",
+      "8": "C",
+      "9": "D",
+      "10": "B",
+      "11": "B",
+      "12": "C",
+      "13": "D",
+      "14": "C",
+      "15": "C",
+      "16": "B",
+      "17": "D",
+      "18": "B",
+      "19": "A",
+      "20": "A",
+      "21": "B",
+      "22": "B",
+      "23": "A",
+      "24": "B",
+      "25": "B",
+      "26": "B",
+      "27": "B",
+      "28": "D",
+      "29": "C",
+      "30": "A",
+      "31": "B",
+      "33": "C",
+      "34": "A",
+      "36": "D",
+      "37": "B",
+      "38": "D",
+      "39": "A",
+      "41": "C",
+      "42": "D",
+      "43": "A",
+      "44": "C",
+      "45": "B",
+      "46": "B",
+      "47": "C",
+      "49": "B",
+      "50": "D",
+      "51": "C",
+      "52": "B",
+      "53": "A",
+      "54": "D",
+      "55": "B",
+      "56": "A",
+      "57": "D",
+      "58": "A",
+      "59": "B",
+      "60": "B",
+      "61": "C",
+      "62": "D",
+      "63": "D",
+      "64": "D",
+      "65": "C",
+      "66": "C",
+      "67": "D",
+      "68": "C",
+      "69": "B",
+      "70": "D",
+      "71": "D",
+      "72": "C",
+      "73": "B",
+      "74": "D",
+      "75": "B",
+      "76": "C",
+      "77": "C",
+      "78": "B",
+      "79": "B",
+      "81": "C",
+      "82": "A",
+      "83": "B",
+      "84": "B",
+      "85": "A"
+    },
+    "issues": []
+  },
+  {
+    "source": "CI pyq.pdf",
+    "topic": "Compound Interest",
+    "language": "English",
+    "questions": [
+      {
+        "number": 1,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              133.70000000000005,
+              587,
+              223.20000000000005
+            ]
+          }
+        ],
+        "source_text": "Q1. Find the principal, if the amount compounded annually for two years at the rate of\n10% per annum is Rs.6,050\n(A) Rs.3,025 (B) Rs.3,500\n(C) Rs.4,000 (D) Rs.5,000\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q001.webp"
+      },
+      {
+        "number": 2,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              223.70000000000005,
+              587,
+              313.2
+            ]
+          }
+        ],
+        "source_text": "Q2. The population of a village increases by 5% annually. If the present population is\n50,500, what will be its population after 2 years?\n(A) 65678 (B) 65677\n(C) 55677 (D) 55676\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q002.webp"
+      },
+      {
+        "number": 3,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              313.7,
+              587,
+              403.2
+            ]
+          }
+        ],
+        "source_text": "Q3. Calculate the compound interest on ₹ 5,000 for 1½ years at 4% per annum, interest\nbeing compounded half yearly.\n(A) ₹ 306.02 (B) ₹ 306.03\n(C) ₹ 306.04 (D) ₹ 306.05\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q003.webp"
+      },
+      {
+        "number": 4,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              403.7,
+              587,
+              493.2
+            ]
+          }
+        ],
+        "source_text": "Q4. Find the principal which amounts to ₹ 169 in 2 years at 4% per annum in compound\ninterest.\n(A) ₹ 150.50 (B) ₹ 154.75\n(C) ₹ 156.25 (D) ₹ 158\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q004.webp"
+      },
+      {
+        "number": 5,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              493.7,
+              587,
+              569.2
+            ]
+          }
+        ],
+        "source_text": "Q5. At what rate percent compound interest will Rs. 625 amount to Rs. 900 in 2 years?\n(A) 10% (B) 15%\n(C) 20% (D) 25%\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q005.webp"
+      },
+      {
+        "number": 6,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 1,
+            "rect": [
+              25,
+              569.7,
+              587,
+              659.2
+            ]
+          }
+        ],
+        "source_text": "Q6. What is compound Interest on Rs.5,000 at 12% per annum for 2 years compounded\nannually?\n(A) Rs.1,227 (B) Rs.1,272\n(C) Rs.2,172 (D) Rs.2,721\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q006.webp"
+      },
+      {
+        "number": 7,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              54.200000000000045,
+              587,
+              129.70000000000005
+            ]
+          }
+        ],
+        "source_text": "Q7. In what time will Rs.2,000 amount to Rs.2,420 at 10% per annum compound interest?\n(A) 4 years (B) 3 years\n(C) 2 years (D) 1 year\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q007.webp"
+      },
+      {
+        "number": 8,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              130.20000000000005,
+              587,
+              219.70000000000005
+            ]
+          }
+        ],
+        "source_text": "Q8. A certain sum at a rate of compound interest 4% for 2 years becomes Rs. 2028 then\nfind the principal.\n(A) Rs. 1578 (B) Rs. 1785\n(C) Rs. 1875 (D) Rs. 1800\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q008.webp"
+      },
+      {
+        "number": 9,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              220.20000000000005,
+              587,
+              323.7
+            ]
+          }
+        ],
+        "source_text": "Q9. The bacteria in a culture grows by 5% in the first hour, decreases by 8% in the second\nhour and again increases by 10% in the third hour. Find the count of the bacteria at the\nend of 3 hours if its initial count was 10,000.\n(A) 10,700 (B) 10,800\n(C) 10,376 (D) 10,626\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q009.webp"
+      },
+      {
+        "number": 10,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              324.2,
+              587,
+              413.7
+            ]
+          }
+        ],
+        "source_text": "Q10. A principal becomes ₹ 2028 in 2 years at 4% p.a. compound interest. Find the\nprincipal.\n(A) ₹ 1600 (B) ₹ 1875\n(C) ₹ 1900 (D) ₹ 2000\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q010.webp"
+      },
+      {
+        "number": 11,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              414.2,
+              587,
+              503.7
+            ]
+          }
+        ],
+        "source_text": "Q11. Find the compound interest on Rs. 3,200 at 2.5% p.a. for 2 years, compounded\nannually.\n(A) Rs. 148 (B) Rs. 162\n(C) Rs. 157 (D) Rs. 165\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q011.webp"
+      },
+      {
+        "number": 12,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              504.20000000000005,
+              587,
+              593.7
+            ]
+          }
+        ],
+        "source_text": "Q12. A sum becomes ₹ 4,500 after 2 years and ₹ 6,750 after 4 years at compound interest,\nthen find the sum.\n(A) ₹ 4,000 (B) ₹ 2,500\n(C) ₹ 3,000 (D) ₹ 3,050\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q012.webp"
+      },
+      {
+        "number": 13,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 2,
+            "rect": [
+              25,
+              594.2,
+              587,
+              683.7
+            ]
+          }
+        ],
+        "source_text": "Q13. If the interest is compounded quarterly, by which of the following formula can we\ncalculate the amount?\n(A) A = P(1 + r/100)ⁿ (B) A = P(1 + r/100)²ⁿ\n(C) A = P(1 + r/100)³ⁿ (D) A = P(1 + r/400)⁴ⁿ\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q013.webp"
+      },
+      {
+        "number": 14,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              54.200000000000045,
+              587,
+              129.70000000000005
+            ]
+          }
+        ],
+        "source_text": "Q14. The compound interest on ₹ 5,000 at 12% p.a. for 2 years compounded annually is:\n(A) ₹ 1,072 (B) ₹ 1,172\n(C) ₹ 1,272 (D) ₹ 1,372\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q014.webp"
+      },
+      {
+        "number": 15,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              130.20000000000005,
+              587,
+              205.70000000000005
+            ]
+          }
+        ],
+        "source_text": "Q15. Find the compound interest on ₹ 15,625 at the rate of 8% per annum for 3 years.\n(A) ₹ 4,063 (B) ₹ 4,508\n(C) ₹ 4,058 (D) ₹ 4,085\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q015.webp"
+      },
+      {
+        "number": 16,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              206.20000000000005,
+              587,
+              281.70000000000005
+            ]
+          }
+        ],
+        "source_text": "Q16. The time taken for ₹ 4,400 to become ₹ 4,851 at 10% compounded half yearly is:\n(A) 6 months (B) 1 year\n(C) 1½ years (D) 2 years\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q016.webp"
+      },
+      {
+        "number": 17,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              282.2,
+              587,
+              371.7
+            ]
+          }
+        ],
+        "source_text": "Q17. The population of a village increases at the rate of 7% every year. If the present\npopulation is 90,000, the population after two years is:\n(A) 96,300 (B) 1,03,000\n(C) 1,00,000 (D) 1,03,041\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q017.webp"
+      },
+      {
+        "number": 18,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              372.2,
+              587,
+              461.7
+            ]
+          }
+        ],
+        "source_text": "Q18. The cost of a machine is Rs. 18,000 and it depreciates at 16⅔% annually. Its value\nafter two years will be:\n(A) Rs. 12,000 (B) Rs. 12,500\n(C) Rs. 15,000 (D) Rs. 16,500\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q018.webp"
+      },
+      {
+        "number": 19,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              462.2,
+              587,
+              551.7
+            ]
+          }
+        ],
+        "source_text": "Q19. The value of a machine depreciates by 5% each year. A man pays ₹ 30,000 for the\nmachine. Find its value after three years.\n(A) ₹ 25,721 (B) ₹ 25,722\n(C) ₹ 27,521 (D) ₹ 22,752\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q019.webp"
+      },
+      {
+        "number": 20,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              552.2,
+              587,
+              627.7
+            ]
+          }
+        ],
+        "source_text": "Q20. Find the compound interest on ₹ 20,000 at 15% per annum for 2⅓ years.\n(A) ₹ 7,772.50 (B) ₹ 6,772.50\n(C) ₹ 7,772 (D) ₹ 2,777.50\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q020.webp"
+      },
+      {
+        "number": 21,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 3,
+            "rect": [
+              25,
+              628.2,
+              587,
+              717.7
+            ]
+          }
+        ],
+        "source_text": "Q21. Find the compound interest on Rs. 31,250 at 16% per annum compounded quarterly\nfor 9 months.\n(A) Rs. 3,500 (B) Rs. 3,902\n(C) Rs. 4,000 (D) Rs. 4,200\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q021.webp"
+      },
+      {
+        "number": 22,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              54.200000000000045,
+              587,
+              143.70000000000005
+            ]
+          }
+        ],
+        "source_text": "Q22. If the interest is compounded half yearly, find the compound interest for Rs. 5,000 at\n20% p.a. for 1½ years.\n(A) Rs. 6,655 (B) Rs. 1,655\n(C) Rs. 2,655 (D) Rs. 1,665\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q022.webp"
+      },
+      {
+        "number": 23,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              144.20000000000005,
+              587,
+              233.70000000000005
+            ]
+          }
+        ],
+        "source_text": "Q23. A sum of money invested at compound interest amounts to Rs. 4,624 in 2 years and\nto Rs. 4,913 in 3 years. Then the principal amount is:\n(A) Rs. 4,096 (B) Rs. 4,260\n(C) Rs. 4,335 (D) Rs. 4,360\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q023.webp"
+      },
+      {
+        "number": 24,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              234.20000000000005,
+              587,
+              323.7
+            ]
+          }
+        ],
+        "source_text": "Q24. The population of a town has a constant growth of 6% every year. If its present\npopulation is 2,38,765, then the population after two years is:\n(A) 2,48,276 (B) 2,68,276\n(C) 3,48,176 (D) 3,68,276\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q024.webp"
+      },
+      {
+        "number": 25,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              324.2,
+              587,
+              413.7
+            ]
+          }
+        ],
+        "source_text": "Q25. There is a 50% increase in an amount in 4 years at simple interest. What will be the\ncompound interest of ₹ 10,000 after 3 years at the same rate?\n(A) ₹ 3,842 (B) ₹ 4,238\n(C) ₹ 2,438 (D) ₹ 3,482\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q025.webp"
+      },
+      {
+        "number": 26,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              414.2,
+              587,
+              503.7
+            ]
+          }
+        ],
+        "source_text": "Q26. The present height of a tree is 847 cm. If its height increases at 10% per annum, the\nheight of the tree two years ago was:\n(A) 770 cm (B) 700 cm\n(C) 630 cm (D) 560 cm\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q026.webp"
+      },
+      {
+        "number": 27,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              504.20000000000005,
+              587,
+              593.7
+            ]
+          }
+        ],
+        "source_text": "Q27. If the compound interest compounded annually at the rate of 12% p.a. for 3 years is\nRs. 432, then the principal is:\n(A) Rs. 1,066 (B) Rs. 1,067\n(C) Rs. 1,069 (D) Rs. 1,070\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q027.webp"
+      },
+      {
+        "number": 28,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 4,
+            "rect": [
+              25,
+              594.2,
+              587,
+              683.7
+            ]
+          }
+        ],
+        "source_text": "Q28. If the principal is Rs. 30,000, r = 7% for 1st year, r = 8% for 2nd year compounded\nannually, then the compound interest is:\n(A) Rs. 5,668 (B) Rs. 3,668\n(C) Rs. 6,668 (D) Rs. 4,668\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q028.webp"
+      },
+      {
+        "number": 29,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              54.200000000000045,
+              587,
+              143.70000000000005
+            ]
+          }
+        ],
+        "source_text": "Q29. The compound interest on ₹ 16,000 for 9 months at 20% per annum compounded\nquarterly is:\n(A) ₹ 2,599 (B) ₹ 2,572\n(C) ₹ 2,522 (D) ₹ 2,502\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q029.webp"
+      },
+      {
+        "number": 30,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              144.20000000000005,
+              587,
+              233.70000000000005
+            ]
+          }
+        ],
+        "source_text": "Q30. The CI on ₹ 15,000 for 3 years if the rate of interest are 15%, 20% and 25% for the\n1st, 2nd and 3rd year respectively is:\n(A) ₹ 10,875 (B) ₹ 10,785\n(C) ₹ 10,885 (D) ₹ 10,775\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q030.webp"
+      },
+      {
+        "number": 31,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              234.20000000000005,
+              587,
+              323.7
+            ]
+          }
+        ],
+        "source_text": "Q31. If a sum amounts to Rs. 1,352 in 2 years at 4% compound interest, then find the\nprincipal.\n(A) Rs. 1,200 (B) Rs. 1,250\n(C) Rs. 1,260 (D) Rs. 1,300\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q031.webp"
+      },
+      {
+        "number": 32,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              324.2,
+              587,
+              413.7
+            ]
+          }
+        ],
+        "source_text": "Q32. The value of a motorcycle 2 years ago was Rs. 80,000. It depreciates at the rate of\n4% p.a. Find its present value.\n(A) Rs. 72,000 (B) Rs. 72,738\n(C) Rs. 73,728 (D) Rs. 72,728\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q032.webp"
+      },
+      {
+        "number": 33,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              414.2,
+              587,
+              503.7
+            ]
+          }
+        ],
+        "source_text": "Q33. The depreciation of a television is 10% every year. It was purchased 3 years ago. If\nits present value is Rs. 83,835, its purchase price was:\n(A) Rs. 1,00,000 (B) Rs. 1,12,500\n(C) Rs. 1,15,000 (D) Rs. 1,17,500\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q033.webp"
+      },
+      {
+        "number": 34,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              504.20000000000005,
+              587,
+              593.7
+            ]
+          }
+        ],
+        "source_text": "Q34. At what rate of interest per annum will ₹ 640 amount to ₹ 774.40 in 2 years, interest\nbeing compounded annually?\n(A) 10% (B) 12%\n(C) 12.5% (D) 14%\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q034.webp"
+      },
+      {
+        "number": 35,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 5,
+            "rect": [
+              25,
+              594.2,
+              587,
+              683.7
+            ]
+          }
+        ],
+        "source_text": "Q35. The value of a motorcycle 2 years ago was ₹ 1,00,000. It depreciates at the rate of\n5% p.a. Then the present value is:\n(A) ₹ 80,000 (B) ₹ 80,250\n(C) ₹ 90,250 (D) ₹ 95,000\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q035.webp"
+      },
+      {
+        "number": 36,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 6,
+            "rect": [
+              25,
+              54.200000000000045,
+              587,
+              143.70000000000005
+            ]
+          }
+        ],
+        "source_text": "Q36. Magesh invested ₹ 5,000 at 12% p.a. for one year. If the interest is compounded half\nyearly, then the amount he gets at the end of the year is:\n(A) ₹ 5,698 (B) ₹ 5,718\n(C) ₹ 5,608 (D) ₹ 5,618\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q036.webp"
+      },
+      {
+        "number": 37,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 6,
+            "rect": [
+              25,
+              144.20000000000005,
+              587,
+              219.70000000000005
+            ]
+          }
+        ],
+        "source_text": "Q37. The time taken for ₹ 4,400 to become ₹ 4,851 at 10% p.a. compounded half yearly is:\n(A) 6 months (B) 1 year\n(C) 1½ years (D) 2 years\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q037.webp"
+      },
+      {
+        "number": 38,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 6,
+            "rect": [
+              25,
+              220.20000000000005,
+              587,
+              309.7
+            ]
+          }
+        ],
+        "source_text": "Q38. At what rate percent per annum, compound interest will Rs. 10,000 amount to Rs.\n13,310 in three years?\n(A) 9% (B) 7%\n(C) 8½% (D) 10%\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q038.webp"
+      },
+      {
+        "number": 39,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 6,
+            "rect": [
+              25,
+              310.2,
+              587,
+              413.7
+            ]
+          }
+        ],
+        "source_text": "Q39. In a laboratory, the count of bacteria in a certain experiment was increasing at the\nrate of 2.5% per hour. Find the bacteria count at the end of 2 hours if the count was\ninitially 5,05,600.\n(A) 5,31,196 (B) 5,39,611\n(C) 5,11,396 (D) 5,39,116\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q039.webp"
+      },
+      {
+        "number": 40,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 6,
+            "rect": [
+              25,
+              414.2,
+              587,
+              503.7
+            ]
+          }
+        ],
+        "source_text": "Q40. Find the compound interest for 2½ years on ₹ 4,000 at 10% p.a. if the interest is\ncompounded yearly.\n(A) ₹ 1,024 (B) ₹ 1,032\n(C) ₹ 1,050 (D) ₹ 1,082\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q040.webp"
+      },
+      {
+        "number": 41,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 6,
+            "rect": [
+              25,
+              504.20000000000005,
+              587,
+              579.7
+            ]
+          }
+        ],
+        "source_text": "Q41. Find the sum which amounts to ₹ 2,662 at 10% p.a. in 3 years, compounded yearly.\n(A) ₹ 1,500 (B) ₹ 1,800\n(C) ₹ 2,000 (D) ₹ 2,500\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q041.webp"
+      },
+      {
+        "number": 42,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 6,
+            "rect": [
+              25,
+              580.2,
+              587,
+              669.7
+            ]
+          }
+        ],
+        "source_text": "Q42. In what time will a sum of ₹ 3,000 amount to ₹ 3,993 at 10% p.a. compounded\nannually?\n(A) 4 years (B) 1 year\n(C) 2 years (D) 3 years\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q042.webp"
+      },
+      {
+        "number": 43,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 7,
+            "rect": [
+              25,
+              54.200000000000045,
+              587,
+              143.70000000000005
+            ]
+          }
+        ],
+        "source_text": "Q43. If the compound interest on a certain sum at 16⅔% for 3 years is ₹ 1,270, find the\nsimple interest on the same sum at the same rate and for the same period.\n(A) ₹ 1,080 (B) ₹ 1,000\n(C) ₹ 1,090 (D) ₹ 1,070\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q043.webp"
+      },
+      {
+        "number": 44,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 7,
+            "rect": [
+              25,
+              144.20000000000005,
+              587,
+              233.70000000000005
+            ]
+          }
+        ],
+        "source_text": "Q44. The value of a motorcycle depreciates at the rate of 15% per year. What will be the\nvalue of the motorcycle 3 years hence, which is now purchased for ₹ 45,000?\n(A) ₹ 32,513 (B) ₹ 37,635\n(C) ₹ 27,636 (D) ₹ 38,250\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q044.webp"
+      },
+      {
+        "number": 45,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 7,
+            "rect": [
+              25,
+              234.20000000000005,
+              587,
+              323.7
+            ]
+          }
+        ],
+        "source_text": "Q45. The value of a motorcycle 2 years ago was ₹ 70,000. It depreciates at the rate of 4%\np.a. Find its present value.\n(A) ₹ 64,000 (B) ₹ 64,512\n(C) ₹ 65,512 (D) ₹ 64,412\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q045.webp"
+      },
+      {
+        "number": 46,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 7,
+            "rect": [
+              25,
+              324.2,
+              587,
+              413.7
+            ]
+          }
+        ],
+        "source_text": "Q46. The population of a city was 24,000 in the year 1997. It increased at the rate of 5%\nper annum. Find the population at the end of the year 2000.\n(A) 27,873 (B) 27,783\n(C) 28,773 (D) 28,737\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q046.webp"
+      },
+      {
+        "number": 47,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 7,
+            "rect": [
+              25,
+              414.2,
+              587,
+              503.7
+            ]
+          }
+        ],
+        "source_text": "Q47. A sum of money becomes eight times at compound interest in 45 years. The number\nof years required for it to double is:\n(A) 11¼ years (B) 10 years\n(C) 15 years (D) 25 years\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q047.webp"
+      },
+      {
+        "number": 48,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 7,
+            "rect": [
+              25,
+              504.20000000000005,
+              587,
+              593.7
+            ]
+          }
+        ],
+        "source_text": "Q48. At what rate percentage p.a. will Rs. 5,625 amount to Rs. 6,084 in 2 years at\ncompound interest?\n(A) 4% (B) 6%\n(C) 8% (D) 10%\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q048.webp"
+      },
+      {
+        "number": 49,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 7,
+            "rect": [
+              25,
+              594.2,
+              587,
+              683.7
+            ]
+          }
+        ],
+        "source_text": "Q49. Find the compound interest on ₹ 1,000 at the rate of 10% per annum for 18 months\nwhen interest is compounded half yearly.\n(A) ₹ 1,157.63 (B) ₹ 157.63\n(C) ₹ 167.73 (D) ₹ 157.36\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q049.webp"
+      },
+      {
+        "number": 50,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 8,
+            "rect": [
+              25,
+              54.200000000000045,
+              587,
+              143.70000000000005
+            ]
+          }
+        ],
+        "source_text": "Q50. The compound interest on Rs. 3,000 for 3 years at 10% per annum compounded\nannually is:\n(A) Rs. 900 (B) Rs. 933\n(C) Rs. 963 (D) Rs. 993\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q050.webp"
+      },
+      {
+        "number": 51,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 8,
+            "rect": [
+              25,
+              144.20000000000005,
+              587,
+              233.70000000000005
+            ]
+          }
+        ],
+        "source_text": "Q51. Find the compound interest on ₹ 15,625 for 9 months at 16% per annum compounded\nquarterly.\n(A) ₹ 1,851 (B) ₹ 1,941\n(C) ₹ 1,951 (D) ₹ 1,961\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q051.webp"
+      },
+      {
+        "number": 52,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 8,
+            "rect": [
+              25,
+              234.20000000000005,
+              587,
+              337.7
+            ]
+          }
+        ],
+        "source_text": "Q52. If the deposited amount is ₹ 5,000, the rate of Compound Interest is 12% per annum\nand compound interest is calculated every half year, then the total amount after one year\nis:\n(A) ₹ 5,648 (B) ₹ 5,618\n(C) ₹ 5,678 (D) ₹ 5,668\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q052.webp"
+      },
+      {
+        "number": 53,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 8,
+            "rect": [
+              25,
+              338.2,
+              587,
+              427.7
+            ]
+          }
+        ],
+        "source_text": "Q53. The amount to be repaid on a loan of ₹ 12,000 for 1½ years at 10% per annum\ncompounded half yearly is:\n(A) ₹ 13,891.50 (B) ₹ 12,888.50\n(C) ₹ 13,210.50 (D) ₹ 12,955.50\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q053.webp"
+      },
+      {
+        "number": 54,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 8,
+            "rect": [
+              25,
+              428.2,
+              587,
+              517.7
+            ]
+          }
+        ],
+        "source_text": "Q54. Find the compound interest that Rahul would receive if he invests ₹ 8,000 for 18\nmonths at 10% p.a., the interest being compounded half-yearly.\n(A) ₹ 1,061 (B) ₹ 1,160\n(C) ₹ 1,260 (D) ₹ 1,261\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q054.webp"
+      },
+      {
+        "number": 55,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 8,
+            "rect": [
+              25,
+              518.2,
+              587,
+              607.7
+            ]
+          }
+        ],
+        "source_text": "Q55. The population of a town is increasing at the rate of 6% p.a. It was 2,38,765 in the\nyear 2018. The population in the year 2020 is:\n(A) 2,68,376 (B) 2,68,276\n(C) 2,68,266 (D) 2,68,366\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q055.webp"
+      },
+      {
+        "number": 56,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 8,
+            "rect": [
+              25,
+              608.2,
+              587,
+              683.7
+            ]
+          }
+        ],
+        "source_text": "Q56. The sum which amounts to Rs. 2,662 at 10% p.a. in 3 years compounded yearly is:\n(A) Rs. 2,000 (B) Rs. 1,800\n(C) Rs. 1,500 (D) Rs. 2,500\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q056.webp"
+      },
+      {
+        "number": 57,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 9,
+            "rect": [
+              25,
+              54.200000000000045,
+              587,
+              143.70000000000005
+            ]
+          }
+        ],
+        "source_text": "Q57. The population of a village increases by 10% every year. If the present population is\n6,000, what will be the population of the village after 3 years?\n(A) 7,966 (B) 7,956\n(C) 7,936 (D) 7,986\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q057.webp"
+      },
+      {
+        "number": 58,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 9,
+            "rect": [
+              25,
+              144.20000000000005,
+              587,
+              233.70000000000005
+            ]
+          }
+        ],
+        "source_text": "Q58. A sum of money amounts to Rs. 2,662 at the rate of 10% compounded annually for 3\nyears. The sum of money is:\n(A) Rs. 2,000 (B) Rs. 1,800\n(C) Rs. 1,500 (D) Rs. 2,500\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q058.webp"
+      },
+      {
+        "number": 59,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 9,
+            "rect": [
+              25,
+              234.20000000000005,
+              587,
+              309.7
+            ]
+          }
+        ],
+        "source_text": "Q59. Find the compound interest on ₹ 1,000 at 10% per annum for 2 years.\n(A) ₹ 190 (B) ₹ 210\n(C) ₹ 1,210 (D) ₹ 200\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q059.webp"
+      },
+      {
+        "number": 60,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 9,
+            "rect": [
+              25,
+              310.2,
+              587,
+              399.7
+            ]
+          }
+        ],
+        "source_text": "Q60. The population of a town is increasing at the rate of 6% p.a. It was 2,38,765 in the\nyear 2018. Find the population in the year 2020.\n(A) 2,86,276 (B) 2,68,276\n(C) 2,48,274 (D) 2,68,876\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q060.webp"
+      },
+      {
+        "number": 61,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 9,
+            "rect": [
+              25,
+              400.2,
+              587,
+              475.7
+            ]
+          }
+        ],
+        "source_text": "Q61. Find the C.I on ₹ 15,625 at 8% p.a. for 3 years compounded annually.\n(A) ₹ 4,000 (B) ₹ 4,028\n(C) ₹ 4,058 (D) ₹ 4,050\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q061.webp"
+      },
+      {
+        "number": 62,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 9,
+            "rect": [
+              25,
+              476.2,
+              587,
+              565.7
+            ]
+          }
+        ],
+        "source_text": "Q62. Find the compound interest for the principal ₹ 4,000 at rate of interest 5% p.a. for 2\nyears, interest compounded annually.\n(A) ₹ 400 (B) ₹ 441\n(C) ₹ 440 (D) ₹ 410\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q062.webp"
+      },
+      {
+        "number": 63,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 9,
+            "rect": [
+              25,
+              566.2,
+              587,
+              655.7
+            ]
+          }
+        ],
+        "source_text": "Q63. In how much time will a sum of ₹ 1,600 amount to ₹ 1,852.20 at 5% per annum\ncompound interest?\n(A) 2 years (B) 5 years\n(C) 4 years (D) 3 years\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q063.webp"
+      },
+      {
+        "number": 64,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 10,
+            "rect": [
+              25,
+              54.200000000000045,
+              587,
+              143.70000000000005
+            ]
+          }
+        ],
+        "source_text": "Q64. Find the compound interest on ₹ 15,625 for 6 months at 16% per annum compounded\nquarterly.\n(A) ₹ 1,300 (B) ₹ 1,325\n(C) ₹ 1,250 (D) ₹ 1,275\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q064.webp"
+      },
+      {
+        "number": 65,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 10,
+            "rect": [
+              25,
+              144.20000000000005,
+              587,
+              233.70000000000005
+            ]
+          }
+        ],
+        "source_text": "Q65. At what rate per annum will ₹ 8,000 amount to ₹ 9,261 in 3 years, when interest is\nbeing compounded annually?\n(A) 3% (B) 4%\n(C) 5% (D) 2%\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q065.webp"
+      },
+      {
+        "number": 66,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 10,
+            "rect": [
+              25,
+              234.20000000000005,
+              587,
+              323.7
+            ]
+          }
+        ],
+        "source_text": "Q66. The population of a town is increasing at the rate of 10% p.a. It was 4,35,000 in the\nyear 2016. Find the population in the year 2018.\n(A) 3,52,350 (B) 3,59,504\n(C) 5,26,350 (D) 5,37,037\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q066.webp"
+      },
+      {
+        "number": 67,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 10,
+            "rect": [
+              25,
+              324.2,
+              587,
+              413.7
+            ]
+          }
+        ],
+        "source_text": "Q67. The compound interest on ₹ 4,000 compounded annually for 2 years at the rate of 5%\nper annum is:\n(A) ₹ 400 (B) ₹ 480\n(C) ₹ 430 (D) ₹ 410\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q067.webp"
+      },
+      {
+        "number": 68,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 10,
+            "rect": [
+              25,
+              414.2,
+              587,
+              503.7
+            ]
+          }
+        ],
+        "source_text": "Q68. In how much time will a sum of Rs. 1,600 amount to Rs. 1,852.20 at 5% per annum\ncompound interest?\n(A) 1 year (B) 2 years\n(C) 3 years (D) 4 years\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q068.webp"
+      },
+      {
+        "number": 69,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 10,
+            "rect": [
+              25,
+              504.20000000000005,
+              587,
+              593.7
+            ]
+          }
+        ],
+        "source_text": "Q69. Given Principal = Rs. 4,000, r = 5% p.a., n = 2 years, interest compounded annually.\nFind the Compound Interest.\n(A) Rs. 320 (B) Rs. 410\n(C) Rs. 280 (D) Rs. 450\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q069.webp"
+      },
+      {
+        "number": 70,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 10,
+            "rect": [
+              25,
+              594.2,
+              587,
+              683.7
+            ]
+          }
+        ],
+        "source_text": "Q70. The value of a motorcycle 2 years ago was ₹ 60,000. It depreciates at the rate of 5%\nper annum. Find its present value.\n(A) ₹ 54,000 (B) ₹ 54,050\n(C) ₹ 54,500 (D) ₹ 54,150\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q070.webp"
+      },
+      {
+        "number": 71,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 11,
+            "rect": [
+              25,
+              54.200000000000045,
+              587,
+              143.70000000000005
+            ]
+          }
+        ],
+        "source_text": "Q71. A machine bought at Rs. 50,000 falls in its value by 8% of its value every year. Find\nthe value of the machine after 2 years.\n(A) ₹ 40,000 (B) ₹ 43,220\n(C) ₹ 42,000 (D) ₹ 42,320\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q071.webp"
+      },
+      {
+        "number": 72,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 11,
+            "rect": [
+              25,
+              144.20000000000005,
+              587,
+              233.70000000000005
+            ]
+          }
+        ],
+        "source_text": "Q72. The value of a motorcycle 2 years ago was ₹ 70,000. It depreciates at the rate of 4%\np.a. Find its present value.\n(A) 65,312 (B) 64,312\n(C) 64,512 (D) 65,412\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q072.webp"
+      },
+      {
+        "number": 73,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 11,
+            "rect": [
+              25,
+              234.20000000000005,
+              587,
+              323.7
+            ]
+          }
+        ],
+        "source_text": "Q73. The cost of a machine is ₹ 18,000 and it depreciates at 16⅔% annually. Its value after\n2 years will be:\n(A) ₹ 12,000 (B) ₹ 12,500\n(C) ₹ 15,000 (D) ₹ 16,500\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q073.webp"
+      },
+      {
+        "number": 74,
+        "correct_answer": "D",
+        "segments": [
+          {
+            "page": 11,
+            "rect": [
+              25,
+              324.2,
+              587,
+              413.7
+            ]
+          }
+        ],
+        "source_text": "Q74. The value of a machine depreciates at 10% per year. If the present value is ₹\n1,62,000, what is the worth of the machine after two years?\n(A) ₹ 1,29,600 (B) ₹ 1,30,600\n(C) ₹ 1,31,600 (D) ₹ 1,31,220\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q074.webp"
+      },
+      {
+        "number": 75,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 11,
+            "rect": [
+              25,
+              414.2,
+              587,
+              503.7
+            ]
+          }
+        ],
+        "source_text": "Q75. Find the compound interest on Rs. 9,600 at 12% per annum for 2 years 4 months,\ncompounded annually.\n(A) Rs. 12,253 (B) Rs. 12,524\n(C) Rs. 12,853 (D) Rs. 12,653\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q075.webp"
+      },
+      {
+        "number": 76,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 11,
+            "rect": [
+              25,
+              504.20000000000005,
+              587,
+              593.7
+            ]
+          }
+        ],
+        "source_text": "Q76. The value of a motorcycle 2 years ago was Rs. 70,000. It depreciates at the rate of\n4%. Find the present value.\n(A) Rs. 67,000 (B) Rs. 50,000\n(C) Rs. 64,512 (D) Rs. 66,000\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q076.webp"
+      },
+      {
+        "number": 77,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 11,
+            "rect": [
+              25,
+              594.2,
+              587,
+              683.7
+            ]
+          }
+        ],
+        "source_text": "Q77. A sum of money invested at compound interest amounts to Rs. 800 in 3 years and to\nRs. 840 in 4 years. Find the rate of interest per annum.\n(A) 2½% (B) 4%\n(C) 5% (D) 6⅔%\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q077.webp"
+      },
+      {
+        "number": 78,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 12,
+            "rect": [
+              25,
+              54.200000000000045,
+              587,
+              143.70000000000005
+            ]
+          }
+        ],
+        "source_text": "Q78. The value of a machine depreciates 10% each year. A man pays ₹ 30,000 for the\nmachine. Find its value after 3 years.\n(A) ₹ 39,830 (B) ₹ 21,870\n(C) ₹ 39,930 (D) ₹ 21,970\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q078.webp"
+      },
+      {
+        "number": 79,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 12,
+            "rect": [
+              25,
+              144.20000000000005,
+              587,
+              233.70000000000005
+            ]
+          }
+        ],
+        "source_text": "Q79. The value of a machine depreciates by 10% each year. A man pays Rs. 50,000 for the\nmachine. Find its value after three years.\n(A) Rs. 35,650 (B) Rs. 36,450\n(C) Rs. 35,450 (D) Rs. 37,450\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q079.webp"
+      },
+      {
+        "number": 80,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 12,
+            "rect": [
+              25,
+              234.20000000000005,
+              587,
+              323.7
+            ]
+          }
+        ],
+        "source_text": "Q80. Find the difference between Simple Interest and Compound Interest on Rs. 8,000 at\n10% p.a. for 2 years.\n(A) Rs. 80 (B) Rs. 100\n(C) Rs. 120 (D) Rs. 160\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q080.webp"
+      },
+      {
+        "number": 81,
+        "correct_answer": "C",
+        "segments": [
+          {
+            "page": 12,
+            "rect": [
+              25,
+              324.2,
+              587,
+              413.7
+            ]
+          }
+        ],
+        "source_text": "Q81. The difference between Compound Interest and Simple Interest on a sum of money at\n5% p.a. for 2 years is Rs. 25. Find the sum.\n(A) Rs. 8,000 (B) Rs. 9,000\n(C) Rs. 10,000 (D) Rs. 12,000\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q081.webp"
+      },
+      {
+        "number": 82,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 12,
+            "rect": [
+              25,
+              414.2,
+              587,
+              503.7
+            ]
+          }
+        ],
+        "source_text": "Q82. Find the difference between Simple Interest and Compound Interest on ₹ 5,000 at 8%\np.a. for 2 years.\n(A) ₹ 32 (B) ₹ 35\n(C) ₹ 40 (D) ₹ 48\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q082.webp"
+      },
+      {
+        "number": 83,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 12,
+            "rect": [
+              25,
+              504.20000000000005,
+              587,
+              593.7
+            ]
+          }
+        ],
+        "source_text": "Q83. The difference between C.I. and S.I. on a sum of money for 2 years at 8% per annum\nis ₹ 64. Find the sum.\n(A) ₹ 8,000 (B) ₹ 10,000\n(C) ₹ 12,000 (D) ₹ 15,000\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q083.webp"
+      },
+      {
+        "number": 84,
+        "correct_answer": "B",
+        "segments": [
+          {
+            "page": 12,
+            "rect": [
+              25,
+              594.2,
+              587,
+              683.7
+            ]
+          }
+        ],
+        "source_text": "Q84. Find the difference between compound interest and simple interest on ₹ 12,000 at\n10% per annum for 3 years.\n(A) ₹ 360 (B) ₹ 372\n(C) ₹ 380 (D) ₹ 390\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q084.webp"
+      },
+      {
+        "number": 85,
+        "correct_answer": "A",
+        "segments": [
+          {
+            "page": 13,
+            "rect": [
+              25,
+              54.200000000000045,
+              587,
+              143.70000000000005
+            ]
+          }
+        ],
+        "source_text": "Q85. The difference between simple interest and compound interest for 2 years at 12%\nper annum on a principal of ₹ 25,000 is:\n(A) ₹ 360 (B) ₹ 300\n(C) ₹ 320 (D) ₹ 350\n(E) Answer not known",
+        "has_e": true,
+        "source_image": "imports/maths-pyq-additional/images/paper-05/q085.webp"
+      }
+    ],
+    "answers": {
+      "1": "D",
+      "18": "B",
+      "35": "C",
+      "52": "B",
+      "69": "B",
+      "2": "D",
+      "19": "A",
+      "36": "D",
+      "53": "A",
+      "70": "D",
+      "3": "C",
+      "20": "A",
+      "37": "B",
+      "54": "D",
+      "71": "D",
+      "4": "C",
+      "21": "B",
+      "38": "D",
+      "55": "B",
+      "72": "C",
+      "5": "C",
+      "22": "B",
+      "39": "A",
+      "56": "A",
+      "73": "B",
+      "6": "B",
+      "23": "A",
+      "40": "D",
+      "57": "D",
+      "74": "D",
+      "7": "C",
+      "24": "B",
+      "41": "C",
+      "58": "A",
+      "75": "B",
+      "8": "C",
+      "25": "B",
+      "42": "D",
+      "59": "B",
+      "76": "C",
+      "9": "D",
+      "26": "B",
+      "43": "A",
+      "60": "B",
+      "77": "C",
+      "10": "B",
+      "27": "B",
+      "44": "C",
+      "61": "C",
+      "78": "B",
+      "11": "B",
+      "28": "D",
+      "45": "B",
+      "62": "D",
+      "79": "B",
+      "12": "C",
+      "29": "C",
+      "46": "B",
+      "63": "D",
+      "80": "A",
+      "13": "D",
+      "30": "A",
+      "47": "C",
+      "64": "D",
+      "81": "C",
+      "14": "C",
+      "31": "B",
+      "48": "A",
+      "65": "C",
+      "82": "A",
+      "15": "C",
+      "32": "C",
+      "49": "B",
+      "66": "C",
+      "83": "B",
+      "16": "B",
+      "33": "C",
+      "50": "D",
+      "67": "D",
+      "84": "B",
+      "17": "D",
+      "34": "A",
+      "51": "C",
+      "68": "C",
+      "85": "A"
+    },
+    "issues": []
+  }
+]

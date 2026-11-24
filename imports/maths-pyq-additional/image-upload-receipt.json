@@ -1,0 +1,1098 @@
+{
+  "imports/maths-pyq-additional/images/paper-05/q002.webp": {
+    "hash": "97409ce502954f6c117936044f84c29eb370d260ba8c7b4d681d484b9e046635",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q002-97409ce50295.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q003.webp": {
+    "hash": "501980377a860447d0c9941365622e0b851d39a256c75732a3e5f6f60efc0820",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q003-501980377a86.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q004.webp": {
+    "hash": "620157bf69fa2e9ac7f1877193d8a96d07bf77b257b29c791353f9355ecf0991",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q004-620157bf69fa.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q002.webp": {
+    "hash": "2c18547cb509a01d36fb2a9791f1f18784b42b29204cf784657aa5e77fc2bc12",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q002-2c18547cb509.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q003.webp": {
+    "hash": "5669fa8fd8d34b6b1da61608cc00449f3bf3a726d7fd7ce93f5d1f2e0ddc7d7d",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q003-5669fa8fd8d3.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q004.webp": {
+    "hash": "dfe9d8ed73ca58adb825d440add83038de846a1790bf8d78426798e7f36bac80",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q004-dfe9d8ed73ca.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q001.webp": {
+    "hash": "c8ac379bb85cc4b2afcd53a77fe7ecc21cf38b2ea48758158e27a482e7698037",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q001-c8ac379bb85c.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q007.webp": {
+    "hash": "5f50115d47918f36ec6d4e7c5f3c4e4e7682dd3b74d41c4cca13e8dd4cd87801",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q007-5f50115d4791.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q005.webp": {
+    "hash": "cc4fd12bb1fce892ae9b446269aee386fbea575fdb415b0db14e9315df5710cd",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q005-cc4fd12bb1fc.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q001.webp": {
+    "hash": "9a94f00b87918f8b01e8fe3c9e0400e7cd6163b8907de2229fd9b425002346c8",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q001-9a94f00b8791.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q006.webp": {
+    "hash": "2733671147205455a827e3b042717389df6c08b813f0ecdaae5d574e5f3d28d4",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q006-273367114720.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q008.webp": {
+    "hash": "0b0cb9301f3db5700ef2a68a3eaa5dfffd1d9829c2d6ecebadb807b0c09f6125",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q008-0b0cb9301f3d.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q006.webp": {
+    "hash": "4d50312e2af91cf59440bc15b39d7070bfe44172150cac87865c5455e97a9c43",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q006-4d50312e2af9.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q005.webp": {
+    "hash": "a254490d0e281317b8128fe5443f2aced2683d7093a4315bd41e0fea8bab0188",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q005-a254490d0e28.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q007.webp": {
+    "hash": "83700e09f755ab75a91b559e39ac58fbe631b943767feff27d42a5c2c989fc0f",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q007-83700e09f755.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q011.webp": {
+    "hash": "aff5af4c5c9cb60c1f893d81fe33d092875c371da28f800f38933c1f73eaf922",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q011-aff5af4c5c9c.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q010.webp": {
+    "hash": "faa0b21b960202cc8f383de65d5904530d6b7e4a2a366a4e61e11932db9bfdaf",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q010-faa0b21b9602.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q009.webp": {
+    "hash": "10fd9fe329a3a4db08dc838a33fd24694e65c573b3a2e5346ac28f32b7028893",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q009-10fd9fe329a3.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q008.webp": {
+    "hash": "469b9233544012ea488822647f6d67ce4842368c8f4785d36836f5e07726d614",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q008-469b92335440.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q011.webp": {
+    "hash": "c6ebc41c6cba6c68071b7f20d7bcab78d647f06404fb27188c82eae100d46fe4",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q011-c6ebc41c6cba.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q010.webp": {
+    "hash": "9c96d7d4a934b37f7e52611506cb040fa201ea2441620ff8751ca93f7648f4ba",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q010-9c96d7d4a934.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q009.webp": {
+    "hash": "813a4b794b80dbaac7edcc69b5b719471989ff22a17d4edac5ae4ef09e5d0fb7",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q009-813a4b794b80.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q012.webp": {
+    "hash": "b668449e0ba4275935bc7b9ecaed5e9644bc1a32ddc67e010e05aa15a8919a3b",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q012-b668449e0ba4.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q014.webp": {
+    "hash": "cfa854f587c3c7580f453e12ed905b403fcb6fd833c6c09c9777deddfd7aaff3",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q014-cfa854f587c3.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q013.webp": {
+    "hash": "4593c05220422cab32433810b3bdb7fe762a8455ad1948ec5c0debe70cf9f9a0",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q013-4593c0522042.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q015.webp": {
+    "hash": "492958fca5057087bcb70dcbaa18302ded84093faf076c983fa54e4d3447f757",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q015-492958fca505.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q012.webp": {
+    "hash": "01c3772bdb555c989436c61dee78bcb54c3e2b4f665a12377b194cc9bd448da3",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q012-01c3772bdb55.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q015.webp": {
+    "hash": "169b5376f48f04cdade4c7cf34800ddc74f46030f78783c33d9834589af3452f",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q015-169b5376f48f.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q013.webp": {
+    "hash": "b6963a87ccdd43a6905a9e705c8901f60813a7d5caf51e6ab77c251f5e79a1fb",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q013-b6963a87ccdd.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q017.webp": {
+    "hash": "bde62c44d88b9d1872e06265eb7619eb3c2bc4f70573d4ef57eb6de5c5dd327c",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q017-bde62c44d88b.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q018.webp": {
+    "hash": "56b1ce75c570eeb6ac4b3588bebe3c83110b3049450732085015005b6f38cb2a",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q018-56b1ce75c570.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q016.webp": {
+    "hash": "cf54f1691034f6601059db79aa80002eacc14299c20dc5e39a0239f5641bfc03",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q016-cf54f1691034.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q018.webp": {
+    "hash": "73b7202f13ece421d1472bf9d77d52ebf7e5ab0e2d7aa27b27ead570913dab14",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q018-73b7202f13ec.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q017.webp": {
+    "hash": "1e58eb10e9277a3dc2ccbbfeafcb7a1c787b1fde46d86adfb215258eaaafc4d0",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q017-1e58eb10e927.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q016.webp": {
+    "hash": "5e17c6e0b4d58f8177c862b89e875d5da051b7c59fae8e3dad342f0252393978",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q016-5e17c6e0b4d5.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q019.webp": {
+    "hash": "efc9e0b1e0d012a5206a8afd20f1fc7e7498e622c290b215317a6910afd68514",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q019-efc9e0b1e0d0.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q021.webp": {
+    "hash": "00039fd451fef4c776e61bea24ab1eb4271b8d25e970f3ac627e9f8f2337be54",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q021-00039fd451fe.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q019.webp": {
+    "hash": "d901d2eae05096c98d936a0cbd88037f72463159c15886fed934b06731c7332d",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q019-d901d2eae050.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q020.webp": {
+    "hash": "8f48aa4491f9060ff48c74e438e7eee02bb4c21ce3924244619e893ab01c1af8",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q020-8f48aa4491f9.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q021.webp": {
+    "hash": "9eb2149a37f7f7728a0e4eb06746c71980f654c5ed0427cfc3a7ec264707445a",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q021-9eb2149a37f7.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q014.webp": {
+    "hash": "6adbd2767952bb96b226f162dd135f7e03ee7f94fee355dd22e20d7da376252b",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q014-6adbd2767952.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q023.webp": {
+    "hash": "c6d4f9b075868dbc2ac37832b1e6715760d522ac861f139dbce4aa1bf20f41a3",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q023-c6d4f9b07586.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q020.webp": {
+    "hash": "938de33883f184bef79499e464e93129267154c4312e1471258443b83c714e4c",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q020-938de33883f1.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q024.webp": {
+    "hash": "0f12ba25a86692ff601faf4c381d1614fde3aa253367f36ea238918f64df6cbf",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q024-0f12ba25a866.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q025.webp": {
+    "hash": "569856bc4f78b4845929e2df5e23236b01f70305acf64653cc3f23cc4cc91ad6",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q025-569856bc4f78.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q023.webp": {
+    "hash": "247a9b9bf1282002cfce961a74afc83d581e97cea7b20546c3c502c4054f2d8a",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q023-247a9b9bf128.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q022.webp": {
+    "hash": "e5cdbcea4c2c11446852e39f75ef765fe079d102de13b5fc24d6be78aef7288f",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q022-e5cdbcea4c2c.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q024.webp": {
+    "hash": "c5f7858c4b00887edd677187355eeeb224b4520d70d7f6c800dbce4e664fcb84",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q024-c5f7858c4b00.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q026.webp": {
+    "hash": "1ae0146823def8784f475597d5c76bb9e039856d7d3124c5ee22d7cd88abd3dd",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q026-1ae0146823de.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q025.webp": {
+    "hash": "fa18a6486bec97ef55d92c9ab475cd1e0938df0271b786390c7c7377658d2068",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q025-fa18a6486bec.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q022.webp": {
+    "hash": "01af659c833c7bd2da1160bacb479601ce1fb6d482835e675c70d6d54e656a6a",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q022-01af659c833c.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q026.webp": {
+    "hash": "053a64603860b03e3768eb888f66e4fd6ded88215e20991ced55c139cc5d2079",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q026-053a64603860.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q027.webp": {
+    "hash": "03d437fd6a2b56bd57741905a4754f711bfa2e1f10dbd013b0d9f2fedceb630d",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q027-03d437fd6a2b.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q028.webp": {
+    "hash": "7be00f74074c143e403c9901f56adbda1808336e2d475b1605aeb40a92ca3849",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q028-7be00f74074c.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q030.webp": {
+    "hash": "0a935574af443f7750bf80f90214dc3eb3ed8fbe9365b72e1fa1bd4fb17ae561",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q030-0a935574af44.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q029.webp": {
+    "hash": "98c4986e7b5607324c4552f21a067ea0f8cfa25a445b8258dd014fd4654a6767",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q029-98c4986e7b56.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q027.webp": {
+    "hash": "1aecb7f4c0674ad98caf21d4f233441aeb367ef9134312e5ef8b18efb4a5d247",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q027-1aecb7f4c067.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q029.webp": {
+    "hash": "7facb1a8619603d2e0a68bf244876dfa810ac1ec41f2e89d157ee510ca3c0647",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q029-7facb1a86196.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q028.webp": {
+    "hash": "96fe9a782af698f8607cd371fd8ad3f8f87594106d381e63de4070c60fb0ac52",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q028-96fe9a782af6.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q030.webp": {
+    "hash": "ed7c457e1e0de7f39b6943f94dca46bfe2871163bce1b9185a0443c4fe55fedc",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q030-ed7c457e1e0d.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q031.webp": {
+    "hash": "08c62d0ed04617bf6ea4e54a18c48abb0a786e6be381a10b1d0e73fd16d3e5f2",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q031-08c62d0ed046.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q033.webp": {
+    "hash": "fb9a410b5f587a208bfe6f73f0b64b49caf98f6bd8b15aed3f76d2f88c72ed23",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q033-fb9a410b5f58.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q032.webp": {
+    "hash": "8fb0e505bdcfb512c786f2691cefe070c5ee95b18df34a4119e758798d1696f8",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q032-8fb0e505bdcf.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q034.webp": {
+    "hash": "c80f23926fe89ec4a3361cf0240637c9a7e6064c5943bbe2502c3eb3001f57bb",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q034-c80f23926fe8.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q031.webp": {
+    "hash": "d8b3487a856e77a3c48bdf6c9316dcb9369da02c503b9c778be529da57d37ed3",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q031-d8b3487a856e.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q033.webp": {
+    "hash": "6fc485ab3564ca62eb24d777a33059cf350119c5007b21cfd241ab57e2891acf",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q033-6fc485ab3564.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q032.webp": {
+    "hash": "054f0399856917b62549daea2b43c9be281d2f5ea1dd7b039e350cd54b39621d",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q032-054f03998569.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q034.webp": {
+    "hash": "cfaf96227ed600dc8c8b0a8cf75b878227f62511b34d09843a6577d86f4dfb66",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q034-cfaf96227ed6.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q035.webp": {
+    "hash": "b0e2e6df577f8f37da7cd684f17f0b53f8747c4abaed30a577161a1f1e4b3ead",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q035-b0e2e6df577f.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q036.webp": {
+    "hash": "bfdadf639975fa7e3ebb3b1d7c1c25c4da1c98cfb879f31306db8268028d4561",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q036-bfdadf639975.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q038.webp": {
+    "hash": "e61b9e391370ce0fec40ec49b732d83aac91341593e0229df27cb6fab05445ef",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q038-e61b9e391370.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q035.webp": {
+    "hash": "6da60bafe9c2368dbf11e23161a6ea9c68cd3b48c726a29b946e558d34b84c7c",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q035-6da60bafe9c2.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q037.webp": {
+    "hash": "1d811f2f4a76f2176bc3ed4dd3e68fb4208fda768fc710f3f4e6b17f95597903",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q037-1d811f2f4a76.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q036.webp": {
+    "hash": "532b29b29101493be4d49341d7c5193bfe1bd76c9049a78a91c9871171f44ce3",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q036-532b29b29101.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q038.webp": {
+    "hash": "9468fc0edb8046e1cf248fbf85993929632d5124428ef04dfb190a4daf204fda",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q038-9468fc0edb80.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q039.webp": {
+    "hash": "88d1e18d2c60960c8bd6dd54c6c82843acab096a59407af1da89cf7e6a6c7074",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q039-88d1e18d2c60.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q037.webp": {
+    "hash": "c2349ab9213aa484a7c5b98908096979427e79bed3a459b03a6fd372c34c43b6",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q037-c2349ab9213a.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q040.webp": {
+    "hash": "ee1cdcd4c7e6e7f23cbd60dfc9a1e3ae1c9d3702dcd5868ca4882f36e9fee6ca",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q040-ee1cdcd4c7e6.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q041.webp": {
+    "hash": "7b409364bca66c2a237c4607046b986c70c1db88ec1e3fe58c8bb99585bde8cd",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q041-7b409364bca6.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q039.webp": {
+    "hash": "05c5a0e3c4c682653e3f4f05f95625194eb8be9f1b1b577e037f35675824b3d8",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q039-05c5a0e3c4c6.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q042.webp": {
+    "hash": "f6502fa2c6210dc8af76032e58b6efb49c92cd66f7ebc8a89db213d6ac37bdf8",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q042-f6502fa2c621.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q043.webp": {
+    "hash": "8d2d6ce8637de2b745d933618648858c7e486db0710eaed004dc89ece363d561",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q043-8d2d6ce8637d.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q042.webp": {
+    "hash": "2e974a62330c138a6473f2f6113bfff0d276a4ac071017dfd3ecfa5e9dbd39d0",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q042-2e974a62330c.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q040.webp": {
+    "hash": "07d6d613126d7f1a7935408d0f52fa2371fa77b4df78fd782b3fcd84791774b7",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q040-07d6d613126d.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q041.webp": {
+    "hash": "98781a03ab4562ed8f47b3b8b520268187a56445485b1fe1fefd3aa4191a34dd",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q041-98781a03ab45.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q044.webp": {
+    "hash": "8197f865bf1305bdebc430579cce6cec3630163f9dfa96b8362d138b6aa8e7f4",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q044-8197f865bf13.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q043.webp": {
+    "hash": "d6f37b84a25d98975465ab5c20a707c47e05787fe8d4636786121fae9d7d2093",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q043-d6f37b84a25d.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q046.webp": {
+    "hash": "5796e1e2e6ada8d8776592f60299cbe510928b989671f05642f752c4d49b6416",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q046-5796e1e2e6ad.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q045.webp": {
+    "hash": "9503380712ff89a62af96e27743e9708ab966151baedfc7663590e1e1bbb66b9",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q045-9503380712ff.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q046.webp": {
+    "hash": "530023f8ec8198c009e163663358bde8e8b102a2ae25a59e39e904dac01fee20",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q046-530023f8ec81.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q047.webp": {
+    "hash": "42a7da339cd1e27c475439e66250667874134ddf78a5891ad2a872007c11f8e5",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q047-42a7da339cd1.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q045.webp": {
+    "hash": "f60dd6dea97b85e30973e54a93251553a60b191aecc5eced7a919dd7e0538d39",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q045-f60dd6dea97b.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q044.webp": {
+    "hash": "e623578161b0eb34405198254b7fe6cc90a389245b4228e469ae622cd44b6320",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q044-e623578161b0.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q049.webp": {
+    "hash": "6a2c86ef94e3de1f9311ac5b00110cd34a261971320e147aad456ce1bebb4bd2",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q049-6a2c86ef94e3.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q047.webp": {
+    "hash": "e72e9f619d37ce7a570137ed687d28033dae3ef45b719fa4bb51738fcf1d9826",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q047-e72e9f619d37.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q048.webp": {
+    "hash": "ed952143f48fa5c3c5ada131ee24b1c83492b4666373c438b23ffd71e70aa4cc",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q048-ed952143f48f.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q050.webp": {
+    "hash": "b58976d1539728b6ff1765767dfbba6a49bcd91856bb96b56f98840f21e2efd5",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q050-b58976d15397.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q050.webp": {
+    "hash": "042665be6f1d4e3e48e5bf111182a74598c7909b56944eb14ee4bdd7c4746026",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q050-042665be6f1d.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q051.webp": {
+    "hash": "f1afdaf12a79b49dc0daa5086bae8c496c8021c2a7fb614dfa708f8a1958db53",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q051-f1afdaf12a79.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q048.webp": {
+    "hash": "706f8e227745579a4aab537f5d0f397653252537f2f4271b1c8f5b63e225ed48",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q048-706f8e227745.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q049.webp": {
+    "hash": "3791d6859a561f4b9dabbb73b57125bbc65e02a763ada07f0933311f50e0a4e7",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q049-3791d6859a56.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q052.webp": {
+    "hash": "171e3e08ed3e2032dba6d0e662e0a7b753cdde76144bc5e23d4fa62cae92d3fb",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q052-171e3e08ed3e.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q054.webp": {
+    "hash": "1750c19a3bd933221ead6b52c411e1f436b14ed701b4c26764a2b052436f36a0",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q054-1750c19a3bd9.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q053.webp": {
+    "hash": "293970ef692cfe6d18bf115b760cbba7d18a5ce91bfe52fc13c4903e2b5e755d",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q053-293970ef692c.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q051.webp": {
+    "hash": "6073e3c73f9277c12713f3f33649eb25fcf7df3a4ba797c544f09f693ba6d29e",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q051-6073e3c73f92.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q052.webp": {
+    "hash": "4e108f8249e96d55630ac75994a4e6f4fee4c5f9955bbc4aa3730c9f596df4d8",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q052-4e108f8249e9.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q055.webp": {
+    "hash": "4a604839eb6125f8811e0eb8e054c5044b6524fb2af8d50b136be9af1566996e",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q055-4a604839eb61.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q054.webp": {
+    "hash": "85c20518e1aeeb38a2246952813829da062e4ba9f884d422f119a95a638c397c",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q054-85c20518e1ae.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q053.webp": {
+    "hash": "771c8957ca4b10137074793b7b3dfbf49cf9806ba3366ba3689ac0ee4ee5f5ae",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q053-771c8957ca4b.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q056.webp": {
+    "hash": "26f60075c6ccc2c9cbac46995d1bd627dac2c7efac50194c2a7639c01d374e5d",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q056-26f60075c6cc.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q055.webp": {
+    "hash": "71029b0235b2d7f584f21941fa7055314a2ddba9474e75bd7e07dedcf28d0bf3",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q055-71029b0235b2.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q057.webp": {
+    "hash": "8b56f2fb55f959a7efd86958eda8f439e67111ed69e67d383cb31e3c87ecaa56",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q057-8b56f2fb55f9.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q058.webp": {
+    "hash": "d97ed2ce9429101ab407a544c8f2af9b04e5506e1c5a7492229d3cabc16a595e",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q058-d97ed2ce9429.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q059.webp": {
+    "hash": "84fe3d7ecce3a6ae319409d73952321bf3670d85de65940042a81bb8224f3134",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q059-84fe3d7ecce3.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q057.webp": {
+    "hash": "7415023b7964e9fcbad57912d9d34b41bb60cc40817b19cd29910d85c2e0f634",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q057-7415023b7964.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q056.webp": {
+    "hash": "08b03b0ed63e1e5a812fe627e9673be638dc7f87629f9ebce360e9f2d5caa47c",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q056-08b03b0ed63e.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q058.webp": {
+    "hash": "57e368a618257ea520f33ec352fedb594216c0c2a463ae5cec6b88808da0a14c",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q058-57e368a61825.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q060.webp": {
+    "hash": "88ab12f565d87d293238f79697745f3f4559d6dfe16a57c0107a4a46e79ed8f3",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q060-88ab12f565d8.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q062.webp": {
+    "hash": "7e19479096889ef0fab495e02f155301a43d49aad4eecc3e6f479830c2428a97",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q062-7e1947909688.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q059.webp": {
+    "hash": "5104706ae6978762b875280beead826033f69e6fb2e0a6b35dbddc5ba5206c61",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q059-5104706ae697.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q061.webp": {
+    "hash": "4e38a9782fa1ae9b353659cf8d1059a06b977416d8d1183da18ee82853bd5ef2",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q061-4e38a9782fa1.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q060.webp": {
+    "hash": "34f909867d2f415fe96c3119445647e00bf50146b1fd1224e75dd9d01627bfc2",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q060-34f909867d2f.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q062.webp": {
+    "hash": "b7b4d60b39be53cefd29fdc1b437177a6aad3c3942d36044c50a1fa59ec0b922",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q062-b7b4d60b39be.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q063.webp": {
+    "hash": "51823b03f235fbd2773951728dcf66364c1674ef4bb5546a7c17670b6e27a46b",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q063-51823b03f235.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q061.webp": {
+    "hash": "54464be7c62e04f79317089a115f643be514ca0c09cc76f572134c1be7fc5114",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q061-54464be7c62e.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q065.webp": {
+    "hash": "1710283d22fce569d047d0e12cf1c4013a0e18ec9ce66e55c9735c91f35cbc0a",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q065-1710283d22fc.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q063.webp": {
+    "hash": "6590da81876249a31099dd5aa1f0f9e2407723c3e120ee6f7840688214edd3dc",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q063-6590da818762.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q066.webp": {
+    "hash": "01be8b35b42389e59a42c5a0a436dc869b7c37062aa4c7464dcd0c47fa0f13ea",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q066-01be8b35b423.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q064.webp": {
+    "hash": "e0c5ae1ad6ade8b984ec54d1c02de671d96bfd063b53117301969aca87b09aab",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q064-e0c5ae1ad6ad.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q065.webp": {
+    "hash": "641fb5e7e0c963a36bcd1e62a6af9c5c98c3dcac879e98349ccbf6af848618d6",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q065-641fb5e7e0c9.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q066.webp": {
+    "hash": "9f6c159bb51823a79e8336bfb525ff0e416a8acd4316197dab06703a146f5c8c",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q066-9f6c159bb518.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q067.webp": {
+    "hash": "0a650b4670057f019d72013c9f4ae5d1b876c85254eaafb1ba29173ce713070d",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q067-0a650b467005.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q064.webp": {
+    "hash": "b147a354e02823beade1e3dc85be00a74848d85c2a4ddc95b37cf6dbf818a0a5",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q064-b147a354e028.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q068.webp": {
+    "hash": "71e13454f5972d7bec8fc36cee9feffbc89edd86b2e60b9ca23877aa7d3fb341",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q068-71e13454f597.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q069.webp": {
+    "hash": "ca03432bd81e8f09c4dc80214a0a7908fd0a894ff896de69ab31a8eeaee64097",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q069-ca03432bd81e.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q070.webp": {
+    "hash": "e47523a0ef899d9f2a4e26529f07ed95c594104ac782003be9b59fad8d764680",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q070-e47523a0ef89.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q070.webp": {
+    "hash": "02557f4f97dbc6e5aa20bd6e6aa7d17d945394b7d069245dc0dc61929f185d4e",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q070-02557f4f97db.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q069.webp": {
+    "hash": "526a813f32ed4df713126246c1ff4d530984aec65ccc31822030b8e09d25af05",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q069-526a813f32ed.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q068.webp": {
+    "hash": "18ddb6b1ce31db9a4d5f51f4b327e5580474b6e0f33610ab97234ac0aea646df",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q068-18ddb6b1ce31.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q071.webp": {
+    "hash": "7856752600db5868158367c82a2fa95f02d71f84b8493afb5f485e48ad2a4635",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q071-7856752600db.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q073.webp": {
+    "hash": "b0743f6feee81e021bf5bd06abe285222e095edae786e6252c8be7049ddf8e39",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q073-b0743f6feee8.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q067.webp": {
+    "hash": "c01e20506b4acad2f44d302f200a6caf42689f377e9183e1000da03fb7808865",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q067-c01e20506b4a.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q072.webp": {
+    "hash": "ca5b121e8b25cafcc4deb11f55a7a4930cf3da1d57c7879369c58ab40c4cfc0a",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q072-ca5b121e8b25.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q071.webp": {
+    "hash": "421546e8a60f5489c06dcb7c85814cd4c7a420fc7c970f00805e2481cabc59e0",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q071-421546e8a60f.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q073.webp": {
+    "hash": "4548e1e87893a31c9a126a827bdab03340d91e254bdb1c6f830475d01f340e5a",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q073-4548e1e87893.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q072.webp": {
+    "hash": "3428935cd41c285827fb331b5bd383a039c437be755102bdcbbddc9fd658a929",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q072-3428935cd41c.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q076.webp": {
+    "hash": "f8904c74e6f4b2577c823c7752c03c63b6dc23d56c78a20b2e9dfdb58cb4c98b",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q076-f8904c74e6f4.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q074.webp": {
+    "hash": "4c207e452702ebae4b1fb4a678dc5dbc9e6ee9db468ef3cbcab0a656a8f94e0f",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q074-4c207e452702.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q075.webp": {
+    "hash": "307a6700d1c880da0e600b8ac3c40bf0c8e6523a364a6dabb04d0724ae97381f",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q075-307a6700d1c8.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q077.webp": {
+    "hash": "5d0aefd5b8d6f9428684096e282d1acb82863430d2d6f9b2621b2775a5de2432",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q077-5d0aefd5b8d6.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q074.webp": {
+    "hash": "e3db52b406776d157d0f5e9c6c422af57a3042810eb473beb7ce1803126100ba",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q074-e3db52b40677.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q077.webp": {
+    "hash": "e2a5f79aea60debe85ce88c0d6cb2a164122026df929675698ffaef0b9b1fc44",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q077-e2a5f79aea60.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q075.webp": {
+    "hash": "8e79b8777cf178acb7ad18e087d3a120de9ba90ebd120e1751b48b2836e47d67",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q075-8e79b8777cf1.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q076.webp": {
+    "hash": "90997986ee39569bec89c9052a1eb02d70a8806a8bf7eaf2d6c3f0d571a143a3",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q076-90997986ee39.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q079.webp": {
+    "hash": "ee27946bc48501cd156a245655b696d84417f368be4fd771460e8f0692400986",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q079-ee27946bc485.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q080.webp": {
+    "hash": "697aff0137bd18112dd74b71d09a6792d8ec548f09f8c9b343e0b448660ed228",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q080-697aff0137bd.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q078.webp": {
+    "hash": "69a9b2b9408df1dadcda6b26c0168a135a62ae282b73e729c12bc09f5783255a",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q078-69a9b2b9408d.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q079.webp": {
+    "hash": "20da112ec5082295d8753a71b9c525ced72fd660d9f64d3cdedd09432b926208",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q079-20da112ec508.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q081.webp": {
+    "hash": "a0b3644d35efee65281f6c6ac9980b97554cbb62ccc2e040e45a8411bac7c0ac",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q081-a0b3644d35ef.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q080.webp": {
+    "hash": "2830d307b0b82df5cb921ab15e9e35bf4238014e6417d82203c0f07972ae77e8",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q080-2830d307b0b8.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q078.webp": {
+    "hash": "3f2347bd529ef20b5eeb9a6597621ab0bee23c059c4f8b920e4ef68763b6f7a0",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q078-3f2347bd529e.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q082.webp": {
+    "hash": "40306c10f9c22aeba8fd0df295fb536d1b451d182a7dd02066a74b5f113ded22",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q082-40306c10f9c2.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q081.webp": {
+    "hash": "1259094513562d6d54ca7574d38e917cdd344186ffb4203ddb75aa079d3b3313",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q081-125909451356.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q084.webp": {
+    "hash": "314682598e4745ad2497fcee83f65dc20cd259b8b1f5b12dc173a502113f2626",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q084-314682598e47.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q083.webp": {
+    "hash": "76ccfa6d8d56a13dce111463a882b240cb2d7903f30e91b39050d9082a1a1db5",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q083-76ccfa6d8d56.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q084.webp": {
+    "hash": "423a000cef7e7f90f99045e21ed12c17876916fee33e2972cd89bef3935b8f4e",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q084-423a000cef7e.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q083.webp": {
+    "hash": "70299b613164b6aa3ed0614802fca68a19ff065c6adfde01be7c2151e6081cf1",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q083-70299b613164.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q082.webp": {
+    "hash": "84fd5c11dacdfd37846faf87d51ef7212b86008a614274badad606188d337e3c",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q082-84fd5c11dacd.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-05/q085.webp": {
+    "hash": "a8a80c2f3c25fe325cd1c076d71709c434070c2112486743ebe05c39cac247b2",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-05/q085-a8a80c2f3c25.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-04/q085.webp": {
+    "hash": "8b6cac71ecb72ae0541b12443104d2d682e7d6fbba29a13bfc4dedc7d5b0f835",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-04/q085-8b6cac71ecb7.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q002.webp": {
+    "hash": "5b60225dbae28b931c5a7e78490ff49cf3856c0a6153506688f019ea76c762b8",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q002-5b60225dbae2.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q003.webp": {
+    "hash": "387a9a45306c72ea9fa0fdcb0b5218a4cac95bbc4892cdc7a5bc9b2d0898030b",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q003-387a9a45306c.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q004.webp": {
+    "hash": "873ebe9ccd47b948e6e263b489b715a50ec245b42b97037fc8af633a1c710bca",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q004-873ebe9ccd47.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q001.webp": {
+    "hash": "cd6b36c541fbc98950cea08791cf5d45b49b6d4a2f736ad288d8fdde17ac029a",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q001-cd6b36c541fb.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q002.webp": {
+    "hash": "69d80f177092678460aff153fe8361cb1a8003296beda4384e6bde1a916b7466",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q002-69d80f177092.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q003.webp": {
+    "hash": "7f38b1e11c9633fb4ef10fc697e557ff50a09e4f59c8c0b746e372f15a89bf7c",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q003-7f38b1e11c96.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q004.webp": {
+    "hash": "71ef84cd9ffcdc9e8df78b701df7676737a98d67c68528df5538a7d4d2fc41f3",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q004-71ef84cd9ffc.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q001.webp": {
+    "hash": "d1dbe902a26c5d4b83fef8b55cf53f98f58767f6eb7a3f002eb0512e344bbcbf",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q001-d1dbe902a26c.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q005.webp": {
+    "hash": "ef49f483bcfbf740c05e8b4a40cde2d89ce272888786b6ccc34a4ca48d0f4131",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q005-ef49f483bcfb.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q006.webp": {
+    "hash": "0c3dbccb9576b2a845d5e1884fe978489bbf4d63e8fd888c34c5fbc12c114fce",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q006-0c3dbccb9576.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q008.webp": {
+    "hash": "82d9e876d951c0dc4e220d3306546584a0f9fd7d16ca974d6c10b0746ef28e2d",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q008-82d9e876d951.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q007.webp": {
+    "hash": "3e26d1fb3411f44b32d889aeeff3554af66b78c247f23e6e3c2f780e094ed395",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q007-3e26d1fb3411.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q005.webp": {
+    "hash": "473bd0c675ad443aef44dc1d2176d926f441210276dd9a752503664ccf850550",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q005-473bd0c675ad.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q008.webp": {
+    "hash": "2ddefe0877c99f48f6af650a4ad2f7b9bc8080c7fa283bd0a68fe2908b5f57a7",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q008-2ddefe0877c9.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q007.webp": {
+    "hash": "36af5fd19f05c99537b8f298daa715cd4372352c7772cf74d3974e9df8375b19",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q007-36af5fd19f05.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q006.webp": {
+    "hash": "6edc2acfb15aed12ade0a1611acf6466d14ea5d15af235952771851f3e142d51",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q006-6edc2acfb15a.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q009.webp": {
+    "hash": "0d05e9bdc002b5a54f37958c4e676f0b40cf8c60214e9d236f810604a501d026",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q009-0d05e9bdc002.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q011.webp": {
+    "hash": "ea7ac3b4e0a38b2bd42785043651b5f189c7dffb1d5217d3ba86489b66cc5c97",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q011-ea7ac3b4e0a3.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q010.webp": {
+    "hash": "4ba9447c043c6b1c42f331ff9c83e5033aaf4c656f90bbd0e5e7b07f8e6ed3af",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q010-4ba9447c043c.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q012.webp": {
+    "hash": "f230c2e68dbe3f9dd10b4b3cfe74b5aae7c99c396635f3b866181739312464ca",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q012-f230c2e68dbe.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q010.webp": {
+    "hash": "c8bf9d6170aa2a730dfd5e47c2b78f292922bee64852841d2ee564dd40710839",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q010-c8bf9d6170aa.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q009.webp": {
+    "hash": "2b7b8111d010c4f45e8695c5d21c046f75d6948e069c3736d832d9b52ad3ceb6",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q009-2b7b8111d010.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q012.webp": {
+    "hash": "f56184ddd4c45a5ca1e894ae8d50d4e6af13a8cbfc41233452dce3a241b39ac3",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q012-f56184ddd4c4.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q011.webp": {
+    "hash": "58d35deec7d6a85d13eb23a62f48d7e5f1b5da829dc6cf43d69e52d68edd0262",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q011-58d35deec7d6.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q015.webp": {
+    "hash": "133374c36cb09b00cbb28fcbe4db69c19f769cc910c10dc20d8ff72483dca957",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q015-133374c36cb0.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q013.webp": {
+    "hash": "4fa34b82328b58b80d6a4324faaa6c4adf0e79293095aa4e2d13f604414c2adb",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q013-4fa34b82328b.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q016.webp": {
+    "hash": "a5b5bd1f87eadd314bf0c75d6ef76bb3f68d388f882fbd60d8248336ff5aaa66",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q016-a5b5bd1f87ea.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q014.webp": {
+    "hash": "95dad4c71e63ea7121fdd2be176d20c6d0b2c00db459540ce46005da68373bc1",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q014-95dad4c71e63.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q013.webp": {
+    "hash": "06170f8d0f3da9fd4db04fd29d23361207e7915990d316eae501e291cd82e937",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q013-06170f8d0f3d.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q015.webp": {
+    "hash": "b3b99323d62b9d3a7702727513e3c2a377652616707e6d5648f1fe4f487dc0d5",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q015-b3b99323d62b.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q016.webp": {
+    "hash": "18e75d422d20f69dd9d7e68ba0162882f0b2f105c7377ce961e929ac2943c426",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q016-18e75d422d20.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q014.webp": {
+    "hash": "007ab577840dc010ed7e44753ab0ed1a7c34a842ccacdfc120f7f2c322f81296",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q014-007ab577840d.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q018.webp": {
+    "hash": "93ccec34a1a7a268223083aae7fa43df6ab9ff42ba598aedb1e5351e28e65683",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q018-93ccec34a1a7.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q019.webp": {
+    "hash": "95ae4d33627f894d67e62bdf66ecd15ab86363a045dbc3c5a3446136ebdff7aa",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q019-95ae4d33627f.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q020.webp": {
+    "hash": "e73e552f8e5e032b486a5f6961f02c04851bc5bcdf1e87cc703fc8fb079c2600",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q020-e73e552f8e5e.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q017.webp": {
+    "hash": "27216ead7c58e3749614b69af1e402c6536eb2f1b0cd2323f4e12fadff0f7990",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q017-27216ead7c58.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q019.webp": {
+    "hash": "a57f00289bd5c4b263fcae54939094cb1ace0d41c4170094ceeb558b1f4d88dd",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q019-a57f00289bd5.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q017.webp": {
+    "hash": "0a1af720eb372cd77e96a23dcbe6d92c83b3a1da824b6667b141e1073ff3f6d8",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q017-0a1af720eb37.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q018.webp": {
+    "hash": "4a64452552d2b09e7e224706916bd5e52092bc0e6ed03aef1d12b2f79c08b194",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q018-4a64452552d2.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q021.webp": {
+    "hash": "ab4583ea6772346a9d1812e978515ac0e219d2bcccfd375013ecd9740aa5eb39",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q021-ab4583ea6772.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q022.webp": {
+    "hash": "0d4e16fbb3862b9e1f6c69dac0e7ffe8dbf46722f29b7dcfc6584fb5c31ff771",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q022-0d4e16fbb386.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q023.webp": {
+    "hash": "6e0e54f6f1951680049c888c7fa72c89a93b2d4c096bacc142bc33b0fea037f6",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q023-6e0e54f6f195.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q023.webp": {
+    "hash": "5b2322ca5293a0d1ddb7fe9cf9c50dab57dee788686a88cc36b14bdf44ae3a01",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q023-5b2322ca5293.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q022.webp": {
+    "hash": "62b63fc4d8bd5f3c2291aea3a7adcbcf08d60561885e3967d4efd9e4ae2379b3",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q022-62b63fc4d8bd.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q021.webp": {
+    "hash": "cbd3020e48e2bef54ab4e03b1b2c142c158fe96778e174d572475b12079f0ebb",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q021-cbd3020e48e2.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q020.webp": {
+    "hash": "ae26855d9edfc8afa41ad65851c9f9dcf7bc6d2ba55006033a7fdecd5f525b5d",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q020-ae26855d9edf.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q024.webp": {
+    "hash": "671764ae63c46688f0621ef14e175734871a09f0fa4420fde0424bf60630d050",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q024-671764ae63c4.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q025.webp": {
+    "hash": "6b3740c40a2ec95e7465b09037b281997e216cfd3be25b965c71b30b3c35f20c",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q025-6b3740c40a2e.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q026.webp": {
+    "hash": "3862f2a0540dd51ac03947b845d697e3d5a773f7c9104954139bfc797a887b7c",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q026-3862f2a0540d.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q027.webp": {
+    "hash": "5667b53dc85e529027bad831610dbcbf8cdb3c227b99c5fe7accedaab1ecde68",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q027-5667b53dc85e.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q024.webp": {
+    "hash": "928821b4ea5f4be180559e2347a343598d95eb50702789825c17b8b90a4659a2",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q024-928821b4ea5f.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q026.webp": {
+    "hash": "c19702918817e7498d94711abc05ee45f45699ef0e35a636e687a87938f02aca",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q026-c19702918817.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q027.webp": {
+    "hash": "22971c95cd919149c1389fac53a3835192f59bada584d69d3b1affb032928286",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q027-22971c95cd91.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q025.webp": {
+    "hash": "815fb489cb7d338d1586e335d59a58987fbed97e23808160a35c8dbc61bf4dfe",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q025-815fb489cb7d.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q030.webp": {
+    "hash": "4cbdc4672147e9ea397afe8d4334a7a4bd2c582ca36cb1a497e0a6d2ca1a4231",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q030-4cbdc4672147.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q028.webp": {
+    "hash": "e755395c8c06be0ee8d908cb579640de0ed6be52154432d6e4320774d6b714e4",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q028-e755395c8c06.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q031.webp": {
+    "hash": "30196950e3591b4721eba0861826222488d67067f94f5d45d55bf4efad1b85b9",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q031-30196950e359.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q029.webp": {
+    "hash": "1f71e9e5e8f3847bf12210bca5252762fd02bf0d27ad91391b42be79ad148853",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q029-1f71e9e5e8f3.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q031.webp": {
+    "hash": "dc75f5f3c83b3b36d854044a6d66d217cb6cf8f0651713b960b9aac77309146e",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q031-dc75f5f3c83b.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q030.webp": {
+    "hash": "48fed02a864e5c92dc7f6432aefc8a3adde59b51c83df67e537b84b12a4459bf",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q030-48fed02a864e.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q028.webp": {
+    "hash": "f4132e2037f3a76931b082f3385d72643f62e03a6905f5825140033922b51eda",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q028-f4132e2037f3.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q034.webp": {
+    "hash": "6ed4728e28d6c6f7e9e3a4e258fe106aa55cdb08caf63f421d3c07cbaa7cdacc",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q034-6ed4728e28d6.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q033.webp": {
+    "hash": "42fd7be59572b463d5d3a08256d9adbe0b6390b5a6955595ea3b5359ba32231a",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q033-42fd7be59572.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q034.webp": {
+    "hash": "b64b0d0913128edbb8b5d7456d4f0a05b3c9617d0654d4f7b372be7aced051e3",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q034-b64b0d091312.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q033.webp": {
+    "hash": "3e0489cd04d6e061eb4a9b64f7519714d45037d07a7a6cc9514f84a26a2224ee",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q033-3e0489cd04d6.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q035.webp": {
+    "hash": "185ce3046c0c27b5128219b785e0350a0475ca3b1feaefc9d69b4bf3f83472b8",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q035-185ce3046c0c.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q032.webp": {
+    "hash": "4ddc5a64253883face9e33c12aa26c6d23bc3d28bd1204fc28fb6c9c7ae57c62",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q032-4ddc5a642538.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q035.webp": {
+    "hash": "68e2edbc5359bc2534f390a34777e43da13744e061dfdbbde2e82ab738a94022",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q035-68e2edbc5359.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q032.webp": {
+    "hash": "7165d227ad741ea6b2d0a7b1bd02dd557a56105fe724ad687ed2e4b92780f059",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q032-7165d227ad74.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q037.webp": {
+    "hash": "ee7d215364c04ab2d56993b9ee6ef1153831edac6496e9b6df4966b2b8164a07",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q037-ee7d215364c0.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q038.webp": {
+    "hash": "19af824aa0a3252d261d83d834e9726c841112ee9f6b4fd7472efdc1a4cbac82",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q038-19af824aa0a3.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q038.webp": {
+    "hash": "eefe45223a2f4ec30928c28fa153daa388d065d0721310c5af134899fb8e9f65",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q038-eefe45223a2f.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q037.webp": {
+    "hash": "b52be8311a18f478f00f193f61cf7eb2d8a814e5e06c8ad7f55c6ba6ea5ab696",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q037-b52be8311a18.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q040.webp": {
+    "hash": "7fb9aaf90590dbb2fe789f78c7aff2a6595a375b8b8e7b56789a418fdb21fb63",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q040-7fb9aaf90590.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q039.webp": {
+    "hash": "6fc1c588c0ea9a60e384cd30209b5987723ea71fc99bfbc976db99a29cc873df",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q039-6fc1c588c0ea.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q040.webp": {
+    "hash": "8bfb39c56239631e25b3da0804a5835fa90536fc71e81cca2f4d8e7e2567b940",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q040-8bfb39c56239.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q039.webp": {
+    "hash": "070bbe1e927dadfb80ae8a0ae4fa7e6e9c1f29d5b1568151abca37862ff8a705",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q039-070bbe1e927d.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q041.webp": {
+    "hash": "3f625ac4589bb20d0d6ecf69065959e087d410a5f1a23bd6abe9700bf207b6df",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q041-3f625ac4589b.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q042.webp": {
+    "hash": "e2d63a46cfbb9db187f1a69599605d07ccb722f3198004fb911e127502df8806",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q042-e2d63a46cfbb.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q042.webp": {
+    "hash": "4129a1af92e51476959de33dc23352cbcdd61a6a90342c59cd4331d5f8b0cbff",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q042-4129a1af92e5.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q029.webp": {
+    "hash": "02f4fb4e06b7351631fbe2e4045d437cddd7f1cedceb00d4eabce04b0e73c7d6",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q029-02f4fb4e06b7.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q041.webp": {
+    "hash": "5ab782e4d269c7ba1b486012c94a233945ecc3a20a005bfccb6d05447e6112ba",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q041-5ab782e4d269.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q036.webp": {
+    "hash": "8134a3d3afeb5f9a93eb59a9cb92b4bb56363e85119379de0cff6cf4e596a3d3",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q036-8134a3d3afeb.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q044.webp": {
+    "hash": "21d3c29ab7afc6b802947736763ae2083a3f0ceaec9da36ebe28a9b1fc5af049",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q044-21d3c29ab7af.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q036.webp": {
+    "hash": "9998b0886631d685cc3d23375bfdac75df4c9fd2c11a8f5733e010ead7e92bec",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q036-9998b0886631.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q043.webp": {
+    "hash": "1d1e814b17f3cfa7e47d0aff27c5d5a08be6438c5a75d5ff0098d78de1a10600",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q043-1d1e814b17f3.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q045.webp": {
+    "hash": "80ddeab15dec5bf819eabeb504970aa523134511a429a0b274299d6e1fea5a85",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q045-80ddeab15dec.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q043.webp": {
+    "hash": "8e6829f21e00797cf2a876a756cf737a3462d1ebebe47a7a26d93bb790b949bd",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q043-8e6829f21e00.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q044.webp": {
+    "hash": "fbb7ff84f63bd4bcce32e5b0da358cc9451fff8333c60be5ae4aff4f81c1c604",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q044-fbb7ff84f63b.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q046.webp": {
+    "hash": "985580a5df9d5fe455e97458830cc3c739aad81c747705b2ee91c81dadbd9fab",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q046-985580a5df9d.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q045.webp": {
+    "hash": "9bec632eebb0eaf20665a408bf0257362693cf248faa40cc4240af52642a26c3",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q045-9bec632eebb0.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q048.webp": {
+    "hash": "7aba950eee21b0b4f6f0b96ef453b612ff65465a1e957d400327b660e781ceb0",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q048-7aba950eee21.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-01/q047.webp": {
+    "hash": "c77a3b02603c2d802500572a739f71ff283e9bea89fe7cd29480007bc7c2d80a",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-01/q047-c77a3b02603c.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q046.webp": {
+    "hash": "c94404eb0134a582e206bfc453a60103ab9ca26ddd3a4c12cfa945ebfce1ff52",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q046-c94404eb0134.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q047.webp": {
+    "hash": "e5eff4416a62690749f1b674d4a4100c86abb5e22de95d5d377cccde0de368df",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q047-e5eff4416a62.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-02/q048.webp": {
+    "hash": "702cebd1793d5b7e9f9e3cb155abd10faa3473871a4d515df255f5b2cdfc063b",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-02/q048-702cebd1793d.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-03/q001.webp": {
+    "hash": "f9738cdc4ebcb0f6c20504c23620e873b86a2488f60e14e5d5e3b891a05c83e1",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-03/q001-f9738cdc4ebc.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-03/q002.webp": {
+    "hash": "2e7f64a31ad534d772dc1d587cfe0de22611e85033074b43acaacd1c8133b058",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-03/q002-2e7f64a31ad5.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-03/q004.webp": {
+    "hash": "bcb90a140437a7517d01ad3e3f8e8f3c8edfd1b21cab3476dea06034e19a5aea",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-03/q004-bcb90a140437.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-03/q003.webp": {
+    "hash": "0d5e721a2c05b0128da9e2a142884df32e9d518c63fd04f2b7b2f08b1b174763",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-03/q003-0d5e721a2c05.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-03/q005.webp": {
+    "hash": "041582295f73d355395afaf1404c8a480de4e3a7f8d52f21809546b245ef83db",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-03/q005-041582295f73.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-03/q006.webp": {
+    "hash": "2b7145cdc5332f41a52fd1cf683d7cde732561fe3bb86c50841929e54894604e",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-03/q006-2b7145cdc533.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-03/q007.webp": {
+    "hash": "29584378797788ac592761401e9eaee4dc684bdc9149848ce888f8048c3be2e5",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-03/q007-295843787977.webp"
+  },
+  "imports/maths-pyq-additional/images/paper-03/q008.webp": {
+    "hash": "2f59e4f2f0a76c45e10826b4b65f72d5eff94db27adf07ed271e7bc58d4d3618",
+    "url": "https://noppclbjtifbsargdqsr.supabase.co/storage/v1/object/public/maths-pyq-images/paper-03/q008-2f59e4f2f0a7.webp"
+  }
+}

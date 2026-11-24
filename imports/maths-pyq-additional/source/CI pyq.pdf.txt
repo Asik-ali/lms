@@ -1,0 +1,480 @@
+--- PAGE 1 ---
+ExamStick Compound Interest (85 Questions)
+ExamStick
+Compound Interest — Question Bank (85 Questions)
+Q1. Find the principal, if the amount compounded annually for two years at the rate of
+10% per annum is Rs.6,050
+(A) Rs.3,025 (B) Rs.3,500
+(C) Rs.4,000 (D) Rs.5,000
+(E) Answer not known
+Q2. The population of a village increases by 5% annually. If the present population is
+50,500, what will be its population after 2 years?
+(A) 65678 (B) 65677
+(C) 55677 (D) 55676
+(E) Answer not known
+Q3. Calculate the compound interest on ₹ 5,000 for 1½ years at 4% per annum, interest
+being compounded half yearly.
+(A) ₹ 306.02 (B) ₹ 306.03
+(C) ₹ 306.04 (D) ₹ 306.05
+(E) Answer not known
+Q4. Find the principal which amounts to ₹ 169 in 2 years at 4% per annum in compound
+interest.
+(A) ₹ 150.50 (B) ₹ 154.75
+(C) ₹ 156.25 (D) ₹ 158
+(E) Answer not known
+Q5. At what rate percent compound interest will Rs. 625 amount to Rs. 900 in 2 years?
+(A) 10% (B) 15%
+(C) 20% (D) 25%
+(E) Answer not known
+Q6. What is compound Interest on Rs.5,000 at 12% per annum for 2 years compounded
+annually?
+(A) Rs.1,227 (B) Rs.1,272
+(C) Rs.2,172 (D) Rs.2,721
+(E) Answer not known
+Page 1
+--- PAGE 2 ---
+ExamStick Compound Interest (85 Questions)
+Q7. In what time will Rs.2,000 amount to Rs.2,420 at 10% per annum compound interest?
+(A) 4 years (B) 3 years
+(C) 2 years (D) 1 year
+(E) Answer not known
+Q8. A certain sum at a rate of compound interest 4% for 2 years becomes Rs. 2028 then
+find the principal.
+(A) Rs. 1578 (B) Rs. 1785
+(C) Rs. 1875 (D) Rs. 1800
+(E) Answer not known
+Q9. The bacteria in a culture grows by 5% in the first hour, decreases by 8% in the second
+hour and again increases by 10% in the third hour. Find the count of the bacteria at the
+end of 3 hours if its initial count was 10,000.
+(A) 10,700 (B) 10,800
+(C) 10,376 (D) 10,626
+(E) Answer not known
+Q10. A principal becomes ₹ 2028 in 2 years at 4% p.a. compound interest. Find the
+principal.
+(A) ₹ 1600 (B) ₹ 1875
+(C) ₹ 1900 (D) ₹ 2000
+(E) Answer not known
+Q11. Find the compound interest on Rs. 3,200 at 2.5% p.a. for 2 years, compounded
+annually.
+(A) Rs. 148 (B) Rs. 162
+(C) Rs. 157 (D) Rs. 165
+(E) Answer not known
+Q12. A sum becomes ₹ 4,500 after 2 years and ₹ 6,750 after 4 years at compound interest,
+then find the sum.
+(A) ₹ 4,000 (B) ₹ 2,500
+(C) ₹ 3,000 (D) ₹ 3,050
+(E) Answer not known
+Q13. If the interest is compounded quarterly, by which of the following formula can we
+calculate the amount?
+(A) A = P(1 + r/100)ⁿ (B) A = P(1 + r/100)²ⁿ
+(C) A = P(1 + r/100)³ⁿ (D) A = P(1 + r/400)⁴ⁿ
+(E) Answer not known
+Page 2
+--- PAGE 3 ---
+ExamStick Compound Interest (85 Questions)
+Q14. The compound interest on ₹ 5,000 at 12% p.a. for 2 years compounded annually is:
+(A) ₹ 1,072 (B) ₹ 1,172
+(C) ₹ 1,272 (D) ₹ 1,372
+(E) Answer not known
+Q15. Find the compound interest on ₹ 15,625 at the rate of 8% per annum for 3 years.
+(A) ₹ 4,063 (B) ₹ 4,508
+(C) ₹ 4,058 (D) ₹ 4,085
+(E) Answer not known
+Q16. The time taken for ₹ 4,400 to become ₹ 4,851 at 10% compounded half yearly is:
+(A) 6 months (B) 1 year
+(C) 1½ years (D) 2 years
+(E) Answer not known
+Q17. The population of a village increases at the rate of 7% every year. If the present
+population is 90,000, the population after two years is:
+(A) 96,300 (B) 1,03,000
+(C) 1,00,000 (D) 1,03,041
+(E) Answer not known
+Q18. The cost of a machine is Rs. 18,000 and it depreciates at 16⅔% annually. Its value
+after two years will be:
+(A) Rs. 12,000 (B) Rs. 12,500
+(C) Rs. 15,000 (D) Rs. 16,500
+(E) Answer not known
+Q19. The value of a machine depreciates by 5% each year. A man pays ₹ 30,000 for the
+machine. Find its value after three years.
+(A) ₹ 25,721 (B) ₹ 25,722
+(C) ₹ 27,521 (D) ₹ 22,752
+(E) Answer not known
+Q20. Find the compound interest on ₹ 20,000 at 15% per annum for 2⅓ years.
+(A) ₹ 7,772.50 (B) ₹ 6,772.50
+(C) ₹ 7,772 (D) ₹ 2,777.50
+(E) Answer not known
+Q21. Find the compound interest on Rs. 31,250 at 16% per annum compounded quarterly
+for 9 months.
+(A) Rs. 3,500 (B) Rs. 3,902
+(C) Rs. 4,000 (D) Rs. 4,200
+(E) Answer not known
+Page 3
+--- PAGE 4 ---
+ExamStick Compound Interest (85 Questions)
+Q22. If the interest is compounded half yearly, find the compound interest for Rs. 5,000 at
+20% p.a. for 1½ years.
+(A) Rs. 6,655 (B) Rs. 1,655
+(C) Rs. 2,655 (D) Rs. 1,665
+(E) Answer not known
+Q23. A sum of money invested at compound interest amounts to Rs. 4,624 in 2 years and
+to Rs. 4,913 in 3 years. Then the principal amount is:
+(A) Rs. 4,096 (B) Rs. 4,260
+(C) Rs. 4,335 (D) Rs. 4,360
+(E) Answer not known
+Q24. The population of a town has a constant growth of 6% every year. If its present
+population is 2,38,765, then the population after two years is:
+(A) 2,48,276 (B) 2,68,276
+(C) 3,48,176 (D) 3,68,276
+(E) Answer not known
+Q25. There is a 50% increase in an amount in 4 years at simple interest. What will be the
+compound interest of ₹ 10,000 after 3 years at the same rate?
+(A) ₹ 3,842 (B) ₹ 4,238
+(C) ₹ 2,438 (D) ₹ 3,482
+(E) Answer not known
+Q26. The present height of a tree is 847 cm. If its height increases at 10% per annum, the
+height of the tree two years ago was:
+(A) 770 cm (B) 700 cm
+(C) 630 cm (D) 560 cm
+(E) Answer not known
+Q27. If the compound interest compounded annually at the rate of 12% p.a. for 3 years is
+Rs. 432, then the principal is:
+(A) Rs. 1,066 (B) Rs. 1,067
+(C) Rs. 1,069 (D) Rs. 1,070
+(E) Answer not known
+Q28. If the principal is Rs. 30,000, r = 7% for 1st year, r = 8% for 2nd year compounded
+annually, then the compound interest is:
+(A) Rs. 5,668 (B) Rs. 3,668
+(C) Rs. 6,668 (D) Rs. 4,668
+(E) Answer not known
+Page 4
+--- PAGE 5 ---
+ExamStick Compound Interest (85 Questions)
+Q29. The compound interest on ₹ 16,000 for 9 months at 20% per annum compounded
+quarterly is:
+(A) ₹ 2,599 (B) ₹ 2,572
+(C) ₹ 2,522 (D) ₹ 2,502
+(E) Answer not known
+Q30. The CI on ₹ 15,000 for 3 years if the rate of interest are 15%, 20% and 25% for the
+1st, 2nd and 3rd year respectively is:
+(A) ₹ 10,875 (B) ₹ 10,785
+(C) ₹ 10,885 (D) ₹ 10,775
+(E) Answer not known
+Q31. If a sum amounts to Rs. 1,352 in 2 years at 4% compound interest, then find the
+principal.
+(A) Rs. 1,200 (B) Rs. 1,250
+(C) Rs. 1,260 (D) Rs. 1,300
+(E) Answer not known
+Q32. The value of a motorcycle 2 years ago was Rs. 80,000. It depreciates at the rate of
+4% p.a. Find its present value.
+(A) Rs. 72,000 (B) Rs. 72,738
+(C) Rs. 73,728 (D) Rs. 72,728
+(E) Answer not known
+Q33. The depreciation of a television is 10% every year. It was purchased 3 years ago. If
+its present value is Rs. 83,835, its purchase price was:
+(A) Rs. 1,00,000 (B) Rs. 1,12,500
+(C) Rs. 1,15,000 (D) Rs. 1,17,500
+(E) Answer not known
+Q34. At what rate of interest per annum will ₹ 640 amount to ₹ 774.40 in 2 years, interest
+being compounded annually?
+(A) 10% (B) 12%
+(C) 12.5% (D) 14%
+(E) Answer not known
+Q35. The value of a motorcycle 2 years ago was ₹ 1,00,000. It depreciates at the rate of
+5% p.a. Then the present value is:
+(A) ₹ 80,000 (B) ₹ 80,250
+(C) ₹ 90,250 (D) ₹ 95,000
+(E) Answer not known
+Page 5
+--- PAGE 6 ---
+ExamStick Compound Interest (85 Questions)
+Q36. Magesh invested ₹ 5,000 at 12% p.a. for one year. If the interest is compounded half
+yearly, then the amount he gets at the end of the year is:
+(A) ₹ 5,698 (B) ₹ 5,718
+(C) ₹ 5,608 (D) ₹ 5,618
+(E) Answer not known
+Q37. The time taken for ₹ 4,400 to become ₹ 4,851 at 10% p.a. compounded half yearly is:
+(A) 6 months (B) 1 year
+(C) 1½ years (D) 2 years
+(E) Answer not known
+Q38. At what rate percent per annum, compound interest will Rs. 10,000 amount to Rs.
+13,310 in three years?
+(A) 9% (B) 7%
+(C) 8½% (D) 10%
+(E) Answer not known
+Q39. In a laboratory, the count of bacteria in a certain experiment was increasing at the
+rate of 2.5% per hour. Find the bacteria count at the end of 2 hours if the count was
+initially 5,05,600.
+(A) 5,31,196 (B) 5,39,611
+(C) 5,11,396 (D) 5,39,116
+(E) Answer not known
+Q40. Find the compound interest for 2½ years on ₹ 4,000 at 10% p.a. if the interest is
+compounded yearly.
+(A) ₹ 1,024 (B) ₹ 1,032
+(C) ₹ 1,050 (D) ₹ 1,082
+(E) Answer not known
+Q41. Find the sum which amounts to ₹ 2,662 at 10% p.a. in 3 years, compounded yearly.
+(A) ₹ 1,500 (B) ₹ 1,800
+(C) ₹ 2,000 (D) ₹ 2,500
+(E) Answer not known
+Q42. In what time will a sum of ₹ 3,000 amount to ₹ 3,993 at 10% p.a. compounded
+annually?
+(A) 4 years (B) 1 year
+(C) 2 years (D) 3 years
+(E) Answer not known
+Page 6
+--- PAGE 7 ---
+ExamStick Compound Interest (85 Questions)
+Q43. If the compound interest on a certain sum at 16⅔% for 3 years is ₹ 1,270, find the
+simple interest on the same sum at the same rate and for the same period.
+(A) ₹ 1,080 (B) ₹ 1,000
+(C) ₹ 1,090 (D) ₹ 1,070
+(E) Answer not known
+Q44. The value of a motorcycle depreciates at the rate of 15% per year. What will be the
+value of the motorcycle 3 years hence, which is now purchased for ₹ 45,000?
+(A) ₹ 32,513 (B) ₹ 37,635
+(C) ₹ 27,636 (D) ₹ 38,250
+(E) Answer not known
+Q45. The value of a motorcycle 2 years ago was ₹ 70,000. It depreciates at the rate of 4%
+p.a. Find its present value.
+(A) ₹ 64,000 (B) ₹ 64,512
+(C) ₹ 65,512 (D) ₹ 64,412
+(E) Answer not known
+Q46. The population of a city was 24,000 in the year 1997. It increased at the rate of 5%
+per annum. Find the population at the end of the year 2000.
+(A) 27,873 (B) 27,783
+(C) 28,773 (D) 28,737
+(E) Answer not known
+Q47. A sum of money becomes eight times at compound interest in 45 years. The number
+of years required for it to double is:
+(A) 11¼ years (B) 10 years
+(C) 15 years (D) 25 years
+(E) Answer not known
+Q48. At what rate percentage p.a. will Rs. 5,625 amount to Rs. 6,084 in 2 years at
+compound interest?
+(A) 4% (B) 6%
+(C) 8% (D) 10%
+(E) Answer not known
+Q49. Find the compound interest on ₹ 1,000 at the rate of 10% per annum for 18 months
+when interest is compounded half yearly.
+(A) ₹ 1,157.63 (B) ₹ 157.63
+(C) ₹ 167.73 (D) ₹ 157.36
+(E) Answer not known
+Page 7
+--- PAGE 8 ---
+ExamStick Compound Interest (85 Questions)
+Q50. The compound interest on Rs. 3,000 for 3 years at 10% per annum compounded
+annually is:
+(A) Rs. 900 (B) Rs. 933
+(C) Rs. 963 (D) Rs. 993
+(E) Answer not known
+Q51. Find the compound interest on ₹ 15,625 for 9 months at 16% per annum compounded
+quarterly.
+(A) ₹ 1,851 (B) ₹ 1,941
+(C) ₹ 1,951 (D) ₹ 1,961
+(E) Answer not known
+Q52. If the deposited amount is ₹ 5,000, the rate of Compound Interest is 12% per annum
+and compound interest is calculated every half year, then the total amount after one year
+is:
+(A) ₹ 5,648 (B) ₹ 5,618
+(C) ₹ 5,678 (D) ₹ 5,668
+(E) Answer not known
+Q53. The amount to be repaid on a loan of ₹ 12,000 for 1½ years at 10% per annum
+compounded half yearly is:
+(A) ₹ 13,891.50 (B) ₹ 12,888.50
+(C) ₹ 13,210.50 (D) ₹ 12,955.50
+(E) Answer not known
+Q54. Find the compound interest that Rahul would receive if he invests ₹ 8,000 for 18
+months at 10% p.a., the interest being compounded half-yearly.
+(A) ₹ 1,061 (B) ₹ 1,160
+(C) ₹ 1,260 (D) ₹ 1,261
+(E) Answer not known
+Q55. The population of a town is increasing at the rate of 6% p.a. It was 2,38,765 in the
+year 2018. The population in the year 2020 is:
+(A) 2,68,376 (B) 2,68,276
+(C) 2,68,266 (D) 2,68,366
+(E) Answer not known
+Q56. The sum which amounts to Rs. 2,662 at 10% p.a. in 3 years compounded yearly is:
+(A) Rs. 2,000 (B) Rs. 1,800
+(C) Rs. 1,500 (D) Rs. 2,500
+(E) Answer not known
+Page 8
+--- PAGE 9 ---
+ExamStick Compound Interest (85 Questions)
+Q57. The population of a village increases by 10% every year. If the present population is
+6,000, what will be the population of the village after 3 years?
+(A) 7,966 (B) 7,956
+(C) 7,936 (D) 7,986
+(E) Answer not known
+Q58. A sum of money amounts to Rs. 2,662 at the rate of 10% compounded annually for 3
+years. The sum of money is:
+(A) Rs. 2,000 (B) Rs. 1,800
+(C) Rs. 1,500 (D) Rs. 2,500
+(E) Answer not known
+Q59. Find the compound interest on ₹ 1,000 at 10% per annum for 2 years.
+(A) ₹ 190 (B) ₹ 210
+(C) ₹ 1,210 (D) ₹ 200
+(E) Answer not known
+Q60. The population of a town is increasing at the rate of 6% p.a. It was 2,38,765 in the
+year 2018. Find the population in the year 2020.
+(A) 2,86,276 (B) 2,68,276
+(C) 2,48,274 (D) 2,68,876
+(E) Answer not known
+Q61. Find the C.I on ₹ 15,625 at 8% p.a. for 3 years compounded annually.
+(A) ₹ 4,000 (B) ₹ 4,028
+(C) ₹ 4,058 (D) ₹ 4,050
+(E) Answer not known
+Q62. Find the compound interest for the principal ₹ 4,000 at rate of interest 5% p.a. for 2
+years, interest compounded annually.
+(A) ₹ 400 (B) ₹ 441
+(C) ₹ 440 (D) ₹ 410
+(E) Answer not known
+Q63. In how much time will a sum of ₹ 1,600 amount to ₹ 1,852.20 at 5% per annum
+compound interest?
+(A) 2 years (B) 5 years
+(C) 4 years (D) 3 years
+(E) Answer not known
+Page 9
+--- PAGE 10 ---
+ExamStick Compound Interest (85 Questions)
+Q64. Find the compound interest on ₹ 15,625 for 6 months at 16% per annum compounded
+quarterly.
+(A) ₹ 1,300 (B) ₹ 1,325
+(C) ₹ 1,250 (D) ₹ 1,275
+(E) Answer not known
+Q65. At what rate per annum will ₹ 8,000 amount to ₹ 9,261 in 3 years, when interest is
+being compounded annually?
+(A) 3% (B) 4%
+(C) 5% (D) 2%
+(E) Answer not known
+Q66. The population of a town is increasing at the rate of 10% p.a. It was 4,35,000 in the
+year 2016. Find the population in the year 2018.
+(A) 3,52,350 (B) 3,59,504
+(C) 5,26,350 (D) 5,37,037
+(E) Answer not known
+Q67. The compound interest on ₹ 4,000 compounded annually for 2 years at the rate of 5%
+per annum is:
+(A) ₹ 400 (B) ₹ 480
+(C) ₹ 430 (D) ₹ 410
+(E) Answer not known
+Q68. In how much time will a sum of Rs. 1,600 amount to Rs. 1,852.20 at 5% per annum
+compound interest?
+(A) 1 year (B) 2 years
+(C) 3 years (D) 4 years
+(E) Answer not known
+Q69. Given Principal = Rs. 4,000, r = 5% p.a., n = 2 years, interest compounded annually.
+Find the Compound Interest.
+(A) Rs. 320 (B) Rs. 410
+(C) Rs. 280 (D) Rs. 450
+(E) Answer not known
+Q70. The value of a motorcycle 2 years ago was ₹ 60,000. It depreciates at the rate of 5%
+per annum. Find its present value.
+(A) ₹ 54,000 (B) ₹ 54,050
+(C) ₹ 54,500 (D) ₹ 54,150
+(E) Answer not known
+Page 10
+--- PAGE 11 ---
+ExamStick Compound Interest (85 Questions)
+Q71. A machine bought at Rs. 50,000 falls in its value by 8% of its value every year. Find
+the value of the machine after 2 years.
+(A) ₹ 40,000 (B) ₹ 43,220
+(C) ₹ 42,000 (D) ₹ 42,320
+(E) Answer not known
+Q72. The value of a motorcycle 2 years ago was ₹ 70,000. It depreciates at the rate of 4%
+p.a. Find its present value.
+(A) 65,312 (B) 64,312
+(C) 64,512 (D) 65,412
+(E) Answer not known
+Q73. The cost of a machine is ₹ 18,000 and it depreciates at 16⅔% annually. Its value after
+2 years will be:
+(A) ₹ 12,000 (B) ₹ 12,500
+(C) ₹ 15,000 (D) ₹ 16,500
+(E) Answer not known
+Q74. The value of a machine depreciates at 10% per year. If the present value is ₹
+1,62,000, what is the worth of the machine after two years?
+(A) ₹ 1,29,600 (B) ₹ 1,30,600
+(C) ₹ 1,31,600 (D) ₹ 1,31,220
+(E) Answer not known
+Q75. Find the compound interest on Rs. 9,600 at 12% per annum for 2 years 4 months,
+compounded annually.
+(A) Rs. 12,253 (B) Rs. 12,524
+(C) Rs. 12,853 (D) Rs. 12,653
+(E) Answer not known
+Q76. The value of a motorcycle 2 years ago was Rs. 70,000. It depreciates at the rate of
+4%. Find the present value.
+(A) Rs. 67,000 (B) Rs. 50,000
+(C) Rs. 64,512 (D) Rs. 66,000
+(E) Answer not known
+Q77. A sum of money invested at compound interest amounts to Rs. 800 in 3 years and to
+Rs. 840 in 4 years. Find the rate of interest per annum.
+(A) 2½% (B) 4%
+(C) 5% (D) 6⅔%
+(E) Answer not known
+Page 11
+--- PAGE 12 ---
+ExamStick Compound Interest (85 Questions)
+Q78. The value of a machine depreciates 10% each year. A man pays ₹ 30,000 for the
+machine. Find its value after 3 years.
+(A) ₹ 39,830 (B) ₹ 21,870
+(C) ₹ 39,930 (D) ₹ 21,970
+(E) Answer not known
+Q79. The value of a machine depreciates by 10% each year. A man pays Rs. 50,000 for the
+machine. Find its value after three years.
+(A) Rs. 35,650 (B) Rs. 36,450
+(C) Rs. 35,450 (D) Rs. 37,450
+(E) Answer not known
+Q80. Find the difference between Simple Interest and Compound Interest on Rs. 8,000 at
+10% p.a. for 2 years.
+(A) Rs. 80 (B) Rs. 100
+(C) Rs. 120 (D) Rs. 160
+(E) Answer not known
+Q81. The difference between Compound Interest and Simple Interest on a sum of money at
+5% p.a. for 2 years is Rs. 25. Find the sum.
+(A) Rs. 8,000 (B) Rs. 9,000
+(C) Rs. 10,000 (D) Rs. 12,000
+(E) Answer not known
+Q82. Find the difference between Simple Interest and Compound Interest on ₹ 5,000 at 8%
+p.a. for 2 years.
+(A) ₹ 32 (B) ₹ 35
+(C) ₹ 40 (D) ₹ 48
+(E) Answer not known
+Q83. The difference between C.I. and S.I. on a sum of money for 2 years at 8% per annum
+is ₹ 64. Find the sum.
+(A) ₹ 8,000 (B) ₹ 10,000
+(C) ₹ 12,000 (D) ₹ 15,000
+(E) Answer not known
+Q84. Find the difference between compound interest and simple interest on ₹ 12,000 at
+10% per annum for 3 years.
+(A) ₹ 360 (B) ₹ 372
+(C) ₹ 380 (D) ₹ 390
+(E) Answer not known
+Page 12
+--- PAGE 13 ---
+ExamStick Compound Interest (85 Questions)
+Q85. The difference between simple interest and compound interest for 2 years at 12%
+per annum on a principal of ₹ 25,000 is:
+(A) ₹ 360 (B) ₹ 300
+(C) ₹ 320 (D) ₹ 350
+(E) Answer not known
+Page 13
+--- PAGE 14 ---
+ExamStick Compound Interest (85 Questions)
+ANSWER KEY
+Q.No Ans Q.No Ans Q.No Ans Q.No Ans Q.No Ans
+Q1 (D) Q18 (B) Q35 (C) Q52 (B) Q69 (B)
+Q2 (D) Q19 (A) Q36 (D) Q53 (A) Q70 (D)
+Q3 (C) Q20 (A) Q37 (B) Q54 (D) Q71 (D)
+Q4 (C) Q21 (B) Q38 (D) Q55 (B) Q72 (C)
+Q5 (C) Q22 (B) Q39 (A) Q56 (A) Q73 (B)
+Q6 (B) Q23 (A) Q40 (D) Q57 (D) Q74 (D)
+Q7 (C) Q24 (B) Q41 (C) Q58 (A) Q75 (B)
+Q8 (C) Q25 (B) Q42 (D) Q59 (B) Q76 (C)
+Q9 (D) Q26 (B) Q43 (A) Q60 (B) Q77 (C)
+Q10 (B) Q27 (B) Q44 (C) Q61 (C) Q78 (B)
+Q11 (B) Q28 (D) Q45 (B) Q62 (D) Q79 (B)
+Q12 (C) Q29 (C) Q46 (B) Q63 (D) Q80 (A)
+Q13 (D) Q30 (A) Q47 (C) Q64 (D) Q81 (C)
+Q14 (C) Q31 (B) Q48 (A) Q65 (C) Q82 (A)
+Q15 (C) Q32 (C) Q49 (B) Q66 (C) Q83 (B)
+Q16 (B) Q33 (C) Q50 (D) Q67 (D) Q84 (B)
+Q17 (D) Q34 (A) Q51 (C) Q68 (C) Q85 (A)
+Page 14

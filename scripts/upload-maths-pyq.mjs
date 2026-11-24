@@ -1,16 +1,19 @@
 import fs from 'node:fs';
 import crypto from 'node:crypto';
 import { createClient } from '@supabase/supabase-js';
-const root = 'imports/maths-pyq';
+const root = process.env.MATHS_IMPORT_ROOT || 'imports/maths-pyq';
+const additional=!!process.env.MATHS_IMPORT_ROOT;
+const expectedTotal=additional?141:940, expectedTopics=additional?3:10;
+const batch=additional?'maths-pyq-additional-2026-11-24':'maths-pyq-2026-11-24';
 const papers = JSON.parse(fs.readFileSync(`${root}/prepared.json`, 'utf8'));
-if (papers.length !== 10 || papers.reduce((n,p)=>n+p.questions.length,0)!==940) throw new Error('Expected 940 questions in 10 topics');
-const expectedCounts={'Simplification':74,'LCM and HCF':180,'Percentage':111,'Ratio and Proportion':101,'Average':26,'Profit and Loss':52,'Simple Interest':130,'Time and Work':131,'2D Mensuration':38,'3D Mensuration':97};
+if (papers.length !== expectedTopics || papers.reduce((n,p)=>n+p.questions.length,0)!==expectedTotal) throw new Error(`Expected ${expectedTotal} questions in ${expectedTopics} topics`);
+const expectedCounts={'Compound Interest':85,'AP and GP':48,'Age Problems':8,'Simplification':74,'LCM and HCF':180,'Percentage':111,'Ratio and Proportion':101,'Average':26,'Profit and Loss':52,'Simple Interest':130,'Time and Work':131,'2D Mensuration':38,'3D Mensuration':97};
 for(const paper of papers)if(paper.questions.length!==expectedCounts[paper.topic])throw new Error(`Unexpected question count for ${paper.topic}`);
 for (const p of papers) for (const [i,q] of p.questions.entries()) {
   if (q.number!==i+1 || (q.correct_answer!==null&&!/^[A-E]$/.test(q.correct_answer))) throw new Error(`Invalid ${p.topic} Q${i+1}`);
   for(const file of [q.english_image,q.tamil_image].filter(Boolean)) if(!fs.existsSync(file)) throw new Error(`Missing image ${file}`);
 }
-if (process.argv.includes('--check')) { console.log('Validated 940 questions, 10 topics, all source images present'); process.exit(0); }
+if (process.argv.includes('--check')) { console.log(`Validated ${expectedTotal} questions, ${expectedTopics} topics, all source images present`); process.exit(0); }
 if(!process.env.VITE_SUPABASE_URL||!process.env.SUPABASE_SERVICE_ROLE_KEY) throw new Error('Missing Supabase credentials');
 const db=createClient(process.env.VITE_SUPABASE_URL,process.env.SUPABASE_SERVICE_ROLE_KEY,{auth:{persistSession:false,autoRefreshToken:false}});
 async function checked(query){const {data,error}=await query;if(error)throw new Error(error.message);return data;}
@@ -33,14 +36,14 @@ const seriesName='Maths PYQ';
 const series=await ensure('test_series',{name:seriesName},{name:seriesName,description:'Topic-wise Maths previous-year questions. English and Tamil sources paired by original number. Original formulas and diagrams preserved. Drafts awaiting source-key review.',is_free:false});
 const receipt={seriesId:series.id,seriesName,tests:[]};
 for(const [position,paper] of papers.entries()){
- const category=await ensure('test_categories',{series_id:series.id,name:paper.topic},{series_id:series.id,name:paper.topic,position});
+ const category=await ensure('test_categories',{series_id:series.id,name:paper.topic},{series_id:series.id,name:paper.topic,position:position+(additional?10:0)});
  const test=await ensure('tests',{category_id:category.id,name:paper.name},{category_id:category.id,name:paper.name,language:paper.language,status:'Draft',duration:Math.max(30,Math.ceil(paper.questions.length*1.2)),total_marks:paper.questions.length,question_count:paper.questions.length,difficulty:'Moderate',syllabus:paper.topic,description:`Original Maths PYQ source questions. ${paper.issues.map(i=>i.issue).join(' ')}`});
  if(test.status!=='Draft')throw new Error(`Refusing to modify non-draft test ${test.id}`);
  const rows=await mapLimit(paper.questions,4,async q=>{
   const question=await uploadImage(q.english_image);
   const translated=q.tamil_image?await uploadImage(q.tamil_image):null;
   const options=Object.fromEntries('abcd'.split('').map(c=>[`option_${c}`,`Option ${c.toUpperCase()}`]));
-  const meta={format:'lms-bilingual-v1',number:q.number,importBatch:'maths-pyq-2026-11-24',sources:q.sources,explanation:[`Source question ${q.number}: ${q.sources.join('; ')}`,...q.notes].join('\n'),...(q.has_e?{extraOptions:{option_e:'Option E'}}:{}),...(translated?{tamil:{question:translated,...options}}:{})};
+  const meta={format:'lms-bilingual-v1',number:q.number,importBatch:batch,sources:q.sources,explanation:[`Source question ${q.number}: ${q.sources.join('; ')}`,...q.notes].join('\n'),...(q.has_e?{extraOptions:{option_e:'Option E'}}:{}),...(translated?{tamil:{question:translated,...options}}:{})};
   return {test_id:test.id,question,...options,correct_answer:q.correct_answer,explanation:JSON.stringify(meta),type:'Multiple Choice',category:paper.topic,difficulty:'Medium'};
  });
  const fields=['question','option_a','option_b','option_c','option_d','correct_answer','explanation'];
@@ -48,7 +51,7 @@ for(const [position,paper] of papers.entries()){
  if(savedBefore.length>rows.length)throw new Error(`Unexpected existing count for ${paper.topic}`);
  for(const [i,q] of savedBefore.entries()){
   let meta;try{meta=JSON.parse(q.explanation);}catch{throw new Error(`Unrecognized existing question ${q.id}`);}
-  if(meta.importBatch!=='maths-pyq-2026-11-24'||meta.number!==i+1)throw new Error(`Existing question source mismatch ${q.id}`);
+  if(meta.importBatch!==batch||meta.number!==i+1)throw new Error(`Existing question source mismatch ${q.id}`);
   if(fields.some(f=>q[f]!==rows[i][f]))await checked(db.from('questions').update(rows[i]).eq('id',q.id).eq('test_id',test.id));
  }
  for(let offset=savedBefore.length;offset<rows.length;offset+=100)await checked(db.from('questions').insert(rows.slice(offset,offset+100)));

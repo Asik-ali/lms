@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {getDocument} from 'pdfjs-dist/legacy/build/pdf.mjs';
 import {createCanvas,loadImage} from '@napi-rs/canvas';
-const root='imports/maths-pyq';
+const root=process.env.MATHS_IMPORT_ROOT || 'imports/maths-pyq';
 const papers=JSON.parse(fs.readFileSync(root+'/papers.json','utf8'));
 const sourceDir=String.raw`C:\Users\asik1\Desktop\examsticks pdf\Today`;
 const downloadDir=String.raw`C:\Users\asik1\Downloads`;
