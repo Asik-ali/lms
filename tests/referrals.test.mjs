@@ -73,21 +73,22 @@ test('credit checkout uses the authenticated balance RPC and sends only the disc
       return Response.json({ id: 1, amount: 50, credit_applied: 100, plan_name: 'Course' });
     }
     if (url.includes('cashfree.com/pg/orders')) { providerBody = JSON.parse(options.body); return Response.json({ payment_session_id: 'session' }); }
-    if (url.includes('/purchase_orders')) return new Response(null, { status: 204 });
+    if (url.includes('/sales_plan_items')) return Response.json([]);
+    if (url.includes('/purchase_orders')) return options.method === 'PATCH' ? new Response(null, { status: 204 }) : Response.json([]);
     throw new Error('Unexpected request: ' + url);
   }, async () => {
     const res = response();
-    await createOrder({ method: 'POST', headers: { authorization: 'Bearer token' }, body: { planIds: [1], useCredit: true, amount: 1, credit: 999999, student_id: 'other' } }, res);
+    await createOrder({ method: 'POST', headers: { authorization: 'Bearer token', host: 'example.com' }, body: { customerPhone: '9876543210', planIds: [1], useCredit: true, amount: 1, credit: 999999, student_id: 'other' } }, res);
     assert.equal(res.code, 200);
     assert.equal(rpcBody.buyer_id, buyer);
     assert.equal(rpcBody.use_credit, true);
     assert.equal(providerBody.order_amount, 50);
-    assert.ok(providerBody.order_expiry_time);
+    assert.equal(providerBody.order_expiry_time, undefined);
     assert.equal(res.body.credit_applied, 100);
   });
 });
 
-test('balance reconciliation releases expired orders but reserves credit on active orders and failed attempts', async () => {
+test('balance lookup stays database-only without reconciling provider orders', async () => {
   const writes = [];
   await withApi((url, options) => {
     if (url.includes('/profiles')) return Response.json({ id: buyer, role: 'student', status: 'Active' });
@@ -102,7 +103,7 @@ test('balance reconciliation releases expired orders but reserves credit on acti
     await orderStatus({ method: 'GET', headers: { authorization: 'Bearer token' }, query: { operation: 'referral-balance' } }, res);
     assert.equal(res.code, 200);
     assert.deepEqual(res.body, { availableCredit: 100 });
-    assert.deepEqual(writes, [{ cashfree_order_id: 'expired', reason: 'CANCELLED', provider_closed: true }]);
+    assert.deepEqual(writes, []);
   });
 });
 
@@ -252,3 +253,17 @@ test('failed referral attribution rolls back the new account instead of silently
     assert.equal(deleted, true);
   });
 });
+
+for (const status of ['TERMINATED', 'EXPIRED']) {
+  test(`locally cancelled order releases reserved credit after provider confirms ${status}`, async () => {
+    const store = lifecycleStore({ ...pendingOrder(), status: 'CANCELLED', close_reason: 'CANCELLED' });
+    await withApi(() => Response.json(remoteOrder(status)), async () => {
+      const result = await reconcileOrder(store, store.order);
+      assert.equal(result.credit_released, true);
+      assert.equal(result.status, 'CANCELLED');
+      const count = store.calls.length;
+      await reconcileOrder(store, store.order);
+      assert.equal(store.calls.length, count);
+    });
+  });
+}

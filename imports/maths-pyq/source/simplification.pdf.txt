@@ -1,0 +1,275 @@
+--- PAGE 1 ---
+ExamStick
+ExamStick
+Simplification — 74 Practice Questions
+1. Simplify 20+[8×2+{(6×3)-(10÷5)}]
+(A) 1 (B) 5
+(C) 25 (D) 52
+2. If '@' mean '×', 'c' means '÷', '%' means '+' and $ means '-' then 6%12c3@8$3=?
+(A) 33 (B) 35
+(C) 37 (D) 39
+3. Simplify : (2/5) × (-3/7) - (1/6) × (3/2) + (1/14) × (2/5)
+(A) -75/140 (B) -11/28
+(C) 105/140 (D) -1/4
+4. If '-' means 'multiplied by', '×' means 'plus', '+' means 'divided by' and '÷' means 'minus' then
+find the value of 14 - 10 × 4 ÷ 16 + 8
+(A) 6 (B) 142
+(C) 134 (D) -2
+5. Simplify : 20 + [8 × 2 + {̅6̅ ̅ ×̅ ̅ 3̅ - 10 ÷ 5}]
+(A) 44 (B) 50
+(C) 52 (D) 56
+6. If 5⁷ + 5⁷ + 5⁷ + 5⁷ + 5⁷ = 5ʸ then y =
+(A) 5 (B) 7
+(C) 8 (D) 9
+7. 2⁴⁰ + 2⁴⁰ is equal to ______
+(A) 4⁴⁰ (B) 2⁸⁰
+(C) 2⁴¹ (D) 4⁸⁰
+8. If × means ÷, - means ×, ÷ means + and + means -, what is the value of (3 - 15 ÷ 19) × 8 + 6?
+(A) 8 (B) 4
+(C) 2 (D) -1
+9. Find the value of √(3√(3√(3...)))
+(A) 3¹ (B) 3²
+(C) 3³ (D) 3⁴
+10. If A, B, C, D, E, F, G, H is equal to the numbers 2, 4, 6, 8, 10, 12, 14, 16 respectively then find
+the value of (F ÷ √B) + (√A × √D).
+(A) E (B) F
+(C) G (D) H
+Page 1
+--- PAGE 2 ---
+ExamStick
+11. If A denotes +, B denotes -, C denotes × and D denotes ÷ then, what is the value of
+2C15B7A100D10?
+(A) 24 (B) 26
+(C) 33 (D) 36
+12. y is directly proportional to x + 3 when x = 1 then y = 8. What is the value of y when x = 3?
+(A) 3 (B) 5
+(C) 10 (D) 12
+13. (-16) ÷ 4 is the same as
+(A) -(-16) ÷ 4 (B) (-16) ÷ (-4)
+(C) 16 ÷ (-4) (D) (-4) ÷ (-16)
+14. Simplify : (mᵃ / mᵇ)ᵃ⁺ᵇ × (mᵇ / mᶜ)ᵇ⁺ᶜ × (mᶜ / mᵃ)ᶜ⁺ᵃ × (1/m)
+(A) 1/m (B) m
+(C) 1 (D) mᵃ⁺ᵇ⁺ᶜ
+15. If a = 3 ½, b = 5 ¾, c = 4 ⅗, d = 4 ⅜ then (ab / cd) = ?
+(A) 0 (B) 1
+(C) ½ (D) 2
+16. Given F₁ = 1, F₂ = 3 and Fₙ = Fₙ₋₁ + Fₙ₋₂ then F₅ is
+(A) 3 (B) 5
+(C) 8 (D) 11
+17. If (a/3) = (b/4) = (c/7) then (a + b + c) / c is equal to
+(A) 7 (B) 2
+(C) ½ (D) 1/7
+18. If P denotes ÷, Q denotes ×, R denotes +, S denotes -, then the value of 18Q12P4R5S6 is
+(A) 50 (B) 53
+(C) 54 (D) 59
+19. Simplify : 100 + 8 ÷ 2 + {(3 × 2) - 6 ÷ 2}
+(A) 130 (B) 125
+(C) 107 (D) 103
+20. If x + (1/x) = 2 then what is the value of x - (1/x)?
+(A) -2 (B) 0
+(C) 1 (D) 2
+21. Find x? 2 ⅓ + 1 ⅚ - x + (20/3) = 7 ⅓
+(A) -3 ½ (B) 3 ½
+(C) 4 ½ (D) -4 ½
+Page 2
+--- PAGE 3 ---
+ExamStick
+22. Simplify : 20 + [8 × 2 + {̅6̅ ̅ ×̅ ̅ 3̅ - 10 ÷ 5}]
+(A) 40 (B) 57
+(C) 52 (D) 48
+23. If A = 2⁶⁵ and B = 2⁶⁴ + 2⁶³ + 2⁶² + ... + 2⁰ which of the following is true?
+(A) B is larger than A by 1 (B) B is 2⁶⁴ more than A
+(C) A and B are equal (D) A is larger than B by 1
+24. If 15/25 = x/5 = 18/y then the value of x and y is
+(A) 3, 30 (B) 3, 35
+(C) 5, 30 (D) 5, 35
+25. If (x/y) = 6/5, find the value of (x² + y²) / (x² - y²)
+(A) 61/25 (B) 25/11
+(C) 61/11 (D) 36/25
+26. 35568 ÷ ? % of 650 = 456
+(A) 12 (B) 14
+(C) 16 (D) 18
+27. Study the following and answer: [4 - 1 ÷ 32 × 2 + 10] ÷ [7 ÷ 3 - 8 × 4 - 7] = ? In the above
+mentioned problem, If all - are +, all ÷ are ×, all + are -, all × are ÷ then, what will be the result?
+(A) 210 (B) 260
+(C) 300 (D) 840
+28. Simplify : (14p⁵q³ / 2p²q) - (12p³q⁴ / 3q²)
+(A) 11 p³q² (B) 3 p⁶q⁴
+(C) 3 p³q² (D) 11 p⁶q⁴
+29. Simplify : (1 - ½) × (½ - ¼) ÷ (¾ - ½) =
+(A) ½ (B) ¾
+(C) ¼ (D) -½
+30. Compute : (100 - 1)(100 - 2)(100 - 3).......(100 + 1)(100 + 2)(100 + 3) = ?
+(A) 0 (B) 1
+(C) 100 (D) 1000
+31. Find x³ - y³, if x - y = 5 and xy = 14
+(A) 225 (B) 335
+(C) 325 (D) 330
+32. When 12 + 10 = 1205, 11 + 8 = 885, then 14 + 15 = ?
+(A) 1005 (B) 120
+(C) 710 (D) 2105
+Page 3
+--- PAGE 4 ---
+ExamStick
+33. Find the unit digit of the numeric expression 10000¹⁰⁰⁰⁰ + 11111¹¹¹¹¹
+(A) 0 (B) 3
+(C) 1 (D) 5
+34. If 3 logₓ 5 = 1, then find the value of x
+(A) 5 (B) 25
+(C) 125 (D) 625
+35. If x = 1, y = 2, z = 3 then x³ + y³ - z³ + 3xyz is
+(A) x + y - z (B) x + y + z
+(C) x + y (D) -36
+36. If (x² - 25)/(x + 3) is divided by (x + 5)/(x² - 9) then quotient is
+(A) (x - 5)(x + 3) (B) (x - 5)(x - 3)
+(C) (x + 5)(x - 3) (D) (x + 5)(x + 3)
+37. Simplify : (x + 2)/(x² + 3x + 2) + (x - 3)/(x² - 2x - 3)
+(A) 1/(x + 1) (B) -1/(x + 1)
+(C) 2/(x + 1) (D) -2/(x + 1)
+38. Simplify : (-⅓) - {1 ÷ (⅔ × ⁵/₇) + 8 - [5 - ½ - ¼]}
+(A) -5 ⁴¹/₆₀ (B) -5 ¹/₆₀
+(C) 5 ⁴¹/₆₀ (D) -3 ⁴¹/₆₀
+39. If (p/q)¹⁻³ˣ = (q/p)¹/² then find the value of x.
+(A) 4⁻¹ (B) 3⁻¹
+(C) 2⁻¹ (D) 1⁻¹
+40. If additive inverse of a + b is a + b. Then what is the additive inverse of a?
+(A) a (B) -b
+(C) b (D) a - b
+41. Simplify √(49 + √(220 + √(16 + √81)))
+(A) 15 (B) 12
+(C) 8 (D) 7
+42. The value of (1 - ½)(1 - ⅓)(1 - ¼)....(1 - ¹/₁₀₀) is
+(A) 1/20 (B) 1/10
+(C) 1/50 (D) 1/100
+43. Simplify ((679 + 458)² - (679 - 458)²) / (679 × 458)
+(A) 1 (B) 2
+(C) 3 (D) 4
+44. Find A and B in the addition: 12A + 6AB = A09
+(A) A = 7, B = 2 (B) A = 8, B = 1
+(C) A = 6, B = 3 (D) A = 5, B = 4
+Page 4
+--- PAGE 5 ---
+ExamStick
+45. What is half of 2¹⁰?
+(A) 2⁵ (B) 2⁶
+(C) 2⁹ (D) 2⁸
+46. The value of √(3√(3√(3...))) is
+(A) √3 (B) 3
+(C) √(3√3) (D) 27
+47. 999 ⅐ + 999 ⅔ + 999 ⅜ + 999 ⁴/₇ + 999 ⁵/₇ + 999 ⁶/₇ is simplified to
+(A) 2997 (B) 5979
+(C) 5994 (D) 5997
+48. If we multiply a fraction by itself and divide the product by its reciprocal, the fraction thus
+obtained is 18 ²⁶/₂₇. The original fraction is
+(A) 8/27 (B) 1 ⅓
+(C) 2 ⅔ (D) 3 ⅓
+49. Simplify : (x³ / (x - y)) + (y³ / (y - x))
+(A) x² + xy + y² (B) x² - xy + y²
+(C) x² - xy - y² (D) x² + xy - y²
+50. The value of (8.94 × 8.94 × 8.94 - 3.56 × 3.56 × 3.56) / (8.94 × 8.94 + 8.94 × 3.56 + 3.56 ×
+3.56) is
+(A) 0.538 (B) 5.38
+(C) 0.0538 (D) 53.8
+51. The value of [4/3 - (-3/2)] + [-5/3 ÷ 30/12] is
+(A) 1 3/6 (B) 13/6
+(C) 4/3 (D) -4/3
+52. If A = 2⁶⁵ and B = 2⁶⁴ + 2⁶³ + 2⁶² + ... + 2⁰ which of the following is true?
+(A) B is larger than A by 1 (B) A is larger than B by 1
+(C) A and B are equal (D) B is 2⁶⁴ more than A
+53. Simplify 5 ½ + ¾ of ⁸/₉
+(A) 6 ¼ (B) 6 ⅙
+(C) 6 ⁸/₉ (D) 6 ⁴/₈
+54. Simplify : (4/3) + (3/2) - (5/3) ÷ (30/12) - (12/9) × (-27/16)
+(A) 53/12 (B) 43/12
+(C) 33/12 (D) 13/12
+55. The value of (0.1 × 0.1 + 0.01 × 0.01) / 0.0101 is
+(A) 0.1 (B) 0.11
+(C) 1 (D) 1.1
+Page 5
+--- PAGE 6 ---
+ExamStick
+56. The solution of (2x - 1)² = 9 is equal to
+(A) -1 (B) 2
+(C) -1, 2 (D) 1, 2
+57. The square root of 49(x² - 2xy + y²)² is
+(A) 7|x - y| (B) 7(x + y)(x - y)
+(C) 7(x + y)² (D) 7(x - y)²
+58. Simplify : [((4356 × 4356) - (2171 × 2171)) / 2185] × [1 / (4356 + 2171)]
+(A) 0 (B) 1
+(C) 4356 (D) 2171
+59. Solve : (4y / 3) - y = (2/3) × (2/y)
+(A) ±2 (B) 2
+(C) -2 (D) 4/3
+60. If + stands for ×, - stands for ÷, × stands for -, and ÷ stands for + then 25 + 32 - 4 × 12 ÷ 3
+(A) 137 (B) -125
+(C) 191 (D) -197
+61. If a² + b² = 234 and ab = 108 then find the value of (a + b) / (a - b)
+(A) 10 (B) 8
+(C) 5 (D) 4
+62. Multiply (a³ + b³) / (a² + 2ab + b²) by (a² - b²) / (a - b)
+(A) a² - ab + b² (B) a³ + b³
+(C) a² + ab + b² (D) a³ - b³
+63. Put the correct operator in the box: 2 [ ] 6 - 12 ÷ (4 + 2) = 10
+(A) + (B) ×
+(C) - (D) ÷
+64. P⁰ is equal to
+(A) 0 (B) 1
+(C) -1 (D) P
+65. If m : n = 3 : 2, find the ratio (4m + 5n) / (4m - 5n)
+(A) 10 : 11 (B) 22 : 3
+(C) 13 : 5 (D) 11 : 1
+66. If x = √3 + 1, find the value of (x - 2/x)²
+(A) 25 (B) 4
+(C) 36 (D) 9
+67. If (x⁴ - 1)/(x² + 1) = 8 then find the value of x.
+(A) ±1 (B) ±3
+(C) ±4 (D) ±2
+Page 6
+--- PAGE 7 ---
+ExamStick
+68. Simplify 7 ³/₁₀ + (-10 ⁷/₂₁)
+(A) -3 ⁷/₂₁₀ (B) 3 ⁷/₂₁₀
+(C) 7 ³/₂₁₀ (D) -7 ³/₂₁₀
+69. (? - 968) ÷ 79 × 4 = 512
+(A) 10185 (B) 10190
+(C) 11080 (D) 10180
+70. If 2 5 8 x 2 3 7 is a multiple of 11, where x is a digit, what is the value of x?
+(A) 1 (B) 7
+(C) 0 (D) 9
+71. Find the value of √(383 + √(302 - √(164 + √(28 - √9))))
+(A) 19 (B) 16
+(C) 20 (D) 22
+72. Find the value of ³√(-121 + ³√(-61 + ³√(-26 + ³√(-1))))
+(A) 5 (B) -5
+(C) -4 (D) 4
+73. Simplify : 100 + 8 ÷ 2 + {(3 × 2) - 6 ÷ 2}
+(A) 123 (B) 107
+(C) 113 (D) 103
+74. If (a/3) = (b/4) = (c/7) then (a + b + c) / c =
+(A) 7 (B) 2
+(C) ½ (D) 1/7
+Page 7
+--- PAGE 8 ---
+ExamStick
+ANSWER KEY
+Q.No Ans Q.No Ans Q.No Ans Q.No Ans
+1 D 20 B 39 C 58 B
+2 B 21 B 40 C 59 A
+3 B 22 C 41 C 60 C
+4 B 23 D 42 D 61 C
+5 C 24 A 43 D 62 A
+6 C 25 C 44 B 63 B
+7 C 26 A 45 C 64 B
+8 C 27 C 46 B 65 D
+9 A 28 C 47 D 66 B
+10 A 29 A 48 C 67 B
+11 C 30 A 49 A 68 A
+12 D 31 B 50 B 69 C
+13 C 32 D 51 B 70 C
+14 A 33 C 52 B 71 C
+15 B 34 C 53 B 72 B
+16 D 35 A 54 A 73 B
+17 B 36 B 55 C 74 B
+18 B 37 C 56 C
+19 C 38 A 57 D
+Page 8

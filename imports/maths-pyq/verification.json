@@ -1,0 +1,10 @@
+{
+  "seriesId": 12,
+  "topics": 10,
+  "questions": 940,
+  "answers": 938,
+  "unassigned": 2,
+  "publicImageChecks": 10,
+  "status": "Draft",
+  "studentMetadataContainsAnswerKeys": false
+}

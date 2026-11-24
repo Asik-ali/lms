@@ -1,0 +1,36 @@
+[
+  {
+    "topic": "Percentage",
+    "issues": [
+      {
+        "number": 80,
+        "issue": "Conflicting source keys: English A; Tamil C. Answer left unassigned for review."
+      }
+    ]
+  },
+  {
+    "topic": "Ratio and Proportion",
+    "issues": [
+      {
+        "issue": "English PDF not supplied. Tamil source preserved without invented translations."
+      }
+    ]
+  },
+  {
+    "topic": "Average",
+    "issues": [
+      {
+        "issue": "User requested Average questions 1-26 only; question 27 is intentionally excluded."
+      }
+    ]
+  },
+  {
+    "topic": "3D Mensuration",
+    "issues": [
+      {
+        "number": 55,
+        "issue": "Conflicting source keys: English D; Tamil A. Answer left unassigned for review."
+      }
+    ]
+  }
+]

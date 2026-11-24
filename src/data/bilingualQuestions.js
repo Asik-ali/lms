@@ -10,6 +10,7 @@ export function localizeQuestion(row, language = 'English') {
   if (!translation) return row;
   return {
     ...row,
+    ...(translation.extraOptions || {}),
     ...(language === 'Tamil' ? translation.tamil : {}),
     explanation: translation.explanation || '',
     number: translation.number,
@@ -19,4 +20,9 @@ export function localizeQuestion(row, language = 'English') {
 export function orderQuestions(rows) {
   return [...rows].sort((a, b) =>
     (questionTranslation(a)?.number ?? a.id) - (questionTranslation(b)?.number ?? b.id));
+}
+
+export function questionOptionLetters(row) {
+  const localized = localizeQuestion(row);
+  return localized?.option_e ? ['A', 'B', 'C', 'D', 'E'] : ['A', 'B', 'C', 'D'];
 }

@@ -54,6 +54,9 @@ export async function reconcileOrder(supabase, order, { reason, inspectPayments 
     return { ...order, status: 'PAID' };
   };
   if (isVerifiedPaidOrder(remote, order)) return paid();
+  if (['EXPIRED', 'TERMINATED'].includes(remote.order_status)) {
+    return closeOrder(supabase, order, order.close_reason || reason || 'CANCELLED', true);
+  }
   // A cancellation explicitly confirmed by the student or an admin must stay
   // Cancelled in the LMS. Background order-history refreshes can still ask
   // Cashfree to terminate the old session, but must not rewrite the visible

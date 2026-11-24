@@ -1,0 +1,504 @@
+--- PAGE 1 ---
+ExamStick 3D Mensuration (97 Questions)
+ExamStick
+3D Mensuration Practice Questions
+1. The capacity of a water tank of dimensions 10 m × 5 m × 1.5 m is:
+(A) 75 litres (B) 750 litres
+(C) 7500 litres (D) 75000 litres
+1
+2. The total surface area of a cylinder whose radius is / of its height is:
+3
+2
+9 π h 2
+(A) / sq.units (B) 24 π h sq.units
+2 8 2
+8 π h 56 π h
+(C) / sq.units (D) / sq.units
+9 9
+3. If the curved surface area of a right circular cylinder is 704 sq.cm and height is 8 cm, find the volume of the
+cylinder.
+3 3
+(A) 5048 cm (B) 4928 cm
+3 2
+(C) 5442 cm (D) 4864 cm
+4. A rectangular paper of width 14 cm is rolled along its width and a cylinder of radius 20 cm is formed. Find the
+22
+volume of the cylinder ( π = / ).
+7
+2 3
+(A) 17600 cm (B) 17600 cm
+2 3
+(C) 1760 cm (D) 1760 cm
+5. Find the lateral surface area of a cube of side 12 cm.
+2 2
+(A) 144 cm (B) 196 cm
+2 2
+(C) 576 cm (D) 664 cm
+2
+6. If the total surface area of a cone of radius 7 cm is 704 cm , then find its slant height.
+(A) 32 cm (B) 23 cm
+(C) 25 cm (D) 52 cm
+7. Find the number of lead balls each 1 cm in diameter that can be made from a sphere of diameter 12 cm.
+(A) 1726 (B) 1728
+(C) 1626 (D) 1736
+8. A garden roller whose length is 3 m long and whose diameter is 2.8 m is rolled to level a garden. How much
+area will it cover in 8 revolutions?
+2 2
+(A) 211.02 m (B) 211.2 m
+2 2
+(C) 211 m (D) 212 m
+9. If the radius of the base of a cone is tripled and the height is doubled, then the volume becomes:
+(A) Made 6 times (B) Made 18 times
+(C) Made 12 times (D) Unchanged
+Page 1
+--- PAGE 2 ---
+ExamStick 3D Mensuration (97 Questions)
+10. A cube has a total surface area of 384 sq.cm. Find its volume.
+3 3
+(A) 512 cm (B) 521 cm
+3 3
+(C) 510 cm (D) 500 cm
+11. The ratio between the surface area of two spheres is 9 : 16. Then what is the ratio between the volumes of
+the two spheres?
+(A) 3 : 4 (B) 27 : 64
+(C) 64 : 27 (D) 729 : 4096
+11352 3
+12. Volume of a hollow sphere is / cm . If the outer radius is 8 cm, find the inner radius of the sphere ( π =
+7
+22
+/ ).
+7
+(A) 12 cm (B) 6 cm
+(C) 5 cm (D) 9 cm
+13. An aluminium sphere of radius 12 cm is melted to make a cylinder of radius 8 cm. Find the height of the
+cylinder.
+(A) 24 cm (B) 30 cm
+(C) 36 cm (D) 40 cm
+14. What is the greatest possible volume of a vessel that can be used to measure exactly the volume of milk in
+cans (in full capacity) of 80 litres, 100 litres and 120 litres?
+(A) 20 litres (B) 25 litres
+(C) 30 litres (D) 40 litres
+2
+15. Find the diameter of a sphere whose surface area is 154 m .
+(A) 7 m (B) 4 m
+(C) 6 m (D) 9 m
+3
+16. The volume of a solid right circular cone is 11088 cm . If its height is 24 cm, then find the radius of the cone.
+(A) 20 cm (B) 21 cm
+(C) 19 cm (D) 18 cm
+2
+17. Find the volume of a cylinder whose height is 35 cm and whose base area is 70 cm .
+2 3
+(A) 200 cm (B) 200 cm
+3 3 3
+(C) 2450 m (D) 24.5 m / 2450 cm
+18. A rectangular water tank is 8 m high, 6 m long and 2.5 m wide. How many litres of water can it hold?
+(A) 120 litres (B) 1200 litres
+(C) 12000 litres (D) 120000 litres
+19. An aquarium is in the form of a cuboid whose external measures are 80 cm × 30 cm × 40 cm. The base, 2
+side faces and back face are to be covered with a coloured paper. Find the area of the paper needed.
+2 2
+(A) 2400 cm (B) 3200 cm
+2 2
+(C) 7800 cm (D) 8000 cm
+Page 2
+--- PAGE 3 ---
+ExamStick 3D Mensuration (97 Questions)
+20. The side of a metallic cube is 12 cm. It is melted and formed into a cuboid whose length and breadth are 18
+cm and 16 cm respectively. Find the height of the cuboid.
+(A) 6 cm (B) 7 cm
+(C) 8 cm (D) 10 cm
+21. The radii of two right circular cylinders are in the ratio 3 : 2. The ratio of their heights is 5 : 3. Then the ratio
+of their Curved Surface Area (C.S.A.) is:
+(A) 5 : 2 (B) 5 : 3
+(C) 3 : 2 (D) 2 : 5
+22. A sector containing an angle of 150° is cut off from a circle of radius 28 cm and folded into a cone. Find the
+22
+curved surface area of the cone ( π = / ).
+7
+(A) 1026.67 sq.cm (B) 987.76 sq.cm
+(C) 868.56 sq.cm (D) 988.64 sq.cm
+23. The ratio of the volumes of a cylinder, a sphere and a cone if each has the same diameter and same height
+is:
+(A) 1 : 2 : 3 (B) 2 : 1 : 3
+(C) 3 : 2 : 1 (D) 3 : 1 : 2
+24. The dimensions of a brick are 24 cm × 12 cm × 8 cm. How many such bricks will be required to build a wall
+of 20 m length, 48 cm breadth and 6 m height?
+(A) 25,000 (B) 20,000
+(C) 30,000 (D) 22,500
+25. A river 2 metres deep and 45 metres wide is flowing at the rate of 3 km/hr. Then the amount of water that
+runs into the sea per minute is:
+3 3
+(A) 3000 m (B) 3500 m
+3 3
+(C) 4500 m (D) 27000 m
+26. A metallic sphere of radius 16 cm is melted and recast into small spheres each of radius 2 cm. How many
+small spheres can be obtained?
+(A) 496 (B) 512
+(C) 672 (D) 768
+27. The internal and external radii of a hollow hemispherical shell are 3 m and 5 m respectively. Find the C.S.A.
+and T.S.A. of the shell.
+2 2 2 2
+(A) 213.71 m , 264 m (B) 214.70 m , 260 m
+2 2 2 2
+(C) 210.71 m , 265 m (D) 210.71 m , 264 m
+28. The ratio of the volumes of a cylinder, a cone and a sphere, if each has the same diameter and same height
+is:
+(A) 1 : 2 : 3 (B) 2 : 1 : 3
+(C) 3 : 1 : 2 (D) 1 : 3 : 2
+Page 3
+--- PAGE 4 ---
+ExamStick 3D Mensuration (97 Questions)
+29. A cone of height 18 cm is made up of modeling clay. A child reshapes it in the form of a cylinder of same
+radius as cone. Then the height of the cylinder is:
+(A) 8 cm (B) 6 cm
+(C) 3 cm (D) 18 cm
+30. If the curved surface area of a right circular cylinder is 704 sq.cm and height is 8 cm, find the volume of the
+22
+cylinder ( π = / ).
+7
+(A) 4928 cu.cm (B) 2464 cu.cm
+(C) 1088 cu.cm (D) 3646 cu.cm
+2
+31. If the lateral surface area of a cube is 600 cm , find the total surface area of the cube.
+2 2
+(A) 150 cm (B) 400 cm
+2 2
+(C) 900 cm (D) 300 cm
+2
+32. If the total surface area of a cube is 486 cm , then find its lateral surface area.
+2 2
+(A) 234 cm (B) 324 cm
+2 2
+(C) 432 cm (D) 342 cm
+33. The ratio of the volumes of two cones is 2 : 3. Find the ratio of their radii if the height of the second cone is
+double the height of the first cone.
+(A) 1 : √ 2 (B) 2 : √ 3
+(C) 3 : √ 3 (D) 2 : 3
+34. The ratio of sides of two cubes is 2 : 3, then the ratio of their lateral surface area is:
+(A) 4 : 6 (B) 4 : 9
+(C) 6 : 9 (D) 16 : 36
+35. The dimensions of a hall is 10 m × 9 m × 8 m. Find the cost of white washing the walls and ceiling at the rate
+2
+of Rs. 8.50 per m .
+(A) Rs. 2,250 (B) Rs. 3,320
+(C) Rs. 3,349 (D) Rs. 4,449
+2
+36. If the total surface area of a cube is 726 cm , then find its volume.
+3 3
+(A) 627 cm (B) 276 cm
+3 3
+(C) 1331 cm (D) 3311 cm
+37. The dimensions of a fish tank are 3.8 m × 2.5 m × 1.6 m. How many litres of water can it hold?
+(A) 1520 litres (B) 15200 litres
+(C) 15.2 litres (D) 152 litres
+2
+38. The rain water that falls on a roof of area 6160 m is collected in a cylindrical tank of diameter 14 m and
+height 10 m and thus the tank is completely filled. Find the height of rain water on the roof.
+(A) 25 cm (B) 25 m
+(C) 0.25 cm (D) 250 cm
+Page 4
+--- PAGE 5 ---
+ExamStick 3D Mensuration (97 Questions)
+39. If the radii of the circular ends of a frustum which is 45 cm high are 28 cm and 7 cm, find the volume of the
+frustum.
+(A) 48510 cu. units (B) 48410 cu. units
+(C) 47510 cu. units (D) 46510 cu. units
+40. If the radii of two spheres are in ratio 1 : 2, then the ratio of their surface areas will be:
+(A) 1 : 2 (B) 1 : 4
+(C) 1 : 8 (D) 1 : 16
+41. A cubical tank can hold 64,000 litres of water. Find the length of its side in metres.
+(A) 40 m (B) 80 m
+(C) 8 m (D) 4 m
+42. If the base area of a hemispherical solid is 1386 sq. metres, then find its total surface area.
+3 2
+(A) 4158 m (B) 4158 m
+2
+(C) 4185 m (D) 4185 m
+43. The radius of a spherical balloon increases from 7 cm to 14 cm as air is being pumped into it. Find the ratio
+of volumes of the balloon in the two cases.
+(A) 1 : 2 (B) 1 : 4
+(C) 1 : 8 (D) 7 : 14
+44. The radius of a spherical balloon increases from 12 cm to 16 cm as air is being pumped into it. Find the
+ratio of the surface area of the balloons in the two cases.
+(A) 9 : 16 (B) 9 : 14
+(C) 9 : 13 (D) 9 : 15
+45. The volume of the cylinder of height 'h' and base radius 'r' is:
+2 1 2
+(A) π r h (B) / π r h
+2
+2 2 2
+(C) 4 π r (D) / π r
+3
+46. A metallic sphere of radius 16 cm is melted and recast into small spheres each of radius 2 cm. How many
+small spheres can be obtained?
+(A) 412 (B) 512
+(C) 521 (D) 421
+47. A sphere, a cylinder and a cone are of the same radius, whereas cone and cylinder are of same height equal
+to radius. Find the ratio of their curved surface areas.
+(A) 2 √ 2 : √ 2 : 1 (B) 2 : 1 : √ 2
+(C) 2 : √ 2 : 1 (D) 2 √ 2 : 1 : √ 2
+48. The curved surface area of a right circular cone of height 15 cm and base diameter 16 cm is:
+2 2
+(A) 60 π cm (B) 68 π cm
+2 2
+(C) 120 π cm (D) 136 π cm
+Page 5
+--- PAGE 6 ---
+ExamStick 3D Mensuration (97 Questions)
+3
+49. The volume of a solid hemisphere is 29106 cm . Another hemisphere whose volume is two-third of the
+above is carved out. Find the radius of the new hemisphere.
+(A) 21.5 cm (B) 12 cm
+(C) 21 cm (D) 23 cm
+50. A shuttle cock used for playing badminton has the shape of the combination of:
+(A) A hemisphere and a cone (B) A sphere and a cone
+(C) A cylinder and a sphere (D) Frustum of a cone and a hemisphere
+51. A cubical tank can hold 27,000 litres of water. Find the dimension of its side.
+(A) 27 m (B) 1000 m
+(C) 3 m (D) 9 m
+52. A metallic sphere of radius 32 cm is melted and recast into small spheres each of radius 2 cm. How many
+spheres can be obtained?
+(A) 4096 (B) 512
+(C) 1024 (D) 2048
+53. A hemispherical tank of radius 1.75 m is full of water. It is connected with a pipe which empties the tank at
+the rate of 7 litres per second. How much time will it take to empty the tank completely?
+(A) 27 minutes (B) 26 minutes
+(C) 72 minutes (D) 62 minutes
+54. If the ratio of volumes of two cones is 2 : 3 and the ratio of the radii of their bases is 1 : 2, then the ratio of
+their heights will be:
+(A) 3 : 8 (B) 8 : 3
+(C) 9 : 2 (D) 8 : 1
+55. If V is the volume of the cone of radius r and V is the volume of the cone when the radius is doubled, then:
+1
+(A) V = 4V (B) V = 2V
+1 1
+(C) V = 2V (D) V = 4V
+1 1
+56. Base area of the right circular cylinder is 30 sq.cm and its height is 6 cm, then the volume of the cylinder is:
+(A) 60 cu.cm (B) 90 cu.cm
+(C) 120 cu.cm (D) 180 cu.cm
+2
+57. If the total surface area of a cube is 486 cm , then find the lateral surface area and volume respectively.
+2 3 3 2
+(A) 729 cm , 324 cm (B) 324 cm , 729 cm
+2 3 3 2
+(C) 324 cm , 729 cm (D) 729 cm , 324 cm
+58. The ratio of radii of two spheres are 4 : 7, then the ratio of their volumes is:
+(A) 4 : 7 (B) 64 : 49
+(C) 16 : 49 (D) 64 : 343
+Page 6
+--- PAGE 7 ---
+ExamStick 3D Mensuration (97 Questions)
+2 3
+59. Find the height of a cuboid whose base area is 180 cm and volume is 900 cm .
+(A) 5 cm (B) 6 cm
+(C) 7 cm (D) 0.2 cm
+60. A hemispherical bowl of radius 30 cm is filled with soap paste. If this paste is made into cylindrical soap
+cakes each of diameter 10 cm and height 2 cm, how many cakes do we get?
+(A) 90 (B) 360
+(C) 720 (D) 180
+61. A rectangular sheet of metal foil with dimension 66 cm × 12 cm is rolled to form a cylinder of height 12 cm.
+Find the volume of the cylinder.
+3 3
+(A) 2772 cm (B) 5148 cm
+3 3
+(C) 4185 cm (D) 4158 cm
+62. The dimension of a fish tank is 4 m × 2 m × 3 m. How many litres of water can it hold?
+(A) 24,000 litres (B) 2,400 litres
+(C) 240 litres (D) 24 litres
+63. The curved surface area of a hemisphere is how many times the square of its radius?
+(A) 3 π (B) 4 π
+(C) π (D) 2 π
+64. How many frustums can a right circular cone have?
+(A) Infinitely many (B) 3
+(C) 2 (D) 1
+65. If the circumference of the base of a conical wooden piece is 484 cm, then find its volume when its height is
+105 cm.
+3 3
+(A) 652910 cm (B) 652190 cm
+3 3
+(C) 59290 cm (D) 59920 cm
+66. Total surface area of a hemisphere is how many times its curved surface area?
+(A) 2 (B) 3
+3 2
+(C) / (D) /
+2 3
+67. How many great circles can a sphere have?
+(A) Two (B) Three
+(C) Ten (D) Infinitely many
+3
+68. The length, breadth and height of a cuboid are in the ratio 7 : 5 : 2. Its volume is 35840 cm , then height is:
+(A) 8 cm (B) 16 cm
+(C) 24 cm (D) 32 cm
+Page 7
+--- PAGE 8 ---
+ExamStick 3D Mensuration (97 Questions)
+69. The volume of a solid right circular cone is 4928 cu.cm. If its height is 24 cm, then find the radius of the
+22
+cone ( π = / ).
+7
+(A) 14 cm (B) 15 cm
+(C) 16 cm (D) 17 cm
+70. There are two cones with equal volumes and equal radii. What will be the ratio of their height?
+(A) 1 : 1 (B) 1 : 2
+(C) 2 : 1 (D) 1 : 3
+2
+71. Find the slant height of a cone of radius 7 cm and total surface area 704 cm .
+(A) 20 cm (B) 25 cm
+(C) 28 cm (D) 30 cm
+11352 3
+72. Volume of a hollow sphere is / cm . If the outer radius is 8 cm, find the inner diameter of the sphere ( π
+7
+22
+= / ).
+7
+(A) 5 cm (B) 10 cm
+(C) 15 cm (D) 20 cm
+73. Find the percentage increase in the surface area of a sphere when its radius is doubled.
+(A) 100% (B) 200%
+(C) 300% (D) 400%
+74. Find the curved surface area of a right circular cylinder of height 10 cm and base radius 7 cm.
+2 2
+(A) 440 cm (B) 220 cm
+2 2
+(C) 880 cm (D) 1540 cm
+75. Find the volume of a sphere whose radius is 3 cm.
+3 3
+(A) 36 π cm (B) 12 π cm
+3 3
+(C) 108 π cm (D) 27 π cm
+76. The total surface area of a solid hemisphere of radius 'r' is:
+2 2
+(A) 2 π r (B) 3 π r
+2 2
+(C) 4 π r (D) π r
+77. The ratio of the volumes of a sphere and a hemisphere of the same radius 'r' is:
+(A) 2 : 1 (B) 1 : 2
+(C) 4 : 1 (D) 3 : 1
+78. If the edge of a cube is doubled, then its volume increases by how many times?
+(A) 2 times (B) 4 times
+(C) 8 times (D) 16 times
+79. The total surface area of a cuboid of length l, breadth b and height h is:
+(A) 2(lb + bh + hl) (B) lbh
+(C) 2h(l + b) (D) l + b + h
+Page 8
+--- PAGE 9 ---
+ExamStick 3D Mensuration (97 Questions)
+80. The slant height 'l' of a right circular cone of base radius 'r' and height 'h' is given by:
+2 2 2 2
+(A) √ (r + h ) (B) r + h
+2 2
+(C) √ (r - h ) (D) r + h
+81. The ratio of surface area of a sphere to the curved surface area of a cylinder of same radius r and height h =
+2r is:
+(A) 1 : 1 (B) 2 : 1
+(C) 1 : 2 (D) 4 : 1
+82. The formula for the volume of a frustum of a cone with end radii R and r and height h is:
+1 2 2 2 2
+(A) / π h(R + r + Rr) (B) π h(R + r )
+3
+4 2 2 1 2 2
+(C) / π h(R - r ) (D) / π h(R - r )
+3 3
+83. A right circular cylinder has base radius 7 cm and height 10 cm. Find its total surface area.
+2 2
+(A) 748 cm (B) 440 cm
+2 2
+(C) 308 cm (D) 616 cm
+3
+84. If the volume of a cube is 1000 cm , find its total surface area.
+2 2
+(A) 600 cm (B) 400 cm
+2 2
+(C) 100 cm (D) 1000 cm
+85. The length of the diagonal of a cube of side 'a' is:
+(A) a √ 3 (B) a √ 2
+2
+(C) 3a (D) a √ 3
+86. The volume of a hollow cylinder of height h, outer radius R and inner radius r is:
+2 2 2
+(A) π h(R - r ) (B) π h(R - r)
+2 2
+(C) 2 π h(R + r) (D) π h(R + r )
+87. The curved surface area of a right circular cone of base radius r and slant height l is:
+(A) π rl (B) 2 π rl
+2 1
+(C) π r l (D) / π rl
+3
+88. The diameter of the base of a cone is 12 cm and its height is 8 cm. Find its slant height.
+(A) 10 cm (B) 14 cm
+(C) 12 cm (D) 16 cm
+89. Find the total surface area of a solid hemisphere of radius 7 cm.
+2 2
+(A) 462 cm (B) 308 cm
+2 2
+(C) 154 cm (D) 616 cm
+90. Find the volume of a cone of radius 6 cm and height 7 cm.
+3 3
+(A) 264 cm (B) 792 cm
+3 3
+(C) 132 cm (D) 528 cm
+Page 9
+--- PAGE 10 ---
+ExamStick 3D Mensuration (97 Questions)
+91. Find the volume of a cuboid with length 12 cm, breadth 10 cm and height 8 cm.
+3 3
+(A) 960 cm (B) 480 cm
+3 3
+(C) 596 cm (D) 240 cm
+92. Find the surface area of a sphere of radius 7 cm.
+2 2
+(A) 616 cm (B) 308 cm
+2 2
+(C) 1232 cm (D) 154 cm
+93. The ratio of the volume of a cylinder to the volume of a cone having the same base radius and height is:
+(A) 3 : 1 (B) 1 : 3
+(C) 2 : 1 (D) 3 : 2
+94. A cylinder of radius r and height h has equal volume and total surface area. Which relation holds true?
+2r r
+(A) h = / (B) h = /
+r - 2 r - 2
+2h
+(C) r = / (D) Both (A) and (C)
+h - 2
+95. How many cubes of edge 2 cm can be cut from a solid cube of edge 6 cm?
+(A) 27 (B) 9
+(C) 18 (D) 36
+96. Find the lateral surface area of a cuboid of length 10 cm, breadth 6 cm and height 5 cm.
+2 2
+(A) 160 cm (B) 320 cm
+2 2
+(C) 300 cm (D) 236 cm
+22
+97. Find the volume of a solid hemisphere of diameter 14 cm ( π = / ).
+7
+3 3
+(A) 718.67 cm (B) 1437.33 cm
+3 3
+(C) 616 cm (D) 308 cm
+Page 10
+--- PAGE 11 ---
+ExamStick 3D Mensuration (97 Questions)
+ANSWER KEY
+Q1: D Q21: A Q41: D Q61: D Q81: A
+Q2: C Q22: A Q42: B Q62: A Q82: A
+Q3: B Q23: C Q43: C Q63: D Q83: A
+Q4: B Q24: A Q44: A Q64: A Q84: A
+Q5: C Q25: C Q45: A Q65: B Q85: A
+Q6: C Q26: B Q46: B Q66: C Q86: A
+Q7: B Q27: A Q47: A Q67: D Q87: A
+Q8: B Q28: C Q48: D Q68: B Q88: A
+Q9: B Q29: B Q49: C Q69: A Q89: A
+Q10: A Q30: A Q50: D Q70: A Q90: A
+Q11: B Q31: C Q51: C Q71: B Q91: A
+Q12: C Q32: B Q52: A Q72: B Q92: A
+Q13: C Q33: B Q53: A Q73: C Q93: A
+Q14: A Q34: B Q54: B Q74: A Q94: D
+Q15: A Q35: C Q55: D Q75: A Q95: A
+Q16: B Q36: C Q56: D Q76: B Q96: A
+Q17: D Q37: B Q57: C Q77: A Q97: A
+Q18: D Q38: A Q58: D Q78: C
+Q19: D Q39: A Q59: A Q79: A
+Q20: A Q40: B Q60: B Q80: A
+Page 11

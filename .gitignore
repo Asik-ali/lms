@@ -44,3 +44,6 @@ android/play-upload-*.properties
 android/play_upload_*_certificate.pem
 android/upload-key-credentials.txt
 android/upload_certificate.pem
+
+# PDF import review screenshots (question assets and manifests are retained)
+imports/maths-pyq/source/*.png

@@ -3,7 +3,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { supabase } from '../../supabase/client';
 import { getAttempt, getResponses, reportQuestion } from '../../data/dynamicStore';
-import { localizeQuestion, orderQuestions, questionTranslation } from '../../data/bilingualQuestions';
+import { localizeQuestion, orderQuestions, questionTranslation, questionOptionLetters } from '../../data/bilingualQuestions';
 import QuestionLanguageSwitch from '../../components/test/QuestionLanguageSwitch';
 import { showSuccess, showError } from '../../components/common/Toast';
 import {
@@ -78,7 +78,6 @@ const REPORT_REASONS = [
   'Other',
 ];
 
-const OPTION_LETTERS = ['A', 'B', 'C', 'D'];
 
 const DIFFICULTY_COLORS = {
   Easy: 'bg-emerald-100 dark:bg-emerald-500/15 text-emerald-700 dark:text-emerald-300',
@@ -455,7 +454,7 @@ export default function StudentTestResult() {
 
           {/* Questions List */}
           <div className="flex-1 space-y-6">
-            {questions.some(q => questionTranslation(q)) && (
+            {questions.some(q => questionTranslation(q)?.tamil) && (
               <QuestionLanguageSwitch value={questionLanguage} onChange={setQuestionLanguage} />
             )}
             {questions.map((originalQuestion, idx) => {
@@ -566,7 +565,7 @@ export default function StudentTestResult() {
 
                     {/* Options Grid */}
                     <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
-                      {OPTION_LETTERS.map((letter) => {
+                      {questionOptionLetters(q).map((letter) => {
                         const isStudentAnswer =
                           r?.student_answer?.toUpperCase() === letter;
                         const isCorrectAnswer =

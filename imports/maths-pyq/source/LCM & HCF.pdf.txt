@@ -1,0 +1,1158 @@
+--- PAGE 1 ---
+ExamStick LCM & HCF Practice Question Bank
+ExamStick
+LCM & HCF — Continuous Practice Question Bank
+Continuous-Numbering Practice Set (Questions 1–180) — All Questions in English
+3 2
+1. Find the HCF of 25 ab c , 100 a bc , 125 abc . 8. Find the HCF of 27, 45 and 81.
+(A) 25 abc (A) 27
+(B) 53 abc (B) 9
+2
+(C) 25 a bc (C) 15
+2
+(D) 25 ab c (D) 45
+3 2 2 5 7 10 7 8 12
+2. Find the GCD of x − 27, ( x − 3) , and x − 9. 9. If m = 2 × 3 × 5 and n = 2 × 3 × 7 , find the
+HCF of m and n .
+(A) x − 3
+7 7
+(A) 2 × 3
+(B) x + 3
+5 8
+2 (B) 2 × 3
+(C) x + 3 x + 9
+7 8
+(C) 2 × 3
+(D) None of these
+5 7
+(D) 2 × 3
+3. Find the highest common factor of 0 and 6.
+10. Find the HCF of 867 and 255.
+(A) 0
+(A) 03
+(B) 3
+(B) 51
+(C) 6
+(C) 17
+(D) undefined
+(D) 255
+4. Find the HCF of 252525 and 363636.
+2 2
+11. If ( x − 6) is the HCF of ( x − 2 x − 24) and ( x − Kx − 6),
+(A) 10110
+then the value of K is:
+(B) 11010
+(A) 3
+(C) 10101
+(B) 5
+(D) 10011
+(C) 6
+5. The length, breadth and height of a room are 825 cm, (D) 8
+675 cm and 450 cm respectively. Find the longest tape
+2 2
+which can measure the three dimensions of the room 12. Find the H.C.F of ( m − 3 m − 18) and ( m + 5 m + 6).
+exactly?
+(A) m + 3
+(A) 44550 cm
+(B) m − 6
+(B) 14850 cm
+(C) m + 2
+(C) 75 cm
+(D) m − 3
+(D) 1350 cm
+13. The greatest number that will divide 62, 78 and 109
+2 2
+6. Find the Greatest Common Divisor for 21 x y , 35 xy . leaving remainders 2, 3 and 4 respectively is:
+(A) 7 xy (A) 12
+2 2
+(B) 105 x y (B) 14
+2 2
+(C) 7 x y (C) 15
+(D) 105 xy (D) 16
+4 3 2 5 3
+7. Highest common factor of 25 bc d , 35 b c and 45 c d 14. If HCF of two numbers is 8, then which of the following
+is: can never be their LCM?
+2 5 3
+(A) 1575 b c d (A) 24
+(B) 45 bcd (B) 48
+3
+(C) 25 c (C) 56
+3
+(D) 5 c (D) 60
+Page 1
+--- PAGE 2 ---
+ExamStick LCM & HCF Practice Question Bank
+4 3 2
+15. Find the G.C.D. of x − 1, x − x + x − 1, and 23. If the H.C.F. of two numbers is 1 then the numbers are
+5 4
+x − x − x + 1. called:
+2 (A) Co prime numbers
+(A) x + 1
+2 (B) Prime numbers
+(B) ( x + 1)( x + 1)
+2 (C) Even integers
+(C) ( x + 1)( x − 1)
+2 (D) Odd integers
+(D) ( x − 1)( x + 1)
+3 2
+24. Find the GCD of ( y + 1) and ( y − 1).
+16. Find the number of pairs of positive integers whose
+2
+sum is 99 and highest common factor is 9? (A) ( y + 1)
+(B) ( y + 1)
+(A) 5
+(C) ( y − 1)
+(B) 4
+2
+(D) ( y + 1)
+(C) 3
+(D) 2 25. The product of 2 two-digit numbers is 300 and their
+H.C.F. is 5, then the two numbers are:
+3 2 2
+17. Find the HCF of a − 9 ax and ( a − 3 x ) .
+(A) 15 , 20
+2 2
+(A) ( a − 9 x ) (B) 10 , 30
+2 (C) 50 , 60
+(B) ( a − 3 x )
+3 2 (D) 25 , 12
+(C) ( a − 9 ax )
+(D) ( a − 3 x )
+26. Find the greatest number that will divide 445 and 572
+leaving remainders 4 and 5 respectively.
+18. GCD of any two prime numbers is:
+(A) 72
+(A) − 1
+(B) 57
+(B) 0
+(C) 63
+(C) 1
+(D) 36
+(D) 2
+27. If the HCF of 65 and 117 is expressible in the form of
+19. What is the greatest number that will divide 101, 126 65 m − 117, then find the value of m .
+and 152 leaving remainders 5, 6 and 8 respectively?
+(A) 1
+(A) 18 (B) 2
+(B) 24 (C) 3
+(C) 26 (D) 4
+(D) 25 3 2
+28. Find the HCF of the polynomials 6 x − 30 x +60 x − 48
+3 2
+4 4 3 2 and 3 x − 12 x + 21 x − 18.
+20. Find the G.C.D of x − 1 and x + 5 x − 5 x + 5 x − 6.
+3
+(A) 3( x − 3 x + 2)( x − 1)
+2
+(A) ( x + 1)( x − 1) 3
+(B) 3( x − 3 x + 2)( x − 2)
+2
+(B) ( x + 1)( x − 6)
+(C) 3( x − 2)
+2
+(C) ( x + 1)( x + 6)
+(D) 3( x − 2)( x − 1)
+4
+(D) x − 1
+4 4 2 2
+29. The G.C.D of x − y and x − y is:
+3 2 4
+21. Find the HCF of x − x + x − 1 and x − 1. 4 4
+(A) x − y
+2 2 2 2
+(A) ( x + 1)( x − 1) (B) x − y
+2 2
+(B) ( x − 1)( x + 1) (C) ( x + y )
+2 2 4
+(C) ( x + 1)( x − 1) (D) ( x + y )
+2
+(D) ( x + 1)( x − 1) 2 2 4 4
+30. Find the H.C.F. of x − 2 xy + y and x − y .
+22. H.C.F of 513 and 1134 is: (A) 1
+(B) x + y
+(A) 9
+(C) x − y
+(B) 81
+2 2
+(D) x − y
+(C) 27
+(D) 31 31. Find out the HCF of 11, 0 . 121 and 0 . 1331.
+Page 2
+--- PAGE 3 ---
+ExamStick LCM & HCF Practice Question Bank
+(A) 11 (C) Both are even numbers
+(B) 0 . 11 (D) One is multiple of other
+(C) 0 . 011
+3 3 2 2 4 4
+39. Find HCF of x − y , x − y , and x − y .
+(D) 0 . 0011
+(A) ( x − y )
+3 2 2 2
+32. Find the HCF of the polynomials x + x − x + 2 and (B) ( x − y )
+3 2
+2 x − 5 x + 5 x − 3. 3 3
+(C) ( x − y )
+4 4
+(A) x + 2 (D) ( x − y )
+3 2
+(B) 2( x + x − x + 2)
+2 2
+40. Find the HCF of a − 8 a + 16 and ( a + 3)( a − 4)( a −
+2
+(C) − 7( x − x + 1)
+a − 12).
+2
+(D) x − x + 1
+2
+(A) ( a − 3)
+2
+33. Find the length of the longest rope that can be used (B) ( a − 4)
+to measure exactly the ropes of length 1 m 20 cm, 2
+(C) ( a + 3)
+3 m 60 cm, and 4 m. 2
+(D) ( a + 4)
+(A) 30 cm
+41. Find the HCF of the numbers 400 and 560.
+(B) 40 cm
+(C) 120 cm (A) 40
+(B) 50
+(D) 360 cm
+(C) 60
+34. Find the HCF of 18, 24 and 30. (D) 80
+(A) 6 2 3 4
+42. Find the G.C.D. of ( a − b ) , ( b − c ) , and ( c − a ) .
+(B) 7
+4
+(A) ( c − a )
+(C) 8
+2
+(B) ( a − b )
+(D) 9
+(C) 0
+35. If the H.C.F of 450 and 216 is expressible in the form (D) 1
+23 x − 51, then find the value of x .
+43. A bookseller has 220 Maths Books, 380 Tamil Books,
+(A) 2 420 English Books. He wants to sell the books in a
+(B) 3 box, subject-wise in equal numbers. What will be the
+greatest number of boxes required?
+(C) 4
+(D) 5 (A) 10
+(B) 20
+m +1 m +2 m +3
+36. HCF of a , a , a is:
+(C) 30
+m +3
+(A) a (D) 40
+m +2
+(B) a
+44. The L.C.M. of 78 and 39 is 78. Find their G.C.D.
+m +1
+(C) a
+m (A) 39
+(D) a
+(B) 48
+37. A milkman has 175 litres of cow’s milk and 105 litres of (C) 59
+buffalo’s milk. He wishes to sell the milk by filling the
+(D) 78
+two types of milk in cans of equal capacity. Calculate
+the highest capacity of a can. 2 2
+45. Find the HCF of 6(2 x − 3 x − 2), 8(4 x + 4 x + 1), and
+2
+12(2 x + 7 x + 3).
+(A) 15 litres
+(B) 17 litres (A) (2 x + 1)( x − 2)(2 x + 1)( x + 3)
+(C) 25 litres (B) 2(2 x + 1)
+(D) 35 litres (C) 4(2 x + 1)( x − 2)
+(D) 6(2 x + 1)( x + 3)
+38. If the HCF of two positive integers is 1, then what will
+be the two numbers? 46. Find the Highest Common Factor (HCF) of 408, 170.
+(A) Relatively prime (A) 36
+(B) At least one must be prime (B) 34
+Page 3
+--- PAGE 4 ---
+ExamStick LCM & HCF Practice Question Bank
+2 2 2
+(C) 33 55. Find H.C.F. of ( x y + xy ) and ( x + xy ).
+(D) 30
+(A) x + y
+2 3 4 (B) xy
+47. H.C.F of ( x + y ) , ( y + z ) , ( z + x ) is:
+(C) x ( x + y )
+(A) 1 2 2
+(D) x + y
+(B) x + y + z
+2 56. If the Highest common factor of 210 and 55 is express-
+(C) ( x + y + z )
+2 3 4 ible in the form 55 x − 325, then x =
+(D) ( x + y ) ( y + z ) ( z + x )
+(A) 6
+2 3 2 2 3
+48. Find HCF of x + xy , x y + x y .
+(B) 5
+(A) x ( x + y ) (C) 4
+2 (D) 3
+(B) x + xy
+3 2 2 3
+(C) x y + x y
+2 2 2
+57. H.C.F. of x + 5 x − 6, x + 4 x − 12, x + 8 x + 12 is:
+(D) xy ( x + y )
+(A) x − 2
+4 2
+49. What is the HCF of x − 1 and x − 1? (B) x + 2
+(C) x + 3
+(A) ( x + 1)( x − 1)
+2 (D) x + 6
+(B) ( x − 1)
+2
+(C) x + 1 n n +1 n +2
+58. Find the H.C.F. of x , x , x .
+2
+(D) ( x + 1)
+n
+(A) x
+1 1 2 3 4 n +2
+50. Find the HCF of , , , and . (B) x
+2 3 3 4 5
+n +1
+(C) x
+(A) 1
+(D) 1
+(B) 2
+1
+(C) 59. Let A = HCF of (124 , 88) and B = HCF of (88 , 52).
+45
+1
+(D) Which of the following is true?
+60
+2 2 (A) A = B
+51. Find GCD of 2 x − 18 and x − 2 x − 3.
+(B) A ̸ = B
+(A) ( x + 3)
+(C) A < B
+(B) ( x − 3)
+(D) A > B
+(C) ( x + 1)
+(D) ( x − 1) 60. Find the HCF of 225 and 450 by Prime Factorisation.
+(A) 15
+2 4 6
+52. Find the HCF of , and .
+3 5 25
+(B) 540
+2
+(A) (C) 225
+3
+4
+(B) (D) 450
+25
+2
+(C)
+75 2
+6 61. Find the LCM of the given polynomials 5 x − 10 x ,
+(D)
+25 2 2
+x − 4, ( x − 2) .
+2 2 2 2
+53. If x − 4 is the HCF of ( x − x − 12) and ( x − mx − 8), (A) 5 x ( x − 2 x )( x − 2)
+then the value of m is: 2 2
+(B) 5 x ( x + 2 x )( x − 2)
+2 2
+(A) 0 (C) 5( x + 2 x )( x − 2)
+2 2
+(B) 1 (D) 5( x − 2 x )( x − 2)
+(C) 2
+62. The traffic lights at three different road junc-
+(D) 6
+tions change after every 40 seconds, 60 seconds and
+72 seconds respectively. If they changed simultane-
+5 3 4 2 3 2 2
+54. Find the G.C.D. of 35 x y z , 49 x yz , 14 xy z .
+ously together at 8 a.m., at what time will they si-
+2 2 2 multaneously change together again?
+(A) 7 x y z
+(B) 7 xyz (A) 8.40 a.m
+5 3 4
+(C) 14 x y z (B) 9.06 a.m
+2
+(D) 7 xyz (C) 8.06 a.m
+Page 4
+--- PAGE 5 ---
+ExamStick LCM & HCF Practice Question Bank
+(D) 8.60 a.m (D) 32 xy
+3 2 2 2
+63. Find the least number that is divisible by the first ten 71. Find the LCM of: 9 a b , 12 a b c .
+natural numbers.
+(A) 36 abc
+2
+(A) 2530 (B) 12 a bc
+2 2
+(B) 2520 (C) 24 a b c
+3 2
+(C) 2510 (D) 36 a b c
+(D) 2500
+72. Find the least number that is divisible by the first ten
+natural numbers.
+64. What is the smallest 5 digit number that is exactly
+divisible by 72 and 108? (A) 2520
+(B) 360
+(A) 10000
+(C) 210
+(B) 10152
+(D) 1250
+(C) 10072
+(D) 10108 73. What is the smallest 5 digit number that is exactly
+divisible by 72 and 108?
+65. LCM is not always the largest of the given numbers.
+(A) 10152
+(A) greater than (B) 10052
+(B) equal to (C) 10502
+(C) multiple of (D) 10512
+(D) smaller than
+3 3 2
+74. Find the L.C.M. of ( x − a ), ( x − a ) .
+66. Find the least common multiple (LCM) of the given 3 3
+(A) ( x − a )( x + a )
+3 2 2 2 2 2
+expressions 9 a b c , 12 a b c . 3 3 2
+(B) ( x − a )( x − a )
+2 3 2 2 2
+(A) 36 a b c (C) ( x − a ) ( x + ax + a )
+3 2 2 2 2 2
+(B) 36 a b c (D) ( x + a ) ( x + ax + a )
+3 2
+(C) 36 a b c
+75. Find the least number divisible by each of the numbers
+2 3 2
+(D) 36 a b c
+15, 20, 24, 32, 36.
+m +1 m +2 m +3
+67. Find the LCM of a , a , a . (A) 2 , 880
+m +3 (B) 1 , 660
+(A) a
+(C) 1 , 440
+m +6
+(B) a
+(D) 1 , 330
+m +2
+(C) a
+m +1
+(D) a 76. Wilson, Mathan, Guna can complete one round of a
+circular track in 10, 15 and 20 minutes respectively. If
+2
+68. The L.C.M. of 2 y − 6, 2 y − 18 is: they start together at 7 am from the starting point, at
+what time will they meet together again at the starting
+(A) 2( y + 3)
+point?
+(B) 2( y − 3)
+(A) 8 am
+(C) 2( y − 3)( y + 3)
+(B) 8 pm
+(D) 2( y − 6)( y + 6)
+(C) 5 pm
+(D) 9 am
+69. Find the LCM of 156 and 124.
+(A) 4326 77. There are four mobile phones in a house. At 5 a.m. all
+(B) 4386 the four mobile phones will ring together. Thereafter,
+the first one rings every 15 minutes, the second one
+(C) 4826
+rings every 20 minutes, the third one rings every 25
+(D) 4836
+minutes and the fourth one rings every 30 minutes. At
+what time, will the four mobile phones ring together
+2 3 2
+70. Find the LCM of: 4 x y , 8 x y .
+again?
+2
+(A) 4 x y (A) 7 a.m.
+3 2
+(B) 8 x y (B) 8 a.m.
+2
+(C) 8 x y (C) 9 a.m.
+Page 5
+--- PAGE 6 ---
+ExamStick LCM & HCF Practice Question Bank
+(D) 10 a.m. (B) 5( x + 2)
+(C) ( x − 2)( x + 2)
+78. The greatest 5 digits number, which, when divided by
+(D) 5( x − 2)( x + 2)
+3, 5, 8 and 12 have 2 as a remainder is:
+2 2 2
+86. Find the LCM : 16 m , − 12 m n , 8 n .
+(A) 99972
+(B) 99958 (A) − 16 mn
+2 2
+(C) 99960 (B) − 16 m n
+2 2
+(D) 99962 (C) − 48 m n
+2 2
+(D) 48 m n
+4 2
+79. Find the LCM of the polynomials ( x − 1) and ( x −
+2 x + 1). 87. Two numbers are in the ratio of 3:4. Their L.C.M is
+2 2 84. Find the numbers?
+(A) ( x + 1) ( x + 1)( x − 1)
+2 2 (A) 7 and 12
+(B) ( x − 1)( x − 1) ( x + 1)
+2 2 (B) 4 and 21
+(C) ( x + 1)( x − 1) ( x + 1)
+2 2 2 (C) 2 and 42
+(D) ( x + 1)( x − 1)( x − 1)
+(D) 21 and 28
+80. The smallest number which is exactly divisible by all
+2 2 2 2
+the numbers from 1 to 9: 88. The L.C.M of ( a + b ) , a − b , ( a − b ) is:
+2
+(A) 1260 (A) ( a + b )
+2
+(B) ( a − b )
+(B) 2520
+(C) ( a + b )( a − b )
+(C) 5040
+2 2
+(D) ( a + b ) ( a − b )
+(D) 9000
+4 2 2 4 89. 6 bells commence tolling together and toll at intervals
+81. Find the LCM of the following: 8 x y , 48 x y .
+of 2, 4, 6, 8, 10 and 12 sec respectively. In 1 h, how
+4 2
+(A) 8 x y many times do they toll together?
+2 4
+(B) 48 x y
+(A) 35
+4 4
+(C) 48 x y
+(B) 31
+2 4
+(D) 8 x y (C) 21
+(D) 16
+82. The greatest number consisting of 6 digits which is ex-
+actly divisible by 24, 15, 36 is:
+90. The least number which is exactly divisible by 32, 36,
+45, 60 and 80 is:
+(A) 999700
+(B) 999720 (A) 1444
+(C) 999780 (B) 1440
+(D) 999999 (C) 1404
+(D) 1430
+83. The smallest 5 digit number which is exactly divisible
+by 72 and 108 is: 91. The least number which when divided by 12, 16, 24
+and 36 leaves a remainder 7 in each case is:
+(A) 10152
+(B) 11052 (A) 151
+(C) 15052 (B) 51
+(C) 36
+(D) 09936
+(D) 144
+84. When seen through a mirror, a watch shows 12 : 15.
+The correct time is: 92. If a clock strikes once at 1 o’clock, twice at 2 o’clock,
+thrice at 3 o’clock and so on, how many times will it
+(A) 1 : 15 strike in a day?
+(B) 11 : 45
+(A) 78
+(C) 12 : 30
+(B) 156
+(D) 12 : 45
+(C) 234
+2 (D) 312
+85. Find the LCM of 5 x − 10 and 5 x − 20.
+2
+(A) 5( x − 2) 93. The LCM of (5 x − 10), (5 x − 20) is:
+Page 6
+--- PAGE 7 ---
+ExamStick LCM & HCF Practice Question Bank
+(A) 5( x + 2)( x − 2) (A) One
+(B) 25( x + 2)( x − 2) (B) Two
+(C) 25( x − 2)( x + 2) (C) Three
+2 (D) Four
+(D) 5( x − 2) ( x + 2)
+4 2 2
+94. The LCM of ( x − 1), ( x − 2 x + 1) is: 101. Find LCM of (5 x − 10), (5 x − 20).
+2 2
+(A) ( x − 1)( x + 1)( x + 1) (A) 5( x − 4)
+2 2 2
+(B) ( x + 1)( x + 1)( x − 1) (B) 5( x − 2)
+3 (C) 5( x + 4)
+(C) ( x + 1)( x − 1) ( x + 1)
+2 2 (D) 5( x + 2)
+(D) ( x + 1)( x − 1)
+95. What is the 4 digit greatest number which is exactly 102. The LCM of two co-prime numbers is 5005. One of the
+divisible by 15, 18, 20? numbers is 65, then the other number is:
+(A) 99
+(A) 9000
+(B) 88
+(B) 9500
+(C) 77
+(C) 9900
+(D) 66
+(D) 9990
+3 2 2 2
+2 2 103. Find the LCM of − 9 a b , 12 a b c .
+96. The LCM of p − 3 p + 2, p − 4 is:
+2 2
+2 (A) − 36 a b c
+(A) ( p − 1)( p − 4)
+3 2
+2 (B) − 36 a b c
+(B) ( p + 1)( p − 4)
+3 2
+2 (C) 36 a b c
+(C) ( p − 1)( p + 4)
+5 4
+2 (D) 36 a b c
+(D) ( p + 1)( p + 4)
+104. The smallest number that can be divided by 254 and
+97. The traffic lights at three different road cross-
+508 which leaves remainder 4 is:
+ings change after every 48 seconds, 72 seconds and
+108 seconds respectively. If they change simultane- (A) 6
+ously at 7 a.m., at what time will they change simul- (B) 258
+taneously again?
+(C) 512
+(A) 07:12 (D) 1024
+(B) 12:07
+105. The LCM of 156 and 124 is:
+(C) 07:12:07
+(D) 07:07:12 (A) 4836
+(B) 3846
+98. There are four mobile phones in a house. At 5 am
+(C) 8346
+all the four mobile phones will ring together. There-
+(D) 4683
+after, the first one rings every 15 minutes, the second
+one rings every 20 minutes, the third one rings every
+106. There is a circular path around a sports field. Sonia
+25 minutes and the fourth one rings every 30 minutes.
+takes 18 minutes to drive one round of the field, while
+At what time, will all the four Mobile Phones ring to-
+Ravi takes 12 minutes for the same. Suppose both start
+gether again?
+at the same point and at the same time, and go in the
+(A) 7 O’ Clock same direction, after how many minutes will they meet
+again at the starting point?
+(B) 1 O’ Clock
+(C) 8 O’ Clock (A) 20 min
+(D) 10 O’ Clock (B) 28 min
+(C) 36 min
+2 2 2
+99. The LCM of 8 p qr , 12 p r , 24 pqr is:
+(D) 48 min
+2 2
+(A) 24 p qr
+107. Malarvizhi, Karthiga and Anjali are friends and na-
+2 2
+(B) 8 p qr
+tives of the same village. They work at different places.
+(C) 12 pr Malarvizhi comes to her home once in 5 days. Simi-
+(D) 24 pqr larly, Karthiga and Anjali come to their homes once in
+6 days and 10 days respectively. Assuming that they
+100. How many numbers between 400 and 500 are exactly met each other on the 1st October, when will all the
+divisible by 12, 15 and 20? three meet again?
+Page 7
+--- PAGE 8 ---
+ExamStick LCM & HCF Practice Question Bank
+(A) 31st of October (B) 7 abc
+2 3
+(B) 30th of October (C) 216 a c b
+3 3 2
+(C) 10th of October (D) 441 a c b
+(D) 1st of November
+115. The L.C.M. of two co-prime numbers is 5005. If one
+of the numbers is 65, then find the other number.
+108. There are four Mobile Phones in a house. At 5 a.m.,
+all the four Mobile Phones will ring together. There-
+(A) 65
+after, the first one rings every 15 minutes, the second
+(B) 66
+one rings every 20 minutes, the third one rings every
+25 minutes and the fourth one rings every 30 minutes. (C) 1
+At what time, will all the four Mobile Phones ring to- (D) 77
+gether again?
+1 5 2 4
+116. The L.C.M. of , , , is:
+3 6 9 27
+(A) 7.00 a.m.
+1
+(B) 8.00 a.m. (A)
+36
+1
+(C) 10.00 a.m. (B)
+1365
+12
+(D) 11.00 a.m. (C)
+455
+(D) 36
+109. What is the smallest 5 digit number that is exactly
+K K +3 K +5
+divisible by 72 and 108? 117. When K ∈ N , LCM of a , a and a is:
+K +9
+(A) 10072 (A) a
+K
+(B) 10216 (B) a
+K +6
+(C) 10152 (C) a
+K +5
+(D) 10108 (D) a
+110. The L.C.M of two Co-Prime numbers is 6006. One of 118. Find the smallest number that can be divided by 254
+them is 66. Then find the other number. and 508 which leaves the remainder 4.
+(A) 1001 (A) 254
+(B) 101 (B) 508
+(C) 91 (C) 805
+(D) 66 (D) 512
+3 2 2
+111. What is the smallest 5 digit number that is exactly 119. Find the L.C.M. of ( x − 27), ( x − 3) , ( x − 9).
+divisible by 96 and 120? 2 2
+(A) ( x − 3) ( x + 3)( x + 3 x + 9)
+(A) 10608 2
+(B) ( x − 3) ( x + 3)
+(B) 16008 2
+(C) ( x + 3) ( x − 3)
+(C) 10080 2
+(D) ( x + 3)( x + 3 x + 9)
+(D) 18600
+3 2 2
+120. Find the LCM of the following: x − 27, ( x − 3) , x − 9.
+2 2 3 3 3
+112. Find the L.C.M. : (2 x − 3 xy ) , (4 x − 6 y ) , 8 x − 27 y . 2
+(A) ( x − 3)( x + 3)( x + 3 x + 9)
+3 3 2 2 2
+(A) 2 x (2 x − 3 y ) (B) ( x − 3) ( x + 3 x + 9)
+3 2 2 2 2 2
+(B) 2 x (4 x + 6 xy + 9 y ) (C) ( x − 3) ( x + 3)( x + 3 x + 9)
+3 2 3 2 2 2 2
+(C) 2 x (2 x − 3 y ) (4 x + 6 xy + 9 y ) (D) ( x − 3) ( x + 3)( x − 3 x + 9)
+3 3 3 2 2
+(D) 2 x (2 x − 3 y ) (4 x + 6 xy + 9 y )
+121. The largest four digit number which when divided by
+113. Find the smallest number which is exactly divisible by 4, 7 and 13 leaves a remainder 3 in each case is:
+all the numbers from 1 to 9.
+(A) 9138
+(A) 2510 (B) 9318
+(B) 2520 (C) 9381
+(C) 2530 (D) 9831
+(D) 2540
+4 2
+122. Find the LCM of ( x − 1) and ( x − 2 x + 1).
+2 3 3 2 2 3
+114. LCM of 35 a c b , 42 a cb and 30 ac b is: 2
+(A) ( x + 1)( x + 1)
+3 3 3
+(A) 210 a c b (B) ( x + 1)( x − 1)
+Page 8
+--- PAGE 9 ---
+ExamStick LCM & HCF Practice Question Bank
+2 2 2 3 3 2 2 3
+(C) ( x + 1)( x − 1) 130. Find LCM of 35 a c b , 42 a cb , 30 ac b .
+2 2
+(D) ( x + 1)( x + 1)( x − 1) 2 2
+(A) 120 a b c
+2 2
+(B) 210 a b
+123. Find the smallest number consisting of five digits which
+(C) 30 abc
+is exactly divisible by 16, 24, 36 and 54.
+3 3 3
+(D) 210 a b c
+(A) 10432
+131. The ratio of two numbers is 3 : 4 and their H.C.F. is
+(B) 10064
+4. Their L.C.M. is:
+(C) 10368
+(D) 10362 (A) 48
+(B) 16
+2 2 2
+124. LCM of x y + xy , x + xy is: (C) 24
+2 2 (D) 36
+(A) x y + xy
+2
+(B) x + xy 132. The ratio of two numbers is 4 : 5 and their L.C.M. is
+2
+(C) x y ( x + y ) 180. Find the smaller number.
+(D) x ( x + y ) (A) 45
+(B) 15
+125. The greatest four digit number which is exactly divis-
+(C) 60
+ible by 8, 12, 15:
+(D) 36
+(A) 9930
+3 2 4 4 2
+133. Find the L.C.M. of 2 × 3 × 5 × 11, 2 × 3 × 5 × 7
+(B) 9960
+5 3 3 2
+and 2 × 3 × 5 × 7 × 11.
+(C) 9920
+3 2
+(A) 2 × 3 × 5
+(D) 9980
+5 4 3 2
+(B) 2 × 3 × 5 × 7
+126. LCM of two consecutive prime numbers is equal to 5 4 3
+(C) 2 × 3 × 5
+their: 5 4 3 2
+(D) 2 × 3 × 5 × 7 × 11
+(A) Sum of the two numbers
+134. Six bells commence tolling together and toll at inter-
+(B) Product of the two numbers vals of 2, 4, 6, 8, 10 and 12 seconds respectively. In 30
+(C) Difference of the two numbers minutes, how many times do they toll together?
+(D) HCF of the two numbers (A) 4
+(B) 10
+3 2 4 2 2
+127. Find the LCM of (2 × 3 × 5 × 7), (2 × 3 × 5 × 7 × 11)
+3 4 (C) 16
+and (2 × 3 × 5 ).
+(D) 15
+4 3 4
+(A) 2 × 3 × 5
+2 4 5
+135. Find the L.C.M. of , , .
+(B) 2 × 3 × 7 × 5 × 11 3 9 6
+4 3 4 2 20
+(C) 2 × 3 × 5 × 7 × 11 (A)
+3
+4 4 4 10
+(D) 2 × 3 × 5 × 7 (B)
+3
+20
+(C)
+9
+128. A type of bacteria grows. It increases at 5% in 1st 10
+(D)
+9
+hour, decreases at 8% in 2nd hour and again increases
+at 10% in 3rd hour. Find the number of bacteria at the 136. The L.C.M. of two numbers is 495 and their H.C.F. is
+end of 3rd hour if there were 10 , 000 in the beginning. 5. If the sum of the numbers is 100, then their differ-
+ence is:
+(A) 10626
+(A) 10
+(B) 10266
+(B) 70
+(C) 10622
+(C) 90
+(D) 11626
+(D) 50
+2 2
+129. Find the L.C.M. of x − 1, ( x − 1) .
+137. The product of two numbers is 2028 and their H.C.F.
+2 is 13. The number of such pairs is:
+(A) ( x − 1)( x − 1)
+2
+(B) ( x + 1)( x + 1) (A) 2
+2
+(C) ( x − 1)( x + 1) (B) 1
+2
+(D) ( x + 1)( x − 1) (C) 3
+Page 9
+--- PAGE 10 ---
+ExamStick LCM & HCF Practice Question Bank
+(D) 4 (A) 7:00 a.m.
+(B) 8:00 a.m.
+138. The L.C.M. of two co-prime numbers is 5005. If one
+(C) 10:00 a.m.
+of the numbers is 65, then find the other number.
+(D) 11:00 a.m.
+(A) 65
+145. What is the smallest 5-digit number that is exactly
+(B) 66
+divisible by 72 and 108?
+(C) 77
+(A) 10072
+(D) 101
+(B) 10216
+139. Find the least number which when divided by 6, 7, 8, (C) 10152
+9 and 12 leaves the same remainder 1 in each case. (D) 10108
+(A) 505 146. The L.C.M. of two co-prime numbers is 6006. One of
+(B) 504 them is 66. Find the other number.
+(C) 506
+(A) 1001
+(D) 507 (B) 101
+(C) 91
+2 2 2 2
+140. Find the L.C.M. of ( x + y ) − z , ( y + z ) − x ,
+2 2 (D) 6
+( z + x ) − y .
+147. What is the smallest 5-digit number that is exactly
+(A) ( x + y + z )
+divisible by 96 and 120?
+(B) ( x + y − z )
+(C) ( x + y + z )( x + y − z )( y + z − x )( z + x − y ) (A) 10608
+2 (B) 16008
+(D) ( x + y + z )
+(C) 10080
+3 2 2 3 4
+141. Find the L.C.M. of 15 x y , 20 x y , 35 x y . (D) 18600
+4 3 2 2 3 3 3
+(A) 420 x y 148. Find the L.C.M. of (2 x − 3 xy ) , (4 x − 6 y ) , 8 x − 27 y .
+3 3
+(B) 210 x y 3 2
+(A) 8 x (2 x − 3 y )
+3 4
+(C) 420 x y 2 2 2
+(B) 8 x (4 x + 6 xy + 9 y )
+4 3
+(D) 140 x y 2 3 2 2
+(C) 8 x (2 x − 3 y ) (4 x + 6 xy + 9 y )
+3 3 2 2
+(D) 8 x (2 x − 3 y ) (4 x + 6 xy + 9 y )
+142. Three runners run along a circular track of length
+1200 m with speeds 2 m/s, 3 m/s and 6 m/s starting 2 3 3 2 2 3
+149. Find the L.C.M. of 35 a c b , 42 a cb and 30 ac b .
+together from the same point. When will they meet
+3 3 3
+again for the first time at the starting point? (A) 210 a b c
+(B) 7 abc
+(A) 600 sec
+2 3
+(C) 216 a b c
+(B) 1200 sec
+3 2 3
+(D) 441 a b c
+(C) 300 sec
+(D) 400 sec 150. The largest 4-digit number which when divided by 4,
+7 and 13 leaves a remainder of 3 in each case is:
+143. A, B, C start at the same time in the same direction to
+(A) 9138
+run around a circular stadium. A completes a round in
+(B) 9318
+252 seconds, B in 308 seconds and C in 198 seconds, all
+starting at the same point. After what time will they (C) 9381
+meet again at the starting point? (D) 9831
+(A) 46 minutes 12 seconds
+151. Find the smallest 5-digit number which is exactly di-
+(B) 45 minutes visible by 16, 24, 36 and 54.
+(C) 42 minutes 36 seconds
+(A) 10432
+(D) 26 minutes 18 seconds (B) 10064
+(C) 10368
+144. There are four mobile phones in a house. At 5 a.m., all
+(D) 10362
+four ring together. Thereafter, the first rings every 15
+minutes, the second every 20 minutes, the third every 2 2 2
+152. Find the L.C.M. of x y + xy and x + xy .
+25 minutes, and the fourth every 30 minutes. At what
+time will they ring together again? (A) xy ( x + y )
+Page 10
+--- PAGE 11 ---
+ExamStick LCM & HCF Practice Question Bank
+2
+(B) x + xy (C) 15052
+2 (D) 09936
+(C) x y ( x + y )
+(D) x ( x + y )
+160. 6 bells commence tolling together and toll at intervals
+of 2, 4, 6, 8, 10 and 12 seconds respectively. In 30
+153. The greatest 4-digit number which is exactly divisible
+minutes, how many times do they toll together?
+by 8, 12, 15:
+(A) 4
+(A) 9930
+(B) 10
+(B) 9960
+(C) 16
+(C) 9920
+(D) 15
+(D) 9980
+4 2
+161. Find the LCM of ( x − 1) and ( x − 2 x + 1).
+154. A type of bacteria grows such that it increases by 5%
+2
+(A) ( x − 1)( x + 1)( x + 1)
+in the 1st hour, decreases by 8% in the 2nd hour and
+2 2
+increases by 10% in the 3rd hour. Find the number of (B) ( x + 1)( x + 1)( x − 1)
+2 3
+bacteria at the end of the 3rd hour if there were 10 , 000 (C) ( x + 1)( x − 1) ( x + 1)
+initially. 2 2
+(D) ( x + 1)( x − 1)
+(A) 10626
+162. What is the 4-digit greatest number which is exactly
+(B) 10266 divisible by 15, 18, 20?
+(C) 10622
+(A) 9000
+(D) 11626
+(B) 9500
+(C) 9900
+155. What is the smallest 5-digit number that is exactly
+divisible by 72 and 108? (D) 9990
+(A) 10000 163. The traffic lights at three different road cross-
+(B) 10152 ings change after every 48 seconds, 72 seconds and
+108 seconds respectively. If they change simultane-
+(C) 10072
+ously at 7 a.m., at what time will they change simul-
+(D) 10108
+taneously again?
+156. Find the LCM of 156 and 124. (A) 07:12:00 a.m.
+(B) 07:07:12 a.m.
+(A) 4326
+(C) 07:12:07 a.m.
+(B) 4386
+(D) 07:08:12 a.m.
+(C) 4826
+2
+(D) 4836 164. Find LCM of (5 x − 10), (5 x − 20).
+2
+(A) 5( x − 4)
+157. What is the smallest 5-digit number that is exactly
+(B) 5( x − 2)
+divisible by 72 and 108?
+2
+(C) 5( x + 4)
+(A) 10152 (D) 5( x + 2)
+(B) 10052
+165. What is the smallest 5-digit number that is exactly
+(C) 10502
+divisible by 96 and 120?
+(D) 10512
+(A) 10080
+158. The greatest 5-digit number, which, when divided by (B) 10800
+3, 5, 8 and 12 have 2 as a remainder is:
+(C) 10020
+(A) 99972 (D) 10500
+(B) 99958 2 2 3 3 3
+166. Find the L.C.M. : (2 x − 3 xy ) , (4 x − 6 y ) , 8 x − 27 y .
+(C) 99960
+3 2 3 2 2
+(A) 2 x (2 x − 3 y ) (4 x + 6 xy + 9 y )
+(D) 99962
+3 2 2 2
+(B) 2 x (4 x + 6 xy + 9 y )
+3 2 2
+159. The smallest 5-digit number which is exactly divisible (C) 2 x (2 x − 3 y )
+3 3 3
+by 72 and 108 is: (D) 2 x (2 x − 3 y )
+(A) 10152
+167. Find the smallest number which is exactly divisible by
+(B) 11052 all the numbers from 1 to 9.
+Page 11
+--- PAGE 12 ---
+ExamStick LCM & HCF Practice Question Bank
+(A) 1260 (A) 9960
+(B) 2520 (B) 9980
+(C) 5040 (C) 9940
+(D) 2540 (D) 9920
+2 3 3 2 2 3
+168. LCM of 35 a c b , 42 a cb and 30 ac b is: 176. LCM of two consecutive prime numbers is equal to
+their:
+3 3 3
+(A) 210 a b c
+(B) 7 abc (A) Product
+2 2 3 (B) Sum
+(C) 216 a b c
+3 3 3 (C) Difference
+(D) 35 a b c
+(D) HCF
+169. The L.C.M. of two co-prime numbers is 5005. If one
+of the numbers is 65, then find the other number. 3 2 4 2 2
+177. Find the LCM of (2 × 3 × 5 × 7), (2 × 3 × 5 × 7 × 11)
+3 4
+and (2 × 3 × 5 ).
+(A) 77
+4 3 4 2
+(B) 65 (A) 2 × 3 × 5 × 7 × 11
+3
+(C) 85 (B) 2 × 3 × 5 × 7
+4 3 4
+(D) 101 (C) 2 × 3 × 5
+(D) 2 × 3 × 5 × 7 × 11
+170. Find the smallest number that can be divided by 254
+and 508 which leaves a remainder of 4 in each case. 178. A type of bacteria grows such that it increases by 5%
+in the 1st hour, decreases by 8% in the 2nd hour, and
+(A) 254
+increases by 10% in the 3rd hour. If the present count
+(B) 508
+is 20 , 000, find the count after 3 hours.
+(C) 805
+(A) 21 , 252
+(D) 512
+(B) 20 , 500
+3 2 2
+171. Find the L.C.M. of ( x − 27), ( x − 3) , ( x − 9). (C) 22 , 000
+2 2 (D) 21 , 000
+(A) ( x − 3) ( x + 3)( x + 3 x + 9)
+2
+(B) ( x − 3)( x + 3)( x + 3 x + 9) 2 2
+179. Find the L.C.M. of x − 1, ( x − 1) .
+2 2
+(C) ( x − 3) ( x + 3 x + 9)
+2
+2 2 (A) ( x − 1)( x − 1)
+(D) ( x + 3) ( x + 3 x + 9)
+2
+(B) ( x + 1)( x + 1)
+172. The largest 4-digit number which when divided by 4, 2
+(C) ( x + 1)( x − 1)
+7 and 13 leaves a remainder of 3 in each case is: 2
+(D) ( x − 1)( x + 1)
+(A) 9828
+3 3 2 2
+180. Find the LCM of a − b and a − b .
+(B) 9831
+2 2
+(C) 9835 (A) ( a − b )( a + b )( a + ab + b )
+2 2
+(D) 9801 (B) ( a − b )( a + ab + b )
+2 2
+(C) ( a + b )( a + ab + b )
+4 2
+173. Find the LCM of ( x − 1), ( x − 2 x + 1). 2 2
+(D) ( a − b )( a − b )
+2 2
+(A) ( x + 1)( x + 1)( x − 1)
+2
+(B) ( x + 1)( x − 1)
+2
+(C) ( x + 1)( x − 1)
+2 2
+(D) ( x − 1)( x + 1)
+2 2 2
+174. LCM of x y + xy , x + xy is:
+(A) xy ( x + y )
+2 2
+(B) x y + xy
+2
+(C) x + xy
+2
+(D) x y ( x + y )
+175. The greatest four-digit number which is exactly divis-
+ible by 8, 12, 15:
+Page 12
+--- PAGE 13 ---
+ExamStick LCM & HCF Practice Question Bank
+ExamStick — Answer Key
+Continuous Question Numbers 1 to 180
+Q.No Ans Q.No Ans Q.No Ans Q.No Ans Q.No Ans
+1 (A) 37 (D) 73 (A) 109 (C) 145 (C)
+2 (A) 38 (A) 74 (C) 110 (C) 146 (C)
+3 (D) 39 (A) 75 (C) 111 (C) 147 (C)
+4 (C) 40 (B) 76 (A) 112 (C) 148 (C)
+5 (C) 41 (D) 77 (D) 113 (B) 149 (A)
+6 (A) 42 (D) 78 (D) 114 (A) 150 (D)
+7 (D) 43 (B) 79 (C) 115 (D) 151 (C)
+8 (B) 44 (A) 80 (B) 116 (D) 152 (A)
+9 (D) 45 (B) 81 (C) 117 (D) 153 (B)
+10 (B) 46 (B) 82 (B) 118 (D) 154 (A)
+11 (B) 47 (A) 83 (A) 119 (A) 155 (B)
+12 (A) 48 (A) 84 (B) 120 (C) 156 (D)
+13 (C) 49 (A) 85 (D) 121 (D) 157 (A)
+14 (D) 50 (D) 86 (C) 122 (D) 158 (D)
+15 (C) 51 (B) 87 (D) 123 (C) 159 (A)
+16 (A) 52 (C) 88 (D) 124 (A) 160 (C)
+17 (D) 53 (C) 89 (B) 125 (B) 161 (B)
+18 (C) 54 (D) 90 (B) 126 (B) 162 (C)
+19 (B) 55 (C) 91 (A) 127 (C) 163 (B)
+20 (A) 56 (A) 92 (B) 128 (A) 164 (A)
+21 (D) 57 (D) 93 (A) 129 (A) 165 (A)
+22 (C) 58 (A) 94 (B) 130 (D) 166 (A)
+23 (A) 59 (A) 95 (C) 131 (A) 167 (B)
+24 (B) 60 (C) 96 (A) 132 (D) 168 (A)
+25 (A) 61 (C) 97 (D) 133 (D) 169 (A)
+26 (C) 62 (C) 98 (D) 134 (C) 170 (D)
+27 (B) 63 (B) 99 (A) 135 (A) 171 (A)
+28 (C) 64 (B) 100 (B) 136 (A) 172 (B)
+29 (B) 65 (D) 101 (A) 137 (A) 173 (A)
+30 (C) 66 (B) 102 (C) 138 (C) 174 (B)
+31 (D) 67 (A) 103 (B) 139 (A) 175 (A)
+32 (D) 68 (C) 104 (C) 140 (C) 176 (A)
+33 (B) 69 (D) 105 (A) 141 (A) 177 (A)
+34 (A) 70 (B) 106 (C) 142 (B) 178 (A)
+35 (B) 71 (D) 107 (A) 143 (A) 179 (C)
+36 (C) 72 (A) 108 (C) 144 (C) 180 (A)
+Page 13

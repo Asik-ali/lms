@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { supabase } from '../../supabase/client';
 import { saveResponse, getResponses, submitAttempt } from '../../data/dynamicStore';
-import { localizeQuestion, orderQuestions, questionTranslation } from '../../data/bilingualQuestions';
+import { localizeQuestion, orderQuestions, questionTranslation, questionOptionLetters } from '../../data/bilingualQuestions';
 import QuestionLanguageSwitch from '../../components/test/QuestionLanguageSwitch';
 import { showSuccess, showError } from '../../components/common/Toast';
 import {
@@ -10,7 +10,6 @@ import {
   CheckCircle, XCircle, Flag, Send, X, RotateCcw
 } from 'lucide-react';
 
-const OPTION_LABELS = ['A', 'B', 'C', 'D'];
 
 function getStatusColor(status, answered) {
   if (status === 'marked') return answered ? 'bg-yellow-400 text-white' : 'bg-purple-500 text-white';
@@ -367,7 +366,7 @@ export default function StudentTestTaking() {
             <span>{formatTime(timeLeft)}</span>
           </div>
 
-          {questionTranslation(questions[currentIdx]) && (
+          {questionTranslation(questions[currentIdx])?.tamil && (
             <QuestionLanguageSwitch value={questionLanguage} onChange={setQuestionLanguage} />
           )}
           <button
@@ -462,7 +461,7 @@ export default function StudentTestTaking() {
             <div className="bg-surface rounded-xl shadow-sm border border-navy-700 p-5 sm:p-6">
               <h3 className="text-sm font-semibold text-navy-100 mb-4 uppercase tracking-wide">Select Your Answer</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {OPTION_LABELS.map(label => {
+                {questionOptionLetters(currentQuestion).map(label => {
                   const isSelected = currentResponse?.student_answer === label;
                   const optionKey = `option_${label.toLowerCase()}`;
                   const optionText = (currentQuestion?.[optionKey] || '').replace(/\s*\(shown in the original question\)\s*$/i, '');

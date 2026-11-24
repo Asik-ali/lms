@@ -43,6 +43,8 @@ export function sortTestCategories(categories) {
     return match ? Number(match[0]) : null;
   };
   return [...categories].sort((a, b) => {
+    const rankDifference = rank(a) - rank(b);
+    if (rankDifference) return rankDifference;
     const leftNumber = leadingNumber(a), rightNumber = leadingNumber(b);
     if (leftNumber !== null && rightNumber !== null && leftNumber !== rightNumber) return leftNumber - rightNumber;
     if (leftNumber !== null && rightNumber === null) return -1;

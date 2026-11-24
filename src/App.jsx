@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { ThemeProvider } from './contexts/ThemeContext';
 import PublicLayout from './components/Layout/PublicLayout';
@@ -38,6 +38,18 @@ const StudentTestResult = lazy(() => import('./pages/student/StudentTestResult')
 
 const StudentAnnouncements = lazy(() => import('./pages/student/StudentAnnouncements'));
 
+function LoadingScreen() {
+  const [slow, setSlow] = useState(false);
+  useEffect(() => {
+    const timer = setTimeout(() => setSlow(true), 15000);
+    return () => clearTimeout(timer);
+  }, []);
+  return <div role="status" className="min-h-dvh flex flex-col items-center justify-center bg-navy-950 text-navy-100 p-6 text-center">
+    <p>{slow ? 'Loading is taking longer than expected. Check your connection and try again.' : 'Loading...'}</p>
+    {slow && <button className="btn-primary mt-6" onClick={() => window.location.reload()}>Reload</button>}
+  </div>;
+}
+
 function RoleGuard({ role, children }) {
   const { user } = useAuth();
   const effectiveRole = user?.role === 'admin' || user?.role === 'instructor' ? 'admin' : 'student';
@@ -49,14 +61,7 @@ function AppRoutes() {
   const { user, loading } = useAuth();
   const homePath = user?.role === 'admin' || user?.role === 'instructor' ? '/admin' : '/student';
 
-  if (loading) return (
-    <div className="min-h-screen flex items-center justify-center bg-navy-950">
-      <div className="text-center">
-        <div className="w-10 h-10 border-4 border-navy-200 border-t-navy-600 rounded-full animate-spin mx-auto mb-4" />
-        <p className="text-sm text-navy-200">Loading...</p>
-      </div>
-    </div>
-  );
+  if (loading) return <LoadingScreen />;
 
   if (!user) return (
     <Routes>
@@ -127,7 +132,7 @@ export default function App() {
     <BrowserRouter>
       <ThemeProvider>
         <AuthProvider>
-          <Suspense fallback={<div role="status" className="min-h-dvh flex items-center justify-center bg-navy-950 text-navy-100">Loading...</div>}>
+          <Suspense fallback={<LoadingScreen />}>
             <Routes>
               <Route element={<PublicLayout />}>
                 <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />

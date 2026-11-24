@@ -1,6 +1,20 @@
 {
   "routes": [
     {
+      "src": "/((?!api/|assets/|.*\\.[^/]+$).*)",
+      "headers": {
+        "Cache-Control": "no-store"
+      },
+      "continue": true
+    },
+    {
+      "src": "/index.html",
+      "headers": {
+        "Cache-Control": "no-store"
+      },
+      "continue": true
+    },
+    {
       "src": "^/r/([A-Za-z0-9_-]{1,32})/?$",
       "dest": "/r.html?code=$1"
     },
@@ -40,26 +54,6 @@
     {
       "path": "/api/backup",
       "schedule": "0 0 * * *"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/((?!api/|assets/|.*\\.[^/]+$).*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "no-store"
-        }
-      ]
-    },
-    {
-      "source": "/index.html",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "no-store"
-        }
-      ]
     }
   ]
 }

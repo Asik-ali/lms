@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { localizeQuestion, orderQuestions } from '../src/data/bilingualQuestions.js';
+import { localizeQuestion, orderQuestions, questionOptionLetters } from '../src/data/bilingualQuestions.js';
 
 test('language switching preserves question identity, grading and option letters', () => {
   const row = { id: 91, question: 'English question', option_a: 'English A', correct_answer: 'A',
@@ -22,4 +22,11 @@ test('numbered translations order questions independently of database order', ()
   assert.deepEqual(input.map(q => q.id), [10, 20]);
   const legacy = { id: 1, question: 'Existing question', explanation: 'Normal explanation' };
   assert.equal(localizeQuestion(legacy, 'Tamil'), legacy);
+});
+
+test('source option E stays selectable in both languages without changing legacy options', () => {
+  const row = { id: 1, question: 'English', explanation: JSON.stringify({ format: 'lms-bilingual-v1', number: 1, extraOptions: { option_e: 'Option E' }, tamil: { question: 'Tamil' } }) };
+  assert.deepEqual(questionOptionLetters(row), ['A', 'B', 'C', 'D', 'E']);
+  assert.equal(localizeQuestion(row, 'Tamil').option_e, 'Option E');
+  assert.deepEqual(questionOptionLetters({ question: 'Legacy' }), ['A', 'B', 'C', 'D']);
 });

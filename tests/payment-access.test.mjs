@@ -44,13 +44,14 @@ test('cart checkout uses authenticated student and database total instead of sub
       providerRequest = JSON.parse(options.body);
       return Response.json({ payment_session_id: 'session-test' });
     }
-    if (path.includes('/rest/v1/purchase_orders')) return new Response(null, { status: 204 });
+    if (path.includes('/rest/v1/sales_plan_items')) return Response.json([]);
+    if (path.includes('/rest/v1/purchase_orders')) return options.method === 'PATCH' ? new Response(null, { status: 204 }) : Response.json([]);
     throw new Error('Unexpected request: ' + path);
   };
   const response = () => ({ setHeader() {}, status(code) { this.code = code; return this; }, json(body) { this.body = body; return this; } });
   try {
     const res = response();
-    await createOrder({ method: 'POST', headers: { authorization: 'Bearer token', host: 'example.com' }, body: { planIds: [1,2,1], amount: 1, student_id: 'other' } }, res);
+    await createOrder({ method: 'POST', headers: { authorization: 'Bearer token', host: 'example.com' }, body: { customerPhone: '9876543210', planIds: [1,2,1], amount: 1, student_id: 'other' } }, res);
     assert.equal(res.code, 200);
     assert.deepEqual(cartRequest.selected_plan_ids, [1,2]);
     assert.equal(cartRequest.buyer_id, 'student-1');
@@ -58,7 +59,7 @@ test('cart checkout uses authenticated student and database total instead of sub
     assert.equal(res.body.amount, 250.24);
     assert.equal(accessWrites, 0);
     const invalid = response();
-    await createOrder({ method: 'POST', headers: { authorization: 'Bearer token' }, body: { planIds: [-1] } }, invalid);
+    await createOrder({ method: 'POST', headers: { authorization: 'Bearer token' }, body: { customerPhone: '9876543210', planIds: [-1] } }, invalid);
     assert.equal(invalid.code, 400);
   } finally {
     global.fetch = originalFetch;

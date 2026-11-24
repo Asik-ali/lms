@@ -18,9 +18,9 @@ test('stale module recovery reloads once, preserves session, and avoids offline 
 
 test('SPA fallback excludes asset requests and HTML is not cached', async () => {
   const config = JSON.parse(await readFile(new URL('../vercel.json', import.meta.url), 'utf8'));
-  const source = config.rewrites.find(rule => rule.destination === '/index.html').source;
+  const source = config.routes.find(rule => rule.dest === '/index.html').src;
   const matcher = new RegExp(`^${source}$`);
   assert.equal(matcher.test('/student/courses/1'), true);
   for (const path of ['/assets/StudentDashboard-old.js', '/api/order-status', '/service-worker.js']) assert.equal(matcher.test(path), false);
-  assert.ok(config.headers.some(rule => rule.source === source && rule.headers.some(header => header.key === 'Cache-Control' && header.value === 'no-store')));
+  assert.ok(config.routes.some(rule => rule.continue && rule.headers?.['Cache-Control'] === 'no-store' && new RegExp(rule.src).test('/student/courses/1')));
 });

@@ -1,0 +1,203 @@
+--- PAGE 1 ---
+ExamStick
+Q1. The mean of the data 12, x, 28 is 18. Find the value of x.
+12, x, 28 ஆகிய தரவுகளின் சராசரி 18 எனில் , x- ன் மதிப் பை க் காண்க .
+(A) 14 (B) 16
+(C) 18 (D) 22
+(E) Answer not known / வி பை தெத ரியவில் பை
+Q2. The average age of 10 members in the family is 21 years and due to the death of one family member the average
+age is reduced by 2 months. The age of the member who died is:
+10 உறுப்  ினர்க பைள க் தெக ா ண்  ஒரு குடும்  த் தின் சராசரி வயது 21 ஆண்டுகள் . ஒரு குடும் 
+உறுப்  ினர் இறந்ததால் , சராசரி வயது 2 மாதங்கள் கு பைற கிறது . இறந்த உறுப்  ினரின் வயது
+என்ன ?
+(A) 20 years 10 months / 20 ஆண்டுகள் 10 மாதங்கள்
+(B) 20 ⅓ years / 20 ⅓ ஆண்டுகள்
+(C) 22 years / 22 ஆண்டுகள்
+(D) 19 ⅓ years / 19 ⅓ ஆண்டுகள்
+(E) Answer not known / வி பை தெத ரியவில் பை
+Q3. The average mark of 25 students was found to be 78.4. Later on, it was found that score of 96 was misread as 69.
+Find the correct mean of the marks.
+25 மாணவர்களின் சராசரி மதிப் தெ ண் 78.4 எனக் கண்  றியப்  ட்  து .  ின்னர் , 96 என்ற
+மதிப் தெ ண் 69 என தவறாகப்  டிக்கப்  ட்  து தெத ரியவந்தது . சரியான சராசரி மதிப் தெ ண் பைண க்
+காண்க .
+(A) 77.32 (B) 79.48
+(C) 79.84 (D) 97.84
+(E) Answer not known / வி பை தெத ரியவில் பை
+Q4. The mean of a, b, c, d and e is 28. If the mean of a, c and e is 24, then the mean of b and d is:
+a, b, c, d மற்றும் e- ன் சராசரி 28 ஆகும் . a, c மற்றும் e- ன் சராசரி 24 எனில் , b மற்றும் d- ன் சராசரி
+என்ன ?
+(A) 24 (B) 36
+(C) 26 (D) 34
+(E) Answer not known / வி பை தெத ரியவில் பை
+Q5. The Mean of five numbers is 27. If one of the numbers is excluded, the Mean gets reduced by 2. What is the
+excluded number?
+ஐந்து எண்களின் சராசரி 27. அவற்றில் ஒரு எண்நீக் கப்  ட்  ால் , சராசரி 2 கு பைற கிறது .
+கப் நீக்  ட்  எண் எது ?
+(A) 35 (B) 27
+(C) 25 (D) 40
+(E) Answer not known / வி பை தெத ரியவில் பை
+--- PAGE 2 ---
+Q6. In a distribution, the mean and mode are 66 and 60 respectively. Calculate the median.
+ஒரு  ரவலில் , சராசரி மற்றும் முகடு மு பைற யேய 66 மற்றும் 60 ஆகும் . இ பை நி பை பைய க்
+கணக்கிடுக .
+(A) 63 (B) 64
+(C) 66 (D) 192
+(E) Answer not known / வி பை தெத ரியவில் பை
+Q7. The arithmetic mean of 6 values is 45 and if each value is increased by 4, then find the arithmetic mean of the new
+set of values.
+6 மதிப்புகளின் கூட்டுச்சராசரி 45 ஆகும் . ஒவ் தெவ ா ரு மதிப்பு  னும் 4 கூட்  ப்  ட்  ால் , புதிய
+மதிப்புகளின் கூட்டுச்சராசரி பைய க் காண்க .
+(A) 45 (B) 49
+(C) 56 (D) 62
+(E) Answer not known / வி பை தெத ரியவில் பை
+Q8. The mean weight of 4 members of a family is 60 kg. Three of them have the weight 56 kg, 68 kg and 72 kg
+respectively. Find the weight of the fourth member.
+ஒரு குடும்  த் தின் 4 உறுப்  ினர்களின் சராசரி எ பை 60 கி யே ா . அவர்களில் மூவரின் எ பை
+மு பைற யேய 56 கி யே ா , 68 கி யே ா மற்றும் 72 கி யே ா ஆகும் . நான்காவது உறுப்  ினரின் எ பை பைய க்
+காண்க .
+(A) 40 kg / 40 கி யே ா (B) 56 kg / 56 கி யே ா
+(C) 44 kg / 44 கி யே ா (D) 68 kg / 68 கி யே ா
+(E) Answer not known / வி பை தெத ரியவில் பை
+Q9. The mean of p, q, r, s and t is 28. The mean of p, r, t is 24. Find the mean of q, s.
+p, q, r, s மற்றும் t- ன் சராசரி 28 ஆகும் . p, r, t- ன் சராசரி 24 எனில் , q, s- ன் சராசரி பைய க் காண்க .
+(A) 34 (B) 26
+(C) 22 (D) 20
+(E) Answer not known / வி பை தெத ரியவில் பை
+Q10. For which set of numbers do the mean, median and mode all have the same values?
+எந்த எண் தெத ா குதிக்கு சராசரி , இ பை நி பை மற்றும் முகடு ஆகிய அ பைன த் தும் ஒ யேர மதிப் பை க்
+தெக ா டிருக்கும் ண் ?
+(A) 2, 2, 2, 4 (B) 1, 3, 3, 3, 5
+(C) 1, 1, 2, 5, 6 (D) 1, 1, 2, 1, 5
+(E) Answer not known / வி பை தெத ரியவில் பை
+Q11. Find the mean and variance of first 10 natural numbers.
+முதல் 10 இயல் எண்களின் சராசரி மற்றும் வி  க் க வர்க்கச் சராசரி பைய க் காண்க .
+(A) 11/2 , 99/12 (B) 11/2 , 121/4
+(C) 11/2 , 11/2 (D) 11/2 , 89/12
+(E) Answer not known / வி பை தெத ரியவில் பை
+--- PAGE 3 ---
+Q12. The monthly income of 6 families are Rs. 3,500, Rs. 2,700, Rs. 3,000, Rs. 2,800, Rs. 3,900 and Rs. 2,100. Find the
+mean income.
+6 குடும்  ங் களின் மாத வருமானம் மு பைற யேய ரூ . 3,500, ரூ . 2,700, ரூ . 3,000, ரூ . 2,800, ரூ . 3,900 மற்றும்
+ரூ . 2,100 ஆகும் . சராசரி வருமானத் பைத க் காண்க .
+(A) Rs. 2,700 / ரூ . 2,700 (B) Rs. 3,900 / ரூ . 3,900
+(C) Rs. 3,000 / ரூ . 3,000 (D) Rs. 3,500 / ரூ . 3,500
+(E) Answer not known / வி பை தெத ரியவில் பை
+Q13. The mean mark of 100 students was found to be 40. Later on it was found that a score of 53 was misread as 83.
+Find the correct mean corresponding to the correct score.
+100 மாணவர்களின் சராசரி மதிப் தெ ண் 40 எனக் கண்  றியப்  ட்  து .  ின்னர் , 53 என்ற
+மதிப் தெ ண் 83 என தவறாகப்  டிக்கப்  ட்  து தெத ரியவந்தது . சரியான மதிப் தெ ணிற்குரிய ண்
+சரியான சராசரி பைய க் காண்க .
+(A) 39.7 (B) 3970
+(C) 3.97 (D) 397
+(E) Answer not known / வி பை தெத ரியவில் பை
+Q14. Find the median for the following distribution:
+ ின்வரும்  ரவலுக்கு இ பை நி பை பைய க் காண்க :
+Value (x) / 1 2 3 4 5 6
+மதிப்பு (x)
+Frequency (f) / 1 3 2 4 8 2
+அ பை தெவ
+ ண் (f)
+(A) 4.5 (B) 9
+(C) 5 (D) 4
+(E) Answer not known / வி பை தெத ரியவில் பை
+Q15. Which of the following is not a measure of dispersion?
+ ின்வருவனவற்றுள் எது  ரவல் அள பைவ அல்  ?
+(A) Range / சு  வீச்
+(B) Standard deviation / திட்  வி  க் கம்
+(C) Arithmetic mean / கூட்டுச்சராசரி
+(D) Variance / வி  க் க வர்க்கச் சராசரி
+(E) Answer not known / வி பை தெத ரியவில் பை
+Q16. The monthly income of 6 families are Rs. 3,500, Rs. 2,700, Rs. 3,000, Rs. 2,800, Rs. 3,900 and Rs. 2,100. Find the
+mean income.
+6 குடும்  ங் களின் மாத வருமானம் மு பைற யேய ரூ . 3,500, ரூ . 2,700, ரூ . 3,000, ரூ . 2,800, ரூ . 3,900 மற்றும்
+ரூ . 2,100 ஆகும் . சராசரி வருமானத் பைத க் காண்க .
+(A) Rs. 3,500 / ரூ . 3,500 (B) Rs. 3,000 / ரூ . 3,000
+(C) Rs. 4,000 / ரூ . 4,000 (D) Rs. 4,500 / ரூ . 4,500
+(E) Answer not known / வி பை தெத ரியவில் பை
+--- PAGE 4 ---
+Q17. There are four 5's, nine 6's, six 9's and five 4's in the number list. Mode is:
+ஒரு எண்  டியலில் நான்கு ட் 5- கள் , ஒன்  து 6- கள் , ஆறு 9- கள் மற்றும் ஐந்து 4- கள் உள்ளன .
+இதன் முகடு :
+(A) 5 (B) 4
+(C) 9 (D) 6
+(E) Answer not known / வி பை தெத ரியவில் பை
+Q18. Find the range of the following distribution:
+ ின்வரும்  ரவலின்வீச் பைச க் காண்க :
+Age (in yrs) / 16-18 18-20 20-22 22-24 24-26 26-28
+வயது
+(
+ஆண்டுகளில்
+)
+No. of students / 0 4 6 8 2 2
+மாணவர்
+எண்ணிக்
+பைக
+(A) 8 years / 8 ஆண்டுகள் (B) 6 years / 6 ஆண்டுகள்
+(C) 12 years / 12 ஆண்டுகள் (D) 10 years / 10 ஆண்டுகள்
+(E) Answer not known / வி பை தெத ரியவில் பை
+Q19. Find the Range of first 20 natural numbers.
+முதல் 20 இயல் எண்களின்வீச் பைச க் காண்க .
+(A) 18 (B) 19
+(C) 20 (D) 21
+(E) Answer not known / வி பை தெத ரியவில் பை
+Q20. If the median of a, 2a, 4a, 6a, 9a is 8, then find the value of 'a'.
+a, 2a, 4a, 6a, 9a- ன் இ பை நி பை 8 எனில் , 'a'- ன் மதிப் பை க் காண்க .
+(A) 8 (B) 6
+(C) 2 (D) 10
+(E) Answer not known / வி பை தெத ரியவில் பை
+Q21. The median of the data 24, 29, 34, 38, 35 and 30 is:
+24, 29, 34, 38, 35 மற்றும் 30 ஆகிய தரவுகளின் இ பை நி பை :
+(A) 29 (B) 30
+(C) 34 (D) 32
+(E) Answer not known / வி பை தெத ரியவில் பை
+Q22. Find the Median of the data: 12, 14, 25, 23, 18, 17, 24, 20.
+12, 14, 25, 23, 18, 17, 24, 20 ஆகிய தரவுகளின் இ பை நி பை பைய க் காண்க .
+--- PAGE 5 ---
+(A) 24 (B) 23
+(C) 18 (D) 19
+(E) Answer not known / வி பை தெத ரியவில் பை
+Q23. If the standard deviation of x, y, z is p, then the standard deviation of 3x + 5, 3y + 5, 3z + 5 is:
+x, y, z- ன் திட்  வி  கம் க் p எனில் , 3x + 5, 3y + 5, 3z + 5- ன் திட்  வி  கம் க் :
+(A) 3p + 5 (B) 3p
+(C) p + 5 (D) 9p + 15
+(E) Answer not known / வி பை தெத ரியவில் பை
+Q24. If the variance of a data is 6.25, find its standard deviation.
+ஒரு தரவின் வி  க் க வர்க்கச் சராசரி 6.25 எனில் , அதன் திட்  வி  க் கத் பைத க் காண்க .
+(A) 2.5 (B) 0.25
+(C) 3.25 (D) 3.5
+(E) Answer not known / வி பை தெத ரியவில் பை
+Q25. The mean mark of 100 students was found to be 40. Later on it was found that a score of 53 was misread as 83.
+Find the correct mean corresponding to the correct score.
+100 மாணவர்களின் சராசரி மதிப் தெ ண் 40 எனக் கண்  றியப்  ட்  து .  ின்னர் , 53 என்ற
+மதிப் தெ ண் 83 என தவறாகப்  டிக்கப்  ட்  து தெத ரியவந்தது . சரியான மதிப் தெ ணிற்குரிய ண்
+சரியான சராசரி பைய க் காண்க .
+(A) 39.7 (B) 3970
+(C) 3.97 (D) 397
+(E) Answer not known / வி பை தெத ரியவில் பை
+Q26. The arithmetic mean of 6 values is 45 and if each value is increased by 4, then find the arithmetic mean of the new
+set of values.
+6 மதிப்புகளின் கூட்டுச்சராசரி 45 ஆகும் . ஒவ் தெவ ா ரு மதிப்பு  னும் 4 கூட்  ப்  ட்  ால் , புதிய
+மதிப்புகளின் கூட்டுச்சராசரி பைய க் காண்க .
+(A) 45 (B) 49
+(C) 56 (D) 62
+(E) Answer not known / வி பை தெத ரியவில் பை
+Q27. The average age of 10 members in the family is 21 years and due to the death of one family member the average
+age is reduced by 2 months. The age of the member who died is:
+10 உறுப்  ினர்க பைள க் தெக ா ண்  ஒரு குடும்  த் தின் சராசரி வயது 21 ஆண்டுகள் . ஒரு குடும் 
+உறுப்  ினர் இறந்ததால் , சராசரி வயது 2 மாதங்கள் கு பைற கிறது . இறந்த உறுப்  ினரின் வயது
+என்ன ?
+(A) 20 years 10 months / 20 ஆண்டுகள் 10 மாதங்கள்
+(B) 20 ⅓ years / 20 ⅓ ஆண்டுகள்
+(C) 22 years / 22 ஆண்டுகள்
+(D) 19 years / 19 ஆண்டுகள்
+(E) Answer not known / வி பை தெத ரியவில் பை
+--- PAGE 6 ---
+ANSWER KEY / வி பை க் குறிப்பு
+Q.No Ans Q.No Ans Q.No Ans Q.No Ans Q.No Ans
+Q1 A Q8 C Q15 C Q22 D Q29 A
+Q2 C Q9 A Q16 B Q23 B Q30 A
+Q3 B Q10 B Q17 D Q24 A Q31 C
+Q4 D Q11 A Q18 D Q25 A Q32 D
+Q5 A Q12 C Q19 B Q26 B Q33 A
+Q6 B Q13 A Q20 C Q27 C Q34 B
+Q7 B Q14 A Q21 D Q28 D Q35 C

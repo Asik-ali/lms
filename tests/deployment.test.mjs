@@ -7,7 +7,7 @@ test('deployment stays within the Hobby function limit and preserves the public 
   const files = await readdir(new URL('../api/', import.meta.url));
   assert.ok(files.filter(file => file.endsWith('.mjs') && !file.startsWith('_')).length <= 12);
   const config = JSON.parse(await readFile(new URL('../vercel.json', import.meta.url), 'utf8'));
-  assert.ok(config.rewrites.some(rule => rule.source === '/api/vapid-public-key' && rule.destination === '/api/send-push?operation=vapid-public-key'));
+  assert.ok(config.routes.some(rule => rule.src === '^/api/vapid-public-key$' && rule.dest === '/api/send-push?operation=vapid-public-key'));
 });
 
 test('rewritten public key requests dispatch without requiring admin credentials', async () => {
