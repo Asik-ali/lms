@@ -10,6 +10,7 @@ export function localizeQuestion(row, language = 'English') {
   if (!translation) return row;
   return {
     ...row,
+    diagrams: translation.diagrams || [],
     ...(translation.extraOptions || {}),
     ...(language === 'Tamil' ? translation.tamil : {}),
     explanation: translation.explanation || '',

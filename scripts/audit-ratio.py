@@ -1,0 +1,110 @@
+﻿from pathlib import Path
+import json
+rows={}
+data='''1|D|3000/300|10
+2|D|100/20|5
+3|C|100/50|2
+4|D|666/6000|0.111
+5|C|20*1.6/25|1.28
+6|D|100/70|1.4285714285714286
+7|D|121/9|13.444444444444445
+8|A|2**2/7**2|0.08163265306122448
+9|A|5/7|0.7142857142857143
+10|A|4/5|0.8
+11|D|20/28|0.7142857142857143
+12|C|1.5/2.75|0.5454545454545454
+13|A|5/6*12|10
+14|A|7/5*25|35
+15|C|11*66/6|121
+16|B|2/(8/12)|3
+17|B|26*5/65|2
+18|C|21*15/9|35
+19|D|10*10|100
+21|C|(4/9)*(3/11)/(5/33)|0.8
+22|B|1000/10*(1/1000)|0.1
+23|A|4*27/3|36
+24|C|24*3/8|9
+25|A|4/3|1.3333333333333333
+26|B|0.75*8/5|1.2
+27|C|8*3.75/7-1|3.2857142857142856
+28|B|3/4|0.75
+29|B|(3*2+2*3)/(2*2+5*3)|0.631578947368421
+30|C|(3*4+3*5)/(4*4-2*5)|4.5
+31|C|(5*2-5)/(2+5)|0.7142857142857143
+32|B|4**4/2**4|16
+33|D|(7*1+3*3)/(2*1+3)|3.2
+34|D|(5*2+5)/(8*2+8)|0.625
+35|B|0.75/(2/3)|1.125
+36|A|(7+8-6)/2*(28/21)|6
+37|B|(3/5)*(4/7)|0.34285714285714286
+38|A|(5/9)*(4/7)|0.31746031746031744
+39|D|(4/6)*(18/5)|2.4
+40|A|(8/12)*(24/15)|1.0666666666666667
+41|D|(2/3)*(2/4)*(2/5)|0.13333333333333333
+42|D|(8/15)*(5/8)*(4/5)|0.26666666666666666
+43|D|1/((2/3)*(4/5))|1.875
+44|C|(2/5)*(15/7)|0.8571428571428571
+45|B|(6/12)*(9/27)|0.16666666666666666
+46|A|(1/3)/(1/6)|2
+47|A|(4*3+5*4)/(5*3-2*4)|4.571428571428571
+48|B|(7/13)*(65/25)|1.4
+49|D|210-210/5-210*3/7|78
+50|C|(36-16)/(20-18)*2|20
+51|B|4**3.5/2**5|4
+52|B|94*15/(32+15)|30
+53|C|(432/12)**0.5*4|24
+54|B|4*30000000/100000|1200
+55|D|30/(50-30)|1.5
+56|D|1600*5/8|1000
+57|D|900/750|1.2
+58|C|40/5*(4+3+5)|96
+59|D|25%5|0
+60|C|(48/3)**0.5*2|8
+61|C|21000*(7-6)/7|3000
+62|B|(42*3/7)**2+(42*4/7)**2|900
+63|C|960/(1+2+3+6)|80
+64|C|30.5*3/5|18.3
+65|B|2/1|2
+66|D|600*(3-2)/5|120
+67|C|1200/(5-2)*3*12|14400
+68|D|28296/(4+1+3)|3537
+69|D|782*(1/2)/(1/2+2/3+3/4)|204
+70|A|900/750|1.2
+71|C|1000/(4-3)*2|2000
+72|B|510/(2+3+12)*2|60
+73|A|196/(10+15+24)*10|40
+74|D|(5/3+5)/(5/3+15)|0.4
+75|C|855/(0.95*3/5)|1500
+76|A|108*7/(5+7)|63
+77|C|15*4|60
+78|B|1/0.5|2
+79|D|(2.88-2.52)/(2.52-2.04)|0.75
+81|D|25*3/(4+5+6)*6|30
+82|D|144*5/(3+5)|90
+83|B|121000*6/11|66000
+84|A|5000*6|30000
+85|D|(2/3+3/4+3/5)/(3-(2/3+3/4+3/5))|2.0508474576271185
+86|B|3500*3/5|2100
+87|B|(9*25)**0.5|15
+88|B|18**2/12|27
+89|C|9*12/4|27
+90|A|(5*4-3*5)/(6*4+3*5)|0.1282051282051282
+91|B|1200*3/(2+3+5)|360
+92|B|7*(21-14)/(22-21)|49
+93|C|4/1|4
+94|B|(3/4)*(8/9)|0.6666666666666666
+95|B|206/(5*0.5+9*0.25+4*0.1)*(5+9+4)|720
+96|D|4*3*4|48
+97|C|6/90|0.06666666666666667
+98|D|2/(2/3)|3
+99|A|2/3|0.6666666666666666
+101|A|5*1.4/(7*1.5)|0.6666666666666666'''
+for line in data.splitlines():
+ n,a,e,v=line.split('|');rows[n]={'answer':a,'expression':e,'value':float(v),'status':'verified','reason':''}
+notes={5:'Uses the conventional exam approximation 1 mile=1.6 km; exact international-mile conversion is not exactly option C.',9:'Compare 5/7≈.7143, 1/2=.5, 3/5=.6, 7/10=.7.',10:'Compare .8, .5333, .3 and .5.',11:'A,B,C equal 2/3, while D=5/7 differs.',15:'The answer is 121=11²; option C has the exponent 2.',16:'x=3 and y=24.',18:'x=35 and y=15.',19:'Required xy=90. Options A-C have product 90; D has product 100.',28:'29(2x+3y)=18(3x+5y) gives 4x=3y.',32:'b²=ac implies a⁴/b⁴=a²/c². Expression checks a=4,b=2,c=1.',34:'For x=5k,y=8k, (x+5)/(y+8)=5/8 unless both vanish; positive ratios are intended.',35:'(2/3)A=(3/4)B gives A/B=9/8.',36:'Pair sums total twice the total: scale factor 28/21. c=(7+8-6)scale/2.',37:'A common denominator gives 12:20:35.',38:'Combined ratio 20:36:63.',39:'Combined ratio 12:18:5.',40:'Combined ratio 16:24:15.',44:'Combined ratio 6:15:7.',45:'Combined ratio 1:2:6.',46:'Reciprocals of 3,5,6 scaled by 30 give 10:6:5.',48:'Combined ratio 7:13:5.',49:'P=210/5=42; Q=3*210/7=90; R=78.',50:'Let numbers=2k,5k; 9(2k+4)=4(5k+4), k=10; numbers 20,50.',51:'The source has powers: 4^3.5 : 2^5 =128:32.',52:'(x/5)/((94-x)/8)=3/4 yields x=30.',59:'Only 25 among the listed totals is divisible by 3+2=5.',63:'Scale 80 gives lengths 80,160,240,480 mm.',65:'B=2C directly.',66:'Yazhini gets 360 and Vimala 240, difference 120.',72:'A:B:C=2:3:12 gives shares 60,90,360.',74:'11(a+9d)=8(a+13d) gives a=5d/3 and t6/t16=2/5.',79:'Alligation cheaper:dearer=(2.88-2.52):(2.52-2.04)=3:4.',84:'Equal savings imply 3k-5m=4k-7m=5000, k=2m, m=5000; incomes 30000,40000.',85:'Milk fractions add to 121/60 and water fractions to 59/60, giving 121:59.',95:'One ratio unit has value 5.15 rupees; scale is 40, giving 18*40 coins.',96:'Numbers 12 and 16 have LCM 48.',97:'gcd(18,30)=6; lcm=90.',98:'For height 2r, volumes cylinder:cone:sphere=2:2/3:4/3=3:1:2.',99:'Let original numerator=2k and denominator=3k. (2k-1)/(3k-1)=1/2 yields k=1. The unreduced alternatives do not satisfy the subtraction condition.',101:'New seat counts scale as 7:10.5:14=2:3:4.'}
+for n,note in notes.items():rows[str(n)]['reason']=note
+rows['20']={'answer':None,'expression':'110*56/42','value':440/3,'status':'invalid_options','reason':'As a proportion, missing value is 146 2/3; none of A-D matches. Printed 132 fits a different consecutive-product analogy, not the stated ratio equality.'}
+rows['80']={'answer':None,'expression':'(4/7-5/9)/(5/8-4/7)','value':8/27,'status':'invalid_options','reason':'Alligation of milk fractions 5/8 and 5/9 to 4/7 requires mixtures in ratio 8:27. Printed 1:3 is not exact and no listed ratio matches.'}
+rows['100']={'answer':None,'status':'multiple_correct','valid_answers':['C','D'],'reason':'a/b=c/d=k implies (ma+nc)/(mb+nd)=k. Both C=a/b and D=c/d are correct wherever the denominator is nonzero.'}
+assert len(rows)==101
+Path('imports/maths-pyq-text/audit-ratio.json').write_text(json.dumps(rows,ensure_ascii=False,indent=2),encoding='utf8')

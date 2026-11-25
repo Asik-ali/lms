@@ -1,0 +1,210 @@
+{
+  "reviewed": 1081,
+  "verified": 1072,
+  "source_issues": [
+    {
+      "topic": "Percentage",
+      "number": 31,
+      "answer": null,
+      "status": "missing_source",
+      "reason": "The referenced profit line graph is absent from the supplied English question image. Expenditure ratio alone cannot determine income ratio."
+    },
+    {
+      "topic": "Simple Interest",
+      "number": 15,
+      "answer": null,
+      "status": "ambiguous_source",
+      "reason": "Five years assumes straight-line depreciation on original value. Reducing-balance depreciation gives log(0.5)/log(0.9)=6.579 years, absent from choices. Stem does not specify the model."
+    },
+    {
+      "topic": "Simple Interest",
+      "number": 37,
+      "answer": null,
+      "expression": "((8800-7920)/2)/(7920-4*(8800-7920)/2)*100",
+      "value": 7.142857142857143,
+      "status": "invalid_options",
+      "reason": "Annual SI=440; P=6160; rate=7 1/7%. None of A-D matches. Printed key C (8%) is wrong for the stated 8800."
+    },
+    {
+      "topic": "Compound Interest",
+      "number": 75,
+      "answer": null,
+      "expression": "9600*(1.12**2*1.04-1)",
+      "value": 2923.9296,
+      "status": "invalid_options",
+      "reason": "The stem asks for compound interest (2923.93), but choice B (12524) approximates the amount, not the interest. No A-D interest value matches."
+    },
+    {
+      "topic": "AP and GP",
+      "number": 38,
+      "answer": null,
+      "status": "divergent_series",
+      "reason": "The common ratio is -3 and its modulus exceeds 1. The infinite series does not converge. Printed A=4 incorrectly applies a/(1-r) outside its convergence condition."
+    },
+    {
+      "topic": "Ratio and Proportion",
+      "number": 20,
+      "answer": null,
+      "expression": "110*56/42",
+      "value": 146.66666666666666,
+      "status": "invalid_options",
+      "reason": "As a proportion, missing value is 146 2/3; none of A-D matches. Printed 132 fits a different consecutive-product analogy, not the stated ratio equality."
+    },
+    {
+      "topic": "Ratio and Proportion",
+      "number": 80,
+      "answer": null,
+      "expression": "(4/7-5/9)/(5/8-4/7)",
+      "value": 0.2962962962962963,
+      "status": "invalid_options",
+      "reason": "Alligation of milk fractions 5/8 and 5/9 to 4/7 requires mixtures in ratio 8:27. Printed 1:3 is not exact and no listed ratio matches."
+    },
+    {
+      "topic": "Ratio and Proportion",
+      "number": 100,
+      "answer": null,
+      "status": "multiple_correct",
+      "valid_answers": [
+        "C",
+        "D"
+      ],
+      "reason": "a/b=c/d=k implies (ma+nc)/(mb+nd)=k. Both C=a/b and D=c/d are correct wherever the denominator is nonzero."
+    },
+    {
+      "topic": "Simplification",
+      "number": 30,
+      "answer": null,
+      "status": "ambiguous_source",
+      "reason": "The ellipsis does not specify the intervening factors. Answer0requires an explicit zero factor(100−100), which is not stated; retain for source clarification rather than invent the product range."
+    }
+  ],
+  "key_changes": [
+    {
+      "topic": "Percentage",
+      "number": 80,
+      "source": null,
+      "calculated": "A"
+    },
+    {
+      "topic": "Simple Interest",
+      "number": 39,
+      "source": "D",
+      "calculated": "A"
+    },
+    {
+      "topic": "Simple Interest",
+      "number": 82,
+      "source": "A",
+      "calculated": "B"
+    },
+    {
+      "topic": "Ratio and Proportion",
+      "number": 58,
+      "source": "D",
+      "calculated": "C"
+    },
+    {
+      "topic": "3D Mensuration",
+      "number": 55,
+      "source": null,
+      "calculated": "D"
+    },
+    {
+      "topic": "Time and Work",
+      "number": 108,
+      "source": "A",
+      "calculated": "C"
+    },
+    {
+      "topic": "Time and Work",
+      "number": 113,
+      "source": "B",
+      "calculated": "A"
+    },
+    {
+      "topic": "Time and Work",
+      "number": 114,
+      "source": "C",
+      "calculated": "A"
+    },
+    {
+      "topic": "Time and Work",
+      "number": 122,
+      "source": "B",
+      "calculated": "A"
+    },
+    {
+      "topic": "LCM and HCF",
+      "number": 3,
+      "source": "D",
+      "calculated": "C"
+    },
+    {
+      "topic": "LCM and HCF",
+      "number": 86,
+      "source": "C",
+      "calculated": "D"
+    },
+    {
+      "topic": "LCM and HCF",
+      "number": 103,
+      "source": "B",
+      "calculated": "C"
+    }
+  ],
+  "calculation_failures": [],
+  "topics": [
+    {
+      "topic": "Age Problems",
+      "reviewed": 8
+    },
+    {
+      "topic": "Percentage",
+      "reviewed": 111
+    },
+    {
+      "topic": "Simple Interest",
+      "reviewed": 130
+    },
+    {
+      "topic": "Compound Interest",
+      "reviewed": 85
+    },
+    {
+      "topic": "AP and GP",
+      "reviewed": 48
+    },
+    {
+      "topic": "Ratio and Proportion",
+      "reviewed": 101
+    },
+    {
+      "topic": "3D Mensuration",
+      "reviewed": 97
+    },
+    {
+      "topic": "Average",
+      "reviewed": 26
+    },
+    {
+      "topic": "Time and Work",
+      "reviewed": 131
+    },
+    {
+      "topic": "LCM and HCF",
+      "reviewed": 180
+    },
+    {
+      "topic": "Simplification",
+      "reviewed": 74
+    },
+    {
+      "topic": "2D Mensuration",
+      "reviewed": 38
+    },
+    {
+      "topic": "Profit and Loss",
+      "reviewed": 52
+    }
+  ]
+}

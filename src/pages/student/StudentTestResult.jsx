@@ -1,3 +1,4 @@
+import QuestionContent from '../../components/common/QuestionContent';
 import { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
@@ -550,18 +551,7 @@ export default function StudentTestResult() {
 
                   {/* Question Content */}
                   <div className="px-4 py-4 space-y-4">
-                    {/* Question Link */}
-                    {isUrl && (
-                      <a
-                        href={q.question}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 rounded-lg border border-navy-200 bg-navy-50 dark:bg-navy-500/10 px-3 py-2 text-sm font-medium text-navy-600 dark:text-navy-300 hover:bg-navy-100 dark:hover:bg-navy-500/15 transition"
-                      >
-                        <ExternalLink className="h-4 w-4" />
-                        Open Question
-                      </a>
-                    )}
+                    <QuestionContent question={q} language={questionLanguage} />
 
                     {/* Options Grid */}
                     <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">

@@ -1,0 +1,925 @@
+{
+  "1": {
+    "answer": "A",
+    "expression": "84*15/21",
+    "value": 60.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "2": {
+    "answer": "B",
+    "expression": "1/(1/16-1/48)",
+    "value": 24.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "3": {
+    "answer": "B",
+    "expression": "210*12*18/(20*14)",
+    "value": 162.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "4": {
+    "answer": "A",
+    "expression": "5",
+    "value": 5.0,
+    "status": "verified",
+    "reason": "Each project requires 5 person-days. Fifty projects with fifty people still take 5 days."
+  },
+  "5": {
+    "answer": "A",
+    "expression": "6*24*10/(9*8)",
+    "value": 20.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "6": {
+    "answer": "A",
+    "expression": "2/(1/12+1/15+1/20)",
+    "value": 10.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "7": {
+    "answer": "C",
+    "expression": "1/(1/12+1/36)",
+    "value": 9.0,
+    "status": "verified",
+    "reason": "If A takes t days and B 3t, 3t−t=24 gives t=12 and B=36."
+  },
+  "8": {
+    "answer": "B",
+    "expression": "1/(1/16-1/48)",
+    "value": 24.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "9": {
+    "answer": "D",
+    "expression": "12*10/20",
+    "value": 6.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "10": {
+    "answer": "D",
+    "expression": "490*(65-15)/35-490",
+    "value": 210.0,
+    "status": "verified",
+    "reason": "Remaining provisions cover 490*50 soldier-days; total after arrivals=700, newcomers=210."
+  },
+  "11": {
+    "answer": "A",
+    "expression": "200000*(1/15)/(1/10+1/15)",
+    "value": 80000.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "12": {
+    "answer": "D",
+    "expression": "1-4*(1/15+1/20)",
+    "value": 0.5333333333333333,
+    "status": "verified",
+    "reason": ""
+  },
+  "13": {
+    "answer": "A",
+    "expression": "48*7*24/(28*8)",
+    "value": 36.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "14": {
+    "answer": "A",
+    "expression": "5",
+    "value": 5.0,
+    "status": "verified",
+    "reason": "Each project requires 5 person-days."
+  },
+  "15": {
+    "answer": "C",
+    "expression": "50*2/20",
+    "value": 5.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "16": {
+    "answer": "A",
+    "expression": "1/(1/12+1/36)",
+    "value": 9.0,
+    "status": "verified",
+    "reason": "A takes 12 days and B 36; combined time 9."
+  },
+  "17": {
+    "answer": "A",
+    "expression": "48*7*24/(28*8)",
+    "value": 36.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "18": {
+    "answer": "C",
+    "expression": "1/(1/16-1/48)",
+    "value": 24.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "19": {
+    "answer": "A",
+    "expression": "15*12*512/(180*32)",
+    "value": 16.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "20": {
+    "answer": "B",
+    "expression": "10*21/14",
+    "value": 15.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "21": {
+    "answer": "A",
+    "expression": "1387/73",
+    "value": 19.0,
+    "status": "verified",
+    "reason": "Whole-day counts must have worked:possible=1387:1752=19:24. Only 19 among the choices permits an integral total-day count."
+  },
+  "22": {
+    "answer": "B",
+    "expression": "1/(2/7)",
+    "value": 3.5,
+    "status": "verified",
+    "reason": ""
+  },
+  "23": {
+    "answer": "B",
+    "expression": "1/(1/30+1/40)",
+    "value": 17.142857142857142,
+    "status": "verified",
+    "reason": ""
+  },
+  "24": {
+    "answer": "B",
+    "expression": "1/(1/12+1/36)",
+    "value": 9.0,
+    "status": "verified",
+    "reason": "The stem omits the letter B after \"taken by\"; restore it."
+  },
+  "25": {
+    "answer": "B",
+    "expression": "144*28/(144-32)",
+    "value": 36.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "26": {
+    "answer": "C",
+    "expression": "1/(1/12-1/30)",
+    "value": 20.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "27": {
+    "answer": "B",
+    "expression": "86/(7/6+5/8)",
+    "value": 48.0,
+    "status": "verified",
+    "reason": "A woman rate is 1/(6*86), a man rate 1/(8*86)."
+  },
+  "28": {
+    "answer": "D",
+    "expression": "1/(1/12+1/36)",
+    "value": 9.0,
+    "status": "verified",
+    "reason": "A takes 12 days, B 36."
+  },
+  "29": {
+    "answer": "A",
+    "expression": "24/4",
+    "value": 6.0,
+    "status": "verified",
+    "reason": "A takes 8 days; combined rate=1/8+1/24."
+  },
+  "30": {
+    "answer": "D",
+    "expression": "81*160*56/(448*27)",
+    "value": 60.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "31": {
+    "answer": "B",
+    "expression": "18/3",
+    "value": 6.0,
+    "status": "verified",
+    "reason": "Anjali needs 9 days; combined rate=1/18+1/9."
+  },
+  "32": {
+    "answer": "A",
+    "expression": "3*120/40",
+    "value": 9.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "33": {
+    "answer": "A",
+    "expression": "24*3/2",
+    "value": 36.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "34": {
+    "answer": "C",
+    "expression": "35000/(5*400+5*300)",
+    "value": 10.0,
+    "status": "verified",
+    "reason": "Daily earnings solve 4m+3w=2500, 10m+6w=5800: m=400,w=300."
+  },
+  "35": {
+    "answer": "B",
+    "expression": "529*(1-8/23)",
+    "value": 345.0,
+    "status": "verified",
+    "reason": "A performs 1−8/23=15/23 of the work."
+  },
+  "36": {
+    "answer": "D",
+    "expression": "1/(1/20+1/30)",
+    "value": 12.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "37": {
+    "answer": "C",
+    "expression": "760/(120/1.5)",
+    "value": 9.5,
+    "status": "verified",
+    "reason": ""
+  },
+  "38": {
+    "answer": "B",
+    "expression": "1/18+1/9",
+    "value": 0.16666666666666666,
+    "status": "verified",
+    "reason": ""
+  },
+  "39": {
+    "answer": "A",
+    "expression": "210/(90/2.5)",
+    "value": 5.833333333333333,
+    "status": "verified",
+    "reason": ""
+  },
+  "40": {
+    "answer": "C",
+    "expression": "15*12*512/(180*32)",
+    "value": 16.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "41": {
+    "answer": "C",
+    "expression": "1/(1/6-1/18)",
+    "value": 9.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "42": {
+    "answer": "D",
+    "expression": "(6*12-6*2)/12",
+    "value": 5.0,
+    "status": "verified",
+    "reason": "Five further days after the additional workers join; elapsed total is seven days. Clarify \"remaining work\"."
+  },
+  "43": {
+    "answer": "B",
+    "expression": "(8*16-8*4)/16",
+    "value": 6.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "44": {
+    "answer": "B",
+    "expression": "360/4*6.5",
+    "value": 585.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "45": {
+    "answer": "A",
+    "expression": "6*80/5",
+    "value": 96.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "46": {
+    "answer": "B",
+    "expression": "1500*(1/10)/(1/10+1/15)",
+    "value": 900.0,
+    "status": "verified",
+    "reason": "Rate ratio A:B=3:2, wages 900:600."
+  },
+  "47": {
+    "answer": "B",
+    "expression": "12/(3-1)*(5-1)",
+    "value": 24.0,
+    "status": "verified",
+    "reason": "Three pieces need two cuts; five pieces need four cuts."
+  },
+  "48": {
+    "answer": "C",
+    "expression": "1/(1/4-1/12)",
+    "value": 6.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "49": {
+    "answer": "D",
+    "expression": "31000*(1/4)/(1/4+1/6+1/10)",
+    "value": 15000.0,
+    "status": "verified",
+    "reason": "Rate ratio X:Y:Z=15:10:6, giving 15000,10000,6000."
+  },
+  "50": {
+    "answer": "B",
+    "expression": "150/25*30",
+    "value": 180.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "51": {
+    "answer": "D",
+    "expression": "1/(1/10-1/15)",
+    "value": 30.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "52": {
+    "answer": "B",
+    "expression": "2/(1/10+1/15+1/18)",
+    "value": 9.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "53": {
+    "answer": "A",
+    "expression": "3100*(1/4)/(1/4+1/6+1/10)",
+    "value": 1500.0,
+    "status": "verified",
+    "reason": "Rate ratio 15:10:6, giving 1500,1000,600."
+  },
+  "54": {
+    "answer": "D",
+    "expression": "60*7/42",
+    "value": 10.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "55": {
+    "answer": "B",
+    "expression": "4*12/6",
+    "value": 8.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "56": {
+    "answer": "A",
+    "expression": "(3/4)/(0.5/6+(2/3)/4)",
+    "value": 3.0,
+    "status": "verified",
+    "reason": "P rate=1/12, Q rate=1/6; 3/4 work at rate1/4 takes3 days."
+  },
+  "57": {
+    "answer": "B",
+    "expression": "6*20/60",
+    "value": 2.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "58": {
+    "answer": "B",
+    "expression": "1/(1/6-1/24)",
+    "value": 8.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "59": {
+    "answer": "D",
+    "expression": "31000*(1/4)/(1/4+1/6+1/10)",
+    "value": 15000.0,
+    "status": "verified",
+    "reason": "Rate ratio 15:10:6, giving 15000,10000,6000."
+  },
+  "60": {
+    "answer": "D",
+    "expression": "12/1.6",
+    "value": 7.5,
+    "status": "verified",
+    "reason": "60% more efficient means rate multiplier1.6, not a time reduction of60%."
+  },
+  "61": {
+    "answer": "B",
+    "expression": "48*7*24/(28*8)",
+    "value": 36.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "62": {
+    "answer": "D",
+    "expression": "15*40/30",
+    "value": 20.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "63": {
+    "answer": "A",
+    "expression": "1/(1/3+1/6)",
+    "value": 2.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "64": {
+    "answer": "D",
+    "expression": "(1-2*(1/6+1/8))*8",
+    "value": 3.3333333333333335,
+    "status": "verified",
+    "reason": "After two hours 7/12 is filled; B alone fills remaining5/12 in10/3 hours."
+  },
+  "65": {
+    "answer": "B",
+    "expression": "24/4",
+    "value": 6.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "66": {
+    "answer": "A",
+    "expression": "200000*(1/10)/(1/10+1/15)",
+    "value": 120000.0,
+    "status": "verified",
+    "reason": "Rate ratio3:2 gives A share120000."
+  },
+  "67": {
+    "answer": "B",
+    "expression": "2/(1/12+1/15+1/20)",
+    "value": 10.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "68": {
+    "answer": "A",
+    "expression": "5",
+    "value": 5.0,
+    "status": "verified",
+    "reason": "Each job requires5 person-days."
+  },
+  "69": {
+    "answer": "D",
+    "expression": "1/(1/3-(1/6-1/12))",
+    "value": 4.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "70": {
+    "answer": "C",
+    "expression": "1/(1/12+1/36)",
+    "value": 9.0,
+    "status": "verified",
+    "reason": "A takes12 days, B36."
+  },
+  "71": {
+    "answer": "C",
+    "expression": "12*10/20",
+    "value": 6.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "72": {
+    "answer": "D",
+    "expression": "1500*(1/10)/(1/10+1/15)",
+    "value": 900.0,
+    "status": "verified",
+    "reason": "Rate ratio3:2, giving A900,B600."
+  },
+  "73": {
+    "answer": "C",
+    "expression": "(1-5/20)/(1/20+1/30)",
+    "value": 9.0,
+    "status": "verified",
+    "reason": "The source states Q left after5 days, then asks when Q left; this contradicts the remaining-work data. Replace \"after5 days\" by \"after some days\". Under the intended equation, Q leaves after9 days.",
+    "source_correction": {
+      "stem": "Remove the contradictory claim that Q left after 5 days; say Q left after some days."
+    }
+  },
+  "74": {
+    "answer": "B",
+    "expression": "1/(1/3+1/6)",
+    "value": 2.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "75": {
+    "answer": "C",
+    "expression": "1/(1/4+1/6)",
+    "value": 2.4,
+    "status": "verified",
+    "reason": "2.4hours=2hours24minutes."
+  },
+  "76": {
+    "answer": "D",
+    "expression": "20*(2*400+19*300)/2",
+    "value": 65000.0,
+    "status": "verified",
+    "reason": "Repayments form AP400,700,...; sum20terms=65000."
+  },
+  "77": {
+    "answer": "B",
+    "expression": "35/1.4",
+    "value": 25.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "78": {
+    "answer": "A",
+    "expression": "6*80/5",
+    "value": 96.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "79": {
+    "answer": "C",
+    "expression": "7*45/9",
+    "value": 35.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "80": {
+    "answer": "B",
+    "expression": "14/(8/12+16/18)",
+    "value": 9.0,
+    "status": "verified",
+    "reason": "One man rate1/168; woman1/252; combined8/168+16/252=1/9."
+  },
+  "81": {
+    "answer": "A",
+    "expression": "14+(1-7*(1/12+1/18))*12",
+    "value": 14.333333333333334,
+    "status": "verified",
+    "reason": "Seven complete two-day cycles finish35/36; A needs1/3of the next day."
+  },
+  "82": {
+    "answer": "A",
+    "expression": "1/(1/4-1/9)",
+    "value": 7.2,
+    "status": "verified",
+    "reason": ""
+  },
+  "83": {
+    "answer": "B",
+    "expression": "15*10/6",
+    "value": 25.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "84": {
+    "answer": "B",
+    "expression": "36*25/15",
+    "value": 60.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "85": {
+    "answer": "A",
+    "expression": "6000*(1-6*(1/12+1/16))",
+    "value": 750.0,
+    "status": "verified",
+    "reason": "C performs1/8of the work and receives750."
+  },
+  "86": {
+    "answer": "B",
+    "expression": "(1+3/14)/(1/14+1/21)",
+    "value": 10.2,
+    "status": "verified",
+    "reason": "A worksT−3days, B worksTdays: (T−3)/14+T/21=1."
+  },
+  "87": {
+    "answer": "B",
+    "expression": "1/(1/8-1/16)",
+    "value": 16.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "88": {
+    "answer": "A",
+    "expression": "(1-2*(1/15+1/10))*15",
+    "value": 10.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "89": {
+    "answer": "B",
+    "expression": "10*8/16",
+    "value": 5.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "90": {
+    "answer": "B",
+    "expression": "20/3",
+    "value": 6.666666666666667,
+    "status": "verified",
+    "reason": "C=(A+B)/2, so combined rate=3C."
+  },
+  "91": {
+    "answer": "B",
+    "expression": "(1-5*(1/20+1/30))*30",
+    "value": 17.5,
+    "status": "verified",
+    "reason": ""
+  },
+  "92": {
+    "answer": "A",
+    "expression": "1/(2*0.035+0.01)",
+    "value": 12.5,
+    "status": "verified",
+    "reason": "Solve2m+3b=1/10 and3m+2b=1/8: m=.035,b=.01; 2m+b=.08."
+  },
+  "93": {
+    "answer": "A",
+    "expression": "(1-5*(1/25+1/20))*20",
+    "value": 11.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "94": {
+    "answer": "A",
+    "expression": "112/(20*6)*25*3",
+    "value": 70.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "95": {
+    "answer": "B",
+    "expression": "5*3",
+    "value": 15.0,
+    "status": "verified",
+    "reason": "In three days A does3/20 and the assistants add1/30+1/60=1/20; each cycle completes1/5."
+  },
+  "96": {
+    "answer": "C",
+    "expression": "(1-23/40)/(1/45+1/40)",
+    "value": 9.0,
+    "status": "verified",
+    "reason": "The joint-work duration is9days before A leaves."
+  },
+  "97": {
+    "answer": "C",
+    "expression": "2480/(7*20+9*12)",
+    "value": 10.0,
+    "status": "verified",
+    "reason": "Daily earnings3m+4b=108 and11m+13b=376 give m20,b12."
+  },
+  "98": {
+    "answer": "B",
+    "expression": "1/(1/15-(1/12-1/15))",
+    "value": 20.0,
+    "status": "verified",
+    "reason": "a=2c and(a+b)−(b+c)=1/60 implyc=1/60,b=1/20."
+  },
+  "99": {
+    "answer": "A",
+    "expression": "16/8",
+    "value": 2.0,
+    "status": "verified",
+    "reason": "Equal work gives60m+80b=52m+96b, so m=2b."
+  },
+  "100": {
+    "answer": "B",
+    "expression": "1/(1/80+(1-10/80)/42)",
+    "value": 30.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "101": {
+    "answer": "B",
+    "expression": "4*2",
+    "value": 8.0,
+    "status": "verified",
+    "reason": "Two-day cycle(A+B)+(A+C)=2/11+1/20+1/55=1/4; four cycles take8days."
+  },
+  "102": {
+    "answer": "B",
+    "expression": "480*(1-5/8)",
+    "value": 180.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "103": {
+    "answer": "B",
+    "expression": "1/(1/20+1/30)",
+    "value": 12.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "104": {
+    "answer": "C",
+    "expression": "1/(1/15-1/20)",
+    "value": 60.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "105": {
+    "answer": "C",
+    "expression": "1/(1/6-(1-2/6)/7)",
+    "value": 14.0,
+    "status": "verified",
+    "reason": "A+B rate=(2/3)/7=2/21; C rate1/6−2/21=1/14."
+  },
+  "106": {
+    "answer": "B",
+    "expression": "(12*18-12*6)/16",
+    "value": 9.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "107": {
+    "answer": "C",
+    "expression": "(100*60-100*15)/80",
+    "value": 56.25,
+    "status": "verified",
+    "reason": ""
+  },
+  "108": {
+    "answer": "C",
+    "expression": "1/((1/3)/5+(2/5)/10)",
+    "value": 9.375,
+    "status": "verified",
+    "reason": "A rate1/15 and B rate1/25, hence combined time75/8=9⅜days."
+  },
+  "109": {
+    "answer": "A",
+    "expression": "2/(1/72+1/90-1/120)",
+    "value": 120.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "110": {
+    "answer": "B",
+    "expression": "25/(6/8+11/12)",
+    "value": 15.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "111": {
+    "answer": "B",
+    "expression": "12/2",
+    "value": 6.0,
+    "status": "verified",
+    "reason": "Let A time=t; B=t/2,C=t/3; total rate6/t=1/2 gives t12,B6."
+  },
+  "112": {
+    "answer": "B",
+    "expression": "(1-2/10+3/12)/(1/12+1/15)",
+    "value": 7.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "113": {
+    "answer": "A",
+    "expression": "50/(12/4+8/6)",
+    "value": 11.538461538461538,
+    "status": "verified",
+    "reason": "Exact time is150/13days, not12. Replace the rounded choiceA by150/13 to avoid requiring unspecified rounding.",
+    "source_correction": {
+      "option_a": "150/13 days (11 7/13 days)"
+    }
+  },
+  "114": {
+    "answer": "A",
+    "expression": "116*2+1",
+    "value": 233.0,
+    "status": "verified",
+    "reason": "After116two-day cycles net work29/30. A finishes on day233."
+  },
+  "115": {
+    "answer": "D",
+    "expression": "5*(1/12+1/15)/(1/6-1/12-1/15)",
+    "value": 45.0,
+    "status": "verified",
+    "reason": "After first5minutes tank is3/4full. With all three open the net emptying rate is1/60; emptying then takes45minutes."
+  },
+  "116": {
+    "answer": "B",
+    "expression": "24",
+    "value": 24.0,
+    "status": "verified",
+    "reason": "a+b=1/12,b+c=1/16,5a+7b+13c=1. Solve b=1/48,c=1/24."
+  },
+  "117": {
+    "answer": "A",
+    "expression": "110*45*(5/3)/55-110",
+    "value": 40.0,
+    "status": "verified",
+    "reason": "Remaining5/8work needs8250man-days, or150men over55days; add40."
+  },
+  "118": {
+    "answer": "A",
+    "expression": "1/(1/21+1/28)",
+    "value": 12.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "119": {
+    "answer": "C",
+    "expression": "15/(1/6-10/100)",
+    "value": 225.0,
+    "status": "verified",
+    "reason": "15women daily rate=1/6−10/100=1/15; each woman takes225days."
+  },
+  "120": {
+    "answer": "B",
+    "expression": "20/1.25",
+    "value": 16.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "121": {
+    "answer": "B",
+    "expression": "20/(1-20/30)",
+    "value": 60.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "122": {
+    "answer": "A",
+    "expression": "(1-4*(1/12+1/15))*15",
+    "value": 6.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "123": {
+    "answer": "C",
+    "expression": "3*8*2/4",
+    "value": 12.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "124": {
+    "answer": "C",
+    "expression": "100*5/100",
+    "value": 5.0,
+    "status": "verified",
+    "reason": "Each spider catches one fly in5minutes; five spiders catch100flies over100minutes."
+  },
+  "125": {
+    "answer": "C",
+    "expression": "1/(1/10-1/15)",
+    "value": 30.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "126": {
+    "answer": "D",
+    "expression": "1-4*(1/15+1/20)",
+    "value": 0.5333333333333333,
+    "status": "verified",
+    "reason": ""
+  },
+  "127": {
+    "answer": "A",
+    "expression": "1/(1/24+1/6+1/12)",
+    "value": 3.4285714285714284,
+    "status": "verified",
+    "reason": ""
+  },
+  "128": {
+    "answer": "B",
+    "expression": "10*12/6",
+    "value": 20.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "129": {
+    "answer": "A",
+    "expression": "13+(1-6*(1/16+1/12)-1/16)*12",
+    "value": 13.75,
+    "status": "verified",
+    "reason": "After12days work7/8; A works day13 to15/16; B needs3/4day."
+  },
+  "130": {
+    "answer": "A",
+    "expression": "1/(2*(1/6)-1/8-1/12)",
+    "value": 8.0,
+    "status": "verified",
+    "reason": "b=(a+b)+(b+c)−(a+b+c)=1/24; a+c=1/8."
+  },
+  "131": {
+    "answer": "B",
+    "expression": "(1-10/15)*18",
+    "value": 6.0,
+    "status": "verified",
+    "reason": ""
+  }
+}

@@ -1,3 +1,4 @@
+import QuestionContent, { QuestionImage } from '../../components/common/QuestionContent';
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { supabase } from '../../supabase/client';
@@ -414,9 +415,7 @@ export default function StudentTestTaking() {
 
               <div className="p-5 sm:p-6">
                 {/^https?:\/\/.*\.(png|jpe?g|webp)(\?.*)?$/i.test(currentQuestion.question || '') ? (
-                  <a href={currentQuestion.question} target="_blank" rel="noopener noreferrer" className="block rounded-lg overflow-hidden bg-white">
-                    <img src={currentQuestion.question} alt={`Original question ${currentIdx + 1} with its answer options`} className="w-full h-auto" />
-                  </a>
+                  <QuestionImage src={currentQuestion.question} alt={`Original question ${currentIdx + 1} with its answer options`} />
                 ) : currentQuestion.question && currentQuestion.question.startsWith('http') ? (
                   <div className="space-y-4">
                     {!iframeFailed[currentQuestion.id] ? (
@@ -452,7 +451,7 @@ export default function StudentTestTaking() {
                   </div>
                 ) : (
                   <div className="max-w-none text-navy-100">
-                    <p lang={questionLanguage === 'Tamil' ? 'ta' : 'en'} className="whitespace-pre-wrap text-base sm:text-lg leading-loose">{currentQuestion.question}</p>
+                    <QuestionContent question={currentQuestion} language={questionLanguage} />
                   </div>
                 )}
               </div>

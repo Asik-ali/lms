@@ -1,0 +1,187 @@
+{
+  "1": {
+    "answer": "A",
+    "expression": "18*3-12-28",
+    "value": 14.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "2": {
+    "answer": "C",
+    "expression": "10*21-9*(21-2/12)",
+    "value": 22.5,
+    "status": "verified",
+    "reason": "After death the average is 20 years 10 months. Deceased age=210-9*(20+10/12)=22.5 years. Printed choice C says 22 years; correct it to 22 years 6 months.",
+    "source_correction": {
+      "option_c": "22 years 6 months"
+    }
+  },
+  "3": {
+    "answer": "B",
+    "expression": "(25*78.4-69+96)/25",
+    "value": 79.48,
+    "status": "verified",
+    "reason": ""
+  },
+  "4": {
+    "answer": "D",
+    "expression": "(5*28-3*24)/2",
+    "value": 34.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "5": {
+    "answer": "A",
+    "expression": "5*27-4*25",
+    "value": 35.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "6": {
+    "answer": "B",
+    "expression": "(60+2*66)/3",
+    "value": 64.0,
+    "status": "verified",
+    "reason": "Uses the empirical relation mode=3 median−2 mean; name that assumption in the question."
+  },
+  "7": {
+    "answer": "B",
+    "expression": "45+4",
+    "value": 49.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "8": {
+    "answer": "C",
+    "expression": "4*60-56-68-72",
+    "value": 44.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "9": {
+    "answer": "A",
+    "expression": "(5*28-3*24)/2",
+    "value": 34.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "10": {
+    "answer": "B",
+    "expression": "(1+3+3+3+5)/5",
+    "value": 3.0,
+    "status": "verified",
+    "reason": "Only set B has mean=median=mode=3."
+  },
+  "11": {
+    "answer": "A",
+    "expression": "(10**2-1)/12",
+    "value": 8.25,
+    "status": "verified",
+    "reason": "Mean=(1+10)/2=5.5; population variance=(10²−1)/12=8.25."
+  },
+  "12": {
+    "answer": "C",
+    "expression": "(3500+2700+3000+2800+3900+2100)/6",
+    "value": 3000.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "13": {
+    "answer": "A",
+    "expression": "(100*40-83+53)/100",
+    "value": 39.7,
+    "status": "verified",
+    "reason": ""
+  },
+  "14": {
+    "answer": "A",
+    "expression": "(4+5)/2",
+    "value": 4.5,
+    "status": "verified",
+    "reason": "Total frequency 20: cumulative counts are 1,4,6,10,18,20. Observations 10 and 11 are 4 and 5."
+  },
+  "15": {
+    "answer": "C",
+    "expression": "1",
+    "value": 1.0,
+    "status": "verified",
+    "reason": "Arithmetic mean measures central tendency; range, standard deviation and variance measure dispersion."
+  },
+  "16": {
+    "answer": "B",
+    "expression": "(3500+2700+3000+2800+3900+2100)/6",
+    "value": 3000.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "17": {
+    "answer": "D",
+    "expression": "6",
+    "value": 6.0,
+    "status": "verified",
+    "reason": "Six occurs nine times, more often than any other listed value."
+  },
+  "18": {
+    "answer": "D",
+    "expression": "28-18",
+    "value": 10.0,
+    "status": "verified",
+    "reason": "The 16-18 class has zero frequency; occupied class bounds span 18 to 28."
+  },
+  "19": {
+    "answer": "B",
+    "expression": "20-1",
+    "value": 19.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "20": {
+    "answer": "C",
+    "expression": "8/4",
+    "value": 2.0,
+    "status": "verified",
+    "reason": "Median is 4a, so a=2."
+  },
+  "21": {
+    "answer": "D",
+    "expression": "(30+34)/2",
+    "value": 32.0,
+    "status": "verified",
+    "reason": "Sorted data 24,29,30,34,35,38."
+  },
+  "22": {
+    "answer": "D",
+    "expression": "(18+20)/2",
+    "value": 19.0,
+    "status": "verified",
+    "reason": "Sorted data 12,14,17,18,20,23,24,25."
+  },
+  "23": {
+    "answer": "B",
+    "expression": "3",
+    "value": 3.0,
+    "status": "verified",
+    "reason": "Translation does not affect standard deviation; scaling by 3 multiplies it by |3|."
+  },
+  "24": {
+    "answer": "A",
+    "expression": "6.25**0.5",
+    "value": 2.5,
+    "status": "verified",
+    "reason": ""
+  },
+  "25": {
+    "answer": "A",
+    "expression": "(100*40-83+53)/100",
+    "value": 39.7,
+    "status": "verified",
+    "reason": ""
+  },
+  "26": {
+    "answer": "B",
+    "expression": "45+4",
+    "value": 49.0,
+    "status": "verified",
+    "reason": ""
+  }
+}

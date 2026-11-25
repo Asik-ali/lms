@@ -1,0 +1,535 @@
+{
+  "1": {
+    "answer": "D",
+    "expression": "20+(8*2+6*3-10/5)",
+    "value": 52.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "2": {
+    "answer": "B",
+    "expression": "6+12/3*8-3",
+    "value": 35.0,
+    "status": "verified",
+    "reason": "Replace the custom operators, then apply ordinary multiplication/division precedence."
+  },
+  "3": {
+    "answer": "B",
+    "expression": "(2/5)*(-3/7)-(1/6)*(3/2)+(1/14)*(2/5)",
+    "value": -0.39285714285714285,
+    "status": "verified",
+    "reason": ""
+  },
+  "4": {
+    "answer": "B",
+    "expression": "14*10+4-16/8",
+    "value": 142.0,
+    "status": "verified",
+    "reason": "Replace the operators to obtain14*10+4−16/8."
+  },
+  "5": {
+    "answer": "C",
+    "expression": "20+(8*2+6*3-10/5)",
+    "value": 52.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "6": {
+    "answer": "C",
+    "expression": "7+1",
+    "value": 8.0,
+    "status": "verified",
+    "reason": "Five identical powers5⁷ sum to5*5⁷=5⁸."
+  },
+  "7": {
+    "answer": "C",
+    "expression": "40+1",
+    "value": 41.0,
+    "status": "verified",
+    "reason": "Two identical powers2⁴⁰ sum to2⁴¹."
+  },
+  "8": {
+    "answer": "C",
+    "expression": "(3*15+19)/8-6",
+    "value": 2.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "9": {
+    "answer": "A",
+    "expression": "3",
+    "value": 3.0,
+    "status": "verified",
+    "reason": "For the positive convergent nested radical L, L²=3L givesL=3."
+  },
+  "10": {
+    "answer": "A",
+    "expression": "12/(4**0.5)+(2**0.5)*(8**0.5)",
+    "value": 10.0,
+    "status": "verified",
+    "reason": "Computed value10 corresponds to letterE, which is choiceA."
+  },
+  "11": {
+    "answer": "C",
+    "expression": "2*15-7+100/10",
+    "value": 33.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "12": {
+    "answer": "D",
+    "expression": "8/(1+3)*(3+3)",
+    "value": 12.0,
+    "status": "verified",
+    "reason": "y=2(x+3)."
+  },
+  "13": {
+    "answer": "C",
+    "expression": "16/(-4)",
+    "value": -4.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "14": {
+    "answer": "A",
+    "expression": "(7-3)*(7+3)+(3-2)*(3+2)+(2-7)*(2+7)",
+    "value": 0.0,
+    "status": "verified",
+    "reason": "The three exponent differences telescope to zero, leaving1/m; require m≠0."
+  },
+  "15": {
+    "answer": "B",
+    "expression": "3.5*5.75/(4.6*4.375)",
+    "value": 1.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "16": {
+    "answer": "D",
+    "expression": "1+3+3+4",
+    "value": 11.0,
+    "status": "verified",
+    "reason": "Sequence1,3,4,7,11; expression addsF4+F3."
+  },
+  "17": {
+    "answer": "B",
+    "expression": "(3+4+7)/7",
+    "value": 2.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "18": {
+    "answer": "B",
+    "expression": "18*12/4+5-6",
+    "value": 53.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "19": {
+    "answer": "C",
+    "expression": "100+8/2+(3*2-6/2)",
+    "value": 107.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "20": {
+    "answer": "B",
+    "expression": "1-1/1",
+    "value": 0.0,
+    "status": "verified",
+    "reason": "x+1/x=2 implies(x−1)²=0 andx=1."
+  },
+  "21": {
+    "answer": "B",
+    "expression": "(2+1/3)+(1+5/6)+20/3-(7+1/3)",
+    "value": 3.5,
+    "status": "verified",
+    "reason": ""
+  },
+  "22": {
+    "answer": "C",
+    "expression": "20+(8*2+6*3-10/5)",
+    "value": 52.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "23": {
+    "answer": "D",
+    "expression": "2**65-(2**65-1)",
+    "value": 1.0,
+    "status": "verified",
+    "reason": "Finite geometric sumB=2⁶⁵−1."
+  },
+  "24": {
+    "answer": "A",
+    "expression": "15/25*5",
+    "value": 3.0,
+    "status": "verified",
+    "reason": "x=3,y=30."
+  },
+  "25": {
+    "answer": "C",
+    "expression": "(6**2+5**2)/(6**2-5**2)",
+    "value": 5.545454545454546,
+    "status": "verified",
+    "reason": ""
+  },
+  "26": {
+    "answer": "A",
+    "expression": "35568/456/650*100",
+    "value": 12.0,
+    "status": "verified",
+    "reason": "Interpret the denominator as(?/100)*650; add parentheses to remove operator ambiguity."
+  },
+  "27": {
+    "answer": "C",
+    "expression": "(4+1*32/2-10)*(7*3+8/4+7)",
+    "value": 300.0,
+    "status": "verified",
+    "reason": "After substitution the numerator is10, denominator30, and outer÷becomes×."
+  },
+  "28": {
+    "answer": "C",
+    "expression": "14/2-12/3",
+    "value": 3.0,
+    "status": "verified",
+    "reason": "Common termp³q² has coefficient7−4=3."
+  },
+  "29": {
+    "answer": "A",
+    "expression": "(1-1/2)*(1/2-1/4)/(3/4-1/2)",
+    "value": 0.5,
+    "status": "verified",
+    "reason": ""
+  },
+  "31": {
+    "answer": "B",
+    "expression": "5*(5**2+3*14)",
+    "value": 335.0,
+    "status": "verified",
+    "reason": "x³−y³=(x−y)[(x−y)²+3xy]."
+  },
+  "32": {
+    "answer": "D",
+    "expression": "14*15*10+5",
+    "value": 2105.0,
+    "status": "verified",
+    "reason": "Intended analogy concatenates the product with digit5:14*15=210→2105."
+  },
+  "33": {
+    "answer": "C",
+    "expression": "0+1",
+    "value": 1.0,
+    "status": "verified",
+    "reason": "The summands end in0 and1."
+  },
+  "34": {
+    "answer": "C",
+    "expression": "5**3",
+    "value": 125.0,
+    "status": "verified",
+    "reason": "log_x5=1/3, hencex=5³=125."
+  },
+  "35": {
+    "answer": "A",
+    "expression": "1**3+2**3-3**3+3*1*2*3",
+    "value": 0.0,
+    "status": "verified",
+    "reason": "Expression is0, matchingA=x+y−z."
+  },
+  "36": {
+    "answer": "B",
+    "expression": "(7-5)*(7-3)",
+    "value": 8.0,
+    "status": "verified",
+    "reason": "Cancel valid nonzero factors to obtain(x−5)(x−3), withx≠−5,−3,3."
+  },
+  "37": {
+    "answer": "C",
+    "expression": "1/(7+1)+1/(7+1)",
+    "value": 0.25,
+    "status": "verified",
+    "reason": "Each fraction simplifies to1/(x+1), excluding original denominator zeros."
+  },
+  "38": {
+    "answer": "A",
+    "expression": "-1/3-(1/((2/3)*(5/7))+8-(5-1/2-1/4))",
+    "value": -6.183333333333334,
+    "status": "verified",
+    "reason": "Exact result−371/60=−6 11/60. Printed optionA=−5 41/60 is wrong; replace it.",
+    "source_correction": {
+      "option_a": "−6 11/60"
+    }
+  },
+  "39": {
+    "answer": "C",
+    "expression": "(1+1/2)/3",
+    "value": 0.5,
+    "status": "verified",
+    "reason": "Write reciprocal base as(p/q)^−1/2; then1−3x=−1/2, x1/2. Requirep/q>0 andp≠q."
+  },
+  "40": {
+    "answer": "C",
+    "expression": "1",
+    "value": 1.0,
+    "status": "verified",
+    "reason": "Self-additive-inverse meansa+b=0, so−a=b."
+  },
+  "41": {
+    "answer": "C",
+    "expression": "(49+(220+(16+81**0.5)**0.5)**0.5)**0.5",
+    "value": 8.0,
+    "status": "verified",
+    "reason": "Nested roots from inside are9,5,15,8."
+  },
+  "42": {
+    "answer": "D",
+    "expression": "1/100",
+    "value": 0.01,
+    "status": "verified",
+    "reason": "Product telescopes(1/2)(2/3)...(99/100)=1/100."
+  },
+  "43": {
+    "answer": "D",
+    "expression": "((679+458)**2-(679-458)**2)/(679*458)",
+    "value": 4.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "44": {
+    "answer": "B",
+    "expression": "128+681",
+    "value": 809.0,
+    "status": "verified",
+    "reason": "128+681=809 givesA8,B1."
+  },
+  "45": {
+    "answer": "C",
+    "expression": "2**10/2",
+    "value": 512.0,
+    "status": "verified",
+    "reason": "Half2¹⁰=2⁹."
+  },
+  "46": {
+    "answer": "B",
+    "expression": "3",
+    "value": 3.0,
+    "status": "verified",
+    "reason": "Positive convergent fixed pointL²=3L gives3."
+  },
+  "47": {
+    "answer": "D",
+    "expression": "6*999+(1+2+3+4+5+6)/7",
+    "value": 5997.0,
+    "status": "verified",
+    "reason": "Source image fractions are1/7,2/7,3/7,4/7,5/7,6/7. The PDF text layer incorrectly maps2/7to⅔and3/7to⅜; use the visually checked sevenths.",
+    "visually_verified_fraction_sequence": [
+      "1/7",
+      "2/7",
+      "3/7",
+      "4/7",
+      "5/7",
+      "6/7"
+    ]
+  },
+  "48": {
+    "answer": "C",
+    "expression": "(18+26/27)**(1/3)",
+    "value": 2.6666666666666665,
+    "status": "verified",
+    "reason": "If original fraction=f, f²÷(1/f)=f³=512/27; f=8/3."
+  },
+  "49": {
+    "answer": "A",
+    "expression": "7**2+7*3+3**2",
+    "value": 79.0,
+    "status": "verified",
+    "reason": "Combine denominators to get(x³−y³)/(x−y)=x²+xy+y²."
+  },
+  "50": {
+    "answer": "B",
+    "expression": "8.94-3.56",
+    "value": 5.38,
+    "status": "verified",
+    "reason": "Difference-of-cubes factorization cancels to8.94−3.56."
+  },
+  "51": {
+    "answer": "B",
+    "expression": "(4/3+3/2)+(-5/3)/(30/12)",
+    "value": 2.1666666666666665,
+    "status": "verified",
+    "reason": ""
+  },
+  "52": {
+    "answer": "B",
+    "expression": "2**65-(2**65-1)",
+    "value": 1.0,
+    "status": "verified",
+    "reason": "Finite geometric sumB=2⁶⁵−1."
+  },
+  "53": {
+    "answer": "B",
+    "expression": "5.5+(3/4)*(8/9)",
+    "value": 6.166666666666667,
+    "status": "verified",
+    "reason": ""
+  },
+  "54": {
+    "answer": "A",
+    "expression": "4/3+3/2-(5/3)/(30/12)-(12/9)*(-27/16)",
+    "value": 4.416666666666667,
+    "status": "verified",
+    "reason": ""
+  },
+  "55": {
+    "answer": "C",
+    "expression": "(0.1**2+0.01**2)/0.0101",
+    "value": 1.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "56": {
+    "answer": "C",
+    "expression": "((2*(-1)-1)**2+(2*2-1)**2)/2",
+    "value": 9.0,
+    "status": "verified",
+    "reason": "2x−1=±3 givesx=−1or2."
+  },
+  "57": {
+    "answer": "D",
+    "expression": "(49*((7-3)**2)**2)**0.5",
+    "value": 112.0,
+    "status": "verified",
+    "reason": "Principal square root is7|(x−y)²|=7(x−y)²."
+  },
+  "58": {
+    "answer": "B",
+    "expression": "((4356**2-2171**2)/2185)/(4356+2171)",
+    "value": 1.0,
+    "status": "verified",
+    "reason": "Difference of squares cancels both factors;4356−2171=2185."
+  },
+  "59": {
+    "answer": "A",
+    "expression": "2**2",
+    "value": 4.0,
+    "status": "verified",
+    "reason": "Withy≠0, multiplying through givesy²=4, hence±2."
+  },
+  "60": {
+    "answer": "C",
+    "expression": "25*32/4-12+3",
+    "value": 191.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "61": {
+    "answer": "C",
+    "expression": "((234+2*108)/(234-2*108))**0.5",
+    "value": 5.0,
+    "status": "verified",
+    "reason": "The data determines the ratio up to sign. Statea>b>0to obtain the intended positive5; without an ordering assumption±5are possible.",
+    "source_correction": {
+      "stem_condition": "a>b>0"
+    }
+  },
+  "62": {
+    "answer": "A",
+    "expression": "7**2-7*3+3**2",
+    "value": 37.0,
+    "status": "verified",
+    "reason": "Cancel(a+b)and(a−b)to obtaina²−ab+b², preserving original restrictions."
+  },
+  "63": {
+    "answer": "B",
+    "expression": "2*6-12/(4+2)",
+    "value": 10.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "64": {
+    "answer": "B",
+    "expression": "7**0",
+    "value": 1.0,
+    "status": "verified",
+    "reason": "P⁰=1requiresP≠0; add that condition.",
+    "source_correction": {
+      "stem_condition": "P≠0"
+    }
+  },
+  "65": {
+    "answer": "D",
+    "expression": "(4*3+5*2)/(4*3-5*2)",
+    "value": 11.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "66": {
+    "answer": "B",
+    "expression": "((3**0.5+1)-2/(3**0.5+1))**2",
+    "value": 4.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "67": {
+    "answer": "B",
+    "expression": "3**2-1",
+    "value": 8.0,
+    "status": "verified",
+    "reason": "(x⁴−1)/(x²+1)=x²−1=8; both±3satisfy."
+  },
+  "68": {
+    "answer": "A",
+    "expression": "(7+3/10)-(10+7/21)",
+    "value": -3.033333333333333,
+    "status": "verified",
+    "reason": ""
+  },
+  "69": {
+    "answer": "C",
+    "expression": "968+512*79/4",
+    "value": 11080.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "70": {
+    "answer": "C",
+    "expression": "(2+8+2+7)-(5+0+3)",
+    "value": 11.0,
+    "status": "verified",
+    "reason": "Alternating digit sum=11−x; the only digit giving a multiple of11isx0."
+  },
+  "71": {
+    "answer": "C",
+    "expression": "(383+(302-(164+(28-9**0.5)**0.5)**0.5)**0.5)**0.5",
+    "value": 20.0,
+    "status": "verified",
+    "reason": "Inner results3,5,13,17,20."
+  },
+  "72": {
+    "answer": "B",
+    "expression": "cbrt(-121+cbrt(-61+cbrt(-26+cbrt(-1))))",
+    "value": -5.0,
+    "status": "verified",
+    "reason": "Real cube roots from inside are−1,−3,−4,−5."
+  },
+  "73": {
+    "answer": "B",
+    "expression": "100+8/2+(3*2-6/2)",
+    "value": 107.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "74": {
+    "answer": "B",
+    "expression": "(3+4+7)/7",
+    "value": 2.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "30": {
+    "answer": null,
+    "status": "ambiguous_source",
+    "reason": "The ellipsis does not specify the intervening factors. Answer0requires an explicit zero factor(100−100), which is not stated; retain for source clarification rather than invent the product range."
+  }
+}

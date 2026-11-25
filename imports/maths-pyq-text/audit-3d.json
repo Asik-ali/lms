@@ -1,0 +1,696 @@
+{
+  "1": {
+    "answer": "D",
+    "expression": "10*5*1.5*1000",
+    "value": 75000.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "2": {
+    "answer": "C",
+    "expression": "2*(1/3)*(1/3+1)",
+    "value": 0.8888888888888888,
+    "status": "verified",
+    "reason": "TSA=2πr(r+h); substituting r=h/3 gives (8/9)πh²."
+  },
+  "3": {
+    "answer": "B",
+    "expression": "(704/(2*(22/7)*8))**2*(22/7)*8",
+    "value": 4928.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "4": {
+    "answer": "B",
+    "expression": "(22/7)*20**2*14",
+    "value": 17600.0,
+    "status": "verified",
+    "reason": "The rolled sheet has height 14 cm; volume=π*20²*14."
+  },
+  "5": {
+    "answer": "C",
+    "expression": "4*12**2",
+    "value": 576.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "6": {
+    "answer": "C",
+    "expression": "704/((22/7)*7)-7",
+    "value": 25.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "7": {
+    "answer": "B",
+    "expression": "(12/1)**3",
+    "value": 1728.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "8": {
+    "answer": "B",
+    "expression": "(22/7)*2.8*3*8",
+    "value": 211.2,
+    "status": "verified",
+    "reason": ""
+  },
+  "9": {
+    "answer": "B",
+    "expression": "3**2*2",
+    "value": 18.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "10": {
+    "answer": "A",
+    "expression": "(384/6)**1.5",
+    "value": 512.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "11": {
+    "answer": "B",
+    "expression": "(9/16)**1.5",
+    "value": 0.421875,
+    "status": "verified",
+    "reason": "Surface-area ratio 9:16 gives radii 3:4 and volume ratio 27:64."
+  },
+  "12": {
+    "answer": "C",
+    "expression": "(8**3-(11352/7)*3/(4*(22/7)))**(1/3)",
+    "value": 5.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "13": {
+    "answer": "C",
+    "expression": "(4/3)*12**3/8**2",
+    "value": 36.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "14": {
+    "answer": "A",
+    "expression": "20",
+    "value": 20.0,
+    "status": "verified",
+    "reason": "gcd(80,100,120)=20 litres."
+  },
+  "15": {
+    "answer": "A",
+    "expression": "(154/(22/7))**0.5",
+    "value": 7.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "16": {
+    "answer": "B",
+    "expression": "(11088*3/((22/7)*24))**0.5",
+    "value": 21.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "17": {
+    "answer": "D",
+    "expression": "70*35",
+    "value": 2450.0,
+    "status": "verified",
+    "reason": "Volume=2450 cm³. Printed option D also contains an incorrect 24.5 m³ alias; remove that alias in the corrected text.",
+    "source_correction": {
+      "option_d": "2450 cm³"
+    }
+  },
+  "18": {
+    "answer": "D",
+    "expression": "8*6*2.5*1000",
+    "value": 120000.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "19": {
+    "answer": "D",
+    "expression": "80*30+2*30*40+80*40",
+    "value": 8000.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "20": {
+    "answer": "A",
+    "expression": "12**3/(18*16)",
+    "value": 6.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "21": {
+    "answer": "A",
+    "expression": "(3/2)*(5/3)",
+    "value": 2.5,
+    "status": "verified",
+    "reason": "CSA ratio is r1*h1:r2*h2=15:6=5:2."
+  },
+  "22": {
+    "answer": "A",
+    "expression": "150/360*(22/7)*28**2",
+    "value": 1026.6666666666667,
+    "status": "verified",
+    "reason": "Lateral area of the folded cone equals the area of the original sector; 1026.67 cm² rounded."
+  },
+  "23": {
+    "answer": "C",
+    "expression": "2/(2/3)",
+    "value": 3.0,
+    "status": "verified",
+    "reason": "With height 2r, cylinder:sphere:cone=2:4/3:2/3=3:2:1."
+  },
+  "24": {
+    "answer": "A",
+    "expression": "(2000*48*600)/(24*12*8)",
+    "value": 25000.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "25": {
+    "answer": "C",
+    "expression": "2*45*3000/60",
+    "value": 4500.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "26": {
+    "answer": "B",
+    "expression": "(16/2)**3",
+    "value": 512.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "27": {
+    "answer": "A",
+    "expression": "2*(22/7)*(5**2+3**2)",
+    "value": 213.71428571428572,
+    "status": "verified",
+    "reason": "CSA=68π≈213.71 m²; add annulus area 16π to obtain TSA=84π=264 m²."
+  },
+  "28": {
+    "answer": "C",
+    "expression": "2/(2/3)",
+    "value": 3.0,
+    "status": "verified",
+    "reason": "Cylinder:cone:sphere=2:2/3:4/3=3:1:2."
+  },
+  "29": {
+    "answer": "B",
+    "expression": "18/3",
+    "value": 6.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "30": {
+    "answer": "A",
+    "expression": "(704/(2*(22/7)*8))**2*(22/7)*8",
+    "value": 4928.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "31": {
+    "answer": "C",
+    "expression": "600/4*6",
+    "value": 900.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "32": {
+    "answer": "B",
+    "expression": "486/6*4",
+    "value": 324.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "33": {
+    "answer": "B",
+    "expression": "((2/3)*2)**0.5",
+    "value": 1.1547005383792515,
+    "status": "verified",
+    "reason": "r1²/(2r2²)=2/3 gives radii 2:√3."
+  },
+  "34": {
+    "answer": "B",
+    "expression": "(2/3)**2",
+    "value": 0.4444444444444444,
+    "status": "verified",
+    "reason": "Reduced ratio is 4:9. Printed D=16:36 is equivalent too; replace the duplicate distractor when normalizing choices.",
+    "source_correction": {
+      "option_d": "16 : 81"
+    }
+  },
+  "35": {
+    "answer": "C",
+    "expression": "(2*8*(10+9)+10*9)*8.5",
+    "value": 3349.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "36": {
+    "answer": "C",
+    "expression": "(726/6)**1.5",
+    "value": 1331.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "37": {
+    "answer": "B",
+    "expression": "3.8*2.5*1.6*1000",
+    "value": 15200.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "38": {
+    "answer": "A",
+    "expression": "(22/7)*7**2*10/6160*100",
+    "value": 25.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "39": {
+    "answer": "A",
+    "expression": "(22/7)*45/3*(28**2+7**2+28*7)",
+    "value": 48510.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "40": {
+    "answer": "B",
+    "expression": "(1/2)**2",
+    "value": 0.25,
+    "status": "verified",
+    "reason": ""
+  },
+  "41": {
+    "answer": "D",
+    "expression": "(64000/1000)**(1/3)",
+    "value": 4.0,
+    "status": "verified",
+    "reason": "Convert litres to m³ before taking cube root."
+  },
+  "42": {
+    "answer": "B",
+    "expression": "3*1386",
+    "value": 4158.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "43": {
+    "answer": "C",
+    "expression": "(7/14)**3",
+    "value": 0.125,
+    "status": "verified",
+    "reason": ""
+  },
+  "44": {
+    "answer": "A",
+    "expression": "(12/16)**2",
+    "value": 0.5625,
+    "status": "verified",
+    "reason": ""
+  },
+  "45": {
+    "answer": "A",
+    "expression": "3**2*7",
+    "value": 63.0,
+    "status": "verified",
+    "reason": "Volume=πr²h; expression omits common π and checks r=3,h=7."
+  },
+  "46": {
+    "answer": "B",
+    "expression": "(16/2)**3",
+    "value": 512.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "47": {
+    "answer": "A",
+    "expression": "4/(2**0.5)",
+    "value": 2.82842712474619,
+    "status": "verified",
+    "reason": "Sphere:cylinder:cone CSA=4:2:√2=2√2:√2:1."
+  },
+  "48": {
+    "answer": "D",
+    "expression": "8*(15**2+8**2)**0.5",
+    "value": 136.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "49": {
+    "answer": "C",
+    "expression": "((29106*2/3)*3/(2*(22/7)))**(1/3)",
+    "value": 21.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "50": {
+    "answer": "D",
+    "expression": "1",
+    "value": 1.0,
+    "status": "verified",
+    "reason": "Shuttlecock shape is a conical frustum joined to a hemisphere."
+  },
+  "51": {
+    "answer": "C",
+    "expression": "(27000/1000)**(1/3)",
+    "value": 3.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "52": {
+    "answer": "A",
+    "expression": "(32/2)**3",
+    "value": 4096.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "53": {
+    "answer": "A",
+    "expression": "(2/3)*(22/7)*1.75**3*1000/7/60",
+    "value": 26.73611111111111,
+    "status": "verified",
+    "reason": "26.736 minutes rounds to the nearest printed choice, 27 minutes."
+  },
+  "54": {
+    "answer": "B",
+    "expression": "(2/3)/(1/2)**2",
+    "value": 2.6666666666666665,
+    "status": "verified",
+    "reason": "Volume ratio divided by squared-radius ratio gives height ratio 8:3."
+  },
+  "55": {
+    "answer": "D",
+    "expression": "2**2",
+    "value": 4.0,
+    "status": "verified",
+    "reason": "Keeping height fixed, V1/V=(2r)²/r²=4. English D and original Tamil A express V1=4V; normalize Tamil choices to the English order before assigning shared D.",
+    "tamil_option_map": {
+      "A": "D",
+      "B": "C",
+      "C": "B",
+      "D": "A"
+    },
+    "source_correction": {
+      "tamil_options": "Reorder to match English A:V=4V₁, B:V=2V₁, C:V₁=2V, D:V₁=4V."
+    }
+  },
+  "56": {
+    "answer": "D",
+    "expression": "30*6",
+    "value": 180.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "57": {
+    "answer": "C",
+    "expression": "486/6*4",
+    "value": 324.0,
+    "status": "verified",
+    "reason": "a²=81 gives LSA=324 cm² and V=729 cm³; choose C with correct dimensions."
+  },
+  "58": {
+    "answer": "D",
+    "expression": "(4/7)**3",
+    "value": 0.18658892128279883,
+    "status": "verified",
+    "reason": ""
+  },
+  "59": {
+    "answer": "A",
+    "expression": "900/180",
+    "value": 5.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "60": {
+    "answer": "B",
+    "expression": "((2/3)*30**3)/(5**2*2)",
+    "value": 360.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "61": {
+    "answer": "D",
+    "expression": "(22/7)*(66/(2*(22/7)))**2*12",
+    "value": 4158.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "62": {
+    "answer": "A",
+    "expression": "4*2*3*1000",
+    "value": 24000.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "63": {
+    "answer": "D",
+    "expression": "2",
+    "value": 2.0,
+    "status": "verified",
+    "reason": "Hemisphere CSA=2πr²."
+  },
+  "64": {
+    "answer": "A",
+    "expression": "1",
+    "value": 1.0,
+    "status": "verified",
+    "reason": "Any plane parallel to the base can cut a cone at infinitely many heights."
+  },
+  "65": {
+    "answer": "B",
+    "expression": "(22/7)*(484/(2*(22/7)))**2*105/3",
+    "value": 652190.0,
+    "status": "verified",
+    "reason": "Radius=484/(2π)=77 cm."
+  },
+  "66": {
+    "answer": "C",
+    "expression": "3/2",
+    "value": 1.5,
+    "status": "verified",
+    "reason": "Hemisphere TSA=3πr², CSA=2πr²."
+  },
+  "67": {
+    "answer": "D",
+    "expression": "1",
+    "value": 1.0,
+    "status": "verified",
+    "reason": "Every plane through the centre yields a great circle; infinitely many such planes exist."
+  },
+  "68": {
+    "answer": "B",
+    "expression": "(35840/(7*5*2))**(1/3)*2",
+    "value": 16.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "69": {
+    "answer": "A",
+    "expression": "(4928*3/((22/7)*24))**0.5",
+    "value": 14.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "70": {
+    "answer": "A",
+    "expression": "1",
+    "value": 1.0,
+    "status": "verified",
+    "reason": "Equal base area and equal volume force equal heights."
+  },
+  "71": {
+    "answer": "B",
+    "expression": "704/((22/7)*7)-7",
+    "value": 25.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "72": {
+    "answer": "B",
+    "expression": "(8**3-(11352/7)*3/(4*(22/7)))**(1/3)*2",
+    "value": 10.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "73": {
+    "answer": "C",
+    "expression": "(2**2-1)*100",
+    "value": 300.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "74": {
+    "answer": "A",
+    "expression": "2*(22/7)*7*10",
+    "value": 440.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "75": {
+    "answer": "A",
+    "expression": "(4/3)*3**3",
+    "value": 36.0,
+    "status": "verified",
+    "reason": "Sphere volume=(4/3)πr³=36π cm³."
+  },
+  "76": {
+    "answer": "B",
+    "expression": "3",
+    "value": 3.0,
+    "status": "verified",
+    "reason": "Solid hemisphere TSA=3πr²."
+  },
+  "77": {
+    "answer": "A",
+    "expression": "(4/3)/(2/3)",
+    "value": 2.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "78": {
+    "answer": "C",
+    "expression": "2**3",
+    "value": 8.0,
+    "status": "verified",
+    "reason": "The new volume is 8 times the original; the increase itself is 7 times. Clarify the wording to ask for the new-to-original factor."
+  },
+  "79": {
+    "answer": "A",
+    "expression": "2*(3*4+4*5+5*3)",
+    "value": 94.0,
+    "status": "verified",
+    "reason": "TSA=2(lb+bh+hl); numeric example checks l=3,b=4,h=5."
+  },
+  "80": {
+    "answer": "A",
+    "expression": "(3**2+4**2)**0.5",
+    "value": 5.0,
+    "status": "verified",
+    "reason": "Pythagoras in the axial section gives slant height √(r²+h²)."
+  },
+  "81": {
+    "answer": "A",
+    "expression": "4/(2*2)",
+    "value": 1.0,
+    "status": "verified",
+    "reason": "Sphere SA=4πr² and cylinder CSA=2πr(2r)=4πr²."
+  },
+  "82": {
+    "answer": "A",
+    "expression": "(1/3)*5*(3**2+2**2+3*2)",
+    "value": 31.666666666666668,
+    "status": "verified",
+    "reason": "Frustum volume=(πh/3)(R²+r²+Rr); numeric example omits common π."
+  },
+  "83": {
+    "answer": "A",
+    "expression": "2*(22/7)*7*(7+10)",
+    "value": 748.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "84": {
+    "answer": "A",
+    "expression": "(1000**(1/3))**2*6",
+    "value": 600.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "85": {
+    "answer": "A",
+    "expression": "3**0.5",
+    "value": 1.7320508075688772,
+    "status": "verified",
+    "reason": "Space diagonal=√(a²+a²+a²)=a√3; D contains a²√3 and is not equivalent."
+  },
+  "86": {
+    "answer": "A",
+    "expression": "5*(3**2-2**2)",
+    "value": 25.0,
+    "status": "verified",
+    "reason": "Outer-cylinder volume minus inner-cylinder volume gives πh(R²-r²)."
+  },
+  "87": {
+    "answer": "A",
+    "expression": "3*5",
+    "value": 15.0,
+    "status": "verified",
+    "reason": "Cone lateral area=πrl."
+  },
+  "88": {
+    "answer": "A",
+    "expression": "(6**2+8**2)**0.5",
+    "value": 10.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "89": {
+    "answer": "A",
+    "expression": "3*(22/7)*7**2",
+    "value": 462.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "90": {
+    "answer": "A",
+    "expression": "(22/7)*6**2*7/3",
+    "value": 264.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "91": {
+    "answer": "A",
+    "expression": "12*10*8",
+    "value": 960.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "92": {
+    "answer": "A",
+    "expression": "4*(22/7)*7**2",
+    "value": 616.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "93": {
+    "answer": "A",
+    "expression": "1/(1/3)",
+    "value": 3.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "94": {
+    "answer": "D",
+    "expression": "2*4/(4-2)",
+    "value": 4.0,
+    "status": "verified",
+    "reason": "πr²h=2πr(r+h) gives h=2r/(r−2) and r=2h/(h−2); both A and C hold, so D is the best answer."
+  },
+  "95": {
+    "answer": "A",
+    "expression": "(6/2)**3",
+    "value": 27.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "96": {
+    "answer": "A",
+    "expression": "2*(10+6)*5",
+    "value": 160.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "97": {
+    "answer": "A",
+    "expression": "(2/3)*(22/7)*7**3",
+    "value": 718.6666666666666,
+    "status": "verified",
+    "reason": ""
+  }
+}

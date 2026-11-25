@@ -1,0 +1,777 @@
+{
+  "1": {
+    "answer": "A",
+    "expression": "15/270*100",
+    "value": 5.555555555555555,
+    "reason": "",
+    "status": "verified"
+  },
+  "2": {
+    "answer": "D",
+    "expression": "110/125*100",
+    "value": 88,
+    "reason": "",
+    "status": "verified"
+  },
+  "3": {
+    "answer": "A",
+    "expression": "10/(10+20+20)*100",
+    "value": 20,
+    "reason": "",
+    "status": "verified"
+  },
+  "4": {
+    "answer": "A",
+    "expression": "0.5/100*200",
+    "value": 1,
+    "reason": "",
+    "status": "verified"
+  },
+  "5": {
+    "answer": "D",
+    "expression": "50/0.2",
+    "value": 250,
+    "reason": "",
+    "status": "verified"
+  },
+  "6": {
+    "answer": "C",
+    "expression": "(280-252)/280*100",
+    "value": 10,
+    "reason": "",
+    "status": "verified"
+  },
+  "7": {
+    "answer": "D",
+    "expression": "480*(85-75)/(85-70)",
+    "value": 320,
+    "reason": "",
+    "status": "verified"
+  },
+  "8": {
+    "answer": "C",
+    "expression": "80/0.8",
+    "value": 100,
+    "reason": "",
+    "status": "verified"
+  },
+  "9": {
+    "answer": "B",
+    "expression": "0.75/100*40",
+    "value": 0.3,
+    "reason": "",
+    "status": "verified"
+  },
+  "10": {
+    "answer": "C",
+    "expression": "120/0.75",
+    "value": 160,
+    "reason": "",
+    "status": "verified"
+  },
+  "11": {
+    "answer": "C",
+    "expression": "(8+1/2)/(11+1/3)*100",
+    "value": 75,
+    "reason": "",
+    "status": "verified"
+  },
+  "12": {
+    "answer": "B",
+    "expression": "(1400-420)/1400*100",
+    "value": 70,
+    "reason": "",
+    "status": "verified"
+  },
+  "13": {
+    "answer": "C",
+    "expression": "25/125*100",
+    "value": 20,
+    "reason": "",
+    "status": "verified"
+  },
+  "14": {
+    "answer": "C",
+    "expression": "4/(1+4)*100",
+    "value": 80,
+    "reason": "Rice is 80% and urad dal is 20%; option C lists rice first. Label ingredients explicitly in the text.",
+    "status": "verified"
+  },
+  "15": {
+    "answer": "C",
+    "expression": "0.1*5+0.05*10",
+    "value": 1,
+    "reason": "",
+    "status": "verified"
+  },
+  "16": {
+    "answer": "B",
+    "expression": "20/120*100",
+    "value": 16.666666666666668,
+    "reason": "",
+    "status": "verified"
+  },
+  "17": {
+    "answer": "C",
+    "expression": "576/0.8",
+    "value": 720,
+    "reason": "",
+    "status": "verified"
+  },
+  "18": {
+    "answer": "A",
+    "expression": "0.15*0.25*10000",
+    "value": 375,
+    "reason": "",
+    "status": "verified"
+  },
+  "19": {
+    "answer": "B",
+    "expression": "(1-1.1*0.9)*100",
+    "value": 1,
+    "reason": "",
+    "status": "verified"
+  },
+  "20": {
+    "answer": "B",
+    "expression": "96/1.2",
+    "value": 80,
+    "reason": "",
+    "status": "verified"
+  },
+  "21": {
+    "answer": "A",
+    "expression": "3/24*100",
+    "value": 12.5,
+    "reason": "",
+    "status": "verified"
+  },
+  "22": {
+    "answer": "D",
+    "expression": "(560-320)/560*100",
+    "value": 42.857142857142854,
+    "reason": "",
+    "status": "verified"
+  },
+  "23": {
+    "answer": "B",
+    "expression": "450*0.7",
+    "value": 315,
+    "reason": "",
+    "status": "verified"
+  },
+  "24": {
+    "answer": "D",
+    "expression": "(1-1.2*0.8)*100",
+    "value": 4,
+    "reason": "",
+    "status": "verified"
+  },
+  "25": {
+    "answer": "C",
+    "expression": "50*0.86",
+    "value": 43,
+    "reason": "",
+    "status": "verified"
+  },
+  "26": {
+    "answer": "C",
+    "expression": "260/0.26",
+    "value": 1000,
+    "reason": "",
+    "status": "verified"
+  },
+  "27": {
+    "answer": "C",
+    "expression": "25*0.28",
+    "value": 7,
+    "reason": "",
+    "status": "verified"
+  },
+  "28": {
+    "answer": "D",
+    "expression": "0.48*48/0.64",
+    "value": 36,
+    "reason": "",
+    "status": "verified"
+  },
+  "29": {
+    "answer": "C",
+    "expression": "(60-45)/60*100",
+    "value": 25,
+    "reason": "",
+    "status": "verified"
+  },
+  "30": {
+    "answer": "D",
+    "expression": "(426000+9000+15000-441000)/(426000+9000+15000)*100",
+    "value": 2,
+    "reason": "",
+    "status": "verified"
+  },
+  "32": {
+    "answer": "A",
+    "expression": "(25*100)**0.5",
+    "value": 50,
+    "reason": "",
+    "status": "verified"
+  },
+  "33": {
+    "answer": "B",
+    "expression": "190.8/0.3*1.25",
+    "value": 795,
+    "reason": "",
+    "status": "verified"
+  },
+  "34": {
+    "answer": "B",
+    "expression": "0.12*250/150*100",
+    "value": 20,
+    "reason": "",
+    "status": "verified"
+  },
+  "35": {
+    "answer": "A",
+    "expression": "(80*3-160)/4",
+    "value": 20,
+    "reason": "",
+    "status": "verified"
+  },
+  "36": {
+    "answer": "D",
+    "expression": "(60+60)/0.6",
+    "value": 200,
+    "reason": "",
+    "status": "verified"
+  },
+  "37": {
+    "answer": "B",
+    "expression": "820/0.4*0.6",
+    "value": 1230,
+    "reason": "",
+    "status": "verified"
+  },
+  "38": {
+    "answer": "C",
+    "expression": "75/(1-0.75)",
+    "value": 300,
+    "reason": "",
+    "status": "verified"
+  },
+  "39": {
+    "answer": "B",
+    "expression": "0.25*0.3*400",
+    "value": 30,
+    "reason": "",
+    "status": "verified"
+  },
+  "40": {
+    "answer": "C",
+    "expression": "(2520-2100)/2100*100",
+    "value": 20,
+    "reason": "",
+    "status": "verified"
+  },
+  "41": {
+    "answer": "B",
+    "expression": "40/(1/6)",
+    "value": 240,
+    "reason": "",
+    "status": "verified"
+  },
+  "42": {
+    "answer": "B",
+    "expression": "0.07/100",
+    "value": 0.0007,
+    "reason": "",
+    "status": "verified"
+  },
+  "43": {
+    "answer": "C",
+    "expression": "1875/1.25",
+    "value": 1500,
+    "reason": "",
+    "status": "verified"
+  },
+  "44": {
+    "answer": "B",
+    "expression": "600/0.15",
+    "value": 4000,
+    "reason": "",
+    "status": "verified"
+  },
+  "45": {
+    "answer": "A",
+    "expression": "(1-0.8*0.75)*100",
+    "value": 40,
+    "reason": "",
+    "status": "verified"
+  },
+  "46": {
+    "answer": "C",
+    "expression": "120/0.75",
+    "value": 160,
+    "reason": "",
+    "status": "verified"
+  },
+  "47": {
+    "answer": "B",
+    "expression": "320*1.25*0.9*1.25",
+    "value": 450,
+    "reason": "",
+    "status": "verified"
+  },
+  "48": {
+    "answer": "B",
+    "expression": "240*0.85",
+    "value": 204,
+    "reason": "",
+    "status": "verified"
+  },
+  "49": {
+    "answer": "B",
+    "expression": "0.04*400-0.02*800",
+    "value": 0,
+    "reason": "",
+    "status": "verified"
+  },
+  "50": {
+    "answer": "B",
+    "expression": "2/60*100",
+    "value": 3.3333333333333335,
+    "reason": "",
+    "status": "verified"
+  },
+  "51": {
+    "answer": "B",
+    "expression": "50*(0.5-0.3)",
+    "value": 10,
+    "reason": "",
+    "status": "verified"
+  },
+  "52": {
+    "answer": "B",
+    "expression": "350*0.05/2",
+    "value": 8.75,
+    "reason": "",
+    "status": "verified"
+  },
+  "53": {
+    "answer": "A",
+    "expression": "(8-5)/5*100",
+    "value": 60,
+    "reason": "",
+    "status": "verified"
+  },
+  "54": {
+    "answer": "A",
+    "expression": "12/(0.35-0.31)",
+    "value": 300,
+    "reason": "",
+    "status": "verified"
+  },
+  "55": {
+    "answer": "D",
+    "expression": "5000*1.3",
+    "value": 6500,
+    "reason": "",
+    "status": "verified"
+  },
+  "56": {
+    "answer": "D",
+    "expression": "0.25/0.4*100",
+    "value": 62.5,
+    "reason": "",
+    "status": "verified"
+  },
+  "57": {
+    "answer": "B",
+    "expression": "0.45*750-0.25*480",
+    "value": 217.5,
+    "reason": "",
+    "status": "verified"
+  },
+  "58": {
+    "answer": "C",
+    "expression": "(75-18)/75*100",
+    "value": 76,
+    "reason": "",
+    "status": "verified"
+  },
+  "59": {
+    "answer": "A",
+    "expression": "200/2000*100",
+    "value": 10,
+    "reason": "",
+    "status": "verified"
+  },
+  "60": {
+    "answer": "D",
+    "expression": "10/24*100",
+    "value": 41.666666666666664,
+    "reason": "Source truncates 41.666...% to 41.66%; retain as approximate rather than exact.",
+    "status": "verified"
+  },
+  "61": {
+    "answer": "A",
+    "expression": "7500*0.53",
+    "value": 3975,
+    "reason": "",
+    "status": "verified"
+  },
+  "62": {
+    "answer": "D",
+    "expression": "(1060-901)/1060*100",
+    "value": 15,
+    "reason": "",
+    "status": "verified"
+  },
+  "63": {
+    "answer": "A",
+    "expression": "0.25*0.75*80",
+    "value": 15,
+    "reason": "",
+    "status": "verified"
+  },
+  "64": {
+    "answer": "B",
+    "expression": "70000*0.96**2",
+    "value": 64512,
+    "reason": "",
+    "status": "verified"
+  },
+  "65": {
+    "answer": "A",
+    "expression": "26620/1.1**3",
+    "value": 20000,
+    "reason": "",
+    "status": "verified"
+  },
+  "66": {
+    "answer": "D",
+    "expression": "96/1.2",
+    "value": 80,
+    "reason": "",
+    "status": "verified"
+  },
+  "67": {
+    "answer": "B",
+    "expression": "(90-50)/90*100",
+    "value": 44.44444444444444,
+    "reason": "",
+    "status": "verified"
+  },
+  "68": {
+    "answer": "B",
+    "expression": "3.5/25*100",
+    "value": 14,
+    "reason": "",
+    "status": "verified"
+  },
+  "69": {
+    "answer": "C",
+    "expression": "5/36*100",
+    "value": 13.88888888888889,
+    "reason": "",
+    "status": "verified"
+  },
+  "70": {
+    "answer": "C",
+    "expression": "(6+1/4)/100",
+    "value": 0.0625,
+    "reason": "",
+    "status": "verified"
+  },
+  "71": {
+    "answer": "D",
+    "expression": "(1-0.75*0.8)*100",
+    "value": 40,
+    "reason": "",
+    "status": "verified"
+  },
+  "72": {
+    "answer": "B",
+    "expression": "192/(0.58-0.42)",
+    "value": 1200,
+    "reason": "",
+    "status": "verified"
+  },
+  "73": {
+    "answer": "A",
+    "expression": "(900*0.3+600*0.15)/1500*100",
+    "value": 24,
+    "reason": "",
+    "status": "verified"
+  },
+  "74": {
+    "answer": "D",
+    "expression": "68/80*100",
+    "value": 85,
+    "reason": "",
+    "status": "verified"
+  },
+  "75": {
+    "answer": "A",
+    "expression": "450/600*100",
+    "value": 75,
+    "reason": "",
+    "status": "verified"
+  },
+  "76": {
+    "answer": "B",
+    "expression": "0.15*0.12/0.1*100",
+    "value": 18,
+    "reason": "",
+    "status": "verified"
+  },
+  "77": {
+    "answer": "C",
+    "expression": "0.25*0.25",
+    "value": 0.0625,
+    "reason": "",
+    "status": "verified"
+  },
+  "78": {
+    "answer": "B",
+    "expression": "(60-10)/60*100",
+    "value": 83.33333333333333,
+    "reason": "",
+    "status": "verified"
+  },
+  "79": {
+    "answer": "C",
+    "expression": "220*0.9/1.1",
+    "value": 180,
+    "reason": "",
+    "status": "verified"
+  },
+  "80": {
+    "answer": "A",
+    "expression": "(1+1/6)-1",
+    "value": 0.16666666666666666,
+    "reason": "",
+    "status": "verified"
+  },
+  "81": {
+    "answer": "C",
+    "expression": "(0.5+0.2)/(0.5-0.2)",
+    "value": 2.3333333333333335,
+    "reason": "",
+    "status": "verified"
+  },
+  "82": {
+    "answer": "C",
+    "expression": "225/850*100",
+    "value": 26.470588235294116,
+    "reason": "",
+    "status": "verified"
+  },
+  "83": {
+    "answer": "D",
+    "expression": "90-(65+52+40-30-32-25)",
+    "value": 20,
+    "reason": "",
+    "status": "verified"
+  },
+  "84": {
+    "answer": "D",
+    "expression": "0.07/100",
+    "value": 0.0007,
+    "reason": "",
+    "status": "verified"
+  },
+  "85": {
+    "answer": "B",
+    "expression": "(25000-20000)/20000*100",
+    "value": 25,
+    "reason": "",
+    "status": "verified"
+  },
+  "86": {
+    "answer": "B",
+    "expression": "245/(153+245+102)*100",
+    "value": 49,
+    "reason": "",
+    "status": "verified"
+  },
+  "87": {
+    "answer": "B",
+    "expression": "0.25*0.3*400",
+    "value": 30,
+    "reason": "",
+    "status": "verified"
+  },
+  "88": {
+    "answer": "C",
+    "expression": "450/600*100",
+    "value": 75,
+    "reason": "",
+    "status": "verified"
+  },
+  "89": {
+    "answer": "A",
+    "expression": "120/0.75",
+    "value": 160,
+    "reason": "",
+    "status": "verified"
+  },
+  "90": {
+    "answer": "A",
+    "expression": "(1-0.8*0.75)*100",
+    "value": 40,
+    "reason": "",
+    "status": "verified"
+  },
+  "91": {
+    "answer": "B",
+    "expression": "(1-1.1*0.9)*100",
+    "value": 1,
+    "reason": "",
+    "status": "verified"
+  },
+  "92": {
+    "answer": "B",
+    "expression": "10/24*100",
+    "value": 41.666666666666664,
+    "reason": "",
+    "status": "verified"
+  },
+  "93": {
+    "answer": "C",
+    "expression": "50*(0.5-0.3)",
+    "value": 10,
+    "reason": "",
+    "status": "verified"
+  },
+  "94": {
+    "answer": "D",
+    "expression": "(60+60)/0.6",
+    "value": 200,
+    "reason": "",
+    "status": "verified"
+  },
+  "95": {
+    "answer": "B",
+    "expression": "(1-1.1*0.9)*100",
+    "value": 1,
+    "reason": "",
+    "status": "verified"
+  },
+  "96": {
+    "answer": "A",
+    "expression": "(1-0.8*0.75)*100",
+    "value": 40,
+    "reason": "",
+    "status": "verified"
+  },
+  "97": {
+    "answer": "B",
+    "expression": "0.25*0.3*400",
+    "value": 30,
+    "reason": "",
+    "status": "verified"
+  },
+  "98": {
+    "answer": "B",
+    "expression": "350*0.05/2",
+    "value": 8.75,
+    "reason": "",
+    "status": "verified"
+  },
+  "99": {
+    "answer": "B",
+    "expression": "455/0.65",
+    "value": 700,
+    "reason": "",
+    "status": "verified"
+  },
+  "100": {
+    "answer": "C",
+    "expression": "50*0.86",
+    "value": 43,
+    "reason": "",
+    "status": "verified"
+  },
+  "101": {
+    "answer": "D",
+    "expression": "96/1.2",
+    "value": 80,
+    "reason": "",
+    "status": "verified"
+  },
+  "102": {
+    "answer": "A",
+    "expression": "(900*0.3+600*0.15)/1500*100",
+    "value": 24,
+    "reason": "",
+    "status": "verified"
+  },
+  "103": {
+    "answer": "D",
+    "expression": "68/80*100",
+    "value": 85,
+    "reason": "",
+    "status": "verified"
+  },
+  "104": {
+    "answer": "D",
+    "expression": "192/(0.58-0.42)",
+    "value": 1200,
+    "reason": "",
+    "status": "verified"
+  },
+  "105": {
+    "answer": "C",
+    "expression": "0.25*0.25",
+    "value": 0.0625,
+    "reason": "",
+    "status": "verified"
+  },
+  "106": {
+    "answer": "D",
+    "expression": "10/24*100",
+    "value": 41.666666666666664,
+    "reason": "Source truncates 41.666...% to 41.66%; retain as approximate rather than exact.",
+    "status": "verified"
+  },
+  "107": {
+    "answer": "B",
+    "expression": "20/120*100",
+    "value": 16.666666666666668,
+    "reason": "",
+    "status": "verified"
+  },
+  "108": {
+    "answer": "C",
+    "expression": "576/0.8",
+    "value": 720,
+    "reason": "",
+    "status": "verified"
+  },
+  "109": {
+    "answer": "D",
+    "expression": "5000*1.3",
+    "value": 6500,
+    "reason": "",
+    "status": "verified"
+  },
+  "110": {
+    "answer": "B",
+    "expression": "0.45*750-0.25*480",
+    "value": 217.5,
+    "reason": "",
+    "status": "verified"
+  },
+  "111": {
+    "answer": "C",
+    "expression": "(75-18)/75*100",
+    "value": 76,
+    "reason": "",
+    "status": "verified"
+  },
+  "31": {
+    "answer": null,
+    "status": "missing_source",
+    "reason": "The referenced profit line graph is absent from the supplied English question image. Expenditure ratio alone cannot determine income ratio."
+  }
+}

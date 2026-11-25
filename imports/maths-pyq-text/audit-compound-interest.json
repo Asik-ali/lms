@@ -1,0 +1,597 @@
+{
+  "1": {
+    "answer": "D",
+    "expression": "6050/1.1**2",
+    "value": 5000.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "2": {
+    "answer": "D",
+    "expression": "50500*1.05**2",
+    "value": 55676.25,
+    "status": "verified",
+    "reason": "Calculated value is matched to the nearest whole-unit answer choice."
+  },
+  "3": {
+    "answer": "C",
+    "expression": "5000*(1.02**3-1)",
+    "value": 306.04,
+    "status": "verified",
+    "reason": ""
+  },
+  "4": {
+    "answer": "C",
+    "expression": "169/1.04**2",
+    "value": 156.25,
+    "status": "verified",
+    "reason": ""
+  },
+  "5": {
+    "answer": "C",
+    "expression": "((900/625)**0.5-1)*100",
+    "value": 20.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "6": {
+    "answer": "B",
+    "expression": "5000*(1.12**2-1)",
+    "value": 1272.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "7": {
+    "answer": "C",
+    "expression": "2000*1.1**2",
+    "value": 2420.0,
+    "status": "verified",
+    "reason": "Expression substitutes the selected duration into the compound-amount equation and reproduces the stated amount."
+  },
+  "8": {
+    "answer": "C",
+    "expression": "2028/1.04**2",
+    "value": 1875.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "9": {
+    "answer": "D",
+    "expression": "10000*1.05*0.92*1.1",
+    "value": 10626.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "10": {
+    "answer": "B",
+    "expression": "2028/1.04**2",
+    "value": 1875.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "11": {
+    "answer": "B",
+    "expression": "3200*(1.025**2-1)",
+    "value": 162.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "12": {
+    "answer": "C",
+    "expression": "4500**2/6750",
+    "value": 3000.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "13": {
+    "answer": "D",
+    "expression": "1000*(1+12/400)**(4*2)",
+    "value": 1266.7700813876163,
+    "status": "verified",
+    "reason": "Four compounding periods per year; annual percentage r gives period rate r/400, so A=P(1+r/400)^(4n). Expression checks P=1000, r=12, n=2."
+  },
+  "14": {
+    "answer": "C",
+    "expression": "5000*(1.12**2-1)",
+    "value": 1272.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "15": {
+    "answer": "C",
+    "expression": "15625*(1.08**3-1)",
+    "value": 4058.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "16": {
+    "answer": "B",
+    "expression": "4400*1.05**2",
+    "value": 4851.0,
+    "status": "verified",
+    "reason": "Expression substitutes the selected duration into the compound-amount equation and reproduces the stated amount."
+  },
+  "17": {
+    "answer": "D",
+    "expression": "90000*1.07**2",
+    "value": 103041.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "18": {
+    "answer": "B",
+    "expression": "18000*(5/6)**2",
+    "value": 12500.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "19": {
+    "answer": "A",
+    "expression": "30000*0.95**3",
+    "value": 25721.25,
+    "status": "verified",
+    "reason": "Calculated value is matched to the nearest whole-unit answer choice."
+  },
+  "20": {
+    "answer": "A",
+    "expression": "20000*(1.15**2*1.05-1)",
+    "value": 7772.5,
+    "status": "verified",
+    "reason": "Annual compounding for complete years, then simple interest on the accumulated amount for the remaining fraction of a year."
+  },
+  "21": {
+    "answer": "B",
+    "expression": "31250*(1.04**3-1)",
+    "value": 3902.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "22": {
+    "answer": "B",
+    "expression": "5000*(1.1**3-1)",
+    "value": 1655.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "23": {
+    "answer": "A",
+    "expression": "4624/(4913/4624)**2",
+    "value": 4096.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "24": {
+    "answer": "B",
+    "expression": "238765*1.06**2",
+    "value": 268276.354,
+    "status": "verified",
+    "reason": "Calculated value is matched to the nearest whole-unit answer choice."
+  },
+  "25": {
+    "answer": "B",
+    "expression": "10000*(1.125**3-1)",
+    "value": 4238.28125,
+    "status": "verified",
+    "reason": "Calculated value is matched to the nearest whole-unit answer choice."
+  },
+  "26": {
+    "answer": "B",
+    "expression": "847/1.1**2",
+    "value": 700.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "27": {
+    "answer": "B",
+    "expression": "432/(1.12**3-1)",
+    "value": 1066.856330014225,
+    "status": "verified",
+    "reason": "Calculated value is matched to the nearest whole-unit answer choice."
+  },
+  "28": {
+    "answer": "D",
+    "expression": "30000*(1.07*1.08-1)",
+    "value": 4668.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "29": {
+    "answer": "C",
+    "expression": "16000*(1.05**3-1)",
+    "value": 2522.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "30": {
+    "answer": "A",
+    "expression": "15000*(1.15*1.2*1.25-1)",
+    "value": 10875.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "31": {
+    "answer": "B",
+    "expression": "1352/1.04**2",
+    "value": 1250.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "32": {
+    "answer": "C",
+    "expression": "80000*0.96**2",
+    "value": 73728.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "33": {
+    "answer": "C",
+    "expression": "83835/0.9**3",
+    "value": 115000.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "34": {
+    "answer": "A",
+    "expression": "((774.4/640)**0.5-1)*100",
+    "value": 10.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "35": {
+    "answer": "C",
+    "expression": "100000*0.95**2",
+    "value": 90250.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "36": {
+    "answer": "D",
+    "expression": "5000*1.06**2",
+    "value": 5618.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "37": {
+    "answer": "B",
+    "expression": "4400*1.05**2",
+    "value": 4851.0,
+    "status": "verified",
+    "reason": "Expression substitutes the selected duration into the compound-amount equation and reproduces the stated amount."
+  },
+  "38": {
+    "answer": "D",
+    "expression": "((13310/10000)**(1/3)-1)*100",
+    "value": 10.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "39": {
+    "answer": "A",
+    "expression": "505600*1.025**2",
+    "value": 531196.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "40": {
+    "answer": "D",
+    "expression": "4000*(1.1**2*1.05-1)",
+    "value": 1082.0,
+    "status": "verified",
+    "reason": "Annual compounding for complete years, then simple interest on the accumulated amount for the remaining fraction of a year."
+  },
+  "41": {
+    "answer": "C",
+    "expression": "2662/1.1**3",
+    "value": 2000.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "42": {
+    "answer": "D",
+    "expression": "3000*1.1**3",
+    "value": 3993.0,
+    "status": "verified",
+    "reason": "Expression substitutes the selected duration into the compound-amount equation and reproduces the stated amount."
+  },
+  "43": {
+    "answer": "A",
+    "expression": "1270/((7/6)**3-1)*(1/6)*3",
+    "value": 1080.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "44": {
+    "answer": "C",
+    "expression": "45000*0.85**3",
+    "value": 27635.625,
+    "status": "verified",
+    "reason": "Calculated value is matched to the nearest whole-unit answer choice."
+  },
+  "45": {
+    "answer": "B",
+    "expression": "70000*0.96**2",
+    "value": 64512.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "46": {
+    "answer": "B",
+    "expression": "24000*1.05**3",
+    "value": 27783.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "47": {
+    "answer": "C",
+    "expression": "45/3",
+    "value": 15.0,
+    "status": "verified",
+    "reason": "Eight is 2³, hence 45 years covers three doubling periods; each takes 15 years."
+  },
+  "48": {
+    "answer": "A",
+    "expression": "((6084/5625)**0.5-1)*100",
+    "value": 4.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "49": {
+    "answer": "B",
+    "expression": "1000*(1.05**3-1)",
+    "value": 157.625,
+    "status": "verified",
+    "reason": ""
+  },
+  "50": {
+    "answer": "D",
+    "expression": "3000*(1.1**3-1)",
+    "value": 993.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "51": {
+    "answer": "C",
+    "expression": "15625*(1.04**3-1)",
+    "value": 1951.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "52": {
+    "answer": "B",
+    "expression": "5000*1.06**2",
+    "value": 5618.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "53": {
+    "answer": "A",
+    "expression": "12000*1.05**3",
+    "value": 13891.5,
+    "status": "verified",
+    "reason": ""
+  },
+  "54": {
+    "answer": "D",
+    "expression": "8000*(1.05**3-1)",
+    "value": 1261.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "55": {
+    "answer": "B",
+    "expression": "238765*1.06**2",
+    "value": 268276.354,
+    "status": "verified",
+    "reason": "Calculated value is matched to the nearest whole-unit answer choice."
+  },
+  "56": {
+    "answer": "A",
+    "expression": "2662/1.1**3",
+    "value": 2000.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "57": {
+    "answer": "D",
+    "expression": "6000*1.1**3",
+    "value": 7986.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "58": {
+    "answer": "A",
+    "expression": "2662/1.1**3",
+    "value": 2000.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "59": {
+    "answer": "B",
+    "expression": "1000*(1.1**2-1)",
+    "value": 210.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "60": {
+    "answer": "B",
+    "expression": "238765*1.06**2",
+    "value": 268276.354,
+    "status": "verified",
+    "reason": "Calculated value is matched to the nearest whole-unit answer choice."
+  },
+  "61": {
+    "answer": "C",
+    "expression": "15625*(1.08**3-1)",
+    "value": 4058.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "62": {
+    "answer": "D",
+    "expression": "4000*(1.05**2-1)",
+    "value": 410.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "63": {
+    "answer": "D",
+    "expression": "1600*1.05**3",
+    "value": 1852.2,
+    "status": "verified",
+    "reason": "Expression substitutes the selected duration into the compound-amount equation and reproduces the stated amount."
+  },
+  "64": {
+    "answer": "D",
+    "expression": "15625*(1.04**2-1)",
+    "value": 1275.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "65": {
+    "answer": "C",
+    "expression": "((9261/8000)**(1/3)-1)*100",
+    "value": 5.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "66": {
+    "answer": "C",
+    "expression": "435000*1.1**2",
+    "value": 526350.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "67": {
+    "answer": "D",
+    "expression": "4000*(1.05**2-1)",
+    "value": 410.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "68": {
+    "answer": "C",
+    "expression": "1600*1.05**3",
+    "value": 1852.2,
+    "status": "verified",
+    "reason": "Expression substitutes the selected duration into the compound-amount equation and reproduces the stated amount."
+  },
+  "69": {
+    "answer": "B",
+    "expression": "4000*(1.05**2-1)",
+    "value": 410.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "70": {
+    "answer": "D",
+    "expression": "60000*0.95**2",
+    "value": 54150.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "71": {
+    "answer": "D",
+    "expression": "50000*0.92**2",
+    "value": 42320.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "72": {
+    "answer": "C",
+    "expression": "70000*0.96**2",
+    "value": 64512.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "73": {
+    "answer": "B",
+    "expression": "18000*(5/6)**2",
+    "value": 12500.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "74": {
+    "answer": "D",
+    "expression": "162000*0.9**2",
+    "value": 131220.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "76": {
+    "answer": "C",
+    "expression": "70000*0.96**2",
+    "value": 64512.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "77": {
+    "answer": "C",
+    "expression": "(840/800-1)*100",
+    "value": 5.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "78": {
+    "answer": "B",
+    "expression": "30000*0.9**3",
+    "value": 21870.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "79": {
+    "answer": "B",
+    "expression": "50000*0.9**3",
+    "value": 36450.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "80": {
+    "answer": "A",
+    "expression": "8000*0.1**2",
+    "value": 80.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "81": {
+    "answer": "C",
+    "expression": "25/0.05**2",
+    "value": 10000.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "82": {
+    "answer": "A",
+    "expression": "5000*0.08**2",
+    "value": 32.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "83": {
+    "answer": "B",
+    "expression": "64/0.08**2",
+    "value": 10000.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "84": {
+    "answer": "B",
+    "expression": "12000*(1.1**3-1-0.1*3)",
+    "value": 372.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "85": {
+    "answer": "A",
+    "expression": "25000*0.12**2",
+    "value": 360.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "75": {
+    "answer": null,
+    "expression": "9600*(1.12**2*1.04-1)",
+    "value": 2923.9296,
+    "status": "invalid_options",
+    "reason": "The stem asks for compound interest (2923.93), but choice B (12524) approximates the amount, not the interest. No A-D interest value matches."
+  }
+}

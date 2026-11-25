@@ -1,0 +1,336 @@
+{
+  "1": {
+    "answer": "A",
+    "expression": "21*(0.4+1)/2",
+    "value": 14.7,
+    "status": "verified",
+    "reason": ""
+  },
+  "2": {
+    "answer": "D",
+    "expression": "6/7",
+    "value": 0.8571428571428571,
+    "status": "verified",
+    "reason": "Pattern n/(n+1); the sixth term is 6/7."
+  },
+  "3": {
+    "answer": "C",
+    "expression": "5*10-1",
+    "value": 49.0,
+    "status": "verified",
+    "reason": "S(n)-S(n-1)=5n-1."
+  },
+  "4": {
+    "answer": "A",
+    "expression": "-11+18*(-4)",
+    "value": -83.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "5": {
+    "answer": "A",
+    "expression": "7**2+3",
+    "value": 52.0,
+    "status": "verified",
+    "reason": "Odd-position terms are n²+3; even-position terms are n²+1. Next terms 52,65."
+  },
+  "6": {
+    "answer": "C",
+    "expression": "(8*9/2)**2",
+    "value": 1296.0,
+    "status": "verified",
+    "reason": "Sum of cubes=[n(n+1)/2]²; n=8 gives 1296."
+  },
+  "7": {
+    "answer": "D",
+    "expression": "8**3-1",
+    "value": 511.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "8": {
+    "answer": "C",
+    "expression": "18+(-3)",
+    "value": 15.0,
+    "status": "verified",
+    "reason": "The two interior terms sum to the two endpoints in a four-term AP."
+  },
+  "9": {
+    "answer": "C",
+    "expression": "20+29*2",
+    "value": 78.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "10": {
+    "answer": "C",
+    "expression": "9*(1/3)**7",
+    "value": 0.00411522633744856,
+    "status": "verified",
+    "reason": ""
+  },
+  "11": {
+    "answer": "B",
+    "expression": "(90-144)/(24-21)",
+    "value": -18.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "12": {
+    "answer": "D",
+    "expression": "1+(-54-16)/(-5)",
+    "value": 15.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "13": {
+    "answer": "D",
+    "expression": "28*(2+27*4)/2",
+    "value": 1540.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "14": {
+    "answer": "A",
+    "expression": "2+20*1.5",
+    "value": 32.0,
+    "status": "verified",
+    "reason": "Terms are 2, 3½, 5, 6½; common difference 1½."
+  },
+  "15": {
+    "answer": "D",
+    "expression": "26*(48-25*3)/2",
+    "value": -351.0,
+    "status": "verified",
+    "reason": "The positive solution of n(51-3n)/2=-351 is 26."
+  },
+  "16": {
+    "answer": "B",
+    "expression": "3-1",
+    "value": 2.0,
+    "status": "verified",
+    "reason": "For an even-length GP, total=(1+r) times odd-position sum; r=2."
+  },
+  "17": {
+    "answer": "B",
+    "expression": "28*29*57/6-14*15*29/6",
+    "value": 6699.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "18": {
+    "answer": "C",
+    "expression": "-23+23",
+    "value": 0.0,
+    "status": "verified",
+    "reason": "9(a+8d)=15(a+14d) implies a=-23d, so term 24 is zero."
+  },
+  "19": {
+    "answer": "C",
+    "expression": "-100+11*2",
+    "value": -78.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "20": {
+    "answer": "B",
+    "expression": "40*(6+39*4)/2",
+    "value": 3240.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "21": {
+    "answer": "C",
+    "expression": "40*41",
+    "value": 1640.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "22": {
+    "answer": "A",
+    "expression": "55**2",
+    "value": 3025.0,
+    "status": "verified",
+    "reason": "Sum of cubes equals the square of the corresponding sum of integers."
+  },
+  "23": {
+    "answer": "D",
+    "expression": "36*(2*5+35*4)/2",
+    "value": 2700.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "24": {
+    "answer": "A",
+    "expression": "44100**0.5",
+    "value": 210.0,
+    "status": "verified",
+    "reason": "Sum of integers is the positive square root of the cube sum."
+  },
+  "25": {
+    "answer": "A",
+    "expression": "-12+12",
+    "value": 0.0,
+    "status": "verified",
+    "reason": "6(a+5d)=7(a+6d) implies a=-12d, so term 13 is zero."
+  },
+  "26": {
+    "answer": "A",
+    "expression": "0.015/0.15",
+    "value": 0.1,
+    "status": "verified",
+    "reason": ""
+  },
+  "27": {
+    "answer": "B",
+    "expression": "(1/18)*(2/3)",
+    "value": 0.037037037037037035,
+    "status": "verified",
+    "reason": "Successive ratio is 2/3."
+  },
+  "28": {
+    "answer": "A",
+    "expression": "(2*7-1)-(7-1)",
+    "value": 7.0,
+    "status": "verified",
+    "reason": "[a+(2n-1)d]-[a+(n-1)d]=nd; expression checks n=7,d=1."
+  },
+  "29": {
+    "answer": "A",
+    "expression": "325**2",
+    "value": 105625.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "30": {
+    "answer": "D",
+    "expression": "36*37/2",
+    "value": 666.0,
+    "status": "verified",
+    "reason": "Positive solution of n(n+1)/2=666 is 36."
+  },
+  "31": {
+    "answer": "D",
+    "expression": "25**2",
+    "value": 625.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "32": {
+    "answer": "B",
+    "expression": "9*(2*9+3)",
+    "value": 189.0,
+    "status": "verified",
+    "reason": "Positive solution of n(2n+3)=189 is 9."
+  },
+  "33": {
+    "answer": "D",
+    "expression": "2**10",
+    "value": 1024.0,
+    "status": "verified",
+    "reason": "Terms are 2¹ through 2¹⁰."
+  },
+  "34": {
+    "answer": "A",
+    "expression": "7**2",
+    "value": 49.0,
+    "status": "verified",
+    "reason": "If sum of integers is k, sum of cubes is k²; expression checks k=7."
+  },
+  "35": {
+    "answer": "B",
+    "expression": "(4**6-1)/3",
+    "value": 1365.0,
+    "status": "verified",
+    "reason": "Six-term GP sum is 1365."
+  },
+  "36": {
+    "answer": "B",
+    "expression": "40**2",
+    "value": 1600.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "37": {
+    "answer": "C",
+    "expression": "40**2",
+    "value": 1600.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "39": {
+    "answer": "A",
+    "expression": "35*36*71/6-11*12*23/6",
+    "value": 14404.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "40": {
+    "answer": "C",
+    "expression": "(-1)**2+(-25)**2",
+    "value": 626.0,
+    "status": "verified",
+    "reason": "X=-1 because alternating terms cancel; every term of Y is -1, giving Y=-25."
+  },
+  "41": {
+    "answer": "D",
+    "expression": "972*3**2",
+    "value": 8748.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "42": {
+    "answer": "A",
+    "expression": "(11*12/2)**2",
+    "value": 4356.0,
+    "status": "verified",
+    "reason": "Cube-sum identity gives n(n+1)/2=66, hence n=11."
+  },
+  "43": {
+    "answer": "A",
+    "expression": "(6/25)/(2/5)",
+    "value": 0.6,
+    "status": "verified",
+    "reason": ""
+  },
+  "44": {
+    "answer": "C",
+    "expression": "(15*16/2)**2-15*16/2",
+    "value": 14280.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "45": {
+    "answer": "A",
+    "expression": "(20*21/2)**2",
+    "value": 44100.0,
+    "status": "verified",
+    "reason": "Cube-sum identity gives n(n+1)/2=210, hence n=20."
+  },
+  "46": {
+    "answer": "D",
+    "expression": "(5/3+5)/(5/3+15)",
+    "value": 0.4,
+    "status": "verified",
+    "reason": "11(a+9d)=8(a+13d) implies a=5d/3, then t6/t16=2/5."
+  },
+  "47": {
+    "answer": "D",
+    "expression": "28*29*57/6-14*15*29/6",
+    "value": 6699.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "48": {
+    "answer": "B",
+    "expression": "(1/18)*(2/3)",
+    "value": 0.037037037037037035,
+    "status": "verified",
+    "reason": "Successive ratio is 2/3."
+  },
+  "38": {
+    "answer": null,
+    "status": "divergent_series",
+    "reason": "The common ratio is -3 and its modulus exceeds 1. The infinite series does not converge. Printed A=4 incorrectly applies a/(1-r) outside its convergence condition."
+  }
+}

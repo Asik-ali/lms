@@ -1,0 +1,110 @@
+﻿from pathlib import Path
+import json
+rows={}
+data='''1|D|10*5*1.5*1000|75000
+2|C|2*(1/3)*(1/3+1)|0.8888888888888888
+3|B|(704/(2*(22/7)*8))**2*(22/7)*8|4928
+4|B|(22/7)*20**2*14|17600
+5|C|4*12**2|576
+6|C|704/((22/7)*7)-7|25
+7|B|(12/1)**3|1728
+8|B|(22/7)*2.8*3*8|211.2
+9|B|3**2*2|18
+10|A|(384/6)**1.5|512
+11|B|(9/16)**1.5|0.421875
+12|C|(8**3-(11352/7)*3/(4*(22/7)))**(1/3)|5
+13|C|(4/3)*12**3/8**2|36
+14|A|20|20
+15|A|(154/(22/7))**0.5|7
+16|B|(11088*3/((22/7)*24))**0.5|21
+17|D|70*35|2450
+18|D|8*6*2.5*1000|120000
+19|D|80*30+2*30*40+80*40|8000
+20|A|12**3/(18*16)|6
+21|A|(3/2)*(5/3)|2.5
+22|A|150/360*(22/7)*28**2|1026.6666666666667
+23|C|2/(2/3)|3
+24|A|(2000*48*600)/(24*12*8)|25000
+25|C|2*45*3000/60|4500
+26|B|(16/2)**3|512
+27|A|2*(22/7)*(5**2+3**2)|213.71428571428572
+28|C|2/(2/3)|3
+29|B|18/3|6
+30|A|(704/(2*(22/7)*8))**2*(22/7)*8|4928
+31|C|600/4*6|900
+32|B|486/6*4|324
+33|B|((2/3)*2)**0.5|1.1547005383792515
+34|B|(2/3)**2|0.4444444444444444
+35|C|(2*8*(10+9)+10*9)*8.5|3349
+36|C|(726/6)**1.5|1331
+37|B|3.8*2.5*1.6*1000|15200
+38|A|(22/7)*7**2*10/6160*100|25
+39|A|(22/7)*45/3*(28**2+7**2+28*7)|48510
+40|B|(1/2)**2|0.25
+41|D|(64000/1000)**(1/3)|4
+42|B|3*1386|4158
+43|C|(7/14)**3|0.125
+44|A|(12/16)**2|0.5625
+45|A|3**2*7|63
+46|B|(16/2)**3|512
+47|A|4/(2**0.5)|2.82842712474619
+48|D|8*(15**2+8**2)**0.5|136
+49|C|((29106*2/3)*3/(2*(22/7)))**(1/3)|21
+50|D|1|1
+51|C|(27000/1000)**(1/3)|3
+52|A|(32/2)**3|4096
+53|A|(2/3)*(22/7)*1.75**3*1000/7/60|26.73611111111111
+54|B|(2/3)/(1/2)**2|2.6666666666666665
+55|D|2**2|4
+56|D|30*6|180
+57|C|486/6*4|324
+58|D|(4/7)**3|0.18658892128279883
+59|A|900/180|5
+60|B|((2/3)*30**3)/(5**2*2)|360
+61|D|(22/7)*(66/(2*(22/7)))**2*12|4158
+62|A|4*2*3*1000|24000
+63|D|2|2
+64|A|1|1
+65|B|(22/7)*(484/(2*(22/7)))**2*105/3|652190
+66|C|3/2|1.5
+67|D|1|1
+68|B|(35840/(7*5*2))**(1/3)*2|16
+69|A|(4928*3/((22/7)*24))**0.5|14
+70|A|1|1
+71|B|704/((22/7)*7)-7|25
+72|B|(8**3-(11352/7)*3/(4*(22/7)))**(1/3)*2|10
+73|C|(2**2-1)*100|300
+74|A|2*(22/7)*7*10|440
+75|A|(4/3)*3**3|36
+76|B|3|3
+77|A|(4/3)/(2/3)|2
+78|C|2**3|8
+79|A|2*(3*4+4*5+5*3)|94
+80|A|(3**2+4**2)**0.5|5
+81|A|4/(2*2)|1
+82|A|(1/3)*5*(3**2+2**2+3*2)|31.666666666666668
+83|A|2*(22/7)*7*(7+10)|748
+84|A|(1000**(1/3))**2*6|600
+85|A|3**0.5|1.7320508075688772
+86|A|5*(3**2-2**2)|25
+87|A|3*5|15
+88|A|(6**2+8**2)**0.5|10
+89|A|3*(22/7)*7**2|462
+90|A|(22/7)*6**2*7/3|264
+91|A|12*10*8|960
+92|A|4*(22/7)*7**2|616
+93|A|1/(1/3)|3
+94|D|2*4/(4-2)|4
+95|A|(6/2)**3|27
+96|A|2*(10+6)*5|160
+97|A|(2/3)*(22/7)*7**3|718.6666666666666'''
+for line in data.splitlines():
+ n,a,e,v=line.split('|');rows[n]={'answer':a,'expression':e,'value':float(v),'status':'verified','reason':''}
+notes={2:'TSA=2πr(r+h); substituting r=h/3 gives (8/9)πh².',4:'The rolled sheet has height 14 cm; volume=π*20²*14.',11:'Surface-area ratio 9:16 gives radii 3:4 and volume ratio 27:64.',14:'gcd(80,100,120)=20 litres.',17:'Volume=2450 cm³. Printed option D also contains an incorrect 24.5 m³ alias; remove that alias in the corrected text.',21:'CSA ratio is r1*h1:r2*h2=15:6=5:2.',22:'Lateral area of the folded cone equals the area of the original sector; 1026.67 cm² rounded.',23:'With height 2r, cylinder:sphere:cone=2:4/3:2/3=3:2:1.',27:'CSA=68π≈213.71 m²; add annulus area 16π to obtain TSA=84π=264 m².',28:'Cylinder:cone:sphere=2:2/3:4/3=3:1:2.',33:'r1²/(2r2²)=2/3 gives radii 2:√3.',34:'Reduced ratio is 4:9. Printed D=16:36 is equivalent too; replace the duplicate distractor when normalizing choices.',41:'Convert litres to m³ before taking cube root.',45:'Volume=πr²h; expression omits common π and checks r=3,h=7.',47:'Sphere:cylinder:cone CSA=4:2:√2=2√2:√2:1.',50:'Shuttlecock shape is a conical frustum joined to a hemisphere.',53:'26.736 minutes rounds to the nearest printed choice, 27 minutes.',54:'Volume ratio divided by squared-radius ratio gives height ratio 8:3.',55:'Keeping height fixed, V1/V=(2r)²/r²=4. English D and original Tamil A express V1=4V; normalize Tamil choices to the English order before assigning shared D.',57:'a²=81 gives LSA=324 cm² and V=729 cm³; choose C with correct dimensions.',63:'Hemisphere CSA=2πr².',64:'Any plane parallel to the base can cut a cone at infinitely many heights.',65:'Radius=484/(2π)=77 cm.',66:'Hemisphere TSA=3πr², CSA=2πr².',67:'Every plane through the centre yields a great circle; infinitely many such planes exist.',70:'Equal base area and equal volume force equal heights.',75:'Sphere volume=(4/3)πr³=36π cm³.',76:'Solid hemisphere TSA=3πr².',78:'The new volume is 8 times the original; the increase itself is 7 times. Clarify the wording to ask for the new-to-original factor.',79:'TSA=2(lb+bh+hl); numeric example checks l=3,b=4,h=5.',80:'Pythagoras in the axial section gives slant height √(r²+h²).',81:'Sphere SA=4πr² and cylinder CSA=2πr(2r)=4πr².',82:'Frustum volume=(πh/3)(R²+r²+Rr); numeric example omits common π.',85:'Space diagonal=√(a²+a²+a²)=a√3; D contains a²√3 and is not equivalent.',86:'Outer-cylinder volume minus inner-cylinder volume gives πh(R²-r²).',87:'Cone lateral area=πrl.',94:'πr²h=2πr(r+h) gives h=2r/(r−2) and r=2h/(h−2); both A and C hold, so D is the best answer.'}
+for n,note in notes.items():rows[str(n)]['reason']=note
+rows['17']['source_correction']={'option_d':'2450 cm³'}
+rows['34']['source_correction']={'option_d':'16 : 81'}
+rows['55']['tamil_option_map']={'A':'D','B':'C','C':'B','D':'A'}
+rows['55']['source_correction']={'tamil_options':'Reorder to match English A:V=4V₁, B:V=2V₁, C:V₁=2V, D:V₁=4V.'}
+assert len(rows)==97
+Path('imports/maths-pyq-text/audit-3d.json').write_text(json.dumps(rows,ensure_ascii=False,indent=2),encoding='utf8')

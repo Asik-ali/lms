@@ -1,0 +1,711 @@
+{
+  "1": {
+    "answer": "D",
+    "expression": "3000/300",
+    "value": 10.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "2": {
+    "answer": "D",
+    "expression": "100/20",
+    "value": 5.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "3": {
+    "answer": "C",
+    "expression": "100/50",
+    "value": 2.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "4": {
+    "answer": "D",
+    "expression": "666/6000",
+    "value": 0.111,
+    "status": "verified",
+    "reason": ""
+  },
+  "5": {
+    "answer": "C",
+    "expression": "20*1.6/25",
+    "value": 1.28,
+    "status": "verified",
+    "reason": "Uses the conventional exam approximation 1 mile=1.6 km; exact international-mile conversion is not exactly option C."
+  },
+  "6": {
+    "answer": "D",
+    "expression": "100/70",
+    "value": 1.4285714285714286,
+    "status": "verified",
+    "reason": ""
+  },
+  "7": {
+    "answer": "D",
+    "expression": "121/9",
+    "value": 13.444444444444445,
+    "status": "verified",
+    "reason": ""
+  },
+  "8": {
+    "answer": "A",
+    "expression": "2**2/7**2",
+    "value": 0.08163265306122448,
+    "status": "verified",
+    "reason": ""
+  },
+  "9": {
+    "answer": "A",
+    "expression": "5/7",
+    "value": 0.7142857142857143,
+    "status": "verified",
+    "reason": "Compare 5/7≈.7143, 1/2=.5, 3/5=.6, 7/10=.7."
+  },
+  "10": {
+    "answer": "A",
+    "expression": "4/5",
+    "value": 0.8,
+    "status": "verified",
+    "reason": "Compare .8, .5333, .3 and .5."
+  },
+  "11": {
+    "answer": "D",
+    "expression": "20/28",
+    "value": 0.7142857142857143,
+    "status": "verified",
+    "reason": "A,B,C equal 2/3, while D=5/7 differs."
+  },
+  "12": {
+    "answer": "C",
+    "expression": "1.5/2.75",
+    "value": 0.5454545454545454,
+    "status": "verified",
+    "reason": ""
+  },
+  "13": {
+    "answer": "A",
+    "expression": "5/6*12",
+    "value": 10.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "14": {
+    "answer": "A",
+    "expression": "7/5*25",
+    "value": 35.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "15": {
+    "answer": "C",
+    "expression": "11*66/6",
+    "value": 121.0,
+    "status": "verified",
+    "reason": "The answer is 121=11²; option C has the exponent 2."
+  },
+  "16": {
+    "answer": "B",
+    "expression": "2/(8/12)",
+    "value": 3.0,
+    "status": "verified",
+    "reason": "x=3 and y=24."
+  },
+  "17": {
+    "answer": "B",
+    "expression": "26*5/65",
+    "value": 2.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "18": {
+    "answer": "C",
+    "expression": "21*15/9",
+    "value": 35.0,
+    "status": "verified",
+    "reason": "x=35 and y=15."
+  },
+  "19": {
+    "answer": "D",
+    "expression": "10*10",
+    "value": 100.0,
+    "status": "verified",
+    "reason": "Required xy=90. Options A-C have product 90; D has product 100."
+  },
+  "21": {
+    "answer": "C",
+    "expression": "(4/9)*(3/11)/(5/33)",
+    "value": 0.8,
+    "status": "verified",
+    "reason": ""
+  },
+  "22": {
+    "answer": "B",
+    "expression": "1000/10*(1/1000)",
+    "value": 0.1,
+    "status": "verified",
+    "reason": ""
+  },
+  "23": {
+    "answer": "A",
+    "expression": "4*27/3",
+    "value": 36.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "24": {
+    "answer": "C",
+    "expression": "24*3/8",
+    "value": 9.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "25": {
+    "answer": "A",
+    "expression": "4/3",
+    "value": 1.3333333333333333,
+    "status": "verified",
+    "reason": ""
+  },
+  "26": {
+    "answer": "B",
+    "expression": "0.75*8/5",
+    "value": 1.2,
+    "status": "verified",
+    "reason": ""
+  },
+  "27": {
+    "answer": "C",
+    "expression": "8*3.75/7-1",
+    "value": 3.2857142857142856,
+    "status": "verified",
+    "reason": ""
+  },
+  "28": {
+    "answer": "B",
+    "expression": "3/4",
+    "value": 0.75,
+    "status": "verified",
+    "reason": "29(2x+3y)=18(3x+5y) gives 4x=3y."
+  },
+  "29": {
+    "answer": "B",
+    "expression": "(3*2+2*3)/(2*2+5*3)",
+    "value": 0.631578947368421,
+    "status": "verified",
+    "reason": ""
+  },
+  "30": {
+    "answer": "C",
+    "expression": "(3*4+3*5)/(4*4-2*5)",
+    "value": 4.5,
+    "status": "verified",
+    "reason": ""
+  },
+  "31": {
+    "answer": "C",
+    "expression": "(5*2-5)/(2+5)",
+    "value": 0.7142857142857143,
+    "status": "verified",
+    "reason": ""
+  },
+  "32": {
+    "answer": "B",
+    "expression": "4**4/2**4",
+    "value": 16.0,
+    "status": "verified",
+    "reason": "b²=ac implies a⁴/b⁴=a²/c². Expression checks a=4,b=2,c=1."
+  },
+  "33": {
+    "answer": "D",
+    "expression": "(7*1+3*3)/(2*1+3)",
+    "value": 3.2,
+    "status": "verified",
+    "reason": ""
+  },
+  "34": {
+    "answer": "D",
+    "expression": "(5*2+5)/(8*2+8)",
+    "value": 0.625,
+    "status": "verified",
+    "reason": "For x=5k,y=8k, (x+5)/(y+8)=5/8 unless both vanish; positive ratios are intended."
+  },
+  "35": {
+    "answer": "B",
+    "expression": "0.75/(2/3)",
+    "value": 1.125,
+    "status": "verified",
+    "reason": "(2/3)A=(3/4)B gives A/B=9/8."
+  },
+  "36": {
+    "answer": "A",
+    "expression": "(7+8-6)/2*(28/21)",
+    "value": 6.0,
+    "status": "verified",
+    "reason": "Pair sums total twice the total: scale factor 28/21. c=(7+8-6)scale/2."
+  },
+  "37": {
+    "answer": "B",
+    "expression": "(3/5)*(4/7)",
+    "value": 0.34285714285714286,
+    "status": "verified",
+    "reason": "A common denominator gives 12:20:35."
+  },
+  "38": {
+    "answer": "A",
+    "expression": "(5/9)*(4/7)",
+    "value": 0.31746031746031744,
+    "status": "verified",
+    "reason": "Combined ratio 20:36:63."
+  },
+  "39": {
+    "answer": "D",
+    "expression": "(4/6)*(18/5)",
+    "value": 2.4,
+    "status": "verified",
+    "reason": "Combined ratio 12:18:5."
+  },
+  "40": {
+    "answer": "A",
+    "expression": "(8/12)*(24/15)",
+    "value": 1.0666666666666667,
+    "status": "verified",
+    "reason": "Combined ratio 16:24:15."
+  },
+  "41": {
+    "answer": "D",
+    "expression": "(2/3)*(2/4)*(2/5)",
+    "value": 0.13333333333333333,
+    "status": "verified",
+    "reason": ""
+  },
+  "42": {
+    "answer": "D",
+    "expression": "(8/15)*(5/8)*(4/5)",
+    "value": 0.26666666666666666,
+    "status": "verified",
+    "reason": ""
+  },
+  "43": {
+    "answer": "D",
+    "expression": "1/((2/3)*(4/5))",
+    "value": 1.875,
+    "status": "verified",
+    "reason": ""
+  },
+  "44": {
+    "answer": "C",
+    "expression": "(2/5)*(15/7)",
+    "value": 0.8571428571428571,
+    "status": "verified",
+    "reason": "Combined ratio 6:15:7."
+  },
+  "45": {
+    "answer": "B",
+    "expression": "(6/12)*(9/27)",
+    "value": 0.16666666666666666,
+    "status": "verified",
+    "reason": "Combined ratio 1:2:6."
+  },
+  "46": {
+    "answer": "A",
+    "expression": "(1/3)/(1/6)",
+    "value": 2.0,
+    "status": "verified",
+    "reason": "Reciprocals of 3,5,6 scaled by 30 give 10:6:5."
+  },
+  "47": {
+    "answer": "A",
+    "expression": "(4*3+5*4)/(5*3-2*4)",
+    "value": 4.571428571428571,
+    "status": "verified",
+    "reason": ""
+  },
+  "48": {
+    "answer": "B",
+    "expression": "(7/13)*(65/25)",
+    "value": 1.4,
+    "status": "verified",
+    "reason": "Combined ratio 7:13:5."
+  },
+  "49": {
+    "answer": "D",
+    "expression": "210-210/5-210*3/7",
+    "value": 78.0,
+    "status": "verified",
+    "reason": "P=210/5=42; Q=3*210/7=90; R=78."
+  },
+  "50": {
+    "answer": "C",
+    "expression": "(36-16)/(20-18)*2",
+    "value": 20.0,
+    "status": "verified",
+    "reason": "Let numbers=2k,5k; 9(2k+4)=4(5k+4), k=10; numbers 20,50."
+  },
+  "51": {
+    "answer": "B",
+    "expression": "4**3.5/2**5",
+    "value": 4.0,
+    "status": "verified",
+    "reason": "The source has powers: 4^3.5 : 2^5 =128:32."
+  },
+  "52": {
+    "answer": "B",
+    "expression": "94*15/(32+15)",
+    "value": 30.0,
+    "status": "verified",
+    "reason": "(x/5)/((94-x)/8)=3/4 yields x=30."
+  },
+  "53": {
+    "answer": "C",
+    "expression": "(432/12)**0.5*4",
+    "value": 24.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "54": {
+    "answer": "B",
+    "expression": "4*30000000/100000",
+    "value": 1200.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "55": {
+    "answer": "D",
+    "expression": "30/(50-30)",
+    "value": 1.5,
+    "status": "verified",
+    "reason": ""
+  },
+  "56": {
+    "answer": "D",
+    "expression": "1600*5/8",
+    "value": 1000.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "57": {
+    "answer": "D",
+    "expression": "900/750",
+    "value": 1.2,
+    "status": "verified",
+    "reason": ""
+  },
+  "58": {
+    "answer": "C",
+    "expression": "40/5*(4+3+5)",
+    "value": 96.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "59": {
+    "answer": "D",
+    "expression": "25%5",
+    "value": 0.0,
+    "status": "verified",
+    "reason": "Only 25 among the listed totals is divisible by 3+2=5."
+  },
+  "60": {
+    "answer": "C",
+    "expression": "(48/3)**0.5*2",
+    "value": 8.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "61": {
+    "answer": "C",
+    "expression": "21000*(7-6)/7",
+    "value": 3000.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "62": {
+    "answer": "B",
+    "expression": "(42*3/7)**2+(42*4/7)**2",
+    "value": 900.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "63": {
+    "answer": "C",
+    "expression": "960/(1+2+3+6)",
+    "value": 80.0,
+    "status": "verified",
+    "reason": "Scale 80 gives lengths 80,160,240,480 mm."
+  },
+  "64": {
+    "answer": "C",
+    "expression": "30.5*3/5",
+    "value": 18.3,
+    "status": "verified",
+    "reason": ""
+  },
+  "65": {
+    "answer": "B",
+    "expression": "2/1",
+    "value": 2.0,
+    "status": "verified",
+    "reason": "B=2C directly."
+  },
+  "66": {
+    "answer": "D",
+    "expression": "600*(3-2)/5",
+    "value": 120.0,
+    "status": "verified",
+    "reason": "Yazhini gets 360 and Vimala 240, difference 120."
+  },
+  "67": {
+    "answer": "C",
+    "expression": "1200/(5-2)*3*12",
+    "value": 14400.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "68": {
+    "answer": "D",
+    "expression": "28296/(4+1+3)",
+    "value": 3537.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "69": {
+    "answer": "D",
+    "expression": "782*(1/2)/(1/2+2/3+3/4)",
+    "value": 204.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "70": {
+    "answer": "A",
+    "expression": "900/750",
+    "value": 1.2,
+    "status": "verified",
+    "reason": ""
+  },
+  "71": {
+    "answer": "C",
+    "expression": "1000/(4-3)*2",
+    "value": 2000.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "72": {
+    "answer": "B",
+    "expression": "510/(2+3+12)*2",
+    "value": 60.0,
+    "status": "verified",
+    "reason": "A:B:C=2:3:12 gives shares 60,90,360."
+  },
+  "73": {
+    "answer": "A",
+    "expression": "196/(10+15+24)*10",
+    "value": 40.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "74": {
+    "answer": "D",
+    "expression": "(5/3+5)/(5/3+15)",
+    "value": 0.4,
+    "status": "verified",
+    "reason": "11(a+9d)=8(a+13d) gives a=5d/3 and t6/t16=2/5."
+  },
+  "75": {
+    "answer": "C",
+    "expression": "855/(0.95*3/5)",
+    "value": 1500.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "76": {
+    "answer": "A",
+    "expression": "108*7/(5+7)",
+    "value": 63.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "77": {
+    "answer": "C",
+    "expression": "15*4",
+    "value": 60.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "78": {
+    "answer": "B",
+    "expression": "1/0.5",
+    "value": 2.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "79": {
+    "answer": "D",
+    "expression": "(2.88-2.52)/(2.52-2.04)",
+    "value": 0.75,
+    "status": "verified",
+    "reason": "Alligation cheaper:dearer=(2.88-2.52):(2.52-2.04)=3:4."
+  },
+  "81": {
+    "answer": "D",
+    "expression": "25*3/(4+5+6)*6",
+    "value": 30.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "82": {
+    "answer": "D",
+    "expression": "144*5/(3+5)",
+    "value": 90.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "83": {
+    "answer": "B",
+    "expression": "121000*6/11",
+    "value": 66000.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "84": {
+    "answer": "A",
+    "expression": "5000*6",
+    "value": 30000.0,
+    "status": "verified",
+    "reason": "Equal savings imply 3k-5m=4k-7m=5000, k=2m, m=5000; incomes 30000,40000."
+  },
+  "85": {
+    "answer": "D",
+    "expression": "(2/3+3/4+3/5)/(3-(2/3+3/4+3/5))",
+    "value": 2.0508474576271185,
+    "status": "verified",
+    "reason": "Milk fractions add to 121/60 and water fractions to 59/60, giving 121:59."
+  },
+  "86": {
+    "answer": "B",
+    "expression": "3500*3/5",
+    "value": 2100.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "87": {
+    "answer": "B",
+    "expression": "(9*25)**0.5",
+    "value": 15.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "88": {
+    "answer": "B",
+    "expression": "18**2/12",
+    "value": 27.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "89": {
+    "answer": "C",
+    "expression": "9*12/4",
+    "value": 27.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "90": {
+    "answer": "A",
+    "expression": "(5*4-3*5)/(6*4+3*5)",
+    "value": 0.1282051282051282,
+    "status": "verified",
+    "reason": ""
+  },
+  "91": {
+    "answer": "B",
+    "expression": "1200*3/(2+3+5)",
+    "value": 360.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "92": {
+    "answer": "B",
+    "expression": "7*(21-14)/(22-21)",
+    "value": 49.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "93": {
+    "answer": "C",
+    "expression": "4/1",
+    "value": 4.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "94": {
+    "answer": "B",
+    "expression": "(3/4)*(8/9)",
+    "value": 0.6666666666666666,
+    "status": "verified",
+    "reason": ""
+  },
+  "95": {
+    "answer": "B",
+    "expression": "206/(5*0.5+9*0.25+4*0.1)*(5+9+4)",
+    "value": 720.0,
+    "status": "verified",
+    "reason": "One ratio unit has value 5.15 rupees; scale is 40, giving 18*40 coins."
+  },
+  "96": {
+    "answer": "D",
+    "expression": "4*3*4",
+    "value": 48.0,
+    "status": "verified",
+    "reason": "Numbers 12 and 16 have LCM 48."
+  },
+  "97": {
+    "answer": "C",
+    "expression": "6/90",
+    "value": 0.06666666666666667,
+    "status": "verified",
+    "reason": "gcd(18,30)=6; lcm=90."
+  },
+  "98": {
+    "answer": "D",
+    "expression": "2/(2/3)",
+    "value": 3.0,
+    "status": "verified",
+    "reason": "For height 2r, volumes cylinder:cone:sphere=2:2/3:4/3=3:1:2."
+  },
+  "99": {
+    "answer": "A",
+    "expression": "2/3",
+    "value": 0.6666666666666666,
+    "status": "verified",
+    "reason": "Let original numerator=2k and denominator=3k. (2k-1)/(3k-1)=1/2 yields k=1. The unreduced alternatives do not satisfy the subtraction condition."
+  },
+  "101": {
+    "answer": "A",
+    "expression": "5*1.4/(7*1.5)",
+    "value": 0.6666666666666666,
+    "status": "verified",
+    "reason": "New seat counts scale as 7:10.5:14=2:3:4."
+  },
+  "20": {
+    "answer": null,
+    "expression": "110*56/42",
+    "value": 146.66666666666666,
+    "status": "invalid_options",
+    "reason": "As a proportion, missing value is 146 2/3; none of A-D matches. Printed 132 fits a different consecutive-product analogy, not the stated ratio equality."
+  },
+  "80": {
+    "answer": null,
+    "expression": "(4/7-5/9)/(5/8-4/7)",
+    "value": 0.2962962962962963,
+    "status": "invalid_options",
+    "reason": "Alligation of milk fractions 5/8 and 5/9 to 4/7 requires mixtures in ratio 8:27. Printed 1:3 is not exact and no listed ratio matches."
+  },
+  "100": {
+    "answer": null,
+    "status": "multiple_correct",
+    "valid_answers": [
+      "C",
+      "D"
+    ],
+    "reason": "a/b=c/d=k implies (ma+nc)/(mb+nd)=k. Both C=a/b and D=c/d are correct wherever the denominator is nonzero."
+  }
+}

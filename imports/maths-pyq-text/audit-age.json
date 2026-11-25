@@ -1,0 +1,58 @@
+{
+  "1": {
+    "answer": "D",
+    "expression": "5*6",
+    "value": 30,
+    "status": "verified",
+    "reason": "m=5d; m+2=4(d+2) gives d=6."
+  },
+  "2": {
+    "answer": "A",
+    "expression": "3*15",
+    "value": 45,
+    "status": "verified",
+    "reason": "R=3S; R+5=2(S+10) gives S=15."
+  },
+  "3": {
+    "answer": "A",
+    "expression": "3*(80-20)/4",
+    "value": 45,
+    "status": "verified",
+    "reason": "M=3N and M+N+20=80."
+  },
+  "4": {
+    "answer": "C",
+    "expression": "(44-5)/3",
+    "value": 13,
+    "status": "verified",
+    "reason": "44=3R+5."
+  },
+  "5": {
+    "answer": "D",
+    "expression": "(3-2)*(3+4)-(2*3+1)",
+    "value": 0,
+    "status": "verified",
+    "reason": "(x-2)(x+4)=2x+1 implies x²=9; positive age is 3."
+  },
+  "6": {
+    "answer": "A",
+    "expression": "7*5",
+    "value": 35,
+    "status": "verified",
+    "reason": "F=7d; F+5=4(d+5), d=5; ages daughter 5 and father 35."
+  },
+  "7": {
+    "answer": "B",
+    "expression": "(56-8)/12",
+    "value": 4,
+    "status": "verified",
+    "reason": "Ratio multiplier 4 gives ages 20 and 28."
+  },
+  "8": {
+    "answer": "C",
+    "expression": "(36-8)/(24-8)",
+    "value": 1.75,
+    "status": "verified",
+    "reason": "Eight years earlier Suresh:Arun=28:16=7:4."
+  }
+}

@@ -1,0 +1,1751 @@
+{
+  "1": {
+    "answer": "A",
+    "status": "verified",
+    "symbolic": {
+      "operation": "gcd",
+      "inputs": [
+        "25*a*b**3*c",
+        "100*a**2*b*c",
+        "125*a*b*c"
+      ],
+      "result": "25*a*b*c",
+      "computed_associate": "25*a*b*c"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "2": {
+    "answer": "A",
+    "status": "verified",
+    "symbolic": {
+      "operation": "gcd",
+      "inputs": [
+        "x**3 - 27",
+        "(x - 3)**2",
+        "x**2 - 9"
+      ],
+      "result": "x - 3",
+      "computed_associate": "x - 3"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "3": {
+    "answer": "C",
+    "expression": "gcd(0,6)",
+    "value": 6,
+    "status": "verified",
+    "reason": ""
+  },
+  "4": {
+    "answer": "C",
+    "expression": "gcd(252525,363636)",
+    "value": 10101,
+    "status": "verified",
+    "reason": ""
+  },
+  "5": {
+    "answer": "C",
+    "expression": "gcd(825,675,450)",
+    "value": 75,
+    "status": "verified",
+    "reason": ""
+  },
+  "6": {
+    "answer": "A",
+    "status": "verified",
+    "symbolic": {
+      "operation": "gcd",
+      "inputs": [
+        "21*x**2*y",
+        "35*x*y**2"
+      ],
+      "result": "7*x*y",
+      "computed_associate": "7*x*y"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "7": {
+    "answer": "D",
+    "status": "verified",
+    "symbolic": {
+      "operation": "gcd",
+      "inputs": [
+        "25*b*c**4*z**3",
+        "35*b**2*c**5",
+        "45*c**3*z"
+      ],
+      "result": "5*c**3",
+      "computed_associate": "5*c**3"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "8": {
+    "answer": "B",
+    "expression": "gcd(27,45,81)",
+    "value": 9,
+    "status": "verified",
+    "reason": ""
+  },
+  "9": {
+    "answer": "D",
+    "expression": "gcd(2**5*3**7*5**10,2**7*3**8*7**12)",
+    "value": 69984,
+    "status": "verified",
+    "reason": ""
+  },
+  "10": {
+    "answer": "B",
+    "expression": "gcd(867,255)",
+    "value": 51,
+    "status": "verified",
+    "reason": ""
+  },
+  "11": {
+    "answer": "B",
+    "expression": "(6**2-6)/6",
+    "value": 5.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "12": {
+    "answer": "A",
+    "status": "verified",
+    "symbolic": {
+      "operation": "gcd",
+      "inputs": [
+        "m**2 - 3*m - 18",
+        "m**2 + 5*m + 6"
+      ],
+      "result": "m + 3",
+      "computed_associate": "m + 3"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "13": {
+    "answer": "C",
+    "expression": "gcd(62-2,78-3,109-4)",
+    "value": 15,
+    "status": "verified",
+    "reason": ""
+  },
+  "14": {
+    "answer": "D",
+    "expression": "60%8",
+    "value": 4,
+    "status": "verified",
+    "reason": "An LCM must be divisible by its HCF; 60 is not a multiple of 8."
+  },
+  "15": {
+    "answer": "C",
+    "status": "verified",
+    "symbolic": {
+      "operation": "gcd",
+      "inputs": [
+        "x**4 - 1",
+        "x**3 - x**2 + x - 1",
+        "x**5 - x**4 - x + 1"
+      ],
+      "result": "(x - 1)*(x**2 + 1)",
+      "computed_associate": "(x - 1)*(x**2 + 1)"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "16": {
+    "answer": "A",
+    "expression": "5",
+    "value": 5,
+    "status": "verified",
+    "reason": "Scale by HCF9: coprime positive pairs summing11 are (1,10),(2,9),(3,8),(4,7),(5,6)."
+  },
+  "17": {
+    "answer": "D",
+    "status": "verified",
+    "symbolic": {
+      "operation": "gcd",
+      "inputs": [
+        "a**3 - 9*a*x**2",
+        "(a - 3*x)**2"
+      ],
+      "result": "a - 3*x",
+      "computed_associate": "-a + 3*x"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "18": {
+    "answer": "C",
+    "expression": "gcd(5,7)",
+    "value": 1,
+    "status": "verified",
+    "reason": "Distinct primes have gcd1. Add the word distinct to the stem."
+  },
+  "19": {
+    "answer": "B",
+    "expression": "gcd(101-5,126-6,152-8)",
+    "value": 24,
+    "status": "verified",
+    "reason": ""
+  },
+  "20": {
+    "answer": "A",
+    "status": "verified",
+    "symbolic": {
+      "operation": "gcd",
+      "inputs": [
+        "x**4 - 1",
+        "x**4 + 5*x**3 - 5*x**2 + 5*x - 6"
+      ],
+      "result": "(x - 1)*(x**2 + 1)",
+      "computed_associate": "(x - 1)*(x**2 + 1)"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "21": {
+    "answer": "D",
+    "status": "verified",
+    "symbolic": {
+      "operation": "gcd",
+      "inputs": [
+        "x**3 - x**2 + x - 1",
+        "x**4 - 1"
+      ],
+      "result": "(x - 1)*(x**2 + 1)",
+      "computed_associate": "(x - 1)*(x**2 + 1)"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "22": {
+    "answer": "C",
+    "expression": "gcd(513,1134)",
+    "value": 27,
+    "status": "verified",
+    "reason": ""
+  },
+  "23": {
+    "answer": "A",
+    "expression": "gcd(8,15)",
+    "value": 1,
+    "status": "verified",
+    "reason": "HCF1 defines coprime integers; neither need be prime."
+  },
+  "24": {
+    "answer": "B",
+    "status": "verified",
+    "symbolic": {
+      "operation": "gcd",
+      "inputs": [
+        "y**3 + 1",
+        "y**2 - 1"
+      ],
+      "result": "y + 1",
+      "computed_associate": "y + 1"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "25": {
+    "answer": "A",
+    "expression": "15*20",
+    "value": 300,
+    "status": "verified",
+    "reason": "15 and20 have product300 and gcd5; the other listed pairs fail one condition."
+  },
+  "26": {
+    "answer": "C",
+    "expression": "gcd(445-4,572-5)",
+    "value": 63,
+    "status": "verified",
+    "reason": ""
+  },
+  "27": {
+    "answer": "B",
+    "expression": "(gcd(65,117)+117)/65",
+    "value": 2.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "28": {
+    "answer": "C",
+    "status": "verified",
+    "symbolic": {
+      "operation": "gcd",
+      "inputs": [
+        "6*x**3 - 30*x**2 + 60*x - 48",
+        "3*x**3 - 12*x**2 + 21*x - 18"
+      ],
+      "result": "3*(x - 2)",
+      "computed_associate": "3*(x - 2)"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "29": {
+    "answer": "B",
+    "status": "verified",
+    "symbolic": {
+      "operation": "gcd",
+      "inputs": [
+        "x**4 - y**4",
+        "x**2 - y**2"
+      ],
+      "result": "(x - y)*(x + y)",
+      "computed_associate": "(x - y)*(x + y)"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "30": {
+    "answer": "C",
+    "status": "verified",
+    "symbolic": {
+      "operation": "gcd",
+      "inputs": [
+        "x**2 - 2*x*y + y**2",
+        "x**4 - y**4"
+      ],
+      "result": "x - y",
+      "computed_associate": "x - y"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "31": {
+    "answer": "D",
+    "expression": "gcd(110000,1210,1331)/10000",
+    "value": 0.0011,
+    "status": "verified",
+    "reason": ""
+  },
+  "32": {
+    "answer": "D",
+    "status": "verified",
+    "symbolic": {
+      "operation": "gcd",
+      "inputs": [
+        "x**3 + x**2 - x + 2",
+        "2*x**3 - 5*x**2 + 5*x - 3"
+      ],
+      "result": "x**2 - x + 1",
+      "computed_associate": "x**2 - x + 1"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "33": {
+    "answer": "B",
+    "expression": "gcd(120,360,400)",
+    "value": 40,
+    "status": "verified",
+    "reason": ""
+  },
+  "34": {
+    "answer": "A",
+    "expression": "gcd(18,24,30)",
+    "value": 6,
+    "status": "verified",
+    "reason": ""
+  },
+  "35": {
+    "answer": "B",
+    "expression": "(gcd(450,216)+51)/23",
+    "value": 3.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "36": {
+    "answer": "C",
+    "expression": "2**(3+1)",
+    "value": 16,
+    "status": "verified",
+    "reason": "Smallest exponent is m+1; expression checks a=2,m=3."
+  },
+  "37": {
+    "answer": "D",
+    "expression": "gcd(175,105)",
+    "value": 35,
+    "status": "verified",
+    "reason": ""
+  },
+  "38": {
+    "answer": "A",
+    "expression": "gcd(8,15)",
+    "value": 1,
+    "status": "verified",
+    "reason": "Relatively prime is the definition of gcd1."
+  },
+  "39": {
+    "answer": "A",
+    "status": "verified",
+    "symbolic": {
+      "operation": "gcd",
+      "inputs": [
+        "x**3 - y**3",
+        "x**2 - y**2",
+        "x**4 - y**4"
+      ],
+      "result": "x - y",
+      "computed_associate": "x - y"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "40": {
+    "answer": "B",
+    "status": "verified",
+    "symbolic": {
+      "operation": "gcd",
+      "inputs": [
+        "a**2 - 8*a + 16",
+        "(a - 4)*(a + 3)*(a**2 - a - 12)"
+      ],
+      "result": "(a - 4)**2",
+      "computed_associate": "(a - 4)**2"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "41": {
+    "answer": "D",
+    "expression": "gcd(400,560)",
+    "value": 80,
+    "status": "verified",
+    "reason": ""
+  },
+  "42": {
+    "answer": "D",
+    "status": "verified",
+    "symbolic": {
+      "operation": "gcd",
+      "inputs": [
+        "(a - b)**2",
+        "(b - c)**3",
+        "(-a + c)**4"
+      ],
+      "result": "1",
+      "computed_associate": "1"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "43": {
+    "answer": "B",
+    "expression": "gcd(220,380,420)",
+    "value": 20,
+    "status": "verified",
+    "reason": ""
+  },
+  "44": {
+    "answer": "A",
+    "expression": "78*39/78",
+    "value": 39.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "45": {
+    "answer": "B",
+    "status": "verified",
+    "symbolic": {
+      "operation": "gcd",
+      "inputs": [
+        "12*x**2 - 18*x - 12",
+        "32*x**2 + 32*x + 8",
+        "24*x**2 + 84*x + 36"
+      ],
+      "result": "2*(2*x + 1)",
+      "computed_associate": "2*(2*x + 1)"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "46": {
+    "answer": "B",
+    "expression": "gcd(408,170)",
+    "value": 34,
+    "status": "verified",
+    "reason": ""
+  },
+  "47": {
+    "answer": "A",
+    "status": "verified",
+    "symbolic": {
+      "operation": "gcd",
+      "inputs": [
+        "(x + y)**2",
+        "(y + z)**3",
+        "(x + z)**4"
+      ],
+      "result": "1",
+      "computed_associate": "1"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "48": {
+    "answer": "A",
+    "status": "verified",
+    "symbolic": {
+      "operation": "gcd",
+      "inputs": [
+        "x**2 + x*y",
+        "x**3*y**2 + x**2*y**3"
+      ],
+      "result": "x*(x + y)",
+      "computed_associate": "x*(x + y)"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically.",
+    "source_correction": {
+      "option_b": "x²+y²"
+    }
+  },
+  "49": {
+    "answer": "A",
+    "status": "verified",
+    "symbolic": {
+      "operation": "gcd",
+      "inputs": [
+        "x**4 - 1",
+        "x**2 - 1"
+      ],
+      "result": "(x - 1)*(x + 1)",
+      "computed_associate": "(x - 1)*(x + 1)"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "50": {
+    "answer": "D",
+    "expression": "gcd(1,2,3,4)/lcm(2,3,4,5)",
+    "value": 0.016666666666666666,
+    "status": "verified",
+    "reason": ""
+  },
+  "51": {
+    "answer": "B",
+    "status": "verified",
+    "symbolic": {
+      "operation": "gcd",
+      "inputs": [
+        "2*x**2 - 18",
+        "x**2 - 2*x - 3"
+      ],
+      "result": "x - 3",
+      "computed_associate": "x - 3"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "52": {
+    "answer": "C",
+    "expression": "gcd(2,4,6)/lcm(3,5,25)",
+    "value": 0.02666666666666667,
+    "status": "verified",
+    "reason": ""
+  },
+  "53": {
+    "answer": "C",
+    "expression": "(4**2-8)/4",
+    "value": 2.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "54": {
+    "answer": "D",
+    "status": "verified",
+    "symbolic": {
+      "operation": "gcd",
+      "inputs": [
+        "35*x**5*y**3*z**4",
+        "49*x**2*y*z**3",
+        "14*x*y**2*z**2"
+      ],
+      "result": "7*x*y*z**2",
+      "computed_associate": "7*x*y*z**2"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "55": {
+    "answer": "C",
+    "status": "verified",
+    "symbolic": {
+      "operation": "gcd",
+      "inputs": [
+        "x**2*y + x*y**2",
+        "x**2 + x*y"
+      ],
+      "result": "x*(x + y)",
+      "computed_associate": "x*(x + y)"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "56": {
+    "answer": "A",
+    "expression": "(gcd(210,55)+325)/55",
+    "value": 6.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "57": {
+    "answer": "D",
+    "status": "verified",
+    "symbolic": {
+      "operation": "gcd",
+      "inputs": [
+        "x**2 + 5*x - 6",
+        "x**2 + 4*x - 12",
+        "x**2 + 8*x + 12"
+      ],
+      "result": "x + 6",
+      "computed_associate": "x + 6"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "58": {
+    "answer": "A",
+    "expression": "2**3",
+    "value": 8,
+    "status": "verified",
+    "reason": "Least exponent is n; expression checks x=2,n=3."
+  },
+  "59": {
+    "answer": "A",
+    "expression": "gcd(124,88)-gcd(88,52)",
+    "value": 0,
+    "status": "verified",
+    "reason": "Both gcd values are4."
+  },
+  "60": {
+    "answer": "C",
+    "expression": "gcd(225,450)",
+    "value": 225,
+    "status": "verified",
+    "reason": ""
+  },
+  "61": {
+    "answer": "C",
+    "status": "verified",
+    "symbolic": {
+      "operation": "lcm",
+      "inputs": [
+        "5*x**2 - 10*x",
+        "x**2 - 4",
+        "(x - 2)**2"
+      ],
+      "result": "5*x*(x - 2)**2*(x + 2)",
+      "computed_associate": "5*x*(x - 2)**2*(x + 2)"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "62": {
+    "answer": "C",
+    "expression": "lcm(40,60,72)/60",
+    "value": 6.0,
+    "status": "verified",
+    "reason": "Six minutes after08:00 is08:06."
+  },
+  "63": {
+    "answer": "B",
+    "expression": "lcm(1,2,3,4,5,6,7,8,9,10)",
+    "value": 2520,
+    "status": "verified",
+    "reason": ""
+  },
+  "72": {
+    "answer": "A",
+    "expression": "lcm(1,2,3,4,5,6,7,8,9,10)",
+    "value": 2520,
+    "status": "verified",
+    "reason": ""
+  },
+  "80": {
+    "answer": "B",
+    "expression": "lcm(1,2,3,4,5,6,7,8,9,10)",
+    "value": 2520,
+    "status": "verified",
+    "reason": ""
+  },
+  "113": {
+    "answer": "B",
+    "expression": "lcm(1,2,3,4,5,6,7,8,9,10)",
+    "value": 2520,
+    "status": "verified",
+    "reason": ""
+  },
+  "167": {
+    "answer": "B",
+    "expression": "lcm(1,2,3,4,5,6,7,8,9,10)",
+    "value": 2520,
+    "status": "verified",
+    "reason": ""
+  },
+  "64": {
+    "answer": "B",
+    "expression": "ceil(10000/lcm(72,108))*lcm(72,108)",
+    "value": 10152,
+    "status": "verified",
+    "reason": ""
+  },
+  "73": {
+    "answer": "A",
+    "expression": "ceil(10000/lcm(72,108))*lcm(72,108)",
+    "value": 10152,
+    "status": "verified",
+    "reason": ""
+  },
+  "83": {
+    "answer": "A",
+    "expression": "ceil(10000/lcm(72,108))*lcm(72,108)",
+    "value": 10152,
+    "status": "verified",
+    "reason": ""
+  },
+  "109": {
+    "answer": "C",
+    "expression": "ceil(10000/lcm(72,108))*lcm(72,108)",
+    "value": 10152,
+    "status": "verified",
+    "reason": ""
+  },
+  "145": {
+    "answer": "C",
+    "expression": "ceil(10000/lcm(72,108))*lcm(72,108)",
+    "value": 10152,
+    "status": "verified",
+    "reason": ""
+  },
+  "155": {
+    "answer": "B",
+    "expression": "ceil(10000/lcm(72,108))*lcm(72,108)",
+    "value": 10152,
+    "status": "verified",
+    "reason": ""
+  },
+  "157": {
+    "answer": "A",
+    "expression": "ceil(10000/lcm(72,108))*lcm(72,108)",
+    "value": 10152,
+    "status": "verified",
+    "reason": ""
+  },
+  "159": {
+    "answer": "A",
+    "expression": "ceil(10000/lcm(72,108))*lcm(72,108)",
+    "value": 10152,
+    "status": "verified",
+    "reason": ""
+  },
+  "65": {
+    "answer": "D",
+    "expression": "1",
+    "value": 1,
+    "status": "verified",
+    "reason": "Corrected statement: for positive integers an LCM can never be smaller than the largest input.",
+    "source_correction": {
+      "stem": "For positive integers, their LCM can never be ____ the largest of the given numbers."
+    }
+  },
+  "66": {
+    "answer": "B",
+    "status": "verified",
+    "symbolic": {
+      "operation": "lcm",
+      "inputs": [
+        "9*a**3*b**2*c**2",
+        "12*a**2*b**2*c**2"
+      ],
+      "result": "36*a**3*b**2*c**2",
+      "computed_associate": "36*a**3*b**2*c**2"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "67": {
+    "answer": "A",
+    "expression": "2**6",
+    "value": 64,
+    "status": "verified",
+    "reason": "Greatest exponent is m+3; example a=2,m=3."
+  },
+  "68": {
+    "answer": "C",
+    "status": "verified",
+    "symbolic": {
+      "operation": "lcm",
+      "inputs": [
+        "2*y - 6",
+        "2*y**2 - 18"
+      ],
+      "result": "2*(y - 3)*(y + 3)",
+      "computed_associate": "2*(y - 3)*(y + 3)"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "69": {
+    "answer": "D",
+    "expression": "lcm(156,124)",
+    "value": 4836,
+    "status": "verified",
+    "reason": ""
+  },
+  "105": {
+    "answer": "A",
+    "expression": "lcm(156,124)",
+    "value": 4836,
+    "status": "verified",
+    "reason": ""
+  },
+  "156": {
+    "answer": "D",
+    "expression": "lcm(156,124)",
+    "value": 4836,
+    "status": "verified",
+    "reason": ""
+  },
+  "70": {
+    "answer": "B",
+    "status": "verified",
+    "symbolic": {
+      "operation": "lcm",
+      "inputs": [
+        "4*x**2*y",
+        "8*x**3*y**2"
+      ],
+      "result": "8*x**3*y**2",
+      "computed_associate": "8*x**3*y**2"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "71": {
+    "answer": "D",
+    "status": "verified",
+    "symbolic": {
+      "operation": "lcm",
+      "inputs": [
+        "9*a**3*b**2",
+        "12*a**2*b*c**2"
+      ],
+      "result": "36*a**3*b**2*c**2",
+      "computed_associate": "36*a**3*b**2*c**2"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "74": {
+    "answer": "C",
+    "status": "verified",
+    "symbolic": {
+      "operation": "lcm",
+      "inputs": [
+        "-a**3 + x**3",
+        "(-a + x)**2"
+      ],
+      "result": "(-a + x)**2*(a**2 + a*x + x**2)",
+      "computed_associate": "(-a + x)**2*(a**2 + a*x + x**2)"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "75": {
+    "answer": "C",
+    "expression": "lcm(15,20,24,32,36)",
+    "value": 1440,
+    "status": "verified",
+    "reason": ""
+  },
+  "76": {
+    "answer": "A",
+    "expression": "lcm(10,15,20)/60",
+    "value": 1.0,
+    "status": "verified",
+    "reason": "One hour after07:00 is08:00."
+  },
+  "77": {
+    "answer": "D",
+    "expression": "lcm(15,20,25,30)/60",
+    "value": 5.0,
+    "status": "verified",
+    "reason": "Five hours after05:00 is10:00."
+  },
+  "98": {
+    "answer": "D",
+    "expression": "lcm(15,20,25,30)/60",
+    "value": 5.0,
+    "status": "verified",
+    "reason": "Five hours after05:00 is10:00."
+  },
+  "108": {
+    "answer": "C",
+    "expression": "lcm(15,20,25,30)/60",
+    "value": 5.0,
+    "status": "verified",
+    "reason": "Five hours after05:00 is10:00."
+  },
+  "144": {
+    "answer": "C",
+    "expression": "lcm(15,20,25,30)/60",
+    "value": 5.0,
+    "status": "verified",
+    "reason": "Five hours after05:00 is10:00."
+  },
+  "78": {
+    "answer": "D",
+    "expression": "((99999-2)//lcm(3,5,8,12))*lcm(3,5,8,12)+2",
+    "value": 99962,
+    "status": "verified",
+    "reason": ""
+  },
+  "158": {
+    "answer": "D",
+    "expression": "((99999-2)//lcm(3,5,8,12))*lcm(3,5,8,12)+2",
+    "value": 99962,
+    "status": "verified",
+    "reason": ""
+  },
+  "79": {
+    "answer": "C",
+    "status": "verified",
+    "symbolic": {
+      "operation": "lcm",
+      "inputs": [
+        "x**4 - 1",
+        "x**2 - 2*x + 1"
+      ],
+      "result": "(x - 1)**2*(x + 1)*(x**2 + 1)",
+      "computed_associate": "(x - 1)**2*(x + 1)*(x**2 + 1)"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "94": {
+    "answer": "B",
+    "status": "verified",
+    "symbolic": {
+      "operation": "lcm",
+      "inputs": [
+        "x**4 - 1",
+        "x**2 - 2*x + 1"
+      ],
+      "result": "(x - 1)**2*(x + 1)*(x**2 + 1)",
+      "computed_associate": "(x - 1)**2*(x + 1)*(x**2 + 1)"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "122": {
+    "answer": "D",
+    "status": "verified",
+    "symbolic": {
+      "operation": "lcm",
+      "inputs": [
+        "x**4 - 1",
+        "x**2 - 2*x + 1"
+      ],
+      "result": "(x - 1)**2*(x + 1)*(x**2 + 1)",
+      "computed_associate": "(x - 1)**2*(x + 1)*(x**2 + 1)"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "161": {
+    "answer": "B",
+    "status": "verified",
+    "symbolic": {
+      "operation": "lcm",
+      "inputs": [
+        "x**4 - 1",
+        "x**2 - 2*x + 1"
+      ],
+      "result": "(x - 1)**2*(x + 1)*(x**2 + 1)",
+      "computed_associate": "(x - 1)**2*(x + 1)*(x**2 + 1)"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "173": {
+    "answer": "A",
+    "status": "verified",
+    "symbolic": {
+      "operation": "lcm",
+      "inputs": [
+        "x**4 - 1",
+        "x**2 - 2*x + 1"
+      ],
+      "result": "(x - 1)**2*(x + 1)*(x**2 + 1)",
+      "computed_associate": "(x - 1)**2*(x + 1)*(x**2 + 1)"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "81": {
+    "answer": "C",
+    "status": "verified",
+    "symbolic": {
+      "operation": "lcm",
+      "inputs": [
+        "8*x**4*y**2",
+        "48*x**2*y**4"
+      ],
+      "result": "48*x**4*y**4",
+      "computed_associate": "48*x**4*y**4"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "82": {
+    "answer": "B",
+    "expression": "999999//lcm(24,15,36)*lcm(24,15,36)",
+    "value": 999720,
+    "status": "verified",
+    "reason": ""
+  },
+  "84": {
+    "answer": "B",
+    "expression": "720-15",
+    "value": 705,
+    "status": "verified",
+    "reason": "Mirror time12:15 maps to11:45."
+  },
+  "85": {
+    "answer": "D",
+    "status": "verified",
+    "symbolic": {
+      "operation": "lcm",
+      "inputs": [
+        "5*x - 10",
+        "5*x**2 - 20"
+      ],
+      "result": "5*(x - 2)*(x + 2)",
+      "computed_associate": "5*(x - 2)*(x + 2)"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "93": {
+    "answer": "A",
+    "status": "verified",
+    "symbolic": {
+      "operation": "lcm",
+      "inputs": [
+        "5*x - 10",
+        "5*x**2 - 20"
+      ],
+      "result": "5*(x - 2)*(x + 2)",
+      "computed_associate": "5*(x - 2)*(x + 2)"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "101": {
+    "answer": "A",
+    "status": "verified",
+    "symbolic": {
+      "operation": "lcm",
+      "inputs": [
+        "5*x - 10",
+        "5*x**2 - 20"
+      ],
+      "result": "5*(x - 2)*(x + 2)",
+      "computed_associate": "5*(x - 2)*(x + 2)"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "164": {
+    "answer": "A",
+    "status": "verified",
+    "symbolic": {
+      "operation": "lcm",
+      "inputs": [
+        "5*x - 10",
+        "5*x**2 - 20"
+      ],
+      "result": "5*(x - 2)*(x + 2)",
+      "computed_associate": "5*(x - 2)*(x + 2)"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "86": {
+    "answer": "D",
+    "status": "verified",
+    "symbolic": {
+      "operation": "lcm",
+      "inputs": [
+        "16*m**2",
+        "-12*m**2*n",
+        "8*n**2"
+      ],
+      "result": "48*m**2*n**2",
+      "computed_associate": "-48*m**2*n**2"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "87": {
+    "answer": "D",
+    "expression": "84/lcm(3,4)*3",
+    "value": 21.0,
+    "status": "verified",
+    "reason": "Scale7 gives numbers21,28."
+  },
+  "88": {
+    "answer": "D",
+    "status": "verified",
+    "symbolic": {
+      "operation": "lcm",
+      "inputs": [
+        "(a + b)**2",
+        "a**2 - b**2",
+        "(a - b)**2"
+      ],
+      "result": "(a - b)**2*(a + b)**2",
+      "computed_associate": "(a - b)**2*(a + b)**2"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "89": {
+    "answer": "B",
+    "expression": "3600/lcm(2,4,6,8,10,12)+1",
+    "value": 31.0,
+    "status": "verified",
+    "reason": "Includes the initial simultaneous toll."
+  },
+  "90": {
+    "answer": "B",
+    "expression": "lcm(32,36,45,60,80)",
+    "value": 1440,
+    "status": "verified",
+    "reason": ""
+  },
+  "91": {
+    "answer": "A",
+    "expression": "lcm(12,16,24,36)+7",
+    "value": 151,
+    "status": "verified",
+    "reason": "Specify least number greater than36; otherwise7 itself also has those remainders."
+  },
+  "92": {
+    "answer": "B",
+    "expression": "2*12*13/2",
+    "value": 156.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "95": {
+    "answer": "C",
+    "expression": "9999//lcm(15,18,20)*lcm(15,18,20)",
+    "value": 9900,
+    "status": "verified",
+    "reason": ""
+  },
+  "162": {
+    "answer": "C",
+    "expression": "9999//lcm(15,18,20)*lcm(15,18,20)",
+    "value": 9900,
+    "status": "verified",
+    "reason": ""
+  },
+  "96": {
+    "answer": "A",
+    "status": "verified",
+    "symbolic": {
+      "operation": "lcm",
+      "inputs": [
+        "p**2 - 3*p + 2",
+        "p**2 - 4"
+      ],
+      "result": "(p - 2)*(p - 1)*(p + 2)",
+      "computed_associate": "(p - 2)*(p - 1)*(p + 2)"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "97": {
+    "answer": "D",
+    "expression": "lcm(48,72,108)",
+    "value": 432,
+    "status": "verified",
+    "reason": "432seconds=7minutes12seconds, added to07:00."
+  },
+  "163": {
+    "answer": "B",
+    "expression": "lcm(48,72,108)",
+    "value": 432,
+    "status": "verified",
+    "reason": "432seconds=7minutes12seconds, added to07:00."
+  },
+  "99": {
+    "answer": "A",
+    "status": "verified",
+    "symbolic": {
+      "operation": "lcm",
+      "inputs": [
+        "8*p**2*q*r",
+        "12*p**2*r**2",
+        "24*p*q*r**2"
+      ],
+      "result": "24*p**2*q*r**2",
+      "computed_associate": "24*p**2*q*r**2"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "100": {
+    "answer": "B",
+    "expression": "500//lcm(12,15,20)-400//lcm(12,15,20)",
+    "value": 2,
+    "status": "verified",
+    "reason": ""
+  },
+  "102": {
+    "answer": "C",
+    "expression": "5005/65",
+    "value": 77.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "115": {
+    "answer": "D",
+    "expression": "5005/65",
+    "value": 77.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "138": {
+    "answer": "C",
+    "expression": "5005/65",
+    "value": 77.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "169": {
+    "answer": "A",
+    "expression": "5005/65",
+    "value": 77.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "103": {
+    "answer": "C",
+    "status": "verified",
+    "symbolic": {
+      "operation": "lcm",
+      "inputs": [
+        "-9*a**3*b**2",
+        "12*a**2*b**2*c"
+      ],
+      "result": "36*a**3*b**2*c",
+      "computed_associate": "-36*a**3*b**2*c"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "104": {
+    "answer": "C",
+    "expression": "lcm(254,508)+4",
+    "value": 512,
+    "status": "verified",
+    "reason": "Specify the number exceeds508; otherwise4 itself also works."
+  },
+  "118": {
+    "answer": "D",
+    "expression": "lcm(254,508)+4",
+    "value": 512,
+    "status": "verified",
+    "reason": "Specify the number exceeds508; otherwise4 itself also works."
+  },
+  "170": {
+    "answer": "D",
+    "expression": "lcm(254,508)+4",
+    "value": 512,
+    "status": "verified",
+    "reason": "Specify the number exceeds508; otherwise4 itself also works."
+  },
+  "106": {
+    "answer": "C",
+    "expression": "lcm(18,12)",
+    "value": 36,
+    "status": "verified",
+    "reason": ""
+  },
+  "107": {
+    "answer": "A",
+    "expression": "lcm(5,6,10)",
+    "value": 30,
+    "status": "verified",
+    "reason": "Thirty days after1October is31October."
+  },
+  "110": {
+    "answer": "C",
+    "expression": "6006/66",
+    "value": 91.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "146": {
+    "answer": "C",
+    "expression": "6006/66",
+    "value": 91.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "111": {
+    "answer": "C",
+    "expression": "ceil(10000/lcm(96,120))*lcm(96,120)",
+    "value": 10080,
+    "status": "verified",
+    "reason": ""
+  },
+  "147": {
+    "answer": "C",
+    "expression": "ceil(10000/lcm(96,120))*lcm(96,120)",
+    "value": 10080,
+    "status": "verified",
+    "reason": ""
+  },
+  "165": {
+    "answer": "A",
+    "expression": "ceil(10000/lcm(96,120))*lcm(96,120)",
+    "value": 10080,
+    "status": "verified",
+    "reason": ""
+  },
+  "112": {
+    "answer": "C",
+    "status": "verified",
+    "symbolic": {
+      "operation": "lcm",
+      "inputs": [
+        "(2*x**2 - 3*x*y)**2",
+        "(4*x - 6*y)**3",
+        "8*x**3 - 27*y**3"
+      ],
+      "result": "8*x**2*(2*x - 3*y)**3*(4*x**2 + 6*x*y + 9*y**2)",
+      "computed_associate": "8*x**2*(2*x - 3*y)**3*(4*x**2 + 6*x*y + 9*y**2)"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "148": {
+    "answer": "C",
+    "status": "verified",
+    "symbolic": {
+      "operation": "lcm",
+      "inputs": [
+        "(2*x**2 - 3*x*y)**2",
+        "(4*x - 6*y)**3",
+        "8*x**3 - 27*y**3"
+      ],
+      "result": "8*x**2*(2*x - 3*y)**3*(4*x**2 + 6*x*y + 9*y**2)",
+      "computed_associate": "8*x**2*(2*x - 3*y)**3*(4*x**2 + 6*x*y + 9*y**2)"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "166": {
+    "answer": "A",
+    "status": "verified",
+    "symbolic": {
+      "operation": "lcm",
+      "inputs": [
+        "(2*x**2 - 3*x*y)**2",
+        "(4*x - 6*y)**3",
+        "8*x**3 - 27*y**3"
+      ],
+      "result": "8*x**2*(2*x - 3*y)**3*(4*x**2 + 6*x*y + 9*y**2)",
+      "computed_associate": "8*x**2*(2*x - 3*y)**3*(4*x**2 + 6*x*y + 9*y**2)"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "114": {
+    "answer": "A",
+    "status": "verified",
+    "symbolic": {
+      "operation": "lcm",
+      "inputs": [
+        "35*a**2*b*c**3",
+        "42*a**3*b**2*c",
+        "30*a*b**3*c**2"
+      ],
+      "result": "210*a**3*b**3*c**3",
+      "computed_associate": "210*a**3*b**3*c**3"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "130": {
+    "answer": "D",
+    "status": "verified",
+    "symbolic": {
+      "operation": "lcm",
+      "inputs": [
+        "35*a**2*b*c**3",
+        "42*a**3*b**2*c",
+        "30*a*b**3*c**2"
+      ],
+      "result": "210*a**3*b**3*c**3",
+      "computed_associate": "210*a**3*b**3*c**3"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "149": {
+    "answer": "A",
+    "status": "verified",
+    "symbolic": {
+      "operation": "lcm",
+      "inputs": [
+        "35*a**2*b*c**3",
+        "42*a**3*b**2*c",
+        "30*a*b**3*c**2"
+      ],
+      "result": "210*a**3*b**3*c**3",
+      "computed_associate": "210*a**3*b**3*c**3"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "168": {
+    "answer": "A",
+    "status": "verified",
+    "symbolic": {
+      "operation": "lcm",
+      "inputs": [
+        "35*a**2*b*c**3",
+        "42*a**3*b**2*c",
+        "30*a*b**3*c**2"
+      ],
+      "result": "210*a**3*b**3*c**3",
+      "computed_associate": "210*a**3*b**3*c**3"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "116": {
+    "answer": "D",
+    "expression": "lcm(1,5,2,4)/gcd(3,6,9,27)",
+    "value": 6.666666666666667,
+    "status": "verified",
+    "reason": "Correct value20/3 is absent from printed choices; replace D=36 with20/3.",
+    "source_correction": {
+      "option_d": "20/3"
+    }
+  },
+  "117": {
+    "answer": "D",
+    "expression": "2**8",
+    "value": 256,
+    "status": "verified",
+    "reason": "Greatest exponent is K+5; expression checks a=2,K=3."
+  },
+  "119": {
+    "answer": "A",
+    "status": "verified",
+    "symbolic": {
+      "operation": "lcm",
+      "inputs": [
+        "x**3 - 27",
+        "(x - 3)**2",
+        "x**2 - 9"
+      ],
+      "result": "(x - 3)**2*(x + 3)*(x**2 + 3*x + 9)",
+      "computed_associate": "(x - 3)**2*(x + 3)*(x**2 + 3*x + 9)"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "120": {
+    "answer": "C",
+    "status": "verified",
+    "symbolic": {
+      "operation": "lcm",
+      "inputs": [
+        "x**3 - 27",
+        "(x - 3)**2",
+        "x**2 - 9"
+      ],
+      "result": "(x - 3)**2*(x + 3)*(x**2 + 3*x + 9)",
+      "computed_associate": "(x - 3)**2*(x + 3)*(x**2 + 3*x + 9)"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "171": {
+    "answer": "A",
+    "status": "verified",
+    "symbolic": {
+      "operation": "lcm",
+      "inputs": [
+        "x**3 - 27",
+        "(x - 3)**2",
+        "x**2 - 9"
+      ],
+      "result": "(x - 3)**2*(x + 3)*(x**2 + 3*x + 9)",
+      "computed_associate": "(x - 3)**2*(x + 3)*(x**2 + 3*x + 9)"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "121": {
+    "answer": "D",
+    "expression": "((9999-3)//lcm(4,7,13))*lcm(4,7,13)+3",
+    "value": 9831,
+    "status": "verified",
+    "reason": ""
+  },
+  "150": {
+    "answer": "D",
+    "expression": "((9999-3)//lcm(4,7,13))*lcm(4,7,13)+3",
+    "value": 9831,
+    "status": "verified",
+    "reason": ""
+  },
+  "172": {
+    "answer": "B",
+    "expression": "((9999-3)//lcm(4,7,13))*lcm(4,7,13)+3",
+    "value": 9831,
+    "status": "verified",
+    "reason": ""
+  },
+  "123": {
+    "answer": "C",
+    "expression": "ceil(10000/lcm(16,24,36,54))*lcm(16,24,36,54)",
+    "value": 10368,
+    "status": "verified",
+    "reason": ""
+  },
+  "124": {
+    "answer": "A",
+    "status": "verified",
+    "symbolic": {
+      "operation": "lcm",
+      "inputs": [
+        "x**2*y + x*y**2",
+        "x**2 + x*y"
+      ],
+      "result": "x*y*(x + y)",
+      "computed_associate": "x*y*(x + y)"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "152": {
+    "answer": "A",
+    "status": "verified",
+    "symbolic": {
+      "operation": "lcm",
+      "inputs": [
+        "x**2*y + x*y**2",
+        "x**2 + x*y"
+      ],
+      "result": "x*y*(x + y)",
+      "computed_associate": "x*y*(x + y)"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "174": {
+    "answer": "B",
+    "status": "verified",
+    "symbolic": {
+      "operation": "lcm",
+      "inputs": [
+        "x**2*y + x*y**2",
+        "x**2 + x*y"
+      ],
+      "result": "x*y*(x + y)",
+      "computed_associate": "x*y*(x + y)"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically.",
+    "source_correction": {
+      "option_a": "xy(x−y)"
+    }
+  },
+  "125": {
+    "answer": "B",
+    "expression": "9999//lcm(8,12,15)*lcm(8,12,15)",
+    "value": 9960,
+    "status": "verified",
+    "reason": ""
+  },
+  "153": {
+    "answer": "B",
+    "expression": "9999//lcm(8,12,15)*lcm(8,12,15)",
+    "value": 9960,
+    "status": "verified",
+    "reason": ""
+  },
+  "175": {
+    "answer": "A",
+    "expression": "9999//lcm(8,12,15)*lcm(8,12,15)",
+    "value": 9960,
+    "status": "verified",
+    "reason": ""
+  },
+  "126": {
+    "answer": "B",
+    "expression": "5*7",
+    "value": 35,
+    "status": "verified",
+    "reason": "Distinct consecutive primes are coprime; LCM is their product."
+  },
+  "176": {
+    "answer": "A",
+    "expression": "5*7",
+    "value": 35,
+    "status": "verified",
+    "reason": "Distinct consecutive primes are coprime; LCM is their product."
+  },
+  "127": {
+    "answer": "C",
+    "expression": "lcm(2**3*3*5**2*7,2**4*3**2*5*7**2*11,2*3**3*5**4)",
+    "value": 145530000,
+    "status": "verified",
+    "reason": ""
+  },
+  "177": {
+    "answer": "A",
+    "expression": "lcm(2**3*3*5**2*7,2**4*3**2*5*7**2*11,2*3**3*5**4)",
+    "value": 145530000,
+    "status": "verified",
+    "reason": ""
+  },
+  "128": {
+    "answer": "A",
+    "expression": "10000*1.05*0.92*1.1",
+    "value": 10626.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "154": {
+    "answer": "A",
+    "expression": "10000*1.05*0.92*1.1",
+    "value": 10626.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "129": {
+    "answer": "A",
+    "status": "verified",
+    "symbolic": {
+      "operation": "lcm",
+      "inputs": [
+        "x**2 - 1",
+        "(x - 1)**2"
+      ],
+      "result": "(x - 1)**2*(x + 1)",
+      "computed_associate": "(x - 1)**2*(x + 1)"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "131": {
+    "answer": "A",
+    "expression": "4*3*4",
+    "value": 48,
+    "status": "verified",
+    "reason": ""
+  },
+  "132": {
+    "answer": "D",
+    "expression": "180/lcm(4,5)*4",
+    "value": 36.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "133": {
+    "answer": "D",
+    "expression": "lcm(2**3*3**2*5*11,2**4*3**4*5**2*7,2**5*3**3*5**3*7**2*11)",
+    "value": 174636000,
+    "status": "verified",
+    "reason": ""
+  },
+  "134": {
+    "answer": "C",
+    "expression": "1800/lcm(2,4,6,8,10,12)+1",
+    "value": 16.0,
+    "status": "verified",
+    "reason": "Includes initial simultaneous toll."
+  },
+  "160": {
+    "answer": "C",
+    "expression": "1800/lcm(2,4,6,8,10,12)+1",
+    "value": 16.0,
+    "status": "verified",
+    "reason": "Includes initial simultaneous toll."
+  },
+  "135": {
+    "answer": "A",
+    "expression": "lcm(2,4,5)/gcd(3,9,6)",
+    "value": 6.666666666666667,
+    "status": "verified",
+    "reason": ""
+  },
+  "136": {
+    "answer": "A",
+    "expression": "(100**2-4*495*5)**0.5",
+    "value": 10.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "137": {
+    "answer": "A",
+    "expression": "2",
+    "value": 2,
+    "status": "verified",
+    "reason": "Scale13 gives ab12 and coprime unordered pairs(1,12),(3,4)."
+  },
+  "139": {
+    "answer": "A",
+    "expression": "lcm(6,7,8,9,12)+1",
+    "value": 505,
+    "status": "verified",
+    "reason": "Specify greater than12; otherwise1 itself works."
+  },
+  "140": {
+    "answer": "C",
+    "status": "verified",
+    "symbolic": {
+      "operation": "lcm",
+      "inputs": [
+        "-z**2 + (x + y)**2",
+        "-x**2 + (y + z)**2",
+        "-y**2 + (x + z)**2"
+      ],
+      "result": "-(x - y - z)*(x - y + z)*(x + y - z)*(x + y + z)",
+      "computed_associate": "-(x - y - z)*(x - y + z)*(x + y - z)*(x + y + z)"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "141": {
+    "answer": "A",
+    "status": "verified",
+    "symbolic": {
+      "operation": "lcm",
+      "inputs": [
+        "15*x**3*y**2",
+        "20*x**2*y**3",
+        "35*x**4*y"
+      ],
+      "result": "420*x**4*y**3",
+      "computed_associate": "420*x**4*y**3"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  },
+  "142": {
+    "answer": "B",
+    "expression": "lcm(1200//2,1200//3,1200//6)",
+    "value": 1200,
+    "status": "verified",
+    "reason": ""
+  },
+  "143": {
+    "answer": "A",
+    "expression": "lcm(252,308,198)",
+    "value": 2772,
+    "status": "verified",
+    "reason": "2772seconds=46minutes12seconds."
+  },
+  "151": {
+    "answer": "C",
+    "expression": "ceil(10000/lcm(16,24,36,54))*lcm(16,24,36,54)",
+    "value": 10368,
+    "status": "verified",
+    "reason": ""
+  },
+  "178": {
+    "answer": "A",
+    "expression": "20000*1.05*0.92*1.1",
+    "value": 21252.0,
+    "status": "verified",
+    "reason": ""
+  },
+  "179": {
+    "answer": "C",
+    "status": "verified",
+    "symbolic": {
+      "operation": "lcm",
+      "inputs": [
+        "x**2 - 1",
+        "(x - 1)**2"
+      ],
+      "result": "(x - 1)**2*(x + 1)",
+      "computed_associate": "(x - 1)**2*(x + 1)"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically.",
+    "source_correction": {
+      "option_a": "(x−1)(x²+1)"
+    }
+  },
+  "180": {
+    "answer": "A",
+    "status": "verified",
+    "symbolic": {
+      "operation": "lcm",
+      "inputs": [
+        "a**3 - b**3",
+        "a**2 - b**2"
+      ],
+      "result": "(a - b)*(a + b)*(a**2 + a*b + b**2)",
+      "computed_associate": "(a - b)*(a + b)*(a**2 + a*b + b**2)"
+    },
+    "reason": "Integer polynomial contents and irreducible factors checked symbolically."
+  }
+}
