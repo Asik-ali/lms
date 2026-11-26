@@ -8,9 +8,15 @@ import { normalizeCourseAccessSelection } from '../admin/studentCourseAccess';
 export default function StudentCourses() {
   const { user } = useAuth();
   const [courses, setCourses] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const [retry, setRetry] = useState(0);
   const navigate = useNavigate();
 
   useEffect(() => {
+    let active = true;
+    setLoading(true);
+    setError(false);
     (async () => {
       try {
         const allCourses = await getAllCourses();
@@ -18,12 +24,16 @@ export default function StudentCourses() {
         const visibleCourses = assigned.length > 0
           ? allCourses.filter(course => assigned.includes(course.title))
           : [];
-        setCourses(visibleCourses);
+        if (active) setCourses(visibleCourses);
       } catch (err) {
         console.error('Failed to load courses:', err);
+        if (active) setError(true);
+      } finally {
+        if (active) setLoading(false);
       }
     })();
-  }, [user?.course]);
+    return () => { active = false; };
+  }, [user?.id, user?.course, retry]);
 
   return (
     <div className="space-y-6">
@@ -32,7 +42,7 @@ export default function StudentCourses() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {courses.map(c => (
+        {loading ? <p role="status">Loading courses...</p> : error ? <div role="alert" className="col-span-full card p-6"><p>Unable to load your courses.</p><button className="btn-secondary mt-3" onClick={() => setRetry(n => n + 1)}>Retry courses</button></div> : courses.map(c => (
           <div key={c.id} className="card hover:shadow-md transition-shadow">
             <div className="p-6">
               <div className="w-12 h-12 rounded-lg bg-navy-50 dark:bg-navy-500/15 flex items-center justify-center mb-4">
@@ -56,7 +66,7 @@ export default function StudentCourses() {
             </div>
           </div>
         ))}
-        {courses.length === 0 && (
+        {!loading && !error && courses.length === 0 && (
           <div className="col-span-full text-center py-12 text-navy-300">
             <BookOpen className="w-12 h-12 mx-auto mb-3 text-navy-300" />
             <p>No courses enrolled yet</p>

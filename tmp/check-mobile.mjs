@@ -1,0 +1,12 @@
+﻿import { chromium } from 'playwright';
+const browser=await chromium.launch({channel:'chrome',headless:true});
+const page=await browser.newPage({viewport:{width:390,height:950}});
+const user={id:'11111111-1111-4111-8111-111111111111',email:'test@example.com',user_metadata:{name:'Alex',role:'student'}};
+await page.addInitScript(user=>localStorage.setItem('sb-lms-auth-token',JSON.stringify({access_token:'test',refresh_token:'test',expires_at:Math.floor(Date.now()/1000)+3600,user})),user);
+await page.route('**/auth/v1/**',r=>r.fulfill({json:user}));
+await page.route('**/rest/v1/**',r=>r.fulfill({json:new URL(r.request().url()).pathname.endsWith('/profiles')?{...user,name:'Alex',role:'student',course:'Mathematics'}:new URL(r.request().url()).pathname.endsWith('/courses')?[{id:10,title:'Mathematics'}]:[]}));
+await page.goto('http://127.0.0.1:5181/student');
+await page.getByRole('link',{name:'Open Mathematics'}).waitFor();
+console.log(JSON.stringify(await page.evaluate(()=>[...document.querySelectorAll('.workspace-topbar, .workspace-topbar > div, .workspace-topbar > div > *, .learning-course, .learning-course > *')].map(e=>{const s=getComputedStyle(e),r=e.getBoundingClientRect();return {tag:e.tagName,cls:e.className,left:r.left,width:r.width,min:s.minWidth,flex:s.flex,padding:s.padding,display:s.display}})),null,2));
+await page.screenshot({path:'tmp/mobile-before.png',fullPage:true});
+await browser.close();

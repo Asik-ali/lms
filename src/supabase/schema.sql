@@ -284,7 +284,8 @@ CREATE TABLE IF NOT EXISTS announcements (
 );
 
 ALTER TABLE announcements ENABLE ROW LEVEL SECURITY;
-CREATE POLICY "Everyone can read announcements" ON announcements FOR SELECT USING (true);
+CREATE POLICY "Students can read published announcements" ON announcements FOR SELECT TO authenticated
+  USING (lower(trim(status)) = 'published' AND lower(trim(target)) IN ('all', 'students'));
 CREATE POLICY "Admins can manage announcements" ON announcements FOR ALL USING (public.is_admin());
 
 -- Enrollments

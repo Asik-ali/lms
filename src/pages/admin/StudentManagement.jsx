@@ -9,7 +9,7 @@ import { showError, showSuccess } from '../../components/common/Toast';
 import { normalizeCourseAccessSelection, serializeCourseAccess, getCourseAccessLabel } from './studentCourseAccess';
 
 function AddStudentForm({ onBack, onStudentAdded }) {
-  const { logout } = useAuth();
+  const { login } = useAuth();
   const navigate = useNavigate();
   const [courses, setCourses] = useState([]);
   const [form, setForm] = useState({ name: '', email: '', course: '', enrolled: new Date().toISOString().split('T')[0] });
@@ -61,9 +61,17 @@ function AddStudentForm({ onBack, onStudentAdded }) {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const quickLogin = () => {
-    logout();
-    navigate(`/login?username=${encodeURIComponent(credentials.email)}&password=${encodeURIComponent(credentials.password)}`);
+  const quickLogin = async () => {
+    if (isSubmitting) return;
+    setIsSubmitting(true);
+    try {
+      await login(credentials.email, credentials.password);
+      navigate('/student', { replace: true });
+    } catch {
+      showError('Unable to sign in as the student. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -95,8 +103,8 @@ function AddStudentForm({ onBack, onStudentAdded }) {
               {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
               {copied ? 'Copied!' : 'Copy Credentials'}
             </button>
-            <button onClick={quickLogin} className="mt-2 w-full flex items-center justify-center gap-2 text-sm text-navy-600 dark:text-navy-300 bg-navy-800 border border-navy-200 rounded-lg px-3 py-2 hover:bg-navy-100 dark:hover:bg-navy-500/15 transition-colors cursor-pointer">
-              <LogIn className="w-4 h-4" /> Quick Login as {form.name.split(' ')[0]}
+            <button disabled={isSubmitting} onClick={quickLogin} className="mt-2 w-full flex items-center justify-center gap-2 text-sm text-navy-600 dark:text-navy-300 bg-navy-800 border border-navy-200 rounded-lg px-3 py-2 hover:bg-navy-100 dark:hover:bg-navy-500/15 transition-colors cursor-pointer disabled:opacity-60">
+              <LogIn className="w-4 h-4" /> {isSubmitting ? 'Signing in...' : `Quick Login as ${form.name.split(' ')[0]}`}
             </button>
           </div>
           <div className="flex items-center justify-center gap-3">

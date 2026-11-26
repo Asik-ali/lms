@@ -66,7 +66,7 @@ export default function DashboardLayout() {
     <div className="min-h-screen bg-navy-950 text-navy-100">
       {mobileMenuOpen && <button onClick={() => setMobileMenuOpen(false)} className="fixed inset-0 z-30 bg-navy-950/50 lg:hidden" aria-label="Close navigation menu" />}
       <Sidebar mobileOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
-      <div className="min-w-0 flex h-dvh flex-col transition-all duration-300 lg:ml-64">
+      <div className="min-w-0 flex h-dvh flex-col lg:ml-64">
         <Topbar title={titles[currentPath] || 'Dashboard'} onMenuClick={() => setMobileMenuOpen(true)} />
         <ConnectionStatus />
         <main ref={mainRef} className="dashboard-content flex-1 min-h-0 min-w-0 overflow-y-auto p-4 sm:p-6 bg-navy-950">

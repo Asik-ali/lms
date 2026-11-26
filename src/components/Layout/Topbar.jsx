@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Bell, Search, ChevronDown, UserCircle, Menu, X, Lock, Save, AlertCircle, CheckCircle, Sun, Moon, Users, BookOpen, PenTool, Megaphone } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { useTheme } from '../../contexts/ThemeContext';
 import { supabase } from '../../supabase/client';
 import { useNavigate } from 'react-router-dom';
 import { getAllStudents, getAllCourses, getAllTestSeries, getAllAnnouncements } from '../../data/dynamicStore';
+import { isAnnouncementVisible } from '../../data/announcementVisibility';
 
 export default function Topbar({ title, onMenuClick }) {
   const { user } = useAuth();
@@ -25,14 +26,52 @@ export default function Topbar({ title, onMenuClick }) {
   const [searchOwner, setSearchOwner] = useState(null);
   const [searchLoading, setSearchLoading] = useState(false);
   const [searchError, setSearchError] = useState(false);
+  const profileDialogRef = useRef(null);
+  const accountButtonRef = useRef(null);
+
+  useEffect(() => {
+    if (!showProfileModal) return;
+    const dialog = profileDialogRef.current;
+    const accountButton = accountButtonRef.current;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const focusable = () => [...dialog.querySelectorAll('button:not([disabled]), input:not([disabled]), a[href], [tabindex="0"]')];
+    focusable()[0]?.focus();
+    const handleKey = event => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        setShowProfileModal(false);
+        setPwError('');
+        setPwSuccess('');
+      }
+      if (event.key === 'Tab') {
+        const controls = focusable();
+        const first = controls[0];
+        const last = controls[controls.length - 1];
+        if (event.shiftKey && (document.activeElement === first || !dialog.contains(document.activeElement))) {
+          event.preventDefault(); last?.focus();
+        } else if (!event.shiftKey && (document.activeElement === last || !dialog.contains(document.activeElement))) {
+          event.preventDefault(); first?.focus();
+        }
+      }
+    };
+    const containFocus = event => {
+      if (!dialog.contains(event.target)) focusable()[0]?.focus();
+    };
+    document.addEventListener('keydown', handleKey);
+    document.addEventListener('focusin', containFocus);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener('keydown', handleKey);
+      document.removeEventListener('focusin', containFocus);
+      accountButton?.focus();
+    };
+  }, [showProfileModal]);
 
   const isAdmin = user?.role === 'admin' || user?.role === 'instructor';
   const searchRequested = searchOpen && searchQuery.trim().length > 0;
 
-  const visibleAnnouncements = announcements.filter(a => {
-    const t = (a.target || '').toLowerCase();
-    return t === 'all' || (isAdmin ? t.includes('admin') : t.includes('student'));
-  });
+  const visibleAnnouncements = announcements.filter(a => isAnnouncementVisible(a, user?.role));
 
   useEffect(() => {
     getAllAnnouncements()
@@ -211,7 +250,7 @@ export default function Topbar({ title, onMenuClick }) {
           </div>
 
           <div className="relative">
-            <button aria-label="Account menu" aria-expanded={showProfile} onClick={() => { setShowProfile(!showProfile); setShowNotifications(false); setSearchOpen(false); }} className="flex items-center gap-2 p-1.5 rounded-lg hover:bg-navy-800">
+            <button ref={accountButtonRef} aria-label="Account menu" aria-expanded={showProfile} onClick={() => { setShowProfile(!showProfile); setShowNotifications(false); setSearchOpen(false); }} className="flex items-center gap-2 p-1.5 rounded-lg hover:bg-navy-800">
               <div className="w-8 h-8 rounded-full bg-navy-600 flex items-center justify-center">
                 <UserCircle className="w-6 h-6 text-white" />
               </div>
@@ -238,10 +277,10 @@ export default function Topbar({ title, onMenuClick }) {
 
       {showProfileModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 animate-fade-in">
-          <div className="bg-surface rounded-xl shadow-xl w-full max-w-md mx-4 max-h-[calc(100dvh-2rem)] overflow-y-auto animate-zoom-in">
+          <div ref={profileDialogRef} role="dialog" aria-modal="true" aria-labelledby="profile-dialog-title" className="bg-surface rounded-xl shadow-xl w-full max-w-md mx-4 max-h-[calc(100dvh-2rem)] overflow-y-auto animate-zoom-in">
             <div className="flex items-center justify-between px-6 py-4 border-b border-navy-700">
-              <h3 className="text-lg font-semibold text-navy-100">Profile</h3>
-              <button onClick={() => { setShowProfileModal(false); setPwError(''); setPwSuccess(''); }} className="p-1 hover:bg-navy-800 rounded-lg cursor-pointer text-navy-200"><X className="w-5 h-5" /></button>
+              <h3 id="profile-dialog-title" className="text-lg font-semibold text-navy-100">Profile</h3>
+              <button aria-label="Close profile" onClick={() => { setShowProfileModal(false); setPwError(''); setPwSuccess(''); }} className="p-2 min-h-11 min-w-11 flex items-center justify-center hover:bg-navy-800 rounded-lg cursor-pointer text-navy-200"><X className="w-5 h-5" /></button>
             </div>
             <div className="p-6 space-y-6">
               <div className="flex items-center gap-4">
@@ -268,8 +307,10 @@ export default function Topbar({ title, onMenuClick }) {
                   </div>
                 )}
                 <form onSubmit={handleChangePassword} className="space-y-3">
-                  <input type="password" value={newPassword} onChange={e => setNewPassword(e.target.value)} placeholder="New password" className="input-field" />
-                  <input type="password" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} placeholder="Confirm password" className="input-field" />
+                  <label className="block text-sm font-medium" htmlFor="profile-new-password">New password</label>
+                  <input id="profile-new-password" autoComplete="new-password" type="password" value={newPassword} onChange={e => setNewPassword(e.target.value)} placeholder="New password" className="input-field" />
+                  <label className="block text-sm font-medium" htmlFor="profile-confirm-password">Confirm password</label>
+                  <input id="profile-confirm-password" autoComplete="new-password" type="password" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} placeholder="Confirm password" className="input-field" />
                   <button type="submit" disabled={pwLoading} className="flex items-center gap-2 px-4 py-2 bg-navy-600 text-white rounded-lg text-sm hover:bg-navy-700 dark:hover:bg-[#0D4FB5] disabled:opacity-50 cursor-pointer transition-colors">
                     <Save className="w-4 h-4" /> {pwLoading ? 'Updating...' : 'Update Password'}
                   </button>
