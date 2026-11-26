@@ -344,14 +344,15 @@ export default function StudentTestTaking() {
   return (
     <div className="test-taking min-h-screen bg-navy-950 flex flex-col">
       <header className="bg-surface border-b border-navy-700 sticky top-0 z-30 shadow-sm">
-        <div className="max-w-[1600px] mx-auto px-3 sm:px-4 min-h-14 py-2 flex flex-wrap items-center justify-between gap-2 sm:gap-4">
-          <div className="flex items-center gap-3 min-w-0">
+        <div className="test-toolbar max-w-[1600px] mx-auto px-3 sm:px-4 min-h-14 py-2 flex flex-wrap items-center justify-between gap-2 sm:gap-4">
+          <div className="test-toolbar-title flex items-center gap-3 min-w-0">
             <button
               onClick={() => {
                 if (window.confirm('Are you sure you want to leave? Your progress is auto-saved.')) {
                   autoSaveCurrent().then(() => navigate('/student/test-series'));
                 }
               }}
+              aria-label="Leave test"
               className="p-2 rounded-lg hover:bg-navy-700 text-navy-200 flex-shrink-0"
             >
               <X className="w-5 h-5" />
@@ -362,7 +363,7 @@ export default function StudentTestTaking() {
             </div>
           </div>
 
-          <div className={`flex shrink-0 items-center gap-2 px-2 sm:px-4 py-2 rounded-lg font-mono text-sm font-bold ${isLowTime ? 'bg-red-600 text-white animate-pulse' : 'bg-navy-800 text-navy-100'}`}>
+          <div aria-label="Time remaining" className={`test-toolbar-timer flex shrink-0 items-center gap-2 px-2 sm:px-4 py-2 rounded-lg font-mono text-sm font-bold ${isLowTime ? 'bg-red-600 text-white animate-pulse' : 'bg-navy-800 text-navy-100'}`}>
             <Clock className="w-4 h-4" />
             <span>{formatTime(timeLeft)}</span>
           </div>
@@ -373,7 +374,7 @@ export default function StudentTestTaking() {
           <button
             disabled={submitting}
             onClick={() => setShowSubmitConfirm(true)}
-            className="px-4 py-2.5 bg-blue-700 dark:bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-800 dark:hover:bg-blue-500 transition-colors flex-shrink-0 disabled:opacity-50"
+            className="test-toolbar-submit px-4 py-2.5 bg-blue-700 dark:bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-800 dark:hover:bg-blue-500 transition-colors flex-shrink-0 disabled:opacity-50"
           >
             Submit Test
           </button>
@@ -592,8 +593,8 @@ export default function StudentTestTaking() {
         </aside>
       </div>
 
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-surface border-t border-navy-700 z-30">
-        <div className="flex items-center justify-between px-4 py-3">
+      <div className="test-mobile-footer lg:hidden fixed bottom-0 left-0 right-0 bg-surface border-t border-navy-700 z-30">
+        <div className="flex items-center justify-between gap-2 px-3 py-3">
           <button
             onClick={() => setShowPalette(!showPalette)}
             className="px-3 py-2 text-xs font-medium bg-navy-800 rounded-lg text-navy-100"
@@ -601,10 +602,10 @@ export default function StudentTestTaking() {
             Q {currentIdx + 1}/{questions.length}
           </button>
           <div className="flex items-center gap-2">
-            <button onClick={handlePrev} disabled={currentIdx === 0} className="p-2 rounded-lg bg-navy-800 text-navy-100 disabled:opacity-40">
+            <button aria-label="Previous question" onClick={handlePrev} disabled={currentIdx === 0} className="p-2 rounded-lg bg-navy-800 text-navy-100 disabled:opacity-40">
               <ChevronLeft className="w-4 h-4" />
             </button>
-            <button onClick={handleNext} disabled={currentIdx === questions.length - 1} className="p-2 rounded-lg bg-navy-800 text-navy-100 disabled:opacity-40">
+            <button aria-label="Next question" onClick={handleNext} disabled={currentIdx === questions.length - 1} className="p-2 rounded-lg bg-navy-800 text-navy-100 disabled:opacity-40">
               <ChevronRight className="w-4 h-4" />
             </button>
           </div>
@@ -657,12 +658,12 @@ export default function StudentTestTaking() {
       {showSubmitConfirm && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <div className="absolute inset-0 bg-black/50" onClick={() => !submitting && setShowSubmitConfirm(false)} />
-          <div className="relative bg-surface rounded-2xl shadow-2xl w-full max-w-md overflow-hidden">
+          <div role="dialog" aria-modal="true" aria-labelledby="test-submit-title" className="test-submit-dialog relative bg-surface rounded-2xl shadow-2xl w-full max-w-md overflow-y-auto">
             <div className="p-6 text-center">
               <div className="w-16 h-16 rounded-full bg-amber-100 dark:bg-amber-500/15 flex items-center justify-center mx-auto mb-4">
                 <AlertTriangle className="w-8 h-8 text-amber-700 dark:text-amber-300" />
               </div>
-              <h2 className="text-xl font-bold text-navy-100 mb-2">Submit Test?</h2>
+              <h2 id="test-submit-title" className="text-xl font-bold text-navy-100 mb-2">Submit Test?</h2>
               <p className="text-sm text-navy-200 mb-6">
                 Are you sure you want to submit? You won't be able to change your answers after submission.
               </p>

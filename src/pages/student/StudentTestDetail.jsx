@@ -138,7 +138,7 @@ export default function StudentTestDetail() {
   };
 
   return (
-    <div className="space-y-6 max-w-4xl mx-auto">
+    <div className="test-detail min-w-0 w-full space-y-6 max-w-4xl mx-auto">
       <button
         type="button"
         onClick={() => navigate('/student/test-series')}
@@ -251,8 +251,8 @@ export default function StudentTestDetail() {
       )}
 
       {/* Start Test Button */}
-      <div className="card p-6 flex flex-col sm:flex-row items-center gap-4">
-        <div className="flex-1">
+      <div className="card p-4 sm:p-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+        <div className="flex-1 min-w-0">
           <p className="text-sm text-navy-100">
             {questionCount} questions &middot; {test.duration} minutes &middot; {test.total_marks} marks
           </p>
@@ -266,7 +266,7 @@ export default function StudentTestDetail() {
           type="button"
           onClick={handleStartTest}
           disabled={starting || scheduleLocked || !testPublished}
-          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 disabled:bg-green-400 text-navy-100 font-semibold px-8 py-3 rounded-xl transition-colors cursor-pointer disabled:cursor-not-allowed shadow-lg shadow-green-600/20"
+          className="w-full sm:w-auto sm:shrink-0 inline-flex items-center justify-center gap-2 bg-green-700 hover:bg-green-800 disabled:bg-green-700/60 text-white font-semibold px-5 py-3 rounded-xl transition-colors cursor-pointer disabled:cursor-not-allowed shadow-lg shadow-green-600/20"
         >
           <Play className="w-5 h-5" />
           {starting ? 'Starting...' : !testPublished ? 'Not published' : scheduleLocked ? 'Not available yet' : 'Start Test'}

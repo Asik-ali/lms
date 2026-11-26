@@ -575,3 +575,31 @@
   .auth-form-area { min-height: 100dvh; padding: 40px 24px; }
   .auth-form-heading h1 { font-size: 1.75rem; }
 }
+
+/* Keep exam controls within narrow mobile WebViews and short landscape screens. */
+.test-taking { min-width: 0; width: 100%; overflow-wrap: anywhere; }
+.test-toolbar-title { flex: 1 1 180px; }
+.test-taking .test-toolbar-title > div { flex: 1; }
+.test-taking button { min-height: 44px; }
+.test-submit-dialog { max-height: calc(100dvh - 2rem); overscroll-behavior: contain; }
+.test-submit-dialog > div:last-child { position: sticky; bottom: 0; background: var(--nv-surface); }
+.test-mobile-footer { padding-bottom: env(safe-area-inset-bottom, 0px); }
+.test-detail > *, .test-detail .grid > * { min-width: 0; }
+.test-detail .card:has(table) { overflow: hidden; }
+@media (max-width: 639px) {
+  .test-toolbar { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; }
+  .test-toolbar-title { grid-column: 1 / -1; width: 100%; }
+  .test-toolbar-timer { grid-column: 1; grid-row: 2; justify-self: start; }
+  .test-toolbar-submit { grid-column: 2; grid-row: 2; }
+  .test-toolbar .question-language-control { grid-column: 1 / -1; min-width: 0; }
+  .test-taking .question-language-switch { flex-wrap: wrap; }
+  .test-taking .question-language-switch button { min-width: 0; }
+  .test-taking .test-mobile-footer button { min-width: 44px; }
+  .test-taking .test-mobile-footer > div { flex-wrap: wrap; }
+  .test-taking .test-mobile-footer button:first-child { overflow-wrap: anywhere; }
+  .test-submit-dialog > div:first-child { padding: 20px 16px; }
+  .test-submit-dialog .grid { gap: 8px; }
+  .test-submit-dialog .grid > div { min-width: 0; padding: 12px 4px; }
+  .test-submit-dialog > div:last-child button { min-width: 0; padding-inline: 12px; }
+  .test-taking .space-y-6 > .flex > .flex:last-child { flex-wrap: wrap; }
+}
