@@ -99,7 +99,7 @@ export default function ReferralsPage() {
       </table>{!data.referrals.length && <div className="p-8 text-center text-navy-200"><Users className="mx-auto mb-3" /><p>No referrals yet.</p></div>}</div>
       <div className="flex items-center justify-between gap-3 text-sm text-navy-200">
         <span>{data.count} verified {data.count === 1 ? 'signup' : 'signups'}</span>
-        <div className="flex gap-2"><button className="btn-secondary" disabled={loading || !page} onClick={() => setPage(value => value - 1)}>Previous</button><button className="btn-secondary" disabled={loading || (page + 1) * 25 >= data.count} onClick={() => setPage(value => value + 1)}>Next</button></div>
+        {(page > 0 || (page + 1) * 25 < data.count) && <nav aria-label="Referrals pagination" className="flex flex-wrap gap-2">{page > 0 && <button className="btn-secondary" disabled={loading} onClick={() => setPage(value => Math.max(0, value - 1))}>Previous</button>}{(page + 1) * 25 < data.count && <button className="btn-secondary" disabled={loading} onClick={() => setPage(value => value + 1)}>Next</button>}</nav>}
       </div>
     </>}
   </div>;

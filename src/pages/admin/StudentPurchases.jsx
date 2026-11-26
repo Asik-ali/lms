@@ -152,7 +152,7 @@ export default function StudentPurchases() {
       </table>{!orders.length && <p className="p-8 text-center text-navy-300">No payment attempts found.</p>}</div>}
     <div className="flex items-center justify-between gap-3 text-sm text-navy-200">
       <span>{count ? `Showing ${page * pageSize + 1}-${Math.min((page + 1) * pageSize, count)} of ${count} payment attempts` : '0 payment attempts'}</span>
-      {count > pageSize && <nav aria-label="Payment attempts pagination" className="flex gap-2 items-center"><button className="btn-secondary disabled:opacity-40 disabled:cursor-not-allowed" disabled={loading || page === 0} onClick={() => setPage(value => Math.max(0, value - 1))}>Previous</button><span>Page {page + 1} of {Math.ceil(count / pageSize)}</span><button className="btn-secondary disabled:opacity-40 disabled:cursor-not-allowed" disabled={loading || (page + 1) * pageSize >= count} onClick={() => setPage(value => Math.min(Math.ceil(count / pageSize) - 1, value + 1))}>Next</button></nav>}
+      {count > pageSize && <nav aria-label="Payment attempts pagination" className="flex flex-wrap gap-2 items-center">{page > 0 && <button className="btn-secondary" disabled={loading} onClick={() => setPage(value => Math.max(0, value - 1))}>Previous</button>}<span>Page {page + 1} of {Math.ceil(count / pageSize)}</span>{(page + 1) * pageSize < count && <button className="btn-secondary" disabled={loading} onClick={() => setPage(value => Math.min(Math.ceil(count / pageSize) - 1, value + 1))}>Next</button>}</nav>}
     </div>
   </div>;
 }

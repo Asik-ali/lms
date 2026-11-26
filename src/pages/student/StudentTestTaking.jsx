@@ -513,22 +513,22 @@ export default function StudentTestTaking() {
               </div>
 
               <div className="flex items-center gap-2">
-                <button
+                {currentIdx > 0 && <button
                   onClick={handlePrev}
                   disabled={currentIdx === 0}
                   className="flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium bg-surface text-navy-100 border border-navy-700 hover:bg-navy-700/60 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
                 >
                   <ChevronLeft className="w-4 h-4" />
                   Previous
-                </button>
-                <button
+                </button>}
+                {currentIdx < questions.length - 1 && <button
                   onClick={handleNext}
                   disabled={currentIdx === questions.length - 1}
                   className="flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium bg-surface text-navy-100 border border-navy-700 hover:bg-navy-700/60 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
                 >
                   Next
                   <ChevronRight className="w-4 h-4" />
-                </button>
+                </button>}
               </div>
             </div>
           </div>
@@ -602,12 +602,12 @@ export default function StudentTestTaking() {
             Q {currentIdx + 1}/{questions.length}
           </button>
           <div className="flex items-center gap-2">
-            <button aria-label="Previous question" onClick={handlePrev} disabled={currentIdx === 0} className="p-2 rounded-lg bg-navy-800 text-navy-100 disabled:opacity-40">
+            {currentIdx > 0 && <button aria-label="Previous question" onClick={handlePrev} className="p-2 rounded-lg bg-navy-800 text-navy-100">
               <ChevronLeft className="w-4 h-4" />
-            </button>
-            <button aria-label="Next question" onClick={handleNext} disabled={currentIdx === questions.length - 1} className="p-2 rounded-lg bg-navy-800 text-navy-100 disabled:opacity-40">
+            </button>}
+            {currentIdx < questions.length - 1 && <button aria-label="Next question" onClick={handleNext} className="p-2 rounded-lg bg-navy-800 text-navy-100">
               <ChevronRight className="w-4 h-4" />
-            </button>
+            </button>}
           </div>
           <button onClick={() => setShowSubmitConfirm(true)} className="px-3 py-2 text-xs font-medium bg-navy-600 text-white rounded-lg">
             Submit

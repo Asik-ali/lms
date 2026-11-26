@@ -264,7 +264,7 @@ export default function StudentTestResult() {
           <AlertTriangle className="mx-auto mb-3 h-10 w-10 text-rose-500" />
           <p className="text-lg font-semibold text-rose-700 dark:text-rose-300">{error}</p>
           <button
-            onClick={() => navigate(-1)}
+            onClick={() => navigate('/student/test-series', { replace: true })}
             className="mt-4 rounded-lg bg-navy-600 px-4 py-2 text-sm font-medium text-white hover:bg-navy-700 dark:hover:bg-[#0D4FB5]"
           >
             Go Back
@@ -293,7 +293,7 @@ export default function StudentTestResult() {
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <button
-            onClick={() => navigate(-1)}
+            onClick={() => navigate(attempt?.test_id ? `/student/test/${attempt.test_id}` : '/student/test-series', { replace: true })}
             className="mb-1 flex items-center gap-1.5 text-sm text-navy-200 hover:text-navy-600"
           >
             <ArrowLeft className="h-4 w-4" />

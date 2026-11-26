@@ -413,9 +413,9 @@ export default function TestSeries() {
               </tbody>
             </table>
             <div className="flex items-center justify-between gap-3 border-t border-navy-700 p-4 text-sm">
-              <button className="btn-secondary" disabled={questionsLoading || questionPage === 0} onClick={() => setQuestionPage(page => page - 1)}>Previous</button>
+              {questionPage > 0 && <button className="btn-secondary" disabled={questionsLoading} onClick={() => setQuestionPage(page => Math.max(0, page - 1))}>Previous</button>}
               <span>Page {questionPage + 1} of {Math.max(1, Math.ceil(questionTotal / questionPageSize))}</span>
-              <button className="btn-secondary" disabled={questionsLoading || (questionPage + 1) * questionPageSize >= questionTotal} onClick={() => setQuestionPage(page => page + 1)}>Next</button>
+              {(questionPage + 1) * questionPageSize < questionTotal && <button className="btn-secondary" disabled={questionsLoading} onClick={() => setQuestionPage(page => page + 1)}>Next</button>}
             </div>
           </div>
         </div>

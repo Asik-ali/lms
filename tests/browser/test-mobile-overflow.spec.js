@@ -1,4 +1,4 @@
-﻿import { test, expect } from '@playwright/test';
+import { test, expect } from '@playwright/test';
 for (const viewport of [{width:320,height:640},{width:390,height:844},{width:640,height:360}]) {
  test(`mobile test start, timer and submit fit ${viewport.width}x${viewport.height}`, async({page})=>{
   await page.setViewportSize(viewport);
@@ -13,7 +13,7 @@ for (const viewport of [{width:320,height:640},{width:390,height:844},{width:640
   await page.route('**/rest/v1/**',r=>{
    const url=new URL(r.request().url()),table=url.pathname.split('/').pop();
    if(r.request().method()==='HEAD')return r.fulfill({headers:{'content-range':'0-0/1'}});
-   if(table==='test_attempts' && r.request().method()==='PATCH') {submitted=true;return r.fulfill({json:{...attempt,...r.request().postDataJSON()}});}
+   if(table==='test_attempts' && r.request().method()==='PATCH') {submitted=true;Object.assign(attempt,r.request().postDataJSON());return r.fulfill({json:attempt});}
    return r.fulfill({json:table==='profiles'?{...user,name:'Alex',role:'student',status:'Active'}:table==='tests'?exam:table==='questions'?[question]:table==='test_attempts'?(url.searchParams.has('id')||url.searchParams.get('status')==='eq.in_progress'?attempt:[]):table==='test_responses'&&r.request().method()==='POST'?{id:1,...r.request().postDataJSON()}:[]});
   });
   const noOverflow=async()=>{
@@ -26,6 +26,8 @@ for (const viewport of [{width:320,height:640},{width:390,height:844},{width:640
   await start.scrollIntoViewIfNeeded();await expect(start).toBeInViewport();await noOverflow();
   await start.click();
   await expect(page.getByText('What is two plus two?',{exact:true})).toBeVisible();
+  await expect(page.getByRole('button',{name:/^(Previous|Next)( question)?$/})).toHaveCount(0);
+  await expect(page.getByRole('button',{name:'Go back to previous page'})).toHaveCount(0);
   await noOverflow();
   await expect(page.getByLabel('Time remaining',{exact:true})).toBeInViewport();
   await expect(page.getByRole('button',{name:'Submit Test',exact:true})).toBeInViewport();
@@ -38,6 +40,8 @@ for (const viewport of [{width:320,height:640},{width:390,height:844},{width:640
   await page.screenshot({path:`tmp/test-submit-${viewport.width}.png`,fullPage:true});
   await confirm.click();await expect.poll(()=>submitted).toBe(true);
   await expect(page).toHaveURL(/\/student\/test\/result\/9$/);
+  await page.getByRole('button',{name:'Back',exact:true}).click();
+  await expect(page).toHaveURL(/\/student\/test\/1$/);
   expect(errors).toEqual([]);
  });
 }
