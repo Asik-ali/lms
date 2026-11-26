@@ -98,7 +98,7 @@ export default function Sidebar({ mobileOpen, onClose }) {
   };
 
   return (
-    <aside className={`fixed left-0 top-0 z-40 flex h-dvh w-64 max-w-[calc(100vw-2rem)] flex-col border-r border-navy-700 bg-navy-950 transition-transform duration-300 lg:translate-x-0 ${mobileOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+    <aside className={`workspace-sidebar fixed left-0 top-0 z-40 flex h-dvh w-64 max-w-[calc(100vw-2rem)] flex-col border-r border-navy-700 bg-navy-950 transition-transform duration-300 lg:translate-x-0 ${mobileOpen ? 'translate-x-0' : '-translate-x-full'}`}>
       <div className="flex shrink-0 items-center gap-3 px-4 h-16 border-b border-navy-700">
         <img src={logo} alt="EXAMSTICK" className="w-10 h-10 rounded-full object-contain flex-shrink-0 ring-1 ring-gold-500/30" />
         <span className="font-bold text-lg tracking-tight text-navy-100">EXAM<span className="text-gold-700 dark:text-gold-400">STICK</span></span>
@@ -107,19 +107,20 @@ export default function Sidebar({ mobileOpen, onClose }) {
         </button>
       </div>
 
-      <div className="px-3 py-2 border-b border-navy-700">
+      <div className="workspace-identity px-3 py-2 border-b border-navy-700">
         <div className="flex items-center gap-2 px-2 py-1.5">
           <div className={`w-6 h-6 rounded-md ${roleColors[role]} flex items-center justify-center flex-shrink-0`}>
             <Users className="w-3 h-3 text-white" />
           </div>
           <div>
-            <p className="text-xs font-medium text-navy-100">{user?.name || roleLabels[role]}</p>
+            <p className="text-sm font-semibold text-navy-100">{user?.name || roleLabels[role]}</p>
             <p className="text-xs text-navy-200">{roleLabels[role]}</p>
           </div>
         </div>
       </div>
 
-      <nav className="sidebar-nav flex-1 overflow-y-auto px-3 py-4 space-y-1">
+      <nav aria-label="Main navigation" className="sidebar-nav flex-1 overflow-y-auto px-3 py-4 space-y-1">
+        <p className="workspace-nav-label">{role === 'student' ? 'Learning workspace' : 'Academy management'}</p>
         {navItems.map((item) => {
           const Icon = item.icon;
           const hasSub = item.submenu && item.submenu.length > 0;
@@ -128,7 +129,7 @@ export default function Sidebar({ mobileOpen, onClose }) {
           if (hasSub) {
             return (
               <div key={item.section}>
-                <button onClick={() => toggleExpand(item.section)} className="w-full sidebar-link sidebar-link-inactive">
+                <button aria-expanded={expandedItem} onClick={() => toggleExpand(item.section)} className="w-full sidebar-link sidebar-link-inactive">
                   <Icon className="w-5 h-5 flex-shrink-0" />
                   <>
                     <span className="flex-1 text-left truncate">{item.section}</span>

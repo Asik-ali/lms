@@ -116,7 +116,7 @@ export default function Topbar({ title, onMenuClick }) {
 
   return (
     <>
-      <header className="h-16 shrink-0 bg-navy-950 border-b border-navy-700 flex items-center justify-between gap-2 sm:gap-3 px-4 sm:px-6 sticky top-0 z-20">
+      <header className="workspace-topbar h-16 shrink-0 bg-navy-950 border-b border-navy-700 flex items-center justify-between gap-2 sm:gap-3 px-4 sm:px-6 sticky top-0 z-20">
         <div className="flex min-w-0 items-center gap-3">
           <button onClick={onMenuClick} className="p-2 -ml-2 rounded-lg hover:bg-navy-800 lg:hidden" aria-label="Open navigation menu">
             <Menu className="w-5 h-5 text-navy-100" />
@@ -134,6 +134,7 @@ export default function Topbar({ title, onMenuClick }) {
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-navy-300 pointer-events-none" />
               <input
                 type="text"
+                aria-label="Search students, courses, tests, and announcements"
                 value={searchQuery}
                 onChange={e => { setSearchQuery(e.target.value); setSearchOpen(true); }}
                 onFocus={() => setSearchOpen(true)}
@@ -181,7 +182,7 @@ export default function Topbar({ title, onMenuClick }) {
           )}
 
           <div className="relative">
-            <button onClick={() => { setShowNotifications(!showNotifications); setShowProfile(false); setSearchOpen(false); }} className="relative p-2 rounded-lg hover:bg-navy-800">
+            <button aria-label="Announcements" aria-expanded={showNotifications} onClick={() => { setShowNotifications(!showNotifications); setShowProfile(false); setSearchOpen(false); }} className="relative p-2 rounded-lg hover:bg-navy-800">
               <Bell className="w-5 h-5 text-navy-200" />
               {visibleAnnouncements.length > 0 && <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-brand-red rounded-full"></span>}
             </button>
@@ -210,7 +211,7 @@ export default function Topbar({ title, onMenuClick }) {
           </div>
 
           <div className="relative">
-            <button onClick={() => { setShowProfile(!showProfile); setShowNotifications(false); setSearchOpen(false); }} className="flex items-center gap-2 p-1.5 rounded-lg hover:bg-navy-800">
+            <button aria-label="Account menu" aria-expanded={showProfile} onClick={() => { setShowProfile(!showProfile); setShowNotifications(false); setSearchOpen(false); }} className="flex items-center gap-2 p-1.5 rounded-lg hover:bg-navy-800">
               <div className="w-8 h-8 rounded-full bg-navy-600 flex items-center justify-center">
                 <UserCircle className="w-6 h-6 text-white" />
               </div>

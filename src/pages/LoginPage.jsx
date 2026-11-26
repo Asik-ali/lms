@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { User, Lock, AlertCircle, Eye, EyeOff } from 'lucide-react';
+import { User, Lock, AlertCircle, Eye, EyeOff, BookOpen, ClipboardList, GraduationCap } from 'lucide-react';
 import logo from '../assets/image.png';
 
 export default function LoginPage() {
@@ -50,43 +50,55 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-navy-950 flex items-center justify-center p-4 relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-navy-600/20 blur-3xl" />
-        <div className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-gold-500/10 blur-3xl" />
-      </div>
-      <div className="w-full max-w-md relative animate-fade-up">
-        <div className="text-center mb-8">
-          <div className="w-24 h-24 rounded-full bg-[#0B1424] border border-gold-500/40 flex items-center justify-center mx-auto mb-5 shadow-lg shadow-gold-500/10 overflow-hidden">
+    <div className="auth-workspace">
+      <section className="auth-introduction" aria-label="About EXAMSTICK">
+        <div className="auth-wordmark"><img src={logo} alt="" /><span>EXAM<span>STICK</span></span></div>
+        <div className="auth-introduction-content">
+          <p className="auth-kicker">PREPARE WITH PURPOSE</p>
+          <h2>A focused space for your next achievement.</h2>
+          <p>Bring your courses, practice tests, and academy updates together. Build your preparation one step at a time.</p>
+          <div className="auth-features">
+            <div><BookOpen aria-hidden="true" /><span><strong>Structured learning</strong><small>Your enrolled courses, in one place.</small></span></div>
+            <div><ClipboardList aria-hidden="true" /><span><strong>Purposeful practice</strong><small>Test series to support your preparation.</small></span></div>
+            <div><GraduationCap aria-hidden="true" /><span><strong>Stay connected</strong><small>Academy updates and student support.</small></span></div>
+          </div>
+        </div>
+        <p className="auth-brand-footer">EXAMSTICK · Your learning workspace</p>
+      </section>
+      <div className="auth-form-area">
+      <div className="w-full max-w-md relative">
+        <div className="auth-form-heading">
+          <div className="auth-mobile-logo w-16 h-16 rounded-full bg-[#0B1424] border border-gold-500/40 items-center justify-center mb-5 overflow-hidden">
             <img src={logo} alt="EXAMSTICK" className="w-full h-full object-contain" />
           </div>
-          <h1 className="text-3xl font-bold tracking-tight text-navy-100">EXAM<span className="text-gold-700 dark:text-gold-400">STICK</span></h1>
-          <p className="text-muted mt-2">Sign in to your account</p>
+          <p className="learning-eyebrow">WELCOME TO EXAMSTICK</p>
+          <h1 className="text-3xl font-bold tracking-tight text-navy-100">Sign in to your workspace</h1>
+          <p className="text-muted mt-3">Continue your learning journey.</p>
         </div>
 
-        <div className="bg-surface rounded-2xl border border-navy-700 border-t-2 border-t-gold-500 p-5 sm:p-8 shadow-xl shadow-black/5 dark:shadow-black/20">
+        <div className="auth-form-card">
           <form onSubmit={handleLogin} name="examstick-login" autoComplete="on" className="space-y-5">
             {error && (
-              <div className="flex items-center gap-2 p-3 bg-brand-red/10 border border-brand-red/40 rounded-lg text-sm text-red-700 dark:text-red-300">
+              <div id="login-error" role="alert" className="flex items-center gap-2 p-3 bg-brand-red/10 border border-brand-red/40 rounded-lg text-sm text-red-700 dark:text-red-300">
                 <AlertCircle className="w-4 h-4 flex-shrink-0" />
                 {error}
               </div>
             )}
 
             <div>
-              <label className="block text-sm font-medium text-navy-100 mb-1.5">Username or email</label>
+              <label htmlFor="login-username" className="block text-sm font-medium text-navy-100 mb-1.5">Username or email</label>
               <div className="relative">
                 <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-navy-300" />
-                <input name="username" type="text" autoComplete="username" value={username} onChange={e => setUsername(e.target.value)} placeholder="Enter username or email" className="input-field pl-10" autoFocus />
+                <input id="login-username" name="username" type="text" autoComplete="username" autoCapitalize="none" spellCheck={false} aria-describedby={error ? 'login-error' : undefined} value={username} onChange={e => setUsername(e.target.value)} placeholder="Enter username or email" className="input-field pl-10" autoFocus />
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-navy-100 mb-1.5">Password</label>
+              <label htmlFor="login-password" className="block text-sm font-medium text-navy-100 mb-1.5">Password</label>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-navy-300" />
-                <input name="password" type={showPw ? 'text' : 'password'} autoComplete="current-password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Enter password" className="input-field pl-10 pr-10" />
-                <button type="button" onClick={() => setShowPw(!showPw)} className="absolute right-3 top-1/2 -translate-y-1/2 text-navy-300 hover:text-navy-100">
+                <input id="login-password" name="password" type={showPw ? 'text' : 'password'} autoComplete="current-password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Enter password" className="input-field pl-10 pr-12" />
+                <button type="button" aria-label={showPw ? 'Hide password' : 'Show password'} aria-pressed={showPw} onClick={() => setShowPw(!showPw)} className="absolute right-1 top-1/2 -translate-y-1/2 flex items-center justify-center w-11 h-11 rounded-lg text-navy-300 hover:text-navy-100">
                   {showPw ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
               </div>
@@ -105,6 +117,7 @@ export default function LoginPage() {
             </Link>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );
