@@ -8,6 +8,8 @@ android/app/build/
 .gradle/
 .gradle-home/
 .gradle-user/
+.gradle-upi/
+tmp/
 
 # Local tooling data and test artifacts.
 .git/

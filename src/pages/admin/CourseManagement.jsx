@@ -26,6 +26,18 @@ export default function CourseManagement() {
   const [mediaViewer, setMediaViewer] = useState(null);
   const [maxDays, setMaxDays] = useState(0);
   const [activeDay, setActiveDay] = useState(1);
+  const [publishing, setPublishing] = useState(null);
+
+  async function publishCourse(course) {
+    if (user?.role !== 'admin' || publishing !== null) return;
+    setPublishing(course.id);
+    try {
+      await updateCourse(course.id, { status: 'Published' });
+      setCourses(current => current.map(c => c.id === course.id ? { ...c, status: 'Published' } : c));
+      showSuccess('Course published.');
+    } catch (error) { showError(error.message || 'Unable to publish course.'); }
+    finally { setPublishing(null); }
+  }
 
   useEffect(() => { refresh(); }, []);
 
@@ -403,6 +415,7 @@ export default function CourseManagement() {
                 <td className="table-cell text-navy-200">{c.duration}</td>
                 <td className="table-cell">
                   <div className="flex items-center gap-2">
+                    {user?.role === 'admin' && String(c.status).toLowerCase() === 'draft' && <button disabled={publishing !== null} onClick={() => publishCourse(c)} className="btn-secondary disabled:opacity-50" aria-label={`Publish ${c.title}`}>{publishing === c.id ? 'Publishing...' : 'Publish'}</button>}
                     <button onClick={() => handleOpenEdit(c)} className="p-1.5 text-navy-300 hover:text-navy-600 hover:bg-navy-50 dark:hover:bg-navy-500/10 rounded-lg">
                       <Edit2 className="w-4 h-4" />
                     </button>

@@ -2,6 +2,12 @@ import { useEffect, useState } from 'react';
 
 export default function usePlayerFullscreen(container) {
   const [expanded, setExpanded] = useState(false);
+  const [nativeFullscreen, setNativeFullscreen] = useState(false);
+  useEffect(() => {
+    const changed = () => setNativeFullscreen(document.fullscreenElement === container.current);
+    document.addEventListener('fullscreenchange', changed);
+    return () => document.removeEventListener('fullscreenchange', changed);
+  }, [container]);
   useEffect(() => {
     const escape = event => { if (event.key === 'Escape' && expanded) { event.stopImmediatePropagation(); setExpanded(false); } };
     document.addEventListener('keydown', escape, true);
@@ -15,5 +21,5 @@ export default function usePlayerFullscreen(container) {
       else setExpanded(true);
     } catch { setExpanded(true); }
   };
-  return { expanded, toggleFullscreen };
+  return { expanded, fullscreen: expanded || nativeFullscreen, toggleFullscreen };
 }

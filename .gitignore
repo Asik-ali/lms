@@ -35,6 +35,9 @@ test-results/
 .gradle-home/
 .gradle-upi/
 .gradle/
+.gradle-user/
+.checks.local/
+tmp/
 
 # Android release signing material
 *.keystore

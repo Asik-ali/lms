@@ -428,7 +428,7 @@ export default function StudentBuyCourses() {
                       </Link>)}
                     </div>
                   </> : <>
-                    {hasOwned && <div className="mb-3 rounded-lg border border-amber-500/30 bg-amber-500/10 p-3 text-sm text-amber-200" role="status">
+                    {hasOwned && <div className="shop-ownership-note mb-3 rounded-lg border p-3 text-sm" role="status">
                       You already own some of this bundle. You can still buy it to unlock the remaining content.
                     </div>}
                     <button

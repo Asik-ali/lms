@@ -10,7 +10,7 @@ const clock = seconds => {
 export default function PrivateVideoPlayer({ url, title, watermark }) {
   const video = useRef(null);
   const container = useRef(null);
-  const { expanded, toggleFullscreen } = usePlayerFullscreen(container);
+  const { expanded, fullscreen, toggleFullscreen } = usePlayerFullscreen(container);
   const [playing, setPlaying] = useState(false);
   const [ended, setEnded] = useState(false);
   const [ready, setReady] = useState(false);
@@ -82,7 +82,7 @@ export default function PrivateVideoPlayer({ url, title, watermark }) {
       <select aria-label="Playback speed" value={rate} disabled={!ready || Boolean(error)} className="bg-black text-white text-xs" onChange={event => { const next = Number(event.target.value); video.current.playbackRate = next; setRate(next); }}>
         {[0.5, 0.75, 1, 1.25, 1.5, 2].map(value => <option key={value} value={value}>{value}x</option>)}
       </select>
-      <button aria-label={expanded ? 'Exit fullscreen video' : 'Fullscreen video'} onClick={toggleFullscreen}><Maximize /></button>
+      <button aria-label={fullscreen ? 'Exit fullscreen video' : 'Fullscreen video'} onClick={toggleFullscreen}><Maximize /></button>
     </div>
   </div>;
 }

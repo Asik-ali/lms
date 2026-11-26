@@ -202,7 +202,7 @@ export default function AdminTickets() {
                 </div>
               )}
             </div>
-          ) : (
+          ) : filtered.length > 0 && (
             <div className="card p-8 text-center text-navy-300">
               <MessageSquare className="w-12 h-12 mx-auto mb-3 text-navy-300" />
               <p>Select a ticket to view and reply</p>

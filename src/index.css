@@ -603,3 +603,8 @@
   .test-submit-dialog > div:last-child button { min-width: 0; padding-inline: 12px; }
   .test-taking .space-y-6 > .flex > .flex:last-child { flex-wrap: wrap; }
 }
+
+.media-video-content .player-shell { display: flex; flex-direction: column; max-height: 100dvh; }
+.media-video-content .player-shell iframe { max-height: calc(100dvh - 64px); flex-shrink: 1; min-height: 0; }
+.media-video-content .player-shell > .relative.aspect-video { width: 100%; max-height: calc(100dvh - 120px); }
+.media-video-content .player-shell > div:last-child { flex-shrink: 0; }

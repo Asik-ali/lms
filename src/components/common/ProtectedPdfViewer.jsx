@@ -10,7 +10,7 @@ import { apiUrl } from '../../data/api';
 
 GlobalWorkerOptions.workerSrc = workerUrl;
 
-export default function ProtectedPdfViewer({ url, fileId, title, watermark }) {
+export default function ProtectedPdfViewer({ url, fileId, title, watermark, showTitle = true }) {
   const canvas = useRef(null);
   const container = useRef(null);
   const { expanded, toggleFullscreen } = usePlayerFullscreen(container);
@@ -108,7 +108,7 @@ export default function ProtectedPdfViewer({ url, fileId, title, watermark }) {
   return (
     <div ref={container} onContextMenu={event => event.preventDefault()} className={`pdf-viewer select-none ${expanded ? 'pdf-viewer-expanded' : ''}`}>
       <div className="pdf-toolbar flex flex-wrap justify-between items-center gap-2 p-2 border-b border-navy-700">
-        <span className="text-sm font-medium truncate min-w-0 flex-1">{title}</span>
+        {showTitle && <span className="text-sm font-medium truncate min-w-0 flex-1">{title}</span>}
         <button type="button" aria-label={expanded || nativeFullscreen ? 'Exit fullscreen PDF' : 'Fullscreen PDF'} onClick={toggleFullscreen} className="inline-flex min-h-11 min-w-11 items-center justify-center gap-2 rounded-lg px-3 hover:bg-navy-50 dark:hover:bg-navy-900">
           {expanded || nativeFullscreen ? <Minimize size={18} /> : <Maximize size={18} />}<span className="text-xs">{expanded || nativeFullscreen ? 'Exit fullscreen' : 'Fullscreen'}</span>
         </button>

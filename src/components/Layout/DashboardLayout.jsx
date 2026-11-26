@@ -27,6 +27,7 @@ const titles = {
   '/student': 'Dashboard',
   '/student/referrals': 'Refer & Earn',
   '/student/courses': 'My Courses',
+  '/student/buy-courses': 'Shop Courses & Tests',
   '/student/live-classes': 'Live Classes',
   '/student/test-series': 'Test Series',
   '/student/free-test-series': 'Free Test Series',

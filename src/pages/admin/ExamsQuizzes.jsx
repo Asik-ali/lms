@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Plus, X, ChevronRight, Trash2, FolderOpen, FileText, HelpCircle, Settings, Clock, Target, Globe, BarChart3, Edit2 } from 'lucide-react';
 import { getAllTestSeries, addTestSeries, updateTestSeries, setTestSeriesFree, deleteTestSeries, getCategoriesBySeries, addTestCategory, deleteTestCategory, getTestsByCategoryId, addTest, updateTest, deleteTest, getQuestionPage, addQuestionToTest, deleteQuestion } from '../../data/dynamicStore';
 import { showError, showSuccess } from '../../components/common/Toast';
+import { useAuth } from '../../contexts/AuthContext';
 
 const LEVELS = ['series', 'categories', 'tests', 'questions'];
 const emptyTestForm = { name: '', description: '', duration: 90, total_marks: 270, difficulty: 'Moderate', language: 'English', instructions: '', syllabus: '', available_at: '', status: 'Draft' };
@@ -17,6 +18,18 @@ const toUtcDateStart = value => {
 };
 
 export default function TestSeries() {
+  const { user } = useAuth();
+  const [publishing, setPublishing] = useState(null);
+  async function publishTest(test) {
+    if (user?.role !== 'admin' || publishing !== null) return;
+    setPublishing(test.id);
+    try {
+      await updateTest(test.id, { status: 'Published' });
+      setTestsList(current => current.map(t => t.id === test.id ? { ...t, status: 'Published' } : t));
+      showSuccess('Test published.');
+    } catch (error) { showError(error.message || 'Unable to publish test.'); }
+    finally { setPublishing(null); }
+  }
   const [level, setLevel] = useState('series');
   const [seriesList, setSeriesList] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -353,6 +366,7 @@ export default function TestSeries() {
                       </div>
                     </div>
                     </button>
+                    {user?.role === 'admin' && String(t.status).toLowerCase() === 'draft' && <button aria-label={`Publish ${t.name}`} disabled={publishing !== null} onClick={() => publishTest(t)} className="btn-secondary shrink-0 disabled:opacity-50">{publishing === t.id ? 'Publishing...' : 'Publish'}</button>}
                     <button aria-label={`Edit ${t.name}`} onClick={() => openEditTest(t)} className="p-2 shrink-0 text-navy-300 hover:text-navy-600 cursor-pointer"><Edit2 className="w-4 h-4" /></button>
                     <button aria-label={`Delete ${t.name}`} onClick={() => handleDeleteTest(t.id)} className="p-2 shrink-0 text-navy-300 hover:text-red-600 cursor-pointer"><Trash2 className="w-4 h-4" /></button>
                   </div>

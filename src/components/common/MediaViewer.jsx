@@ -87,9 +87,9 @@ export default function MediaViewer({ url, title, type, fileId, onClose }) {
           </button>
         </div>}
         {videoOnly && <button aria-label="Close video" onClick={onClose} className="absolute right-3 top-3 z-30 rounded-full bg-black/60 p-2 text-white/80 hover:text-white"><X className="h-5 w-5" /></button>}
-        <div className={videoOnly ? 'flex h-full w-full items-center justify-center' : 'p-4'}>
+        <div className={videoOnly ? 'media-video-content flex h-full w-full items-center justify-center' : 'p-4'}>
           {safeUrl && type === 'video' && ytEmbed ? (
-            <ProtectedYouTubePlayer embedUrl={ytEmbed} title={title} watermark={watermark} autoplay />
+            <ProtectedYouTubePlayer embedUrl={ytEmbed} title={title} watermark={watermark} />
           ) : safeUrl && type === 'video' && drivePreview ? (
             <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
               <iframe
@@ -104,10 +104,10 @@ export default function MediaViewer({ url, title, type, fileId, onClose }) {
               <div aria-hidden="true" className="absolute top-0 right-0 w-20 h-16 bg-black z-10" />
             </div>
           ) : safeUrl && type === 'video' && directVideo && !isDrive ? (
-            <PrivateVideoPlayer url={url} title={title} />
+            <PrivateVideoPlayer url={url} title={title} watermark={watermark} />
           ) : (safeUrl || fileId) && type === 'pdf' ? (
             <Suspense fallback={<PdfLoading message="Preparing PDF viewer..." />}>
-              <ProtectedPdfViewer url={safeUrl} fileId={fileId} title={title} watermark={watermark} />
+              <ProtectedPdfViewer url={safeUrl} fileId={fileId} title={title} watermark={watermark} showTitle={false} />
             </Suspense>
           ) : (
             <div className="text-center py-10">
