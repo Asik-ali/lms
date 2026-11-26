@@ -1,5 +1,6 @@
 import nodemailer from 'nodemailer';
 import { createServiceClient, requireAdmin, setCors, getBearerToken } from './_auth.mjs';
+import { validateBackup } from '../src/data/backup.js';
 
 const backupTables = [
   'profiles', 'sales_plans', 'sales_plan_items', 'purchase_orders', 'purchases',
@@ -11,7 +12,7 @@ const backupTables = [
   'question_reports', 'backup_log', 'referral_settings', 'referral_codes', 'referrals',
 ];
 
-async function fetchBackup(supabase) {
+export async function fetchBackup(supabase) {
   const entries = [];
   for (const table of backupTables) {
     try {
@@ -152,6 +153,18 @@ export default async function handler(req, res) {
       const allowed = await requireAdmin(req, res, supabase);
       if (!allowed) return;
 
+      if (req.query?.operation === 'restore') {
+        const backup = req.body?.backup;
+        try { validateBackup(backup); }
+        catch (error) { return res.status(400).json({ error: error.message }); }
+        const { data, error } = await supabase.rpc('restore_lms_backup', { p_backup: backup });
+        if (error) {
+          const missing = error.code === 'PGRST202' || /restore_lms_backup.*(not find|does not exist)/i.test(error.message);
+          return res.status(missing ? 503 : 400).json({ error: missing ? 'Restore is not configured. Apply the atomic_backup_restore.sql migration in Supabase first.' : `Restore failed. No table changes were committed. ${error.message}` });
+        }
+        return res.status(200).json({ success: true, restored: data });
+      }
+
       const { recipient } = req.body || {};
       if (!recipient) {
         return res.status(400).json({ error: 'Missing recipient email' });
@@ -166,7 +179,7 @@ export default async function handler(req, res) {
       ]);
       const exportFailures = getExportFailures(backup);
       if (!emailResult.success) exportFailures.push(`Email: ${emailResult.error}`);
-      if (!sheetsResult.success) exportFailures.push(`Google Sheets: ${sheetsResult.error}`);
+      if (sheetsResult.configured && !sheetsResult.success) exportFailures.push(`Google Sheets: ${sheetsResult.error}`);
       await logBackup(supabase, {
         type: 'manual',
         emailedTo: emailResult.success ? [recipient] : [],
@@ -186,6 +199,14 @@ export default async function handler(req, res) {
     }
 
     if (req.method === 'GET') {
+      if (req.query?.operation === 'download') {
+        if (!await requireAdmin(req, res, supabase)) return;
+        const backup = await fetchBackup(supabase);
+        const failures = getExportFailures(backup);
+        if (failures.length) return res.status(500).json({ error: `Backup incomplete: ${failures.join('; ')}` });
+        res.setHeader('Cache-Control', 'private, no-store');
+        return res.status(200).json(backup);
+      }
       if (req.query?.operation === 'history') {
         if (!await requireAdmin(req, res, supabase)) return;
         const { data, error } = await supabase.from('backup_log')
@@ -225,7 +246,7 @@ export default async function handler(req, res) {
       const counts = await recordCounts(backup);
       const exportFailures = getExportFailures(backup);
       const sheetsResult = await sheetsPromise;
-      if (!sheetsResult.success) exportFailures.push(`Google Sheets: ${sheetsResult.error}`);
+      if (sheetsResult.configured && !sheetsResult.success) exportFailures.push(`Google Sheets: ${sheetsResult.error}`);
       await logBackup(supabase, {
         type: 'cron',
         emailedTo: emailed,

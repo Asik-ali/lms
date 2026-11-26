@@ -7,12 +7,26 @@
     <meta name="application-name" content="EXAMSTICK" />
     <meta property="og:site_name" content="EXAMSTICK" />
     <title>EXAMSTICK</title>
+    <link rel="stylesheet" href="/startup.css" />
+    <script>
+      try {
+        var startupTheme = localStorage.getItem('theme');
+        if (startupTheme !== 'light' && startupTheme !== 'dark') startupTheme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.startupTheme = startupTheme;
+        document.documentElement.classList.toggle('dark', startupTheme === 'dark');
+      } catch (_) {}
+    </script>
   </head>
   <body>
     <div id="root">
-      <div role="status" style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#101827;color:#fff;font:16px system-ui;text-align:center;padding:24px;box-sizing:border-box">
-        <p id="startup-message">Loading EXAMSTICK...</p>
-        <button id="startup-reload" hidden style="padding:12px 24px;cursor:pointer">Reload</button>
+      <div class="app-loader" role="status" aria-live="polite">
+        <div class="boot-scene" aria-hidden="true"><div class="boot-halo"></div><div class="boot-book"><span class="boot-book-label">E</span><span class="boot-book-lines"></span><span class="boot-book-badge">✦</span></div><div class="boot-book-shadow"></div></div>
+        <p class="boot-eyebrow">YOUR NEXT CHAPTER</p>
+        <h1 class="boot-brand">EXAM<span>STICK</span></h1>
+        <p id="startup-message" class="boot-message">Preparing your learning workspace...</p>
+        <div class="boot-progress" aria-hidden="true"><span></span></div>
+        <button id="startup-reload" class="boot-reload" hidden>Reload</button>
+        <p class="boot-caption">Learn. Practice. Move forward.</p>
       </div>
     </div>
     <script type="module" src="/src/main.jsx"></script>

@@ -87,6 +87,18 @@ export default function StudentBuyCourses() {
     try { return localStorage.getItem(`lms-payment-phone-${user?.id}`) || ''; } catch { return ''; }
   });
   const [updatingOrder, setUpdatingOrder] = useState('');
+  const [downloadingInvoice, setDownloadingInvoice] = useState('');
+  async function handleInvoice(orderId) {
+    if (downloadingInvoice) return;
+    setDownloadingInvoice(orderId);
+    try {
+      const { downloadInvoice } = await import('../../data/downloadInvoice');
+      const result = await downloadInvoice(orderId);
+      if (result?.saved) showSuccess(result.method === 'download' ? 'Invoice download started.' : result.method === 'share' ? 'Invoice shared.' : 'Invoice saved.');
+    } catch (error) {
+      if (error.code !== 'CANCELLED' && error.name !== 'AbortError') showError(error.message || 'Unable to download invoice.');
+    } finally { setDownloadingInvoice(''); }
+  }
   const [pdfPreview, setPdfPreview] = useState(null);
   useEffect(() => { loadCashfreeSdk().catch(() => {}); }, []);
   useEffect(() => {
@@ -331,7 +343,7 @@ export default function StudentBuyCourses() {
                         <tr key={o.id} className="border-b border-navy-700">
                           <td className="table-cell text-xs"><span className="font-mono">{o.order_id}</span><p className="text-navy-200 mt-1">{(o.cart_plans || []).map(plan => plan.name).join(", ")}</p></td>
                           <td className="table-cell">{formatINR(o.amount)}{o.credit_released && Number(o.credit_applied) > 0 && <p className="text-xs text-emerald-700 dark:text-emerald-300 mt-1">{formatINR(o.credit_applied)} store credit returned</p>}</td>
-                          <td className="table-cell"><span className={`badge ${cfg.cls}`}>{cfg.label}</span>{o.status !== 'PAID' && !o.credit_released && <>
+                          <td className="table-cell"><span className={`badge ${cfg.cls}`}>{cfg.label}</span>{o.status === 'PAID' && <button disabled={Boolean(downloadingInvoice)} onClick={() => handleInvoice(o.order_id)} className="btn-secondary mt-2 min-h-11" aria-label={`Download invoice ${o.order_id}`}>{downloadingInvoice === o.order_id ? 'Preparing PDF...' : 'Download invoice'}</button>}{o.status !== 'PAID' && !o.credit_released && <>
                             <button disabled={Boolean(updatingOrder)} title="Refresh this order's status from Cashfree. This does not charge you again." className="ml-2 text-xs underline disabled:opacity-50" onClick={() => updateOrder(o.order_id)}>{updatingOrder === o.order_id ? 'Updating...' : 'Check payment'}</button>
                             <button disabled={Boolean(updatingOrder)} className="ml-2 text-xs underline disabled:opacity-50" onClick={() => updateOrder(o.order_id, 'cancel')}>
                               {o.status === 'CANCELLING' ? 'Retry cancellation' : 'Cancel order'}

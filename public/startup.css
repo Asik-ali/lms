@@ -1,0 +1,32 @@
+﻿/* Available before JavaScript starts, shared by the React loading screen. */
+body { margin: 0; }
+.app-loader { --boot-bg: #f4f7fc; --boot-text: #0b2040; --boot-muted: #526580; --boot-track: #d9e4f3; --boot-glow: #bfdbfe; box-sizing: border-box; min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 32px 24px; overflow: hidden; text-align: center; font-family: Inter, system-ui, -apple-system, sans-serif; color: var(--boot-text); background: radial-gradient(ellipse at 50% 30%, color-mix(in srgb, var(--boot-glow) 35%, transparent), transparent 60%), var(--boot-bg); }
+.dark .app-loader { --boot-bg: #0b1730; --boot-text: #edf4ff; --boot-muted: #a7bad5; --boot-track: #233955; --boot-glow: #163b70; }
+@media (prefers-color-scheme: dark) { :root:not([data-startup-theme]) .app-loader { --boot-bg: #0b1730; --boot-text: #edf4ff; --boot-muted: #a7bad5; --boot-track: #233955; --boot-glow: #163b70; } }
+.app-loader *, .app-loader *::before, .app-loader *::after { box-sizing: border-box; }
+.app-loader p, .app-loader h1 { margin: 0; }
+.boot-scene { position: relative; width: 240px; height: 210px; perspective: 800px; margin-bottom: 28px; flex-shrink: 0; }
+.boot-halo { position: absolute; inset: 5px 15px 0; border-radius: 50%; border: 1px solid color-mix(in srgb, var(--boot-muted) 15%, transparent); background: radial-gradient(circle, color-mix(in srgb, var(--boot-glow) 40%, transparent), transparent 68%); }
+.boot-halo::before { content: ''; position: absolute; inset: 18px; border-radius: 50%; border: 1px dashed color-mix(in srgb, var(--boot-muted) 18%, transparent); }
+.boot-book { position: absolute; top: 20px; left: 60px; width: 126px; height: 156px; border-radius: 8px 18px 18px 8px; border-left: 10px solid #154b98; background: linear-gradient(130deg, #479cff, #1264d1 65%, #0b459b); box-shadow: inset 1px 2px 1px #ffffff55, 8px 8px 0 -2px #f5f8ff, 12px 12px 0 -3px #c8d7ec, 16px 16px 0 -4px #1556ad, 20px 28px 38px #092b5633; transform: rotateX(14deg) rotateY(-24deg) rotateZ(-10deg); animation: boot-float 3.4s ease-in-out infinite; }
+.boot-book::before { content: ''; position: absolute; inset: 12px; border: 1px solid #ffffff30; border-radius: 3px 10px 10px 3px; }
+.boot-book-label { position: absolute; left: 23px; top: 20px; font-size: 48px; line-height: 1.2; font-weight: 800; color: white; letter-spacing: -.08em; text-shadow: 0 3px 0 #08479a; }
+.boot-book-lines { position: absolute; left: 25px; top: 98px; width: 42px; height: 4px; background: #b5d9ff; border-radius: 3px; box-shadow: 0 10px 0 #b5d9ff80; }
+.boot-book-badge { position: absolute; display: grid; place-items: center; bottom: -12px; right: -17px; width: 44px; height: 44px; border-radius: 13px; color: #6c4a00; font-size: 26px; background: linear-gradient(135deg, #ffe59b, #f6bf26); border: 2px solid #fff5cb; box-shadow: 0 6px 0 #bb850c, 0 12px 18px #092b5630; }
+.boot-book-shadow { position: absolute; bottom: 1px; left: 56px; width: 130px; height: 16px; background: #0b3b7730; filter: blur(8px); border-radius: 50%; animation: boot-shadow 3.4s ease-in-out infinite; }
+.app-loader .boot-eyebrow { font-size: 12px; letter-spacing: .2em; font-weight: 650; color: var(--boot-muted); margin-bottom: 12px; }
+.app-loader .boot-brand { font-size: clamp(28px, 6vw, 38px); font-weight: 800; letter-spacing: -.045em; line-height: 1.2; }
+.boot-brand span { color: #1264d1; }
+.dark .boot-brand span { color: #ffd45c; }
+.app-loader .boot-message { margin-top: 18px; max-width: 340px; font-size: 15px; line-height: 1.75; color: var(--boot-muted); }
+.boot-progress { width: 180px; max-width: 80%; height: 4px; background: var(--boot-track); margin-top: 24px; overflow: hidden; border-radius: 8px; }
+.boot-progress span { display: block; width: 45%; height: 100%; border-radius: inherit; background: #2583e8; animation: boot-progress 1.8s ease-in-out infinite; }
+.app-loader .boot-caption { font-size: 12px; color: var(--boot-muted); margin-top: 36px; letter-spacing: .025em; }
+.boot-reload { margin-top: 22px; padding: 12px 24px; min-height: 44px; font: 600 14px system-ui; border: 0; border-radius: 10px; background: #1264d1; color: #fff; cursor: pointer; }
+.boot-reload[hidden] { display: none; }
+.boot-reload:focus-visible { outline: 3px solid #65a8ff; outline-offset: 4px; }
+@keyframes boot-float { 0%,100% { transform: translateY(0) rotateX(14deg) rotateY(-24deg) rotateZ(-10deg); } 50% { transform: translateY(-12px) rotateX(18deg) rotateY(-16deg) rotateZ(-7deg); } }
+@keyframes boot-shadow { 0%,100% { transform: scaleX(1); opacity: .7; } 50% { transform: scaleX(.8); opacity: .4; } }
+@keyframes boot-progress { 0% { transform: translateX(-110%); } 100% { transform: translateX(330%); } }
+@media (max-height: 550px) { .boot-scene { width: 240px; height: 160px; transform: scale(.72); margin: -20px 0 0; } .app-loader { padding: 24px; } .app-loader .boot-caption { margin-top: 20px; } }
+@media (prefers-reduced-motion: reduce) { .boot-book, .boot-book-shadow, .boot-progress span { animation: none; } .boot-progress span { width: 60%; } }

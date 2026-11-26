@@ -36,7 +36,7 @@ export default async function handler(req, res) {
         from: `"${smtp.sender_name || 'EXAMSTICK'}" <${smtp.username}>`, to: student.email,
         subject: `Invoice ${order.order_id} — EXAMSTICK`,
         text: `Hello ${student.name || 'Student'},\n\nInvoice number: INV-${order.order_id}\nOrder ID: ${order.order_id}\nStatus: PAID\n\nItems:\n${items}\n\nTotal paid: ${amount}\n\nThank you for learning with EXAMSTICK.`,
-        attachments: [{ filename: `INV-${order.order_id}.pdf`, content: invoicePdf({ number: `INV-${order.order_id}`, orderId: order.order_id, student: student.name, items: (order.cart_plans || []).map(item => item.name), amount, date: new Date(order.created_at).toLocaleDateString('en-IN') }), contentType: 'application/pdf' }],
+        attachments: [{ filename: `INV-${order.order_id}.pdf`, content: invoicePdf({ number: `INV-${order.order_id}`, orderId: order.order_id, student: student.name, items: (order.cart_plans || []), creditApplied: Number(order.credit_applied || 0), amount, date: new Date(order.created_at).toLocaleDateString('en-IN') }), contentType: 'application/pdf' }],
       });
       return res.status(200).json({ success: true, email: student.email });
     } catch (err) {
@@ -128,7 +128,7 @@ export default async function handler(req, res) {
           from: `"${smtp.sender_name || 'EXAMSTICK'}" <${smtp.username}>`, to: profile.email,
           subject: `Invoice ${order.order_id} — EXAMSTICK`,
           text: `Hello ${profile.name || 'Student'},\n\nYour payment invoice\nInvoice number: INV-${order.order_id}\nOrder ID: ${order.order_id}\nDate: ${new Date(purchase.created_at).toLocaleDateString('en-IN')}\nStatus: PAID\n\nItems:\n${itemLines}\n\nTotal paid: ${amount}\n\nThank you for learning with EXAMSTICK.`,
-          attachments: [{ filename: `INV-${order.order_id}.pdf`, content: invoicePdf({ number: `INV-${order.order_id}`, orderId: order.order_id, student: profile.name, items: (order.cart_plans || []).map(item => item.name), amount, date: new Date(purchase.created_at).toLocaleDateString('en-IN') }), contentType: 'application/pdf' }],
+          attachments: [{ filename: `INV-${order.order_id}.pdf`, content: invoicePdf({ number: `INV-${order.order_id}`, orderId: order.order_id, student: profile.name, items: (order.cart_plans || []), creditApplied: Number(order.credit_applied || 0), amount, date: new Date(purchase.created_at).toLocaleDateString('en-IN') }), contentType: 'application/pdf' }],
         });
         return res.status(200).json({ success: true, email: profile.email });
       }

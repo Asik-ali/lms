@@ -1,10 +1,11 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { lazy, Suspense, useEffect, useState } from 'react';
+import { lazy, Suspense } from 'react';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { ThemeProvider } from './contexts/ThemeContext';
 import PublicLayout from './components/Layout/PublicLayout';
 import DashboardLayout from './components/Layout/DashboardLayout';
 import ToastContainer from './components/common/Toast';
+import AppLoading from './components/common/AppLoading';
 const LoginPage = lazy(() => import('./pages/LoginPage'));
 const SignupPage = lazy(() => import('./pages/SignupPage'));
 const PrivacyPolicyPage = lazy(() => import('./pages/public/PrivacyPolicyPage'));
@@ -39,15 +40,7 @@ const StudentTestResult = lazy(() => import('./pages/student/StudentTestResult')
 const StudentAnnouncements = lazy(() => import('./pages/student/StudentAnnouncements'));
 
 function LoadingScreen() {
-  const [slow, setSlow] = useState(false);
-  useEffect(() => {
-    const timer = setTimeout(() => setSlow(true), 15000);
-    return () => clearTimeout(timer);
-  }, []);
-  return <div role="status" className="min-h-dvh flex flex-col items-center justify-center bg-navy-950 text-navy-100 p-6 text-center">
-    <p>{slow ? 'Loading is taking longer than expected. Check your connection and try again.' : 'Loading...'}</p>
-    {slow && <button className="btn-primary mt-6" onClick={() => window.location.reload()}>Reload</button>}
-  </div>;
+  return <AppLoading />;
 }
 
 function RoleGuard({ role, children }) {

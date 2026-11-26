@@ -359,6 +359,7 @@ export default function TestSeries() {
                     <div className="flex-1 min-w-0">
                       <p className="font-semibold text-navy-100">{t.name}</p>
                       <div className="flex flex-wrap items-center gap-3 mt-1 text-xs text-navy-200">
+                        <span className={`badge ${t.status === 'Published' ? 'badge-success' : 'badge-warning'}`}>{t.status || 'Draft'}</span>
                         <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {t.duration} min</span>
                         <span className="flex items-center gap-1"><Target className="w-3 h-3" /> {t.total_marks} marks</span>
                         <span className="flex items-center gap-1"><Globe className="w-3 h-3" /> {t.language}</span>

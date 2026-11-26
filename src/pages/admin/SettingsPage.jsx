@@ -5,6 +5,7 @@ import { supabase } from '../../supabase/client';
 import { getSmtpSettings, saveSmtpSettings } from '../../data/dynamicStore';
 import { apiUrl } from '../../data/api';
 import { showError, showSuccess } from '../../components/common/Toast';
+import { validateBackup } from '../../data/backup';
 
 function SMTPTab() {
   const [host, setHost] = useState('smtp.gmail.com');
@@ -120,17 +121,9 @@ function SMTPTab() {
   );
 }
 
-const backupTables = [
-  'courses', 'course_pdfs', 'course_lessons',
-  'assignments', 'assignment_submissions', 'quizzes', 'questions', 'attendance',
-  'announcements', 'enrollments', 'notifications', 'live_classes',
-  'smtp_settings', 'tickets', 'ticket_replies', 'calendar_events',
-  'test_series', 'test_categories', 'tests', 'test_attempts', 'test_responses',
-  'question_reports',
-];
 
 function BackupTab() {
-  const [lastBackup, setLastBackup] = useState(() => localStorage.getItem('lastBackup') || 'No backup created yet');
+  const [lastBackup, setLastBackup] = useState('No backup created yet');
   const [backupHistory, setBackupHistory] = useState([]);
   const [historyError, setHistoryError] = useState('');
   const [backupFile, setBackupFile] = useState(null);
@@ -162,7 +155,8 @@ function BackupTab() {
       if (!res.ok) throw new Error(data.error || 'Unable to load backup history.');
       setBackupHistory(data.backups || []);
       setHistoryError('');
-      if (data.backups?.[0]?.created_at) setLastBackup(new Date(data.backups[0].created_at).toLocaleString());
+      const lastSuccessful = data.backups?.find(run => run.status === 'success');
+      if (lastSuccessful?.created_at) setLastBackup(new Date(lastSuccessful.created_at).toLocaleString());
     } catch (error) {
       setHistoryError(error.message || 'Unable to load backup history.');
     }
@@ -173,21 +167,22 @@ function BackupTab() {
   const createBackup = async () => {
     setIsWorking(true);
     try {
-      const entries = await Promise.all(backupTables.map(async (table) => {
-        const { data, error } = await supabase.from(table).select('*');
-        if (error) throw error;
-        return [table, data || []];
-      }));
-      const createdAt = new Date().toISOString();
-      const backup = { version: 1, type: 'lms-backup', createdAt, tables: Object.fromEntries(entries) };
+      const { data: { session } } = await supabase.auth.getSession();
+      const response = await fetch(apiUrl('/api/backup?operation=download'), {
+        headers: { Authorization: `Bearer ${session?.access_token || ''}` },
+      });
+      const backup = await response.json();
+      if (!response.ok) throw new Error(backup.error || 'Unable to download backup.');
+      validateBackup(backup);
+      const createdAt = backup.createdAt;
       const url = URL.createObjectURL(new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' }));
       const link = document.createElement('a');
       link.href = url;
       link.download = `lms-backup-${createdAt.slice(0, 10)}.json`;
       link.click();
-      URL.revokeObjectURL(url);
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
       const label = new Date().toLocaleString();
-      localStorage.setItem('lastBackup', label);
+      try { localStorage.setItem('lastBackup', label); } catch { /* Download remains valid without browser storage. */ }
       setLastBackup(label);
       showSuccess('Backup downloaded successfully.');
     } catch (error) {
@@ -211,7 +206,7 @@ function BackupTab() {
       const data = await res.json();
       if (res.ok) {
         const label = new Date().toLocaleString();
-        localStorage.setItem('lastBackup', label);
+        try { localStorage.setItem('lastBackup', label); } catch { /* Download remains valid without browser storage. */ }
         setLastBackup(label);
         if (data.complete === false) {
           const results = [
@@ -219,7 +214,7 @@ function BackupTab() {
             data.emailSent ? `email sent to ${adminEmail}` : `email failed: ${data.emailError || 'unknown error'}`,
           ];
           showError(`Backup finished with issues. ${results.join('; ')}.`);
-        } else showSuccess(`Backup emailed to ${adminEmail} and saved to Google Sheets.`);
+        } else showSuccess(`Backup emailed to ${adminEmail}${data.googleSheets?.success ? ' and saved to Google Sheets' : ''}.`);
         await loadBackupHistory();
       } else {
         showError(data.error || 'Failed to send backup email.');
@@ -236,11 +231,8 @@ function BackupTab() {
     setPreview(null);
     try {
       const backup = JSON.parse(value);
-      if (backup?.version === 1 && backup.tables && typeof backup.tables === 'object') {
-        const tableCounts = Object.entries(backup.tables).map(([table, rows]) => ({
-          table,
-          count: Array.isArray(rows) ? rows.length : 0,
-        }));
+      {
+        const tableCounts = validateBackup(backup);
         setPreview({
           createdAt: backup.createdAt,
           totalRows: tableCounts.reduce((sum, t) => sum + t.count, 0),
@@ -260,53 +252,37 @@ function BackupTab() {
     } catch {
       return showError('The pasted content is not valid JSON.');
     }
-    if (backup?.version !== 1 || !backup.tables || typeof backup.tables !== 'object') {
-      return showError('This is not a valid LMS backup.');
-    }
-    if (!window.confirm('Restore this backup? Current LMS records will be replaced with the backup data.')) return;
-
+    try { validateBackup(backup); }
+    catch (error) { return showError(error.message); }
+    if (!window.confirm('Restore matching records from this backup? Original IDs will be preserved. Records absent from the backup will be kept. User accounts must already exist.')) return;
     setIsWorking(true);
-    const restoredTables = [];
-    const failedTables = [];
     try {
-      for (const table of backupTables) {
-        const rows = backup.tables[table];
-        if (!Array.isArray(rows)) continue;
-        try {
-          const { error: deleteError } = await supabase.from(table).delete().neq('id', 0);
-          if (deleteError) throw deleteError;
-          if (rows.length) {
-            const cleanRows = rows.map(({ id: _id, ...row }) => row);
-            const { error: insertError } = await supabase.from(table).insert(cleanRows);
-            if (insertError) throw insertError;
-          }
-          restoredTables.push(table);
-        } catch (err) {
-          failedTables.push({ table, error: err.message });
-        }
-      }
-      if (failedTables.length) {
-        showError(`Restored ${restoredTables.length}/${backupTables.length} tables. Failed: ${failedTables.map(f => f.table).join(', ')}`);
-      } else {
-        showSuccess('Backup restored successfully. Reload the page to see all restored data.');
-      }
+      const { data: { session } } = await supabase.auth.getSession();
+      const response = await fetch(apiUrl('/api/backup?operation=restore'), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session?.access_token || ''}` },
+        body: JSON.stringify({ backup }),
+      });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error || 'Unable to restore backup.');
+      showSuccess('Backup restored successfully. Existing records outside the backup were kept.');
       setPasteJson('');
       setPreview(null);
-    } catch (error) {
-      showError(error.message || 'Unable to restore the backup.');
-    } finally {
-      setIsWorking(false);
-    }
+    } catch (error) { showError(error.message || 'Unable to restore the backup.'); }
+    finally { setIsWorking(false); }
   };
 
   const restoreFile = async () => {
     if (!backupFile) return showError('Choose a backup file first.');
-    const text = await backupFile.text();
-    setPasteJson(text);
-    handlePasteChange(text);
-    setBackupFile(null);
-    if (fileInputRef.current) fileInputRef.current.value = '';
-    showSuccess('Backup loaded. Review the preview below, then click Restore.');
+    try {
+      const text = await backupFile.text();
+      validateBackup(JSON.parse(text));
+      handlePasteChange(text);
+      setBackupFile(null);
+      if (fileInputRef.current) fileInputRef.current.value = '';
+      showSuccess('Backup loaded. Review the preview below, then click Restore.');
+    } catch (error) { showError(error.message || 'Unable to read the backup file.'); }
+
   };
 
   return (
@@ -364,7 +340,7 @@ function BackupTab() {
       <div className="card">
         <div className="card-header"><h3 className="text-lg font-semibold">Restore Data</h3></div>
         <div className="p-6 space-y-4">
-          <p className="text-sm text-navy-100">Paste the backup JSON below (or choose a backup file) to see all its data, then restore. User accounts and passwords are not included.</p>
+          <p className="text-sm text-navy-100">Paste the backup JSON below (or choose a backup file) to see all its data, then restore. Authentication passwords and stored files are not included. User accounts must already exist; only their profile data can be restored. Audit logs and temporary sessions are export-only.</p>
 
           <div className="flex flex-wrap items-center gap-3">
             <input ref={fileInputRef} type="file" accept="application/json,.json" className="hidden" onChange={e => setBackupFile(e.target.files?.[0] || null)} />
@@ -403,11 +379,11 @@ function BackupTab() {
             </div>
           )}
 
-          <div className="flex items-center gap-3">
-            <button onClick={applyPasteBackup} disabled={!pasteJson.trim() || isWorking} className="btn-primary disabled:opacity-60">
+          <div className="flex flex-wrap items-center gap-3">
+            <button onClick={applyPasteBackup} disabled={!preview || isWorking} className="btn-primary disabled:opacity-60">
               {isWorking ? 'Restoring...' : 'Restore Pasted Backup'}
             </button>
-            {preview && <p className="text-sm text-navy-200">Review the preview, then restore will replace current data.</p>}
+            {preview && <p className="text-sm text-navy-200">Review the preview, then restore updates matching IDs and keeps other records.</p>}
           </div>
         </div>
       </div>
