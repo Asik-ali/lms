@@ -30,3 +30,20 @@ test('source option E stays selectable in both languages without changing legacy
   assert.equal(localizeQuestion(row, 'Tamil').option_e, 'Option E');
   assert.deepEqual(questionOptionLetters({ question: 'Legacy' }), ['A', 'B', 'C', 'D']);
 });
+
+test('text previews follow language without replacing source images or graded choices', () => {
+  const english = { status: 'unreviewed', question: 'English preview', option_a: 'Preview A' };
+  const tamil = { status: 'unreviewed', question: 'Tamil preview', option_a: 'Tamil preview A' };
+  const row = { id: 9, test_id: 110, question: 'https://example.com/en.webp', option_a: 'Option A', correct_answer: 'B',
+    explanation: JSON.stringify({ format: 'lms-bilingual-v1', number: 30, textVersions: { english, tamil }, tamil: { question: 'https://example.com/ta.webp' } }) };
+  const localized = localizeQuestion(row, 'Tamil');
+  assert.deepEqual(localized.textVersion, tamil);
+  assert.deepEqual(localizeQuestion(row).textVersion, english);
+  assert.equal(localized.question, 'https://example.com/ta.webp');
+  assert.equal(localized.option_a, 'Option A');
+  assert.equal(localized.correct_answer, 'B');
+  assert.equal(localized.id, 9);
+  assert.equal(localized.test_id, 110);
+  assert.equal(localized.explanation, '');
+  assert.equal(localizeQuestion({ ...row, explanation: JSON.stringify({ format: 'lms-bilingual-v1' }) }).textVersion, null);
+});

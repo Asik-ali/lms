@@ -8,7 +8,9 @@ const sourceDir=String.raw`C:\Users\asik1\Desktop\examsticks pdf\Today`;
 const downloadDir=String.raw`C:\Users\asik1\Downloads`;
 const scale=2.4;
 for(const original of papers){
+ if(process.env.MATHS_SOURCE_FILTER && original.source!==process.env.MATHS_SOURCE_FILTER)continue;
  const paper=process.argv.includes('--last-only')?{...original,questions:original.questions.slice(-1)}:process.argv.includes('--multi-only')?{...original,questions:original.questions.filter(q=>q.segments.length>1)}:original;
+ if(process.env.MATHS_QUESTION_FILTER)paper.questions=paper.questions.filter(q=>q.number===Number(process.env.MATHS_QUESTION_FILTER));
  if(!paper.questions.length)continue;
  const file=path.join(fs.existsSync(path.join(sourceDir,paper.source))?sourceDir:downloadDir,paper.source);
  const doc=await getDocument({data:new Uint8Array(fs.readFileSync(file)),useSystemFonts:true,standardFontDataUrl:path.resolve('node_modules/pdfjs-dist/standard_fonts')+'/'}).promise;

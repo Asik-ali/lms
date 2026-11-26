@@ -4,6 +4,7 @@ import { createClient } from '@supabase/supabase-js';
 
 const directory = 'imports/maths-pyq-parts';
 const snapshotPath = `${directory}/before.json`;
+if (fs.existsSync('imports/maths-pyq-text/text-preview-receipt.json')) throw new Error('Text previews have been attached to the split parts. Do not rerun the original content migration; use audit-maths-pyq.mjs for verification.');
 const db = createClient(process.env.VITE_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY, { auth: { persistSession: false } });
 async function checked(query) {
   const { data, error } = await query;

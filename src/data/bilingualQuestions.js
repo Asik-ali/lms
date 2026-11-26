@@ -11,6 +11,7 @@ export function localizeQuestion(row, language = 'English') {
   return {
     ...row,
     diagrams: translation.diagrams || [],
+    textVersion: translation.textVersions?.[language === 'Tamil' ? 'tamil' : 'english'] || null,
     ...(translation.extraOptions || {}),
     ...(language === 'Tamil' ? translation.tamil : {}),
     explanation: translation.explanation || '',

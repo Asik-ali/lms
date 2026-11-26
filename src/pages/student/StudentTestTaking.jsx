@@ -1,4 +1,4 @@
-import QuestionContent, { QuestionImage } from '../../components/common/QuestionContent';
+import QuestionContent from '../../components/common/QuestionContent';
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { supabase } from '../../supabase/client';
@@ -415,7 +415,7 @@ export default function StudentTestTaking() {
 
               <div className="p-5 sm:p-6">
                 {/^https?:\/\/.*\.(png|jpe?g|webp)(\?.*)?$/i.test(currentQuestion.question || '') ? (
-                  <QuestionImage src={currentQuestion.question} alt={`Original question ${currentIdx + 1} with its answer options`} />
+                  <QuestionContent question={currentQuestion} language={questionLanguage} />
                 ) : currentQuestion.question && currentQuestion.question.startsWith('http') ? (
                   <div className="space-y-4">
                     {!iframeFailed[currentQuestion.id] ? (

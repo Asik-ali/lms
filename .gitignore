@@ -50,3 +50,4 @@ imports/maths-pyq/source/*.png
 imports/maths-pyq-additional/source/*.png
 imports/maths-pyq-remaining/source/*.png
 imports/maths-pyq-parts/before.json
+imports/maths-pyq-text/before-text-previews.json
