@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import crypto from 'node:crypto';
+if (fs.existsSync('imports/maths-pyq-parts/receipt.json') && !process.argv.includes('--check')) throw new Error('Maths PYQ is split into parts. The original full-topic uploader must not be rerun.');
 import { createClient } from '@supabase/supabase-js';
 const root = process.env.MATHS_IMPORT_ROOT || 'imports/maths-pyq';
 const additional=!!process.env.MATHS_IMPORT_ROOT;

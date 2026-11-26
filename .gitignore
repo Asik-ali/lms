@@ -49,3 +49,4 @@ android/upload_certificate.pem
 imports/maths-pyq/source/*.png
 imports/maths-pyq-additional/source/*.png
 imports/maths-pyq-remaining/source/*.png
+imports/maths-pyq-parts/before.json

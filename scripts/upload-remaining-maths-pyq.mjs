@@ -1,5 +1,6 @@
 import fs from 'node:fs';import crypto from 'node:crypto';import {createClient} from '@supabase/supabase-js';
 const root='imports/maths-pyq-remaining';
+if(fs.existsSync('imports/maths-pyq-parts/receipt.json'))throw new Error('Maths PYQ is split into parts. Update active parts instead of the original archived tests.');
 const canonical=JSON.parse(fs.readFileSync('imports/maths-pyq/prepared.json','utf8'));
 const receipt=JSON.parse(fs.readFileSync('imports/maths-pyq/upload-receipt.json','utf8'));
 const db=createClient(process.env.VITE_SUPABASE_URL,process.env.SUPABASE_SERVICE_ROLE_KEY,{auth:{persistSession:false,autoRefreshToken:false}});

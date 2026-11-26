@@ -1,108 +1,374 @@
 {
   "seriesId": 12,
-  "topics": 13,
+  "topics": 51,
   "questions": 1081,
   "unassigned": [
     {
-      "test": "Percentage PYQ",
-      "number": 80
+      "test": "3D Mensuration PYQ - Part 3",
+      "number": 55
     },
     {
-      "test": "3D Mensuration PYQ",
-      "number": 55
+      "test": "Percentage PYQ - Part 4",
+      "number": 80
     }
   ],
   "tests": [
     {
-      "testId": 91,
-      "name": "Compound Interest PYQ",
-      "questions": 85,
+      "testId": 110,
+      "name": "LCM and HCF PYQ - Part 1",
+      "questions": 25,
       "language": "English / Tamil",
-      "status": "Draft"
+      "status": "Published"
     },
     {
-      "testId": 92,
-      "name": "AP and GP PYQ",
-      "questions": 48,
+      "testId": 108,
+      "name": "3D Mensuration PYQ - Part 3",
+      "questions": 25,
       "language": "English / Tamil",
-      "status": "Draft"
+      "status": "Published"
     },
     {
-      "testId": 93,
-      "name": "Age Problems PYQ",
+      "testId": 111,
+      "name": "LCM and HCF PYQ - Part 2",
+      "questions": 25,
+      "language": "English / Tamil",
+      "status": "Published"
+    },
+    {
+      "testId": 112,
+      "name": "LCM and HCF PYQ - Part 3",
+      "questions": 25,
+      "language": "English / Tamil",
+      "status": "Published"
+    },
+    {
+      "testId": 118,
+      "name": "Percentage PYQ - Part 1",
+      "questions": 25,
+      "language": "English / Tamil",
+      "status": "Published"
+    },
+    {
+      "testId": 123,
+      "name": "Ratio and Proportion PYQ - Part 1",
+      "questions": 25,
+      "language": "English / Tamil",
+      "status": "Published"
+    },
+    {
+      "testId": 124,
+      "name": "Ratio and Proportion PYQ - Part 2",
+      "questions": 25,
+      "language": "English / Tamil",
+      "status": "Published"
+    },
+    {
+      "testId": 125,
+      "name": "Ratio and Proportion PYQ - Part 3",
+      "questions": 25,
+      "language": "English / Tamil",
+      "status": "Published"
+    },
+    {
+      "testId": 126,
+      "name": "Ratio and Proportion PYQ - Part 4",
+      "questions": 25,
+      "language": "English / Tamil",
+      "status": "Published"
+    },
+    {
+      "testId": 127,
+      "name": "Ratio and Proportion PYQ - Part 5",
+      "questions": 1,
+      "language": "English / Tamil",
+      "status": "Published"
+    },
+    {
+      "testId": 128,
+      "name": "Average PYQ - Part 1",
+      "questions": 25,
+      "language": "English / Tamil",
+      "status": "Published"
+    },
+    {
+      "testId": 129,
+      "name": "Average PYQ - Part 2",
+      "questions": 1,
+      "language": "English / Tamil",
+      "status": "Published"
+    },
+    {
+      "testId": 130,
+      "name": "Profit and Loss PYQ - Part 1",
+      "questions": 25,
+      "language": "English / Tamil",
+      "status": "Published"
+    },
+    {
+      "testId": 131,
+      "name": "Profit and Loss PYQ - Part 2",
+      "questions": 25,
+      "language": "English / Tamil",
+      "status": "Published"
+    },
+    {
+      "testId": 116,
+      "name": "LCM and HCF PYQ - Part 7",
+      "questions": 25,
+      "language": "English / Tamil",
+      "status": "Published"
+    },
+    {
+      "testId": 98,
+      "name": "AP and GP PYQ - Part 1",
+      "questions": 25,
+      "language": "English / Tamil",
+      "status": "Published"
+    },
+    {
+      "testId": 99,
+      "name": "AP and GP PYQ - Part 2",
+      "questions": 23,
+      "language": "English / Tamil",
+      "status": "Published"
+    },
+    {
+      "testId": 100,
+      "name": "Age Problems PYQ - Part 1",
       "questions": 8,
       "language": "English / Tamil",
-      "status": "Draft"
+      "status": "Published"
     },
     {
-      "testId": 82,
-      "name": "LCM and HCF PYQ",
-      "questions": 180,
+      "testId": 101,
+      "name": "Simplification PYQ - Part 1",
+      "questions": 25,
       "language": "English / Tamil",
-      "status": "Draft"
+      "status": "Published"
     },
     {
-      "testId": 83,
-      "name": "Percentage PYQ",
-      "questions": 111,
+      "testId": 102,
+      "name": "Simplification PYQ - Part 2",
+      "questions": 25,
       "language": "English / Tamil",
-      "status": "Draft"
+      "status": "Published"
     },
     {
-      "testId": 85,
-      "name": "Average PYQ",
-      "questions": 26,
+      "testId": 104,
+      "name": "2D Mensuration PYQ - Part 1",
+      "questions": 25,
       "language": "English / Tamil",
-      "status": "Draft"
+      "status": "Published"
     },
     {
-      "testId": 86,
-      "name": "Profit and Loss PYQ",
-      "questions": 52,
+      "testId": 105,
+      "name": "2D Mensuration PYQ - Part 2",
+      "questions": 13,
       "language": "English / Tamil",
-      "status": "Draft"
+      "status": "Published"
     },
     {
-      "testId": 88,
-      "name": "Time and Work PYQ",
-      "questions": 131,
+      "testId": 106,
+      "name": "3D Mensuration PYQ - Part 1",
+      "questions": 25,
       "language": "English / Tamil",
-      "status": "Draft"
+      "status": "Published"
     },
     {
-      "testId": 89,
-      "name": "2D Mensuration PYQ",
-      "questions": 38,
+      "testId": 107,
+      "name": "3D Mensuration PYQ - Part 2",
+      "questions": 25,
       "language": "English / Tamil",
-      "status": "Draft"
+      "status": "Published"
     },
     {
-      "testId": 90,
-      "name": "3D Mensuration PYQ",
-      "questions": 97,
+      "testId": 94,
+      "name": "Compound Interest PYQ - Part 1",
+      "questions": 25,
       "language": "English / Tamil",
-      "status": "Draft"
+      "status": "Published"
     },
     {
-      "testId": 84,
-      "name": "Ratio and Proportion PYQ",
-      "questions": 101,
+      "testId": 103,
+      "name": "Simplification PYQ - Part 3",
+      "questions": 24,
       "language": "English / Tamil",
-      "status": "Draft"
+      "status": "Published"
     },
     {
-      "testId": 87,
-      "name": "Simple Interest PYQ",
-      "questions": 130,
+      "testId": 95,
+      "name": "Compound Interest PYQ - Part 2",
+      "questions": 25,
       "language": "English / Tamil",
-      "status": "Draft"
+      "status": "Published"
     },
     {
-      "testId": 81,
-      "name": "Simplification PYQ",
-      "questions": 74,
+      "testId": 96,
+      "name": "Compound Interest PYQ - Part 3",
+      "questions": 25,
       "language": "English / Tamil",
-      "status": "Draft"
+      "status": "Published"
+    },
+    {
+      "testId": 97,
+      "name": "Compound Interest PYQ - Part 4",
+      "questions": 10,
+      "language": "English / Tamil",
+      "status": "Published"
+    },
+    {
+      "testId": 132,
+      "name": "Profit and Loss PYQ - Part 3",
+      "questions": 2,
+      "language": "English / Tamil",
+      "status": "Published"
+    },
+    {
+      "testId": 133,
+      "name": "Simple Interest PYQ - Part 1",
+      "questions": 25,
+      "language": "English / Tamil",
+      "status": "Published"
+    },
+    {
+      "testId": 134,
+      "name": "Simple Interest PYQ - Part 2",
+      "questions": 25,
+      "language": "English / Tamil",
+      "status": "Published"
+    },
+    {
+      "testId": 135,
+      "name": "Simple Interest PYQ - Part 3",
+      "questions": 25,
+      "language": "English / Tamil",
+      "status": "Published"
+    },
+    {
+      "testId": 136,
+      "name": "Simple Interest PYQ - Part 4",
+      "questions": 25,
+      "language": "English / Tamil",
+      "status": "Published"
+    },
+    {
+      "testId": 137,
+      "name": "Simple Interest PYQ - Part 5",
+      "questions": 25,
+      "language": "English / Tamil",
+      "status": "Published"
+    },
+    {
+      "testId": 138,
+      "name": "Simple Interest PYQ - Part 6",
+      "questions": 5,
+      "language": "English / Tamil",
+      "status": "Published"
+    },
+    {
+      "testId": 139,
+      "name": "Time and Work PYQ - Part 1",
+      "questions": 25,
+      "language": "English / Tamil",
+      "status": "Published"
+    },
+    {
+      "testId": 140,
+      "name": "Time and Work PYQ - Part 2",
+      "questions": 25,
+      "language": "English / Tamil",
+      "status": "Published"
+    },
+    {
+      "testId": 141,
+      "name": "Time and Work PYQ - Part 3",
+      "questions": 25,
+      "language": "English / Tamil",
+      "status": "Published"
+    },
+    {
+      "testId": 142,
+      "name": "Time and Work PYQ - Part 4",
+      "questions": 25,
+      "language": "English / Tamil",
+      "status": "Published"
+    },
+    {
+      "testId": 143,
+      "name": "Time and Work PYQ - Part 5",
+      "questions": 25,
+      "language": "English / Tamil",
+      "status": "Published"
+    },
+    {
+      "testId": 144,
+      "name": "Time and Work PYQ - Part 6",
+      "questions": 6,
+      "language": "English / Tamil",
+      "status": "Published"
+    },
+    {
+      "testId": 109,
+      "name": "3D Mensuration PYQ - Part 4",
+      "questions": 22,
+      "language": "English / Tamil",
+      "status": "Published"
+    },
+    {
+      "testId": 113,
+      "name": "LCM and HCF PYQ - Part 4",
+      "questions": 25,
+      "language": "English / Tamil",
+      "status": "Published"
+    },
+    {
+      "testId": 114,
+      "name": "LCM and HCF PYQ - Part 5",
+      "questions": 25,
+      "language": "English / Tamil",
+      "status": "Published"
+    },
+    {
+      "testId": 115,
+      "name": "LCM and HCF PYQ - Part 6",
+      "questions": 25,
+      "language": "English / Tamil",
+      "status": "Published"
+    },
+    {
+      "testId": 117,
+      "name": "LCM and HCF PYQ - Part 8",
+      "questions": 5,
+      "language": "English / Tamil",
+      "status": "Published"
+    },
+    {
+      "testId": 119,
+      "name": "Percentage PYQ - Part 2",
+      "questions": 25,
+      "language": "English / Tamil",
+      "status": "Published"
+    },
+    {
+      "testId": 120,
+      "name": "Percentage PYQ - Part 3",
+      "questions": 25,
+      "language": "English / Tamil",
+      "status": "Published"
+    },
+    {
+      "testId": 121,
+      "name": "Percentage PYQ - Part 4",
+      "questions": 25,
+      "language": "English / Tamil",
+      "status": "Published"
+    },
+    {
+      "testId": 122,
+      "name": "Percentage PYQ - Part 5",
+      "questions": 11,
+      "language": "English / Tamil",
+      "status": "Published"
     }
   ]
 }

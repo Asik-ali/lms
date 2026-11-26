@@ -50,12 +50,12 @@ for (const part of plan) {
     name: part.name, question_count: part.questionIds.length,
     total_marks: original.total_marks / original.question_count * part.questionIds.length,
     duration: Math.ceil(original.duration / original.question_count * part.questionIds.length),
-    description: `${original.description || ''}\nPart ${part.part}: original source questions ${part.start}â€“${part.end}.`.trim(),
+    description: `${original.description || ''}\nPart ${part.part}: original source questions ${part.start}-${part.end}.`.trim(),
   };
   let target = part.part === 1 && !part.preserveOriginal ? tests.find(t => t.id === original.id) : tests.find(t => t.category_id === part.categoryId && t.name === part.name);
   if (!target) {
     const { id, created_at, ...copy } = original;
-    target = await checked(db.from('tests').insert({ ...copy, ...fields }).select('*').single());
+    target = await checked(db.from('tests').insert({ ...copy, ...fields, status: 'Draft' }).select('*').single());
     tests.push(target);
   }
   assert.ok(['Draft', 'Published'].includes(target.status));
@@ -67,7 +67,6 @@ for (const part of plan) {
       return { ...copy, test_id: target.id };
     });
     if (copies.length) await checked(db.from('questions').insert(copies));
-    await checked(db.from('tests').update({ status: 'Archived' }).eq('id', original.id));
   } else await checked(db.from('questions').update({ test_id: target.id }).in('id', part.questionIds));
   await checked(db.from('tests').update(fields).eq('id', target.id));
   part.testId = target.id;
@@ -86,6 +85,18 @@ for (const part of plan) {
   }
 }
 assert.equal(seen.size, 1081);
+// Publish only after all replacement questions have passed the content checks.
+for (const { test, questions } of snapshot) {
+  const parts = plan.filter(p => p.originalTestId === test.id);
+  await checked(db.from('tests').update({ status: test.status }).in('id', parts.map(p => p.testId)));
+  if (parts[0].preserveOriginal) {
+    const originalQuestions = await checked(db.from('questions').select('*').eq('test_id', test.id).order('id'));
+    assert.deepEqual(originalQuestions, [...questions].sort((a,b)=>a.id-b.id), 'Historic questions must remain unchanged');
+    await checked(db.from('tests').update({ status: 'Archived' }).eq('id', test.id));
+  }
+}
+const finalAttempts = await checked(db.from('test_attempts').select('id,test_id').in('test_id', tests.map(t => t.id)));
+for (const attempt of attempts) assert.ok(finalAttempts.some(a => a.id === attempt.id && a.test_id === attempt.test_id));
 const finalTests = await checked(db.from('tests').select('id,question_count').in('category_id', categories.map(c => c.id)).neq('status', 'Archived'));
 assert.equal(finalTests.length, 51);
 assert.equal(finalTests.reduce((n,t)=>n+t.question_count,0), 1081);
