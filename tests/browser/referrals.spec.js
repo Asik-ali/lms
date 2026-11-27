@@ -147,3 +147,17 @@ test('pending history explains Check payment and lets the user cancel an old ord
   await expect(page.getByText('Cancelled', { exact: true })).toBeVisible();
   await expect(page.getByRole('cell').filter({ hasText: 'store credit returned' })).toContainText('99.00');
 });
+
+test('returning to referrals shows cached data while refreshing in the background',async({page})=>{
+ await setup(page);let calls=0,release;
+ await page.route('**/api/order-status?operation=referrals*',async route=>{
+  calls++;if(calls>1)await new Promise(resolve=>{release=resolve;});
+  await route.fulfill({json:{code:'AB12CD34EF56',rewardAmount:100,availableCredit:100,count:0,referrals:[]}});
+ });
+ await page.goto('/student/referrals');await expect(page.getByLabel('Your code',{exact:true})).toHaveValue('AB12CD34EF56');
+ await page.getByRole('link',{name:'My Courses',exact:true}).click();
+ await page.getByRole('link',{name:'Refer & Earn',exact:true}).click();
+ await expect(page.getByLabel('Your code',{exact:true})).toHaveValue('AB12CD34EF56');
+ await expect(page.getByRole('status')).toContainText('Updating referrals...');
+ expect(calls).toBe(2);release();await expect(page.getByText('Updating referrals...',{exact:true})).toHaveCount(0);
+});

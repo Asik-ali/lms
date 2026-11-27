@@ -130,6 +130,7 @@ async function logBackup(supabase, { type, emailedTo, counts, status, error }) {
     error: error || null,
   });
   if (insertError) console.error('backup_log insert warning:', insertError.message);
+  return !insertError;
 }
 
 async function hasRunToday(supabase) {
@@ -149,6 +150,7 @@ async function hasRunToday(supabase) {
 export default async function handler(req, res) {
   if (setCors(req, res)) return;
   let supabase;
+  let runType = null;
 
   try {
     supabase = createServiceClient();
@@ -173,6 +175,7 @@ export default async function handler(req, res) {
       if (!recipient) {
         return res.status(400).json({ error: 'Missing recipient email' });
       }
+      runType = 'manual';
       const backup = await fetchBackup(supabase);
       const [emailResult, sheetsResult] = await Promise.all([
         sendBackupEmail(supabase, recipient, backup)
@@ -184,7 +187,7 @@ export default async function handler(req, res) {
       const exportFailures = getExportFailures(backup);
       if (!emailResult.success) exportFailures.push(`Email: ${emailResult.error}`);
       if (sheetsResult.configured && !sheetsResult.success) exportFailures.push(`Google Sheets: ${sheetsResult.error}`);
-      await logBackup(supabase, {
+      const historyRecorded = await logBackup(supabase, {
         type: 'manual',
         emailedTo: emailResult.success ? [recipient] : [],
         counts: await recordCounts(backup),
@@ -198,6 +201,7 @@ export default async function handler(req, res) {
         emailSent: emailResult.success,
         emailError: emailResult.success ? null : emailResult.error,
         googleSheets: sheetsResult,
+        historyRecorded,
         createdAt: backup.createdAt,
       });
     }
@@ -205,19 +209,28 @@ export default async function handler(req, res) {
     if (req.method === 'GET') {
       if (req.query?.operation === 'download') {
         if (!await requireAdmin(req, res, supabase)) return;
+        runType = 'download';
         const backup = await fetchBackup(supabase);
         const failures = getExportFailures(backup);
-        if (failures.length) return res.status(500).json({ error: `Backup incomplete: ${failures.join('; ')}` });
+        if (failures.length) {
+          const historyRecorded = await logBackup(supabase, { type: 'download', emailedTo: [], counts: await recordCounts(backup), status: 'failed', error: failures.join('; ') });
+          return res.status(500).json({ error: `Backup incomplete: ${failures.join('; ')}`, historyRecorded });
+        }
+        const historyRecorded = await logBackup(supabase, { type: 'download', emailedTo: [], counts: await recordCounts(backup), status: 'success' });
         res.setHeader('Cache-Control', 'private, no-store');
-        return res.status(200).json(backup);
+        return res.status(200).json({ ...backup, historyRecorded });
       }
       if (req.query?.operation === 'history') {
         if (!await requireAdmin(req, res, supabase)) return;
-        const { data, error } = await supabase.from('backup_log')
+        const [{ data, error }, latest] = await Promise.all([supabase.from('backup_log')
           .select('id, type, created_at, emailed_to, record_counts, status, error')
-          .order('created_at', { ascending: false }).limit(20);
+          .order('created_at', { ascending: false }).order('id', { ascending: false }).limit(20),
+          supabase.from('backup_log').select('created_at').eq('status', 'success').neq('type', 'restore')
+            .order('created_at', { ascending: false }).limit(1).maybeSingle()]);
         if (error) throw error;
-        return res.status(200).json({ backups: data || [] });
+        if (latest.error) throw latest.error;
+        res.setHeader('Cache-Control', 'private, no-store');
+        return res.status(200).json({ backups: data || [], lastSuccessful: latest.data?.created_at || null, googleSheetsConfigured: Boolean(process.env.GOOGLE_SHEETS_BACKUP_SECRET) });
       }
       const cronSecret = process.env.CRON_SECRET;
       if (!cronSecret || getBearerToken(req) !== cronSecret) {
@@ -227,12 +240,14 @@ export default async function handler(req, res) {
       if (await hasRunToday(supabase)) {
         return res.status(200).json({ success: true, cron: true, skipped: true });
       }
+      runType = 'cron';
 
       const backup = await fetchBackup(supabase);
       const { data: adminProfiles } = await supabase.from('profiles').select('email').eq('role', 'admin');
       const admins = (adminProfiles || []).map(p => p.email).filter(Boolean);
 
       let emailed = [];
+      const emailFailures = [];
       const sheetsPromise = sendBackupToGoogleSheets(backup)
         .then(result => result)
         .catch(error => ({ configured: true, success: false, error: error.message }));
@@ -241,14 +256,15 @@ export default async function handler(req, res) {
           try {
             await sendBackupEmail(supabase, email, backup);
             emailed.push(email);
-          } catch {
-            // continue emailing other admins
+          } catch (error) {
+            emailFailures.push(`Email to ${email}: ${error.message || 'Delivery failed'}`);
           }
         }
       }
 
       const counts = await recordCounts(backup);
       const exportFailures = getExportFailures(backup);
+      exportFailures.push(...emailFailures);
       const sheetsResult = await sheetsPromise;
       if (sheetsResult.configured && !sheetsResult.success) exportFailures.push(`Google Sheets: ${sheetsResult.error}`);
       await logBackup(supabase, {
@@ -272,8 +288,8 @@ export default async function handler(req, res) {
 
     return res.status(405).json({ error: 'Method not allowed' });
   } catch (err) {
-    if (supabase) await logBackup(supabase, {
-      type: 'cron',
+    if (supabase && runType) await logBackup(supabase, {
+      type: runType,
       emailedTo: [],
       counts: {},
       status: 'failed',

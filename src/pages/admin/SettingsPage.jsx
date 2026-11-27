@@ -126,6 +126,9 @@ function BackupTab() {
   const [lastBackup, setLastBackup] = useState('No backup created yet');
   const [backupHistory, setBackupHistory] = useState([]);
   const [historyError, setHistoryError] = useState('');
+  const [historyLoading, setHistoryLoading] = useState(true);
+  const [sheetsConfigured, setSheetsConfigured] = useState(null);
+  const historyRequest = useRef(0);
   const [backupFile, setBackupFile] = useState(null);
   const [isWorking, setIsWorking] = useState(false);
   const [isSending, setIsSending] = useState(false);
@@ -146,6 +149,8 @@ function BackupTab() {
   }, []);
 
   async function loadBackupHistory() {
+    const request = ++historyRequest.current;
+    setHistoryLoading(true);
     try {
       const { data: { session } } = await supabase.auth.getSession();
       const res = await fetch(apiUrl('/api/backup?operation=history'), {
@@ -153,16 +158,21 @@ function BackupTab() {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Unable to load backup history.');
+      if (request !== historyRequest.current) return;
       setBackupHistory(data.backups || []);
+      setSheetsConfigured(typeof data.googleSheetsConfigured === 'boolean' ? data.googleSheetsConfigured : null);
       setHistoryError('');
       const lastSuccessful = data.backups?.find(run => run.status === 'success');
-      if (lastSuccessful?.created_at) setLastBackup(new Date(lastSuccessful.created_at).toLocaleString());
+      const lastDate = data.lastSuccessful || lastSuccessful?.created_at;
+      setLastBackup(lastDate ? new Date(lastDate).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }) : 'No successful backup recorded yet');
     } catch (error) {
-      setHistoryError(error.message || 'Unable to load backup history.');
+      if (request === historyRequest.current) setHistoryError(error.message || 'Unable to load backup history.');
+    } finally {
+      if (request === historyRequest.current) setHistoryLoading(false);
     }
   }
 
-  useEffect(() => { loadBackupHistory(); }, []);
+  useEffect(() => { loadBackupHistory(); return () => { historyRequest.current++; }; }, []);
 
   const createBackup = async () => {
     setIsWorking(true);
@@ -185,6 +195,8 @@ function BackupTab() {
       try { localStorage.setItem('lastBackup', label); } catch { /* Download remains valid without browser storage. */ }
       setLastBackup(label);
       showSuccess('Backup downloaded successfully.');
+      if (backup.historyRecorded === false) showError('The backup was exported, but its history entry could not be saved.');
+      await loadBackupHistory();
     } catch (error) {
       showError(error.message || 'Unable to create the backup.');
     } finally {
@@ -217,6 +229,7 @@ function BackupTab() {
           ];
           showError(`Backup finished with issues. ${results.join('; ')}.`);
         } else showSuccess(`Backup emailed to ${adminEmail}${data.googleSheets?.success ? ' and saved to Google Sheets' : ''}.`);
+        if (data.historyRecorded === false) showError('Backup completed, but its history entry could not be saved.');
         await loadBackupHistory();
       } else {
         showError(data.error || 'Failed to send backup email.');
@@ -313,17 +326,19 @@ function BackupTab() {
       </div>
 
       <div className="card">
-        <div className="card-header flex items-center justify-between gap-3"><h3 className="text-lg font-semibold">Backup History</h3><button onClick={loadBackupHistory} className="btn-secondary text-sm">Refresh</button></div>
+        <div className="card-header flex flex-wrap items-center justify-between gap-3"><h3 className="text-lg font-semibold">Backup History</h3><button disabled={historyLoading} onClick={loadBackupHistory} className="btn-secondary text-sm disabled:opacity-60">{historyLoading ? 'Refreshing...' : 'Refresh'}</button></div>
         <div className="p-6 space-y-3">
           {historyError && <p role="alert" className="text-sm text-red-600 dark:text-red-300">{historyError}</p>}
-          {!backupHistory.length && !historyError && <p className="text-sm text-navy-300">No backup runs have been recorded yet. Check that Vercel has CRON_SECRET, SMTP is configured, and this version is deployed to production.</p>}
+          {historyLoading && <p role="status" className="text-sm text-navy-300">Loading backup history...</p>}
+          {!historyLoading && !backupHistory.length && !historyError && <p className="text-sm text-navy-300">No backup runs have been recorded yet.</p>}
+          {!historyLoading && sheetsConfigured !== null && <div className="rounded-lg border border-navy-700 p-3 text-sm text-navy-200"><strong>Google Sheets backup: {sheetsConfigured ? 'Configured' : 'Not configured'}</strong><p className="mt-1">{sheetsConfigured ? 'Email backups also attempt to save a copy to Google Sheets. Each run reports any delivery failure.' : 'Email backups remain available. Configure the Google Sheets backup URL and secret on the server to also save spreadsheet copies.'}</p></div>}
           {backupHistory.map(run => {
             const counts = run.record_counts || {};
             const failedTables = Object.entries(counts).filter(([, count]) => Number(count) < 0);
             return <div key={run.id} className="rounded-lg border border-navy-700 p-4 text-sm">
-              <div className="flex flex-wrap items-center justify-between gap-2"><span className="font-medium text-navy-100">{run.type === 'cron' ? 'Automatic' : 'Manual'} backup</span><span className={run.status === 'success' ? 'text-emerald-600 dark:text-emerald-300' : 'text-red-600 dark:text-red-300'}>{run.status === 'success' ? 'Succeeded' : 'Failed'}</span></div>
-              <p className="mt-1 text-navy-300">{new Date(run.created_at).toLocaleString()}</p>
-              <p className="mt-1 text-navy-200">{Object.keys(counts).length} tables recorded | emailed to {(run.emailed_to || []).join(', ') || 'nobody'}</p>
+              <div className="flex flex-wrap items-center justify-between gap-2"><span className="font-medium text-navy-100">{run.type === 'cron' ? 'Automatic backup' : run.type === 'download' ? 'Backup download export' : 'Manual email backup'}</span><span className={run.status === 'success' ? 'text-emerald-600 dark:text-emerald-300' : 'text-red-600 dark:text-red-300'}>{run.status === 'success' ? 'Succeeded' : 'Failed'}</span></div>
+              <p className="mt-1 text-navy-300">{new Date(run.created_at).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })} IST</p>
+              <p className="mt-1 text-navy-200">{Object.keys(counts).length} tables recorded{run.type === 'download' ? ' | Export prepared for download' : ` | Emailed to ${(run.emailed_to || []).join(', ') || 'nobody'}`}</p>
               {failedTables.length > 0 && <p className="mt-1 text-amber-600 dark:text-amber-300">Tables with export errors: {failedTables.map(([table]) => table).join(', ')}</p>}
               {run.error && <p className="mt-1 text-red-600 dark:text-red-300">{run.error}</p>}
             </div>;

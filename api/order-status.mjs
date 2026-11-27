@@ -2,8 +2,6 @@ import { reconcileOrder } from './_order-lifecycle.mjs';
 import { createServiceClient, getAuthedUser, requireAdmin, setCors } from './_auth.mjs';
 import referralsHandler from './_referrals-handler.mjs';
 import { PAYMENT_ORDER_CLEANUP_MINUTES, terminateCashfreeOrder } from './_cashfree.mjs';
-import nodemailer from 'nodemailer';
-import { invoicePdf } from './_invoice-email.mjs';
 
 export default async function handler(req, res) {
   if (['referrals', 'referral-balance', 'referral-settings'].includes(req.query?.operation)) return referralsHandler(req, res);
@@ -31,6 +29,7 @@ export default async function handler(req, res) {
       if (!smtp?.username || !smtp?.password) return res.status(400).json({ error: 'SMTP is not configured.' });
       const amount = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(Number(order.amount));
       const items = (order.cart_plans || [{ name: 'Course / test purchase' }]).map((item, index) => `${index + 1}. ${item.name}`).join('\n');
+      const [{ default: nodemailer }, { invoicePdf }] = await Promise.all([import('nodemailer'), import('./_invoice-email.mjs')]);
       const transport = nodemailer.createTransport({ host: smtp.host, port: Number(smtp.port), secure: Number(smtp.port) === 465, auth: { user: smtp.username, pass: smtp.password } });
       await transport.sendMail({
         from: `"${smtp.sender_name || 'EXAMSTICK'}" <${smtp.username}>`, to: student.email,
@@ -123,6 +122,7 @@ export default async function handler(req, res) {
         if (!smtp?.username || !smtp?.password) return res.status(400).json({ error: 'Invoice email is not configured yet. Please contact support.' });
         const amount = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(Number(order.amount));
         const itemLines = (order.cart_plans || [{ name: 'Course / test purchase' }]).map((item, index) => `${index + 1}. ${item.name}`).join('\n');
+        const [{ default: nodemailer }, { invoicePdf }] = await Promise.all([import('nodemailer'), import('./_invoice-email.mjs')]);
         const transport = nodemailer.createTransport({ host: smtp.host, port: Number(smtp.port), secure: Number(smtp.port) === 465, auth: { user: smtp.username, pass: smtp.password } });
         await transport.sendMail({
           from: `"${smtp.sender_name || 'EXAMSTICK'}" <${smtp.username}>`, to: profile.email,

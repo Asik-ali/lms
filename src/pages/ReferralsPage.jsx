@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Copy, Users, RefreshCw, Loader2, Save } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { supabase } from '../supabase/client';
@@ -6,22 +6,36 @@ import { apiUrl } from '../data/api';
 import { showSuccess, showError } from '../components/common/Toast';
 
 const money = value => new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(value || 0);
+const referralCache = new Map();
+const cacheKey = (user, page) => `${user?.id || ''}:${user?.role || ''}:${page}`;
+const cachedReferrals = key => {
+  const cached = referralCache.get(key);
+  return cached && Date.now() - cached.time < 60000 ? cached.data : null;
+};
 
 export default function ReferralsPage() {
   const { user } = useAuth();
   const admin = user?.role === 'admin';
-  const [data, setData] = useState(null);
+  const [data, setData] = useState(() => cachedReferrals(cacheKey(user, 0)));
   const [page, setPage] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [revision, setRevision] = useState(0);
   const [rewardAmount, setRewardAmount] = useState('');
   const [savingReward, setSavingReward] = useState(false);
+  const loadedKey = useRef(cacheKey(user, 0));
   const reload = useCallback(() => setRevision(value => value + 1), []);
   useEffect(() => {
     let active = true;
     const controller = new AbortController();
+    const key = cacheKey(user, page);
+    const cached = cachedReferrals(key);
+    if (loadedKey.current !== key) setData(cached);
+    else if (cached) setData(cached);
+    loadedKey.current = key;
+    if (admin && cached) setRewardAmount(String(cached.rewardAmount));
     setLoading(true); setError('');
+    const timeout = setTimeout(() => controller.abort(), 20000);
     (async () => {
       try {
         const { data: { session } } = await supabase.auth.getSession();
@@ -29,14 +43,16 @@ export default function ReferralsPage() {
         const result = await response.json();
         if (!response.ok) throw new Error(result.error || 'Unable to load referrals.');
         if (active) {
+          if (referralCache.size >= 10) referralCache.delete(referralCache.keys().next().value);
+          referralCache.set(key, { data: result, time: Date.now() });
           setData(result);
           if (admin) setRewardAmount(String(result.rewardAmount));
         }
-      } catch (err) { if (active) setError(err.message); }
-      finally { if (active) setLoading(false); }
+      } catch (err) { if (active) setError(err.name === 'AbortError' ? 'Referrals are taking too long to load. Check your connection and tap Refresh.' : err.message); }
+      finally { clearTimeout(timeout); if (active) setLoading(false); }
     })();
-    return () => { active = false; controller.abort(); };
-  }, [page, revision, admin]);
+    return () => { active = false; clearTimeout(timeout); controller.abort(); };
+  }, [page, revision, admin, user?.id, user?.role]);
   const link = data?.code
     ? `https://examsticks.vercel.app/r/${encodeURIComponent(data.code)}`
     : '';
@@ -57,6 +73,7 @@ export default function ReferralsPage() {
       });
       const result = await response.json();
       if (!response.ok) throw new Error(result.error || 'Unable to save reward.');
+      referralCache.clear();
       setData(current => current ? { ...current, rewardAmount: result.rewardAmount } : current);
       showSuccess('Referral reward updated.');
     } catch (err) { showError(err.message || 'Unable to save reward.'); }
