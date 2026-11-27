@@ -3,8 +3,10 @@ import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { User, Lock, AlertCircle, Eye, EyeOff, BookOpen, ClipboardList, GraduationCap } from 'lucide-react';
 import logo from '../assets/image.png';
+import { Capacitor } from '@capacitor/core';
 
 export default function LoginPage() {
+  const nativeApp = Capacitor.isNativePlatform();
   const { login } = useAuth();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -71,7 +73,7 @@ export default function LoginPage() {
         </div>
 
         <div className="auth-form-card">
-          <form onSubmit={handleLogin} name="examstick-login" autoComplete="on" className="space-y-5">
+          <form onSubmit={handleLogin} name="examstick-login" autoComplete={nativeApp ? 'off' : 'on'} className="space-y-5">
             {error && (
               <div id="login-error" role="alert" className="flex items-center gap-2 p-3 bg-brand-red/10 border border-brand-red/40 rounded-lg text-sm text-red-700 dark:text-red-300">
                 <AlertCircle className="w-4 h-4 flex-shrink-0" />
@@ -83,7 +85,7 @@ export default function LoginPage() {
               <label htmlFor="login-username" className="block text-sm font-medium text-navy-100 mb-1.5">Username or email</label>
               <div className="relative">
                 <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-navy-300" />
-                <input id="login-username" name="username" type="text" autoComplete="username" autoCapitalize="none" spellCheck={false} aria-describedby={error ? 'login-error' : undefined} value={username} onChange={e => setUsername(e.target.value)} placeholder="Enter username or email" className="input-field pl-10" autoFocus />
+                <input id="login-username" name="username" type="text" autoComplete={nativeApp ? 'off' : 'username'} autoCapitalize="none" spellCheck={false} aria-describedby={error ? 'login-error' : undefined} value={username} onChange={e => setUsername(e.target.value)} placeholder="Enter username or email" className="input-field pl-10" autoFocus={!nativeApp} />
               </div>
             </div>
 
@@ -91,7 +93,7 @@ export default function LoginPage() {
               <label htmlFor="login-password" className="block text-sm font-medium text-navy-100 mb-1.5">Password</label>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-navy-300" />
-                <input id="login-password" name="password" type={showPw ? 'text' : 'password'} autoComplete="current-password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Enter password" className="input-field pl-10 pr-12" />
+                <input id="login-password" name="password" type={showPw ? 'text' : 'password'} autoComplete={nativeApp ? 'off' : 'current-password'} value={password} onChange={e => setPassword(e.target.value)} placeholder="Enter password" className="input-field pl-10 pr-12" />
                 <button type="button" aria-label={showPw ? 'Hide password' : 'Show password'} aria-pressed={showPw} onClick={() => setShowPw(!showPw)} className="absolute right-1 top-1/2 -translate-y-1/2 flex items-center justify-center w-11 h-11 rounded-lg text-navy-300 hover:text-navy-100">
                   {showPw ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>

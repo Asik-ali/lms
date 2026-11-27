@@ -70,6 +70,7 @@ public class MainActivity extends BridgeActivity {
     @Override
     protected void load() {
         super.load();
+        configureAppAutofill();
         ProtectedMediaChromeClient.install(this, bridge);
         retryUrl = bridge.getAppUrl();
         connectionScreen = getLayoutInflater().inflate(R.layout.connection_error, null);
@@ -147,6 +148,19 @@ public class MainActivity extends BridgeActivity {
                 retry.setEnabled(true);
             }
         });
+    }
+
+    @SuppressWarnings("deprecation")
+    private void configureAppAutofill() {
+        WebView webView = bridge.getWebView();
+        // The app keeps its own signed-in session. Do not show browser-domain
+        // password suggestions over the native sign-in screen.
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            webView.setImportantForAutofill(View.IMPORTANT_FOR_AUTOFILL_NO_EXCLUDE_DESCENDANTS);
+            getWindow().getDecorView().setImportantForAutofill(View.IMPORTANT_FOR_AUTOFILL_NO_EXCLUDE_DESCENDANTS);
+        } else {
+            webView.getSettings().setSaveFormData(false);
+        }
     }
 
     private void showConnectionError(String url, boolean connectionError) {

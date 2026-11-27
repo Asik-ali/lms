@@ -62,7 +62,7 @@ for(const theme of ['light','dark'])test(`startup animation appears before app J
  await page.screenshot({path:`tmp/startup-${theme}.png`});
 });
 
-test('paid order downloads a real PDF invoice and pending orders do not offer one',async({page})=>{
+test('student orders show payment history without invoice actions',async({page})=>{
  await setup(page);
  await page.addInitScript(()=>Object.defineProperty(navigator,'canShare',{value:()=>false,configurable:true}));
  await page.route('**/api/order-status*',r=>{
@@ -72,10 +72,9 @@ test('paid order downloads a real PDF invoice and pending orders do not offer on
  });
  await page.goto('/student/buy-courses');await page.getByRole('button',{name:'My Purchases',exact:true}).click();
  await expect(page.getByRole('button',{name:'Download invoice PENDING-2'})).toHaveCount(0);
- const downloaded=page.waitForEvent('download');await page.getByRole('button',{name:'Download invoice PAID-1'}).click();
- const file=await downloaded;expect(file.suggestedFilename()).toBe('INV-PAID-1.pdf');
- await file.saveAs('tmp/pdfs/browser-invoice.pdf');
- await expect(page.getByText('Invoice download started.',{exact:true})).toBeVisible();
+ await expect(page.getByRole('button',{name:/invoice/i})).toHaveCount(0);
+ await expect(page.getByText('PAID-1',{exact:true})).toBeVisible();
+ await expect(page.getByText('PENDING-2',{exact:true})).toBeVisible();
 });
 
 test('redesigned purchase cards fit both themes and keep cart and owned actions usable',async({page})=>{
