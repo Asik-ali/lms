@@ -27,7 +27,11 @@ export async function fetchBackup(supabase) {
       }
       entries.push([table, rows]);
     } catch (err) {
-      entries.push([table, { __error: err.message }]);
+      const missingTable = err.code === 'PGRST205' || err.code === '42P01';
+      const message = table === 'audit_logs' && missingTable
+        ? 'audit_logs is missing from the API schema. Run src/supabase/migrations/add_audit_logs.sql in Supabase SQL Editor, then retry the backup.'
+        : err.message;
+      entries.push([table, { __error: message }]);
     }
   }
   return {

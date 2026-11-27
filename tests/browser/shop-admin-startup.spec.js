@@ -61,3 +61,44 @@ for(const theme of ['light','dark'])test(`startup animation appears before app J
  await expect(page.locator('.boot-book')).toHaveCSS('animation-name','none');
  await page.screenshot({path:`tmp/startup-${theme}.png`});
 });
+
+test('paid order downloads a real PDF invoice and pending orders do not offer one',async({page})=>{
+ await setup(page);
+ await page.addInitScript(()=>Object.defineProperty(navigator,'canShare',{value:()=>false,configurable:true}));
+ await page.route('**/api/order-status*',r=>{
+  const operation=new URL(r.request().url()).searchParams.get('operation');
+  if(operation==='invoice')return r.fulfill({json:{number:'INV-PAID-1',orderId:'PAID-1',date:'2026-11-26T10:00:00Z',status:'PAID',amount:499,currency:'INR',customer:{name:'Alex',email:'test@example.com'},items:[{name:'Mathematics',price:499}]}});
+  return r.fulfill({json:{availableCredit:0,orders:[{id:1,order_id:'PAID-1',status:'PAID',amount:499,created_at:'2026-11-26'},{id:2,order_id:'PENDING-2',status:'PENDING',amount:499,created_at:'2026-11-26'}],purchases:[]}});
+ });
+ await page.goto('/student/buy-courses');await page.getByRole('button',{name:'My Purchases',exact:true}).click();
+ await expect(page.getByRole('button',{name:'Download invoice PENDING-2'})).toHaveCount(0);
+ const downloaded=page.waitForEvent('download');await page.getByRole('button',{name:'Download invoice PAID-1'}).click();
+ const file=await downloaded;expect(file.suggestedFilename()).toBe('INV-PAID-1.pdf');
+ await file.saveAs('tmp/pdfs/browser-invoice.pdf');
+ await expect(page.getByText('Invoice download started.',{exact:true})).toBeVisible();
+});
+
+test('redesigned purchase cards fit both themes and keep cart and owned actions usable',async({page})=>{
+ await setup(page);
+ await page.route('**/rest/v1/sales_plans*',r=>r.fulfill({json:[{id:1,name:'Complete preparation bundle',description:'A focused collection of course materials and practice tests for your preparation.',status:'active',price:1499},{id:2,name:'Mathematics foundation',description:'Your structured learning resources.',status:'active',price:499}]}));
+ await page.route('**/rest/v1/sales_plan_items*',r=>r.fulfill({json:[{id:1,plan_id:1,item_type:'course',item_id:10},{id:2,plan_id:1,item_type:'test_series',item_id:20},{id:3,plan_id:2,item_type:'course',item_id:10}]}));
+ await page.goto('/student/buy-courses');
+ const bundle=page.getByRole('article',{name:'Complete preparation bundle',exact:true});
+ const owned=page.getByRole('article',{name:'Mathematics foundation',exact:true});
+ await expect(bundle).toBeVisible();await expect(owned.getByRole('link',{name:'Open course',exact:true})).toBeVisible();
+ for(const width of [1440,390,320]) {
+  await page.setViewportSize({width,height:1000});
+  for(const theme of ['light','dark']) {
+   await page.evaluate(theme=>document.documentElement.classList.toggle('dark',theme==='dark'),theme);
+   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+   await expect(bundle.getByRole('button',{name:'Add to cart',exact:true})).toBeVisible();
+   if(width<1024)await expect.poll(()=>page.locator('.workspace-sidebar').evaluate(e=>e.getBoundingClientRect().right)).toBeLessThanOrEqual(0);
+   await bundle.screenshot({path:`tmp/shop-cards-${width}-${theme}.png`});
+  }
+ }
+ await bundle.getByRole('button',{name:'Add to cart',exact:true}).click();
+ await expect(bundle.getByRole('button',{name:'Added to cart',exact:true})).toBeDisabled();
+ await expect(bundle).toHaveClass(/shop-product-selected/);
+ await page.getByRole('button',{name:'Remove Complete preparation bundle from cart'}).click();
+ await expect(bundle.getByRole('button',{name:'Add to cart',exact:true})).toBeEnabled();
+});

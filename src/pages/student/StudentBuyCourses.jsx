@@ -3,7 +3,7 @@ import { ownsPlan, hasOwnedItem, cartSelection, cartTotal } from '../../data/sho
 import { useState, useEffect, useCallback } from 'react';
 import { Capacitor, registerPlugin } from '@capacitor/core';
 import { useSearchParams, Link } from 'react-router-dom';
-import { ShoppingCart, BookOpen, PenTool, CheckCircle, CreditCard, History, Loader2, ShieldCheck, Layers, ArrowRight, Trash2, FileText, X } from 'lucide-react';
+import { ShoppingCart, BookOpen, PenTool, CheckCircle, CreditCard, History, Loader2, ShieldCheck, Layers, Trash2, FileText, X } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { supabase } from '../../supabase/client';
 import { getSalesPlans, decoratePlanItems, getMyPurchaseHistory } from '../../data/dynamicStore';
@@ -400,58 +400,49 @@ export default function StudentBuyCourses() {
                 const hasOwned = hasOwnedItem(plan, user);
                 const inCart = cartIds.some(id => String(id) === String(plan.id));
                 return (
-                <article key={plan.id} className={`card shop-product flex flex-col ${inCart ? "shop-product-selected" : ""}`}><div className="shop-product-cover"><div className="shop-product-icon">{plan.items.length > 1 ? <Layers size={30} /> : plan.items[0]?.item_type === "course" ? <BookOpen size={30} /> : <PenTool size={30} />}</div><span className="shop-product-type">{plan.items.length > 1 ? "BUNDLE" : plan.items[0]?.item_type === "course" ? "COURSE" : "TEST SERIES"}</span></div><div className="p-5 sm:p-6 flex flex-col flex-1">
-                  <span className="text-xs text-navy-300 mb-2">{plan.items.length} included {plan.items.length === 1 ? "item" : "items"}</span>
-                  <h2 className="text-lg font-bold text-navy-100 mb-1">{plan.name}</h2>
-                  {plan.description && <p className="text-sm text-navy-200 mb-4">{plan.description}</p>}
-
-                  {plan.preview_pdf_url && <button type="button" onClick={() => setPdfPreview({ title: plan.name, url: getSchedulePreviewUrl(plan.preview_pdf_url) })} className="mb-4 inline-flex min-h-11 w-fit items-center gap-2 rounded-lg border border-navy-700 px-3 py-2 text-sm font-medium text-navy-100 hover:bg-navy-700/60">
-                    <FileText className="h-4 w-4" /> Preview test schedule PDF
-                  </button>}
-
-                  <div className="flex items-baseline gap-1 mb-4">
-
-                    <span className="text-3xl font-bold text-navy-100">
-                      {formatINR(plan.price)}
-                    </span>
-                  </div>
-
-                  <p className="shop-includes-label">WHAT'S INCLUDED</p>
-                  <div className="space-y-3 mb-6">
-                    {plan.items.length === 0 ? (
-                      <p className="text-sm text-navy-300">No content available</p>
-                    ) : (
-                      plan.items.map((it, i) => (
-                        <div key={i} className="flex items-center gap-2 text-sm text-navy-100">
-                          {it.item_type === 'course'
-                            ? <BookOpen className="w-4 h-4 text-navy-500 flex-shrink-0" />
-                            : <PenTool className="w-4 h-4 text-emerald-500 flex-shrink-0" />}
-                          <span className="break-words min-w-0">{it.label}</span>
-                        </div>
-                      ))
-                    )}
-                  </div>
-
-                  {owned ? <>
-                    <span className="badge badge-success mb-3">Access unlocked</span>
-                    <div className="mt-auto grid gap-2">
-                      {plan.items.map(item => <Link key={`${item.item_type}-${item.item_id}`} className="btn-primary text-center" to={item.item_type === 'course' ? `/student/courses/${item.item_id}` : `/student/test-series?seriesId=${encodeURIComponent(item.item_id)}`}>
-                        {item.item_type === 'course' ? 'Open course' : 'View test series'} <ArrowRight size={16} className="inline ml-2" />
-                      </Link>)}
+                <article key={plan.id} aria-labelledby={`shop-plan-${plan.id}`} className={`card shop-product ${inCart ? 'shop-product-selected' : ''}`}>
+                  <div className="shop-product-main">
+                    <div className="shop-product-heading">
+                      <span className="shop-product-icon" aria-hidden="true">{plan.items.length > 1 ? <Layers size={23} /> : plan.items[0]?.item_type === 'course' ? <BookOpen size={23} /> : <PenTool size={23} />}</span>
+                      <span className="shop-product-type">{plan.items.length > 1 ? 'Bundle' : plan.items[0]?.item_type === 'course' ? 'Course' : 'Test series'}</span>
+                      {owned && <span className="shop-access-status"><CheckCircle size={14} aria-hidden="true" /> Owned</span>}
                     </div>
-                  </> : <>
-                    {hasOwned && <div className="shop-ownership-note mb-3 rounded-lg border p-3 text-sm" role="status">
-                      You already own some of this bundle. You can still buy it to unlock the remaining content.
-                    </div>}
-                    <button
-                    onClick={() => addToCart(plan)}
-                    disabled={Boolean(checkingOut) || inCart || plan.price <= 0 || !plan.items.length}
-                    className={`btn-primary w-full flex items-center justify-center gap-2 mt-auto cursor-pointer min-h-12 ${inCart ? "shop-added" : ""}`}
-                  >
-                    {inCart ? <CheckCircle className="w-4 h-4" /> : <ShoppingCart className="w-4 h-4" />} {inCart ? 'Added to cart' : 'Add to cart'}
-                  </button></>}
-
-                </div></article>
+                    <h2 id={`shop-plan-${plan.id}`} className="shop-product-title">{plan.name}</h2>
+                    {plan.description && <p className="shop-product-description">{plan.description}</p>}
+                    <div className="shop-product-price">
+                      <span className="shop-price-label">Plan price</span>
+                      <strong>{formatINR(plan.price)}</strong>
+                      <span className="shop-price-caption">{plan.items.length} included {plan.items.length === 1 ? 'resource' : 'resources'}</span>
+                    </div>
+                    <div className="shop-product-inclusions">
+                      <h3>Included in this plan</h3>
+                      {plan.items.length === 0 ? <p className="text-sm text-navy-300">No content available</p> : <ul>
+                        {plan.items.map((item, index) => <li key={`${item.item_type}-${item.item_id}-${index}`}>
+                          <CheckCircle size={17} aria-hidden="true" />
+                          <div><span>{item.label || (item.item_type === 'course' ? 'Course' : 'Test series')}</span><small>{item.item_type === 'course' ? 'Course access' : 'Test series access'}</small></div>
+                        </li>)}
+                      </ul>}
+                    </div>
+                    {plan.preview_pdf_url && <button type="button" onClick={() => setPdfPreview({ title: plan.name, url: getSchedulePreviewUrl(plan.preview_pdf_url) })} className="shop-schedule-preview">
+                      <FileText size={17} aria-hidden="true" /> Preview test schedule PDF
+                    </button>}
+                  </div>
+                  <div className="shop-product-footer">
+                    {owned ? <>
+                      <p className="shop-unlocked"><CheckCircle size={16} aria-hidden="true" /> Access unlocked</p>
+                      <div className="shop-owned-actions">{plan.items.map(item => <Link key={`${item.item_type}-${item.item_id}`} className="btn-secondary" to={item.item_type === 'course' ? `/student/courses/${item.item_id}` : `/student/test-series?seriesId=${encodeURIComponent(item.item_id)}`}>
+                        {item.item_type === 'course' ? <BookOpen size={17} aria-hidden="true" /> : <PenTool size={17} aria-hidden="true" />}{item.item_type === 'course' ? 'Open course' : 'View test series'}
+                      </Link>)}</div>
+                    </> : <>
+                      {hasOwned && <div className="shop-ownership-note" role="status">You already own some of this bundle. You can still buy it to unlock the remaining content.</div>}
+                      <button type="button" onClick={() => addToCart(plan)} disabled={Boolean(checkingOut) || inCart || plan.price <= 0 || !plan.items.length}
+                        className={`btn-primary shop-purchase-button ${inCart ? 'shop-added' : ''}`}>
+                        {inCart ? <CheckCircle size={18} aria-hidden="true" /> : <ShoppingCart size={18} aria-hidden="true" />}{inCart ? 'Added to cart' : 'Add to cart'}
+                      </button>
+                      <p className="shop-product-assurance"><ShieldCheck size={14} aria-hidden="true" /> Access after payment confirmation</p>
+                    </>}
+                  </div>
+                </article>
               ); })}
             </div>
           )}

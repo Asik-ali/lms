@@ -205,9 +205,11 @@ function BackupTab() {
       });
       const data = await res.json();
       if (res.ok) {
-        const label = new Date().toLocaleString();
-        try { localStorage.setItem('lastBackup', label); } catch { /* Download remains valid without browser storage. */ }
-        setLastBackup(label);
+        if (data.complete !== false && data.emailSent) {
+          const label = new Date().toLocaleString();
+          try { localStorage.setItem('lastBackup', label); } catch { /* Browser storage is optional. */ }
+          setLastBackup(label);
+        }
         if (data.complete === false) {
           const results = [
             data.googleSheets?.success ? 'Google Sheets saved' : `Google Sheets failed: ${data.googleSheets?.error || 'not configured'}`,

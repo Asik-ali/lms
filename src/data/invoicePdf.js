@@ -42,6 +42,7 @@ export function buildInvoicePdf(invoice) {
     const name = typeof item === 'string' ? item : item.name || 'Course / test purchase';
     const lines = pdf.splitTextToSize(String(name), 125);
     if (y + Math.min(lines.length * 5 + 6, 30) > 270) { pdf.addPage(); header(); tableHeader(); }
+    pdf.setFont('helvetica', 'normal'); pdf.setFontSize(10);
     const price = typeof item === 'object' && item.price != null ? money(item.price) : 'Included';
     pdf.text(price, 192, y, { align: 'right' });
     for (const line of lines) {
