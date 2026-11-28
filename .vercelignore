@@ -3,6 +3,7 @@ node_modules/
 dist/
 
 # Android/Gradle artifacts are not part of the Vite/Vercel deployment.
+android/
 android/.gradle/
 android/app/build/
 .gradle/
@@ -16,6 +17,14 @@ tmp/
 .vercel/
 .checks.local/
 .local-data/
+.android-home/
+.aws/
+.codex/
+.agents/
+.env
+.env.*
+*.keystore
+*.jks
 test-results/
 playwright-report/
 play-store-assets/

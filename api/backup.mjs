@@ -230,11 +230,21 @@ export default async function handler(req, res) {
         if (error) throw error;
         if (latest.error) throw latest.error;
         res.setHeader('Cache-Control', 'private, no-store');
-        return res.status(200).json({ backups: data || [], lastSuccessful: latest.data?.created_at || null, googleSheetsConfigured: Boolean(process.env.GOOGLE_SHEETS_BACKUP_SECRET) });
+        return res.status(200).json({ backups: data || [], lastSuccessful: latest.data?.created_at || null, googleSheetsConfigured: Boolean(process.env.GOOGLE_SHEETS_BACKUP_SECRET), automaticBackupConfigured: Boolean(process.env.CRON_SECRET) });
       }
       const cronSecret = process.env.CRON_SECRET;
       if (!cronSecret || getBearerToken(req) !== cronSecret) {
         if (!await requireAdmin(req, res, supabase)) return;
+      }
+      // Read-only verification uses the same authentication as scheduled runs.
+      // This must never trigger exports, emails, spreadsheet writes or log inserts.
+      if (req.query?.operation === 'cron-status') {
+        const { data, error } = await supabase.from('backup_log')
+          .select('created_at, status').eq('type', 'cron')
+          .order('created_at', { ascending: false }).limit(1).maybeSingle();
+        if (error) throw error;
+        res.setHeader('Cache-Control', 'private, no-store');
+        return res.status(200).json({ success: true, cronAuthenticated: Boolean(cronSecret && getBearerToken(req) === cronSecret), lastAutomatic: data || null });
       }
       // Only email once per day automatically to avoid duplicate backup emails.
       if (await hasRunToday(supabase)) {
