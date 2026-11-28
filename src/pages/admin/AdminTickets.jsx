@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { MessageSquare, Send, ArrowLeft, Clock, CheckCircle, AlertCircle, Users } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
-import { getTickets, updateTicketStatus, getTicketReplies, addTicketReply, getAllStudents } from '../../data/dynamicStore';
+import { getTickets, updateTicketStatus, addTicketReply, getAllStudents } from '../../data/dynamicStore';
 import { showSuccess, showError } from '../../components/common/Toast';
+import useTicketReplies from '../../components/common/useTicketReplies';
 
 const statusConfig = {
   Open: { icon: AlertCircle, color: 'text-amber-700 dark:text-amber-300 bg-amber-100 dark:bg-amber-500/15' },
@@ -14,20 +15,29 @@ export default function AdminTickets() {
   const { user } = useAuth();
   const [tickets, setTickets] = useState([]);
   const [selected, setSelected] = useState(null);
-  const [replies, setReplies] = useState([]);
+  const { replies, loading: repliesLoading, error: repliesError, refresh: refreshReplies } = useTicketReplies(selected?.id);
+  const [ticketsLoading, setTicketsLoading] = useState(true);
+  const [ticketsError, setTicketsError] = useState('');
+  const listRequest = useRef(0);
+  const selectionRequest = useRef(0);
   const [replyText, setReplyText] = useState('');
   const [loading, setLoading] = useState(false);
   const [students, setStudents] = useState([]);
   const [filter, setFilter] = useState('All');
 
-  useEffect(() => { loadTickets(); loadStudents(); }, []);
+  useEffect(() => { loadTickets(); loadStudents(); return () => { listRequest.current++; selectionRequest.current++; }; }, []);
 
   async function loadTickets() {
+    const request = ++listRequest.current;
+    setTicketsLoading(true);
+    setTicketsError('');
     try {
       const data = await getTickets();
-      setTickets(data);
+      if (request === listRequest.current) setTickets(data);
     } catch (err) {
-      console.error('Failed to load tickets:', err);
+      if (request === listRequest.current) setTicketsError('Unable to load tickets. Please retry.');
+    } finally {
+      if (request === listRequest.current) setTicketsLoading(false);
     }
   }
 
@@ -51,29 +61,26 @@ export default function AdminTickets() {
   }
 
   async function handleSelect(t) {
+    if (loading) return;
+    const request = ++selectionRequest.current;
     setSelected(t);
+    setReplyText('');
+    if (t.status !== 'Open') return;
     try {
-      const r = await getTicketReplies(t.id);
-      setReplies(r);
-      if (t.status === 'Open') {
-        await updateTicketStatus(t.id, 'In Progress');
-        await loadTickets();
-        setSelected({ ...t, status: 'In Progress' });
-      }
-    } catch (err) {
-      console.error('Failed to load ticket replies:', err);
-      setReplies([]);
-    }
+      await updateTicketStatus(t.id, 'In Progress');
+      if (request !== selectionRequest.current) return;
+      setSelected(current => current?.id === t.id ? { ...current, status: 'In Progress' } : current);
+      await loadTickets();
+    } catch (error) { showError(error.message || 'Unable to update ticket status.'); }
   }
 
   async function handleSendReply() {
-    if (!replyText.trim() || !selected) return;
+    if (loading || repliesLoading || repliesError || !replyText.trim() || !selected) return;
     setLoading(true);
     try {
       await addTicketReply({ ticket_id: selected.id, sender_id: user.id, message: replyText.trim() });
       setReplyText('');
-      const r = await getTicketReplies(selected.id);
-      setReplies(r);
+      refreshReplies();
       showSuccess('Reply sent!');
     } catch (e) {
       showError(e.message);
@@ -85,7 +92,7 @@ export default function AdminTickets() {
     if (!selected) return;
     try {
       await updateTicketStatus(selected.id, 'Resolved');
-      setSelected({ ...selected, status: 'Resolved' });
+      setSelected(current => current?.id === selected.id ? { ...current, status: 'Resolved' } : current);
       await loadTickets();
       showSuccess('Ticket marked as resolved.');
     } catch (e) {
@@ -104,6 +111,8 @@ export default function AdminTickets() {
 
   return (
     <div className="space-y-6">
+      {ticketsError && <div role="alert" className="card p-4 text-navy-200"><p>{ticketsError}</p><button className="btn-secondary mt-3" onClick={loadTickets}>Retry tickets</button></div>}
+      {ticketsLoading && <p role="status" className="text-sm text-navy-300">Loading tickets...</p>}
       <div className="flex flex-wrap items-center justify-between gap-3 animate-fade-up">
         <h1 className="text-2xl font-bold text-navy-100">Student Tickets</h1>
         <div className="flex flex-wrap items-center gap-2 text-sm">
@@ -133,7 +142,7 @@ export default function AdminTickets() {
             const cfg = statusConfig[t.status] || statusConfig.Open;
             const Icon = cfg.icon;
             return (
-              <button key={t.id} onClick={() => handleSelect(t)} className={`w-full text-left card p-4 transition-all cursor-pointer hover-lift ${selected?.id === t.id ? 'border-navy-300 ring-1 ring-navy-200' : 'hover:border-navy-500'}`}>
+              <button key={t.id} disabled={loading} onClick={() => handleSelect(t)} className={`w-full text-left card p-4 transition-all cursor-pointer hover-lift ${selected?.id === t.id ? 'border-navy-300 ring-1 ring-navy-200' : 'hover:border-navy-500'}`}>
                 <div className="flex items-start gap-3">
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${cfg.color}`}>
                     <Icon className="w-4 h-4" />
@@ -147,7 +156,7 @@ export default function AdminTickets() {
               </button>
             );
           })}
-          {filtered.length === 0 && (
+          {!ticketsLoading && !ticketsError && filtered.length === 0 && (
             <div className="text-center py-8 text-navy-300">
               <MessageSquare className="w-10 h-10 mx-auto mb-2 text-navy-300" />
               <p>No tickets found</p>
@@ -179,6 +188,8 @@ export default function AdminTickets() {
                   <p className="text-xs text-navy-300 mb-1">{getStudentName(selected.student_id)}</p>
                   <p className="text-sm text-navy-100">{selected.message}</p>
                 </div>
+                {repliesLoading && <p role="status" className="text-sm text-navy-300">Loading replies...</p>}
+                {repliesError && <div role="alert" className="rounded-lg border border-navy-700 p-3 text-sm text-navy-200"><p>{repliesError}</p><button className="btn-secondary mt-2" onClick={refreshReplies}>Retry replies</button></div>}
                 {replies.map(r => (
                   <div key={r.id} className={`rounded-lg p-3 ${r.sender_id === user.id ? 'bg-navy-50 dark:bg-navy-500/10 ml-8' : 'bg-navy-800 mr-8'}`}>
                     <p className="text-xs text-navy-300 mb-1">{r.sender_id === user.id ? 'Admin (You)' : getStudentName(r.sender_id)}</p>
@@ -190,13 +201,15 @@ export default function AdminTickets() {
               {selected.status !== 'Resolved' && (
                 <div className="border-t border-navy-700 pt-4">
                   <textarea
+                    aria-label={`Reply to ${selected.subject}`}
+                    disabled={loading || repliesLoading || Boolean(repliesError)}
                     value={replyText}
                     onChange={e => setReplyText(e.target.value)}
                     className="input-field"
                     rows={3}
                     placeholder="Type your reply..."
                   />
-                  <button onClick={handleSendReply} disabled={loading || !replyText.trim()} className="btn-primary mt-3 flex items-center gap-2 cursor-pointer">
+                  <button onClick={handleSendReply} disabled={loading || repliesLoading || Boolean(repliesError) || !replyText.trim()} className="btn-primary mt-3 flex items-center gap-2 cursor-pointer">
                     <Send className="w-4 h-4" /> {loading ? 'Sending...' : 'Send Reply'}
                   </button>
                 </div>

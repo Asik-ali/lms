@@ -11,6 +11,9 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
   const [lessons, setLessons] = useState([]);
   const [pdfs, setPdfs] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+  const [resourceErrors, setResourceErrors] = useState({});
+  const [retry, setRetry] = useState(0);
   const [mediaViewer, setMediaViewer] = useState(null);
   const [openDay, setOpenDay] = useState(null);
 
@@ -31,31 +34,41 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
   }, [lessons, pdfs]);
 
   useEffect(() => {
+    let active = true;
     (async () => {
       setLoading(true);
+      setError('');
+      setResourceErrors({});
       try {
-        const match = await getCourseById(resolvedCourseId);
+        const [courseResult, videosResult, pdfsResult] = await Promise.allSettled([
+          getCourseById(resolvedCourseId), getCourseLessons(resolvedCourseId), getCoursePdfs(resolvedCourseId, { hideSource: true }),
+        ]);
+        if (!active) return;
+        if (courseResult.status === 'rejected') throw courseResult.reason;
+        const match = courseResult.value;
         setCourse(match || null);
         if (match) {
-          const [courseLessons, coursePdfs] = await Promise.all([
-            getCourseLessons(match.id),
-            getCoursePdfs(match.id, { hideSource: true }),
-          ]);
-          setLessons(courseLessons);
-          setPdfs(coursePdfs);
+          setLessons(videosResult.status === 'fulfilled' ? videosResult.value : []);
+          setPdfs(pdfsResult.status === 'fulfilled' ? pdfsResult.value : []);
+          setResourceErrors({ videos: videosResult.status === 'rejected', pdfs: pdfsResult.status === 'rejected' });
         } else {
           setLessons([]);
           setPdfs([]);
         }
       } catch (err) {
+        if (!active) return;
         console.error('Failed to load course:', err);
+        setError('Unable to load this course. Please check your connection and try again.');
         setCourse(null);
         setLessons([]);
         setPdfs([]);
       }
-      setLoading(false);
+      if (active) setLoading(false);
     })();
-  }, [resolvedCourseId]);
+    return () => { active = false; };
+  }, [resolvedCourseId, retry]);
+
+  useEffect(() => { setMediaViewer(null); setOpenDay(null); }, [resolvedCourseId]);
 
   if (loading) {
     return (
@@ -74,7 +87,7 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
         <button type="button" onClick={() => navigate('/student/courses')} className="inline-flex items-center gap-2 text-sm font-medium text-navy-600">
           <ArrowLeft className="w-4 h-4" /> Back to courses
         </button>
-        <div className="card p-8 text-center text-navy-200">Course not found.</div>
+        <div className="card p-8 text-center text-navy-200" role={error ? 'alert' : undefined}>{error || 'Course not found.'}{error && <button className="btn-secondary mt-4 mx-auto flex" onClick={() => setRetry(value => value + 1)}>Retry course</button>}</div>
       </div>
     );
   }
@@ -113,6 +126,7 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
 
             <div className="rounded-lg border border-navy-700 p-4 md:col-span-2">
               <h3 className="font-semibold text-navy-100 mb-3">Lessons &amp; Resources</h3>
+              {(resourceErrors.videos || resourceErrors.pdfs) && <div role="alert" className="mb-4 rounded-lg border border-navy-700 bg-navy-900 p-4 text-sm text-navy-200"><p>{resourceErrors.videos ? 'Videos could not be loaded. ' : ''}{resourceErrors.pdfs ? 'PDF resources could not be loaded.' : ''}</p><button className="btn-secondary mt-3" onClick={() => setRetry(value => value + 1)}>Retry resources</button></div>}
               {days.length > 0 ? (
                 <div className="space-y-4">
                   {days.map(group => (
@@ -175,7 +189,7 @@ export default function StudentCourseDetail({ courseId: propCourseId }) {
                   ))}
                 </div>
               ) : (
-                <p className="text-sm text-navy-200">No lessons or resources uploaded yet.</p>
+                !resourceErrors.videos && !resourceErrors.pdfs && <p className="text-sm text-navy-200">No lessons or resources uploaded yet.</p>
               )}
             </div>
           </div>

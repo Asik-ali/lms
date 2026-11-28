@@ -698,8 +698,10 @@ export async function updateTicketStatus(id, status) {
   return data;
 }
 
-export async function getTicketReplies(ticketId) {
-  const { data, error } = await supabase.from('ticket_replies').select('id, ticket_id, sender_id, message, created_at').eq('ticket_id', ticketId).order('created_at');
+export async function getTicketReplies(ticketId, { signal } = {}) {
+  let query = supabase.from('ticket_replies').select('id, ticket_id, sender_id, message, created_at').eq('ticket_id', ticketId).order('created_at');
+  if (signal) query = query.abortSignal(signal);
+  const { data, error } = await query;
   if (error) throw error;
   return data || [];
 }

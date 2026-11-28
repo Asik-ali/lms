@@ -1,10 +1,11 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, Suspense } from 'react';
 import { Outlet, Navigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import Sidebar from './Sidebar';
 import Topbar from './Topbar';
 import BackButton from '../common/BackButton';
 import ConnectionStatus from '../common/ConnectionStatus';
+import ErrorBoundary from '../common/ErrorBoundary';
 import { useLocation } from 'react-router-dom';
 
 const titles = {
@@ -72,7 +73,9 @@ export default function DashboardLayout() {
         <ConnectionStatus />
         <main ref={mainRef} className="dashboard-content flex-1 min-h-0 min-w-0 overflow-y-auto p-4 sm:p-6 bg-navy-950">
           {location.pathname !== '/admin' && location.pathname !== '/student' && !location.pathname.startsWith('/student/test/') && <div className="mb-4"><BackButton /></div>}
-          <Outlet />
+          <ErrorBoundary key={location.pathname} compact>
+            <Suspense fallback={<div role="status" className="card flex min-h-48 items-center justify-center gap-3 text-navy-200"><span aria-hidden="true" className="h-5 w-5 rounded-full border-2 border-navy-700 border-t-navy-600 animate-spin" />Loading page...</div>}><Outlet /></Suspense>
+          </ErrorBoundary>
         </main>
       </div>
     </div>
